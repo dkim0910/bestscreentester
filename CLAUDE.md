@@ -13,17 +13,20 @@ no database, no accounts, no backend services.** The display tests run 100% clie
 
 ## Stack
 
-- **Next.js 16** App Router (SSG, TypeScript). Almost every route is statically prerendered.
+- **Next.js 16** App Router with **`output: "export"`** (`next.config.ts`) → a fully static site
+  emitted to `out/`. `trailingSlash: true`, `images.unoptimized: true`.
 - **Tailwind CSS v4** — dark theme; CSS variables in `src/app/globals.css`.
 - **next-mdx-remote** — renders guide MDX bodies (compiled at build time).
 - **geist** package — self-hosted fonts (not `next/font/google`).
-- No database, ORM, or auth. The only server route is `/api/og` (dynamic OG image generation).
+- No database, ORM, auth, or server routes. Everything is static HTML/JS/CSS.
+- **Hosted on GitHub Pages** with custom domain `bestscreentester.com`
+  (`public/CNAME`), deployed by `.github/workflows/ci.yml`.
 
 ## Commands
 
 ```bash
 npm run dev     # dev server :3000
-npm run build   # prod build (typechecks, but does NOT run ESLint in Next 16)
+npm run build   # static export -> ./out (typechecks, but does NOT run ESLint in Next 16)
 npm run lint    # ESLint — run this too; CI does
 ```
 
@@ -54,7 +57,8 @@ always run `npm run lint` before pushing (CI runs both separately).
   - Blog routes (`/blog`, `/blog/[slug]`) read from `GUIDES` and are fully static.
 - **SEO is the product's growth engine.** Tool pages and guides must stay static. Helpers in
   `src/lib/seo.ts` (`pageMetadata`, `faqJsonLd`, `howToJsonLd`, `articleJsonLd`), plus
-  `sitemap.ts` / `robots.ts` and OG images via `/api/og`.
+  `sitemap.ts` / `robots.ts` (both `export const dynamic = "force-static"`). OG image is a single
+  static `public/og.png` (generated with `sharp`) — no runtime image generation under static export.
 - **Feedback** is a `mailto:` contact page (`src/app/feedback/page.tsx`), address from
   `NEXT_PUBLIC_CONTACT_EMAIL` (centralized as `CONTACT_EMAIL` in `src/lib/seo.ts`). No form/storage.
 - **Static info pages:** `/about`, `/privacy`, `/terms` (`src/app/{about,privacy,terms}/page.tsx`),
@@ -75,8 +79,13 @@ always run `npm run lint` before pushing (CI runs both separately).
 
 - **Fonts are self-hosted via `geist`** specifically so `next build` needs no network (CI-safe).
   Don't reintroduce `next/font/google`.
-- **OG image (`src/app/api/og/route.tsx`) uses Satori:** any `<div>` with more than one child node
-  needs explicit `display: flex` (or render a single text child). Multi-node text breaks the build.
+- **Static export (`output: "export"`) has hard limits:** no route handlers / API routes, no
+  server-only runtime, no `next/image` optimization. Metadata routes (`sitemap.ts`, `robots.ts`)
+  must set `export const dynamic = "force-static"`. Don't add anything that needs a server.
+- **GitHub Pages specifics:** `public/.nojekyll` (so the `_next` folder isn't stripped),
+  `public/CNAME` (custom domain), and `trailingSlash: true` (Pages serves `/path/ → /path/index.html`).
+  Build env `NEXT_PUBLIC_SITE_URL` / `NEXT_PUBLIC_CONTACT_EMAIL` are set in the workflow (the
+  git-ignored local `.env` is only for dev, so local builds show localhost URLs).
 - `<html>` has `suppressHydrationWarning` because browser extensions inject attributes onto it.
 - **`react-hooks` lint rules are strict.** Two traps that only `npm run lint` catches (not `next build`):
   - *Purity:* don't call impure functions (`performance.now()`, `Date.now()`, `Math.random()`) or
@@ -86,4 +95,16 @@ always run `npm run lint` before pushing (CI runs both separately).
     one-shot client-only reveals (e.g. `CookieConsent` reading `localStorage` on mount) this is
     legitimate — use a scoped `// eslint-disable-next-line react-hooks/set-state-in-effect` with a
     justifying comment rather than reworking it.
-- CI (`.github/workflows/ci.yml`) is just install → lint → build (no DB).
+- CI (`.github/workflows/ci.yml`): install → lint → build (static export), then on `main`
+  upload `./out` and deploy to GitHub Pages (`upload-pages-artifact` + `deploy-pages`).
+
+
+ ## TODO:
+
+1. update logo (header, footer, the tab where chrome and other see)
+2. what is our Industry category (Required) for google anyalitics
+3. the webstie is not https so its not showing fix this 
+4. add google adsense rightaway 
+5. update UI , to much icons need fix
+6. add background color in the guids so its more readable
+7. 

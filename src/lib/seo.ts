@@ -35,9 +35,7 @@ export function pageMetadata({
   images,
 }: PageMetaArgs): Metadata {
   const url = absoluteUrl(path);
-  const ogImages = images?.length
-    ? images
-    : [absoluteUrl(`/api/og?title=${encodeURIComponent(title)}`)];
+  const ogImages = images?.length ? images : [absoluteUrl("/og.png")];
   return {
     title,
     description,

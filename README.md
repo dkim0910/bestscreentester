@@ -32,7 +32,7 @@ That's it — there's nothing else to run.
 - `src/app/[tool]/page.tsx` — statically generated page per tool, with how-to, FAQ, related
   tools, and related guides.
 - `src/app/blog/` — guide index and individual guide pages (static).
-- `src/app/api/og/` — dynamic OpenGraph image generation (the only server route).
+- `public/og.png` — static OpenGraph image; `public/CNAME` + `public/.nojekyll` for GitHub Pages.
 
 ## Adding content
 
@@ -50,8 +50,17 @@ That's it — there's nothing else to run.
 | `npm run build` / `start` | Production build / serve |
 | `npm run lint` | Lint |
 
-## Deploy
+## Deploy (GitHub Pages)
 
-Because the site is fully static, it deploys anywhere that runs a Next.js build (Vercel, Netlify,
-a container, etc.) with no database or environment services to provision. Set
-`NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_CONTACT_EMAIL` for production.
+The site is configured for a static export (`output: "export"` in `next.config.ts`) — `npm run build`
+emits `./out`. It's deployed to **GitHub Pages** with the custom domain `bestscreentester.com`:
+
+- `.github/workflows/ci.yml` builds the export and, on `main`, publishes `./out` to Pages
+  (`upload-pages-artifact` + `deploy-pages`).
+- `public/CNAME` holds the custom domain; `public/.nojekyll` keeps the `_next` folder.
+- Production env (`NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_CONTACT_EMAIL`) is set in the workflow.
+
+**One-time GitHub setup:** repo **Settings → Pages → Source = GitHub Actions**, and add the custom
+domain. **DNS:** point the apex `bestscreentester.com` at the GitHub Pages IPs
+(`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) and `www` via
+`CNAME → <user>.github.io`. GitHub provisions the TLS certificate automatically.
