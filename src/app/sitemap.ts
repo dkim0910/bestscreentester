@@ -3,6 +3,8 @@ import { TOOLS } from "@/lib/tools";
 import { getAllGuideSlugs } from "@/lib/guides";
 import { absoluteUrl } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: absoluteUrl("/"), changeFrequency: "weekly", priority: 1 },
