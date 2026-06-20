@@ -8,10 +8,10 @@ export default function Footer() {
     <footer className="mt-auto border-t border-border">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 md:grid-cols-4">
         <div className="sm:col-span-2 md:col-span-1">
-          <div className="flex items-center gap-2 font-bold">
-            <span aria-hidden>🖥️</span>
-            <span>{SITE_NAME}</span>
-          </div>
+          <Link href="/" className="flex items-center gap-3 font-bold">
+          <img src="/bestscreentester_logo.png" alt={`${SITE_NAME} logo`} className="h-8 w-8" />
+          <span className="text-xl">{SITE_NAME}</span>
+        </Link>
           <p className="mt-2 text-sm text-foreground/60">
             Free, browser-based screen tests. No install, no sign-up required.
           </p>

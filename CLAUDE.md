@@ -103,8 +103,21 @@ always run `npm run lint` before pushing (CI runs both separately).
 
 1. update logo (header, footer, the tab where chrome and other see)
 2. what is our Industry category (Required) for google anyalitics
-3. the webstie is not https so its not showing fix this 
+3. the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now 
 4. add google adsense rightaway 
 5. update UI , to much icons need fix
 6. add background color in the guids so its more readable
-7. 
+7. @github-actions generated this status.
+CI & Deploy / build (push) In progress - This check has started...
+Details
+
+pages build and deployment / build (dynamic) Successful in 19s
+Details
+
+pages build and deployment / deploy (dynamic) Successful in 9s
+Details
+
+pages build and deployment / report-build-status (dynamic) Successful in 6s
+
+why so many?
+8. 

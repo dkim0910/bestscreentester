@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   },
   description: SITE_TAGLINE,
   applicationName: SITE_NAME,
+  icons: {
+    icon: "/bestscreentester_logo.png",
+    shortcut: "/bestscreentester_logo.png",
+    apple: "/bestscreentester_logo.png",
+  },
   robots: { index: true, follow: true },
 };
 
