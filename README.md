@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BestScreenTester
 
-## Getting Started
+A suite of free, browser-based screen tests — dead pixels, color, backlight bleed, refresh rate,
+ghosting, blooming, plus fun tools (fake broken screen, screensaver) — and a library of guides.
 
-First, run the development server:
+**Fully static. No database, no accounts, no backend.** Every screen test runs 100% in your
+browser (Fullscreen API, Wake Lock, Canvas), and all content is prerendered at build time.
+
+## Stack
+
+- **Next.js 16** (App Router, SSG, TypeScript)
+- **Tailwind CSS v4**
+- **next-mdx-remote** for rendering guide MDX
+- **geist** self-hosted fonts (no build-time network fetch)
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env   # public site URL + contact email
+npm run dev            # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+That's it — there's nothing else to run.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/lib/tools.ts` — the tool registry (single source of truth for all screen tests).
+- `src/components/tools/` — the tool engine: `FullscreenStage` controller, `ColorCycler`,
+  `PatternCanvas`, `CanvasStage`, and per-tool components wired up in `ToolRunner`.
+- `src/lib/guides.ts` — all blog/guide content (the `GUIDES` array). Add or edit guides here.
+- `src/app/[tool]/page.tsx` — statically generated page per tool, with how-to, FAQ, related
+  tools, and related guides.
+- `src/app/blog/` — guide index and individual guide pages (static).
+- `src/app/api/og/` — dynamic OpenGraph image generation (the only server route).
 
-## Learn More
+## Adding content
 
-To learn more about Next.js, take a look at the following resources:
+- **New guide:** add an entry to `GUIDES` in `src/lib/guides.ts`. Link to the tools it discusses
+  (e.g. `[Dead Pixel Test](/dead-pixel-test)`) — it will automatically appear under "Related
+  guides" on those tool pages.
+- **New tool:** add it to `TOOLS` in `src/lib/tools.ts`, then map its slug to a component in
+  `src/components/tools/ToolRunner.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` / `start` | Production build / serve |
+| `npm run lint` | Lint |
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Because the site is fully static, it deploys anywhere that runs a Next.js build (Vercel, Netlify,
+a container, etc.) with no database or environment services to provision. Set
+`NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_CONTACT_EMAIL` for production.

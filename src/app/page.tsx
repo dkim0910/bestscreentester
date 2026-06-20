@@ -1,65 +1,86 @@
-import Image from "next/image";
+import Link from "next/link";
+import ToolCard from "@/components/ToolCard";
+import QuickColors from "@/components/tools/QuickColors";
+import { TOOLS, toolsByCategory, CATEGORY_LABELS, type ToolCategory } from "@/lib/tools";
+import { SITE_NAME } from "@/lib/seo";
 
-export default function Home() {
+export default function HomePage() {
+  const byCat = toolsByCategory();
+  const order: ToolCategory[] = ["panel", "color", "motion", "fun"];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div>
+      {/* Hero */}
+      <section className="border-b border-border bg-gradient-to-b from-white/[0.03] to-transparent">
+        <div className="mx-auto max-w-6xl px-4 py-16 text-center">
+          <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+            Test your screen in seconds — right in your browser
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
+            {SITE_NAME} runs a full suite of free display tests: dead pixels, color, backlight
+            bleed, refresh rate, ghosting and more. No install, no sign-up.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/dead-pixel-test"
+              className="rounded-full bg-accent px-6 py-3 font-semibold text-black hover:opacity-90"
+            >
+              🔬 Start Dead Pixel Test
+            </Link>
+            <Link
+              href="/tools"
+              className="rounded-full border border-border px-6 py-3 font-semibold hover:bg-white/5"
+            >
+              Browse all {TOOLS.length} tools
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+
+      {/* Quick full-screen colors */}
+      <div className="mx-auto max-w-6xl px-4 pt-12">
+        <QuickColors />
+      </div>
+
+      {/* Tool categories */}
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        {order.map((cat) => (
+          <section key={cat} className="mb-12">
+            <h2 className="mb-4 text-2xl font-bold">{CATEGORY_LABELS[cat]}</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {byCat[cat].map((tool) => (
+                <ToolCard key={tool.slug} tool={tool} />
+              ))}
+            </div>
+          </section>
+        ))}
+
+        {/* Trust / how it works */}
+        <section className="mt-4 grid gap-6 rounded-2xl border border-border bg-card p-8 md:grid-cols-3">
+          <div>
+            <div className="text-2xl">⚡</div>
+            <h3 className="mt-2 font-semibold">Instant &amp; in-browser</h3>
+            <p className="mt-1 text-sm text-foreground/60">
+              Every test runs locally using your browser&apos;s fullscreen and graphics APIs.
+              Nothing is uploaded.
+            </p>
+          </div>
+          <div>
+            <div className="text-2xl">📱</div>
+            <h3 className="mt-2 font-semibold">Works on every device</h3>
+            <p className="mt-1 text-sm text-foreground/60">
+              Phones, tablets, laptops, monitors and TVs — if it has a browser, you can test it.
+            </p>
+          </div>
+          <div>
+            <div className="text-2xl">🆓</div>
+            <h3 className="mt-2 font-semibold">Free, forever</h3>
+            <p className="mt-1 text-sm text-foreground/60">
+              All tools are free to use. Create an account only if you want to save results.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
