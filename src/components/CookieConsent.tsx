@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-const STORAGE_KEY = "bst_cookie_consent";
+import { CONSENT_KEY as STORAGE_KEY, CONSENT_EVENT } from "./Analytics";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -29,6 +28,12 @@ export default function CookieConsent() {
     } catch {
       // ignore storage failures
     }
+    // Let Analytics react immediately (load GA on accept) without a reload.
+    try {
+      window.dispatchEvent(new Event(CONSENT_EVENT));
+    } catch {
+      // ignore
+    }
     setVisible(false);
   }
 
@@ -42,8 +47,8 @@ export default function CookieConsent() {
     >
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 px-4 py-4 sm:flex-row sm:justify-between">
         <p className="text-sm text-foreground/70">
-          We use only essential local storage to remember your preferences — no tracking or
-          advertising cookies. See our{" "}
+          We use cookies, including Google Analytics, to understand how the site is used. The screen
+          tests always run locally. You can decline analytics. See our{" "}
           <Link href="/privacy" className="text-accent hover:underline">
             Privacy Policy
           </Link>

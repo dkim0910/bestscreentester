@@ -55,9 +55,11 @@ export default async function BlogPost({
           ← All guides
         </Link>
       </nav>
-      <h1 className="text-3xl font-bold sm:text-4xl">{post.title}</h1>
-      <div className="prose-content mt-6">
-        <MDXRemote source={post.body} />
+      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8 md:p-10">
+        <h1 className="text-3xl font-bold sm:text-4xl">{post.title}</h1>
+        <div className="prose-content mt-6">
+          <MDXRemote source={post.body} />
+        </div>
       </div>
     </article>
   );
