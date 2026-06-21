@@ -64,10 +64,17 @@ always run `npm run lint` before pushing (CI runs both separately).
 - **Static info pages:** `/about`, `/privacy`, `/terms` (`src/app/{about,privacy,terms}/page.tsx`),
   linked from the footer's "Company" column and the sitemap. Legal review date = `LEGAL_UPDATED`
   in `seo.ts`.
-- **Cookie consent** (`src/components/CookieConsent.tsx`) is a client banner in the root layout. It
-  renders `null` during SSR and reveals after reading `localStorage` (`bst_cookie_consent`) on
-  mount — keeps content pages static and avoids hydration mismatch. We set no tracking cookies, so
-  it's purely an informational notice.
+- **Cookie consent + analytics:** `src/components/CookieConsent.tsx` is a client banner (renders
+  `null` during SSR, reveals after reading `localStorage` `bst_cookie_consent` on mount).
+  `src/components/Analytics.tsx` loads **Google Analytics (GA4)** via `next/script` **only when**
+  consent === `accepted` and `NEXT_PUBLIC_GA_ID` is set; the banner dispatches `bst-consent-changed`
+  so GA starts on Accept without a reload. Declining = GA never loads. Because GA is consent-gated
+  and client-only, it is intentionally absent from the static HTML. Keep the cookie banner copy and
+  `/privacy` in sync with whatever trackers are actually loaded.
+- **Third-party tags:** Google AdSense (`<meta name="google-adsense-account">` via layout
+  `metadata.other`, the `adsbygoogle.js` script, and `public/ads.txt`) loads site-wide. The AdSense
+  publisher ID (`ca-pub-7400069037778721`) and GA4 ID (`G-FC5ELM4BX8`) are hard-wired defaults in
+  `layout.tsx` / `Analytics.tsx` (IDs aren't secret); `NEXT_PUBLIC_GA_ID` only overrides GA if set.
 
 ## Conventions
 
@@ -87,6 +94,10 @@ always run `npm run lint` before pushing (CI runs both separately).
   Build env `NEXT_PUBLIC_SITE_URL` / `NEXT_PUBLIC_CONTACT_EMAIL` are set in the workflow (the
   git-ignored local `.env` is only for dev, so local builds show localhost URLs).
 - `<html>` has `suppressHydrationWarning` because browser extensions inject attributes onto it.
+- **Favicons use the file convention:** `src/app/icon.png` (512²) + `src/app/apple-icon.png` (180²),
+  generated from `public/bestscreentester_logo.png` with `sharp`. There is no `favicon.ico` and no
+  `metadata.icons` override — don't add one pointing at the full 1.7 MB logo (that was the old bug
+  that made the tab icon download the whole logo).
 - **`react-hooks` lint rules are strict.** Two traps that only `npm run lint` catches (not `next build`):
   - *Purity:* don't call impure functions (`performance.now()`, `Date.now()`, `Math.random()`) or
     read/write a ref's `.current` during render. Do that work inside `useEffect` (see `PatternCanvas`:
@@ -101,23 +112,8 @@ always run `npm run lint` before pushing (CI runs both separately).
 
  ## TODO:
 
-1. update logo (header, footer, the tab where chrome and other see)
-2. what is our Industry category (Required) for google anyalitics
-3. the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now 
-4. add google adsense rightaway 
-5. update UI , to much icons need fix
-6. add background color in the guids so its more readable
-7. @github-actions generated this status.
-CI & Deploy / build (push) In progress - This check has started...
-Details
+-  the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now 
+- update UI , to much icons need fix
+- 
 
-pages build and deployment / build (dynamic) Successful in 19s
-Details
 
-pages build and deployment / deploy (dynamic) Successful in 9s
-Details
-
-pages build and deployment / report-build-status (dynamic) Successful in 6s
-
-why so many?
-8. 

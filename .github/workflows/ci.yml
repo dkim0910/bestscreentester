@@ -21,7 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_SITE_URL: https://bestscreentester.com
-      NEXT_PUBLIC_CONTACT_EMAIL: geeslyhelp@gemail.com
+      NEXT_PUBLIC_CONTACT_EMAIL: geeslyhelp@gmail.com
+      # Set your GA4 Measurement ID here (or as a repo variable) to enable analytics in prod.
+      NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
       NEXT_TELEMETRY_DISABLED: "1"
     steps:
       - uses: actions/checkout@v4

@@ -17,8 +17,9 @@ export default function PrivacyPage() {
       <div className="prose-content mt-6">
         <p>
           <strong>The short version:</strong> {SITE_NAME} runs its screen tests entirely in your
-          browser. We don&apos;t require an account, we don&apos;t sell data, and we don&apos;t use
-          third-party advertising or tracking cookies.
+          browser. We don&apos;t require an account and we don&apos;t sell data. We use Google
+          Analytics to measure site usage, but only if you accept the cookie notice — and you can
+          decline.
         </p>
 
         <h2>Information we collect</h2>
@@ -39,11 +40,15 @@ export default function PrivacyPage() {
           </li>
         </ul>
 
-        <h2>Cookies and local storage</h2>
+        <h2>Cookies and analytics</h2>
         <p>
-          We use a small amount of <strong>local storage</strong> on your device for essential,
-          non-tracking purposes only — for example, remembering that you accepted the cookie notice.
-          We do not set advertising or cross-site tracking cookies.
+          We use a small amount of <strong>local storage</strong> for essential purposes (for
+          example, remembering your cookie choice). If you <strong>accept</strong> the cookie
+          notice, we also load <strong>Google Analytics</strong>, which sets cookies to measure how
+          the site is used (pages visited, approximate location, device type). IP addresses are
+          anonymized. If you <strong>decline</strong>, Google Analytics is not loaded and those
+          cookies are not set. You can change your mind by clearing this site&apos;s storage in your
+          browser. We do not use advertising-profiling cookies.
         </p>
 
         <h2>Hosting and server logs</h2>
@@ -56,8 +61,13 @@ export default function PrivacyPage() {
 
         <h2>Third parties</h2>
         <p>
-          We don&apos;t share your information with advertisers or data brokers. Outbound links to
-          other sites are governed by their own privacy policies.
+          With your consent we use <strong>Google Analytics</strong> to collect aggregate usage
+          statistics; its use of data is governed by{" "}
+          <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">
+            Google&apos;s Privacy Policy
+          </a>
+          . We don&apos;t sell your information to data brokers. Outbound links to other sites are
+          governed by their own privacy policies.
         </p>
 
         <h2>Children&apos;s privacy</h2>

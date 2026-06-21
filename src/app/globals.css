@@ -33,12 +33,25 @@ a {
 }
 
 .prose-content {
-  line-height: 1.7;
+  line-height: 1.75;
+  font-size: 1.05rem;
+  color: #d7dade;
 }
 .prose-content h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 1.75rem 0 0.75rem;
+  color: #f2f4f7;
+  margin: 2rem 0 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.prose-content h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 1.25rem;
+}
+.prose-content strong {
+  color: #f2f4f7;
 }
 .prose-content h3 {
   font-size: 1.2rem;
