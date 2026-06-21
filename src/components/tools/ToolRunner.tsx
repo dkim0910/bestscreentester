@@ -6,13 +6,22 @@ import GhostingTool from "./GhostingTool";
 import BloomingTool from "./BloomingTool";
 import RefreshRateTool from "./RefreshRateTool";
 import FakeScreenTool from "./FakeScreenTool";
+import BootScreenTool from "./BootScreenTool";
 import ScreensaverTool from "./ScreensaverTool";
+import ScreenTearingTool from "./ScreenTearingTool";
 import {
   smoothGreyscale,
   steppedGreyscale,
   colorGradient,
   COLOR_GRADIENT_LABELS,
   grayField,
+  burnIn,
+  BURNIN_LABELS,
+  contrast,
+  CONTRAST_LABELS,
+  blackLevel,
+  viewingAngle,
+  gamma,
 } from "./patterns";
 import type { DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
@@ -69,8 +78,29 @@ export default function ToolRunner({ tool }: { tool: ToolDef }) {
     case "fake-broken-screen":
       return <FakeScreenTool tool={tool} />;
 
+    case "boot-screen-simulator":
+      return <BootScreenTool tool={tool} />;
+
     case "screensaver":
       return <ScreensaverTool tool={tool} />;
+
+    case "burn-in-test":
+      return <CanvasStage tool={tool} labels={BURNIN_LABELS} draw={burnIn} />;
+
+    case "contrast-test":
+      return <CanvasStage tool={tool} labels={CONTRAST_LABELS} draw={contrast} />;
+
+    case "black-level-test":
+      return <CanvasStage tool={tool} labels={["Near-black steps"]} draw={blackLevel} />;
+
+    case "viewing-angle-test":
+      return <CanvasStage tool={tool} labels={["Grey & color"]} draw={viewingAngle} />;
+
+    case "gamma-test":
+      return <CanvasStage tool={tool} labels={["Gamma reference"]} draw={gamma} />;
+
+    case "screen-tearing-test":
+      return <ScreenTearingTool tool={tool} />;
 
     default:
       // Fallback to the full solid-color cycler.

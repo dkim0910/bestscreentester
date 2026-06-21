@@ -9,7 +9,13 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 md:grid-cols-4">
         <div className="sm:col-span-2 md:col-span-1">
           <Link href="/" className="flex items-center gap-3 font-bold">
-          <img src="/bestscreentester_logo.png" alt={`${SITE_NAME} logo`} className="h-8 w-8" />
+          <img
+            src="/logo-mark.png"
+            alt={`${SITE_NAME} logo`}
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
           <span className="text-xl">{SITE_NAME}</span>
         </Link>
           <p className="mt-2 text-sm text-foreground/60">
@@ -64,6 +70,16 @@ export default function Footer() {
             <li>
               <Link href="/terms" className="hover:text-foreground">
                 Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link href="/donate" className="hover:text-foreground">
+                Donate
+              </Link>
+            </li>
+            <li>
+              <Link href="/feedback" className="hover:text-foreground">
+                Feedback
               </Link>
             </li>
           </ul>

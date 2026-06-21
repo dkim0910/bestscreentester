@@ -35,7 +35,7 @@ function RefreshReadout() {
     ctx.fillRect(0, 0, width, height);
     const span = width + 80;
     const x = ((t * width * 0.7) % span) - 80;
-    ctx.fillStyle = "#5b9dff";
+    ctx.fillStyle = "#d6336c";
     ctx.fillRect(x, height * 0.7, 80, 80);
   };
 

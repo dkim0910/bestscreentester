@@ -112,8 +112,14 @@ always run `npm run lint` before pushing (CI runs both separately).
 
  ## TODO:
 
--  the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now 
-- update UI , to much icons need fix
+- the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now and working but make it private in github? 
+- update UI, to much icons need fix
+
+- fix the DVD video (wrong design, not hitting all the way o the wall)
+- the calling letters is way to blurry need to be slower to read (when changing the speed of the letters falling we have a bug that makes less letters need to fix that)
+
+- fake broken screen needs update it looks shit need fixing
+
 - 
 
 

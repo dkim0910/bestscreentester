@@ -85,6 +85,26 @@ export function howToJsonLd(name: string, steps: string[]) {
   };
 }
 
+export function siteJsonLd() {
+  const url = siteUrl();
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE_NAME,
+      url,
+      logo: absoluteUrl("/icon.png"),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url,
+      description: SITE_TAGLINE,
+    },
+  ];
+}
+
 export function articleJsonLd(args: {
   title: string;
   description: string;

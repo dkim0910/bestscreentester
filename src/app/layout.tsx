@@ -7,7 +7,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
-import { SITE_NAME, SITE_TAGLINE, siteUrl } from "@/lib/seo";
+import { SITE_NAME, SITE_TAGLINE, siteUrl, siteJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   // Google AdSense site verification (rendered into every page's <head>).
   other: { "google-adsense-account": "ca-pub-7400069037778721" },
+  // Optional Google Search Console verification (set NEXT_PUBLIC_GSC_VERIFICATION to the token).
+  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -35,6 +39,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd()) }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

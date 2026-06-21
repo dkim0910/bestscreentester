@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getTool, TOOLS, CATEGORY_LABELS } from "@/lib/tools";
+import { getTool, getTips, TOOLS, CATEGORY_LABELS } from "@/lib/tools";
 import { pageMetadata, faqJsonLd, howToJsonLd } from "@/lib/seo";
 import { getGuidesForTool } from "@/lib/guides";
 import ToolRunner from "@/components/tools/ToolRunner";
@@ -43,6 +43,7 @@ export default async function ToolPage({
   );
 
   const guides = getGuidesForTool(tool.slug);
+  const tips = getTips(tool.slug);
 
   return (
     <article className="mx-auto max-w-4xl px-4 py-8">
@@ -70,10 +71,7 @@ export default async function ToolPage({
         <div className="mb-1 text-xs font-medium uppercase tracking-wide text-accent">
           {CATEGORY_LABELS[tool.category]}
         </div>
-        <h1 className="flex items-center gap-3 text-3xl font-bold sm:text-4xl">
-          <span aria-hidden>{tool.icon}</span>
-          {tool.title}
-        </h1>
+        <h1 className="text-3xl font-bold sm:text-4xl">{tool.title}</h1>
         <p className="mt-2 text-lg text-foreground/70">{tool.tagline}</p>
       </header>
 
@@ -106,6 +104,24 @@ export default async function ToolPage({
         </div>
       </section>
 
+      {tips.length > 0 && (
+        <section className="mt-10">
+          <div className="rounded-xl border border-accent/30 bg-accent/5 p-5">
+            <h2 className="mb-3 flex items-center gap-2 text-xl font-semibold">
+              <span aria-hidden>💡</span> Tips
+            </h2>
+            <ul className="space-y-2 text-foreground/80">
+              {tips.map((tip, i) => (
+                <li key={i} className="flex gap-2.5">
+                  <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                  <span>{tip}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {related.length > 0 && (
         <section className="mt-12">
           <h2 className="mb-4 text-xl font-semibold">Related tests</h2>
@@ -114,15 +130,10 @@ export default async function ToolPage({
               <Link
                 key={t.slug}
                 href={`/${t.slug}`}
-                className="flex items-center gap-3 rounded-lg border border-border bg-card p-4 transition hover:border-accent/50"
+                className="block rounded-lg border border-border bg-card p-4 transition hover:border-accent/50"
               >
-                <span className="text-2xl" aria-hidden>
-                  {t.icon}
-                </span>
-                <span>
-                  <span className="block font-medium">{t.name}</span>
-                  <span className="block text-sm text-foreground/60">{t.tagline}</span>
-                </span>
+                <span className="block font-medium">{t.name}</span>
+                <span className="block text-sm text-foreground/60">{t.tagline}</span>
               </Link>
             ))}
           </div>
@@ -142,7 +153,7 @@ export default async function ToolPage({
                 href={`/blog/${g.slug}`}
                 className="flex flex-col rounded-lg border border-border bg-card p-4 transition hover:border-accent/50"
               >
-                <span className="font-medium">📖 {g.title}</span>
+                <span className="font-medium">{g.title}</span>
                 {g.excerpt && (
                   <span className="mt-1 text-sm text-foreground/60">{g.excerpt}</span>
                 )}
