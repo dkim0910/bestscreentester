@@ -178,12 +178,10 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
         <button
           type="button"
           onClick={() => start(0)}
+          aria-label={`${startLabel} — ${tool.name}`}
           className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/40 text-white transition hover:bg-black/30"
         >
-          <span className="text-5xl" aria-hidden>
-            {tool.icon}
-          </span>
-          <span className="rounded-full bg-white px-6 py-3 text-base font-semibold text-black shadow-lg">
+          <span className="rounded-full bg-accent px-6 py-3 text-base font-semibold text-black shadow-lg">
             ▶ {startLabel}
           </span>
           <span className="text-sm text-white/70">

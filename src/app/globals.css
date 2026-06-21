@@ -5,7 +5,7 @@
   --foreground: #e8eaed;
   --card: #14161c;
   --border: rgba(255, 255, 255, 0.08);
-  --accent: #5b9dff;
+  --accent: #d6336c;
 }
 
 @theme inline {
@@ -81,4 +81,32 @@ a {
   padding: 0.1em 0.35em;
   border-radius: 0.3em;
   font-size: 0.9em;
+}
+
+/* ----- Boot-screen simulator animations ----- */
+@keyframes boot-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Windows XP marquee: a short blue run sweeps across the track. */
+@keyframes xp-marquee {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+/* Mac startup: progress bar fills, then resets. */
+@keyframes mac-progress {
+  0% {
+    width: 0%;
+  }
+  90% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ToolCard from "@/components/ToolCard";
 import QuickColors from "@/components/tools/QuickColors";
+import HomeSections from "@/components/HomeSections";
 import { TOOLS, toolsByCategory, CATEGORY_LABELS, type ToolCategory } from "@/lib/tools";
 import { SITE_NAME } from "@/lib/seo";
 
@@ -25,7 +26,7 @@ export default function HomePage() {
               href="/dead-pixel-test"
               className="rounded-full bg-accent px-6 py-3 font-semibold text-black hover:opacity-90"
             >
-              🔬 Start Dead Pixel Test
+              Start Dead Pixel Test
             </Link>
             <Link
               href="/tools"
@@ -54,33 +55,10 @@ export default function HomePage() {
             </div>
           </section>
         ))}
-
-        {/* Trust / how it works */}
-        <section className="mt-4 grid gap-6 rounded-2xl border border-border bg-card p-8 md:grid-cols-3">
-          <div>
-            <div className="text-2xl">⚡</div>
-            <h3 className="mt-2 font-semibold">Instant &amp; in-browser</h3>
-            <p className="mt-1 text-sm text-foreground/60">
-              Every test runs locally using your browser&apos;s fullscreen and graphics APIs.
-              Nothing is uploaded.
-            </p>
-          </div>
-          <div>
-            <div className="text-2xl">📱</div>
-            <h3 className="mt-2 font-semibold">Works on every device</h3>
-            <p className="mt-1 text-sm text-foreground/60">
-              Phones, tablets, laptops, monitors and TVs — if it has a browser, you can test it.
-            </p>
-          </div>
-          <div>
-            <div className="text-2xl">🆓</div>
-            <h3 className="mt-2 font-semibold">Free, forever</h3>
-            <p className="mt-1 text-sm text-foreground/60">
-              All tools are free to use. Create an account only if you want to save results.
-            </p>
-          </div>
-        </section>
       </div>
+
+      {/* Long-form landing content (features, guides, FAQ, tips) */}
+      <HomeSections />
     </div>
   );
 }
