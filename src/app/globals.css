@@ -89,6 +89,13 @@ a {
     transform: rotate(360deg);
   }
 }
+/* Windows 10/11 boot spinner: dots continuously chase around the circle on a
+   delayed, eased timeline so they bunch up and fan out (no disappearing). */
+@keyframes boot-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* Windows XP marquee: a short blue run sweeps across the track. */
 @keyframes xp-marquee {
   0% {
