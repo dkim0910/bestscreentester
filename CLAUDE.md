@@ -6,10 +6,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # BestScreenTester
 
-A suite of free, browser-based screen tests (dead pixel, color, backlight bleed, refresh rate,
-ghosting, blooming, fake broken screen, screensaver) plus a library of guides. **Fully static —
-no database, no accounts, no backend services.** The display tests run 100% client-side
-(Fullscreen API, Wake Lock, Canvas).
+A suite of ~21 free, browser-based screen tests across four categories — **Panel & Backlight**
+(dead pixel, black/white screen, backlight bleed, brightness uniformity, burn-in), **Color &
+Calibration** (color, greyscale, color gradient, contrast, black level, viewing angle, gamma),
+**Motion & Timing** (refresh rate, ghosting, blooming, screen tearing), and **Fun & Utilities**
+(fake broken screen, boot screen simulator, screensaver) — plus a library of guides. **Fully
+static — no database, no accounts, no backend services.** The display tests run 100% client-side
+(Fullscreen API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts`.
 
 ## Stack
 
@@ -42,9 +45,13 @@ always run `npm run lint` before pushing (CI runs both separately).
 - **Tool engine — `src/components/tools/`:**
   - `FullscreenStage` is the shared controller (fullscreen + wake lock + ←/→ + tap zones +
     auto-hiding overlay). It exposes an imperative `start(index?)` via ref and a `hideLauncher`
-    prop so external controls (e.g. homepage `QuickColors` swatches) can launch it.
+    prop so external controls (e.g. homepage `QuickColors` swatches) can launch it. The low-level
+    fullscreen + Wake Lock calls (with vendor-prefix/iOS fallbacks) live in `src/lib/fullscreen.ts`.
   - `ColorCycler`, `PatternCanvas`, `CanvasStage` build on the stage. `patterns.ts` holds canvas
-    draw helpers. `ToolRunner` maps each slug → its component.
+    draw helpers (greyscale, color gradient, gray field, burn-in, contrast, black level, viewing
+    angle, gamma). Bespoke tools have their own components: `RefreshRateTool`, `GhostingTool`,
+    `BloomingTool`, `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`.
+    `ToolRunner` maps each slug → its component (with a solid-color cycler fallback).
   - **Model selectable options (colors, speeds, patterns) as stage "frames"** (`frameCount` +
     `frameLabel`), so ←/→ keys, tap zones, and the overlay arrows all navigate them for free. A
     tool with `frameCount={1}` has dead arrows — that was the ghosting-speed bug.
@@ -63,7 +70,8 @@ always run `npm run lint` before pushing (CI runs both separately).
   `NEXT_PUBLIC_CONTACT_EMAIL` (centralized as `CONTACT_EMAIL` in `src/lib/seo.ts`). No form/storage.
 - **Static info pages:** `/about`, `/privacy`, `/terms` (`src/app/{about,privacy,terms}/page.tsx`),
   linked from the footer's "Company" column and the sitemap. Legal review date = `LEGAL_UPDATED`
-  in `seo.ts`.
+  in `seo.ts`. `/donate` (`src/app/donate/page.tsx`) is a static support page (Buy Me a Coffee /
+  PayPal links). `/tools` lists all tools; `/blog` lists all guides.
 - **Cookie consent + analytics:** `src/components/CookieConsent.tsx` is a client banner (renders
   `null` during SSR, reveals after reading `localStorage` `bst_cookie_consent` on mount).
   `src/components/Analytics.tsx` loads **Google Analytics (GA4)** via `next/script` **only when**
@@ -98,6 +106,10 @@ always run `npm run lint` before pushing (CI runs both separately).
   generated from `public/bestscreentester_logo.png` with `sharp`. There is no `favicon.ico` and no
   `metadata.icons` override — don't add one pointing at the full 1.7 MB logo (that was the old bug
   that made the tab icon download the whole logo).
+  - ⚠️ **Regression to clean up:** `src/app/head.tsx` currently adds `<link rel="icon">` /
+    `apple-touch-icon` tags pointing straight at `/bestscreentester_logo.png` (the 1.7 MB file),
+    reintroducing exactly that bug and overriding the optimized `icon.png`/`apple-icon.png`. Prefer
+    deleting `head.tsx` (or pointing it at the optimized assets) so the file-convention icons win.
 - **`react-hooks` lint rules are strict.** Two traps that only `npm run lint` catches (not `next build`):
   - *Purity:* don't call impure functions (`performance.now()`, `Date.now()`, `Math.random()`) or
     read/write a ref's `.current` during render. Do that work inside `useEffect` (see `PatternCanvas`:
@@ -120,6 +132,6 @@ always run `npm run lint` before pushing (CI runs both separately).
 
 - fake broken screen needs update it looks shit need fixing
 
-- 
+- window booting looks fake need to fix the loading circle to make it more realistic
 
 

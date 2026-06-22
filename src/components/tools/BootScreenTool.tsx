@@ -5,23 +5,32 @@ import type { ToolDef } from "@/lib/tools";
 
 const LABELS = ["Windows 10", "Windows XP", "macOS"];
 
-// Windows 10 boot: manufacturer/Windows logo + ring-of-dots spinner.
+// Windows 10 boot: manufacturer/Windows logo + the authentic "chasing dots"
+// spinner — five dots continuously orbit the circle on a delayed, eased
+// timeline so they bunch up and fan out.
 function Windows10Boot() {
+  const DOTS = 5;
+  const RADIUS = 22; // px from center
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-12 bg-black">
       <svg width="90" height="90" viewBox="0 0 24 24" aria-hidden>
         <path fill="#4cc2f1" d="M3 4.5l8-1.1v8.1H3zM12 3.3L21 2v9.5h-9zM3 12.5h8v8.1l-8-1.1zM12 12.5h9V22l-9-1.3z" />
       </svg>
-      <div className="relative h-12 w-12" style={{ animation: "boot-spin 1.4s linear infinite" }}>
-        {Array.from({ length: 8 }).map((_, i) => (
-          <span
+      <div className="relative h-14 w-14">
+        {Array.from({ length: DOTS }).map((_, i) => (
+          <div
             key={i}
-            className="absolute left-1/2 top-1/2 h-1.5 w-1.5 rounded-full bg-white"
+            className="absolute inset-0"
             style={{
-              transform: `rotate(${i * 45}deg) translateY(-22px)`,
-              opacity: 0.15 + (i / 8) * 0.85,
+              animation: "boot-orbit 1.8s cubic-bezier(0.62, 0.06, 0.43, 0.96) infinite",
+              animationDelay: `${i * -0.14}s`,
             }}
-          />
+          >
+            <span
+              className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white"
+              style={{ top: `calc(50% - ${RADIUS}px)` }}
+            />
+          </div>
         ))}
       </div>
     </div>
