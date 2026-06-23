@@ -165,7 +165,9 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       onMouseMove={active ? showOverlay : undefined}
       className={
         active
-          ? "fixed inset-0 z-50 h-screen w-screen cursor-none select-none bg-black"
+          ? `fixed inset-0 z-50 h-screen w-screen select-none bg-black ${
+              overlay ? "cursor-default" : "cursor-none"
+            }`
           : hideLauncher
             ? "pointer-events-none fixed inset-0 -z-10 bg-black opacity-0"
             : "relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black"

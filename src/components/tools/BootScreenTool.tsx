@@ -1,38 +1,80 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import FullscreenStage from "./FullscreenStage";
 import type { ToolDef } from "@/lib/tools";
 
 const LABELS = ["Windows 10", "Windows XP", "macOS"];
 
-// Windows 10 boot: manufacturer/Windows logo + the authentic "chasing dots"
-// spinner — five dots continuously orbit the circle on a delayed, eased
-// timeline so they bunch up and fan out.
+// --- Windows boot spinner tuning ---
+const WIN_DOTS = 5;
+const WIN_RADIUS = 26; // px from centre
+const WIN_DOT = 5; // dot diameter, px
+const WIN_PERIOD = 1500; // ms per revolution
+const WIN_DELAY = 0.085; // phase gap between trailing dots (fraction of a cycle)
+// Speed variation around the ring. < 1 keeps the comet always moving (it slows
+// near the top and accelerates at the bottom but never fully stops, which is
+// the detail that made the old CSS version look fake).
+const WIN_AMP = 0.7;
+
+// The authentic Windows "chasing dots": five dots sweep the ring as a comet,
+// driven on a single rAF loop so the motion is smooth and continuous.
+function WindowsSpinner() {
+  const dots = useRef<Array<HTMLSpanElement | null>>([]);
+  useEffect(() => {
+    let raf = 0;
+    const start = performance.now();
+    // Eased fraction around the ring: slow at the top, fast at the bottom.
+    const ease = (x: number) => x - (WIN_AMP * Math.sin(2 * Math.PI * x)) / (2 * Math.PI);
+    const frame = (now: number) => {
+      const base = (now - start) / WIN_PERIOD;
+      for (let i = 0; i < WIN_DOTS; i++) {
+        const p = (((base - i * WIN_DELAY) % 1) + 1) % 1;
+        const a = 2 * Math.PI * ease(p) - Math.PI / 2; // start at the top
+        const el = dots.current[i];
+        if (el) {
+          el.style.transform = `translate(${Math.cos(a) * WIN_RADIUS}px, ${Math.sin(a) * WIN_RADIUS}px)`;
+        }
+      }
+      raf = requestAnimationFrame(frame);
+    };
+    raf = requestAnimationFrame(frame);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const box = WIN_RADIUS * 2 + WIN_DOT;
+  return (
+    <div className="relative" style={{ width: box, height: box }} aria-hidden>
+      {Array.from({ length: WIN_DOTS }).map((_, i) => (
+        <span
+          key={i}
+          ref={(el) => {
+            dots.current[i] = el;
+          }}
+          className="absolute rounded-full bg-white"
+          style={{
+            width: WIN_DOT,
+            height: WIN_DOT,
+            left: "50%",
+            top: "50%",
+            marginLeft: -WIN_DOT / 2,
+            marginTop: -WIN_DOT / 2,
+            willChange: "transform",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// Windows 10 boot: manufacturer/Windows logo + the chasing-dots spinner.
 function Windows10Boot() {
-  const DOTS = 5;
-  const RADIUS = 22; // px from center
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-12 bg-black">
       <svg width="90" height="90" viewBox="0 0 24 24" aria-hidden>
         <path fill="#4cc2f1" d="M3 4.5l8-1.1v8.1H3zM12 3.3L21 2v9.5h-9zM3 12.5h8v8.1l-8-1.1zM12 12.5h9V22l-9-1.3z" />
       </svg>
-      <div className="relative h-14 w-14">
-        {Array.from({ length: DOTS }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute inset-0"
-            style={{
-              animation: "boot-orbit 1.8s cubic-bezier(0.62, 0.06, 0.43, 0.96) infinite",
-              animationDelay: `${i * -0.14}s`,
-            }}
-          >
-            <span
-              className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white"
-              style={{ top: `calc(50% - ${RADIUS}px)` }}
-            />
-          </div>
-        ))}
-      </div>
+      <WindowsSpinner />
     </div>
   );
 }
