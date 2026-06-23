@@ -127,11 +127,10 @@ always run `npm run lint` before pushing (CI runs both separately).
 - the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now and working but make it private in github? 
 - update UI, to much icons need fix
 
-- fix the DVD video (wrong design, not hitting all the way o the wall)
-- the calling letters is way to blurry need to be slower to read (when changing the speed of the letters falling we have a bug that makes less letters need to fix that)
+- fake broken screen needs update it looks shit need fixing (still bad)
 
-- fake broken screen needs update it looks shit need fixing
+- fix the pipe animations (the pipe don't look like the one from window)
 
-- window booting looks fake need to fix the loading circle to make it more realistic
+- window booting looks fake need to fix the loading circle to make it more realistic (it should disappear from the bottom and repair)
 
 
