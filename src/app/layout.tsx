@@ -5,7 +5,6 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
 import { SITE_NAME, SITE_TAGLINE, siteUrl, siteJsonLd } from "@/lib/seo";
 
@@ -46,7 +45,6 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <CookieConsent />
         <Analytics />
         <Script
           async
