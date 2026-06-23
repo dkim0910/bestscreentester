@@ -72,13 +72,14 @@ always run `npm run lint` before pushing (CI runs both separately).
   linked from the footer's "Company" column and the sitemap. Legal review date = `LEGAL_UPDATED`
   in `seo.ts`. `/donate` (`src/app/donate/page.tsx`) is a static support page (Buy Me a Coffee /
   PayPal links). `/tools` lists all tools; `/blog` lists all guides.
-- **Cookie consent + analytics:** `src/components/CookieConsent.tsx` is a client banner (renders
-  `null` during SSR, reveals after reading `localStorage` `bst_cookie_consent` on mount).
-  `src/components/Analytics.tsx` loads **Google Analytics (GA4)** via `next/script` **only when**
-  consent === `accepted` and `NEXT_PUBLIC_GA_ID` is set; the banner dispatches `bst-consent-changed`
-  so GA starts on Accept without a reload. Declining = GA never loads. Because GA is consent-gated
-  and client-only, it is intentionally absent from the static HTML. Keep the cookie banner copy and
-  `/privacy` in sync with whatever trackers are actually loaded.
+- **Analytics:** `src/components/Analytics.tsx` loads **Google Analytics (GA4)** via `next/script`
+  (`afterInteractive`) for **every visitor** — there is no cookie/consent banner. It renders only
+  when a GA4 ID is present (`NEXT_PUBLIC_GA_ID`, else the hard-wired default). Because it's a client
+  component, the GA scripts are intentionally absent from the static HTML and inject after hydration.
+  There is **no consent gate** (the old `CookieConsent` banner + `bst_cookie_consent` localStorage
+  flag were removed) — this is a deliberate call that trades GDPR/PECR consent for full traffic
+  visibility; if you reintroduce a gate, wrap the scripts in `Analytics.tsx` on the stored choice.
+  Keep `/privacy` in sync with whatever trackers actually load.
 - **Third-party tags:** Google AdSense (`<meta name="google-adsense-account">` via layout
   `metadata.other`, the `adsbygoogle.js` script, and `public/ads.txt`) loads site-wide. The AdSense
   publisher ID (`ca-pub-7400069037778721`) and GA4 ID (`G-FC5ELM4BX8`) are hard-wired defaults in
@@ -115,9 +116,9 @@ always run `npm run lint` before pushing (CI runs both separately).
     read/write a ref's `.current` during render. Do that work inside `useEffect` (see `PatternCanvas`:
     start-time ref set on mount, latest-callback ref synced in an effect).
   - *`set-state-in-effect`:* calling `setState` synchronously in an effect is flagged. For genuine
-    one-shot client-only reveals (e.g. `CookieConsent` reading `localStorage` on mount) this is
-    legitimate — use a scoped `// eslint-disable-next-line react-hooks/set-state-in-effect` with a
-    justifying comment rather than reworking it.
+    one-shot client-only reveals (reading `localStorage`/a media query on mount, then setting state
+    once) this is legitimate — use a scoped `// eslint-disable-next-line react-hooks/set-state-in-effect`
+    with a justifying comment rather than reworking it.
 - CI (`.github/workflows/ci.yml`): install → lint → build (static export), then on `main`
   upload `./out` and deploy to GitHub Pages (`upload-pages-artifact` + `deploy-pages`).
 
