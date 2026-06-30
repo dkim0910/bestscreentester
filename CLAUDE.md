@@ -126,7 +126,8 @@ always run `npm run lint` before pushing (CI runs both separately).
  ## TODO:
 
 - the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now and working but make it private in github? 
-- update UI, to much icons need fix
+
+- need to fix the overlapes error when seen in mobile (the header is overlapsing)
 
 - fake broken screen needs update it looks shit need fixing (still bad)
 
