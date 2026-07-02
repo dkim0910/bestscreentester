@@ -303,9 +303,9 @@ export const TOOLS: ToolDef[] = [
     name: "Fake Broken Screen",
     title: "Fake Broken Screen Prank",
     tagline:
-      "Cracked, glitch, TV static, no signal, dead pixels, Windows BSOD, Mac, Linux, iOS and Android crash screens to prank friends.",
+      "Cracked, glitch, TV static, no signal, dead pixels, glitching pixels, Windows BSOD, Mac, Linux, iOS and Android crash screens to prank friends.",
     description:
-      "Free fake broken screen prank. Show a realistic shattered screen, glitch, TV static, no-signal colour bars, dead pixels, Windows blue screen of death, Windows XP BSOD, Mac kernel panic, Linux panic, iOS recovery, or Android crash full-screen — tap anywhere to reveal it's fake.",
+      "Free fake broken screen prank. Show a realistic shattered screen, glitch, TV static, no-signal colour bars, dead pixels, glitching flickering pixels, Windows blue screen of death, Windows XP BSOD, Mac kernel panic, Linux panic, iOS recovery, or Android crash full-screen — tap anywhere to reveal it's fake.",
     category: "fun",
     icon: "💥",
     keywords: [
@@ -323,7 +323,7 @@ export const TOOLS: ToolDef[] = [
       "broken screen prank",
     ],
     howTo: [
-      "Use ← / → to pick an effect: cracked, glitch, TV static, no signal, dead pixels, Windows BSOD, Windows XP, Mac crash, Linux panic, iOS recovery, or Android crash.",
+      "Use ← / → to pick an effect: cracked, glitch, TV static, no signal, dead pixels, pixel glitch, Windows BSOD, Windows XP, Mac crash, Linux panic, iOS recovery, or Android crash.",
       "Click Start to go full-screen, then hand the device over.",
       "Tap anywhere (or press Esc) to reveal it was a prank.",
     ],

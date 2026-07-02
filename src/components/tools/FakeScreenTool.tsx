@@ -11,6 +11,7 @@ const LABELS = [
   "TV Static",
   "No Signal",
   "Dead Pixels",
+  "Pixel Glitch",
   "Windows BSOD",
   "Windows XP",
   "Mac Crash",
@@ -62,57 +63,131 @@ function darkBleed(
   ctx.fill();
 }
 
-// Draw a crack as a dark gap with a thin bright glint on top — how a real glass
-// fracture catches light on a dark panel (instead of a flat bright line).
+// Draw a crack as a dark gap with a thin bright glint on top, tapering in
+// width and brightness from start to tip — a real fracture is widest and
+// catches the most light at the impact and dies out to a hairline.
 function strokeCrack(
   ctx: CanvasRenderingContext2D,
   pts: [number, number][],
   scale: number,
   bright: number,
+  w0: number,
+  w1: number,
 ) {
   if (pts.length < 2) return;
   ctx.lineJoin = "round";
   ctx.lineCap = "round";
-  ctx.strokeStyle = "rgba(0,0,0,0.5)";
-  ctx.lineWidth = 1.2 * scale;
-  ctx.beginPath();
-  ctx.moveTo(pts[0][0] + 0.9 * scale, pts[0][1] + 0.9 * scale);
-  for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0] + 0.9 * scale, pts[i][1] + 0.9 * scale);
-  ctx.stroke();
-  ctx.strokeStyle = `rgba(216,224,238,${bright})`;
-  ctx.lineWidth = 0.7 * scale;
-  ctx.beginPath();
-  ctx.moveTo(pts[0][0], pts[0][1]);
-  for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
-  ctx.stroke();
+  const chunks = Math.min(4, pts.length - 1);
+  const per = (pts.length - 1) / chunks;
+  for (let pass = 0; pass < 2; pass++) {
+    for (let c = 0; c < chunks; c++) {
+      const s = Math.round(c * per);
+      const e = Math.min(pts.length - 1, Math.round((c + 1) * per));
+      if (e <= s) continue;
+      const f = (c + 0.5) / chunks;
+      const w = w0 + (w1 - w0) * f;
+      const off = pass === 0 ? 0.9 * scale : 0;
+      if (pass === 0) {
+        ctx.strokeStyle = `rgba(0,0,0,${0.55 * (1 - f * 0.5)})`;
+        ctx.lineWidth = w * 1.8;
+      } else {
+        ctx.strokeStyle = `rgba(220,228,242,${bright * (1 - f * 0.65)})`;
+        ctx.lineWidth = w;
+      }
+      ctx.beginPath();
+      ctx.moveTo(pts[s][0] + off, pts[s][1] + off);
+      for (let i = s + 1; i <= e; i++) ctx.lineTo(pts[i][0] + off, pts[i][1] + off);
+      ctx.stroke();
+    }
+  }
+}
+
+// Walk a crack outward from (x, y): the heading drifts a little each step and
+// the step length varies, so the path curves and kinks like propagating glass
+// fracture instead of running straight.
+function crackWalk(
+  x: number,
+  y: number,
+  angle: number,
+  len: number,
+  rand: () => number,
+): [number, number][] {
+  const pts: [number, number][] = [[x, y]];
+  const steps = 8 + Math.floor(rand() * 6);
+  let a = angle;
+  let px = x;
+  let py = y;
+  for (let i = 0; i < steps; i++) {
+    a += (rand() - 0.5) * 0.32;
+    const d = (len / steps) * (0.6 + rand() * 0.8);
+    px += Math.cos(a) * d;
+    py += Math.sin(a) * d;
+    pts.push([px, py]);
+  }
+  return pts;
+}
+
+// One midpoint-displacement pass: split every segment and shove the midpoint
+// sideways. Applied a couple of times it adds the fine jaggedness real cracks
+// have at every zoom level.
+function roughen(
+  pts: [number, number][],
+  rand: () => number,
+  amount: number,
+): [number, number][] {
+  const out: [number, number][] = [pts[0]];
+  for (let i = 1; i < pts.length; i++) {
+    const [ax, ay] = pts[i - 1];
+    const [bx, by] = pts[i];
+    const dx = bx - ax;
+    const dy = by - ay;
+    const l = Math.hypot(dx, dy) || 1;
+    const off = (rand() - 0.5) * amount * l;
+    out.push([(ax + bx) / 2 - (dy / l) * off, (ay + by) / 2 + (dx / l) * off], [bx, by]);
+  }
+  return out;
 }
 
 // Stuck TFT defect lines: a few solid-colour columns (and maybe a row).
+// `on` gates each line's visibility (for flicker); the PRNG stream is always
+// consumed in full so line positions stay fixed across frames.
 function deadLines(
   ctx: CanvasRenderingContext2D,
   width: number,
   height: number,
   scale: number,
   rand: () => number,
+  on: (i: number) => boolean = () => true,
 ) {
   const colors = ["#ff2d2d", "#2dff5a", "#2d6bff", "#ffffff", "#ff2df2", "#26e0e0"];
   const count = 3 + Math.floor(rand() * 4);
   for (let i = 0; i < count; i++) {
-    ctx.fillStyle = colors[Math.floor(rand() * colors.length)];
-    ctx.globalAlpha = 0.4 + rand() * 0.55;
-    ctx.fillRect(rand() * width, 0, (0.5 + rand() * 2) * scale, height);
+    const color = colors[Math.floor(rand() * colors.length)];
+    const alpha = 0.4 + rand() * 0.55;
+    const x = rand() * width;
+    const w = (0.5 + rand() * 2) * scale;
+    if (!on(i)) continue;
+    ctx.fillStyle = color;
+    ctx.globalAlpha = alpha;
+    ctx.fillRect(x, 0, w, height);
   }
   if (rand() > 0.5) {
-    ctx.fillStyle = colors[Math.floor(rand() * colors.length)];
-    ctx.globalAlpha = 0.5;
-    ctx.fillRect(0, rand() * height, width, (0.6 + rand() * 1.5) * scale);
+    const color = colors[Math.floor(rand() * colors.length)];
+    const y = rand() * height;
+    const h = (0.6 + rand() * 1.5) * scale;
+    if (on(count)) {
+      ctx.fillStyle = color;
+      ctx.globalAlpha = 0.5;
+      ctx.fillRect(0, y, width, h);
+    }
   }
   ctx.globalAlpha = 1;
 }
 
-// A realistic spider-web glass fracture: dense radial cracks, long cracks that
-// shoot across the panel, angular concentric cracks that carve the glass into
-// irregular shards, faint facet reflections, and a pulverised frosted impact.
+// A realistic spider-web glass fracture: wandering tapered radial cracks that
+// fork as they travel, partial "lacing" cracks between neighbours (never full
+// concentric rings), faint facet sheens, glass dust, and a small pulverised
+// frosted core at the impact point.
 function fracture(
   ctx: CanvasRenderingContext2D,
   ix: number,
@@ -122,103 +197,127 @@ function fracture(
   seed: number,
 ) {
   const rand = mulberry32(seed);
-  const spokes = 14 + Math.floor(rand() * 8);
-  const rings = 8;
+  const spokes = 14 + Math.floor(rand() * 6);
+  const at = (p: [number, number][], f: number) =>
+    p[Math.max(0, Math.min(p.length - 1, Math.round(f * (p.length - 1))))];
 
-  const ang: number[] = [];
-  for (let i = 0; i < spokes; i++) ang.push((i / spokes) * Math.PI * 2 + (rand() - 0.5) * 0.4);
-
-  // Grid of fracture nodes P[ring][spoke]; rings denser near the impact and
-  // jittered per node so the shards come out irregular.
-  const P: [number, number][][] = [];
-  for (let r = 0; r < rings; r++) {
-    const frac = Math.pow((r + 1) / rings, 1.4);
-    const row: [number, number][] = [];
-    for (let i = 0; i < spokes; i++) {
-      const rr = baseR * frac * (0.82 + rand() * 0.36);
-      row.push([ix + Math.cos(ang[i]) * rr, iy + Math.sin(ang[i]) * rr]);
-    }
-    P.push(row);
-  }
-  const reach: number[] = [];
-  for (let i = 0; i < spokes; i++) reach.push(3 + Math.floor(rand() * (rings - 2)));
-
-  // (a) Faint facet reflections on a few shards, so glass pieces catch light.
-  for (let r = 0; r < rings - 1; r++) {
-    for (let i = 0; i < spokes; i++) {
-      if (rand() > 0.2) continue;
-      const a = P[r][i];
-      const b = P[r][(i + 1) % spokes];
-      const c = P[r + 1][(i + 1) % spokes];
-      const d = P[r + 1][i];
-      const g = ctx.createLinearGradient(a[0], a[1], c[0], c[1]);
-      const al = 0.03 + rand() * 0.06;
-      g.addColorStop(0, `rgba(205,218,238,${al})`);
-      g.addColorStop(1, "rgba(205,218,238,0)");
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.moveTo(a[0], a[1]);
-      ctx.lineTo(b[0], b[1]);
-      ctx.lineTo(c[0], c[1]);
-      ctx.lineTo(d[0], d[1]);
-      ctx.closePath();
-      ctx.fill();
-    }
-  }
-
-  // (b) Radial cracks, jagged from the impact outward.
+  // Generate the main radial cracks first (drawing comes after the sheens).
+  // Lengths vary: most stop short, a few run far past the web.
+  const mains: [number, number][][] = [];
+  const lens: number[] = [];
+  const base = rand() * Math.PI * 2;
   for (let i = 0; i < spokes; i++) {
-    const pts: [number, number][] = [[ix, iy]];
-    for (let r = 0; r < reach[i]; r++) pts.push(P[r][i]);
-    strokeCrack(ctx, pts, scale, 0.26 + rand() * 0.4);
+    const a = base + (i / spokes) * Math.PI * 2 + ((rand() - 0.5) * Math.PI * 1.4) / spokes;
+    const len = baseR * (rand() > 0.8 ? 1.2 + rand() : 0.45 + rand() * 0.5);
+    lens.push(len);
+    // Start just off the impact point — the pulverised core hides the joint
+    // and the web doesn't collapse into a single bright pin-point.
+    const r0 = baseR * (0.015 + rand() * 0.035);
+    const sx = ix + Math.cos(a) * r0;
+    const sy = iy + Math.sin(a) * r0;
+    mains.push(roughen(roughen(crackWalk(sx, sy, a, len, rand), rand, 0.4), rand, 0.25));
+  }
+  // Point on spoke i at distance ~R from the impact (spokes differ in length,
+  // so lacing and sheens must match by radius, not by fraction).
+  const atR = (i: number, R: number) => at(mains[i], Math.min(1, R / lens[i]));
+
+  // (a) Faint facet sheens between neighbouring cracks near the centre, so a
+  // few glass shards catch the light.
+  for (let i = 0; i < spokes; i++) {
+    if (rand() > 0.3) continue;
+    const R = baseR * (0.12 + rand() * 0.3);
+    const R2 = R + baseR * 0.18;
+    const a = atR(i, R);
+    const b = atR((i + 1) % spokes, R);
+    const a2 = atR(i, R2);
+    const b2 = atR((i + 1) % spokes, R2);
+    const g = ctx.createLinearGradient(a[0], a[1], b2[0], b2[1]);
+    g.addColorStop(0, `rgba(205,218,238,${0.02 + rand() * 0.035})`);
+    g.addColorStop(1, "rgba(205,218,238,0)");
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.moveTo(a[0], a[1]);
+    ctx.lineTo(b[0], b[1]);
+    ctx.lineTo(b2[0], b2[1]);
+    ctx.lineTo(a2[0], a2[1]);
+    ctx.closePath();
+    ctx.fill();
   }
 
-  // (b2) A few long cracks that shoot well past the web, as real impacts do.
-  const longCount = 3 + Math.floor(rand() * 3);
-  for (let k = 0; k < longCount; k++) {
-    const a = rand() * Math.PI * 2;
-    const len = baseR * (1.3 + rand() * 1.1);
-    const pts: [number, number][] = [[ix, iy]];
-    for (let s = 1; s <= 6; s++) {
-      const f = s / 6;
-      pts.push([
-        ix + Math.cos(a) * len * f + (rand() - 0.5) * 30 * scale,
-        iy + Math.sin(a) * len * f + (rand() - 0.5) * 30 * scale,
-      ]);
+  // (b) Stroke the radials, with occasional shallow-angle forks part-way out.
+  for (let i = 0; i < spokes; i++) {
+    const pts = mains[i];
+    strokeCrack(ctx, pts, scale, 0.3 + rand() * 0.35, (1.3 + rand() * 0.9) * scale, 0.3 * scale);
+    const forks = rand() < 0.65 ? 1 + Math.floor(rand() * 2) : 0;
+    for (let b = 0; b < forks; b++) {
+      const j = Math.max(1, Math.round((0.3 + rand() * 0.5) * (pts.length - 1)));
+      const [bx, by] = pts[j];
+      const [px, py] = pts[j - 1];
+      const ba = Math.atan2(by - py, bx - px) + (rand() > 0.5 ? 1 : -1) * (0.35 + rand() * 0.55);
+      const bp = roughen(crackWalk(bx, by, ba, lens[i] * (0.2 + rand() * 0.35), rand), rand, 0.4);
+      strokeCrack(ctx, bp, scale, 0.16 + rand() * 0.22, 0.9 * scale, 0.25 * scale);
     }
-    strokeCrack(ctx, pts, scale, 0.3 + rand() * 0.35);
   }
 
-  // (c) Concentric cracks: straight segments between spokes with random gaps
-  // (more gaps further out) so it never looks like a perfect web.
-  for (let r = 1; r < rings; r++) {
-    const skip = 0.08 + (r / rings) * 0.4;
-    const runs: [number, number][][] = [];
-    let run: [number, number][] = [];
-    for (let i = 0; i <= spokes; i++) {
-      if (i > 0 && rand() < skip) {
-        if (run.length > 1) runs.push(run);
-        run = [];
-      }
-      run.push(P[r][i % spokes]);
+  // (c) Lacing: short connective cracks between neighbouring radials at
+  // matching radii, denser near the impact, slightly bowed and jagged — this
+  // is what turns loose radials into a shattered spider web.
+  const bands = 8;
+  for (let r = 1; r <= bands; r++) {
+    const R = Math.pow(r / bands, 1.3) * baseR * 0.95;
+    for (let i = 0; i < spokes; i++) {
+      if (rand() > 0.95 - (r / bands) * 0.55) continue;
+      const j = (i + 1) % spokes;
+      // Skip pairs where either spoke has already ended.
+      if (R > lens[i] * 0.98 || R > lens[j] * 0.98) continue;
+      const a = atR(i, R * (0.92 + rand() * 0.16));
+      const b = atR(j, R * (0.92 + rand() * 0.16));
+      const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      if (d < 4 * scale || d > baseR * 0.7) continue;
+      const mid: [number, number] = [
+        (a[0] + b[0]) / 2 + (rand() - 0.5) * d * 0.25,
+        (a[1] + b[1]) / 2 + (rand() - 0.5) * d * 0.25,
+      ];
+      const pts = roughen(roughen([a, mid, b], rand, 0.35), rand, 0.25);
+      strokeCrack(
+        ctx,
+        pts,
+        scale,
+        0.24 + (1 - r / bands) * 0.2 + rand() * 0.12,
+        1.05 * scale,
+        0.75 * scale,
+      );
     }
-    if (run.length > 1) runs.push(run);
-    for (const rn of runs) strokeCrack(ctx, rn, scale, 0.2 + rand() * 0.22);
   }
 
-  // (d) Pulverised frosted impact point + tiny micro-cracks.
-  const fc = ctx.createRadialGradient(ix, iy, 0, ix, iy, baseR * 0.13);
-  fc.addColorStop(0, "rgba(236,241,250,0.5)");
-  fc.addColorStop(0.5, "rgba(208,218,235,0.16)");
-  fc.addColorStop(1, "rgba(208,218,235,0)");
+  // (d) Pulverised frosted impact core: dense micro-cracks and glass dust.
+  const cr = baseR * 0.07;
+  const fc = ctx.createRadialGradient(ix, iy, 0, ix, iy, cr);
+  fc.addColorStop(0, "rgba(240,245,252,0.6)");
+  fc.addColorStop(0.4, "rgba(222,230,245,0.22)");
+  fc.addColorStop(1, "rgba(210,220,238,0)");
   ctx.fillStyle = fc;
   ctx.beginPath();
-  ctx.arc(ix, iy, baseR * 0.13, 0, Math.PI * 2);
+  ctx.arc(ix, iy, cr, 0, Math.PI * 2);
   ctx.fill();
-  for (let i = 0; i < 26; i++) {
+  for (let i = 0; i < 30; i++) {
     const a = rand() * Math.PI * 2;
-    const l = baseR * (0.03 + rand() * 0.12);
-    strokeCrack(ctx, [[ix, iy], [ix + Math.cos(a) * l, iy + Math.sin(a) * l]], scale, 0.3 + rand() * 0.4);
+    const l = baseR * (0.03 + rand() * 0.1);
+    strokeCrack(
+      ctx,
+      [[ix, iy], [ix + Math.cos(a) * l, iy + Math.sin(a) * l]],
+      scale,
+      0.3 + rand() * 0.35,
+      0.8 * scale,
+      0.3 * scale,
+    );
+  }
+  for (let i = 0; i < 70; i++) {
+    const a = rand() * Math.PI * 2;
+    const d = rand() * rand() * baseR * 0.14;
+    ctx.fillStyle = `rgba(232,240,252,${0.12 + rand() * 0.35})`;
+    const s = (0.5 + rand() * 1.2) * scale;
+    ctx.fillRect(ix + Math.cos(a) * d, iy + Math.sin(a) * d, s, s);
   }
 }
 
@@ -248,9 +347,30 @@ function drawCracks({ ctx, width, height }: DrawArgs) {
   darkBleed(ctx, ix, iy, md * 0.32, rand);
   darkBleed(ctx, width * 0.78, height * 0.7, md * 0.16, rand);
 
-  // Glass fractures: one big impact plus a smaller secondary hit.
-  fracture(ctx, ix, iy, md * 0.6, scale, 1337);
-  fracture(ctx, width * 0.8, height * 0.72, md * 0.26, scale, 99);
+  // Long cracks running right across the panel (glass cracks travel to the
+  // edges), drawn first so the impact webs sit on top of them.
+  for (let k = 0; k < 4; k++) {
+    const vert = rand() > 0.55;
+    const sx = vert ? width * (0.1 + rand() * 0.8) : -10;
+    const sy = vert ? -10 : height * (0.1 + rand() * 0.8);
+    const a = (vert ? Math.PI / 2 : 0) + (rand() - 0.5) * 0.6;
+    const len = (vert ? height : width) * 1.3;
+    const pts = roughen(roughen(crackWalk(sx, sy, a, len, rand), rand, 0.3), rand, 0.2);
+    strokeCrack(ctx, pts, scale, 0.28 + rand() * 0.18, 1.2 * scale, 0.8 * scale);
+    // A stray fork half-way along, so the long cracks aren't lone lines.
+    const j = Math.max(1, Math.round((0.35 + rand() * 0.4) * (pts.length - 1)));
+    const fa =
+      Math.atan2(pts[j][1] - pts[j - 1][1], pts[j][0] - pts[j - 1][0]) +
+      (rand() > 0.5 ? 1 : -1) * (0.4 + rand() * 0.5);
+    const fp = roughen(crackWalk(pts[j][0], pts[j][1], fa, len * 0.18, rand), rand, 0.35);
+    strokeCrack(ctx, fp, scale, 0.18 + rand() * 0.15, 0.9 * scale, 0.4 * scale);
+  }
+
+  // Glass fractures: one big impact, a smaller secondary hit, and a chip near
+  // the corner (screens usually crack from a dropped corner too).
+  fracture(ctx, ix, iy, md * 0.55, scale, 1337);
+  fracture(ctx, width * 0.8, height * 0.72, md * 0.24, scale, 99);
+  fracture(ctx, width * 0.035, height * 0.06, md * 0.3, scale, 777);
 
   // Edge vignette so it feels like a real darkened, dying panel.
   const vig = ctx.createRadialGradient(
@@ -439,6 +559,61 @@ function drawDeadPixels({ ctx, width, height }: DrawArgs) {
   g.addColorStop(1, "rgba(0,0,0,0)");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, width, height);
+}
+
+// ---------- Pixel glitch (dead pixels, some of them flickering) ----------
+function drawPixelGlitch({ ctx, width, height, t }: DrawArgs) {
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, width, height);
+  const scale = Math.min(width, height) / 800;
+  const cols = ["#ff2d2d", "#2dff5a", "#2d6bff", "#ffffff", "#ff2df2", "#26e0e0", "#ffd23d"];
+
+  // A fixed set of stuck pixels — truly dead pixels stay put.
+  const stable = mulberry32(31337);
+  const scattered = Math.floor((width * height) / 16000);
+  for (let i = 0; i < scattered; i++) {
+    const x = stable() * width;
+    const y = stable() * height;
+    ctx.fillStyle = cols[Math.floor(stable() * cols.length)];
+    ctx.globalAlpha = 0.6 + stable() * 0.4;
+    const s = (1 + stable() * 2) * scale;
+    ctx.fillRect(x, y, s, s);
+  }
+
+  // Flickering pixels: reseeded several times a second, so a second set
+  // blinks and appears to jump around the panel like failing subpixels.
+  const flick = mulberry32(1 + Math.floor(t * 9));
+  const nFlick = Math.floor((width * height) / 22000);
+  for (let i = 0; i < nFlick; i++) {
+    ctx.fillStyle = cols[Math.floor(flick() * cols.length)];
+    ctx.globalAlpha = 0.35 + flick() * 0.65;
+    const s = (1 + flick() * 2.5) * scale;
+    ctx.fillRect(flick() * width, flick() * height, s, s);
+  }
+  ctx.globalAlpha = 1;
+
+  // Static damage clusters: dense patches of dead pixels that stay put.
+  for (let c = 0; c < 3; c++) {
+    const cr = mulberry32(500 + c);
+    const cx = cr() * width;
+    const cy = cr() * height;
+    const cw = (60 + cr() * 120) * scale;
+    const ch = (50 + cr() * 90) * scale;
+    for (let j = 0; j < 170; j++) {
+      ctx.fillStyle = cols[Math.floor(cr() * cols.length)];
+      ctx.globalAlpha = 0.45 + cr() * 0.55;
+      const s = (1.5 + cr() * 3) * scale;
+      ctx.fillRect(cx + (cr() - 0.5) * cw, cy + (cr() - 0.5) * ch, s, s);
+    }
+  }
+  ctx.globalAlpha = 1;
+
+  // Stuck TFT lines, fixed in place but glitching on and off — each line
+  // blinks at its own rate and stays lit most of the time.
+  deadLines(ctx, width, height, scale, mulberry32(42), (i) => {
+    const blink = mulberry32(i * 101 + Math.floor(t * (3 + (i % 4))));
+    return blink() > 0.3;
+  });
 }
 
 // ---------- Fake QR block for the BSOD ----------
@@ -663,16 +838,18 @@ export default function FakeScreenTool({ tool }: { tool: ToolDef }) {
           case 4:
             return <PatternCanvas frame={i} draw={drawDeadPixels} animate={false} />;
           case 5:
-            return <WindowsBsod />;
+            return <PatternCanvas frame={i} draw={drawPixelGlitch} animate />;
           case 6:
-            return <WindowsXpBsod />;
+            return <WindowsBsod />;
           case 7:
-            return <MacPanic />;
+            return <WindowsXpBsod />;
           case 8:
-            return <LinuxPanic />;
+            return <MacPanic />;
           case 9:
-            return <IosRecovery />;
+            return <LinuxPanic />;
           case 10:
+            return <IosRecovery />;
+          case 11:
             return <AndroidCrash />;
           default:
             return null;

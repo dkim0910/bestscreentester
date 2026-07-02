@@ -10,7 +10,7 @@ const LABELS = ["Windows 10", "Windows XP", "macOS"];
 const WIN_DOTS = 5;
 const WIN_RADIUS = 26; // px from centre
 const WIN_DOT = 5; // dot diameter, px
-const WIN_PERIOD = 1500; // ms per revolution
+const WIN_PERIOD = 2200; // ms per revolution
 const WIN_DELAY = 0.085; // phase gap between trailing dots (fraction of a cycle)
 // Speed variation around the ring. < 1 keeps the comet always moving (it slows
 // near the top and accelerates at the bottom but never fully stops, which is
