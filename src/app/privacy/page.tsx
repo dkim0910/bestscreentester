@@ -19,7 +19,8 @@ export default function PrivacyPage() {
         <p>
           <strong>The short version:</strong> {SITE_NAME} runs its screen tests entirely in your
           browser. We don&apos;t require an account and we don&apos;t sell data. We use Google
-          Analytics to measure site usage.
+          Analytics to measure site usage and Google AdSense to show ads, and donations are handled
+          entirely by third-party platforms — we never see your payment details.
         </p>
 
         <h2>Information we collect</h2>
@@ -38,6 +39,13 @@ export default function PrivacyPage() {
             <Link href="/feedback">feedback page</Link>, your message arrives by email and we keep it
             only to respond.
           </li>
+          <li>
+            <strong>Donations:</strong> if you choose to{" "}
+            <Link href="/donate">support us</Link>, the payment is handled entirely by the donation
+            platform (Ko-fi, Buy Me a Coffee, or Patreon). We never receive or store your card or
+            bank details — at most we see the name or handle and message you choose to attach to a
+            donation.
+          </li>
         </ul>
 
         <h2>Cookies and analytics</h2>
@@ -45,7 +53,31 @@ export default function PrivacyPage() {
           We load <strong>Google Analytics</strong>, which sets cookies to measure how the site is
           used (pages visited, approximate location, device type). IP addresses are anonymized. You
           can opt out by using a browser that blocks analytics cookies or a tracker-blocking
-          extension. We do not use advertising-profiling cookies.
+          extension.
+        </p>
+
+        <h2>Advertising</h2>
+        <p>
+          We show ads through <strong>Google AdSense</strong>. Google and its partners may use
+          cookies or similar technologies to serve and measure ads, which can include personalized
+          advertising based on your prior visits to this and other sites. You can review and change
+          your ad settings at{" "}
+          <a
+            href="https://myadcenter.google.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Google My Ad Center
+          </a>
+          , or block these cookies with your browser or an ad blocker.
+        </p>
+
+        <h2>Donations</h2>
+        <p>
+          Donations are processed by <strong>Ko-fi</strong>, <strong>Buy Me a Coffee</strong>, and{" "}
+          <strong>Patreon</strong>. When you follow a donation link you leave {SITE_NAME} and are
+          subject to that platform&apos;s own privacy policy and terms. Any personal or payment
+          information you enter there is collected by them, not by us.
         </p>
 
         <h2>Hosting and server logs</h2>
@@ -58,13 +90,25 @@ export default function PrivacyPage() {
 
         <h2>Third parties</h2>
         <p>
-          We use <strong>Google Analytics</strong> to collect aggregate usage statistics; its use
-          of data is governed by{" "}
+          We use <strong>Google Analytics</strong> for aggregate usage statistics and{" "}
+          <strong>Google AdSense</strong> for advertising; both are governed by{" "}
           <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">
             Google&apos;s Privacy Policy
           </a>
-          . We don&apos;t sell your information to data brokers. Outbound links to other sites are
-          governed by their own privacy policies.
+          . Donations are handled by{" "}
+          <a href="https://more.ko-fi.com/privacy" rel="noopener noreferrer" target="_blank">
+            Ko-fi
+          </a>
+          ,{" "}
+          <a href="https://www.buymeacoffee.com/privacy-policy" rel="noopener noreferrer" target="_blank">
+            Buy Me a Coffee
+          </a>
+          , and{" "}
+          <a href="https://privacy.patreon.com/policies" rel="noopener noreferrer" target="_blank">
+            Patreon
+          </a>
+          , each under its own privacy policy. We don&apos;t sell your information to data brokers.
+          Outbound links to other sites are governed by their own privacy policies.
         </p>
 
         <h2>Children&apos;s privacy</h2>

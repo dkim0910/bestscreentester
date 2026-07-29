@@ -1,10 +1,14 @@
 # BestScreenTester
 
-A suite of free, browser-based screen tests — dead pixels, color, backlight bleed, refresh rate,
-ghosting, blooming, plus fun tools (fake broken screen, screensaver) — and a library of guides.
+**20** free, browser-based screen tests — dead pixels, color, backlight bleed, refresh rate,
+ghosting, blooming, plus fun tools (fake broken screen, boot screen simulator, screensaver) — and
+**37** guides.
 
 **Fully static. No database, no accounts, no backend.** Every screen test runs 100% in your
 browser (Fullscreen API, Wake Lock, Canvas), and all content is prerendered at build time.
+
+The site is ad-supported: Google AdSense and Google Analytics (GA4) load for every visitor, with
+no consent banner. See `/privacy` for what that means and CLAUDE.md for why.
 
 ## Stack
 
@@ -17,11 +21,19 @@ browser (Fullscreen API, Wake Lock, Canvas), and all content is prerendered at b
 
 ```bash
 npm install
-cp .env.example .env   # public site URL + contact email
+cp .env.example .env   # site URL, contact email, optional GA + Search Console IDs
 npm run dev            # http://localhost:3000
 ```
 
-That's it — there's nothing else to run.
+That's it — there's nothing else to run. All env vars are optional and public (`NEXT_PUBLIC_*`);
+without a `.env` the site falls back to `http://localhost:3000` for URLs and the built-in contact
+address.
+
+To preview a production build, use a static server — **not `npm start`** (see Scripts below):
+
+```bash
+npm run build && npx serve out
+```
 
 ## Project structure
 
@@ -32,7 +44,12 @@ That's it — there's nothing else to run.
 - `src/app/[tool]/page.tsx` — statically generated page per tool, with how-to, FAQ, related
   tools, and related guides.
 - `src/app/blog/` — guide index and individual guide pages (static).
-- `public/og.png` — static OpenGraph image; `public/CNAME` + `public/.nojekyll` for GitHub Pages.
+- `src/lib/seo.ts` — shared metadata/JSON-LD helpers plus `SITE_NAME`, `CONTACT_EMAIL`, and
+  `LEGAL_UPDATED` (the "last updated" date shown on the legal pages).
+- Standalone pages: `/tools`, `/blog`, `/about`, `/privacy`, `/terms`, `/donate` (Ko-fi, Buy Me a
+  Coffee, Patreon), `/feedback` (a `mailto:` link — there is no form or storage).
+- `public/og.png` — static OpenGraph image; `public/CNAME` + `public/.nojekyll` for GitHub Pages;
+  `public/ads.txt` for AdSense.
 
 ## Adding content
 
@@ -46,9 +63,13 @@ That's it — there's nothing else to run.
 
 | Script | Description |
 | --- | --- |
-| `npm run dev` | Start the dev server |
-| `npm run build` / `start` | Production build / serve |
-| `npm run lint` | Lint |
+| `npm run dev` | Start the dev server on :3000 |
+| `npm run build` | Static export → `./out` (typechecks, but does **not** run ESLint) |
+| `npm run lint` | ESLint — run it separately; CI does |
+| ~~`npm start`~~ | **Doesn't work.** `next start` errors on `output: "export"` — use `npx serve out` |
+
+`next build` no longer runs ESLint in Next 16, so a green build can still have lint errors. Always
+run `npm run lint` before pushing; CI runs both as separate steps.
 
 ## Deploy (GitHub Pages)
 
@@ -63,4 +84,12 @@ emits `./out`. It's deployed to **GitHub Pages** with the custom domain `bestscr
 **One-time GitHub setup:** repo **Settings → Pages → Source = GitHub Actions**, and add the custom
 domain. **DNS:** point the apex `bestscreentester.com` at the GitHub Pages IPs
 (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) and `www` via
-`CNAME → <user>.github.io`. GitHub provisions the TLS certificate automatically.
+`CNAME → <user>.github.io`.
+
+**HTTPS:** GitHub provisions the TLS certificate automatically, but only *after* DNS fully
+resolves, and **"Enforce HTTPS" is a separate checkbox** under Settings → Pages that stays off
+until the cert is issued. If the site is serving over plain HTTP, check that box first — that's
+the usual cause, not the build.
+
+> **Note:** GitHub Pages only serves from public repos on the free plan. Making this repo private
+> requires GitHub Pro/Team or it will take the site offline.

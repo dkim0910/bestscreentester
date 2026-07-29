@@ -6,13 +6,22 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # BestScreenTester
 
-A suite of ~21 free, browser-based screen tests across four categories — **Panel & Backlight**
-(dead pixel, black/white screen, backlight bleed, brightness uniformity, burn-in), **Color &
-Calibration** (color, greyscale, color gradient, contrast, black level, viewing angle, gamma),
-**Motion & Timing** (refresh rate, ghosting, blooming, screen tearing), and **Fun & Utilities**
-(fake broken screen, boot screen simulator, screensaver) — plus a library of guides. **Fully
-static — no database, no accounts, no backend services.** The display tests run 100% client-side
-(Fullscreen API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts`.
+A suite of **20** free, browser-based screen tests plus **37** guides. **Fully static — no
+database, no accounts, no backend services.** The display tests run 100% client-side (Fullscreen
+API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts` — the
+`category` field there is what actually drives the nav/homepage grouping, so trust it over any
+summary (including this one):
+
+- **`panel`** (8) — dead-pixel-test, backlight-bleed-test, brightness-uniformity-test,
+  blooming-test, burn-in-test, contrast-test, black-level-test, viewing-angle-test
+- **`color`** (6) — color-test, black-screen, white-screen, greyscale-test, color-gradient-test,
+  gamma-test
+- **`motion`** (3) — refresh-rate-test, ghosting-test, screen-tearing-test
+- **`fun`** (3) — fake-broken-screen, screensaver, boot-screen-simulator
+
+Note the non-obvious ones: `blooming-test`, `contrast-test`, `black-level-test`, and
+`viewing-angle-test` are **panel**, not motion/color; `black-screen` and `white-screen` are
+**color**, not panel.
 
 ## Stack
 
@@ -31,11 +40,16 @@ static — no database, no accounts, no backend services.** The display tests ru
 npm run dev     # dev server :3000
 npm run build   # static export -> ./out (typechecks, but does NOT run ESLint in Next 16)
 npm run lint    # ESLint — run this too; CI does
+npx serve out   # preview the built export
 ```
 
-No services to start — there is no DB. Copy `.env.example` to `.env` (just public URL + contact
-email). Note: `next build` no longer runs ESLint, so a green build can still have lint errors —
-always run `npm run lint` before pushing (CI runs both separately).
+No services to start — there is no DB. Copy `.env.example` to `.env` (site URL, contact email, and
+optional GA / Search Console IDs). Note: `next build` no longer runs ESLint, so a green build can
+still have lint errors — always run `npm run lint` before pushing (CI runs both separately).
+
+⚠️ **`npm start` (`next start`) does not work here** — Next throws `"next start" does not work with
+"output: export" configuration` and tells you to use `npx serve@latest out`. The `start` script in
+`package.json` is a leftover; ignore it.
 
 ## Architecture
 
@@ -70,8 +84,10 @@ always run `npm run lint` before pushing (CI runs both separately).
   `NEXT_PUBLIC_CONTACT_EMAIL` (centralized as `CONTACT_EMAIL` in `src/lib/seo.ts`). No form/storage.
 - **Static info pages:** `/about`, `/privacy`, `/terms` (`src/app/{about,privacy,terms}/page.tsx`),
   linked from the footer's "Company" column and the sitemap. Legal review date = `LEGAL_UPDATED`
-  in `seo.ts`. `/donate` (`src/app/donate/page.tsx`) is a static support page (Buy Me a Coffee /
-  PayPal links). `/tools` lists all tools; `/blog` lists all guides.
+  in `seo.ts`. `/donate` (`src/app/donate/page.tsx`) is a static support page (Ko-fi / Buy Me a
+  Coffee / Patreon links) — keep the donation + advertising sections of `/privacy` and `/terms` in
+  sync with whichever platforms and ad networks actually load. `/tools` lists all tools; `/blog`
+  lists all guides.
 - **Analytics:** `src/components/Analytics.tsx` loads **Google Analytics (GA4)** via `next/script`
   (`afterInteractive`) for **every visitor** — there is no cookie/consent banner. It renders only
   when a GA4 ID is present (`NEXT_PUBLIC_GA_ID`, else the hard-wired default). Because it's a client
@@ -107,10 +123,11 @@ always run `npm run lint` before pushing (CI runs both separately).
   generated from `public/bestscreentester_logo.png` with `sharp`. There is no `favicon.ico` and no
   `metadata.icons` override — don't add one pointing at the full 1.7 MB logo (that was the old bug
   that made the tab icon download the whole logo).
-  - ⚠️ **Regression to clean up:** `src/app/head.tsx` currently adds `<link rel="icon">` /
-    `apple-touch-icon` tags pointing straight at `/bestscreentester_logo.png` (the 1.7 MB file),
-    reintroducing exactly that bug and overriding the optimized `icon.png`/`apple-icon.png`. Prefer
-    deleting `head.tsx` (or pointing it at the optimized assets) so the file-convention icons win.
+  - `src/app/head.tsx` still exists and points at `/bestscreentester_logo.png` (the 1.7 MB file),
+    but **it is dead code, not an active regression** — `head.js/tsx` was removed as an App Router
+    convention after Next 13, so Next 16 never renders it. Verified: the built HTML contains only
+    `/icon.png` and `/apple-icon.png` from the file convention. Safe to delete as cleanup; deleting
+    it changes nothing about what ships.
 - **`react-hooks` lint rules are strict.** Two traps that only `npm run lint` catches (not `next build`):
   - *Purity:* don't call impure functions (`performance.now()`, `Date.now()`, `Math.random()`) or
     read/write a ref's `.current` during render. Do that work inside `useEffect` (see `PatternCanvas`:
@@ -125,7 +142,7 @@ always run `npm run lint` before pushing (CI runs both separately).
 
  ## TODO:
 
-- the webstie is not https so its not showing fix this (should we tunnel this aswell for the fix?) its public for now and working but make it private in github?
+- (should we tunnel this aswell for the fix?) its public for now and working but make it private in github?
 
 - fake broken screen needs update it looks shit need fixing (still bad)
 
