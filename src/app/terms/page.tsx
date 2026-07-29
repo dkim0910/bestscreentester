@@ -45,6 +45,25 @@ export default function TermsPage() {
           result.
         </p>
 
+        <h2>Donations</h2>
+        <p>
+          {SITE_NAME} is free to use. If you choose to <Link href="/donate">donate</Link>, payment
+          is taken by a third-party platform (Ko-fi, Buy Me a Coffee, or Patreon) under that
+          platform&apos;s own terms — we never receive your payment details. Donations are{" "}
+          <strong>voluntary gifts</strong>: they are not a purchase, they are{" "}
+          <strong>not tax-deductible</strong>, and they are <strong>non-refundable</strong> except
+          where required by law or by the platform&apos;s own refund policy. Donating doesn&apos;t
+          buy any product, feature, support commitment, or influence over the Service, and it
+          doesn&apos;t remove advertising.
+        </p>
+
+        <h2>Advertising</h2>
+        <p>
+          The Service is supported by advertising, including <strong>Google AdSense</strong>. We
+          don&apos;t control which ads are shown and don&apos;t endorse advertised products or
+          services. See our <Link href="/privacy">Privacy Policy</Link> for how ad cookies work.
+        </p>
+
         <h2>Intellectual property</h2>
         <p>
           The Service&apos;s content, design, and code are owned by {SITE_NAME} or its licensors and

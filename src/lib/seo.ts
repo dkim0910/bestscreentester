@@ -5,10 +5,10 @@ export const SITE_TAGLINE =
   "Free online screen tests for dead pixels, color, backlight, and motion.";
 
 export const CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@bestscreentester.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello+bestscreentester@nelera.com";
 
 // Last review date for the legal pages (About / Privacy / Terms).
-export const LEGAL_UPDATED = "June 21, 2026";
+export const LEGAL_UPDATED = "July 29, 2026";
 
 export function siteUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";

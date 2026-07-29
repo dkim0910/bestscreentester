@@ -27,7 +27,7 @@ export default function DonatePage() {
       <div className="mb-10 space-y-4">
         {/* ko-fi */}
         <a
-          href="https://ko-fi.com/bestscreentester"
+          href="https://ko-fi.com/nelera"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-4 rounded-2xl border border-[#FF5E5B]/50 bg-[#FF5E5B]/20 p-6 transition-colors hover:bg-[#FF5E5B]/30"
@@ -50,7 +50,7 @@ export default function DonatePage() {
 
         {/* buy me a coffee */}
         <a
-          href="https://buymeacoffee.com/dkim2000"
+          href="https://buymeacoffee.com/nelera"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-4 rounded-2xl border border-[#FFDD00]/50 bg-[#FFDD00]/20 p-6 transition-colors hover:bg-[#FFDD00]/30"
@@ -70,6 +70,29 @@ export default function DonatePage() {
             </p>
           </div>
         </a>
+
+        {/* patreon */}
+        <a
+          href="https://patreon.com/nelera"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 rounded-2xl bg-white/90 p-6 inset-ring-2 inset-ring-black/70 transition-colors hover:bg-white"
+        >
+          <Image
+            src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/patreon-icon.png"
+            alt="Patreon"
+            width={40}
+            height={40}
+            unoptimized
+            className="h-10 w-10 object-contain"
+          />
+          <div>
+            <h2 className="text-lg font-bold text-black">Patreon</h2>
+            <p className="text-sm text-black/60">
+              Become a patron and support ongoing development
+            </p>
+          </div>
+        </a>
       </div>
 
       {/* Disclaimer */}
@@ -83,6 +106,17 @@ export default function DonatePage() {
             All donations are <strong>non-refundable</strong>.
           </li>
           <li>Donations go toward keeping {SITE_NAME} running.</li>
+          <li>
+            Payments are handled by the donation platform — see our{" "}
+            <Link href="/terms" className="underline hover:text-foreground">
+              Terms
+            </Link>{" "}
+            and{" "}
+            <Link href="/privacy" className="underline hover:text-foreground">
+              Privacy Policy
+            </Link>
+            .
+          </li>
         </ul>
       </div>
 
