@@ -190,4 +190,15 @@ for (const { list, dir } of [
     total++;
   }
 }
+// ---------- hover previews ----------
+// Full-bleed pattern only — no text, no chrome. These are what the tool cards
+// show on hover: the actual test pattern the page will display.
+mkdirSync("public/previews", { recursive: true });
+for (const t of tools) {
+  const motif = TOOL_MOTIF[t.slug];
+  const svg = `<svg width="640" height="400" xmlns="http://www.w3.org/2000/svg">
+    <rect width="640" height="400" fill="${BG}"/>${M[motif](0, 0, 640, 400)}</svg>`;
+  await sharp(Buffer.from(svg)).png({ compressionLevel: 9, palette: true }).toFile(`public/previews/${t.slug}.png`);
+  total++;
+}
 console.log(`generated ${total} images`);

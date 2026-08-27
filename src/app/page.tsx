@@ -72,7 +72,7 @@ export default function HomePage() {
         {order.map((cat) => (
           <section key={cat} className="mb-12">
             <h2 className="mb-4 text-2xl font-bold">{CATEGORY_LABELS[cat]}</h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {byCat[cat].map((tool) => (
                 <ToolCard key={tool.slug} tool={tool} />
               ))}
