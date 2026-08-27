@@ -4,7 +4,7 @@ import { pageMetadata, SITE_NAME, CONTACT_EMAIL } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: `What ${SITE_NAME} is, how the browser-based screen tests work, and why they're free.`,
+  description: `What ${SITE_NAME} is, how the browser-based screen tests work, why every one of them is free, and who builds and maintains the tools behind them.`,
   path: "/about",
 });
 

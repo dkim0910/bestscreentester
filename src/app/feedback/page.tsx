@@ -3,7 +3,8 @@ import { pageMetadata, CONTACT_EMAIL } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact & Feedback",
-  description: "Report a bug, request a new screen test, or tell us about a dead pixel you found.",
+  description:
+    "Report a bug, request a new screen test, or tell us about a display problem our tools did not catch. Every message reaches the developer directly.",
   path: "/feedback",
 });
 

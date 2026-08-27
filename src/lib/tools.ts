@@ -305,7 +305,7 @@ export const TOOLS: ToolDef[] = [
     tagline:
       "Cracked, glitch, TV static, no signal, dead pixels, glitching pixels, Windows BSOD, Mac, Linux, iOS and Android crash screens to prank friends.",
     description:
-      "Free fake broken screen prank. Show a realistic shattered screen, glitch, TV static, no-signal colour bars, dead pixels, glitching flickering pixels, Windows blue screen of death, Windows XP BSOD, Mac kernel panic, Linux panic, iOS recovery, or Android crash full-screen — tap anywhere to reveal it's fake.",
+      "Free fake broken screen prank. Show a realistic cracked screen, TV static, no-signal bars, a Windows blue screen or Mac kernel panic — tap to reveal it's fake.",
     category: "fun",
     icon: "💥",
     keywords: [
@@ -340,7 +340,7 @@ export const TOOLS: ToolDef[] = [
     title: "Online Screensaver",
     tagline: "Matrix rain, starfield, snow, pipes, clock, and the classic DVD logo, full-screen.",
     description:
-      "Free online screensaver. Run a matrix rain, warp starfield, falling snow, 3D-style pipes, a big clock, or the classic bouncing DVD logo full-screen in your browser — no install required.",
+      "Free online screensaver. Run matrix rain, a warp starfield, falling snow, 3D pipes, a big clock, or the classic bouncing DVD logo full-screen. No install.",
     category: "fun",
     icon: "✨",
     keywords: [
@@ -370,7 +370,7 @@ export const TOOLS: ToolDef[] = [
     title: "Boot Screen Simulator",
     tagline: "Full-screen Windows 10, Windows XP, and macOS startup screens.",
     description:
-      "Free boot screen simulator. Show a realistic Windows 10, Windows XP, or macOS startup screen full-screen in your browser — great for pranks, mock-ups, and videos.",
+      "Free boot screen simulator. Show a realistic Windows 10, Windows XP, or macOS startup screen full-screen — great for pranks, mock-ups, and videos.",
     category: "fun",
     icon: "🔌",
     keywords: [
@@ -453,7 +453,7 @@ export const TOOLS: ToolDef[] = [
     title: "Black Level Test",
     tagline: "Near-black steps to see how dark your panel really goes.",
     description:
-      "Free black level test. Compare near-black grey steps to judge shadow detail, black depth, and IPS glow — see which dark levels your screen can still distinguish.",
+      "Free black level test. Compare near-black grey steps to judge shadow detail, black depth, and IPS glow — see which dark levels your screen still shows.",
     category: "panel",
     icon: "▰",
     keywords: ["black level test", "shadow detail", "near black", "black depth", "ips glow"],
@@ -476,7 +476,7 @@ export const TOOLS: ToolDef[] = [
     title: "Viewing Angle Test",
     tagline: "Grey steps and color bars to reveal off-axis color/brightness shift.",
     description:
-      "Free viewing angle test. Display grey steps and color bars, then move your head — see how much brightness and color shift off-axis. Reveals TN/VA angle weakness.",
+      "Free viewing angle test. Show grey steps and color bars, then move your head to see how much brightness and color shift off-axis on TN and VA panels.",
     category: "panel",
     icon: "◑",
     keywords: ["viewing angle test", "color shift", "off axis", "tn va ips angle"],
@@ -522,7 +522,7 @@ export const TOOLS: ToolDef[] = [
     title: "Screen Tearing Test",
     tagline: "Fast scrolling bars that reveal tearing without V-Sync/VRR.",
     description:
-      "Free screen tearing test. Fast-scrolling vertical bars reveal horizontal tears when frame rate and refresh rate aren't synced — check V-Sync, G-Sync, and FreeSync.",
+      "Free screen tearing test. Fast-scrolling bars reveal horizontal tears when frame rate and refresh rate aren't synced — check V-Sync, G-Sync and FreeSync.",
     category: "motion",
     icon: "⇿",
     keywords: ["screen tearing test", "vsync", "g-sync", "freesync", "vrr test"],

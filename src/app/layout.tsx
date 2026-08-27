@@ -11,7 +11,8 @@ import { SITE_NAME, SITE_TAGLINE, siteUrl, siteJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
-    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    // Kept short: the old default ran to 90 chars, which Bing flags as "Title too long".
+    default: `${SITE_NAME} — Free Online Screen Tests`,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_TAGLINE,
@@ -20,10 +21,16 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   // Google AdSense site verification (rendered into every page's <head>).
   other: { "google-adsense-account": "ca-pub-7400069037778721" },
-  // Optional Google Search Console verification (set NEXT_PUBLIC_GSC_VERIFICATION to the token).
-  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
-    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
-    : undefined,
+  // Both properties are currently verified out-of-band (Google via a DNS TXT record on
+  // the sc-domain property, Bing via its own verification), so neither tag is required.
+  // These stay as an optional fallback if a verification ever needs re-establishing;
+  // set the token in CI to make one ship. See .env.example.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION }
+      : {},
+  },
 };
 
 export default function RootLayout({
