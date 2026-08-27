@@ -24,6 +24,12 @@ jobs:
       NEXT_PUBLIC_CONTACT_EMAIL: hello+bestscreentester@nelera.com
       # Set your GA4 Measurement ID here (or as a repo variable) to enable analytics in prod.
       NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+      # Optional search-engine verification tokens. Both properties are currently verified
+      # out-of-band (Google via DNS TXT on the sc-domain property), so these are normally
+      # empty. They are repo *variables*, not secrets — a verification token is public by
+      # design, and NEXT_PUBLIC_* values are inlined into the client bundle regardless.
+      NEXT_PUBLIC_GSC_VERIFICATION: ${{ vars.NEXT_PUBLIC_GSC_VERIFICATION }}
+      NEXT_PUBLIC_BING_VERIFICATION: ${{ vars.NEXT_PUBLIC_BING_VERIFICATION }}
       NEXT_TELEMETRY_DISABLED: "1"
     steps:
       - uses: actions/checkout@v4
@@ -60,3 +66,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Tell Bing/Yandex/Seznam/Naver what changed, instead of waiting for a crawl.
+      # Google does not participate in IndexNow. Never fails the deploy.
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Ping IndexNow
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: 737833e752494d62a8b430a7dc3abfad
+          SITE_URL: https://bestscreentester.com
+        run: node scripts/indexnow.mjs

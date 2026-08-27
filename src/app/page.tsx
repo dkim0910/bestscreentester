@@ -1,9 +1,33 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import ToolCard from "@/components/ToolCard";
 import QuickColors from "@/components/tools/QuickColors";
 import HomeSections from "@/components/HomeSections";
 import { TOOLS, toolsByCategory, CATEGORY_LABELS, type ToolCategory } from "@/lib/tools";
-import { SITE_NAME } from "@/lib/seo";
+import { SITE_NAME, pageMetadata } from "@/lib/seo";
+
+// Without this the homepage inherits only the layout defaults: no canonical, no OG,
+// no Twitter card, and a 90-char title Bing flags as too long.
+//
+// The title is set explicitly because `title.template` in the root layout applies only
+// to *child* segments — app/page.tsx sits in the same segment, so a bare string here
+// would ship without the brand suffix every other page gets.
+export const metadata: Metadata = {
+  ...pageMetadata({
+  title: "Free Online Screen Test",
+  description:
+    "Run 20 free screen tests in your browser: find dead pixels, backlight bleed, color and contrast faults, ghosting and refresh-rate issues. No sign-up.",
+  path: "/",
+  keywords: [
+    "screen test",
+    "monitor test",
+    "dead pixel test",
+    "display test",
+    "online screen test",
+  ],
+  }),
+  title: { absolute: `Free Online Screen Test · ${SITE_NAME}` },
+};
 
 export default function HomePage() {
   const byCat = toolsByCategory();

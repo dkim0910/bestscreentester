@@ -5,7 +5,7 @@ import { pageMetadata, SITE_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Donate",
-  description: `Support ${SITE_NAME} and help keep every screen test free for everyone.`,
+  description: `Support ${SITE_NAME} and help keep all 20 screen tests free for everyone — contributions go straight to hosting costs and development time.`,
   path: "/donate",
 });
 

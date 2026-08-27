@@ -4,7 +4,7 @@ import { pageMetadata, SITE_NAME, CONTACT_EMAIL, LEGAL_UPDATED } from "@/lib/seo
 
 export const metadata: Metadata = pageMetadata({
   title: "Terms of Service",
-  description: `The terms for using ${SITE_NAME}'s free screen-testing tools and guides.`,
+  description: `The terms for using ${SITE_NAME}'s free screen-testing tools and guides — what you can rely on, what you can't, and the limits of our liability.`,
   path: "/terms",
 });
 

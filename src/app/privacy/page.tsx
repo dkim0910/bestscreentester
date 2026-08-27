@@ -4,7 +4,7 @@ import { pageMetadata, SITE_NAME, CONTACT_EMAIL, LEGAL_UPDATED } from "@/lib/seo
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
-  description: `How ${SITE_NAME} handles your data. Short version: the screen tests run locally and we don't track you.`,
+  description: `How ${SITE_NAME} handles your data: every screen test runs in your browser and nothing about your display is uploaded. Covers analytics, ads and cookies.`,
   path: "/privacy",
 });
 

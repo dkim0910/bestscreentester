@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getTool, getTips, TOOLS, CATEGORY_LABELS } from "@/lib/tools";
-import { pageMetadata, faqJsonLd, howToJsonLd } from "@/lib/seo";
+import { pageMetadata, faqJsonLd, howToJsonLd, breadcrumbJsonLd, webAppJsonLd } from "@/lib/seo";
 import { getGuidesForTool } from "@/lib/guides";
 import ToolRunner from "@/components/tools/ToolRunner";
 
@@ -25,6 +25,7 @@ export async function generateMetadata({
     description: tool.description,
     path: `/${tool.slug}`,
     keywords: tool.keywords,
+    images: [`/og/tools/${tool.slug}.png`],
   });
 }
 
@@ -54,6 +55,34 @@ export default async function ToolPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(tool.faq)) }}
+      />
+      {/* The breadcrumb below is visible to users but was invisible to crawlers. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Tools", path: "/tools" },
+              { name: tool.name, path: `/${tool.slug}` },
+            ]),
+          ),
+        }}
+      />
+      {/* Each tool is a free browser app; no aggregateRating, since there are no real reviews. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webAppJsonLd({
+              name: tool.title,
+              description: tool.description,
+              path: `/${tool.slug}`,
+              category: "UtilitiesApplication",
+              image: `/og/tools/${tool.slug}.png`,
+            }),
+          ),
+        }}
       />
 
       <nav className="mb-4 text-sm text-foreground/50">
