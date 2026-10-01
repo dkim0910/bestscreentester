@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import FullscreenStage, { type StageApi } from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
+import { PipesRenderer, type JointStyle, type PipesOptions } from "./pipes3d";
 import type { ToolDef } from "@/lib/tools";
 
 interface BounceOpts {
@@ -236,10 +237,11 @@ function useSnow(optsRef: React.RefObject<{ wind: number }>) {
   };
 }
 
-// --- Pipes: a faux-3D take on the classic Windows "3D Pipes" screensaver ---
-// Pipes grow through a 3D lattice that's projected with a fixed tilted camera;
-// each tube is drawn with a cylindrical gradient and every turn gets a shiny
-// ball joint, so the network reads as rounded 3D plumbing receding into depth.
+// --- Pipes ---
+// The real thing is the WebGL renderer in pipes3d.ts (see PipesView below). This 2D
+// faux-3D version is only the fallback for browsers without WebGL: pipes grow through
+// a 3D lattice projected with a fixed tilted camera, each tube drawn with a cylindrical
+// gradient and a shiny ball at every turn.
 const PIPE_GRID = 14; // lattice cells per axis
 const PIPE_RADIUS = 0.37; // tube radius in cell units
 const PIPE_CAM_DIST = PIPE_GRID * 1.7; // camera distance along the view axis
@@ -698,6 +700,58 @@ function useBouncing(optsRef: React.RefObject<BounceOpts>) {
   };
 }
 
+// The classic Windows 3D Pipes, in WebGL (pipes3d.ts). Falls back to the 2D drawer when
+// WebGL isn't available.
+function PipesView({
+  optsRef,
+  fallback,
+}: {
+  optsRef: React.RefObject<PipesOptions>;
+  fallback: (args: DrawArgs) => void;
+}) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [noWebGL, setNoWebGL] = useState(false);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const pipes = PipesRenderer.create(canvas);
+    if (!pipes) {
+      // One-shot capability check: WebGL support is only knowable once the canvas exists.
+      setNoWebGL(true);
+      return;
+    }
+    const resize = () => {
+      const r = canvas.getBoundingClientRect();
+      pipes.resize(r.width, r.height, Math.min(window.devicePixelRatio || 1, 2));
+    };
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    resize();
+    let raf = 0;
+    let last = performance.now();
+    const loop = (now: number) => {
+      // Clamp the step so a backgrounded tab doesn't come back and grow a burst of pipes.
+      const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
+      last = now;
+      pipes.setOptions(optsRef.current);
+      pipes.step(dt);
+      pipes.render();
+      raf = requestAnimationFrame(loop);
+    };
+    pipes.render();
+    raf = requestAnimationFrame(loop);
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      pipes.dispose();
+    };
+  }, [optsRef]);
+
+  if (noWebGL) return <PatternCanvas draw={fallback} animate />;
+  return <canvas ref={canvasRef} className="h-full w-full" />;
+}
+
 export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
   const [speed, setSpeed] = useState(1);
   const [size, setSize] = useState(1.4);
@@ -706,6 +760,7 @@ export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
   const [starSpeed, setStarSpeed] = useState(1);
   const [snowWind, setSnowWind] = useState(0.3);
   const [pipeSpeed, setPipeSpeed] = useState(1);
+  const [pipeJoints, setPipeJoints] = useState<JointStyle>("mixed");
   const [military, setMilitary] = useState(false);
   // Off by default, like a real screensaver; on for an always-on clock or ambient display.
   const [keepAwake, setKeepAwake] = useState(false);
@@ -713,7 +768,7 @@ export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
   const matrixRef = useRef<MatrixOpts>({ charset: "jp", speed: 1 });
   const starRef = useRef({ speed: 1 });
   const snowRef = useRef({ wind: 0.3 });
-  const pipeRef = useRef({ speed: 1 });
+  const pipeRef = useRef<PipesOptions>({ speed: 1, joints: "mixed" });
   const clockRef = useRef<{ military: boolean }>({ military: false });
   // Keep the draw loop's options in sync without reading state during render.
   useEffect(() => {
@@ -729,8 +784,8 @@ export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
     snowRef.current = { wind: snowWind };
   }, [snowWind]);
   useEffect(() => {
-    pipeRef.current = { speed: pipeSpeed };
-  }, [pipeSpeed]);
+    pipeRef.current = { speed: pipeSpeed, joints: pipeJoints };
+  }, [pipeSpeed, pipeJoints]);
   useEffect(() => {
     clockRef.current = { military };
   }, [military]);
@@ -816,20 +871,36 @@ export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
     }
     if (api.index === 3) {
       return (
-        <label className="flex items-center gap-1.5">
-          Speed
-          <input
-            type="range"
-            min={0.25}
-            max={3}
-            step={0.25}
-            value={pipeSpeed}
-            onChange={(e) => setPipeSpeed(Number(e.target.value))}
-            style={{ accentColor: "var(--accent)" }}
-            className="w-20"
-            aria-label="Pipes speed"
-          />
-        </label>
+        <span className="flex items-center gap-3">
+          {/* The original's "Joint type" setting; changing it restarts the pipes. */}
+          <span className="flex items-center gap-1">
+            {(["mixed", "elbow", "ball"] as const).map((j) => (
+              <button
+                key={j}
+                onClick={() => setPipeJoints(j)}
+                className={`rounded-full px-3 py-1 capitalize ${
+                  pipeJoints === j ? "bg-white text-black" : "hover:bg-white/15"
+                }`}
+              >
+                {j}
+              </button>
+            ))}
+          </span>
+          <label className="flex items-center gap-1.5">
+            Speed
+            <input
+              type="range"
+              min={0.25}
+              max={3}
+              step={0.25}
+              value={pipeSpeed}
+              onChange={(e) => setPipeSpeed(Number(e.target.value))}
+              style={{ accentColor: "var(--accent)" }}
+              className="w-20"
+              aria-label="Pipes speed"
+            />
+          </label>
+        </span>
       );
     }
     if (api.index === 4) {
@@ -907,7 +978,13 @@ export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
           </button>
         </>
       )}
-      renderFrame={(i) => <PatternCanvas frame={i} draw={drawers[i]} animate />}
+      renderFrame={(i) =>
+        i === 3 ? (
+          <PipesView optsRef={pipeRef} fallback={pipes} />
+        ) : (
+          <PatternCanvas frame={i} draw={drawers[i]} animate />
+        )
+      }
     />
   );
 }

@@ -80,6 +80,12 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     columns) to the display layer. Photosensitivity limits (WCAG 2.3.1) it must keep: whole-screen
     brightness under a 10% *luminance* swing (≈4% of pixel value — values are gamma-encoded);
     strong changes only in thin bands/lines, total band height capped at 48 CSS px.
+    The screensaver's Pipes effect is WebGL (`pipes3d.ts`, `PipesRenderer`), modelled on the
+    Windows 95–XP "3D Pipes": frontal perspective lattice, lit tubes, ball/elbow joints (the
+    original's Mixed/Elbow/Ball setting), a rare Utah teapot joint, and a block dissolve when
+    the lattice is 40% full. Plain TS with `step(dt)`/`render()` so it can be driven
+    frame-by-frame for testing; `ScreensaverTool`'s `PipesView` falls back to the old 2D
+    `usePipes` drawer when WebGL is unavailable.
     `ToolRunner` maps each slug → its component (with a solid-color cycler fallback).
   - Gamma stripes must sit on physical pixels: `gamma()` draws in backing-store pixels and runs
     with `nativeResolution` (uncapped DPR). Other canvases cap DPR at 2.
