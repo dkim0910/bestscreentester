@@ -49,9 +49,9 @@ export default function AboutPage() {
           guides on this site.
         </p>
         <p>
-          If you spot a mistake, tell us: we correct the page and update its date. Where a guide
-          relies on a standard or a manufacturer&apos;s documentation, it links to that source so
-          you can check it yourself.
+          If you spot a mistake, tell us: we correct the page and update its date. Many guides
+          also link the standards and manufacturer documents they draw on, so you can check the
+          source yourself.
         </p>
 
         <h2>A note on accuracy</h2>

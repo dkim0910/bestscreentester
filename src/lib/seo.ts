@@ -28,7 +28,7 @@ export const SITE_UPDATED = "2026-10-01";
 // display.
 export const PAGE_UPDATED = {
   home: "2026-10-02",
-  about: "2026-10-01",
+  about: "2026-10-02",
   donate: "2026-10-01",
   feedback: "2026-06-21",
   privacy: "2026-07-29",

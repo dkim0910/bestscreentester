@@ -167,13 +167,38 @@ const NEWER_SCREENS: (LinkRef & { body: string })[] = [
   },
 ];
 
+// Each card is named after its guide and describes what that guide actually covers.
 const DEVICE_GUIDES: (LinkRef & { body: string })[] = [
-  { name: "Laptop screen test", href: "/blog/how-to-test-a-laptop-screen-for-dead-pixels", body: "Step-by-step laptop inspection: dead pixels, bleed, and the panel lottery." },
-  { name: "Phone screen test", href: "/blog/how-to-test-a-used-phone-screen-before-buying", body: "OLED burn-in, touch dead zones, tint — essential for used-phone checks." },
-  { name: "TV screen test", href: "/blog/how-to-test-a-tv-for-defects", body: "Mini-LED blooming, backlight bleed, dirty-screen effect — do it after unboxing." },
-  { name: "Monitor screen test", href: "/blog/how-to-test-a-monitor-before-buying", body: "IPS/VA/OLED testing, refresh rate, and uniformity before the return window closes." },
-  { name: "OLED screen test", href: "/blog/oled-burn-in-and-how-to-check-for-it", body: "Burn-in and image retention — comprehensive OLED-specific coverage." },
-  { name: "Panel types explained", href: "/blog/ips-vs-va-vs-tn-vs-oled", body: "IPS bleed, VA ghosting, OLED blacks — which panel technology fits you." },
+  {
+    name: "Any new screen: the 10-minute checklist",
+    href: "/blog/new-device-screen-test-checklist",
+    body: "Seven checks in order, from dead pixels and dark-screen defects through motion and viewing angle, and what counts as a defect.",
+  },
+  {
+    name: "Laptops",
+    href: "/blog/how-to-test-a-laptop-screen-for-dead-pixels",
+    body: "A 60-second pixel check, plus the things that look like dead pixels on a laptop but aren't, such as corner glow and lid pressure marks.",
+  },
+  {
+    name: "Secondhand phones",
+    href: "/blog/how-to-test-a-used-phone-screen-before-buying",
+    body: "What to check before you hand over money: retained images on OLED, areas that ignore touch, a replacement panel, and flicker.",
+  },
+  {
+    name: "TVs",
+    href: "/blog/how-to-test-a-tv-for-defects",
+    body: "Get a test pattern up with the TV's browser or your phone, then judge pixels and uniformity from where you actually sit.",
+  },
+  {
+    name: "Monitors, in the store and at home",
+    href: "/blog/how-to-test-a-monitor-before-buying",
+    body: "What you can check before paying, what to run on day one, and the red flags worth a return, the cable included.",
+  },
+  {
+    name: "Which panel type?",
+    href: "/blog/ips-vs-va-vs-tn-vs-oled",
+    body: "TN, IPS, VA and OLED compared on color, contrast, speed and viewing angle, with a pick for gaming, work and movies.",
+  },
 ];
 
 const PREP = [
@@ -373,8 +398,8 @@ export default function HomeSections() {
           <h2 className="text-2xl font-bold sm:text-3xl">Who makes {SITE_NAME}</h2>
           <p className="mx-auto mt-3 max-w-2xl text-foreground/70">
             {SITE_NAME} is built and maintained by {OPERATOR_NAME}, currently a one-person
-            operation. The guides cite the standards and manufacturer documents they rely on, and
-            each one shows when it was last updated.
+            operation. Every guide shows when it was last updated, and many link the standards and
+            manufacturer documents they draw on.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
