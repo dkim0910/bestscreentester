@@ -5,6 +5,7 @@ import { getTool, getTips, TOOLS, CATEGORY_LABELS } from "@/lib/tools";
 import { pageMetadata, faqJsonLd, howToJsonLd, breadcrumbJsonLd, webAppJsonLd } from "@/lib/seo";
 import { getGuidesForTool } from "@/lib/guides";
 import ToolRunner from "@/components/tools/ToolRunner";
+import ToolCard from "@/components/ToolCard";
 
 export const dynamicParams = false;
 
@@ -154,16 +155,10 @@ export default async function ToolPage({
       {related.length > 0 && (
         <section className="mt-12">
           <h2 className="mb-4 text-xl font-semibold">Related tests</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+          {/* Same cards as the homepage: hovering shows the test pattern itself. */}
+          <div className="grid gap-4 sm:grid-cols-2">
             {related.map((t) => (
-              <Link
-                key={t.slug}
-                href={`/${t.slug}`}
-                className="block rounded-lg border border-border bg-card p-4 transition hover:border-accent/50"
-              >
-                <span className="block font-medium">{t.name}</span>
-                <span className="block text-sm text-foreground/60">{t.tagline}</span>
-              </Link>
+              <ToolCard key={t.slug} tool={t} />
             ))}
           </div>
         </section>
