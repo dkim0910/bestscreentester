@@ -1,272 +1,215 @@
 {
   "summary": {
-    "health_score": 77,
+    "health_score": 84,
+    "previous_health_score": 77,
     "business_type": "Publisher / free web utility (AdSense + donations)",
     "top_findings": [
-      "Homepage copy shares 31.7% of 6-word sequences verbatim with screentester.io (HomeSections.tsx); tool pages 0%",
-      "Four factual errors (ISO classes, iPhone parts history, Color Gradient DCI-P3 claim, 'IPS ~1ms') + homepage advice contradicting guides",
-      "No named author/maintainer and zero outbound citations across 44 guides",
-      "Money tool pages thin/less capable than SERP leaders: white-screen preview renders grey, refresh rate is one rounded integer, 14 tools have 1 FAQ",
-      "Sitemap lastmod: all 36 tool/static URLs share SITE_UPDATED=2026-10-01 incl. unchanged pages; IndexNow submits them as fresh"
+      "Homepage/About claim the guides cite their sources, but only 13 of 44 do (HomeSections.tsx:376, about/page.tsx:53)",
+      "Device-guide cards paraphrase screentester.io (HomeSections.tsx:170-177)",
+      "No first-hand evidence (photos/measurements); Experience is the weakest E-E-A-T factor (38)",
+      "Tool pages lack a 'what this checks / reading your result' passage; SXO feature gaps (dead-pixel swatches/fixer, white/black presets)",
+      "No measurable backlinks or brand mentions"
     ],
     "quick_wins": [
-      "/donate: use TOOLS.length (says 20 and 21+, actual 28)",
-      "Fix over-promising excerpts/titles (burn-in 'still fixable', '4 Methods That Actually Work', warranty 'each major manufacturer')",
-      "not-found.tsx: add metadata title + robots noindex",
-      "Remove bg-black/40 scrim on solid-colour previews (FullscreenStage.tsx:256-261)",
-      "Replace 188 KB 512px src/app/icon.png with a small icon"
+      "Reword or back the sources claim",
+      "Rewrite device-guide blurbs",
+      "Homepage <title>: add 'Monitor Test'",
+      "Refresh-rate preview: no scrim, compact readout",
+      "Make the 'Normal, or worth returning?' table a real <table>"
     ]
   },
   "categories": [
     {
       "name": "Technical SEO",
-      "score": 85,
+      "score": 90,
       "what_works": [
-        "80/80 sitemap URLs 200, no redirects",
-        "Self-canonical trailing-slash, index/follow, one H1 on every page",
+        "80/80 URLs 200, self-canonical, index/follow",
         "No broken/redirecting internal links, no orphans",
-        "Single-hop http->https, www->apex; real 404",
-        "Primary content in static HTML; IndexNow working"
+        "404 has own title + noindex",
+        "Favicon 1.5 KB",
+        "Crash not reproduced in 7 cold loads"
       ],
       "findings": [
         {
-          "title": "Transient client crash on homepage (unreproduced)",
+          "title": "No error.tsx/global-error.tsx",
           "severity": "Medium",
-          "description": "Next built-in global error 'This page couldn't load' seen on 2 cold loads ~11 min after deploy; 6+ later renders clean",
-          "recommendation": "Add app/error.tsx + global-error.tsx; reproduce with console open right after next deploy"
-        },
-        {
-          "title": "404 page conflicting robots meta and generic title",
-          "severity": "Medium",
-          "description": "not-found.tsx has no metadata; emits noindex and index,follow",
-          "recommendation": "Add metadata {title:'Page not found', robots:{index:false}}"
+          "description": "Transient crash would show Next's unbranded screen",
+          "recommendation": "Add themed error boundaries"
         },
         {
           "title": "No security headers",
           "severity": "Medium",
-          "description": "GitHub Pages cannot set headers",
-          "recommendation": "Requires hosting change (e.g. Cloudflare proxy)"
+          "description": "GitHub Pages limitation",
+          "recommendation": "Requires hosting change"
         },
         {
-          "title": "/feedback/ heading skip H1->H3",
+          "title": "/feedback/ H1->H3",
           "severity": "Low",
-          "description": "Footer h3s without H2",
-          "recommendation": "Add H2 or make footer headings non-heading elements"
+          "description": "Footer h3s",
+          "recommendation": "Add H2 or demote footer headings"
         }
       ]
     },
     {
       "name": "Content Quality",
-      "score": 60,
+      "score": 73,
       "what_works": [
-        "Specific, dense guides with tables and numbers",
-        "Low internal duplication (max 6.4%)",
-        "Readability ~grade 7",
-        "Honest published/updated dates"
+        "Factual errors fixed",
+        "38 primary-source citations in 13 guides",
+        "Named operator (Nelera)",
+        "Homepage original (0.1-0.5% overlap)",
+        "Every tool has \u22652 FAQs"
       ],
       "findings": [
         {
-          "title": "Homepage copy overlaps screentester.io verbatim",
-          "severity": "High",
-          "description": "31.7% of 6-grams shared, 30-45 word identical runs, mirrored H2 order; tool pages 0%",
-          "recommendation": "Rewrite HomeSections.tsx:5-141 and :157-387 in own words/structure"
-        },
-        {
-          "title": "Factual errors",
-          "severity": "High",
-          "description": "guides.ts:444 ISO classes; guides.ts:1983 iPhone parts; tools.ts:189-194 + HomeSections.tsx:29,178 DCI-P3 on sRGB canvas; HomeSections.tsx:39 IPS ~1ms",
-          "recommendation": "Correct each; route gamut to /wide-color-gamut-test/"
-        },
-        {
-          "title": "No named author/maintainer",
-          "severity": "High",
-          "description": "Byline 'By BestScreenTester'; /about promises 'who builds' but names nobody",
-          "recommendation": "Who-makes-this section on /about; author field on Guide; Person in Article schema"
-        },
-        {
-          "title": "Zero outbound citations",
-          "severity": "High",
-          "description": "0 external links in 44 guides naming ISO/VESA/ITU/Apple sources",
-          "recommendation": "Link primary sources inline"
-        },
-        {
-          "title": "Titles/excerpts over-promise",
+          "title": "Sources claim overstated",
           "severity": "Medium",
-          "description": "guides.ts:324 vs :367; :1460 vs body; :427 vs :431-477",
-          "recommendation": "Reword or add content"
+          "description": "Only 13/44 guides cite sources",
+          "recommendation": "Reword or cite remaining guides"
         },
         {
-          "title": "Thin tool pages",
+          "title": "Device-guide cards paraphrase competitor",
           "severity": "Medium",
-          "description": "90-268 unique words; 14 tools with 1 FAQ",
-          "recommendation": "Add about/results blocks + FAQs (C1)"
+          "description": "HomeSections.tsx:170-177",
+          "recommendation": "Rewrite blurbs"
         },
         {
-          "title": "Cannibalisation",
+          "title": "No first-hand evidence",
           "severity": "Medium",
-          "description": "color-gradient vs wide-gamut; greyscale 'gamma test'; black-screen vs bleed; 3 bleed/glow guides",
-          "recommendation": "One owner per query"
+          "description": "Experience 38",
+          "recommendation": "Add real photos/measurements"
         },
         {
-          "title": "Stale /donate counts",
-          "severity": "Medium",
-          "description": "'20' and '21+' vs 28",
-          "recommendation": "Use TOOLS.length"
+          "title": "Warm-up advice inconsistent",
+          "severity": "Low",
+          "description": "guides.ts:30 vs :98,:158",
+          "recommendation": "Harmonize"
         }
       ]
     },
     {
       "name": "On-Page SEO",
-      "score": 82,
+      "score": 89,
       "what_works": [
-        "Titles 24-62 chars, descriptions 116-159, no duplicates",
-        "Dense internal linking"
+        "Titles/descriptions within budget, no duplicates",
+        "Homepage H1 targets screen/monitor test",
+        "Related guides relevance-ranked"
       ],
       "findings": [
         {
-          "title": "Homepage H1 misses 'screen test'/'monitor test'",
+          "title": "Cannibalising pairs remain",
           "severity": "Medium",
-          "description": "page.tsx:41-43",
-          "recommendation": "H1 'Free Online Screen Test & Monitor Test'"
+          "description": "greyscale 'gamma test', black-level 'ips glow', color-test vs dead-pixel",
+          "recommendation": "One owner per query"
         },
         {
-          "title": "Related-guides modules pick by array order / generic tag",
-          "severity": "Medium",
-          "description": "guides.ts:2600-2602 first 4 in array order; :2583-2595 dominated by 'guide' tag (23/44)",
-          "recommendation": "Rank by relevance; drop generic tag from scoring"
+          "title": "Homepage <title> lacks 'Monitor Test'",
+          "severity": "Low",
+          "description": "page.tsx:17,29",
+          "recommendation": "Add it"
         }
       ]
     },
     {
       "name": "Schema / Structured Data",
-      "score": 84,
+      "score": 86,
       "what_works": [
-        "Organization/WebSite @id graph on every page",
-        "WebApplication with free Offer, no fabricated ratings",
-        "Article dates match visible dates"
+        "Consistent #organization/#website/#operator graph",
+        "512px logo",
+        "Author = Nelera via @id"
       ],
       "findings": [
         {
-          "title": "HowTo on tool pages",
-          "severity": "Info",
-          "description": "Rich result removed Sept 2023",
-          "recommendation": "Leave; do not extend"
-        },
-        {
-          "title": "FAQPage on home + tools",
-          "severity": "Info",
-          "description": "FAQ rich results retired May 7 2026",
-          "recommendation": "No action"
-        },
-        {
-          "title": "Inline publisher/author Organizations",
+          "title": "WebApplication.publisher inline",
           "severity": "Low",
-          "description": "seo.ts:151, :203",
-          "recommendation": "Reference #organization by @id; Person author once named"
+          "description": "seo.ts:171",
+          "recommendation": "Use @id"
         },
         {
-          "title": "No BreadcrumbList on hub pages",
+          "title": "No breadcrumbs on hubs",
           "severity": "Low",
           "description": "/tools/, /blog/, /about/",
-          "recommendation": "Use breadcrumbJsonLd"
+          "recommendation": "breadcrumbJsonLd"
+        },
+        {
+          "title": "HowTo/FAQPage",
+          "severity": "Info",
+          "description": "No SERP features",
+          "recommendation": "No action"
         }
       ]
     },
     {
       "name": "Performance (CWV)",
-      "score": 90,
+      "score": 93,
       "what_works": [
-        "Lab mobile 93-99 / desktop 100 on tool pages",
+        "Mobile 89-98 lab, desktop 100",
         "CLS 0",
-        "Text LCP element"
+        "Text LCP"
       ],
       "findings": [
         {
-          "title": "188 KB favicon on every page",
+          "title": "All tool code on every tool page",
           "severity": "Medium",
-          "description": "src/app/icon.png 512x512",
-          "recommendation": "Ship a small icon"
-        },
-        {
-          "title": "All 16 tool components bundled on every tool page",
-          "severity": "Medium",
-          "description": "ToolRunner.tsx:3-18 static imports (~38 KB gz)",
-          "recommendation": "next/dynamic per slug"
-        },
-        {
-          "title": "Geist Mono preloaded everywhere",
-          "severity": "Medium",
-          "description": "layout.tsx:3-4",
-          "recommendation": "Load only where used"
+          "description": "ToolRunner.tsx:3-18",
+          "recommendation": "next/dynamic"
         },
         {
           "title": "No field data",
           "severity": "Info",
-          "description": "No CrUX/PSI key",
-          "recommendation": "Configure google-api.json"
+          "description": "PSI rate-limited",
+          "recommendation": "Add API key"
         }
       ]
     },
     {
       "name": "AI Search Readiness",
-      "score": 65,
+      "score": 68,
       "what_works": [
-        "All AI crawlers allowed (12 UAs identical 200)",
-        "Server-rendered content",
-        "Labelled controls"
+        "All AI crawlers allowed",
+        "Server-rendered",
+        "Citations in 13 guides"
       ],
       "findings": [
         {
-          "title": "No citable 'what this test checks' passage on tool pages",
-          "severity": "High",
-          "description": "~132 words prose, FAQ answers ~30 words",
-          "recommendation": "Add about block (C1)"
-        },
-        {
-          "title": "Thin entity / anonymous operator",
+          "title": "Verdict table not extractable",
           "severity": "Medium",
-          "description": "Organization only name/url/logo",
-          "recommendation": "C2: named maintainer, contactPoint, real sameAs"
+          "description": "div grid",
+          "recommendation": "Real <table>"
         },
         {
-          "title": "No off-site brand presence found",
+          "title": "No off-site presence",
           "severity": "Medium",
-          "description": "0 HN/Wikipedia/YouTube mentions; not in Common Crawl graph",
-          "recommendation": "Reddit answers, demo videos, directories"
+          "description": "No mentions found",
+          "recommendation": "Reddit, videos, directories"
         },
         {
-          "title": "llms.txt absent",
-          "severity": "Low",
-          "description": "404; optional, ignored by Google",
-          "recommendation": "Optional static public/llms.txt"
+          "title": "Tool pages lack citable passage",
+          "severity": "Medium",
+          "description": "[tool]/page.tsx:104-135",
+          "recommendation": "Add about/results block"
         }
       ]
     },
     {
       "name": "Images",
-      "score": 85,
+      "score": 92,
       "what_works": [
         "All images have alt + dimensions",
-        "Header logo 3.4 KB"
+        "Favicon fixed"
       ],
       "findings": [
         {
           "title": "Eager hover previews",
           "severity": "Low",
-          "description": "~14 PNGs ~95 KB on homepage (ToolCard.tsx:23-29)",
-          "recommendation": "Load on hover / WebP"
+          "description": "ToolCard.tsx:23-29",
+          "recommendation": "Load on hover"
         },
         {
-          "title": "Oversized guide hero",
+          "title": "Hero alt text inaccurate",
           "severity": "Low",
-          "description": "1200x630 PNG shown at 574x301",
-          "recommendation": "Smaller WebP/AVIF in-page"
-        },
-        {
-          "title": "Inaccurate hero alt text",
-          "severity": "Low",
-          "description": "'illustrated diagram' for a title card (blog/[slug]/page.tsx:117)",
-          "recommendation": "Describe the actual image"
+          "description": "blog/[slug]/page.tsx:117",
+          "recommendation": "Describe the image"
         }
       ]
     }
@@ -274,48 +217,56 @@
   "action_plan": {
     "phases": [
       {
-        "name": "Phase 1: Critical Fixes",
-        "timeframe": "Week 1",
+        "name": "Phase 1: Quick Fixes",
+        "timeframe": "Under a day",
         "items": [
-          "C3 homepage rewrite (overlap + factual errors + H1 targeting)",
-          "Fix 4 factual errors and 3 over-promising titles/excerpts; /donate counts",
-          "Per-page honest lastmod for tools/static pages",
-          "not-found metadata; error.tsx/global-error.tsx; small favicon; no scrim on solid-colour previews",
-          "Fix related-guides ranking (guides.ts:2583-2602)"
+          "Sources claim",
+          "Device-guide blurbs",
+          "Homepage title",
+          "Refresh-rate preview",
+          "Verdict <table>",
+          "Sitemap date catch-up",
+          "Schema @id + breadcrumbs"
         ]
       },
       {
-        "name": "Phase 2: High-Impact Improvements",
-        "timeframe": "Weeks 2-3",
+        "name": "Phase 2: Trust & Tool Depth",
+        "timeframe": "1-2 weeks",
         "items": [
-          "C1 tool-page depth + capability (white/black presets, refresh-rate detail, dead-pixel swatches + fixer button, F to start)",
-          "C2 named maintainer, Person author, @id refs, primary-source citations, real photos"
+          "Cite remaining 31 guides",
+          "Author background/hardware",
+          "First-hand photos",
+          "Tool 'reading your result' blocks",
+          "SXO tool features",
+          "Error boundaries, contrast, warm-up"
         ]
       },
       {
-        "name": "Phase 3: Content & Authority",
+        "name": "Phase 3: Architecture & Authority",
         "timeframe": "Month 2",
         "items": [
-          "C4 resolve cannibalisation",
-          "New pages: by-brand dead-pixel policies, used-monitor test, fix burn-in, RMA guide, device pages",
-          "Off-site: Reddit answers, demo videos, directories",
-          "Perf: dynamic tool imports, font loading, lazy previews"
+          "Related-guides tag + related-tests module",
+          "Cannibalisation",
+          "Cluster P1 pages",
+          "Off-site mentions",
+          "Performance"
         ]
       },
       {
-        "name": "Phase 4: Monitoring & Iteration",
+        "name": "Phase 4: Monitoring",
         "timeframe": "Ongoing",
         "items": [
-          "Configure google-api.json for CrUX/GSC",
-          "/seo drift baseline now; compare after each phase",
-          "Weekly GSC impressions for 6 money queries + brand queries",
-          "Re-audit in ~8 weeks"
+          "Drift baseline",
+          "PSI/CrUX/GSC credentials",
+          "Weekly GSC impressions",
+          "Re-audit in 4-6 weeks"
         ]
       }
     ]
   },
   "artifacts": {
     "findings_dir": "findings/",
-    "screenshots_dir": "screenshots/"
+    "screenshots_dir": "screenshots/",
+    "baseline_commit": "3ebaa9f"
   }
 }

@@ -1,16 +1,34 @@
-# Sitemap audit - 2026-10-01
+# Sitemap re-audit - 2026-10-02 (live = main b6e17c2, deployed 2026-10-01 15:03 UTC)
 
-Pass: XML valid (80 unique <loc>, 13.5 KB); all 80 return 200, no redirects; all end in "/"; canonical == loc for all 80; no noindex; complete vs source (28 tools, 44 guides, 8 static = 80, nothing missing/extra); robots.txt has Sitemap line; IndexNow key file 200 and body matches key; robots does not block /ads.txt or key file.
+## Previous findings
+1. Blanket SITE_UPDATED lastmod (was Medium): FIXED. sitemap.ts:24-29 now uses per-tool `t.updatedAt`; static pages use `PAGE_UPDATED` (seo.ts:29-36); guides use per-guide dates (sitemap.ts:35). /about, /donate, /feedback, /privacy, /terms now carry distinct dates. SITE_UPDATED (seo.ts:23) is used only for /tools and /blog (sitemap.ts:14-15).
+2. changefreq/priority on all 80 entries (sitemap.ts:13-38): UNCHANGED, Info, removable.
+3. No guard against a future blanket bump: partly mitigated (per-entry fields), still no automated check. Low.
+
+## Pass/fail
+- XML valid (xmllint OK), 80 unique <loc>, 13.5 KB, urlset ns correct: PASS
+- All 80 return 200 with no redirect (redirects disabled in test), canonical == loc for all 80, no robots noindex: PASS
+- Completeness vs source (28 tools + 44 guides + 8 static = 80; GUIDES.length 44): PASS
+- robots.txt has Sitemap line; IndexNow key file 737833e7...txt present in public/: PASS
 
 ## lastmod distribution (live)
-- 2026-10-01: 53 (36 tools+static, 17 guides)
-- 2026-08-27: 23 (guides)
-- 2026-06-21: 4 (guides)
-Guide breakdown: 8 new guides (publishedAt 2026-10-01) + 9 guides with updatedAt bumped 2026-08-27 -> 2026-10-01 in cb1d550..HEAD. Guides are honest (per-guide dates, sitemap.ts:36).
+2026-10-02: 1 (/) | 2026-10-01: 54 | 2026-08-27: 16 | 2026-07-29: 2 (privacy, terms) | 2026-06-21: 7 (feedback, 3 tools, 3 guides).
 
-## Findings
-1. Medium - blanket lastmod for tools/static pages. sitemap.ts:13-20 and :25 use one SITE_UPDATED (seo.ts:16, "2026-10-01") for all 36 URLs. Git: SITE_UPDATED moved 2026-08-27 -> 2026-10-01 in cb1d550. Honest for: 8 new tool pages, tool pages touched today (inference: DeadPixel, Screensaver, Blooming, RefreshRate, FakeScreen, BootScreen, ScreenTearing components changed; 20 pre-existing tools not all changed), /, /tools, /blog (page.tsx/tools/blog changes in d65558f). NOT honest: /about, /privacy, /terms, /donate, /feedback - git log shows no change to these dirs since 2026-09-30. Effect: ~5 static + untouched tools get inflated lastmod and are submitted to IndexNow (indexnow.mjs 7-day window). Fix: per-entry dates, e.g. add `updatedAt` to Tool in tools.ts and static-page constants (LEGAL_UPDATED is already "July 29, 2026" in seo.ts:12 - parse it for privacy/terms/about); keep SITE_UPDATED only for /, /tools, /blog.
-2. Info - changefreq/priority present on all 80 (sitemap.ts:13-40); Google ignores them. Removable.
-3. Low (inference) - no lastmod mechanism guards against a future blanket SITE_UPDATED bump; consider deriving from git log in CI.
+## Honesty check (git)
+Verified honest:
+- / = 10-02: 9c86a61 rewrote the homepage (committed 2026-10-02 00:02 JST = 10-01 15:02 UTC). Date is JST; harmless.
+- /about, /donate = 10-01: 510a538 added author/operator text (about) and tool-count/operator copy (donate).
+- /tools, /blog = 10-01: d65558f added 8 tools and 8 guides.
+- 25 tools at 10-01: each tools.ts entry has content hunks since f769207 (diff -U0 of tools.ts) plus component changes; 8 are new.
+- 16 guides at 08-27: body byte-identical to f769207 (programmatic compare). 8 new guides at 10-01 (publishedAt), 17 existing guides at 10-01 have body changes vs f769207.
+- how-to-test-a-monitor-before-buying (06-21): body unchanged since f769207.
 
-No critical/high issues. Quality gate (location pages): n/a.
+Understated (Low, not harmful):
+- color-test, backlight-bleed-test, burn-in-test = 06-21, but their visible page changed 10-01: tools.ts entries only gained updatedAt, yet "Related guides" grew (color-test 10 -> 13 linking guides, backlight 6 -> 7, burn-in 5 -> 6 via `(/slug)` matching in guides.ts), "Related tests" grew with new same-category tools ([tool]/page.tsx:42), and ColorCycler added previewScrim={false} (visible preview change, FullscreenStage).
+- dead-vs-stuck-vs-hot-pixels (06-21): body gained an internal link to /blog/dead-pixel-warranty-policies since 08-27 (guides.ts:265 entry). Minor.
+- /feedback (06-21), /privacy and /terms (07-29): visible contact address changed nelera.com -> nelera.net on 10-01 (c90deb4: seo.ts CONTACT_EMAIL + ci.yml; live pages confirm nelera.net). Arguably trivial; privacy/terms displayed legal date correctly stays 07-29.
+Effect: these 7 pages are not re-submitted by IndexNow (7-day window); no inflation risk.
+
+## New issues
+- None critical/high. Only the Low understated-lastmod items above and the Info changefreq/priority.
+- Quality gate (location pages): n/a.

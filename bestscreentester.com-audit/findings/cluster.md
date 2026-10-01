@@ -1,5 +1,7 @@
 # Content Architecture / Topic Cluster Findings: bestscreentester.com
 
+> **Re-check 2026-10-02 (code only; the SERP research below is from 2026-10-01 and was not re-run):** tool-page guide ranking — FIXED (relevance-ranked, `guides.ts:2626`). Generic `guide` tag in related-guide scoring — still open (23/44 guides). Related tests = first 4 same-category tools — still open (`[tool]/page.tsx:42-45`). Flickering guide → PWM test link — still open. P1 page ideas below are all still open.
+
 Audit date: 2026-10-01. Seed: "monitor test". Sub-seeds: "dead pixel test", "refresh rate test", "backlight bleed", "OLED burn-in test".
 Scope: I read the code (src/lib/tools.ts, src/lib/guides.ts, src/app/[tool]/page.tsx, src/app/blog/[slug]/page.tsx, src/app/page.tsx, src/components/HomeSections.tsx, Footer.tsx) and parsed the link graph with a script. I ran 65 SERP lookups through the WebSearch tool. I did not edit any repo files.
 

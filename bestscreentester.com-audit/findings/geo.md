@@ -1,158 +1,149 @@
-# GEO / AI Search Readiness: bestscreentester.com
+# GEO / AI Search Readiness: bestscreentester.com (re-audit)
 
-Audit date: 2026-10-01. Method: live fetches (render_page.py, curl with AI-bot UAs), source read of src/lib/{seo,tools,guides}.ts, src/app/**, src/components/HomeSections.tsx; passage metrics computed from the GUIDES/TOOLS arrays.
+Re-audit date: 2026-10-02. Live build = main b6e17c2. Previous audit: 2026-10-01, score 58.
 
-## AI Search Readiness score: 58 / 100
+Method:
+- Live fetches with render_page.py (`--mode never`) of /, /black-screen/, /dead-pixel-test/, /about/, /blog/dead-pixel-warranty-policies/ and /blog/what-is-pwm-flicker/.
+- curl for robots.txt, llms.txt and nelera.net.
+- Metrics computed by importing the real `TOOLS` and `GUIDES` arrays with Node, from src/lib/tools.ts and src/lib/guides.ts at main.
+- Source read: src/components/HomeSections.tsx, src/lib/seo.ts, src/app/about/page.tsx, src/app/[tool]/page.tsx and src/app/blog/[slug]/page.tsx.
 
-| Dimension | Weight | Score | Weighted |
-|---|---|---|---|
-| Citability | 25% | 62 | 15.5 |
-| Structural readability | 20% | 72 | 14.4 |
-| Multi-modal content | 15% | 35 | 5.3 |
-| Authority & brand signals | 20% | 25 | 5.0 |
-| Technical accessibility | 20% | 90 | 18.0 |
+What was not re-run:
+- **AI-crawler UA test.** robots.ts was last changed in f769207, before the previous audit, and the live robots.txt is identical. The previous per-bot result (HTTP 200 for every bot) is carried over.
+- **Off-site brand-mention searches.** Per instruction, nothing changed off-site, so the previous result is carried over.
 
-Platform estimates (judgment, not measured): Google AI Overviews 60 · ChatGPT 50 · Perplexity 52 · Bing Copilot 58.
+## Score: 63 / 100 (+5)
 
-## What works
-- **Static SSR HTML.** `is_spa: false` on the home page, tool pages and guides. All copy, FAQ `<details>` bodies and guide MDX are in the raw HTML.
-- **All crawlers can get in, and robots.txt matches the source.** robots.txt (src/app/robots.ts:8-20) is `User-Agent: *`, `Allow: /`, plus two narrow disallows. `/_next/` and ads.txt are not blocked.
-  - Live fetch of /blog/what-is-pwm-flicker/ returned HTTP 200 with the same 44,452 bytes for each of these user agents: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User, bingbot, Googlebot, CCBot and Applebot.
-  - There is no X-Robots-Tag header and no nosnippet or max-snippet limit.
-- **Discovery is in place.** The sitemap has 80 URLs (28 tools, 44 guides, 8 static pages). IndexNow pings run in CI (.github/workflows/ci.yml:70-83) and the key file returns 200. That helps Bing and Copilot. It may also help ChatGPT search, which draws partly on Bing (this is an inference).
-- **Guides are solid.** There are 44 guides totalling 36,585 words (median 815).
-  - Many "what is" guides open with a definition sentence, e.g. PWM, ghosting, backlight bleed, IPS glow, refresh rate and banding.
-  - They contain concrete figures: frame times at 16.7, 8.3, 6.9 and 4.2 ms, and pixel counts.
-  - 8 guides have tables. Each guide shows visible published and updated dates and has matching Article JSON-LD dates.
-- **Section length.** There are 262 H2 sections with a median of 116 words. 38 sections are 134–167 words long and 147 are 100–200 words.
+| Dimension | Weight | Prev | Now | Weighted |
+|---|---|---|---|---|
+| Citability | 25% | 62 | 68 | 17.0 |
+| Structural readability | 20% | 72 | 74 | 14.8 |
+| Multi-modal content | 15% | 35 | 35 | 5.3 |
+| Authority & brand signals | 20% | 25 | 38 | 7.6 |
+| Technical accessibility | 20% | 90 | 90 | 18.0 |
 
-## AI crawler access by capability
-| Bot | Governs | robots.txt | Live fetch |
-|---|---|---|---|
-| OAI-SearchBot | ChatGPT Search citation | allowed | 200 |
-| ChatGPT-User | user-initiated fetches | allowed | 200 |
-| GPTBot | OpenAI training only | allowed | 200 |
-| Claude-SearchBot | Claude search citation | allowed | 200 |
-| Claude-User | user-initiated fetches | allowed | 200 |
-| ClaudeBot | Anthropic training only | allowed | 200 |
-| PerplexityBot / Perplexity-User | Perplexity search / user fetches | allowed | 200 |
-| Googlebot | Google Search incl. AI Overviews | allowed | 200 |
-| Google-Extended | Gemini/Vertex training + grounding (not AIO) | allowed (robots token only) | n/a |
-| bingbot | Bing / Copilot | allowed | 200 |
-| Applebot / Applebot-Extended | Siri/Spotlight / Apple Intelligence training | allowed | 200 |
-| CCBot, cohere-ai | training | allowed | 200 (CCBot) |
+Platform estimates are judgment, not measurement:
 
-Allowing the training bots is a policy choice. Blocking them would not affect search citation, so no change is required.
+| Platform | Prev | Now |
+|---|---|---|
+| Google AI Overviews | 60 | 63 |
+| ChatGPT | 50 | 53 |
+| Perplexity | 52 | 57 |
+| Bing Copilot | 58 | 61 |
+
+Perplexity gains most because it weights sourced passages.
+
+## AI crawler access (carried over; robots.txt unchanged)
+Live robots.txt is `User-Agent: *` / `Allow: /`, with two disallows (`/*__next` and `/*index.txt$`) plus the sitemap line. That matches src/app/robots.ts.
+
+| Bot | What it governs | Status |
+|---|---|---|
+| OAI-SearchBot | ChatGPT Search citation | allowed |
+| Claude-SearchBot | Claude search citation | allowed |
+| PerplexityBot | Perplexity search | allowed |
+| Googlebot | Google Search, including AI Overviews | allowed |
+| bingbot | Bing and Copilot | allowed |
+| Applebot | Siri, Spotlight and Safari | allowed |
+| GPTBot, ClaudeBot, CCBot, cohere-ai, Applebot-Extended | training only | allowed (a policy choice) |
+| Google-Extended | Gemini/Vertex training and grounding, not AI Overviews | allowed |
 
 ## llms.txt / RSL
-- /llms.txt, /llms-full.txt, /license.xml and /ai.txt all return a real 404.
-- llms.txt is optional, and Google Search ignores it. No platform has confirmed that it increases citations.
+- /llms.txt and /llms-full.txt still return 404.
+- llms.txt is optional, and Google ignores it. No platform has shown that it increases citations. Low priority.
 
-## Brand mentions off-site (only what was actually found)
-- **Wikipedia:** the API search for "bestscreentester" returns 0 hits, and exturlusage for bestscreentester.com returns 0.
-- **YouTube:** searching "bestscreentester" returns no results.
-- **Hacker News (Algolia):** 0 hits.
-- **GitHub:** the only hit is the source repo dkim0910/bestscreentester (public, 0 stars).
-- **Could not check:** Reddit (WebFetch is refused and curl gets a 302 to a wall), DuckDuckGo (captcha), Brave (429), Bing (bot-throttled, returned unrelated results). WebSearch was not available to this agent. LinkedIn was not checked.
-- **Conclusion:** no independent third-party mention was found anywhere I could check.
+## Brand mentions (carried over, not re-searched)
+- **Previous result:** Wikipedia 0, YouTube 0, HN 0. The only GitHub hit is the owner's own repo. Reddit could not be verified.
+- **New owned signal:** https://nelera.net/ (HTTP 200, title "Daniel Kim — Full-Stack Software Engineer & Product Builder") mentions BestScreenTester and links to https://bestscreentester.com. This is an owned property, not an independent mention.
 
-## Findings (prioritized)
+## Status of previous findings
 
-### 1. HIGH: Tool pages have no self-contained explanatory passage
+| # | Finding | Status | Evidence (live + source) |
+|---|---|---|---|
+| 1 | Tool pages lack a self-contained explanatory passage | **Open, partly improved** | No tool has a single FAQ any more (10 have 2, 18 have 3), and the FAQ-answer median rose from 29.5 to 36 words (range 15–66). But `ToolDef` still has no `about` field (keys are slug, name, title, tagline, description, category, icon, updatedAt, keywords, howTo, faq). src/app/[tool]/page.tsx:104-135 still renders only the H1, tagline, ToolRunner, "How to use" and "FAQ", with generic H2s. |
+| 2 | No outbound sources | **Partly fixed** | 38 external links across 13 of 44 guides and 25 domains: iso.org, itu.int, cie.co.at, vesa.org, displayhdr.org, hdmi.org, pmc.ncbi.nlm.nih.gov ×4, dell.com, support.apple.com and others. Live check: the warranty guide links iso.org/standard/40102, Dell's pixel guidelines and a pixel-policy PDF. **31 guides still have 0**, including what-is-pwm-flicker (live: no body links). See new finding N2. |
+| 3 | Manufacturer-coverage promise mismatch | **Fixed** | The excerpt is now "…ISO 9241 class limits, how brand policies count faults, and why returns win". The strings "each major manufacturer" and "actually promise" no longer appear anywhere in src. The body cites the Dell and ISO sources. |
+| 4 | Thin entity, anonymous author | **Partly fixed** | Live Article `author` = Organization "Nelera" (@id `/#operator`, url /about/). The visible byline "By Nelera" links to /about/. About has a "Who makes" section (src/app/about/page.tsx:45-55), and the Organization has `parentOrganization` (src/lib/seo.ts:201). Still missing: `description`, `email` and `sameAs` on the Organization (seo.ts:185-202), and the operator url only points back to the site (seo.ts:181). See N3. |
+| 5 | No off-site presence | **Open** | Carried over. |
+| 6 | Home page contradicts the guides | **Fixed** | HomeSections.tsx was rewritten and "IPS ~1ms" is gone. The verdict row "One dark (dead) pixel: Often within the maker's allowance" (HomeSections.tsx:77-80) matches the guides. |
+| 7 | Multi-modal is thin and an alt text is inaccurate | **Open** | src/app/blog/[slug]/page.tsx:117 alt is still `${post.title} — illustrated diagram` on a title card. There are no in-body diagrams, and tool pages don't show their own pattern image. |
+| 8 | Hook-style intros | **Open** | how-to-test-a-monitor-before-buying (guides.ts:78) still opens "A monitor is a multi-year purchase…". response-time-vs-input-lag (guides.ts:1004) still opens "These two specs get mixed up constantly." |
+| 9 | llms.txt absent | **Unchanged (info)** | 404 |
+| 10 | FAQPage/HowTo JSON-LD | **Unchanged (info)** | The homepage now also emits FAQPage (HomeSections.tsx:356-359). Keep it for search features; it is not claimed as an AI-citation factor. |
+
+## New findings
+
+### N1. MEDIUM: The "Normal, or worth returning?" table is lost in text extraction
 - **Evidence:**
-  - Tool pages carry a median of 132 words of prose (range 86–263). FAQ answers have a median of 29.5 words, and black-screen, white-screen, greyscale-test and others have a single FAQ.
-  - src/app/[tool]/page.tsx:100-135 renders only the tagline, the how-to list, the FAQ and tips. Nothing explains what the test reveals or how to read the result in a quotable passage.
-  - These pages target the head queries ("dead pixel test", "refresh rate test").
+  - All 11 verdict rows are in the raw HTML. That includes "One dark (dead) pixel", "Often within the maker's allowance" and "A connection fault".
+  - None of them survive in render_page's trafilatura `extracted_text`. Only the H2 and subtitle remain, and the text jumps straight to "Tests for newer screens".
+  - The symptom picker H3s, Prep cards, FAQ and "Who makes" block all do survive.
+  - The cause is that the table is a `<div>` grid whose header row is `hidden md:grid` (src/components/HomeSections.tsx:275-298).
+- **Caveat:** trafilatura is a proxy. No AI engine's actual extractor is known. Still, this is the most quotable new block on the homepage.
+- **Fix:** render VERDICTS as a semantic `<table>`:
+  - add a `<caption>`;
+  - use `<thead>` with `<th scope="col">` for "What you see", "What it usually is" and "What to do";
+  - make the first cell of each row `<th scope="row">`.
+  - Keep the responsive look with CSS. Then re-run render_page to confirm the rows are extracted.
+
+### N2. MEDIUM: Sourcing claims outrun the sourcing
+- **Evidence:**
+  - HomeSections.tsx:375-377 says "The guides cite the standards and manufacturer documents they rely on".
+  - src/app/about/page.tsx:52-54 says "Where a guide relies on a standard… it links to that source".
+  - Yet 31 of 44 guides have no outbound link, including guides that state standard values:
+    - gamma-explained (guides.ts:661) gives "2.2 (sRGB)";
+    - full-vs-limited-rgb-range (guides.ts:2287) gives "16–235";
+    - what-is-pwm-flicker (guides.ts:1512) makes flicker and health statements;
+    - plus ghosting, response-time, IPS glow and backlight-bleed guides.
+- **Fix:** link the primary sources: IEC 61966-2-1 (sRGB), ITU-R BT.1886, CTA-861 (RGB range) and IEEE 1789-2015 (flicker). Start with the highest-traffic uncited guides. Until then, soften the two sentences to "Many guides link…".
+
+### N3. LOW: The operator entity doesn't connect to its real home
+- **Evidence:**
+  - The site's operator schema url is /about/ (seo.ts:181) and has no `sameAs`. About (about/page.tsx:45-50) doesn't link nelera.net.
+  - nelera.net already links to bestscreentester.com.
+  - About calls Nelera "an independent developer", while the schema types it `Organization` (seo.ts:176-183).
 - **Fix:**
-  - Add an `about: string` field to `ToolDef` (src/lib/tools.ts:11-22). Write 130–170 words per tool whose first sentence is a definition, e.g. "A dead pixel test fills the screen with solid colors so that…".
-  - Render it right after `<ToolRunner>` (src/app/[tool]/page.tsx:108) under a question H2: "What does the {name} check?".
-  - Optionally add an "How to read the result" passage with concrete pass/fail criteria. Static only, no runtime cost.
+  - Add `sameAs: ["https://nelera.net/"]` to `operatorJsonLd`, plus the GitHub repo if it stays public.
+  - Add `description: SITE_TAGLINE` to the Organization (seo.ts:189-202).
+  - Link nelera.net from the About "Who makes" section.
+  - The owner should decide between Organization and Person and whether to name the person. nelera.net already does name them.
 
-### 2. HIGH: No outbound sources in any of the 44 guides
+### N4. LOW: Tool pages show no date or byline
 - **Evidence:**
-  - 0 external links across all guide bodies.
-  - Standards are named but never linked: ISO 9241-307 (4 guides), DisplayHDR 400/600, Rec. 2020, VESA Adaptive-Sync, CIE76.
-  - The defect-class figures are kept vague: "A handful of fully bright or dead pixels" (src/lib/guides.ts:434-446).
-- **Fix:**
-  - Link primary sources inline: the ISO catalogue entry, the VESA DisplayHDR spec, manufacturer pixel-policy pages, and Rec. 2020 / sRGB references.
-  - Give exact class limits only after checking them against a source you can link. Start with the warranty, HDR, color-gamut, refresh-rate and PWM guides.
+  - `ToolDef.updatedAt` exists but src/app/[tool]/page.tsx never renders it or OPERATOR_NAME.
+  - Live /dead-pixel-test/ text contains no "Updated" and no "Nelera".
+  - Guides do show both.
+- **Fix:** add "Updated {updatedAt} · By Nelera" under the tagline (page.tsx:105).
 
-### 3. MEDIUM: Two pages promise manufacturer coverage the guide doesn't contain
-- **Evidence:**
-  - The excerpt and meta description at src/lib/guides.ts:427 say "what each major manufacturer accepts".
-  - src/lib/guides.ts:251 says the warranty guide "covers what the major brands actually promise, including the ones with a zero-bright-pixel guarantee".
-  - The guide body (src/lib/guides.ts:431-477) names no brand.
-- **Fix:** either add a sourced table of manufacturer pixel policies (date-stamped, linked), or reword line 427 and line 251 to match what the guide actually covers.
-
-### 4. MEDIUM: The brand entity is thin and authorship is anonymous
-- **Evidence:**
-  - The Organization JSON-LD (src/lib/seo.ts:158-170) has only name, url and logo. It has no description, email or sameAs.
-  - The About meta description (src/app/about/page.tsx:7) promises "who builds and maintains the tools", but the body (lines 17-58) never names a person or company.
-  - Article author is the Organization (src/lib/seo.ts:203), and the byline is "By BestScreenTester" (src/app/blog/[slug]/page.tsx:125).
-  - The only external profiles are under "nelera" (ko-fi, buymeacoffee and patreon, at src/app/donate/page.tsx:30, 53 and 76).
-- **Fix:**
-  - Add `description: SITE_TAGLINE` and `email` to the Organization object.
-  - Add `sameAs` pointing to profiles the brand actually owns (GitHub repo, ko-fi/nelera, etc.). The owner should confirm the relationship to "nelera" first.
-  - Add a "Who runs this site" paragraph to About that names the maintainer and the publisher entity. Optionally use a Person author with a short bio page.
-
-### 5. MEDIUM: No off-site brand presence was found
-- **Evidence:** see the brand-mentions section above.
-- **Fix (off-site, no code):**
-  - Post short YouTube demos per test (dead pixel, refresh rate, PWM).
-  - Answer genuine Reddit threads (r/Monitors, r/OLED_Gaming, r/buildapc) where a test is relevant.
-  - List the site in free-tool directories.
-- These matter more for ChatGPT and Perplexity than on-page changes do.
-
-### 6. LOW: Home page claims contradict the guides
-- **Evidence:**
-  - src/components/HomeSections.tsx:39 says "IPS ~1ms, VA ~4–15ms". The guides say "1ms" is a best-case marketing figure (src/lib/guides.ts:988, 1011).
-  - src/components/HomeSections.tsx:246 ("≥1 bright pixel or severe bleed warrants a return") and :55 sit awkwardly beside src/lib/guides.ts:316, which says one isolated pixel often falls inside the allowance.
-- **Fix:**
-  - Change line 39 to "advertised 1ms is best-case; real dark transitions are slower, especially on VA".
-  - Change line 246 to "inside the return window, any bright pixel is worth returning; warranty claims follow the maker's pixel policy".
-
-### 7. LOW: Multi-modal content is thin and one alt text is inaccurate
-- **Evidence:**
-  - Each guide's only image is a title card, yet its alt says "— illustrated diagram" (src/app/blog/[slug]/page.tsx:117).
-  - There are no in-body diagrams and no video.
-  - Tool pages don't show their own pattern image. The /previews/*.png images appear only on related cards, with `alt=""`.
-- **Fix:**
-  - Change the alt to "{title}: cover image".
-  - Show `/previews/{slug}.png` on each tool's own page with a descriptive alt.
-  - Add 1–2 real diagrams to the top guides (sub-pixel fault map, PWM duty cycle).
-
-### 8. LOW: Some guide intros are hooks rather than answers
-- **Evidence:**
-  - how-to-test-a-monitor-before-buying opens with "A monitor is a multi-year purchase. Five minutes of testing protects it." (src/lib/guides.ts:76+).
-  - response-time-vs-input-lag opens with "These two specs get mixed up constantly." (src/lib/guides.ts:1001+).
-- **Fix:** start each guide with a one-sentence answer or definition, then the hook.
-
-### 9. INFO: llms.txt and RSL are absent
-- This is optional. Google ignores llms.txt and no AI citation benefit is proven.
-- If wanted, it is a zero-risk static file at public/llms.txt listing the tools and guides, and robots.txt already allows *.txt at the root.
-
-### 10. INFO: FAQPage and HowTo JSON-LD are present
-- Keep them for their search-feature uses.
-- No claim is made that they increase AI citation; the visible Q&A text is what matters.
+### N5. INFO: An unused second author shape in `articleJsonLd`
+- **Evidence:** the `authorName` branch at seo.ts:235-236 emits an author with url = site root and no @id. Nothing passes `authorName` (grep finds no callers), so it is latent.
+- **Fix:** reuse `operatorJsonLd()` or remove the branch.
 
 ## Top 5 changes by impact and effort
-1. Tool-page "What does X check?" passages (#1): about 1 day of copy for 28 tools, plus a 10-line template change.
-2. Sourced outbound citations and exact figures in the top 10 guides (#2): 1–2 days.
-3. Fix the manufacturer-coverage mismatch (#3): 1–4 hours.
-4. Entity hardening: Organization description, email and sameAs, plus the About "who we are" section (#4): 1 hour.
+1. Tool-page "What does the X check?" passage (#1): about 1 day of copy plus a 10-line template change.
+2. Sources for the 31 uncited guides, starting with PWM, gamma, RGB range and response time (N2/#2): 1–2 days.
+3. Semantic `<table>` for the verdict grid (N1): 30 minutes.
+4. Entity linking with sameAs to nelera.net, Organization description, and a link from About (N3): 30 minutes, needs owner confirmation.
 5. Off-site seeding on YouTube, Reddit and directories (#5): ongoing.
 
 ## Structured findings (audit-data.json, category "AI Search Readiness")
 ```json
-{"category":"AI Search Readiness","score":58,"findings":[
- {"id":"geo-tool-passages","severity":"high","evidence":"tool pages median 132 words prose; [tool]/page.tsx:100-135","fix":"add ToolDef.about (tools.ts:11-22), render after ToolRunner ([tool]/page.tsx:108)"},
- {"id":"geo-no-sources","severity":"high","evidence":"0 external links in 44 guides; vague ISO class figures guides.ts:434-446","fix":"link primary sources, add verified figures"},
- {"id":"geo-promise-mismatch","severity":"medium","evidence":"guides.ts:427 and :251 promise manufacturer policies; body 431-477 names none","fix":"add sourced table or reword"},
- {"id":"geo-entity","severity":"medium","evidence":"Organization seo.ts:158-170 lacks sameAs/description; about/page.tsx:7 promise unmet; author=Organization seo.ts:203","fix":"enrich Organization, name maintainer on About"},
- {"id":"geo-offsite","severity":"medium","evidence":"Wikipedia 0, YouTube 0, HN 0; Reddit unverifiable","fix":"YouTube demos, Reddit participation, directories"},
- {"id":"geo-home-contradictions","severity":"low","evidence":"HomeSections.tsx:39,:246 vs guides.ts:988,1011,316","fix":"align copy"},
- {"id":"geo-multimodal","severity":"low","evidence":"blog/[slug]/page.tsx:117 alt says diagram on a title card; tool pages lack own image","fix":"fix alt, show preview image, add diagrams"},
- {"id":"geo-hook-intros","severity":"low","evidence":"guides.ts:76+, :1001+","fix":"answer-first opening sentence"},
- {"id":"geo-llmstxt","severity":"info","evidence":"/llms.txt 404","fix":"optional public/llms.txt; Google ignores it"}
+{"category":"AI Search Readiness","score":63,"previous_score":58,
+ "dimensions":{"citability":68,"structural_readability":74,"multimodal":35,"authority_brand":38,"technical_access":90},
+ "platforms":{"google_aio":63,"chatgpt":53,"perplexity":57,"bing_copilot":61},
+ "findings":[
+ {"id":"geo-tool-passages","severity":"high","status":"open-improved","evidence":"no ToolDef.about; [tool]/page.tsx:104-135 unchanged; FAQs now 2-3/tool, answer median 36 words","fix":"add ToolDef.about, render after ToolRunner ([tool]/page.tsx:108)"},
+ {"id":"geo-no-sources","severity":"high","status":"partial","evidence":"38 ext links in 13/44 guides; 31 guides 0 (e.g. what-is-pwm-flicker guides.ts:1512)","fix":"link primary sources in remaining guides"},
+ {"id":"geo-promise-mismatch","severity":"medium","status":"fixed","evidence":"warranty excerpt reworded; body cites ISO + Dell"},
+ {"id":"geo-entity","severity":"medium","status":"partial","evidence":"Nelera named (byline, About, Article author, parentOrganization); no sameAs/description seo.ts:176-202","fix":"see geo-entity-link"},
+ {"id":"geo-offsite","severity":"medium","status":"open","evidence":"carried over: Wikipedia 0, YouTube 0, HN 0","fix":"YouTube demos, Reddit, directories"},
+ {"id":"geo-home-contradictions","severity":"low","status":"fixed","evidence":"HomeSections.tsx rewritten; :77-80 consistent with guides"},
+ {"id":"geo-multimodal","severity":"low","status":"open","evidence":"blog/[slug]/page.tsx:117 alt 'illustrated diagram' on title card","fix":"accurate alt, tool preview image, real diagrams"},
+ {"id":"geo-hook-intros","severity":"low","status":"open","evidence":"guides.ts:78, :1004","fix":"answer-first opening"},
+ {"id":"geo-verdict-table-extraction","severity":"medium","status":"new","evidence":"HomeSections.tsx:275-298 div grid; 11 rows in raw HTML, absent from trafilatura extracted_text","fix":"semantic <table> with caption/th scope"},
+ {"id":"geo-sourcing-claim","severity":"medium","status":"new","evidence":"HomeSections.tsx:375-377, about/page.tsx:52-54 claim guides link sources; 31/44 have none","fix":"add sources or soften copy"},
+ {"id":"geo-entity-link","severity":"low","status":"new","evidence":"operator url=/about/ seo.ts:181, no sameAs; nelera.net links to site but not reciprocated; 'independent developer' vs Organization","fix":"sameAs nelera.net, Organization description, About link"},
+ {"id":"geo-tool-page-date","severity":"low","status":"new","evidence":"[tool]/page.tsx renders no updatedAt/byline","fix":"render Updated + By under tagline (page.tsx:105)"},
+ {"id":"geo-author-branch","severity":"info","status":"new","evidence":"seo.ts:235-236 unused divergent author shape","fix":"reuse operatorJsonLd()"},
+ {"id":"geo-llmstxt","severity":"info","status":"unchanged","evidence":"/llms.txt 404","fix":"optional; Google ignores it"}
 ]}
 ```

@@ -1,48 +1,43 @@
-# Schema / Structured Data Audit - bestscreentester.com (2026-10-01)
+# Schema / Structured Data RE-AUDIT - bestscreentester.com (2026-10-02, live = main b6e17c2)
 
-Score: 84/100
+Score: 86/100 (previous 84, +2)
 
-## Sampled live (all HTTP 200, JSON-LD parsed)
-Home, /tools/, /blog/, /about/, 7 tools (dead-pixel, color, refresh-rate, fake-broken-screen, screen-info, hdr, touch-screen), 5 guides. Server-rendered (no SPA dependency). Format: JSON-LD only, @context https://schema.org everywhere, no Microdata/RDFa.
+## Method
+Fetched live HTML (raw, server-rendered; no SPA dependency) and parsed every JSON-LD block on: /, /tools/, /blog/, /about/, 7 tools (dead-pixel, color, refresh-rate, hdr, screen-info, touch-screen, pwm-flicker), 5 guides. Also counted FAQPage/HowTo on all 35 non-guide sitemap URLs. All JSON-LD only, @context https://schema.org, all blocks parse. All 13 referenced image URLs return 200 image/png; logo.png verified 512x512 (icon.png now 96x96, as the deploy note says).
 
-| Page type | Blocks |
-|---|---|
-| All pages (layout.tsx:49-50, one script holding an array) | Organization #organization, WebSite #website |
-| Home | + FAQPage (HomeSections.tsx:339-340) |
-| Tool | + HowTo, FAQPage, BreadcrumbList, WebApplication ([tool]/page.tsx:52-86) |
-| Guide | + Article, BreadcrumbList (blog/[slug]/page.tsx:81-107) |
-| /tools/, /blog/, /about/ | only the sitewide Organization + WebSite |
+## Previous findings status
+1. INFO HowTo on tools: STILL PRESENT. Live on 28/28 tool pages ([tool]/page.tsx:54, seo.ts:124). Not recommended, no SERP value, harmless. Do not extend.
+2. INFO FAQPage: CHANGED (content). Home has 6 Q&As (HomeSections.tsx:358). Tools: 18 pages have 3 Q&As, 10 have 2 (none missing). Still no Google SERP feature after May 7 2026; AI/GEO benefit unconfirmed. No action; do not add or remove for SERP reasons.
+3. INFO WebApplication not rich-result eligible: STILL PRESENT, correct (no ratings invented).
+4. LOW entity linking: PARTLY FIXED. Article.author now references the operator node (@id .../#operator) and publisher uses #organization: FIXED. WebApplication.publisher still an inline Organization with slash-less url `https://bestscreentester.com` and no @id (seo.ts:171): STILL PRESENT.
+5. LOW no BreadcrumbList on /tools/, /blog/, /about/: STILL PRESENT (those pages emit only the sitewide Organization + WebSite).
+6. LOW single Article image ratio: STILL PRESENT (1200x630 only).
+7. LOW Organization minimal (no sameAs/contactPoint): CHANGED. Now has logo (/logo.png 512px, ImageObject with width/height) and parentOrganization; still no sameAs/contactPoint.
+8. LOW date-only Article dates: STILL PRESENT (seo.ts:233-234). Valid; dates match visible bylines (TV guide: Published June 21, 2026, Updated October 1, 2026, matches datePublished 2026-06-21 / dateModified 2026-10-01).
+9. INFO WebApplication enrichment (@id/isPartOf): STILL PRESENT, optional.
 
-## Validation: passes
-- Organization logo = /icon.png, fetched: 512x512 PNG (min 112x112 ok). WebSite.publisher references @id correctly; @id values consistent (`https://bestscreentester.com/#organization`).
-- All URLs absolute with trailing slash (breadcrumb items, Article url/mainEntityOfPage, WebApplication url).
-- Article: headline, datePublished, dateModified, author, publisher, image all present. Dates match visible `<time>` (TV guide 2026-06-21 / 2026-10-01 verified on page). ISO 8601 date-only form.
-- Images resolve: /og/tools/*.png and /og/guides/*.png (10 checked) are 200, 1200x630 PNG; og.png 1200x630.
-- BreadcrumbList: 3 positions, names match visible breadcrumb, correct hierarchy.
-- WebApplication: offers (price 0 USD), applicationCategory UtilitiesApplication, operatingSystem, no fabricated aggregateRating (page.tsx:73 comment confirms intent). Correct.
-- No placeholder text, no deprecated types other than the HowTo noted below.
+## Operator / author / logo graph validation
+- Logo: PASS. Organization.logo = https://bestscreentester.com/logo.png, 512x512 (>=112 min), resolves. No longer points at the 96px favicon.
+- @id consistency: PASS. Across all 16 sampled pages #organization, #website, #operator are identical strings with the same properties (Nelera, url https://bestscreentester.com/about/). WebSite.publisher and Article.publisher use {"@id": ".../#organization"}. Article.author uses the full #operator node (same @id and properties as Organization.parentOrganization), so a graph consumer merges them cleanly.
+- Caveat: the #operator and #organization nodes are defined only as parts of the sitewide array, and the Article's publisher is an @id reference resolved only because the layout block is on the same page. That works because every page carries the sitewide block.
+- Does Organization author with url = About page satisfy Google's Article guidance? Yes. Google accepts Person or Organization as author, requires `name`, and `url` is optional (it should be a page that establishes the author, such as a profile or About page). The visible byline says "By Nelera" on the guide, matching author.name, and /about/ names Nelera ("built and maintained by Nelera, an independent developer"). Passes. Residual weakness (E-E-A-T, not a validity error): the author is a one-person entity with no individual Person, so there is no credential signal. Do not invent a Person; only add one if a real, named, visible author exists.
+- parentOrganization semantics: valid (Organization.parentOrganization). Note the site calls Nelera "an independent developer" while typing it as an Organization; acceptable, and the code comment (seo.ts:10-13) correctly avoids claiming "LLC".
+- Author URL points to /about/ whereas WebApplication.publisher still uses the root, so the two entities are not reconciled (see N1).
 
-## Findings
-
-1. INFO - HowTo on all 28 tool pages ([tool]/page.tsx:52-55, seo.ts:104-115). Google removed HowTo rich results Sept 2023: no SERP feature. Harmless; do not extend it to guides. Not recommended for new use.
-2. INFO - FAQPage on homepage + 28 tool pages (HomeSections.tsx:339, [tool]/page.tsx:56-59, seo.ts:92-102). FAQ rich results retired for all sites May 7 2026: no SERP benefit; any AI/GEO benefit unconfirmed. Valid markup, content visible on page; no action required.
-3. INFO - WebApplication is not eligible for the software-app rich result (needs aggregateRating or review). Currently offers only. Correct to leave as is; do not add invented ratings. Only add AggregateRating if real, first-party-collected, visible reviews exist.
-4. LOW - Entity linking: WebApplication.publisher is an inline Organization with `url: siteUrl()` (no trailing slash, no @id) at seo.ts:151, so it does not match the Organization node (`https://bestscreentester.com/`). Likewise Article.author inline Organization (seo.ts:203) while publisher uses @id. Fix: use `{ "@id": `${absoluteUrl("/")}#organization` }` for WebApplication.publisher (seo.ts:151) and Article.author (seo.ts:203; keep inline name only if a distinct author is passed).
-5. LOW - /tools/, /blog/, /about/ have no BreadcrumbList or page-level type, though the guide/tool pages do. Add BreadcrumbList (Home > Tools, Home > Guides, Home > About) in src/app/tools/page.tsx, blog/page.tsx, about/page.tsx using breadcrumbJsonLd (seo.ts:117). Small benefit (breadcrumb display in SERP for those pages). Optional: CollectionPage/ItemList for /blog/ and /tools/.
-6. LOW - Article image is a single 1200x630 (16:9-ish, 1.9:1). Google recommends images in multiple ratios (16x9, 4x3, 1x1). Optional; the "image" can be an array if more crops are generated.
-7. LOW - Organization is minimal (name, url, logo). Add `sameAs` only for real profiles (e.g. the actual Ko-fi/Patreon/GitHub pages the site links to) and optionally `contactPoint` using CONTACT_EMAIL (seo.ts:8) in siteJsonLd (seo.ts:155-182). Do not add placeholder profiles.
-8. LOW - Article date format is date-only ("2026-06-21"). Valid, but dateTime with timezone (e.g. 2026-06-21T00:00:00+00:00) is Google's preferred form; set in articleJsonLd (seo.ts:201-202) by appending a time.
-9. INFO - Optional WebApplication enrichment: `@id` (`<url>#webapp`), `isPartOf: {"@id": ".../#website"}`, `featureList`. No rich result impact.
+## New findings
+N1. LOW (carry-over of #4, restated) WebApplication.publisher inline, no @id, slash-less url. Fix seo.ts:171 to `publisher: { "@id": `${absoluteUrl("/")}#organization` }`. Removes a duplicate unreconciled Organization on 28 tool pages.
+N2. INFO Operator node is emitted in full inside every Article.author and again in the Organization, so it is duplicated on guide pages (harmless, same @id). Optional: in articleJsonLd (seo.ts:236-237) emit `{ "@id": ".../#operator" }` only, when no authorName override. Note the override branch (seo.ts:236) builds an author Organization with url = site root and no @id; that branch is not used live today, but would create a mismatched entity if any guide sets an author. Prefer `@type: Person` for named human authors.
+N3. INFO Home FAQ replaced and valid (6 Q&As, content visible per prior audit pattern); tool FAQ counts uneven (10 tools at 2 Q&As). No action; FAQPage has no SERP benefit.
+N4. LOW /about/ has no AboutPage type linking to the #operator entity (about/page.tsx). Optional: add AboutPage with `mainEntity: {"@id": ".../#operator"}` so the author url target is machine-tied to the entity. Low value.
 
 ## Missing opportunities (honest only)
-- BreadcrumbList on top-level pages (finding 5): the only concrete gain.
-- No VideoObject / Product / Review / Event / JobPosting applies; do not add.
-- Sitelinks SearchAction: not recommended (feature retired); site has no search anyway.
+- BreadcrumbList on /tools/, /blog/, /about/ (src/app/tools/page.tsx, src/app/blog/page.tsx, src/app/about/page.tsx via breadcrumbJsonLd, seo.ts:137). Only concrete gain.
+- No Product/Review/VideoObject/Event/JobPosting applies. Do not add HowTo. No SearchAction.
 
-## Ready-to-paste: breadcrumb for /tools/ (use in src/app/tools/page.tsx)
-```json
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Home","item":"https://bestscreentester.com/"},
-{"@type":"ListItem","position":2,"name":"Tools","item":"https://bestscreentester.com/tools/"}]}
+## Score movement
+84 -> 86. +3 Article author now a consistent @id-linked entity matching visible byline and About page; +1 logo meets size minimum and carries dimensions; -2 unchanged: WebApplication.publisher mismatch (#4/N1), no top-level breadcrumbs, no sameAs. Remaining deductions are the deprecated HowTo still emitted (info) and low-severity polish items.
+
+## Ready-to-paste (seo.ts:171)
+```ts
+publisher: { "@id": `${absoluteUrl("/")}#organization` },
 ```
-(Generate via `breadcrumbJsonLd([{name:"Home",path:"/"},{name:"Tools",path:"/tools"}])`; same for Guides /blog, About /about.)

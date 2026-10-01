@@ -1,15 +1,22 @@
-# SXO Findings: bestscreentester.com (complete)
+# SXO Findings: bestscreentester.com (RE-AUDIT, complete)
 
-Audit date: 2026-10-01. Category: Search Experience. **The SXO Gap Score is separate from the SEO Health Score.**
+Re-audit date: 2026-10-02. Category: Search Experience. **The SXO Gap Score is separate from the SEO Health Score.**
 
-## Method and data provenance
+## Re-audit scope
+- **Live build:** main `b6e17c2` (committed 2026-10-01T15:02:11Z). The live `Last-Modified` header is 15:03:09 GMT on every page. [inference] It is the b6e17c2 deploy.
+- **Re-rendered (ours only):** `/`, `/dead-pixel-test/`, `/refresh-rate-test/`, `/backlight-bleed-test/`, `/black-screen/` and `/white-screen/`, using `render_page.py --mode always` (Playwright) and `parse_html.py`. All returned 200.
+- **Screenshots:** `bestscreentester.com-audit/screenshots/sxo-recheck/` (home desktop and mobile, white-screen desktop, refresh-rate desktop, dead-pixel mobile).
+- **Reused, not re-run:** the SERP and competitor data from 2026-10-01. Homepage originality was re-measured against the screentester.io render saved on 2026-10-01 (`sti.json`, htmldate 2026-04-05). No new fetch was made.
+- **Labels:** **[verified]** means read in code or rendered output. **[inference]** means a judgment call.
+
+## Method and data provenance (2026-10-01 run, reused)
 - **Our pages:** rendered with `render_page.py --mode always` (Playwright Chromium) and parsed with `parse_html.py`. Pages: `/`, `/dead-pixel-test/`, `/refresh-rate-test/`, `/backlight-bleed-test/`, `/black-screen/`, `/white-screen/`. All returned 200 with 0 console errors. Above-the-fold views were checked with `capture_screenshot.py` (desktop 1920x1080, mobile 375x812 @2x).
 - **SERPs:** the WebSearch tool returned 9-10 results per query for "dead pixel test", "screen test", "refresh rate test", "monitor hz test", "backlight bleed test", "black screen", "white screen" and "monitor test". **This is not a live Google SERP.** A direct Google fetch was blocked, so there is **no PAA, AI Overview, ads, featured-snippet or related-search data**. Any user story that depends on those signals instead cites result titles and snippets.
 - **Competitors:** 25 competitor pages were rendered with the same tooling (word count, headings, JSON-LD), plus 14 desktop screenshots.
 - **Our rankings:** bestscreentester.com did **not** appear in the returned results for any of the 8 queries. It appeared only for the brand query "bestscreentester.com".
 - Labels: **[verified]** means read in code or rendered output. **[inference]** means a judgment call.
 
-## Per-query SERP summary
+## Per-query SERP summary (2026-10-01 data, reused; "Our page / gap" column is as of 2026-10-01; current status is in the findings below)
 
 | Query | SERP page type (consensus) | Top 3 competitors (tool-type) | Our page / gap |
 |---|---|---|---|
@@ -23,29 +30,60 @@ Audit date: 2026-10-01. Category: Search Experience. **The SXO Gap Score is sepa
 
 Our verified tool-page template (`src/app/[tool]/page.tsx:89-188`) is: breadcrumb > category label > H1 > tagline > `ToolRunner` (16:9 preview with "Start full-screen test") > How to use + FAQ > Tips > Related tests > Related guides. The order matches the Tool taxonomy ("tool interface above fold > brief instructions > FAQ > related tools").
 
-## Page-type mismatch verdict
-- dead-pixel-test, refresh-rate-test, white-screen: **ALIGNED** (Tool vs Tool).
-- backlight-bleed-test: **ALIGNED/MEDIUM**. The SERP rewards tool plus explanation. We are tool-first with a thin explanation.
-- black-screen: **MEDIUM**. About half the SERP is the "my PC shows a black screen" troubleshooting intent. Don't retarget; add an exit path.
-- Homepage for "screen test": **MEDIUM**. The ambiguous SERP is mostly the film meaning. Our tool-hub slice is aligned, but the page is not differentiated from screentester.io (Finding 1).
 
-## SXO Gap Scores (per page, 100 pts)
+## Page-type mismatch verdict (unchanged)
+| Page | Verdict |
+|---|---|
+| dead-pixel-test, refresh-rate-test, white-screen | **ALIGNED** |
+| backlight-bleed-test | **ALIGNED/MEDIUM** (the SERP rewards a tool plus an explainer) |
+| black-screen | **MEDIUM** (the troubleshooting half of the SERP is still unserved) |
+| Homepage, "screen test" | **MEDIUM** (the film meaning dominates that SERP) |
+| Homepage, "monitor test" | **ALIGNED** (the H1 now names both phrases) |
 
-| Page | Type /15 | Depth /15 | UX /15 | Schema /15 | Media /15 | Authority /15 | Fresh /10 | **Total** |
-|---|---|---|---|---|---|---|---|---|
-| /dead-pixel-test/ | 13 | 8 | 9 | 13 | 6 | 6 | 5 | **60** |
-| /refresh-rate-test/ | 12 | 6 | 7 | 13 | 5 | 6 | 5 | **54** |
-| /backlight-bleed-test/ | 12 | 7 | 9 | 13 | 4 | 6 | 5 | **56** |
-| /black-screen/ | 9 | 5 | 8 | 13 | 4 | 6 | 5 | **50** |
-| /white-screen/ | 12 | 5 | 6 | 13 | 4 | 6 | 5 | **51** |
-| / (screen/monitor test) | 11 | 12 | 10 | 9 | 6 | 4 | 5 | **57** |
+## SXO Gap Scores (same rubric, 100 pts)
 
-Evidence behind the scores:
-- **Schema:** every tool page renders WebApplication+Offer, HowTo, FAQPage and BreadcrumbList (page.tsx:52-87). The homepage has Organization, WebSite and FAQPage only.
-- **Depth:** parse_html word counts include nav and footer.
-- **Media:** no explanatory images or video on any tool page. 5-6 images found are logo/OG/hover previews.
-- **Authority:** no author, methodology or "how we measure" block. Homepage copy is derivative (Finding 1).
-- **Freshness:** htmldate reads 2026-01-01 on every page and there is no visible updated date. Competitors show 2026-06/08 dates (xbitlabs 2026-06-21, deadpixeltest.org 2026-08-01, thedisplaytest.org 2026-08-19).
+| Page | Type /15 | Depth /15 | UX /15 | Schema /15 | Media /15 | Authority /15 | Fresh /10 | **2026-10-01** | **2026-10-02** |
+|---|---|---|---|---|---|---|---|---|---|
+| / (screen/monitor test) | 12 (+1) | 13 (+1) | 12 (+2) | 9 | 6 | 7 (+3) | 6 (+1) | 57 | **65** |
+| /dead-pixel-test/ | 13 | 8 | 10 (+1) | 13 | 6 | 7 (+1) | 6 (+1) | 60 | **63** |
+| /refresh-rate-test/ | 12 | 8 (+2) | 9 (+2) | 13 | 5 | 7 (+1) | 6 (+1) | 54 | **60** |
+| /white-screen/ | 12 | 6 (+1) | 9 (+3) | 13 | 4 | 7 (+1) | 6 (+1) | 51 | **57** |
+| /backlight-bleed-test/ | 12 | 7 | 9 | 13 | 4 | 7 (+1) | 5 | 56 | **57** |
+| /black-screen/ | 9 | 6 (+1) | 8 | 13 | 4 | 7 (+1) | 6 (+1) | 50 | **53** |
+
+### Score evidence [verified unless labelled]
+
+**Homepage**
+- **Type and UX:**
+  - The H1 is "Free Online Screen Test & Monitor Test" (`src/app/page.tsx:42-44`).
+  - QuickColors now sits inside the hero (`page.tsx:64-66`). On mobile (375x812) the first row of swatches is above the fold (screenshot `sxo-recheck/home/..._mobile.png`). Before, it was below the fold.
+  - The primary CTA still navigates to /dead-pixel-test instead of starting a test (`page.tsx:50-55`).
+- **Depth:**
+  - The page now has a symptom → test → guide picker (`HomeSections.tsx:12`, rendered as 12 H3s) and a "Normal, or worth returning?" verdict list (`:75`, `:270-300`).
+  - Word count is 1,883 (parse_html, includes nav and footer) and 816 (trafilatura).
+- **Authority:**
+  - Overlap with screentester.io fell from **29.9% to 0.5%** of six-word shingles (10 of 1,907). All 10 shared shingles are short device-category phrases such as "tv screen test mini led blooming" and "how many dead pixels are acceptable".
+  - The mirrored H2 sequence is gone. The new H2s are: Quick full-screen colors / 4 categories / What's wrong with my screen? / Normal, or worth returning? / Tests for newer screens / Testing a specific device? / Before you test / Questions / Who makes BestScreenTester.
+  - A "Who makes" section names Nelera (`HomeSections.tsx:371-378`).
+  - Still missing: methodology, original photos and measurements.
+- **Schema:** unchanged. The rendered JSON-LD is Organization+WebSite and FAQPage only, with no ItemList or WebApplication.
+- **Freshness:** the sitemap lastmod is 2026-10-02 (`seo.ts:30`). No date is visible on the page. htmldate reads 2026-01-01 (source not traced).
+
+**Tool pages**
+- **Schema:** unchanged on all five: WebApplication+Offer, HowTo, FAQPage, BreadcrumbList.
+- **Freshness:**
+  - Per-tool `updatedAt` is 2026-10-01 for dead-pixel, refresh, black and white, and 2026-06-21 for backlight-bleed (`tools.ts:45,290,106,137,168`). These dates feed the sitemap.
+  - No visible date on the page. `webAppJsonLd` has no `dateModified` (`seo.ts:152`).
+  - htmldate picks the date up only from the RSC payload.
+- **Authority:** +1 site-wide for the named operator (About page and Organization `parentOrganization`, commit 510a538). Tool pages still have no methodology block.
+- **Dead pixel (UX +1):** the preview no longer gets a scrim (`DeadPixelTool.tsx:121`). 494 words (was 493).
+- **Refresh rate:**
+  - Inline readout shows one decimal (`RefreshRateTool.tsx:27`). Full-screen adds frame time and closest standard (`:30-35`, `detailed={active}` at `:48`). Steady-gap averaging is at `useRefreshRate.ts:40-46`.
+  - 3 FAQs, including "Why does it show 60 Hz on my 144 Hz monitor?" (`tools.ts:298-311`). 530 words (was 348).
+  - The preview is **still scrimmed**: no `previewScrim={false}` at `RefreshRateTool.tsx:44-49`. The screenshot shows a dimmed "60.0".
+- **White screen (UX +3):** the preview is pure white (screenshot; `ColorCycler.tsx:35`). 3 FAQs, including "Will the screen stay on while I use it as a light?". 445 words (was 319).
+- **Black screen:** 3 FAQs (`tools.ts:113-127`), 435 words (was 322). No colour row, presets or troubleshooting link.
+- **Backlight bleed:** no change. 389 words, 2 FAQs (`tools.ts:176-186`), no bleed vs IPS-glow imagery.
 
 ## User stories (derived from result titles and snippets; no PAA available)
 1. **Awareness, dead pixel.** As a new-monitor owner, I want to tell dead pixels from stuck ones, because I'm worried the panel is faulty, but I'm blocked by not knowing what a defect looks like. *(Signals: testufo "Dead Pixel **Simulator**"; snippet "If a pixel stays completely black always, it's a dead pixel... stuck on a single color".)*
@@ -55,140 +93,111 @@ Evidence behind the scores:
 5. **Utility, white/black.** As a video-call user, I want a one-tap light or backdrop, because my lighting is bad, but I'm blocked by tools that only show a single plain colour. *(Signals: snippet "most popular use of a white screen is as an instant key light... Zoom, Teams, Meet"; whitescreen.tv presets "Zoom Lighting / Screen Cleaning / Reading Light / Night Light"; blackscreen.space title "Focus, Zoom, and Eye Comfort".)*
 6. **Awareness, troubleshooting.** As a PC user whose screen went black, I want to fix it, but a "black screen" tool page doesn't help me. *(Signals: 5/9 "black screen" results are fix articles: Wikipedia BSoD, Lenovo, HP, AskLeo, AVG.)*
 
-## Persona scores (sorted weakest first)
+## Persona scores (re-scored, weakest first)
 
-| Persona (signal) | Relevance | Clarity | Trust | Action | Total | Rating |
-|---|---|---|---|---|---|---|
-| Black-screen troubleshooter (story 6) | 4 | 6 | 10 | 4 | **24** | Critical mismatch (low value; small fix only) |
-| Video-call / utility user (story 5) | 12 | 14 | 12 | 10 | **48** | Needs work |
-| Stuck-pixel fixer (story 3) | 18 | 12 | 14 | 12 | **56** | Needs work |
-| Phone/tablet checker (Play apps in 2 SERPs; deadpixeltest.org phone section) | 16 | 16 | 12 | 12 | **56** | Needs work |
-| Gamer verifying Hz (story 4) | 20 | 18 | 12 | 10 | **60** | Good |
-| Return-window buyer (stories 1-2) | 22 | 20 | 12 | 12 | **66** | Good |
+| Persona (signal) | Relevance | Clarity | Trust | Action | 2026-10-01 | **2026-10-02** | What changed |
+|---|---|---|---|---|---|---|---|
+| Black-screen troubleshooter (story 6) | 4 | 6 | 10 | 4 | 24 | **24** | Nothing: no troubleshooting exit |
+| Video-call / utility user (story 5) | 14 | 16 | 13 | 11 | 48 | **54** | True-white preview and a stay-awake FAQ. Still no presets or colour row |
+| Stuck-pixel fixer (story 3) | 18 | 12 | 15 | 12 | 56 | **57** | Fixer is still frame 10 of 10 |
+| Phone/tablet checker | 16 | 17 | 13 | 12 | 56 | **58** | Homepage swatches are above the fold on mobile |
+| Gamer verifying Hz (story 4) | 22 | 20 | 15 | 13 | 60 | **70** | Decimals, frame time, closest standard, 60 Hz FAQ. No in-tool "stuck at 60" callout |
+| Return-window buyer (stories 1-2) | 22 | 20 | 14 | 14 | 66 | **70** | Homepage "Normal, or worth returning?" table. Still no result capture |
 
-Systemic weak dimensions are **Trust** (no methodology, author or evidence) and **Action** (the test ends at Esc, with no "what next / record it / fix it" step).
+**Action** is still the weakest dimension across the board. Every test ends at Esc with no record or next step.
 
-## Prioritized findings
+## Status of 2026-10-01 findings
 
-### 1. HIGH: Homepage long-form copy paraphrases a ranking competitor (screentester.io) [verified]
+| # | Finding | Status | Evidence |
+|---|---|---|---|
+| 1 | Homepage copy paraphrased screentester.io | **RESOLVED** | 0.5% shingle overlap (was 29.9%); new H2 order; original symptom and verdict sections |
+| 2a | White preview rendered grey | **RESOLVED** | `ColorCycler.tsx:35` `previewScrim={false}`; screenshot is pure white |
+| 2b | Black/white colour row and presets | **OPEN** | Still a single frame each (`ToolRunner.tsx:49-53`) |
+| 2c | Black/white had 1 FAQ | **RESOLVED** | 3 each (`tools.ts:113,144`). 18 of 28 tools now have 3 FAQs and 10 have 2. None has 1 |
+| 3 | Refresh-rate result too thin | **PARTIAL** | Fixed: decimals, frame time, closest standard, averaging, 60 Hz FAQ. Still open: scrimmed preview, extra detail full-screen only, no jitter/min/max/dropped frames, no in-tool "stuck at 60?" link, no re-test |
+| 4 | Dead-pixel swatch row / fixer button | **OPEN** | Arrow picker only; fixer is the last frame (`DeadPixelTool.tsx:115-122`) |
+| 5 | Post-test result panel | **OPEN** | Nothing follows ToolRunner (`src/app/[tool]/page.tsx:108`) |
+| 6 | F/Enter to start | **OPEN** | Key handler returns early when inactive (`FullscreenStage.tsx:149`). The hint offers no start key (`:231-237`) |
+| 7 | Homepage H1, instant test, schema | **MOSTLY RESOLVED** | H1 and hero swatches are done. Still open: hero CTA navigates (`page.tsx:50-55`), no ItemList JSON-LD |
+| 8 | Tool pages thin | **PARTIAL** | FAQ growth added 100-180 words to the refresh/black/white pages. No "Reading your result" block; no bleed imagery |
+| 9 | Black-screen troubleshooting intent | **OPEN** (low) | No link in the tagline or FAQ (`tools.ts:101-127`) |
+| 10 | Phones get an overlay, not fullscreen | **OPEN** (low) | Not re-tested on a device |
+
+## New findings (2026-10-02)
+
+### N1. MEDIUM: Refresh-rate preview is still dimmed, and its caption sits under the Start button [verified]
 - **Evidence:**
-  - Our HomeSections H2 sequence matches screentester.io's homepage almost exactly: "Free online screen tester / Why choose X? / How to get started / Core testing tools / Screen troubleshooting guide / Device inspection guides / Frequently asked questions / Pixel-perfect precision for every screen".
-  - 423 of 1,417 (29.9%) six-word shingles in our HomeSections text (including footer) appear verbatim on screentester.io.
-  - Example of matching copy. Their text: "We render pure color patterns in browser fullscreen, directly driving GPU output to every physical pixel". Ours, at HomeSections.tsx:110: "We render pure color patterns in browser fullscreen, driving GPU output to every physical pixel".
-  - Other matching passages: Core tools blurbs (HomeSections.tsx:5-46), troubleshooting (48-89), FAQ (107-132), tips (134-141).
-  - screentester.io ranks for screen test, dead pixel test, refresh rate test, backlight bleed test and monitor hz test.
-  - Tool pages are original (≤0.4% overlap with any competitor).
-- **[inference]** Their htmldate is 2026-04-05. Our file's first commit is 2026-06-21 (`git log`), so ours is likely the derivative. That means near-zero information gain for "screen test"/"monitor test".
-- **Fix:** rewrite `src/components/HomeSections.tsx:5-141` (data arrays) and the section scaffolding at `:157-387` with original, first-hand material: our own test methodology, real photos/measurements, our own return-threshold guidance. Drop the mirrored section order.
-
-### 2. HIGH: White screen preview looks grey; black/white pages lack the utility features the SERP rewards [verified]
-- **Evidence:**
-  - The inline launcher lays a `bg-black/40` scrim over every preview (`src/components/tools/FullscreenStage.tsx:260`), so `/white-screen/` shows a grey 16:9 box (desktop screenshot).
-  - Black/white are single-frame cyclers (`src/components/tools/ToolRunner.tsx:49-53`).
-  - Competitors offer the following, above the fold:
-    - whitescreen.tv: a 10-colour row, presets (Zoom Lighting/Screen Cleaning/Reading Light/Night Light), a keep-awake checkbox, "Open on all screens" and resolution download.
-    - blackscreen.space: a colour row, size selector and download.
-    - blackscreen.cc: a "Press F" shortcut.
+  - `RefreshRateTool.tsx:44-49` does not pass `previewScrim={false}`, so `bg-black/40` applies (`FullscreenStage.tsx:266-268`). The desktop screenshot shows a grey "60.0".
+  - The "Measured from animation frames" caption (`RefreshRateTool.tsx:36`) is hidden behind the centred Start pill. It is not visible in the screenshot.
+  - The SERP leaders (testufo, xbitlabs) show the reading prominently before any click.
 - **Fix:**
-  - (a) For solid-colour tools, render the preview without the scrim and put the Start button in its own pill. Make the scrim conditional in `FullscreenStage.tsx:256-261`.
-  - (b) Add a swatch row and presets (warm/cool white for lighting, dim grey) to `ToolRunner.tsx:49-53`, reusing the `QuickColors.tsx:27-42` + `start(i)` pattern.
-  - (c) Add 3-4 FAQs at `src/lib/tools.ts:106-111` and `:128-133`. Each page has 1 FAQ today.
+  - Pass `previewScrim={false}`. The hint already gets its own backing pill (`FullscreenStage.tsx:296-303`).
+  - Raise the readout (for example `top-[8%]`), or render the frame-time line inline too. "Too small" holds only on mobile.
 
-### 3. HIGH: Refresh-rate result is thinner than every tool competitor [verified]
-- **Evidence:**
-  - Output is one integer, `Math.round(1000 / median)` over 60 frames (`src/components/tools/useRefreshRate.ts:22-24`), displayed alone (`RefreshRateTool.tsx:23-28`) and dimmed by the scrim (`FullscreenStage.tsx:260`).
-  - Competitors show more:
-    - xbitlabs: frame time 16.67 ms, confidence 98%, jitter variance, 60/144/240 spectrum, re-calibrate.
-    - testufo: 3-decimal Hz, fps and a READY state.
-    - fpstest: skipped frames, min/max interval, closest standard, resolution/DPR/colour depth.
-    - whatismyrefreshrate: display info, re-test, Download PDF Report.
-  - Only 1 FAQ (`tools.ts:253-258`).
+### N2. LOW: No visible "Updated" date or `dateModified` on tool pages [verified]
+- **Evidence:** the header has only the category, H1 and tagline (`src/app/[tool]/page.tsx:100-106`). `webAppJsonLd` carries no date (`seo.ts:152`). Competitors show 2026-06/08 dates.
 - **Fix:**
-  - Have `useRefreshRate` return `{hz, frameMs, min, max, jitter}`.
-  - Show decimals, frame time and "closest standard: 144 Hz" inline without the scrim.
-  - When the measured rate is ≤61 Hz, add a "Stuck at 60 Hz?" callout linking `/blog/how-to-enable-full-refresh-rate-windows-mac` (the guide exists, per HomeSections.tsx:81).
-  - Add FAQs: cable limits, battery throttling, Safari 60 fps cap.
+  - Render `Updated {tool.updatedAt}` under the tagline at `page.tsx:105`.
+  - Add `dateModified: tool.updatedAt` to `webAppJsonLd`.
 
-### 4. MEDIUM: Dead pixel test hides colour choice and the fixer [verified]
-- **Evidence:**
-  - Colours are picked only via the ←/→ picker (`FullscreenStage.tsx:265-287`).
-  - The stuck-pixel fixer is the last of 10 frames (`DeadPixelTool.tsx:116-121`), mentioned only in how-to step 5 (`tools.ts:46`).
-  - deadpixeltest.org ("Or pick a color to start the test with it"), xbitlabs (9-colour "Signal source" plus "Pixel Repair") and screentester.io (12-colour picker, custom hex, screen-info panel, shortcut table) expose these as one-click entries.
-- **Fix:**
-  - In `src/components/tools/DeadPixelTool.tsx:115-131`, add a swatch row under the stage that calls `start(i)` (needs a `ref`, as in QuickColors.tsx:10, 45-54).
-  - Add a "Fix a stuck pixel" button that calls `start(SOLID_COLORS.length)`.
-  - Optionally add a resolution/DPR line (reuse `readInfo` from ScreenInfoTool.tsx).
+### N3. LOW: 10 tools still have 2 FAQs, including backlight-bleed [verified]
+- **Evidence:** `tools.ts:176-186`. Others: color, brightness-uniformity, boot-screen, burn-in, overscan, sharpness, frame-skipping, wide-color-gamut, pwm-flicker.
+- **Fix:** for backlight-bleed, add "How much bleed is grounds for a return?" (the SERP is a hybrid tool and how-to).
 
-### 5. MEDIUM: No result capture or "next step" (systemic Action/Trust gap) [verified absence]
-- **Evidence:** no tool records an outcome. The session ends on Esc (`FullscreenStage.tsx:145-148`). Competitors offer "Download PDF Report"/"Share Feedback" (whatismyrefreshrate) and brand defect statistics (deadpixeltest.org).
-- **Fix:** add a client-only post-test panel below `ToolRunner` (`src/app/[tool]/page.tsx:108`). It should ask "Found something?", offer a copyable summary (date, resolution, measured Hz, defect notes) and link the return/fix guide. No backend is needed.
-
-### 6. MEDIUM: No keyboard shortcut to start the test [verified]
-- **Evidence:** keys are handled only while the stage is active (`FullscreenStage.tsx:141-143`). The hint text never offers a start key (`:225-231`). screentester.io advertises "F: enter fullscreen" and blackscreen.cc shows "Press F".
-- **Fix:** add a `keydown` listener when `!active && !hideLauncher` that maps `f`/Enter to `start(index)`, and show "Press F" in the hint.
-
-### 7. MEDIUM: Homepage under-targets "screen test"/"monitor test" and has no instant test on mobile [verified]
-- **Evidence:**
-  - The H1 "Test your screen in seconds — right in your browser" (`src/app/page.tsx:41-43`) contains neither phrase. The title is fine: "Free Online Screen Test" (`:17,29`).
-  - The hero CTA navigates to /dead-pixel-test (`:49-54`) instead of starting a test.
-  - QuickColors (`:66-68`) is above the fold on desktop but below the fold on mobile (screenshot).
-  - Competing hubs lead with an instant test: thedisplaytest.org H2 "Run Your Free Display Test Now", monitortest.im "Start with the real patterns".
-  - Homepage schema has no WebApplication/ItemList.
-- **Fix:**
-  - H1: "Free Online Screen Test & Monitor Test".
-  - Move QuickColors into the hero (or make the primary CTA call a stage `start()`).
-  - Add an ItemList of tools to the homepage JSON-LD.
-
-### 8. MEDIUM: Tool pages are thin against SERP leaders [verified]
-- **Evidence:**
-  - Our word counts: 319-493.
-  - Competitors: deadpixeltest.org 1,425, fpstest 1,203, screentester.io/dead-pixel-test 1,008, whitescreen.im 3,066, whitescreen.tv 1,042, darkblackscreen bleed 600.
-  - testufo ranks with ~5 words, so depth is not decisive for pure tools [inference].
-  - The backlight-bleed page has no example imagery. displayninja (#1) and darkblackscreen explain bleed vs IPS glow with visuals.
-- **Fix:**
-  - Add a "Reading your result / what's normal" block after ToolRunner (`page.tsx:110`), sourced from a new optional `results` field in `ToolDef` (`tools.ts:11-22`).
-  - Add 2 annotated photos (bleed vs glow) for backlight-bleed-test.
-  - Add dim-grey frames to `ToolRunner.tsx:55-64`.
-
-### 9. LOW: "black screen" troubleshooting half of the SERP is unserved [verified SERP, inference on value]
-- **Fix:** don't retarget. Add one line under the tagline ("Screen going black on its own? → guide") with a short troubleshooting guide in `src/lib/guides.ts`. Low priority; the traffic doesn't match the product.
-
-### 10. LOW: Phones get an in-page overlay, not true fullscreen [verified code; device behaviour not tested]
-- **Evidence:** `src/lib/fullscreen.ts:11` notes fullscreen "can be blocked (e.g. iOS Safari)". The fallback is a `fixed inset-0` overlay (`FullscreenStage.tsx:241`), so browser chrome stays visible. deadpixeltest.org serves full-screen videos for phones.
-- **Fix:** consider a phone-only "play full-screen video" option for dead-pixel and white/black screens.
+## Remaining top fixes (priority order)
+1. **Dead pixel:**
+   - Add a swatch row that calls `start(i)` and a "Fix a stuck pixel" button that calls `start(SOLID_COLORS.length)`, in `src/components/tools/DeadPixelTool.tsx:114-133`.
+   - Use the ref pattern from `QuickColors.tsx`.
+2. **White/black:**
+   - Add presets (warm/cool white, dim grey) and a colour row at `src/components/tools/ToolRunner.tsx:49-53`.
+   - Add a black-screen troubleshooting link in the tagline at `tools.ts:101`.
+3. **Refresh rate:**
+   - Remove the scrim (N1).
+   - Add a ≤61 Hz "Stuck at 60?" callout linking `/blog/how-to-enable-full-refresh-rate-windows-mac` (`RefreshRateTool.tsx:30-36`).
+   - Add min/max/jitter to `useRefreshRate.ts:40-46`.
+4. **Post-test panel:** client-only, with a copyable summary and a return/fix guide link, after `src/app/[tool]/page.tsx:108`.
+5. **Start key:** F/Enter starts the test when inactive, at `src/components/tools/FullscreenStage.tsx:148-149`. Show "Press F" in the hint at `:231-237`.
+6. **Homepage:**
+   - Add an ItemList-of-tools JSON-LD next to the FAQ block (`HomeSections.tsx:355-359`).
+   - Make the hero CTA launch a test, or keep it as is but label it as a link (`page.tsx:50-55`).
+7. **Backlight bleed:** add bleed vs IPS-glow example images and a third FAQ (`tools.ts:160-186`).
+8. **Dates:** show a visible updated date and add `dateModified` (N2).
 
 ## Positives (keep)
-- The tool is above the fold with one-click start on desktop and mobile for every tool page checked.
-- Static HTML includes H1, how-to and FAQ text.
-- Rich schema (WebApplication/HowTo/FAQ/Breadcrumb) is on every tool page.
-- Zero console errors.
-- The refresh-rate preview already measures Hz inline (60 Hz in headless).
+- The homepage is now original and organised around the site's own tests. The symptom picker and verdict table give it real information gain over the tool-hub SERP.
+- Solid-colour previews show the true colour.
+- The refresh-rate result now matches SERP expectations for decimals and closest standard.
+- Every tool page checked still has the tool above the fold and rich schema.
 
 ## Notes and limitations
-- No Google SERP features (PAA, AI Overview, ads, snippets, related searches) could be observed. WebSearch results may not match Google US rankings, and our absence from them is not a verified Google ranking.
-- screendetect.com (403 Cloudflare) and fullblackscreen.com (429) could not be fetched. xbitlabs monitor-hz-test rendered 0 words via the parser, but its screenshot was captured.
-- No search-volume data, so persona weights are qualitative.
-- No real-device testing (iOS fullscreen, high-Hz monitors). Headless measured 60 Hz.
-- `bestscreentester.com-audit/screenshots/home/*.png` (captured by another agent) show a "This page couldn't load" error. My Playwright re-render and re-capture of `/` at 21:37 rendered normally with 0 console errors, so treat those two files as a capture artifact and re-shoot them.
+- The SERP data is from 2026-10-01 (WebSearch, not live Google), with no PAA, AI Overview or ads. Rankings were not re-checked; a day is too short to see any effect.
+- The originality figure compares against the screentester.io render saved on 2026-10-01. Our side includes nav and footer (same method as before).
+- **Console:** `/white-screen/` logged one report-only CSP message: "Framing 'https://www.google.com/' violates frame-ancestors 'self'". [inference] It comes from a Google (AdSense) iframe, is report-only, and is not user-visible. All other pages logged 0.
+- Not tested:
+  - Real devices (iOS fullscreen, high-Hz monitors). Headless measured 60.0 Hz.
+  - Full-screen states. Frame time and closest standard were verified in code only.
 - Cross-skill follow-ups:
-  - `/seo content` for E-E-A-T and the originality rewrite (Finding 1).
-  - `/seo schema` for homepage ItemList.
-  - `/seo page` for thin tool pages.
+  - `/seo schema` for the homepage ItemList and tool `dateModified`.
+  - `/seo page` for the bleed explainer.
 
 ## Structured findings (audit-data.json, category "Search Experience")
 ```json
-[
- {"id":"sxo-1","severity":"high","title":"Homepage long-form copy paraphrases screentester.io","evidence":"Identical H2 sequence; 29.9% of HomeSections 6-gram shingles verbatim on screentester.io","fix":"Rewrite src/components/HomeSections.tsx:5-141,157-387 with original content"},
- {"id":"sxo-2","severity":"high","title":"White screen preview renders grey; black/white lack colour row/presets","evidence":"FullscreenStage.tsx:260 bg-black/40 scrim; ToolRunner.tsx:49-53 single colour; whitescreen.tv/blackscreen.space offer swatches, presets, download","fix":"Conditional scrim FullscreenStage.tsx:256-261; swatches+presets in ToolRunner.tsx:49-53; FAQs tools.ts:106,128"},
- {"id":"sxo-3","severity":"high","title":"Refresh-rate result is a single rounded integer","evidence":"useRefreshRate.ts:22-24; RefreshRateTool.tsx:23-28; competitors show frame time, jitter, decimals, closest standard, report","fix":"Return richer stats from useRefreshRate; show unscrimmed; add 60Hz-stuck callout + FAQs tools.ts:253"},
- {"id":"sxo-4","severity":"medium","title":"Dead pixel colour choice and stuck-pixel fixer not one-click","evidence":"FullscreenStage.tsx:265-287 arrow picker; fixer is frame 10 DeadPixelTool.tsx:116-121","fix":"Swatch row + 'Fix a stuck pixel' button in DeadPixelTool.tsx:115-131"},
- {"id":"sxo-5","severity":"medium","title":"No result capture / next step after a test","evidence":"Session ends on Esc FullscreenStage.tsx:145-148; competitors offer PDF report/share","fix":"Client-only post-test summary panel after ToolRunner at src/app/[tool]/page.tsx:108"},
- {"id":"sxo-6","severity":"medium","title":"No keyboard shortcut to start fullscreen","evidence":"Key handler only when active FullscreenStage.tsx:141-143","fix":"F/Enter starts stage when inactive; update hint :225-231"},
- {"id":"sxo-7","severity":"medium","title":"Homepage H1 lacks 'screen test'/'monitor test'; no instant test on mobile","evidence":"page.tsx:41-43 H1; hero CTA navigates :49-54; QuickColors below fold on mobile","fix":"New H1; move QuickColors into hero; add ItemList JSON-LD"},
- {"id":"sxo-8","severity":"medium","title":"Tool pages thin vs SERP leaders","evidence":"319-493 words vs 1,000-3,000 for deadpixeltest.org, fpstest, whitescreen.im","fix":"Add 'Reading your result' block after page.tsx:110 via new ToolDef field; bleed example images; extra frames ToolRunner.tsx:55-64"},
- {"id":"sxo-9","severity":"low","title":"'black screen' troubleshooting intent unserved","evidence":"5/9 results are black-screen-of-death fix articles","fix":"Add link + short troubleshooting guide in src/lib/guides.ts"},
- {"id":"sxo-10","severity":"low","title":"Phones get in-page overlay instead of true fullscreen","evidence":"src/lib/fullscreen.ts:11; FullscreenStage.tsx:241","fix":"Optional full-screen video fallback for phones"}
-]
+{"sxo_gap_scores":{"home":{"old":57,"new":65},"dead-pixel-test":{"old":60,"new":63},"refresh-rate-test":{"old":54,"new":60},"white-screen":{"old":51,"new":57},"backlight-bleed-test":{"old":56,"new":57},"black-screen":{"old":50,"new":53}},
+ "findings":[
+ {"id":"sxo-1","severity":"high","status":"resolved","title":"Homepage copy paraphrased screentester.io","evidence":"6-gram overlap 29.9% -> 0.5%; new H2 order"},
+ {"id":"sxo-2","severity":"high","status":"partial","title":"White/black screen utility","evidence":"Grey preview fixed (ColorCycler.tsx:35); 3 FAQs; still single frame ToolRunner.tsx:49-53","fix":"Presets + colour row in ToolRunner.tsx:49-53"},
+ {"id":"sxo-3","severity":"medium","status":"partial","title":"Refresh-rate result depth","evidence":"Decimals/frame time/closest standard (RefreshRateTool.tsx:27-35); no jitter, no stuck-at-60 callout","fix":"Callout + min/max/jitter (useRefreshRate.ts:40-46)"},
+ {"id":"sxo-4","severity":"medium","status":"open","title":"Dead pixel colour choice and fixer not one-click","evidence":"DeadPixelTool.tsx:115-122","fix":"Swatch row + fixer button"},
+ {"id":"sxo-5","severity":"medium","status":"open","title":"No post-test result capture","evidence":"Nothing after ToolRunner at src/app/[tool]/page.tsx:108","fix":"Client-only summary panel"},
+ {"id":"sxo-6","severity":"medium","status":"open","title":"No F/Enter start shortcut","evidence":"FullscreenStage.tsx:149 returns when inactive","fix":"Inactive keydown -> start(index); hint :231-237"},
+ {"id":"sxo-7","severity":"low","status":"mostly-resolved","title":"Homepage targeting / instant test","evidence":"H1 page.tsx:42-44; swatches in hero :64-66; no ItemList JSON-LD; CTA navigates :50-55","fix":"ItemList JSON-LD"},
+ {"id":"sxo-8","severity":"medium","status":"partial","title":"Tool pages thin","evidence":"refresh 530, white 445, black 435, bleed 389 words; no result block; no bleed imagery","fix":"Reading-your-result block; bleed images"},
+ {"id":"sxo-9","severity":"low","status":"open","title":"Black-screen troubleshooting intent unserved"},
+ {"id":"sxo-10","severity":"low","status":"open","title":"Phones get overlay, not fullscreen"},
+ {"id":"sxo-n1","severity":"medium","status":"new","title":"Refresh-rate preview still scrimmed; caption hidden under Start","evidence":"RefreshRateTool.tsx:44-49 no previewScrim={false}; caption :36","fix":"previewScrim={false}; raise readout"},
+ {"id":"sxo-n2","severity":"low","status":"new","title":"No visible updated date / dateModified on tool pages","evidence":"src/app/[tool]/page.tsx:100-106; seo.ts:152","fix":"Show updatedAt; add dateModified"},
+ {"id":"sxo-n3","severity":"low","status":"new","title":"10 tools still at 2 FAQs incl. backlight-bleed","evidence":"tools.ts:176-186"}
+ ]}
 ```
 
 Generate a PDF report? Use `/seo google report`.
