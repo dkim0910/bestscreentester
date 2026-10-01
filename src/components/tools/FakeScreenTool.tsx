@@ -1087,6 +1087,7 @@ export default function FakeScreenTool({ tool }: { tool: ToolDef }) {
       tool={tool}
       frameCount={LABELS.length}
       keepAwake
+      tapToExit
       startLabel="Start prank (full-screen)"
       frameLabel={(i) => LABELS[i]}
       renderFrame={(i) => {

@@ -143,10 +143,18 @@ export function viewingAngle({ ctx, width, height }: DrawArgs) {
 
 // ----- Gamma (1px stripes ≈ 50% vs reference grey patches) -----
 export function gamma({ ctx, width, height }: DrawArgs) {
-  for (let y = 0; y < height; y++) {
+  // The stripes must alternate on *physical* pixels to average exactly 50% light. Drawn
+  // in CSS pixels they land on half-pixels at 125%/150% scaling and blend into grey
+  // rows, which shifts the average and makes the wrong patch match. So draw them in
+  // backing-store pixels (pair with nativeResolution so that is the device grid).
+  const { canvas } = ctx;
+  ctx.save();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  for (let y = 0; y < canvas.height; y++) {
     ctx.fillStyle = (y & 1) === 0 ? "#ffffff" : "#000000";
-    ctx.fillRect(0, y, width, 1);
+    ctx.fillRect(0, y, canvas.width, 1);
   }
+  ctx.restore();
   // 255 * 0.5^(1/gamma) for γ = 1.8 / 2.0 / 2.2 / 2.4
   const patches = [
     { g: "1.8", v: 174 },

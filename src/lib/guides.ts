@@ -324,7 +324,7 @@ Photograph and count every fault today, while the return window is still open.`,
       "Flashing, the pressure method, and tapping — practical ways to revive a stuck pixel, how long to try each, and when to stop and claim warranty.",
     tags: ["stuck pixel", "fix", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `A stuck pixel is locked on one color, but unlike a dead pixel it often has power — which means you can sometimes shock it back to life.
 
 ## First, make sure it's actually stuck
@@ -335,7 +335,7 @@ Run the [Dead Pixel Test](/dead-pixel-test) through all its solid colors before 
 Also rule out dirt. A speck of dust, a dried water spot, or a fleck of toothpaste looks exactly like a stuck pixel until you clean it. Wipe the area first — carefully, following [how to clean your screen safely](/blog/how-to-clean-your-monitor-safely) — and check whether the dot moves when you shift your head slightly. A mark on the outer coating shifts against the image; a real pixel never does.
 
 ## Method 1: Rapid color flashing
-Cycling colors quickly over the stuck pixel exercises its sub-pixels. Open the [Dead Pixel Test](/dead-pixel-test), park the stuck pixel in view, and let fast color changes run for 10–30 minutes. This is the safest method — try it first.
+Cycling colors quickly over the stuck pixel exercises its sub-pixels. Open the [Dead Pixel Test](/dead-pixel-test), step to its last frame (**Stuck-pixel fixer**), drag the box over the stuck pixel and tap the box to start it flashing, then leave it running for 10–30 minutes. The box is deliberately small, but it does flash rapidly, so skip this method if you are sensitive to flashing light. It is otherwise the safest method — try it first.
 
 If half an hour does nothing, it's still worth leaving the cycle running for a few hours, or overnight. Flashing carries no risk of damage, so the only cost is time and a little power. Disable sleep and screensaver settings first, otherwise the display will blank partway through and you'll come back to nothing having happened.
 

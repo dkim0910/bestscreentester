@@ -13,7 +13,7 @@ export const LEGAL_UPDATED = "July 29, 2026";
 // Freshness date for the tools and the static pages. Sitemap `lastmod` is derived
 // from this rather than from build time: Bing discounts sitemaps whose lastmod is
 // always "now", so this must be a stable value that only moves when content does.
-export const SITE_UPDATED = "2026-08-27";
+export const SITE_UPDATED = "2026-10-01";
 
 export function siteUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";

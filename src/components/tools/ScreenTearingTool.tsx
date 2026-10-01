@@ -10,9 +10,16 @@ import type { ToolDef } from "@/lib/tools";
 const LABELS = ["Vertical bars (→)", "Horizontal bars (↓)"];
 
 function useTearing(speedRef: React.RefObject<number>) {
+  // Distance is accumulated frame by frame. Computing it as t × speed made every slider
+  // move jump the bars to an unrelated offset (a large t times a small speed change).
+  const travelRef = useRef(0);
+  const lastRef = useRef(0);
   return ({ ctx, width, height, t, frame }: DrawArgs) => {
     const bar = 80;
-    const travel = t * 1400 * speedRef.current;
+    const dt = lastRef.current ? Math.max(0, Math.min(0.05, t - lastRef.current)) : 0;
+    lastRef.current = t;
+    travelRef.current = (travelRef.current + dt * 1400 * speedRef.current) % (bar * 2);
+    const travel = travelRef.current;
     if (frame === 1) {
       const offset = (travel % (bar * 2)) - bar * 2;
       for (let y = offset; y < height + bar * 2; y += bar * 2) {

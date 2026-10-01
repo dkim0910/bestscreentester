@@ -11,6 +11,7 @@ interface CanvasStageProps {
   animate?: boolean;
   trackPointer?: boolean;
   keepAwake?: boolean;
+  nativeResolution?: boolean;
 }
 
 /** Wraps a PatternCanvas in the FullscreenStage for static multi-frame patterns. */
@@ -21,6 +22,7 @@ export default function CanvasStage({
   animate = false,
   trackPointer = false,
   keepAwake = true,
+  nativeResolution = false,
 }: CanvasStageProps) {
   return (
     <FullscreenStage
@@ -29,7 +31,13 @@ export default function CanvasStage({
       frameLabel={(i) => labels[i] ?? ""}
       keepAwake={keepAwake}
       renderFrame={(i) => (
-        <PatternCanvas frame={i} draw={draw} animate={animate} trackPointer={trackPointer} />
+        <PatternCanvas
+          frame={i}
+          draw={draw}
+          animate={animate}
+          trackPointer={trackPointer}
+          nativeResolution={nativeResolution}
+        />
       )}
     />
   );
