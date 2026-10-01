@@ -1,23 +1,29 @@
-# Agentic readiness: bestscreentester.com (2026-10-01)
+# Agentic readiness: bestscreentester.com (re-audit 2026-10-02, main b6e17c2)
 
-Lighthouse Agentic Browsing: unavailable. PSI returned HTTP 429 (daily quota, no API key) for mobile and desktop. Not scored as X/N.
-Agent-UX heuristic (separate from Lighthouse): 100/100, complete, on /, /dead-pixel-test/, /refresh-rate-test/. 0 unnamed interactive nodes, 0 div-onclick widgets, landmarks present.
-Tool controls labeled: FullscreenStage.tsx:259 (Start, "label - tool name"), :271/:282 (Previous/Next pattern), :307/:313 overlay Previous/Next (aria-label), :320 button.
+Lighthouse Agentic Browsing: unavailable. PSI HTTP 429 (daily quota, no API key) for mobile and desktop. Not scored as X/N.
+Agent-UX heuristic (separate from Lighthouse): 100/100, complete, unchanged. Pages: / (1243 nodes, 101 interactive, 9 buttons, 92 links, 0 unnamed, 0 div-onclick), /dead-pixel-test/ (358 nodes, 0 unnamed), /blog/new-device-screen-test-checklist/ (440 nodes, 0 unnamed).
 
-Agentic check: server-rendered pass (2056 words without JS); robots reachable; 404s real; unknown URL not catch-all.
+## New homepage checks
+- Hero color swatches are real `<button type="button">` with aria-label "Show <Color> full screen" (9 of them, Black..Gray 50%). Named, keyboard focusable (focus ring).
+- Landmarks in static HTML: header, nav, main, footer. Heading order: one h1, then h2/h3 with no skipped levels (footer h3 after h2 is fine).
+- Symptom picker items are plain anchors (92 links, all named).
+- Server-rendered: 1948 words without JS (previous run 2056 on the old homepage; expected from the rewrite). No JS shell marker.
+- Caveat: swatch buttons need JS and the Fullscreen API; a headless agent can click them but cannot meaningfully run the test. Descriptions remain in static HTML.
+
+## Unchanged since the earlier audit
+git log for src/app/robots.ts and public/llms.txt shows no commits since f769207; live robots (1 group, `*`) and 404 for /llms.txt confirm it. 404 probe still real 404.
 
 ## Access policy
-- Training: no named groups, falls to `*` Allow / (allowed). No Content-Signal.
-- Search: allowed (`*`). Only Disallow /*__next and /*index.txt$ (src/app/robots.ts:14).
-- User-triggered: not blocked. Claude-User honours robots; ChatGPT-User may not apply; Perplexity-User/Google-Agent generally ignore (vendor docs).
+- Training: no named groups, falls to `*` (allowed). No Content-Signal.
+- Search: allowed. Only Disallow /*__next and /*index.txt$ (src/app/robots.ts:14).
+- User-triggered: not blocked. Claude-User honours robots; ChatGPT-User may not apply; Perplexity-User and Google-Agent generally ignore (vendor docs, checked 2026-09-23).
 
-## Findings
-- P1 (info): No Content-Signal line. Fix: add `Content-Signal: search=yes, ai-input=yes, ai-train=<choice>` to the group; Next MetadataRoute.Robots cannot emit it, so use a static public/robots.txt in place of robots.ts (then drop robots.ts, keep the same Disallows). Draft/preference only; Google does not act on it (checked 2026-09-23).
-- P1 (opportunity): no /llms.txt (404). Adds a counted Lighthouse pass if valid (H1, > summary, Markdown links). Fix: public/llms.txt listing 28 tools and key guides. Static, no hosting change.
-- P2 (opportunity): no Markdown delivery (no Accept negotiation, no .md siblings, no rel=alternate). Accept negotiation requires hosting change; .md files could be generated statically. No consumer agent confirmed to request it.
-- P2 (opportunity): no WebMCP (0 registerTool, 0 forms). Draft W3C CG, not a standard. Could expose tools as launch actions; low priority.
-- P3: no ai-catalog.json, api-catalog, OAuth, agent-card (404). N/A: no APIs/services. Drafts (checked 2026-09-23).
-- Note: fullscreen tests (Fullscreen API/Wake Lock) cannot be meaningfully run by headless agents; the pages do expose full descriptions, how-to and FAQ in static HTML.
+## Findings (no new defects)
+- P1 (opportunity): no Content-Signal. Draft/preference only; Google does not act on it (2026-09-23). Needs static public/robots.txt since MetadataRoute.Robots cannot emit it.
+- P1 (opportunity): /llms.txt 404. A valid file (H1, > summary, Markdown links) adds a counted Lighthouse audit.
+- P2 (opportunity): no Markdown delivery (no Accept negotiation, /index.md 404, no rel=alternate).
+- P2 (opportunity): no WebMCP (0 registerTool, 0 forms). W3C CG draft, not a standard (2026-09-23).
+- P3: ai-catalog.json, api-catalog, OAuth, agent-card absent; N/A for a static site (drafts, 2026-09-23).
 
 ## Structured findings (AI Search Readiness)
 [{"title":"No Content-Signal in robots.txt","severity":"Low","description":"No AI usage preference declared; robots.txt has only a * group.","recommendation":"Switch to static public/robots.txt with Content-Signal line (draft, preference only)."},

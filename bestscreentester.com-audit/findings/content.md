@@ -1,189 +1,188 @@
-# Content Quality / E-E-A-T: bestscreentester.com
+# Content Quality / E-E-A-T: bestscreentester.com (RE-AUDIT)
 
-Audit date: 2026-10-01. Live site = build of `main` (main and dev differ only in CNAME).
+Re-audit date: 2026-10-02. Live build = `main` b6e17c2. main and dev differ only in `CNAME`, so the source line numbers below are valid for the live build.
+Previous run (2026-10-01): Content 64. The orchestrator adjusted it to 60 for homepage overlap with screentester.io.
 
 Method:
-- Fetched all 80 sitemap URLs with `render_page.py --mode never`: all returned 200, about 1 s apart, run sequentially.
-- Read `src/lib/tools.ts`, all of `src/lib/guides.ts`, the page templates, `HomeSections.tsx`, about, donate and seo.ts.
-- Word counts come from the source (unique copy) and from the live `extracted_text`.
-- Labels: anything not checked directly is marked **(inferred)**. Anything checked against an outside source is marked **(verified externally)**.
+- Sampled live pages with `render_page.py --mode never`: homepage, /about/, 6 tool pages and 6 guides. All returned 200, and no page was an SPA shell.
+  - Tool pages: white-screen, black-screen, contrast, greyscale, ghosting, color-gradient.
+  - Guides: how-to-fix-a-stuck-pixel, dead-pixel-warranty-policies, color-gamut-srgb-vs-dci-p3-vs-adobe-rgb, hdr-explained, how-to-test-a-used-phone-screen-before-buying, oled-burn-in-and-how-to-check-for-it.
+- Rendered screentester.io with `--mode auto`.
+- Diffed the source from 29b4107 (previous audit) to main, and read every new FAQ and the full new homepage copy.
+- Checked the claims against the components that implement them.
+- Checked status codes on all 34 unique citation URLs with curl.
+- Labels: anything not checked directly is marked **(inferred)**.
 
 ## Scores
 
-| Metric | Score |
-|---|---|
-| **Content Quality (overall)** | **64 / 100** |
-| E-E-A-T weighted (internal model) | 47.5 / 100 |
-| AI-citation readiness | 68 / 100 |
-
-The E-E-A-T breakdown uses the skill's internal weights. These are not Google's.
-
-| Factor | Score | Basis |
-|---|---|---|
-| Experience (20%) | 35 | Advice is practical and specific. But there are 0 first-person or testing signals and 0 real photos or measurements, and every guide image is a generated title card. |
-| Expertise (25%) | 60 | Technical depth is good: GtG vs MPRT, RGB range, DSC bandwidth, ΔE2000. 3 factual errors were verified, and there are no author credentials. |
-| Authoritativeness (25%) | 30 | The 44 guides contain 0 outbound citations. No author is named, and no external recognition is shown. |
-| Trustworthiness (30%) | 60 | Present: privacy and terms pages, mailto contact, HTTPS, an honest "not a substitute for calibration" note, and no fake ratings. Against it: an anonymous operator, stale counts on /donate, and homepage claims that contradict the guides. |
-
-## What works
-- **Guides are genuinely useful.** They are specific and non-generic: tables, exact menu paths, numbers (bandwidth, PPI, nits) and "what it isn't" sections. Text duplication is low: the highest shared 6-gram rate between any two guides is 6.4%.
-- **Readability fits a consumer audience.**
-  - Guides: median Flesch 69.4, FK grade 7.3, 14.5 words per sentence.
-  - Tools: median Flesch 68.6, FK grade 8.0.
-- **Plugin `content_quality.py` result:** 0 filler matches and 0 AI-pattern matches on all 80 pages. Overall scores range from 67 to 94.
-- **Internal linking is dense.** Every guide links to between 2 and 11 tools and to at least 1 other guide.
-- **Freshness is honest.** Each guide shows its published date plus an updated date. The `updatedAt` values (2026-08-27 and 2026-10-01) match real commit dates (f769207, cb1d550, 5d9b89f, d65558f). I checked commit dates only, not the per-guide diffs.
-- **Metadata is not templated.** `metadata_template.py` over 80 pages: `site_risk: low`, `templated_ratio: 0.0`, `shared_cta_phrases: {}`.
-
-## Thinnest pages
-
-**Tool pages.** "Unique copy" is title + tagline + howTo + FAQ + tips from tools.ts. The live extracted text also includes the shared Related tests and Related guides cards.
-
-| Tool | Unique words | Live extracted words | Unique 5-gram share |
+| Metric | Now | Before | Delta |
 |---|---|---|---|
-| white-screen (tools.ts:113-134) | 90 | 295 | 41% |
-| black-screen (tools.ts:91-112) | 97 | 298 | 29% |
-| contrast-test (tools.ts:433-455) | 103 | 328 | 37% |
-| greyscale-test (tools.ts:162-184) | 113 | 328 | 33% |
-| ghosting-test (tools.ts:260-282) | 117 | 296 | 43% |
+| **Content Quality (overall)** | **73 / 100** | 64 (60 adjusted) | +9 (+13 vs adjusted) |
+| E-E-A-T weighted (internal model) | 59.2 | 47.5 | +11.7 |
+| AI-citation readiness | 76 | 68 | +8 |
 
-Across all tools: unique copy runs from 90 to 268 words. On 12 of the 28 tool pages, less than 50% of the main text is unique to that page. 14 tools have only 1 FAQ.
+These weights are the skill's own model, not Google's.
 
-**Guides.** All 44 are below the 1,500-word blog floor. They total 36,641 words, with a median of 819 and a range of 681 to 975.
+| Factor | Now | Before | Basis |
+|---|---|---|---|
+| Experience (20%) | 38 | 35 | **Better:** the new "what your result means" FAQs and the homepage "Normal, or worth returning?" table add practical judgement. **Still missing:** 0 first-hand signals, 0 real photos, 0 "tested on" notes. |
+| Expertise (25%) | 72 | 60 | **Better:** all 4 previously verified errors are fixed, and 26 new FAQs checked out with no factual errors. **Against it:** 1 self-contradiction remains (guides.ts:373), and the author has no stated background. |
+| Authoritativeness (25%) | 48 | 30 | **Better:** 38 links (34 unique URLs) to primary sources (ISO, ITU, CIE, IEC, SMPTE, VESA, HDMI, Apple, AAO, PMC) across 13 guides. **Still missing:** the named author is a brand, not a person, and there is no external recognition. |
+| Trustworthiness (30%) | 72 | 60 | **Better:** the operator is named, About has a correction policy, /donate counts are fixed, homepage contradictions are fixed, and the FAQs say plainly what the tools can't measure. **Against it:** the operator's entity type is ambiguous, and About is thin. |
 
-| Guide | Body words | Live extracted words |
+**What moved the score:**
+- Factual errors were fixed.
+- Primary-source citations were added.
+- The homepage was rewritten in original copy. Overlap with screentester.io fell from 19–32% to about 0.5%, which removes the orchestrator's −4 adjustment.
+- Every tool now has 2–3 FAQs.
+- A byline was added.
+
+**What still caps it:**
+- No first-hand evidence (photos, test hardware).
+- All 44 guides are still under the 1,500-word blog floor: median 836, range 695–995, total 37,607.
+- There is no human author with credentials.
+- About is thin.
+- One homepage block still paraphrases the competitor.
+
+## Homepage overlap with screentester.io (6-gram shingles)
+
+| Text basis | Homepage words | Unique 6-grams | Shared with screentester.io |
+|---|---|---|---|
+| trafilatura `extracted_text` | 831 | 826 | 1 (0.1%) |
+| Full visible HTML text | 1,917 | 1,902 | 10 (0.5%) |
+
+Previous measurement: about 19–32%. Only 35 of 1,917 visible words (1.8%) fall inside shared runs. Most of those come from the device-guide cards (see NEW-1).
+
+## Previous findings: status
+
+| ID | Status | Evidence |
 |---|---|---|
-| do-you-still-need-a-screensaver (guides.ts:2457) | 681 | 699 |
-| harmless-screen-pranks (guides.ts:2509) | 689 | 711 |
-| cracked-screen-glass-or-lcd (guides.ts:2396) | 729 | 761 |
-| what-is-ips-glow (guides.ts:1355) | 747 | 780 |
-| is-it-my-screen-or-my-graphics-card (guides.ts:2210) | 752 | 797 |
+| HIGH-1 No named author | **CHANGED (partial)** | **Done:** the byline is "By Nelera", linked to /about (`src/app/blog/[slug]/page.tsx:125-128`). About has a "Who makes" section (`src/app/about/page.tsx:45-54`). The homepage has a "Who makes" block (`src/components/HomeSections.tsx:372-378`). Live on all sampled guides. **Still missing:** the author is a brand typed as `Organization` (`src/lib/seo.ts:235-236`), with no person, credentials or test hardware. See NEW-2. |
+| HIGH-2 Zero citations | **FIXED (mostly)** | 38 outbound links in 13 guides. Spot-checked live: iso.org/standard/40102 and isic PDF (warranty guide), support.apple.com/102658 (phone guide), displayhdr.org and VESA True Black (HDR guide), ITU BT.2020 (gamut guide). Remaining gaps: NEW-4. |
+| HIGH-3.1 ISO classes | **FIXED** | guides.ts:447 now gives Class 0 through the looser classes and notes 13406-2's numbering. Live: "Class 0" present, "Class III and IV" gone. |
+| HIGH-3.2 iPhone parts history | **FIXED** | guides.ts:1986: "iPhone 11 and newer … XR, XS and SE 2nd/3rd generation show battery history only". Live. |
+| HIGH-3.3 Color Gradient gamut | **FIXED** | **Copy:** the tagline, description and keywords in tools.ts no longer mention gamut or P3. A new FAQ says "Can this test my color gamut? No." **Live:** the only "dci-p3" on the page is the Related-guides card for the gamut guide. |
+| HIGH-3.4 Homepage "IPS ~1ms" | **FIXED** | The homepage was rewritten. "IPS ~1ms" is absent from the live HTML. |
+| MEDIUM-1 Dark-room advice | **FIXED** | HomeSections.tsx:190: "Bleed, blooming and black-level tests need a properly dark room". This matches tools.ts:110, :357, :568, :974, :994. |
+| MEDIUM-1 Warm-up time | **CHANGED, still inconsistent** | **Homepage:** HomeSections.tsx:182 says "about five minutes before testing, and 20–30 minutes before calibrating". **Guides:** guides.ts:98 (monitor guide) says to test after 20-30 minutes, and :158 (TV) says 20–30 minutes before judging uniformity. guides.ts:31 (checklist) says five minutes. |
+| MEDIUM-2 /donate counts | **FIXED** | `src/app/donate/page.tsx:9` and `:24` use `TOOLS.length`. |
+| MEDIUM-3.1 Stuck-pixel title | **FIXED** | "How to Fix a Stuck Pixel: 4 Methods Worth Trying". Live. |
+| MEDIUM-3.2 Burn-in excerpt | **FIXED** | It now reads "…how to tell permanent burn-in from retention that fades". |
+| MEDIUM-3.3 "likely dead, not stuck" | **STILL PRESENT** | guides.ts:373 still says this, which contradicts the dead-pixel definition at guides.ts:335. Live. |
+| MEDIUM-4 Thin tool pages / 1 FAQ | **FIXED** | The 14 named tools went to 3 FAQs; all 28 tools now have 2–3. Unique copy is now 144–307 words (was 90–268). The thinnest are boot-screen-simulator (144) and color-test (152). Plugin `content_quality.py` scores: white-screen 72, contrast-test 81. |
+| MEDIUM-5 No experience signals | **STILL PRESENT** | 0 `![` images in guides.ts. The hero alt is still "— illustrated diagram" (`src/app/blog/[slug]/page.tsx:117`). No test hardware is named anywhere. |
+| MEDIUM-6 Cannibalisation | **PARTIAL** | **Fixed:** color-gradient vs wide-gamut. **Still present:** the greyscale keyword `gamma test` (tools.ts:197); the black-level keyword `ips glow` (tools.ts:566); color-test vs dead-pixel ("find pixel defects", tools.ts:75 vs :42); and the bleed/glow guide cluster (untouched). **Changed:** the black-screen description (tools.ts:103) now lists dust, OLED and dim uses, but the new FAQ "Why do the edges glow on a black screen?" leans back into bleed. |
+| LOW-1 AI-typical phrasing | **PARTIAL** | **Fixed:** the overclaims ("Pixel-perfect", "every quality dimension"…) are gone. **Still present:** "comprehensive OLED-specific coverage" (HomeSections.tsx:175) and "essential for used-phone checks" (:172). The guide tics are unchanged: 12.1 em dashes per 1,000 words, "Here's" in 15/44 excerpts, "return window" ×21. |
+| LOW-2 "Free <title>…" openers | **STILL PRESENT** | For example tools.ts:42, :75 and :103. |
+| Thin guides (<1,500) | **STILL PRESENT** | All 44 guides, median 836 words. Live extracted words on the sampled guides: 883–991. |
+| /about thin (220) | **CHANGED, still thin** | 286 extracted words (347 visible), against a floor of 400. The plugin flags `thin-content` and `low-density`. |
+| INFO HowTo JSON-LD on tool pages | **STILL PRESENT** | `src/app/[tool]/page.tsx:54` (for the schema owner). |
+| INFO tool-page dates | **CHANGED** | Tools now carry `updatedAt` (tools.ts). htmldate reads 2026-10-01 on the sampled tool pages; it previously fell back to 2026-01-01. I did not check whether the date is visible on the page. |
 
-**Static pages:**
-- /about: 220 words (About floor is 400).
-- /donate: 94 words.
-- /feedback: 31 words.
-- Homepage: 1,284 words (passes).
+## New findings
 
-## Findings
+### NEW-1 (MEDIUM): Device-guide cards still paraphrase screentester.io
+The rest of the homepage was rewritten, but `src/components/HomeSections.tsx:170-177` (`DEVICE_GUIDES`) has not changed since 1aec280 (2026-06-21, per `git log -L`). It keeps screentester.io's card structure and its phrasing, with only a word or two swapped:
 
-### HIGH-1: No named author or operator anywhere (E-E-A-T, Trust)
-**Evidence:**
-- The guide byline is `By {SITE_NAME}` (`src/app/blog/[slug]/page.tsx:125`).
-- Article JSON-LD sets the author as an Organization (`src/lib/seo.ts:203`).
-- The /about meta description promises "who builds and maintains the tools" (`src/app/about/page.tsx:7`), but the body never names anyone (about/page.tsx:12-60).
-- Only /donate says "one solo developer" (`src/app/donate/page.tsx:22`).
-- /about is 220 words.
+| Ours | screentester.io |
+|---|---|
+| "OLED burn-in, touch dead zones, tint — essential for used-phone checks" | "OLED burn-in, touch dead zones, PWM flicker — essential for used phone inspection" |
+| "IPS/VA/OLED testing" | "IPS/VA/OLED panel testing" |
+| "comprehensive OLED-specific coverage" | "comprehensive OLED-specific issue coverage" |
+| "IPS bleed, VA ghosting, OLED blacks" | "IPS bleed, VA ghosting, Mini LED blooming" |
+| "do it after unboxing" | "Must-do after new TV unboxing" |
+
+Shingle overlap is low only because of the swapped words.
+
+**Fix:** rewrite the six `body` strings at :171-176 to say what each guide actually covers, in the guides' own terms. Alternatively, drop the section: the symptom grid already links these guides.
+
+### NEW-2 (MEDIUM): Author entity is ambiguous and carries no credentials
+- `src/app/about/page.tsx:46-47` calls Nelera "an independent developer", which reads as a person.
+- `src/lib/seo.ts:10-13` describes "Nelera" as the name of a not-yet-formed LLC.
+- Article JSON-LD types the author as `Organization` (`src/lib/seo.ts:236`).
+- No person, background or test hardware is given anywhere.
 
 **Fix:**
-1. Add a "Who makes this" section to about/page.tsx, before the `<h2>A note on accuracy</h2>` at line 45. It should give a real name or a consistent pen name, the person's display-testing background, and what hardware the tests were checked on.
-2. Add `author?: string` to the `Guide` interface (`src/lib/guides.ts:5-17`).
-3. Render that author in the byline at blog/[slug]/page.tsx:125 and pass `authorName` to `articleJsonLd` (page.tsx ~line 85).
-4. Either deliver what the about meta description promises, or reword it.
+1. Name the person behind Nelera, or a consistent pen name.
+2. Emit a `Person` author with `worksFor` Nelera (seo.ts:235-236).
+3. Add 2–3 lines to about/page.tsx:45-50: display-testing background, plus the panels the tests were checked on. This also lifts /about over the 400-word floor.
 
-### HIGH-2: Zero citations in 44 guides that cite standards (Authoritativeness)
-**Evidence:** `grep -c "](http" src/lib/guides.ts` returns 0. Meanwhile the guides name:
-- ISO 9241-307 (guides.ts:251, 316, 434)
-- VESA DisplayHDR (guides.ts:1655-1657, 2392)
-- Rec. 2020 (guides.ts:562)
-- D65 (guides.ts:782, 825)
-- Apple parts history (guides.ts:1983)
+### NEW-3 (LOW): Warm-up guidance still contradicts the guides
+See MEDIUM-1 above.
 
-**Fix:** Add 1–3 source links per standards claim, inline in guides.ts. Suggested sources:
-- ISO catalogue page for 9241-307 at :434
-- displayhdr.org tier table at :1655
-- ITU-R BT.2020 at :562
-- support.apple.com/en-us/102658 at :1983
+**Fix:** change HomeSections.tsx:182 to "about five minutes for pixel checks; 20–30 minutes before judging uniformity or calibrating". That matches guides.ts:31, :98, :158 and :498.
 
-This lifts both trust and AI-citation readiness.
-
-### HIGH-3: Factual errors (Expertise, Trust)
-1. **ISO class structure is wrong** (guides.ts:444). The guide describes ISO 9241-307 as Class I as strictest, then "Class III and IV". Wikipedia's ISO 9241 summary lists Class 0 (zero defects) through Class 3, with no Class IV (**verified externally**, secondary source; confirm against the standard). Class IV belonged to the older ISO 13406-2.
-   - **Fix:** rewrite :444 as "Class 0 (no faults) … Class 3", and keep the 13406-2 mention at :434 as history.
-2. **iPhone parts-history claim is wrong** (guides.ts:1983). The guide says "iPhone 11 and earlier show battery history only". Apple support 102658 lists **Display** for iPhone 11 models too; only XR, XS and SE 2/3 are battery-only (**verified externally**).
-   - **Fix:** change it to "flagged on iPhone 11 and newer".
-3. **The Color Gradient Test claims gamut checking it cannot do.** It claims DCI-P3 / gamut coverage in four places: tools.ts:189 tagline, :191 description, :194 keywords `gamut test`, `dci-p3`, and HomeSections.tsx:29 and :177. But `colorGradient` draws sRGB hex stops on a default canvas (`src/components/tools/patterns.ts:23-46`), so it cannot show any color outside sRGB.
-   - **Fix:** drop the gamut and P3 wording in those places and link to /wide-color-gamut-test.
-4. **Homepage response-time figures are wrong** (`HomeSections.tsx:39`: "IPS ~1ms, VA ~4–15ms"). The guides themselves call 1 ms a best-case marketing figure (guides.ts:988, 1011) and say IPS has "some dark-transition smear" (guides.ts:1026).
-   - **Fix:** remove the ms figures.
-
-### MEDIUM-1: Homepage advice contradicts tools and guides (Trust)
-- **Dark room.** HomeSections.tsx:130 says "Only backlight-bleed testing needs darkness." Other pages say otherwise:
-  - tools.ts:294 (blooming): "Dim the room"
-  - tools.ts:467 (black level): "Dim the room"
-  - tools.ts:891 (wide gamut): "dim room"
-  - guides.ts:30 (checklist): "in a dimly lit room"
-  - **Fix:** say dark for bleed, blooming and black level, and normal light for everything else.
-- **Warm-up time.** HomeSections.tsx:135 says "Warm up 15–30 min … at least 15 minutes". The guides vary:
-  - guides.ts:30: "five minutes"
-  - guides.ts:96 and :156: "20-30 minutes"
-  - guides.ts:785: "at least 30 minutes" (calibration)
-  - **Fix:** pick one figure for defect testing (for example 15 min) and keep 30 min for calibration only.
-
-### MEDIUM-2: Stale counts on /donate (Trust)
-**Evidence:** `src/app/donate/page.tsx:8` says "all 20 screen tests", and :23 has `{21}+ screen tests`. The live count is 28.
-
-**Fix:** import `TOOLS` and use `TOOLS.length`, as page.tsx:19 already does.
-
-### MEDIUM-3: Headlines and excerpts promise more than the bodies deliver
-1. The stuck-pixel title says "4 Methods That Actually Work" (guides.ts:324), but the body says "There's no technique that reliably fixes them" (guides.ts:367).
-   - **Fix:** retitle to "How to Fix a Stuck Pixel: 4 Methods Worth Trying".
-2. The burn-in excerpt says "spot it early while it's still fixable" (guides.ts:1460), but the body says burn-in is permanent (guides.ts:1502-1506).
-   - **Fix:** "…how to tell temporary retention from permanent burn-in."
-3. The stuck-pixel guide says "the pixel is likely dead, not stuck" (guides.ts:370). That contradicts its own test at :335, where a pixel black on every color is dead.
-   - **Fix:** "…it's unlikely to recover."
-
-### MEDIUM-4: Thin, partly boilerplate tool pages
-**Evidence:** see the table above. Unique copy is 90–268 words, and 14 tools have a single FAQ: white, black, contrast, greyscale, ghosting, refresh-rate, color-gradient, screensaver, viewing-angle, blooming, gamma, screen-tearing, black-level, fake-broken. Tool pages are utilities, so word count is not the goal. What is missing is help reading the result.
-
-**Fix:** in tools.ts, add a short "What your result means" set: 2–3 more `faq` items plus 1–2 `TOOL_TIPS`. Start with white-screen (:113-134, :801-804), black-screen (:91-112, :797-800), contrast-test (:433-455, :845-848), greyscale-test (:162-184, :809-812) and ghosting-test (:260-282, :825-828). Keep FAQPage schema as Info only.
-
-### MEDIUM-5: No first-hand experience signals
-**Evidence:**
-- No in-body images: 0 `![` in guides.ts.
-- The guide hero is a generated title card, but its alt text says "illustrated diagram" (`blog/[slug]/page.tsx:117`).
-- No "tested on <model>" notes and no measured readings.
+### NEW-4 (LOW): Uneven citation coverage and four links to recheck
+- **31 of 44 guides have no outbound link.** That makes "The guides cite the standards and manufacturer documents they rely on" (HomeSections.tsx:375-377 and about/page.tsx:51-53) only mostly true.
+- **Uncited claims:**
+  - new-device-screen-test-checklist names ISO 9241-307 with no link.
+  - what-is-pwm-flicker states health effects ("headaches, eye strain, or fatigue") without a source.
+- **Links to recheck:** curl got 403 from iso.org/standard/40102 and from both dell.com URLs, and a timeout from adobe.com/…/AdobeRGB1998.pdf. This is likely bot blocking **(inferred)**; check them in a browser. The other 30 returned 200.
 
 **Fix:**
-- Add real phone photos (exposure-locked, as the guides themselves recommend) of: bleed vs glow (guides.ts:2036), a stuck sub-pixel (guides.ts:262), the PWM pencil test (guides.ts:1530), and DSE on the Panning gray frame (guides.ts:169).
-- Add one-line test notes such as "checked on a 27-inch IPS / OLED phone".
-- Change the alt at page.tsx:117 to describe a title card.
+- Link ISO in the checklist to /blog/dead-pixel-warranty-policies or iso.org.
+- Cite a peer-reviewed or IEEE 1789 source in the PWM guide.
 
-### MEDIUM-6: Cannibalisation pairs
-All of these are overlapping intent, not duplicate text.
+### NEW-5 (LOW): Homepage FAQ answers mention pages they don't link
+"the Privacy page" (HomeSections.tsx:213) and "The new-device checklist in our guides" (:229) are plain strings, so readers can't click through.
 
-| Pair | Evidence | Fix |
-|---|---|---|
-| /color-gradient-test vs /wide-color-gamut-test | gradient keywords `gamut test`, `dci-p3` (tools.ts:194) vs `color gamut test`, `dci-p3 test` (tools.ts:705) | Remove the gamut keywords and claims from the gradient tool (tools.ts:189-194, 205) |
-| /greyscale-test vs /gamma-test | greyscale keyword `gamma test` (tools.ts:171) is gamma-test's primary query | Replace with `banding test` |
-| /black-screen vs /backlight-bleed-test | Same black field. Both descriptions lead with bleed (tools.ts:97 vs 141), and `ips glow` is shared by bleed and black-level (tools.ts:144, 465) | Point black-screen copy at OLED, dust and dimming uses. Drop `ips glow` from black-level-test |
-| /color-test vs /dead-pixel-test | Both cycle solid colors "to … find pixel defects" (tools.ts:70 vs 38) | Rewrite color-test copy around tint and uniformity |
-| Guides what-is-backlight-bleed / what-is-ips-glow / backlight-bleed-vs-ips-glow, plus /backlight-bleed-test | TF-IDF cosine 0.25–0.32 (the highest in the set). 51 shared 6-grams between ips-glow and bleed-vs-glow. The same "lean left/right", "first thirty seconds" and "not a phone camera" passages appear in all three | Make backlight-bleed-vs-ips-glow (guides.ts:2036) the comparison page. Cut the comparison sections in what-is-backlight-bleed (guides.ts:1329-1334) and what-is-ips-glow (guides.ts:1364-1374) down to one-line pointers |
-| refresh-rate-explained vs how-to-enable-full-refresh-rate | cosine 0.286 | Low risk: explainer vs how-to. Keep as is |
+**Fix:** render the links in the visible answer, and keep the plain text for FAQPage. FAQPage schema is Info only; this is a usability point, not a rich-result one.
 
-### LOW-1: AI-typical phrasing
-- **Homepage marketing copy.** HomeSections.tsx:161-217 and :96 use generic, absolute claims: "Pixel-perfect precision", "leave no defect undetected", "every display-quality metric in one place", "every quality dimension", "comprehensive OLED-specific coverage". These are overclaims; the site has no input-lag or measured-response tools.
-  - **Fix:** use concrete, bounded statements.
-- **Guide tics:**
-  - 12.1 em dashes per 1,000 words.
-  - "Here's" in 15 of 44 excerpts.
-  - "return window" 24 times; most guides close on a return-window or photograph-it line.
-  - Repeated sentences across the bleed/glow cluster.
-  - Not penalising on its own; vary closings and excerpts while editing.
+### NEW-6 (INFO): New FAQs and homepage copy were fact-checked with no errors found
+**Checked against code:**
+- Ghosting speeds 240/480/960 px/s: `GhostingTool.tsx:7-11`.
+- Prank exits on tap or Esc: `FullscreenStage.tsx:151` and `:212-214`.
+- Clock is centred and the other effects move: `ScreensaverTool.tsx:14` and `:603-610`.
+- 32-step ramp: `patterns.ts:12`.
+- 7 gradient frames: `patterns.ts:48`.
+- Viewing angle shows grey steps on top and colour bars below: `patterns.ts:148-154`.
+- Frame time and closest rate: `RefreshRateTool.tsx:33`.
+- On iOS the stage fills the browser window: `FullscreenStage.tsx:247`.
+- HDR patches run 100–1,600 nits: `HdrTool.tsx:13-18`.
+- Zone sweep, P3 logos and frame-skip cells: the matching components.
 
-### LOW-2: Description openers
-27 of 28 tool descriptions start "Free <title>…". The heuristic clears this (no stock CTA), but a few could lead with the problem the user has, for example tools.ts:119 and :97.
+**Checked against the guides:** the contrast FAQ figures (IPS about 1,000:1, VA 2,500–5,000:1) match guides.ts:2370-2371.
 
-### INFO
-- **Out of scope here, for the schema owner:** tool pages still emit HowTo JSON-LD (`src/app/[tool]/page.tsx:54`).
-- Tool pages show no visible date. htmldate falls back to 2026-01-01 on them **(inferred)**.
+**Not fetched externally:** the general facts (macOS gamma 2.2 since 2009, 59.94 Hz, 1000/144 = 6.94 ms, Wake Lock in Firefox and Safari). They are consistent with known specs.
 
-## AI-citation readiness (68)
-- **Strengths:**
-  - Most guides open with a one-sentence definition (e.g. guides.ts:1304, 954, 1516).
-  - Clear H2 hierarchy, comparison tables and numbered steps.
-  - Concrete numbers that are easy to quote.
+## What works (unchanged or improved)
+- **Plugin `content_quality.py`:** 0 filler and 0 AI-pattern matches on all 7 sampled pages. Scores: home 78, about 67, white 72, contrast 81, stuck-pixel 77, HDR 81, warranty 80.
+- **Readability:**
+
+  | Page | Flesch | FK grade |
+  |---|---|---|
+  | Homepage | 75 | 5.2 |
+  | Stuck-pixel guide | 70 | 7.2 |
+  | About | 62 | 7.9 |
+
+- **Metadata:** `metadata_template.py` on the new homepage title and description gives `site_risk: low`, `templated_ratio: 0.0` and `shared_cta_phrases: {}`. The previous 80-page result also showed no templating.
+- **Freshness:** the guides edited on 2026-10-01 carry `updatedAt: "2026-10-01"`, which matches commit 510a538.
+
+## AI-citation readiness (76, was 68)
+- **Better:**
+  - Primary-source links sit next to the standards claims.
+  - The byline links to an About page.
+  - Tool FAQs now answer how to read the result.
+  - The homepage verdict table can be quoted directly.
 - **Gaps:**
-  - No sources (HIGH-2).
-  - No named author (HIGH-1).
-  - The tool-page FAQs are 1–3 short answers.
+  - No person author or credentials (NEW-2).
+  - 31 guides have no sources.
+  - No original measurements or photos.
+
+## Structured findings (for audit-data.json, Content Quality)
+```json
+{"category":"Content Quality","score":73,"previous_score":64,"eeat":{"experience":38,"expertise":72,"authoritativeness":48,"trustworthiness":72,"weighted":59.2},"ai_citation_readiness":76,
+"homepage_overlap_screentester_io":{"extracted_unique_6gram_share":0.001,"visible_unique_6gram_share":0.005,"previous":"0.19-0.32"},
+"findings":[
+{"id":"NEW-1","severity":"medium","title":"Homepage device-guide cards paraphrase screentester.io","file":"src/components/HomeSections.tsx:170-177"},
+{"id":"NEW-2","severity":"medium","title":"Author is an ambiguous brand entity (Organization) with no person or credentials","file":"src/lib/seo.ts:235-236; src/app/about/page.tsx:45-50"},
+{"id":"MEDIUM-5","severity":"medium","title":"No first-hand experience signals; hero alt says 'illustrated diagram'","file":"src/app/blog/[slug]/page.tsx:117"},
+{"id":"MEDIUM-6","severity":"medium","title":"Remaining cannibalisation: greyscale 'gamma test', black-level 'ips glow', color-test vs dead-pixel, bleed/glow guide cluster","file":"src/lib/tools.ts:197,566,75"},
+{"id":"THIN-GUIDES","severity":"medium","title":"All 44 guides under 1,500-word floor (median 836)","file":"src/lib/guides.ts"},
+{"id":"MEDIUM-3.3","severity":"low","title":"'likely dead, not stuck' contradicts own definition","file":"src/lib/guides.ts:373"},
+{"id":"NEW-3","severity":"low","title":"Warm-up time inconsistent between homepage and guides","file":"src/components/HomeSections.tsx:182"},
+{"id":"NEW-4","severity":"low","title":"31/44 guides uncited; 4 citation URLs non-200 to curl","file":"src/lib/guides.ts"},
+{"id":"NEW-5","severity":"low","title":"Homepage FAQ references unlinked pages","file":"src/components/HomeSections.tsx:213,229"},
+{"id":"ABOUT-THIN","severity":"low","title":"/about 286 words, under 400 floor","file":"src/app/about/page.tsx"},
+{"id":"LOW-1","severity":"low","title":"Leftover stock phrasing and guide tics","file":"src/components/HomeSections.tsx:172,175"}]}
+```

@@ -1,20 +1,24 @@
-# Technical + On-Page findings, bestscreentester.com (2026-10-01)
+# Technical + On-Page re-audit, bestscreentester.com (2026-10-02, main b6e17c2)
 
-Scores: Technical 88/100, On-Page 93/100.
+Scores: Technical 90/100 (was 88; 85 orchestrator-adjusted), On-Page 94/100 (was 93; 82 adjusted).
 
-Verified live (all 80 sitemap URLs fetched, no redirects, all 200):
-- robots.txt valid; sitemap.xml valid via sitemap_discovery.py; 80 URLs, all internal link targets are in the sitemap, zero 404/redirecting/slash-less/http internal links, zero orphans (min inbound 2).
-- Every page: self-referencing trailing-slash canonical, `index, follow`, lang=en, viewport, 1 H1, unique title (24-62 chars) and description (116-159 chars), og/twitter tags; no duplicate titles/descriptions.
-- http->https and www->apex 301; slash-less 301 to slash; missing URL returns real 404.
-- IndexNow key file 737833e752494d62a8b430a7dc3abfad.txt is 200 and matches; ping in .github/workflows/ci.yml:78-83.
-- Primary content is in static HTML (tool pages ~400-640 words, guides ~860-1170 words); JSON-LD present.
+Crawl: all 80 sitemap URLs 200, self canonical (trailing slash), robots `index, follow`, 1 H1, titles 24-62 chars, descriptions 116-157, zero duplicate titles/descriptions, zero internal links to 404/redirect, zero orphans (min inbound 2). Only heading issue: /feedback/ H1->H3.
+Cold homepage: 3 forced Playwright renders, 4791 chars text each, no error screen (transient crash still unreproduced; 0/3).
 
-Findings:
-1. Medium: 404 page has conflicting robots meta (`noindex` from not-found plus layout `index, follow`) and homepage default title/no canonical. Status is 404 so harmless; src/app/layout.tsx:21, src/app/not-found.tsx (add metadata export with title "Page not found").
-2. Medium: http://www.../path (slash-less) goes through 2 hops (www/http -> https slash-less -> slash). Only affects external slash-less links; Pages-level behaviour, no fix in repo.
-3. Medium: no security headers (HSTS, CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy) and cache-control max-age=600 on everything. GitHub Pages cannot set headers; requires hosting change (e.g. Cloudflare proxy). HTTPS enforced; no mixed content found in the 80 pages.
-4. Low: /feedback/ heading hierarchy H1 -> H3 (footer h3s, no H2 on the page). Add an H2 in src/app/feedback/page.tsx or make the footer headings non-heading elements.
-5. Low: 8 pages use the generic /og.png (home, tools, blog, about, donate, feedback, privacy, terms); tool/guide pages have per-page images. Optional.
-6. Low: no meta CSP is set; AdSense/GA require broad allowances so a meta CSP has limited value. Info.
-7. Info: no hreflang (single-language en site; correct). GA/AdSense injected after hydration (src/app/layout.tsx:56-61, Analytics.tsx), by design. Weakest inbound links: /blog/screen-door-effect-explained/ (2), a few tools (hdr/pwm/wide-gamut: 3); fine.
-8. Info: robots.txt has no AI-crawler rules; all allowed by default.
+## Previous findings
+1. 404 metadata: CHANGED/mostly fixed. Title now "Page not found · BestScreenTester"; no canonical. Still emits two robots metas (`noindex` and `noindex, follow`), both noindex so harmless (src/app/not-found.tsx:5-8). Low.
+2. www+http slash-less 2 hops: STILL PRESENT (http://www.../tools -> 301 to https://bestscreentester.com/tools -> slash). Pages-level, requires hosting change.
+3. No security headers, max-age=600: STILL PRESENT, requires hosting change.
+4. /feedback/ H1->H3: STILL PRESENT (footer h3s). Add H2 in src/app/feedback/page.tsx or demote footer headings.
+5. Generic og.png on 8 pages: STILL PRESENT (optional).
+6-8. Info items unchanged (no meta CSP, no hreflang correct, no AI crawler rules). robots.txt valid, IndexNow key 200 and matches.
+
+## Claimed deploys, verified live
+- Over-promising guide titles/excerpts: FIXED (all 44 titles are plain descriptive; e.g. "How to Test a Monitor Before (and Right After) Buying"). Minor: 6 guide titles carry the " · BestScreenTester" suffix and 38 don't (consistent only by length budget); Info.
+- Related guides on tool pages: FIXED. dead-pixel-test lists dead-vs-stuck, fix-stuck-pixel, laptop, what-causes; color-gradient-test lists gamut, gamma, calibrate, banding; gamma-test lists gamma-explained, calibrate, photo-editing, checklist.
+- Color Gradient vs gamut cannibalisation: FIXED. Gradient description is banding/posterization focused; gamut terms live on wide-color-gamut-test and the gamut guide.
+- Favicon size: FIXED. /icon.png is 1499 bytes, 96x96; apple-icon 180x180.
+- Homepage: H1 "Free Online Screen Test & Monitor Test" present (single H1). Title is still "Free Online Screen Test · BestScreenTester" (no "Monitor Test"); desc mentions "monitor tests". Low.
+
+## New findings
+- None Critical/High/Medium. Low: homepage <title> omits "monitor test" (src/app/page.tsx metadata title). Low: duplicate robots metas on 404.
