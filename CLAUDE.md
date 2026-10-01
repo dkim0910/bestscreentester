@@ -59,8 +59,8 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   how-to, FAQ, category). It drives nav, homepage, per-tool pages, sitemap, and JSON-LD. Add or
   change a tool here first, then wire its UI in `ToolRunner`. Each tool's `updatedAt` is its
   sitemap lastmod: set it to today whenever that tool's copy, tips or test component changes
-  (not for shared template edits). Static pages use `PAGE_UPDATED` in `seo.ts`; home, /tools
-  and /blog use `SITE_UPDATED`.
+  (not for shared template edits). The homepage and static pages use `PAGE_UPDATED` in
+  `seo.ts`; /tools and /blog use `SITE_UPDATED`.
 - **Tool engine — `src/components/tools/`:**
   - `FullscreenStage` is the shared controller (fullscreen + wake lock + ←/→ + tap zones +
     auto-hiding overlay). It exposes an imperative `start(index?)` via ref and a `hideLauncher`

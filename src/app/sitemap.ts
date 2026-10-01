@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 // the slash-less form is what put 16 URLs into Search Console's "Page with redirect".
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: absoluteUrl("/"), lastModified: SITE_UPDATED, changeFrequency: "weekly", priority: 1 },
+    { url: absoluteUrl("/"), lastModified: PAGE_UPDATED.home, changeFrequency: "weekly", priority: 1 },
     { url: absoluteUrl("/tools"), lastModified: SITE_UPDATED, changeFrequency: "weekly", priority: 0.9 },
     { url: absoluteUrl("/blog"), lastModified: SITE_UPDATED, changeFrequency: "weekly", priority: 0.7 },
     { url: absoluteUrl("/about"), lastModified: PAGE_UPDATED.about, changeFrequency: "yearly", priority: 0.4 },
