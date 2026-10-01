@@ -5,7 +5,7 @@ export const SITE_TAGLINE =
   "Free online screen tests for dead pixels, color, backlight, and motion.";
 
 export const CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello+bestscreentester@nelera.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello+bestscreentester@nelera.net";
 
 // Who runs the site: the guides' byline and Article author, the About page, and the
 // Organization schema's parent. Plain "Nelera" until the LLC is actually formed —
