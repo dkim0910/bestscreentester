@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ...pageMetadata({
   title: "Free Online Screen Test",
   description:
-    `Run ${TOOLS.length} free screen tests in your browser: find dead pixels, backlight bleed, color and contrast faults, ghosting and refresh-rate issues. No sign-up.`,
+    `Run ${TOOLS.length} free screen and monitor tests in your browser: dead pixels, backlight bleed, refresh rate, color, ghosting and more. No sign-up.`,
   path: "/",
   keywords: [
     "screen test",
@@ -35,37 +35,37 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* Hero */}
+      {/* Hero — the quick colors sit inside it so a test starts without leaving the page. */}
       <section className="border-b border-border bg-gradient-to-b from-white/[0.03] to-transparent">
-        <div className="mx-auto max-w-6xl px-4 py-16 text-center">
-          <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
-            Test your screen in seconds — right in your browser
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
-            {SITE_NAME} runs a full suite of free display tests: dead pixels, color, backlight
-            bleed, refresh rate, ghosting and more. No install, no sign-up.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/dead-pixel-test"
-              className="rounded-full bg-accent px-6 py-3 font-semibold text-black hover:opacity-90"
-            >
-              Start Dead Pixel Test
-            </Link>
-            <Link
-              href="/tools"
-              className="rounded-full border border-border px-6 py-3 font-semibold hover:bg-white/5"
-            >
-              Browse all {TOOLS.length} tools
-            </Link>
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
+          <div className="text-center">
+            <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+              Free Online Screen Test &amp; Monitor Test
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
+              {TOOLS.length} free display tests that run in your browser: dead pixels, backlight
+              bleed, refresh rate, PWM flicker, HDR and more. Nothing to install, no account.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link
+                href="/dead-pixel-test"
+                className="rounded-full bg-accent px-6 py-3 font-semibold text-black hover:opacity-90"
+              >
+                Start Dead Pixel Test
+              </Link>
+              <Link
+                href="/tools"
+                className="rounded-full border border-border px-6 py-3 font-semibold hover:bg-white/5"
+              >
+                Browse all {TOOLS.length} tools
+              </Link>
+            </div>
+          </div>
+          <div className="mt-10">
+            <QuickColors />
           </div>
         </div>
       </section>
-
-      {/* Quick full-screen colors */}
-      <div className="mx-auto max-w-6xl px-4 pt-12">
-        <QuickColors />
-      </div>
 
       {/* Tool categories */}
       <div className="mx-auto max-w-6xl px-4 py-12">

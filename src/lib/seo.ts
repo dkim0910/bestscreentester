@@ -15,7 +15,7 @@ export const OPERATOR_NAME = "Nelera";
 // Last review date for the legal pages (About / Privacy / Terms).
 export const LEGAL_UPDATED = "July 29, 2026";
 
-// Freshness date for the hub pages (home, /tools, /blog), which change whenever a tool
+// Freshness date for the listing pages (/tools, /blog), which change whenever a tool
 // or guide is added. Sitemap `lastmod` is derived from these dates rather than from
 // build time: Bing discounts sitemaps whose lastmod is always "now", and the IndexNow
 // ping submits whatever is dated within the last week, so each must be a stable value
@@ -23,8 +23,11 @@ export const LEGAL_UPDATED = "July 29, 2026";
 export const SITE_UPDATED = "2026-10-01";
 
 // Last change to each static page's visible content (meta-description-only edits don't
-// count). Privacy and Terms must match LEGAL_UPDATED, the date those pages display.
+// count). The homepage is here too: its long-form copy changes independently of the
+// tool and guide lists. Privacy and Terms must match LEGAL_UPDATED, the date those pages
+// display.
 export const PAGE_UPDATED = {
+  home: "2026-10-02",
   about: "2026-10-01",
   donate: "2026-10-01",
   feedback: "2026-06-21",
