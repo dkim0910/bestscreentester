@@ -2,6 +2,8 @@
 // tools so each guide doubles as a tool entry point. This is the single source
 // of truth for the blog — no database involved.
 
+import { TOOL_MAP } from "./tools";
+
 export interface Guide {
   slug: string;
   title: string;
@@ -200,6 +202,7 @@ Photograph the fault in a dark room with the phone's exposure and focus locked, 
       "A step-by-step guide to checking a new or used laptop display for dead and stuck pixels before it's too late to return it.",
     tags: ["laptop", "dead pixel", "guide"],
     publishedAt: "2026-06-21",
+    updatedAt: "2026-10-01",
     body: `New laptops should arrive with a flawless panel — but defects slip through. Here's how to check yours in under two minutes, and what to do about anything you find.
 
 ## Why test right away?
@@ -248,7 +251,7 @@ Change the background color. Dirt on the outside of the glass stays the same sha
 
 ## How many defects are "acceptable"?
 
-Manufacturers typically grade panels against **ISO 9241-307**, and most consumer laptops are sold to **Class II**, which tolerates a small number of always-on, always-off, and stuck sub-pixels per million pixels before the panel counts as faulty. In practice that means a single dead pixel on a 1080p laptop often will not qualify for a warranty panel swap — but it will almost always qualify for a straight return inside the retailer's window. [Dead Pixel Warranty Policies, Explained](/blog/dead-pixel-warranty-policies) covers what the major brands actually promise, including the ones with a zero-bright-pixel guarantee.
+Manufacturers typically grade panels against **ISO 9241-307**, and most consumer laptops are sold to **Class II**, which tolerates a small number of always-on, always-off, and stuck sub-pixels per million pixels before the panel counts as faulty ([Dynabook's pixel policy](https://asia.dynabook.com/pixelpolicy/), for one, is based on Class II). In practice that means a single dead pixel on a 1080p laptop often will not qualify for a warranty panel swap — but it will almost always qualify for a straight return inside the retailer's window. [Dead Pixel Warranty Policies, Explained](/blog/dead-pixel-warranty-policies) covers how brand policies count faults, and the zero-bright-pixel guarantees some brands and retailers offer.
 
 ## If you find something, in this order
 
@@ -313,7 +316,7 @@ Stuck and hot pixels sometimes recover, because the sub-pixel is sitting in the 
 Dead pixels do not come back. Skip the fixes entirely and go straight to your warranty position.
 
 ## When to claim
-Manufacturers judge faults against a pixel policy, usually derived from the ISO 9241-307 fault classes. Class II — the class consumer monitors and laptops are typically sold under — allows a small number of faults per million pixels, and a 2560×1440 panel holds roughly 3.7 million pixels. One isolated dark pixel therefore often falls inside the allowance. Bright pixels are typically counted more strictly than dark ones, and a cluster of faults close together counts against the manufacturer far more than the same number scattered across the screen.
+Manufacturers judge faults against a pixel policy, usually derived from the [ISO 9241-307 fault classes](/blog/dead-pixel-warranty-policies). Class II — the class consumer monitors and laptops are typically sold under — allows a small number of faults per million pixels, and a 2560×1440 panel holds roughly 3.7 million pixels. One isolated dark pixel therefore often falls inside the allowance. Bright pixels are typically counted more strictly than dark ones, and a cluster of faults close together counts against the manufacturer far more than the same number scattered across the screen.
 
 Two things beat the pixel policy. The retailer's return window usually doesn't care *why* you're unhappy, and premium models are sometimes sold with an explicit zero-bright-dot or perfect-panel guarantee. Check both before accepting a refusal — the details are in [dead pixel warranty policies](/blog/dead-pixel-warranty-policies), and if you want to know how the fault appeared at all, see [what causes dead pixels](/blog/what-causes-dead-pixels).
 
@@ -321,9 +324,9 @@ Photograph and count every fault today, while the return window is still open.`,
   },
   {
     slug: "how-to-fix-a-stuck-pixel",
-    title: "How to Fix a Stuck Pixel (4 Methods That Actually Work)",
+    title: "How to Fix a Stuck Pixel: 4 Methods Worth Trying",
     excerpt:
-      "Flashing, the pressure method, and tapping — practical ways to revive a stuck pixel, how long to try each, and when to stop and claim warranty.",
+      "Flashing, the pressure method, and tapping — how to try each on a stuck pixel, how long to give it, the honest odds, and when to claim warranty instead.",
     tags: ["stuck pixel", "fix", "guide"],
     publishedAt: "2026-06-21",
     updatedAt: "2026-10-01",
@@ -424,14 +427,14 @@ Run the [Dead Pixel Test](/dead-pixel-test) when a device is new (while under wa
     slug: "dead-pixel-warranty-policies",
     title: "Dead Pixel Warranty Policies, Explained",
     excerpt:
-      "How many dead pixels does it take to get a replacement? A practical look at ISO 9241 class limits and what each major manufacturer accepts.",
+      "How many dead pixels does it take to get a replacement? A practical look at ISO 9241 class limits, how brand policies count faults, and why returns win.",
     tags: ["dead pixel", "warranty", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `Frustratingly, a single dead pixel usually isn't enough for a free replacement. Manufacturers grade panels against a standard.
 
 ## The ISO 9241-307 standard
-Displays are sorted into pixel-defect **classes**. The standard grew out of the older ISO 13406-2, and most manufacturer policies still echo its structure even when they don't cite it by name. Most consumer panels are **Class II**, which permits a small number of defects per million pixels:
+Displays are sorted into pixel-defect **classes** by [ISO 9241-307:2008](https://www.iso.org/standard/40102.html). The standard grew out of the older ISO 13406-2, which it replaced together with other parts of ISO 9241, and most manufacturer policies still echo its structure even when they don't cite it by name. Most consumer panels are **Class II**, which permits a small number of defects per million pixels:
 - A handful of fully bright or dead pixels.
 - A larger number of defective sub-pixels.
 
@@ -441,9 +444,9 @@ The standard splits faults into three types, and this matters more than the raw 
 - **Type 2 — a pixel permanently off.** Shows as a black dot on a white field, invisible on black.
 - **Type 3 — a single sub-pixel stuck on or off.** Shows as a small red, green or blue dot, and is the type policies tolerate most.
 
-Class I is the strict professional tier, allowing at most a token defect or two per million pixels. Class II — the consumer default — allows a few of each per million pixels, with sub-pixel faults tolerated most generously. Class III and IV are progressively looser and are essentially never used for retail displays.
+The scale starts at **Class 0**, which allows no faults at all ([ISIC's pixel policy](https://isic-systems.com/wp-content/uploads/2025/06/05867-000-G-Pixel-Policy.pdf) reproduces the full class table). Class I is the strict professional tier, allowing at most a token defect or two per million pixels. Class II — the consumer default — allows a few of each per million pixels, with sub-pixel faults tolerated most generously. The classes above it are progressively looser and are essentially never used for retail displays. Older warranty documents may still use ISO 13406-2's numbering, which started at Class I: its Class I is today's Class 0.
 
-So a 4K panel (approximately 8.3 million pixels) can have several "allowed" defects and still pass. Because the allowance is stated per million pixels, a literal reading gives a very large budget on a high-resolution panel. That's exactly why most brands publish their own fixed numbers instead — a flat "6 or more sub-pixel faults" style threshold regardless of resolution. **The number in your warranty document is the one that will be applied to your claim, not the number in the standard.** Find it before you argue.
+So a 4K panel (approximately 8.3 million pixels) can have several "allowed" defects and still pass. Because the allowance is stated per million pixels, a literal reading gives a very large budget on a high-resolution panel. That's exactly why most brands publish their own fixed numbers instead — a flat "6 or more sub-pixel faults" style threshold regardless of resolution. [Dell's pixel guidelines](https://www.dell.com/support/kbdoc/en-us/000126004/dell-display-pixel-guidelines), for example, list flat counts per model. **The number in your warranty document is the one that will be applied to your claim, not the number in the standard.** Find it before you argue.
 
 ## What this means for you
 - **Bright/hot pixels** are treated more strictly than dark ones — they're more likely to qualify.
@@ -555,11 +558,11 @@ Two things follow from that, and both matter:
 
 ## The three you'll see
 
-- **sRGB** — the web and most everyday content standard. Almost every photo, website, game, and SDR video you look at is authored for it. Aim for ~99–100% sRGB coverage.
-- **DCI-P3** — a wider gamut used for HDR video and modern phones/laptops. It extends mainly into deep reds and greens. ~90%+ P3 looks noticeably richer on HDR movies and games. The [Wide Color Gamut Test](/wide-color-gamut-test) shows whether your screen and browser can display it.
-- **Adobe RGB** — wide in the greens/cyans, used in **print** workflows because it maps better onto what CMYK ink can reproduce. Mostly relevant to photographers preparing for print.
+- **sRGB** — the web and most everyday content standard, defined in [IEC 61966-2-1](https://webstore.iec.ch/en/publication/6169). Almost every photo, website, game, and SDR video you look at is authored for it. Aim for ~99–100% sRGB coverage.
+- **DCI-P3** — a wider gamut defined for digital cinema in [SMPTE RP 431-2](https://pub.smpte.org/doc/rp431-2/20110406-pub/), now used for HDR video and modern phones/laptops. It extends mainly into deep reds and greens. ~90%+ P3 looks noticeably richer on HDR movies and games. The [Wide Color Gamut Test](/wide-color-gamut-test) shows whether your screen and browser can display it.
+- **Adobe RGB** — wide in the greens/cyans, used in **print** workflows because it [maps better onto what CMYK ink can reproduce](https://www.adobe.com/digitalimag/pdfs/AdobeRGB1998.pdf). Mostly relevant to photographers preparing for print.
 
-There's also **Rec. 2020**, the target for future HDR video. No consumer display fully covers it — even the best OLED TVs measure in the 80–90% range — so treat any Rec. 2020 percentage on a spec sheet as a rough indicator rather than a promise.
+There's also **[Rec. 2020](https://www.itu.int/rec/R-REC-BT.2020)**, the color space of UHD and HDR video. No consumer display fully covers it in independent measurements: the best QD-OLED TVs [measure around 90%](https://www.tomsguide.com/tvs/its-official-samsungs-newest-flagship-tv-is-the-brightest-oled-ive-ever-seen), and [RGB-backlit TVs](https://www.techradar.com/televisions/samsung-r95h-review) and triple-laser projectors reach the low-to-mid 90s. Treat any Rec. 2020 percentage on a spec sheet, including claims of 100%, as a rough indicator rather than a promise.
 
 | Space | Roughly what it's for | Sensible target |
 |---|---|---|
@@ -712,7 +715,7 @@ For reference work, a colorimeter measures gamma precisely — but the greyscale
       "What ΔE numbers mean, what counts as 'good enough' for print and for web, and why accuracy matters more than vividness in creative work.",
     tags: ["color accuracy", "delta e", "color"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `For photo, video, and design, **accuracy** beats vividness. Delta E is how accuracy is measured.
 
 ## What is Delta E?
@@ -725,7 +728,7 @@ Delta E is the difference between a color the display *should* show and what it 
 Treat those bands as the industry's rules of thumb rather than a standard — they're widely quoted, but different sources draw the lines in slightly different places. They come from the idea of a *just-noticeable difference*: the smallest change a person can see when two patches sit side by side, with no gap between them. Split the same two colors across a room and you'd never spot a Delta E of 2.
 
 ### Not all Delta E numbers are the same
-There are several formulas, and the number depends on which one was used. The older CIE76 formula is a straight distance in Lab space and tends to exaggerate errors in saturated colors. The modern **Delta E 2000** formula corrects for how our eyes actually weight lightness, chroma and hue, and is what most review sites and calibration software report today, usually written as dE2000 or ΔE00. A panel quoted at "Delta E under 2" using one formula is not directly comparable to another quoted under a different one, so check which is being used before you compare two products.
+There are several formulas, and the number depends on which one was used. The older CIE76 formula is a straight distance in Lab space and is [least accurate in strongly saturated colors](https://docs.imatest.com/23.1/colorcheck_ref). The modern **Delta E 2000** formula, standardized as [ISO/CIE 11664-6](https://cie.co.at/publications/colorimetry-part-6-ciede2000-colour-difference-formula), corrects for how our eyes actually weight lightness, chroma and hue, and is what most review sites and calibration software report today, usually written as dE2000 or ΔE00. A panel quoted at "Delta E under 2" using one formula is not directly comparable to another quoted under a different one, so check which is being used before you compare two products.
 
 ## Average vs maximum
 A panel can have a great *average* Delta E but one badly-off color (high *max* Delta E). If the average is 1.2 but one deep red reads 6, every image with that red in it is wrong — averages hide exactly the failure you care about. Check both on review sites, and look at which colors miss: skin tones and neutral greys matter far more in practice than a saturated cyan you'll rarely output.
@@ -762,7 +765,7 @@ For client-facing color work, calibrate with hardware and re-check monthly, and 
       "Gamut, brightness, calibration, and room-lighting choices that keep your edits looking right on other people's screens and in print.",
     tags: ["photography", "calibration", "color"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `Editing on an uncalibrated screen means your photos look different on every other device. Here's a reliable setup.
 
 ## Pick the right panel
@@ -779,7 +782,7 @@ Bit depth is about smoothness, not color range. An 8-bit panel gives 256 levels 
 ## Calibrate
 A hardware colorimeter is strongly recommended for editing. Target:
 - **Brightness:** approximately 120 cd/m² for a dim room (not max).
-- **White point:** 6500K (D65).
+- **White point:** 6500K ([D65](https://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0)).
 - **Gamma:** 2.2.
 
 Warm the monitor up for at least 30 minutes before you calibrate. Backlights drift while they come up to temperature, and a profile built on a cold panel is wrong by the time you're actually working.
@@ -815,7 +818,7 @@ Re-calibrate every 4-6 weeks; panels drift as they age. Keep the old profiles ra
       "What color temperature does to your eyes and your color work, how night modes change it, and how to balance comfort against accuracy.",
     tags: ["color temperature", "eye strain", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `Color temperature sets how warm (orange) or cool (blue) white looks on your screen.
 
 It is measured in kelvin, and the scale runs backwards from what you would expect: higher numbers look colder and bluer, lower numbers look warmer and more orange. The number describes the color of the light itself, not how bright it is.
@@ -826,15 +829,15 @@ It is measured in kelvin, and the scale runs backwards from what you would expec
 - **Below 6500K** — warmer, more orange; easier on the eyes at night.
 - **Above 6500K** — cooler, bluer; looks "brighter" but harsher.
 
-For reference, a candle is around 1900K, a warm household bulb around 2700K, and overcast midday daylight lands near 6500K — which is exactly why D65 was chosen as the reference white. Plenty of monitors ship noticeably cooler than 6500K out of the box, because a bluish white reads as "crisper" on a shop floor. That is a marketing choice, not a correct one — and it is why a new monitor so often looks harsh next to one you have already set up.
+For reference, a candle is around 1900K, a [warm household bulb around 2700K](https://www.energystar.gov/sites/default/files/tools/Light_Bulb_Purchasing_Checklist.pdf), and average daylight sits around 6500K — which is why the CIE's [D65 standard](https://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0), defined to represent average daylight, is the reference white. Plenty of monitors ship noticeably cooler than 6500K out of the box, because a bluish white reads as "crisper" on a shop floor. That is a marketing choice, not a correct one — and it is why a new monitor so often looks harsh next to one you have already set up.
 
 ## Night modes
 
 Features like Night Light (Windows), Night Shift (macOS/iOS), and f.lux warm the screen on a schedule to reduce blue light in the evening. They can ease eye strain and help some people sleep — but they **shift colors**, so turn them **off** for any color-critical editing.
 
-Be honest about what the evidence supports. Bright light in the evening does suppress melatonin and push your body clock later, and that effect is real. But brightness and how long you look matter at least as much as the color of the light, and trials of blue-light filtering alone have produced mixed results. A dim, warm screen an hour before bed is a reasonable habit. Expecting a software toggle to undo two hours of scrolling at full brightness is not.
+Be honest about what the evidence supports. Bright light in the evening does [suppress melatonin and push your body clock later](https://pmc.ncbi.nlm.nih.gov/articles/PMC4313820/), and that effect is real. But [brightness and how long you look matter too](https://pmc.ncbi.nlm.nih.gov/articles/PMC6640648/), not just the color of the light — [shifting the color without dimming the screen may not be enough](https://pmc.ncbi.nlm.nih.gov/articles/PMC6561503/) — and [trials of blue-light filtering glasses](https://pmc.ncbi.nlm.nih.gov/articles/PMC10436683/) have produced mixed results. A dim, warm screen an hour before bed is a reasonable habit. Expecting a software toggle to undo two hours of scrolling at full brightness is not.
 
-Also worth saying plainly: there is no good evidence that blue light from a normal screen damages your eyes. The tiredness you feel after a long session is **digital eye strain**, and it comes from blinking less, holding focus at one distance for hours, and glare — not from the spectrum.
+Also worth saying plainly: [there is no good evidence](https://www.aao.org/eye-health/tips-prevention/should-you-be-worried-about-blue-light) that blue light from a normal screen damages your eyes. The tiredness you feel after a long session is **digital eye strain**, and it comes from blinking less, holding focus at one distance for hours, and glare — not from the spectrum.
 
 ## Eye-strain basics that matter more
 
@@ -880,7 +883,7 @@ Set it once for daytime, save a warmer preset for the evening, and stop fiddling
       "What Hz actually means, where the jump from 60 to 144 is most noticeable, and how to confirm your screen runs at the rate you paid for.",
     tags: ["refresh rate", "gaming", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `Refresh rate is how many times per second your display updates, measured in hertz (Hz). Higher = smoother motion. It is also the single spec most likely to be sitting at the wrong value on a screen you already own.
 
 ## What each tier feels like
@@ -914,7 +917,7 @@ Your GPU must also *produce* enough frames. A 144Hz screen showing a 60fps game 
 
 Without adaptive sync, a frame rate that doesn't divide evenly into the refresh rate produces either tearing or stutter, depending on whether V-Sync is on. Confirm what you're seeing with the [Screen Tearing Test](/screen-tearing-test): a horizontal split that slides up or down the screen is tearing, and it's a sync problem, not a panel fault.
 
-Adaptive sync — G-Sync on Nvidia, FreeSync on AMD, and VESA Adaptive-Sync on both — makes the monitor wait for the GPU instead of the other way round. It has to be enabled in two places: the monitor's own menu, and the driver control panel. Turning it on in only one is a very common miss.
+Adaptive sync — [G-Sync](https://www.nvidia.com/content/Control-Panel-Help/vLatest/en-us/mergedProjects/nvdsp/Variable_Refresh_Rate.htm) on Nvidia, [FreeSync](https://www.amd.com/en/products/graphics/technologies/freesync.html) on AMD, and [VESA Adaptive-Sync](https://vesa.org/featured-articles/vesa-adds-adaptive-sync-to-popular-displayport-video-standard/) on both — makes the monitor wait for the GPU instead of the other way round. It has to be enabled in two places: the monitor's own menu, and the driver control panel. Turning it on in only one is a very common miss.
 
 ## Refresh rate is not the whole story
 
@@ -1069,7 +1072,7 @@ Fast response = clearer motion. Low input lag = more responsive feel. For compet
       "Why a frame splits across your screen mid-motion, and which sync technology — V-Sync, G-Sync or FreeSync — fixes it without adding input lag.",
     tags: ["screen tearing", "vsync", "gaming"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `Tearing is a horizontal split where the top and bottom of the image are from different frames. It's most visible when you pan the camera sideways: a straight vertical edge — a doorframe, a lamppost, a wall — appears broken and offset partway down the screen.
 
 ## Why it happens
@@ -1080,14 +1083,14 @@ It's worst when frame rate and refresh rate are mismatched, and it happens both 
 ## The fixes
 - **V-Sync** — makes the GPU wait for the monitor's next refresh before swapping frames. Stops tearing but adds **input lag**, and when the frame rate dips below the refresh rate it can halve the presented rate (60 to 30), producing obvious stutter.
 - **Fast Sync / Enhanced Sync** — a variant that renders freely and shows only the most recent complete frame. Tear-free with less lag than V-Sync, but only works well when the frame rate is far above the refresh rate.
-- **Adaptive sync (G-Sync / FreeSync / VESA Adaptive-Sync)** — the *monitor* varies its refresh rate to match the GPU's frame rate in real time. Smooth, tear-free, and **low lag**. This is the modern answer.
+- **Adaptive sync (G-Sync / FreeSync / VESA Adaptive-Sync)** — the *monitor* [varies its refresh rate to match the GPU's frame rate](https://vesa.org/featured-articles/vesa-adds-adaptive-sync-to-popular-displayport-video-standard/) in real time. Smooth, tear-free, and **low lag**. This is the modern answer.
 - **A frame-rate cap** — on its own, capping just below the refresh rate reduces how often tears appear and keeps latency low. Combined with adaptive sync, it's the standard setup.
 
 ## Getting adaptive sync working
 1. Confirm the monitor supports it and enable it in the OSD. Many panels ship with it off, and some hide it under a name like Adaptive-Sync or VRR.
 2. Enable G-Sync/FreeSync in your GPU control panel — NVIDIA and AMD both keep it in their display or gaming settings, though the exact menu name moves between driver versions. Enable it for both fullscreen and windowed mode if the option exists.
 3. Use a cable and port that can carry it at your resolution and refresh rate. DisplayPort is the safest choice on a PC; HDMI 2.1 is what you want on a console or TV, where the feature is usually listed as **VRR** and often needs enabling per-input alongside a game or enhanced-format setting.
-4. Stay within the monitor's variable-refresh **range** (for example 48 to 144Hz). Below the range, behavior falls back — many displays use low framerate compensation, which repeats frames to keep the panel inside its range. Many people enable V-Sync in the driver too, only to catch frames above the range, and then cap the frame rate a few frames below the maximum so V-Sync never actually engages.
+4. Stay within the monitor's variable-refresh **range** (for example 48 to 144Hz). Below the range, behavior falls back — many displays use [low framerate compensation](https://www.amd.com/en/products/graphics/technologies/freesync.html), which repeats frames to keep the panel inside its range. Many people enable V-Sync in the driver too, only to catch frames above the range, and then cap the frame rate a few frames below the maximum so V-Sync never actually engages.
 5. Check the game is running in fullscreen or borderless with the OS compositor cooperating. Windows handles VRR in windowed mode on modern versions, but some titles still only get it exclusively fullscreen.
 
 If enabling it produces flicker on dark loading screens or in menus, that's a known behavior on some panels when the frame rate swings wildly — a frame cap usually settles it.
@@ -1149,14 +1152,14 @@ A small shortfall is normal. Browsers measure frame delivery, so a reading a fra
 ### The bandwidth question, concretely
 Refresh rate, resolution and color depth all draw from one budget. Exceed it and the mode simply doesn't appear in the list.
 
-- **HDMI 2.0** (18 Gbps) — enough for 4K at 60Hz, or 1440p at high refresh. Not enough for 4K at 120Hz.
-- **DisplayPort 1.2** (21.6 Gbps) — comfortable at 1440p 144Hz, 8-bit; the common ceiling on older GPUs.
-- **DisplayPort 1.4** (32.4 Gbps) — reaches 4K at 120Hz and beyond once compression is in play.
-- **HDMI 2.1** (48 Gbps) — 4K at 120Hz with 10-bit color, no compression needed; the port consoles rely on.
+- **[HDMI 2.0](https://www.hdmi.org/press/bodydetails/24)** (18 Gbps) — enough for 4K at 60Hz, or 1440p at high refresh. Not enough for 4K at 120Hz in full RGB/4:4:4.
+- **[DisplayPort 1.2](https://www.displayport.org/pr/vesa-introduces-displayport-v1-2-the-most-comprehensive-and-innovative-display-interface-available/)** (21.6 Gbps) — comfortable at 1440p 144Hz, 8-bit; the common ceiling on older GPUs.
+- **[DisplayPort 1.4](https://www.displayport.org/pr/vesa-publishes-displayport-standard-version-1-4/)** (32.4 Gbps) — reaches 4K at 120Hz, and 10-bit HDR or higher refresh rates once compression is in play.
+- **[HDMI 2.1](https://www.hdmi.org/announce/detail/172)** (48 Gbps) — 4K at 120Hz with 10-bit color, no compression needed; the port consoles rely on.
 
 Treat those ceilings as rough guidance rather than guarantees: the exact mode a pair of devices will negotiate also depends on color depth, chroma subsampling and whether both ends implement the optional parts of the spec.
 
-**Display Stream Compression (DSC)** lets DisplayPort 1.4 and HDMI 2.1 carry modes that wouldn't otherwise fit. It's visually lossless in practice, but both the GPU and the monitor have to support it, and some monitors expose it as a menu option under a name like DSC or a numbered DisplayPort version — turn it on if a mode you expect is missing.
+**Display Stream Compression (DSC)** lets DisplayPort 1.4 and HDMI 2.1 carry modes that wouldn't otherwise fit. It's [visually lossless](https://vesa.org/vesa-display-compression-codecs/dsc/) in practice, but both the GPU and the monitor have to support it, and some monitors expose it as a menu option under a name like DSC or a numbered DisplayPort version — turn it on if a mode you expect is missing.
 
 Turning on HDR or 10-bit color eats bandwidth too. If the 144Hz option vanishes the moment you enable HDR, that's the budget, not a fault.
 
@@ -1457,10 +1460,10 @@ Check blacks on either with the [Black Screen](/black-screen), and compare how m
     slug: "oled-burn-in-and-how-to-check-for-it",
     title: "OLED Burn-In: Causes, Prevention, and How to Check",
     excerpt:
-      "OLED panels can retain static images over time. Here's what causes burn-in, how to avoid it, and how to spot it early while it's still fixable.",
+      "OLED panels can retain static images over time. Here's what causes burn-in, how to avoid it, and how to tell permanent burn-in from retention that fades.",
     tags: ["oled", "burn-in", "tv"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `OLED delivers perfect blacks, but static content can wear pixels unevenly and leave a permanent ghost ("burn-in").
 
 ## What causes it
@@ -1496,7 +1499,7 @@ A [Black Level Test](/black-level-test) is worth running alongside, because on O
 
 About those refresh cycles: most sets run a short compensation pass automatically when you power down after several hours of use, which is why you shouldn't pull the plug the instant the picture goes off. A longer, more thorough cycle is usually offered manually in the settings menu and takes considerably longer. Use the long one sparingly — it's a maintenance tool, not a daily habit.
 
-Check the warranty terms before you buy, too. Burn-in was historically excluded as "normal wear," but several manufacturers now cover it explicitly for a limited period. That clause is worth reading in full rather than assuming either way.
+Check the warranty terms before you buy, too. Burn-in coverage varies, and several manufacturers now cover it explicitly for a limited period: [Alienware's QD-OLED monitors](https://www.dell.com/support/contents/en-us/article/warranty/alienware-monitor-support-services) and [some ASUS ROG OLED models](https://www.asus.com/support/faq/1051914/) include burn-in in a three-year warranty, for example. That clause is worth reading in full rather than assuming either way.
 
 ## Burn-in vs temporary retention
 Run the [Burn-in Test](/burn-in-test) to make faint retention visible: a full-screen solid color exposes outlines you would never notice in normal use. Brief **image retention** fades on its own after varied content. **Burn-in** is permanent. If an outline persists across many different images, it's burn-in — modern panels resist it far better than early OLEDs, but managing static elements still matters.
@@ -1652,13 +1655,13 @@ Contrast matters more than brightness. A very bright panel with a poor black lev
 Manufacturers quote peak brightness measured on a small window — a bright patch covering a fraction of the screen. Full-screen sustained brightness is always lower, and on OLED it is much lower, because automatic brightness limiting protects the panel. A display quoted at a high peak figure may sustain a small fraction of it across a full white field. Neither number is a lie; they answer different questions. Highlights use the first, a bright office uses the second.
 
 ## The "fake HDR" trap
-**DisplayHDR 400** badges often mean a standard SDR panel that merely *accepts* an HDR signal — no real local dimming or extra brightness. It can look *worse* than SDR. Look for **DisplayHDR 600/1000**, or OLED.
+**DisplayHDR 400** is the entry tier: [VESA's criteria](https://displayhdr.org/performance-criteria/) require 400 nits and a 10-bit input, but not local dimming, so contrast stays close to the panel's native level and HDR can look little better than SDR, or even *worse*. Look for **DisplayHDR 600/1000**, or OLED.
 
-The higher VESA tiers add requirements rather than just raising the brightness figure: local dimming, wider gamut coverage and better black levels. There is also a separate True Black tier intended for OLED, which sets an extremely low black-level requirement instead of a high peak-brightness one — a 400-nit True Black OLED can deliver a far more convincing HDR image than a 400-nit LCD.
+The higher VESA tiers add requirements rather than just raising the brightness figure: local dimming, wider gamut coverage and better black levels. There is also a separate [True Black](https://vesa.org/homepage-article/vesa-introduces-displayhdr-true-black-high-dynamic-range-standard-for-organic-light-emitting-diode-oled-and-other-emissive-displays/) tier family intended for OLED, which pairs each brightness level with an extremely low black-level requirement — a 400-nit True Black OLED can deliver a far more convincing HDR image than a 400-nit LCD.
 
 ## Formats you'll see
 - **HDR10** — the baseline. Static metadata describing the whole title. Universally supported.
-- **HDR10+** and **Dolby Vision** — add dynamic, scene-by-scene metadata so tone mapping adapts. Better on displays that can't reach the mastering brightness, which is most of them.
+- **[HDR10+](https://hdr10plus.org/)** and **[Dolby Vision](https://professional.dolby.com/tv/home/dolby-vision/)** — add dynamic, scene-by-scene metadata so tone mapping adapts. Better on displays that can't reach the mastering brightness, which is most of them.
 - **HLG** — designed for broadcast, so one stream works on both SDR and HDR sets.
 
 Support is a device and service question, not a quality ranking. A good HDR10 implementation beats a bad Dolby Vision one.
@@ -1980,7 +1983,7 @@ Many OLED phones dim by rapidly switching the panel on and off, which some peopl
 
 ## Bonus
 
-Check True Tone/auto-brightness behave, and that the panel is genuine (aftermarket panels often show worse color and touch issues). On iPhones running iOS 15.2 or later, Settings → General → About lists parts and service history, and a replaced display is flagged there on iPhone 12 and newer models (iPhone 11 and earlier show battery history only). On Android, a suspiciously deep discount plus a slightly-off color balance and a rubbery-feeling touch response usually means a third-party panel.
+Check True Tone/auto-brightness behave, and that the panel is genuine (aftermarket panels often show worse color and touch issues). On iPhones running iOS 15.2 or later, Settings → General → About lists [parts and service history](https://support.apple.com/en-us/102658), and a replaced display is flagged there on iPhone 11 and newer models (iPhone XR, XS and SE 2nd/3rd generation show battery history only). On Android, a suspiciously deep discount plus a slightly-off color balance and a rubbery-feeling touch response usually means a third-party panel.
 
 If more than one of these checks fails, walk away — a phone with a good screen is worth paying more for than one with a good battery, because the battery is the cheap part to replace.`,
   },
@@ -2347,6 +2350,7 @@ If blacks still look grey in a dark room after the range is right, you're seeing
       "Static, dynamic and \"infinite\" contrast ratios measure very different things. Here's what each panel type really delivers and how to judge it yourself.",
     tags: ["contrast", "panel", "guide"],
     publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
     body: `Contrast ratio is one of the most quoted numbers on a spec sheet and one of the least understood. A 1,000:1 monitor and a 3,000:1 monitor look very different in a dark room, a "1,000,000:1" claim usually means nothing at all, and an OLED's "infinite" contrast comes with fine print of its own.
 
 ## What contrast ratio measures
@@ -2389,7 +2393,7 @@ You can't get a number without a light meter, but you can compare screens and se
 ## Reading the spec sheet
 
 - Look for **static** or **typical** contrast. "Dynamic", "DCR" and "mega contrast" figures are marketing.
-- An HDR badge doesn't guarantee high contrast. The entry-level DisplayHDR 400 tier doesn't require local dimming, so those screens keep their native LCD contrast — see [HDR Explained](/blog/hdr-explained).
+- An HDR badge doesn't guarantee high contrast. The entry-level [DisplayHDR 400](https://displayhdr.org/performance-criteria/) tier doesn't require local dimming, so those screens keep their native LCD contrast — see [HDR Explained](/blog/hdr-explained).
 - Washed-out blacks over HDMI may not be the panel at all. Check the RGB range first, as explained in [Why Do Blacks Look Grey?](/blog/full-vs-limited-rgb-range)`,
   },
   {
@@ -2592,11 +2596,46 @@ export function getRelatedGuides(slug: string, take = 3): Guide[] {
     .map((x) => x.g);
 }
 
+// Words too generic to say what a guide or tool is about (already singularised).
+const GENERIC_WORDS = new Set([
+  "test", "screen", "monitor", "full", "display", "check", "checker", "my", "what",
+  "the", "an", "of", "and", "in", "to", "for", "how", "your", "free", "online",
+]);
+
+/** Lowercased topic words, crudely singularised so "pixels" matches "pixel". */
+function topicWords(text: string): Set<string> {
+  return new Set(
+    text
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .map((w) => w.replace(/s$/, ""))
+      .filter((w) => w.length > 1 && !GENERIC_WORDS.has(w)),
+  );
+}
+
 /**
  * Guides relevant to a tool = guides whose body links to that tool's path,
  * e.g. `[Dead Pixel Test](/dead-pixel-test)`. Matching the markdown link form
  * `(/slug)` keeps it precise (no accidental substring matches).
+ *
+ * Popular tools are linked in passing by many guides (15 link the Dead Pixel Test),
+ * so they're ranked by how much each guide is *about* the tool: topic words shared
+ * with the tool's name and keywords — tags count double, being curated, over
+ * title/slug words — then by how often the body links the tool, then array order.
  */
 export function getGuidesForTool(slug: string, take = 4): Guide[] {
-  return GUIDES.filter((g) => g.body.includes(`(/${slug})`)).slice(0, take);
+  const tool = TOOL_MAP[slug];
+  const topic = tool ? topicWords([tool.name, ...tool.keywords].join(" ")) : new Set<string>();
+  return GUIDES.map((g, order) => {
+    const links = g.body.split(`(/${slug})`).length - 1;
+    const tagWords = topicWords(g.tags.join(" "));
+    const titleWords = topicWords(`${g.title} ${g.slug}`);
+    let score = 0;
+    for (const w of topic) score += tagWords.has(w) ? 2 : titleWords.has(w) ? 1 : 0;
+    return { g, order, links, score };
+  })
+    .filter((x) => x.links > 0)
+    .sort((a, b) => b.score - a.score || b.links - a.links || a.order - b.order)
+    .slice(0, take)
+    .map((x) => x.g);
 }

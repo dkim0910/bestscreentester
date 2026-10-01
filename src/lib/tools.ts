@@ -16,6 +16,10 @@ export interface ToolDef {
   description: string; // meta description (<=160 chars ideally)
   category: ToolCategory;
   icon: string; // emoji used in cards/nav
+  // ISO YYYY-MM-DD: the last time this tool's own content changed — its copy here, its
+  // TOOL_TIPS, or its test component. Drives the sitemap lastmod (and so the IndexNow
+  // ping), so move it only when the tool changes; shared template edits don't count.
+  updatedAt: string;
   keywords: string[];
   howTo: string[];
   faq: ToolFaq[];
@@ -38,6 +42,7 @@ export const TOOLS: ToolDef[] = [
       "Free online dead pixel test. Cycle full-screen solid colors to spot dead, stuck, and bright sub-pixels on any monitor, laptop, phone, or TV.",
     category: "panel",
     icon: "🔬",
+    updatedAt: "2026-10-01",
     keywords: ["dead pixel test", "stuck pixel", "bright pixel", "pixel checker", "monitor test"],
     howTo: [
       "Set your display brightness to maximum and clean the screen.",
@@ -70,6 +75,7 @@ export const TOOLS: ToolDef[] = [
       "Free full-screen color test. Show pure black, white, red, green, blue, cyan, magenta, yellow and gray to check uniformity and find pixel defects.",
     category: "color",
     icon: "🎨",
+    updatedAt: "2026-06-21",
     keywords: ["color test", "solid color screen", "rgb test", "full screen color"],
     howTo: [
       "Click Start to go full-screen.",
@@ -97,6 +103,7 @@ export const TOOLS: ToolDef[] = [
       "Free pure black screen, full-screen. Check backlight bleed, find dust before cleaning, test OLED blacks, or dim your display.",
     category: "color",
     icon: "⬛",
+    updatedAt: "2026-10-01",
     keywords: ["black screen", "pure black", "black screen full screen", "oled black"],
     howTo: [
       "Click Start for a full-screen pure black field.",
@@ -107,6 +114,14 @@ export const TOOLS: ToolDef[] = [
       {
         q: "What is a black screen used for?",
         a: "Checking backlight bleed and IPS glow, spotting dust before cleaning, testing true blacks on OLED panels, and as a simple low-glare background.",
+      },
+      {
+        q: "Why do the edges glow on a black screen?",
+        a: "On an LCD, that's backlight bleed or IPS glow: light from the backlight leaking at the edges, or showing through as a haze when you look at an angle. A little is normal on almost every LCD. An OLED should stay fully black, because its pixels switch off.",
+      },
+      {
+        q: "Does a black screen save power?",
+        a: "On OLED, yes: black pixels are switched off and draw almost nothing. On an LCD the backlight stays on behind the black image, so the saving is small. Lowering brightness, or turning the display off, saves far more.",
       },
     ],
   },
@@ -119,6 +134,7 @@ export const TOOLS: ToolDef[] = [
       "Free pure white screen, full-screen. Spot dark dead pixels and dust, check brightness uniformity, or use as a softbox light.",
     category: "color",
     icon: "⬜",
+    updatedAt: "2026-10-01",
     keywords: ["white screen", "pure white", "white screen full screen", "screen light"],
     howTo: [
       "Click Start for a full-screen pure white field.",
@@ -129,6 +145,14 @@ export const TOOLS: ToolDef[] = [
       {
         q: "What is a white screen used for?",
         a: "Finding dark dead pixels and dust, checking brightness uniformity, lighting your face on video calls, and cleaning your display.",
+      },
+      {
+        q: "Will the screen stay on while I use it as a light?",
+        a: "Yes, in browsers that support the Screen Wake Lock API, which includes current Chrome, Edge, Safari and Firefox. The page asks your device to keep the display awake until you exit. Where the browser doesn't support it, your normal sleep timer applies.",
+      },
+      {
+        q: "Why does the white look slightly yellow or blue?",
+        a: "White depends on the display's color temperature. Night Light, Night Shift, True Tone and warm 'eye care' presets tint it on purpose, so turn them off before testing. Without those, an even warm or cool cast is a calibration difference, not a fault; patches of different tint across the screen are what to look for.",
       },
     ],
   },
@@ -141,6 +165,7 @@ export const TOOLS: ToolDef[] = [
       "Free backlight bleed test. Display pure black to reveal LCD light leakage and IPS glow around the edges and corners of your screen.",
     category: "panel",
     icon: "💡",
+    updatedAt: "2026-06-21",
     keywords: ["backlight bleed test", "ips glow", "light leakage", "lcd bleed"],
     howTo: [
       "Turn off room lights and set brightness to maximum.",
@@ -163,15 +188,16 @@ export const TOOLS: ToolDef[] = [
     slug: "greyscale-test",
     name: "Greyscale Test",
     title: "Greyscale & Banding Test",
-    tagline: "256-step ramp and smooth gradient to reveal color banding.",
+    tagline: "Smooth gradient and 32-step ramp to reveal color banding.",
     description:
-      "Free greyscale and banding test. View a 256-step ramp and a smooth gradient to detect banding, posterization, and gamma issues.",
+      "Free greyscale and banding test. View a smooth black-to-white gradient and a 32-step ramp to detect banding, posterization, and tinted greys.",
     category: "color",
     icon: "🌫️",
+    updatedAt: "2026-10-01",
     keywords: ["greyscale test", "gradient test", "color banding", "gamma test"],
     howTo: [
       "Click Start to view the gradient full-screen.",
-      "Use ← / → to switch between the smooth gradient and the 256-step ramp.",
+      "Use ← / → to switch between the smooth gradient and the 32-step ramp.",
       "Look for visible bands or abrupt jumps instead of a smooth transition.",
       "Press Esc to exit.",
     ],
@@ -180,29 +206,46 @@ export const TOOLS: ToolDef[] = [
         q: "What causes color banding?",
         a: "Banding appears when a panel can't render enough distinct shades — common on 6-bit + FRC panels, or from aggressive compression and low-bit-depth output settings.",
       },
+      {
+        q: "What's the difference between the two frames?",
+        a: "The smooth gradient runs from black to white with no steps, so any bands you see in it come from your display chain. The stepped ramp splits the same range into 32 even blocks: each one should look like a distinct, neutral grey, including the darkest few.",
+      },
+      {
+        q: "Why do parts of the ramp look tinted?",
+        a: "A neutral ramp should stay grey from end to end. A green, blue or magenta cast in part of it points to the display's white balance or color settings, not to banding. Trying a different color preset or calibrating usually fixes it.",
+      },
     ],
   },
   {
     slug: "color-gradient-test",
     name: "Color Gradient",
     title: "Color Gradient Test",
-    tagline: "Smooth RGB gradients to judge color transitions and gamut.",
+    tagline: "Smooth spectrum and RGB gradients to judge color transitions and banding.",
     description:
-      "Free color gradient test. View smooth red, green, blue and full-spectrum gradients to evaluate color transitions, banding, and gamut coverage.",
+      "Free color gradient test. View smooth red, green, blue and full-spectrum gradients to check color transitions, banding, and posterization.",
     category: "color",
     icon: "🌈",
-    keywords: ["color gradient test", "gamut test", "srgb", "dci-p3", "color transition"],
+    updatedAt: "2026-10-01",
+    keywords: ["color gradient test", "color banding test", "rgb gradient", "spectrum gradient", "color transition"],
     howTo: [
       "Click Start to view the gradient full-screen.",
-      "Use ← / → to cycle through spectrum, red, green, blue, white, and gray gradients.",
+      "Use ← / → to cycle through spectrum, red, green, blue, white, gray, and black gradients.",
       "Check that transitions are smooth and colors look saturated and even.",
       "The white and gray ramps make luminance banding in the shadows easiest to spot.",
       "Press Esc to exit.",
     ],
     faq: [
       {
-        q: "What is color gamut?",
-        a: "Gamut is the range of colors a display can reproduce, usually quoted as a percentage of sRGB or DCI-P3. Wider gamut panels show richer, more saturated colors.",
+        q: "Can this test my color gamut?",
+        a: "No. These gradients use standard sRGB colors, which every display can show, so they reveal banding and uneven transitions rather than gamut. To see whether your screen shows colors beyond sRGB, use the Wide Color Gamut (P3) Test.",
+      },
+      {
+        q: "What does a good result look like?",
+        a: "Every gradient blends smoothly from end to end, with no visible bars, sudden jumps or blotches. The spectrum should pass evenly through yellow, green, cyan, blue and magenta, without one hue swallowing a wide band.",
+      },
+      {
+        q: "Why look at red, green and blue separately?",
+        a: "Each channel is driven on its own, so banding or a color shift that shows up in only one ramp points to that channel's calibration rather than the panel as a whole. Some difference in brightness is normal: green always looks brightest to the eye.",
       },
     ],
   },
@@ -215,6 +258,7 @@ export const TOOLS: ToolDef[] = [
       "Free brightness uniformity test: a 50% gray field, a 9-zone grid and a panning gray to reveal uneven backlighting, clouding and the dirty screen effect.",
     category: "panel",
     icon: "🔲",
+    updatedAt: "2026-10-01",
     keywords: ["brightness uniformity", "screen clouding", "uniformity test", "gray screen"],
     howTo: [
       "Click Start and view the gray field full-screen.",
@@ -243,17 +287,26 @@ export const TOOLS: ToolDef[] = [
       "Free refresh rate test. Measure your display's actual refresh rate in Hz using the browser and watch a moving object to confirm smoothness.",
     category: "motion",
     icon: "⏱️",
+    updatedAt: "2026-10-01",
     keywords: ["refresh rate test", "hz test", "fps test", "144hz test", "monitor hz"],
     howTo: [
       "Click Start — the measured refresh rate appears within a second or two.",
       "Watch the moving box to confirm motion looks smooth.",
-      "Compare the reading to your panel's rated Hz.",
+      "Compare the reading to your panel's rated Hz; the line under it gives the frame time and the closest standard rate.",
       "Press Esc to exit.",
     ],
     faq: [
       {
-        q: "Why is my measured rate slightly off?",
-        a: "Browsers measure refresh via animation frames, which can read a hair below the rated value (e.g. 143–144Hz). A large gap may mean the wrong refresh rate is selected in your OS settings.",
+        q: "Why isn't the reading exactly my monitor's rating?",
+        a: "Many displays run a fraction off their nominal rate, such as 59.94 Hz instead of 60, and browser timing adds a little noise. A reading within about 1 Hz of the rating is normal. A large gap usually means a lower refresh rate is selected in your OS display settings.",
+      },
+      {
+        q: "Why does it show 60 Hz on my 144 Hz monitor?",
+        a: "Because the panel is being driven at 60 Hz. The usual causes: the refresh rate was left at 60 in Windows or macOS display settings, the cable or port can't carry the higher rate at your resolution (use DisplayPort or a high-speed HDMI cable), or a power-saving mode on a laptop or phone has lowered it. Fix that, then run the test again.",
+      },
+      {
+        q: "What do frame time and closest standard rate mean?",
+        a: "Frame time is how long each refresh lasts: 1000 ms divided by the rate, so 16.67 ms at 60 Hz and 6.94 ms at 144 Hz. The closest standard rate names the common panel setting your reading matches, which helps when the measurement lands a fraction off.",
       },
     ],
   },
@@ -266,6 +319,7 @@ export const TOOLS: ToolDef[] = [
       "Free ghosting and response time test. Watch moving boxes at adjustable speeds to reveal motion blur, ghosting trails, and overshoot.",
     category: "motion",
     icon: "👻",
+    updatedAt: "2026-10-01",
     keywords: ["ghosting test", "response time test", "motion blur", "overdrive test", "ufo test"],
     howTo: [
       "Click Start and watch the boxes move across the screen.",
@@ -278,6 +332,14 @@ export const TOOLS: ToolDef[] = [
         q: "What is ghosting?",
         a: "Ghosting is a smeared trail behind moving objects caused by slow pixel response. Raising your monitor's overdrive can reduce it, but too much causes inverse-ghosting (overshoot).",
       },
+      {
+        q: "Which speed should I use?",
+        a: "Start with Medium (480 px/s), which is close to everyday scrolling and game motion. Slow (240 px/s) shows how cleanly the panel settles, and Fast (960 px/s) exaggerates trails and overshoot, so small differences between overdrive settings become visible.",
+      },
+      {
+        q: "Is the trail ghosting or motion blur?",
+        a: "Some blur is unavoidable on any normal display: each frame is held still while your eyes keep moving, so higher refresh rates blur less. Ghosting is different, a distinct afterimage or smear left by slow pixel transitions, and on VA panels it is usually worst in dark scenes.",
+      },
     ],
   },
   {
@@ -289,6 +351,7 @@ export const TOOLS: ToolDef[] = [
       "Free blooming test for Mini-LED and local-dimming displays. Move a bright object on a black field to reveal halo and blooming around highlights.",
     category: "panel",
     icon: "🌟",
+    updatedAt: "2026-10-01",
     keywords: ["blooming test", "mini-led test", "local dimming", "halo test", "fald"],
     howTo: [
       "Dim the room and click Start.",
@@ -302,6 +365,14 @@ export const TOOLS: ToolDef[] = [
         q: "Why does blooming happen?",
         a: "Local-dimming backlights have a limited number of zones. A small bright object lights its whole zone, so some glow spills into the surrounding black area.",
       },
+      {
+        q: "Does OLED have blooming?",
+        a: "No. Every OLED pixel makes its own light, so a bright object on black has no backlight zone to spill out of. Blooming is specific to LCDs with local dimming, including Mini-LED.",
+      },
+      {
+        q: "How do I reduce blooming?",
+        a: "Most local-dimming displays let you set how aggressive the dimming is. A lower setting shrinks halos but lifts blacks; a higher one deepens blacks but blooms more. A little light in the room also makes halos less noticeable than a pitch-dark one.",
+      },
     ],
   },
   {
@@ -314,6 +385,7 @@ export const TOOLS: ToolDef[] = [
       "Free fake broken screen prank. Show a realistic cracked screen, TV static, no-signal bars, a Windows blue screen or Mac kernel panic — tap to reveal it's fake.",
     category: "fun",
     icon: "💥",
+    updatedAt: "2026-10-01",
     keywords: [
       "fake broken screen",
       "cracked screen prank",
@@ -338,6 +410,14 @@ export const TOOLS: ToolDef[] = [
         q: "Will this damage my screen?",
         a: "No. It's just an image displayed in your browser. Nothing is changed on your device and it disappears the moment you tap or exit.",
       },
+      {
+        q: "How does the person get out of it?",
+        a: "Tapping or clicking anywhere, or pressing Esc, ends the prank and returns to the page. Nothing is installed, and closing the tab ends it too.",
+      },
+      {
+        q: "Is it safe for people sensitive to flashing?",
+        a: "Several effects flicker or glitch on purpose. Don't use the prank on anyone with photosensitive epilepsy or who is sensitive to flashing light.",
+      },
     ],
   },
   {
@@ -349,6 +429,7 @@ export const TOOLS: ToolDef[] = [
       "Free online screensaver. Run matrix rain, a warp starfield, falling snow, 3D pipes, a big clock, or the classic bouncing DVD logo full-screen. No install.",
     category: "fun",
     icon: "✨",
+    updatedAt: "2026-10-01",
     keywords: [
       "online screensaver",
       "matrix screensaver",
@@ -368,6 +449,14 @@ export const TOOLS: ToolDef[] = [
         q: "Does it keep my screen awake?",
         a: "By default it lets your display dim/sleep normally. Turn on 'Keep awake' in the controls if you want the Screen Wake Lock to keep the panel on.",
       },
+      {
+        q: "Can I set it as my computer's real screensaver?",
+        a: "Not directly. It runs in a browser tab, so it won't start by itself when your computer goes idle. Open it full-screen when you step away, or leave it running on a spare display.",
+      },
+      {
+        q: "Can it cause burn-in on an OLED?",
+        a: "The moving effects (matrix rain, starfield, snow, pipes and the DVD logo) keep the image changing, which is what a screensaver is for. The clock is the exception: its digits stay in the middle of the screen, so don't leave it running for hours on an OLED.",
+      },
     ],
   },
   {
@@ -379,6 +468,7 @@ export const TOOLS: ToolDef[] = [
       "Free boot screen simulator. Show a realistic Windows 10, Windows XP, or macOS startup screen full-screen — great for pranks, mock-ups, and videos.",
     category: "fun",
     icon: "🔌",
+    updatedAt: "2026-10-01",
     keywords: [
       "boot screen simulator",
       "windows boot screen",
@@ -411,6 +501,7 @@ export const TOOLS: ToolDef[] = [
       "Free OLED/AMOLED burn-in test. Cycle solid white, grey, RGB and a checkerboard full-screen to reveal retained images, ghosting, and uneven pixel aging.",
     category: "panel",
     icon: "🔥",
+    updatedAt: "2026-06-21",
     keywords: ["burn-in test", "oled burn in", "image retention", "amoled", "ghost image"],
     howTo: [
       "Set brightness high and click Start.",
@@ -439,6 +530,7 @@ export const TOOLS: ToolDef[] = [
       "Free contrast test. View black-and-white checkerboards at increasing density to evaluate contrast, black/white level separation, and panel sharpness.",
     category: "panel",
     icon: "◧",
+    updatedAt: "2026-10-01",
     keywords: ["contrast test", "checkerboard", "black white level", "contrast ratio"],
     howTo: [
       "Click Start and view the checkerboard full-screen.",
@@ -451,6 +543,14 @@ export const TOOLS: ToolDef[] = [
         q: "What should I look for?",
         a: "Clean separation between black and white with sharp borders. Greyish blacks indicate low contrast; fuzzy edges can indicate poor sharpness or scaling.",
       },
+      {
+        q: "Can this measure my contrast ratio?",
+        a: "No. A contrast ratio is a measurement of light output and needs a meter. This is a visual check: it shows whether black stays deep right next to bright white, which is what a high or low contrast ratio looks like in practice.",
+      },
+      {
+        q: "Which panel types do best?",
+        a: "OLED, because each pixel switches off: its black squares stay fully dark beside white ones. Among LCDs, VA panels typically reach 2,500:1 to 5,000:1 and IPS around 1,000:1, so IPS blacks look noticeably greyer in a dark room.",
+      },
     ],
   },
   {
@@ -462,6 +562,7 @@ export const TOOLS: ToolDef[] = [
       "Free black level test. Compare near-black grey steps to judge shadow detail, black depth, and IPS glow — see which dark levels your screen still shows.",
     category: "panel",
     icon: "▰",
+    updatedAt: "2026-10-01",
     keywords: ["black level test", "shadow detail", "near black", "black depth", "ips glow"],
     howTo: [
       "Dim the room and set brightness to your normal level, then click Start.",
@@ -474,6 +575,14 @@ export const TOOLS: ToolDef[] = [
         q: "How many steps should I see?",
         a: "On a good display in a dark room you can usually distinguish the steps from value 2–4 upward. If low steps all look identical to black, shadow detail is being crushed (often a brightness/black-level or 'Limited' RGB range setting).",
       },
+      {
+        q: "Should I turn brightness up until I see every step?",
+        a: "Not on a monitor: its brightness control mostly drives the backlight, which makes every step easier to see but also lifts black. Test at the brightness you actually use. On TVs, the setting called Brightness often controls black level itself, and that is the one to adjust.",
+      },
+      {
+        q: "Why do the dark bands glow toward the corners?",
+        a: "That's IPS glow or backlight bleed, not a shadow-detail problem: backlight showing through at an angle or leaking at the edges. Judge the steps from the center of the screen, and use the Backlight Bleed Test to look at the corners.",
+      },
     ],
   },
   {
@@ -485,6 +594,7 @@ export const TOOLS: ToolDef[] = [
       "Free viewing angle test. Show grey steps and color bars, then move your head to see how much brightness and color shift off-axis on TN and VA panels.",
     category: "panel",
     icon: "◑",
+    updatedAt: "2026-10-01",
     keywords: ["viewing angle test", "color shift", "off axis", "tn va ips angle"],
     howTo: [
       "Click Start and sit centered first to set a reference.",
@@ -497,6 +607,14 @@ export const TOOLS: ToolDef[] = [
         q: "What's normal?",
         a: "IPS and OLED hold color and brightness well off-axis. TN panels shift heavily (especially vertically) and VA panels show a contrast/gamma shift and corner glow. Some shift is normal — large shifts mean a narrow viewing cone.",
       },
+      {
+        q: "Why do the corners look different even when I sit centered?",
+        a: "On a large screen, or one close to you, the corners are already seen at an angle. TN and VA panels show that as darker or washed-out corners even from the middle seat. A curved monitor keeps the edges closer to head-on and reduces it.",
+      },
+      {
+        q: "Which part of the pattern should I watch?",
+        a: "The grey steps across the top show brightness and gamma shift: on a narrow-angle panel the dark steps wash out or merge as you move, and the greys pick up a tint. The color bars underneath show saturation dropping and hues shifting.",
+      },
     ],
   },
   {
@@ -508,6 +626,7 @@ export const TOOLS: ToolDef[] = [
       "Free gamma test. A 1-pixel stripe pattern (≈50% grey) sits beside reference patches for gamma 1.8–2.4. The patch that blends in reveals your display's gamma.",
     category: "color",
     icon: "◐",
+    updatedAt: "2026-10-01",
     keywords: ["gamma test", "gamma 2.2", "gamma calibration", "grayscale gamma"],
     howTo: [
       "Click Start and step back a little (the stripes should blur into solid grey).",
@@ -520,6 +639,14 @@ export const TOOLS: ToolDef[] = [
         q: "What gamma should I target?",
         a: "2.2 (sRGB standard) for general use. If the lower-value patches blend in, your gamma is too low (washed out); if the higher ones match, it's too high (crushed shadows). Adjust the monitor's gamma preset or OS calibration.",
       },
+      {
+        q: "Do Mac and Windows use different gamma?",
+        a: "Not any more. Both target 2.2 by default; macOS moved from 1.8 to 2.2 in 2009. What differs is each display's own response, and that is what this test reads.",
+      },
+      {
+        q: "Is this as accurate as a calibration tool?",
+        a: "No. It gives a good visual estimate of your display's gamma around mid-grey, but it can't measure the whole curve from black to white, or correct it. A colorimeter does both.",
+      },
     ],
   },
   {
@@ -531,6 +658,7 @@ export const TOOLS: ToolDef[] = [
       "Free screen tearing test. Fast-scrolling bars reveal horizontal tears when frame rate and refresh rate aren't synced — check V-Sync, G-Sync and FreeSync.",
     category: "motion",
     icon: "⇿",
+    updatedAt: "2026-10-01",
     keywords: ["screen tearing test", "vsync", "g-sync", "freesync", "vrr test"],
     howTo: [
       "Click Start and watch the moving bars.",
@@ -544,6 +672,14 @@ export const TOOLS: ToolDef[] = [
         q: "How do I stop tearing?",
         a: "Enable adaptive sync (G-Sync/FreeSync) for tear-free, low-lag motion, or V-Sync to cap frames to the refresh rate (adds some lag). See our screen tearing guide for the full breakdown.",
       },
+      {
+        q: "Why don't I see any tearing here?",
+        a: "Browsers usually draw in sync with the display, so a clean result is common and doesn't prove your games won't tear. Games tear when they send frames with V-Sync off. If you do see tears here, check that hardware acceleration is on in your browser and that the display is running at its rated refresh rate.",
+      },
+      {
+        q: "What does the speed slider change?",
+        a: "How fast the bars move. Faster motion makes the offset at a tear wider and easier to spot. If motion looks jerky rather than torn, frames are being skipped or repeated; the Frame Skipping Test checks for that directly.",
+      },
     ],
   },
   {
@@ -555,6 +691,7 @@ export const TOOLS: ToolDef[] = [
       "Free touch screen test for phones, tablets and touch laptops. Fill a grid or draw freely to find dead zones, ghost touches and multi-touch limits.",
     category: "panel",
     icon: "👆",
+    updatedAt: "2026-10-01",
     keywords: ["touch screen test", "touchscreen test", "dead zone test", "multi touch test", "digitizer test", "phone touch test"],
     howTo: [
       "Click Start and hold the device the way you normally would.",
@@ -587,6 +724,7 @@ export const TOOLS: ToolDef[] = [
       "What's my screen resolution? See your display's resolution, scaling, aspect ratio, refresh rate, color gamut and HDR support, read live in your browser.",
     category: "fun",
     icon: "ℹ️",
+    updatedAt: "2026-10-01",
     keywords: ["what is my screen resolution", "screen resolution checker", "display info", "my screen size", "device pixel ratio", "screen resolution test"],
     howTo: [
       "Open the page — every value is read live from your browser, with nothing to start.",
@@ -618,6 +756,7 @@ export const TOOLS: ToolDef[] = [
       "Free overscan and aspect ratio test for TVs and projectors. Check for cropped edges, stretched pictures and geometry distortion with full-screen patterns.",
     category: "panel",
     icon: "📐",
+    updatedAt: "2026-10-01",
     keywords: ["overscan test", "aspect ratio test", "tv overscan", "projector test pattern", "geometry test", "screen fit test"],
     howTo: [
       "Open the page on the device connected to the TV or projector, then click Start.",
@@ -646,6 +785,7 @@ export const TOOLS: ToolDef[] = [
       "Free sharpness and text clarity test. Pixel-perfect lines and small text reveal blur from non-native resolution, display scaling and TV oversharpening.",
     category: "panel",
     icon: "🔎",
+    updatedAt: "2026-10-01",
     keywords: ["sharpness test", "text clarity test", "monitor sharpness", "native resolution test", "chroma subsampling test", "pixel perfect test"],
     howTo: [
       "Click Start and view each pattern full-screen at your normal distance.",
@@ -674,6 +814,7 @@ export const TOOLS: ToolDef[] = [
       "Free frame skipping test. One cell lights per refresh, so a photo with a slow shutter shows an unbroken run — or gaps where your monitor drops frames.",
     category: "motion",
     icon: "🎞️",
+    updatedAt: "2026-10-01",
     keywords: ["frame skipping test", "monitor overclock test", "dropped frames test", "refresh rate overclock", "frame skip"],
     howTo: [
       "Close other apps and tabs, then click Start.",
@@ -702,6 +843,7 @@ export const TOOLS: ToolDef[] = [
       "Free wide color gamut test. Check whether your screen and browser can show Display P3 colors beyond sRGB, with hidden logos only wide-gamut displays reveal.",
     category: "color",
     icon: "△",
+    updatedAt: "2026-10-01",
     keywords: ["wide color gamut test", "p3 test", "display p3 test", "dci-p3 test", "color gamut test", "srgb vs p3"],
     howTo: [
       "Click Start and look at each color full-screen.",
@@ -729,6 +871,7 @@ export const TOOLS: ToolDef[] = [
       "Free PWM flicker test. Bright fields for the pencil and camera tests, plus a fast-moving line that turns into a row of copies on a PWM-dimmed screen.",
     category: "panel",
     icon: "〰️",
+    updatedAt: "2026-10-01",
     keywords: ["pwm test", "pwm flicker test", "screen flicker test", "pwm dimming test", "flicker free test"],
     howTo: [
       "Set the screen to the brightness you normally use — PWM usually appears at low brightness.",
@@ -757,6 +900,7 @@ export const TOOLS: ToolDef[] = [
       "Free HDR test. Check whether your screen and browser display HDR with a real HDR image of brightness steps from 100 to 1,600 nits, plus capability checks.",
     category: "color",
     icon: "☀️",
+    updatedAt: "2026-10-01",
     keywords: ["hdr test", "is my screen hdr", "hdr brightness test", "hdr monitor test", "peak brightness test", "hdr check"],
     howTo: [
       "Turn HDR on first — on Windows, Settings > System > Display > Use HDR.",

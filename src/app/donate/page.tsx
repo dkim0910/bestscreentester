@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { pageMetadata, SITE_NAME } from "@/lib/seo";
+import { pageMetadata, SITE_NAME, OPERATOR_NAME } from "@/lib/seo";
+import { TOOLS } from "@/lib/tools";
 
 export const metadata: Metadata = pageMetadata({
   title: "Donate",
-  description: `Support ${SITE_NAME} and help keep all 20 screen tests free for everyone — contributions go straight to hosting costs and development time.`,
+  description: `Support ${SITE_NAME} and help keep all ${TOOLS.length} screen tests free for everyone — contributions go straight to hosting costs and development time.`,
   path: "/donate",
 });
 
@@ -19,8 +20,8 @@ export default function DonatePage() {
         Help Keep {SITE_NAME} Free
       </h1>
       <p className="mb-10 leading-relaxed text-foreground/70">
-        {SITE_NAME} is built and maintained by one solo developer. Your donation helps cover
-        hosting and development time so all {21}+ screen tests can stay free for everyone.
+        {SITE_NAME} is built and maintained by {OPERATOR_NAME}, currently one solo developer. Your donation helps cover
+        hosting and development time so all {TOOLS.length} screen tests can stay free for everyone.
       </p>
 
       {/* Donation options */}

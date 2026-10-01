@@ -57,7 +57,10 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
 
 - **Tool registry — `src/lib/tools.ts` is the single source of truth** for tools (slug, copy,
   how-to, FAQ, category). It drives nav, homepage, per-tool pages, sitemap, and JSON-LD. Add or
-  change a tool here first, then wire its UI in `ToolRunner`.
+  change a tool here first, then wire its UI in `ToolRunner`. Each tool's `updatedAt` is its
+  sitemap lastmod: set it to today whenever that tool's copy, tips or test component changes
+  (not for shared template edits). Static pages use `PAGE_UPDATED` in `seo.ts`; home, /tools
+  and /blog use `SITE_UPDATED`.
 - **Tool engine — `src/components/tools/`:**
   - `FullscreenStage` is the shared controller (fullscreen + wake lock + ←/→ + tap zones +
     auto-hiding overlay). It exposes an imperative `start(index?)` via ref and a `hideLauncher`
@@ -105,7 +108,9 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
 - **Guides/blog — `src/lib/guides.ts` (the `GUIDES` array) is the single source of truth.** Bodies
   are MDX and link to the tools they discuss (e.g. `[Dead Pixel Test](/dead-pixel-test)`).
   - `getGuidesForTool(slug)` powers the "Related guides" section on each tool page by matching the
-    markdown link form `(/slug)` in guide bodies — accurate and self-maintaining.
+    markdown link form `(/slug)` in guide bodies — accurate and self-maintaining. It shows the top
+    4 ranked by topic overlap with the tool's name + `keywords` (guide tags count double over
+    title/slug words), so a tool's `keywords` also steer which guides it surfaces.
   - Blog routes (`/blog`, `/blog/[slug]`) read from `GUIDES` and are fully static.
 - **SEO is the product's growth engine.** Tool pages and guides must stay static. Helpers in
   `src/lib/seo.ts` (`pageMetadata`, `faqJsonLd`, `howToJsonLd`, `articleJsonLd`), plus
@@ -150,10 +155,13 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   Build env `NEXT_PUBLIC_SITE_URL` / `NEXT_PUBLIC_CONTACT_EMAIL` are set in the workflow (the
   git-ignored local `.env` is only for dev, so local builds show localhost URLs).
 - `<html>` has `suppressHydrationWarning` because browser extensions inject attributes onto it.
-- **Favicons use the file convention:** `src/app/icon.png` (512²) + `src/app/apple-icon.png` (180²),
+- **Favicons use the file convention:** `src/app/icon.png` (96², ~1.5 KB palette PNG — every page
+  loads it, so keep it small; the old 512² one was 188 KB) + `src/app/apple-icon.png` (180²),
   generated from `public/bestscreentester_logo.png` with `sharp`. There is no `favicon.ico` and no
   `metadata.icons` override — don't add one pointing at the full 1.7 MB logo (that was the old bug
-  that made the tab icon download the whole logo).
+  that made the tab icon download the whole logo). The Organization JSON-LD logo is a separate
+  `public/logo.png` (512², only crawlers fetch it): Google wants ≥112px, so don't point it back at
+  the 96px favicon.
 - **`react-hooks` lint rules are strict.** Two traps that only `npm run lint` catches (not `next build`):
   - *Purity:* don't call impure functions (`performance.now()`, `Date.now()`, `Math.random()`) or
     read/write a ref's `.current` during render. Do that work inside `useEffect` (see `PatternCanvas`:

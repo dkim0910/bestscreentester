@@ -10,7 +10,7 @@ import {
   articleJsonLd,
   breadcrumbJsonLd,
   absoluteUrl,
-  SITE_NAME,
+  OPERATOR_NAME,
 } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -122,7 +122,11 @@ export default async function BlogPost({
         />
         <h1 className="text-3xl font-bold sm:text-4xl">{post.title}</h1>
         <p className="mt-3 text-sm text-foreground/50">
-          By {SITE_NAME} · Published{" "}
+          By{" "}
+          <Link href="/about" className="underline-offset-2 hover:text-foreground hover:underline">
+            {OPERATOR_NAME}
+          </Link>{" "}
+          · Published{" "}
           <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
           {post.updatedAt && post.updatedAt !== post.publishedAt && (
             <>

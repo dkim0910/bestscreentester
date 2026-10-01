@@ -51,6 +51,11 @@ interface FullscreenStageProps {
    * itself needs every tap (the touch test); a press-and-hold then shows the controls.
    */
   tapNavigation?: boolean;
+  /**
+   * Dim the inline preview behind the Start button. Default true. Turn it off for
+   * solid-color frames, where the dimming misrepresents the color (white looked grey).
+   */
+  previewScrim?: boolean;
 }
 
 const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function FullscreenStage(
@@ -65,6 +70,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
     hideLauncher = false,
     tapToExit = false,
     tapNavigation = true,
+    previewScrim = true,
   },
   ref,
 ) {
@@ -257,7 +263,9 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
             type="button"
             onClick={() => start(index)}
             aria-label={`${startLabel} — ${tool.name}`}
-            className="absolute inset-0 bg-black/40 transition hover:bg-black/30"
+            className={
+              previewScrim ? "absolute inset-0 bg-black/40 transition hover:bg-black/30" : "absolute inset-0"
+            }
           />
           <span className="pointer-events-none relative rounded-full bg-accent px-6 py-3 text-base font-semibold text-black shadow-lg">
             ▶ {startLabel}
@@ -285,7 +293,14 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
               </button>
             </span>
           )}
-          <span className="pointer-events-none relative text-sm text-white/70">{hint}</span>
+          {/* Without the scrim the hint can sit on white, so it gets its own backing. */}
+          <span
+            className={`pointer-events-none relative text-sm ${
+              previewScrim ? "text-white/70" : "rounded-full bg-black/70 px-3 py-1 text-white/80"
+            }`}
+          >
+            {hint}
+          </span>
         </div>
       )}
 

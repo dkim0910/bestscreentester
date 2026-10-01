@@ -25,8 +25,8 @@ const CORE_TOOLS = [
   },
   {
     name: "Color Gamut",
-    href: "/color-gradient-test",
-    body: "Smooth full-spectrum gradients to judge sRGB / DCI-P3 coverage and saturation. Instantly sanity-check a wide-gamut claim and spot transition banding.",
+    href: "/wide-color-gamut-test",
+    body: "Hidden logos drawn in Display P3 colors that only a wide-gamut screen can show. Sanity-check a wide-gamut claim, and whether your browser passes P3 through.",
   },
   {
     name: "Refresh Rate",
@@ -36,7 +36,7 @@ const CORE_TOOLS = [
   {
     name: "Ghosting Test",
     href: "/ghosting-test",
-    body: "Moving-block test for response time and grey-to-grey transition speed. IPS ~1ms, VA ~4–15ms — dark-scene ghosting is VA's biggest weakness.",
+    body: "Moving-block test for response time and grey-to-grey transition speed. Dark-scene smearing is VA's biggest weakness; good IPS panels trail less, and OLED barely at all.",
   },
   {
     name: "Blooming Test",
@@ -175,8 +175,8 @@ export default function HomeSections() {
               <h3 className="font-semibold text-accent">Color &amp; greyscale analysis</h3>
               <p className="mt-2 text-sm text-foreground/70">
                 Full-spectrum testing covering color, gamut, greyscale, banding, and depth.
-                sRGB/DCI-P3 gradients and 256-level greyscale transitions help you judge your
-                panel&apos;s true performance.
+                Smooth color and greyscale gradients, plus Display P3 test patterns, help you
+                judge your panel&apos;s true performance.
               </p>
             </div>
             <div className="rounded-xl border border-border bg-card p-6">

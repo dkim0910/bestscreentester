@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   },
   description: SITE_TAGLINE,
   applicationName: SITE_NAME,
-  // Favicons come from the file convention: src/app/icon.png + src/app/apple-icon.png.
+  // Favicons come from the file convention: src/app/icon.png (96px — it loads on every
+  // page, so keep it small) + src/app/apple-icon.png.
   robots: { index: true, follow: true },
   // Google AdSense site verification (rendered into every page's <head>).
   other: { "google-adsense-account": "ca-pub-7400069037778721" },

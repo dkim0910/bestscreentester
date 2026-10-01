@@ -32,6 +32,7 @@ export default function ColorCycler({ tool, colors = SOLID_COLORS, keepAwake = t
       tool={tool}
       frameCount={colors.length}
       keepAwake={keepAwake}
+      previewScrim={false}
       frameLabel={(i) => colors[i]?.name ?? ""}
       renderFrame={(i) => (
         <div

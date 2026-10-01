@@ -4,8 +4,8 @@
 //
 // Only URLs whose sitemap <lastmod> falls inside WINDOW_DAYS are submitted — blasting
 // all 60+ URLs on every deploy is what the protocol asks you not to do. That works
-// because lastmod is now a real content date (SITE_UPDATED / a guide's own dates)
-// rather than the build timestamp.
+// because lastmod is now a real content date (a tool's or guide's own dates, or
+// SITE_UPDATED / PAGE_UPDATED for the other pages) rather than the build timestamp.
 
 const KEY = process.env.INDEXNOW_KEY;
 const SITE_URL = (process.env.SITE_URL || "https://bestscreentester.com").replace(/\/$/, "");

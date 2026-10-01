@@ -118,6 +118,7 @@ export default function DeadPixelTool({ tool }: { tool: ToolDef }) {
     <FullscreenStage
       tool={tool}
       frameCount={frameCount}
+      previewScrim={false}
       frameLabel={(i) => SOLID_COLORS[i]?.name ?? FIXER_LABEL}
       renderFrame={(i, active) =>
         i < SOLID_COLORS.length ? (
