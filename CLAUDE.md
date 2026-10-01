@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # BestScreenTester
 
-A suite of **20** free, browser-based screen tests plus **36** guides. **Fully static — no
+A suite of **20** free, browser-based screen tests plus **44** guides. **Fully static — no
 database, no accounts, no backend services.** The display tests run 100% client-side (Fullscreen
 API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts` — the
 `category` field there is what actually drives the nav/homepage grouping, so trust it over any

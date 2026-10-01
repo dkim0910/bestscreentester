@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getGuide, getAllGuideSlugs, getRelatedGuides } from "@/lib/guides";
 import {
   pageMetadata,
@@ -131,7 +132,12 @@ export default async function BlogPost({
           )}
         </p>
         <div className="prose-content mt-6">
-          <MDXRemote source={post.body} components={mdxComponents} />
+          {/* GFM for the tables in guide bodies — without it they render as raw pipes. */}
+          <MDXRemote
+            source={post.body}
+            components={mdxComponents}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          />
         </div>
       </div>
 
