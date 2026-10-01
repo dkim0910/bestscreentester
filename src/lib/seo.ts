@@ -7,13 +7,30 @@ export const SITE_TAGLINE =
 export const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello+bestscreentester@nelera.com";
 
+// Who runs the site: the guides' byline and Article author, the About page, and the
+// Organization schema's parent. Plain "Nelera" until the LLC is actually formed —
+// don't claim "Nelera LLC" before it exists.
+export const OPERATOR_NAME = "Nelera";
+
 // Last review date for the legal pages (About / Privacy / Terms).
 export const LEGAL_UPDATED = "July 29, 2026";
 
-// Freshness date for the tools and the static pages. Sitemap `lastmod` is derived
-// from this rather than from build time: Bing discounts sitemaps whose lastmod is
-// always "now", so this must be a stable value that only moves when content does.
+// Freshness date for the hub pages (home, /tools, /blog), which change whenever a tool
+// or guide is added. Sitemap `lastmod` is derived from these dates rather than from
+// build time: Bing discounts sitemaps whose lastmod is always "now", and the IndexNow
+// ping submits whatever is dated within the last week, so each must be a stable value
+// that only moves when its own page does. Tools carry their own `updatedAt` (tools.ts).
 export const SITE_UPDATED = "2026-10-01";
+
+// Last change to each static page's visible content (meta-description-only edits don't
+// count). Privacy and Terms must match LEGAL_UPDATED, the date those pages display.
+export const PAGE_UPDATED = {
+  about: "2026-10-01",
+  donate: "2026-10-01",
+  feedback: "2026-06-21",
+  privacy: "2026-07-29",
+  terms: "2026-07-29",
+} as const;
 
 export function siteUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
@@ -152,6 +169,16 @@ export function webAppJsonLd(args: {
   };
 }
 
+/** The site's operator. Its url is the About page, which says who that is. */
+function operatorJsonLd() {
+  return {
+    "@type": "Organization",
+    "@id": `${absoluteUrl("/")}#operator`,
+    name: OPERATOR_NAME,
+    url: absoluteUrl("/about"),
+  };
+}
+
 export function siteJsonLd() {
   const url = absoluteUrl("/");
   return [
@@ -163,10 +190,12 @@ export function siteJsonLd() {
       url,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/icon.png"),
+        // Not /icon.png: that favicon is 96px, below Google's 112px logo minimum.
+        url: absoluteUrl("/logo.png"),
         width: 512,
         height: 512,
       },
+      parentOrganization: operatorJsonLd(),
     },
     {
       "@context": "https://schema.org",
@@ -200,7 +229,9 @@ export function articleJsonLd(args: {
     mainEntityOfPage: { "@type": "WebPage", "@id": args.url },
     datePublished: args.publishedAt ?? undefined,
     dateModified: args.updatedAt ?? args.publishedAt ?? undefined,
-    author: { "@type": "Organization", name: args.authorName ?? SITE_NAME, url: siteRoot },
+    author: args.authorName
+      ? { "@type": "Organization", name: args.authorName, url: siteRoot }
+      : operatorJsonLd(),
     image: args.image ?? absoluteUrl("/og.png"),
     inLanguage: "en",
     publisher: { "@id": `${siteRoot}#organization` },

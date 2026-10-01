@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { pageMetadata, SITE_NAME, CONTACT_EMAIL } from "@/lib/seo";
+import { pageMetadata, SITE_NAME, CONTACT_EMAIL, OPERATOR_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
@@ -40,6 +40,18 @@ export default function AboutPage() {
           <Link href="/blog">practical guides</Link> on fixing stuck pixels, understanding backlight
           bleed, calibrating color, choosing a panel, and more — so you can act on what a test shows
           you.
+        </p>
+
+        <h2>Who makes {SITE_NAME}</h2>
+        <p>
+          {SITE_NAME} is built and maintained by {OPERATOR_NAME}, an independent developer —
+          currently a one-person operation. {OPERATOR_NAME} builds the tools and writes the
+          guides on this site.
+        </p>
+        <p>
+          If you spot a mistake, tell us: we correct the page and update its date. Where a guide
+          relies on a standard or a manufacturer&apos;s documentation, it links to that source so
+          you can check it yourself.
         </p>
 
         <h2>A note on accuracy</h2>

@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+// Without its own metadata the 404 inherited the homepage title and the layout's
+// `index, follow`, next to the `noindex` Next injects for 404s.
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
