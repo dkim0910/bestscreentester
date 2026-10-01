@@ -41,10 +41,10 @@ export const TOOLS: ToolDef[] = [
     keywords: ["dead pixel test", "stuck pixel", "bright pixel", "pixel checker", "monitor test"],
     howTo: [
       "Set your display brightness to maximum and clean the screen.",
-      "Click Start to enter full-screen, then use ← / → or tap to change colors.",
+      "Click Start to enter full-screen, then use ← / → or tap the sides to change colors.",
       "Scan each solid color slowly across the whole panel.",
       "A dot that stays black on every color is a dead pixel; a dot stuck on one color is a stuck pixel.",
-      "Press Esc to exit. Found one? Try the stuck-pixel flash mode to revive it.",
+      "Found a stuck pixel? Go to the last frame, Stuck-pixel fixer, drag the box over it and tap the box to start flashing. Press Esc to exit.",
     ],
     faq: [
       {
@@ -323,7 +323,7 @@ export const TOOLS: ToolDef[] = [
       "broken screen prank",
     ],
     howTo: [
-      "Use ← / → to pick an effect: cracked, glitch, TV static, no signal, dead pixels, pixel glitch, Windows BSOD, Windows XP, Mac crash, Linux panic, iOS recovery, or Android crash.",
+      "Pick an effect with the ← / → arrows under the Start button: cracked, glitch, TV static, no signal, dead pixels, pixel glitch, Windows BSOD, Windows XP, Mac crash, Linux panic, iOS recovery, or Android crash.",
       "Click Start to go full-screen, then hand the device over.",
       "Tap anywhere (or press Esc) to reveal it was a prank.",
     ],
@@ -353,14 +353,14 @@ export const TOOLS: ToolDef[] = [
       "browser screensaver",
     ],
     howTo: [
-      "Choose an effect (matrix, starfield, snow, pipes, clock, or the bouncing DVD logo).",
+      "Pick an effect with the ← / → arrows under the Start button (matrix, starfield, snow, pipes, clock, or the bouncing DVD logo).",
       "Click Start to run it full-screen.",
-      "Move the mouse or press Esc to exit.",
+      "Move the mouse or tap to show the controls, then press Esc or Exit to leave.",
     ],
     faq: [
       {
         q: "Does it keep my screen awake?",
-        a: "By default it lets your display dim/sleep normally. Toggle 'Keep awake' if you want the Screen Wake Lock to keep the panel on.",
+        a: "By default it lets your display dim/sleep normally. Turn on 'Keep awake' in the controls if you want the Screen Wake Lock to keep the panel on.",
       },
     ],
   },
@@ -381,7 +381,7 @@ export const TOOLS: ToolDef[] = [
       "fake boot screen",
     ],
     howTo: [
-      "Use ← / → to choose Windows 10, Windows XP, or macOS.",
+      "Choose Windows 10, Windows XP, or macOS with the ← / → arrows under the Start button.",
       "Click Start to run the animated startup screen full-screen.",
       "Press Esc or tap to exit.",
     ],
@@ -548,7 +548,7 @@ export const TOOL_TIPS: Record<string, string[]> = {
   "dead-pixel-test": [
     "Clean the screen first — a speck of dust looks exactly like a dead pixel.",
     "View each color from ~30cm away so a single off pixel actually stands out.",
-    "Found a stuck (not dead) pixel? Leave a fast color flash running over it for 10–20 minutes to try to revive it.",
+    "Found a stuck (not dead) pixel? Use the Stuck-pixel fixer frame and leave its flashing box over the pixel for 10–20 minutes to try to revive it.",
   ],
   "color-test": [
     "Solid red, green, and blue are best for spotting a defective sub-pixel.",
@@ -623,7 +623,7 @@ export const TOOL_TIPS: Record<string, string[]> = {
     "Toggle V-Sync or adaptive sync (G-Sync/FreeSync) and watch the tear line appear or vanish.",
   ],
   "screensaver": [
-    "Toggle 'Keep awake' if you want the display to stay on instead of sleeping.",
+    "Turn on 'Keep awake' in the controls if you want the display to stay on instead of sleeping.",
     "The DVD logo's corner-hit is rare by design — that's the moment everyone waits for.",
   ],
 };

@@ -20,7 +20,7 @@ const tools = [...toolsSrc.matchAll(/\n    slug: "([^"]+)",\n    name: "([^"]+)"
   .map((m) => ({ slug: m[1], title: m[3], label: CAT[m[4]] }));
 const guides = [...guidesSrc.matchAll(/\n    slug: "([^"]+)",\n    title: "([^"]+)",/g)]
   .map((m) => ({ slug: m[1], title: m[2], label: "Guide" }));
-if (tools.length !== 20 || guides.length !== 36) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
+if (tools.length !== 20 || guides.length !== 44) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
 
 // ---------- screen motifs ----------
 // Each draws inside the screen viewport x,y,w,h and returns SVG.
@@ -130,6 +130,8 @@ const TOOL_MOTIF = {
   "viewing-angle-test": "angle", "gamma-test": "gamma", "screen-tearing-test": "tear",
 };
 const GUIDE_RULES = [
+  [/lines-on-my-screen/, "rgb"], [/graphics-card/, "twoscreens"], [/rgb-range/, "blacklevel"],
+  [/contrast-ratio/, "contrast"], [/cracked-screen|pranks/, "crack"], [/screensaver/, "dvd"],
   [/checklist|before-buying|test-a-tv|test-a-laptop|used-phone/, "checklist"],
   [/clean/, "clean"], [/external-monitor/, "twoscreens"],
   [/stuck-pixel|dead-pixel|dead-vs-stuck|causes-dead|warranty/, "pixels"],

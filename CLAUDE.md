@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # BestScreenTester
 
-A suite of **20** free, browser-based screen tests plus **37** guides. **Fully static — no
+A suite of **20** free, browser-based screen tests plus **44** guides. **Fully static — no
 database, no accounts, no backend services.** The display tests run 100% client-side (Fullscreen
 API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts` — the
 `category` field there is what actually drives the nav/homepage grouping, so trust it over any
@@ -59,13 +59,30 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
 - **Tool engine — `src/components/tools/`:**
   - `FullscreenStage` is the shared controller (fullscreen + wake lock + ←/→ + tap zones +
     auto-hiding overlay). It exposes an imperative `start(index?)` via ref and a `hideLauncher`
-    prop so external controls (e.g. homepage `QuickColors` swatches) can launch it. The low-level
-    fullscreen + Wake Lock calls (with vendor-prefix/iOS fallbacks) live in `src/lib/fullscreen.ts`.
+    prop so external controls (e.g. homepage `QuickColors` swatches) can launch it. The inline
+    launcher has a ←/→ frame picker and Start launches the picked frame. Tap zones: sides switch
+    frames, centre toggles the overlay — **no tap exits** unless the tool sets `tapToExit` (the
+    pranks: `FakeScreenTool`, `BootScreenTool`), so keep "tap to exit" copy to those. The wake lock
+    is an effect on `active && keepAwake`, so `keepAwake` may change mid-session (screensaver
+    toggle). `renderFrame(index, active)` gets `active` so a frame can tell preview from full-screen.
+    The low-level fullscreen + Wake Lock calls (with vendor-prefix/iOS fallbacks) live in
+    `src/lib/fullscreen.ts`.
   - `ColorCycler`, `PatternCanvas`, `CanvasStage` build on the stage. `patterns.ts` holds canvas
     draw helpers (greyscale, color gradient, gray field, burn-in, contrast, black level, viewing
-    angle, gamma). Bespoke tools have their own components: `RefreshRateTool`, `GhostingTool`,
-    `BloomingTool`, `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`.
+    angle, gamma). Bespoke tools have their own components: `DeadPixelTool` (solid colors + the
+    stuck-pixel fixer frame), `RefreshRateTool`, `GhostingTool`, `BloomingTool`,
+    `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`. The prank's
+    "Cracked" effect lives in `crackedScreen.ts`: it grows a crack network (cracks stop at the
+    first crack they hit), flood-fills the shards, then shifts/re-lights each shard's pixels over
+    a plain light display colour (`DISPLAY_COLOR`). Seeded; the display and glass layers are
+    cached per canvas size (~100–250 ms to build), then each frame only blits them and applies
+    the flicker (stuttering backlight bursts, scanline bands near the damage, blinking stuck
+    columns) to the display layer. Photosensitivity limits (WCAG 2.3.1) it must keep: whole-screen
+    brightness under a 10% *luminance* swing (≈4% of pixel value — values are gamma-encoded);
+    strong changes only in thin bands/lines, total band height capped at 48 CSS px.
     `ToolRunner` maps each slug → its component (with a solid-color cycler fallback).
+  - Gamma stripes must sit on physical pixels: `gamma()` draws in backing-store pixels and runs
+    with `nativeResolution` (uncapped DPR). Other canvases cap DPR at 2.
   - **Model selectable options (colors, speeds, patterns) as stage "frames"** (`frameCount` +
     `frameLabel`), so ←/→ keys, tap zones, and the overlay arrows all navigate them for free. A
     tool with `frameCount={1}` has dead arrows — that was the ghosting-speed bug.
@@ -123,11 +140,6 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   generated from `public/bestscreentester_logo.png` with `sharp`. There is no `favicon.ico` and no
   `metadata.icons` override — don't add one pointing at the full 1.7 MB logo (that was the old bug
   that made the tab icon download the whole logo).
-  - `src/app/head.tsx` still exists and points at `/bestscreentester_logo.png` (the 1.7 MB file),
-    but **it is dead code, not an active regression** — `head.js/tsx` was removed as an App Router
-    convention after Next 13, so Next 16 never renders it. Verified: the built HTML contains only
-    `/icon.png` and `/apple-icon.png` from the file convention. Safe to delete as cleanup; deleting
-    it changes nothing about what ships.
 - **`react-hooks` lint rules are strict.** Two traps that only `npm run lint` catches (not `next build`):
   - *Purity:* don't call impure functions (`performance.now()`, `Date.now()`, `Math.random()`) or
     read/write a ref's `.current` during render. Do that work inside `useEffect` (see `PatternCanvas`:

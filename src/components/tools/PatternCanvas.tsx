@@ -16,6 +16,12 @@ interface PatternCanvasProps {
   frame?: number;
   animate?: boolean;
   trackPointer?: boolean;
+  /**
+   * Back the canvas with every device pixel instead of capping the ratio at 2. Needed
+   * when a pattern must land exactly on physical pixels (the gamma test's 1px stripes);
+   * at a capped ratio a 3x phone stretches the canvas 1.5x and blurs them.
+   */
+  nativeResolution?: boolean;
 }
 
 export default function PatternCanvas({
@@ -23,6 +29,7 @@ export default function PatternCanvas({
   frame = 0,
   animate = true,
   trackPointer = false,
+  nativeResolution = false,
 }: PatternCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
@@ -50,7 +57,9 @@ export default function PatternCanvas({
       const c = canvas;
       const context = ctx;
       if (!c || !context) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = nativeResolution
+        ? window.devicePixelRatio || 1
+        : Math.min(window.devicePixelRatio || 1, 2);
       const rect = c.getBoundingClientRect();
       width = rect.width;
       height = rect.height;
@@ -71,9 +80,15 @@ export default function PatternCanvas({
       raf = requestAnimationFrame(loop);
     }
 
+    // Tracked on the window (the launcher and overlay sit on top of the canvas), so
+    // ignore anything outside it: otherwise moving the mouse elsewhere on the page left
+    // the pointer off-canvas and the blooming preview went blank for good.
     function onPointer(e: PointerEvent) {
       const rect = canvas!.getBoundingClientRect();
-      pointerRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const inside = x >= 0 && y >= 0 && x <= rect.width && y <= rect.height;
+      pointerRef.current = inside ? { x, y } : null;
     }
 
     const ro = new ResizeObserver(resize);
@@ -87,7 +102,7 @@ export default function PatternCanvas({
       if (raf) cancelAnimationFrame(raf);
       if (trackPointer) window.removeEventListener("pointermove", onPointer);
     };
-  }, [animate, frame, trackPointer]);
+  }, [animate, frame, trackPointer, nativeResolution]);
 
   return <canvas ref={canvasRef} className="h-full w-full" />;
 }

@@ -324,7 +324,7 @@ Photograph and count every fault today, while the return window is still open.`,
       "Flashing, the pressure method, and tapping — practical ways to revive a stuck pixel, how long to try each, and when to stop and claim warranty.",
     tags: ["stuck pixel", "fix", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `A stuck pixel is locked on one color, but unlike a dead pixel it often has power — which means you can sometimes shock it back to life.
 
 ## First, make sure it's actually stuck
@@ -335,7 +335,7 @@ Run the [Dead Pixel Test](/dead-pixel-test) through all its solid colors before 
 Also rule out dirt. A speck of dust, a dried water spot, or a fleck of toothpaste looks exactly like a stuck pixel until you clean it. Wipe the area first — carefully, following [how to clean your screen safely](/blog/how-to-clean-your-monitor-safely) — and check whether the dot moves when you shift your head slightly. A mark on the outer coating shifts against the image; a real pixel never does.
 
 ## Method 1: Rapid color flashing
-Cycling colors quickly over the stuck pixel exercises its sub-pixels. Open the [Dead Pixel Test](/dead-pixel-test), park the stuck pixel in view, and let fast color changes run for 10–30 minutes. This is the safest method — try it first.
+Cycling colors quickly over the stuck pixel exercises its sub-pixels. Open the [Dead Pixel Test](/dead-pixel-test), step to its last frame (**Stuck-pixel fixer**), drag the box over the stuck pixel and tap the box to start it flashing, then leave it running for 10–30 minutes. The box is deliberately small, but it does flash rapidly, so skip this method if you are sensitive to flashing light. It is otherwise the safest method — try it first.
 
 If half an hour does nothing, it's still worth leaving the cycle running for a few hours, or overnight. Flashing carries no risk of damage, so the only cost is time and a little power. Disable sleep and screensaver settings first, otherwise the display will blank partway through and you'll come back to nothing having happened.
 
@@ -2087,6 +2087,474 @@ A practical threshold: if you can't see it while watching a film with the lights
 Bleed sometimes settles over the first few weeks as the frame relaxes. Beyond that, do not try to fix it by pressing or loosening bezel screws yourself; you'll void the warranty and can easily make it worse.
 
 Use the retailer's return window instead — it's faster and more certain than a warranty claim, and it doesn't require anyone to agree the panel is defective. Photograph the screen exactly as your eyes see it, note the date, and decide within the return period rather than after it. Manufacturer policies on bleed are vague and vary by brand, so the exchange you can make today beats the claim you might win in two months. The related pixel-defect thresholds, which are far more clearly defined, are covered in [dead pixel warranty policies](/blog/dead-pixel-warranty-policies).`,
+  },
+
+  // ---------- Troubleshooting, explainers & fun (added 2026-10-01) ----------
+  {
+    slug: "why-are-there-lines-on-my-screen",
+    title: "Why Are There Lines on My Screen? (Vertical and Horizontal)",
+    excerpt:
+      "Vertical or horizontal lines usually come from a cable, the graphics card, or the panel's own driver connections. Here's how to tell which one you have.",
+    tags: ["troubleshooting", "lcd", "guide"],
+    publishedAt: "2026-10-01",
+    body: `Lines across a screen look alarming, but they are rarely random. Their direction, their color, whether they move, and whether they show up in a screenshot together point to one of three places: the signal coming in, the graphics hardware producing it, or the panel itself. Ten minutes of testing usually tells you which — and whether a repair is worth paying for.
+
+## First: is it the screen or the signal?
+
+Three quick checks split the problem in half before you go any further.
+
+1. **Take a screenshot** and look at it on another device. A screenshot captures the image the computer produced before it was sent to the display. If the lines are in the screenshot, the panel is innocent — it's software or the graphics card.
+2. **Try another source or another screen.** Plug a different laptop or console into the monitor, or connect your computer to a TV. Lines that follow the computer are a graphics or cable problem; lines that stay with the screen belong to the panel.
+3. **Open the monitor's own menu.** The on-screen menu is drawn by the monitor itself, not by your computer. If the lines cut straight through the menu, the fault is inside the monitor. On a laptop, the nearest equivalent is the boot logo or BIOS screen: lines there appear before any driver has loaded.
+
+For a deeper walk-through of the signal side, see [Is It the Screen or the Graphics Card?](/blog/is-it-my-screen-or-my-graphics-card).
+
+## What the lines are telling you
+
+- **One thin vertical line, always the same color, never moving.** A single column of pixels has lost its drive signal or is stuck on. The columns are fed by driver chips bonded along the top or bottom edge of the panel; when one of those bonds cracks or lifts, its column freezes. This is a panel fault, and it is permanent.
+- **A cluster or band of vertical lines, often colored.** A wider failure of the same kind — several columns from one driver at once — or a poor connection between the panel and its controller board. If the lines change when you press gently on the bezel along the top or bottom edge, or flex a laptop lid, a connection is loose.
+- **Horizontal lines.** Rows are driven from the sides of the panel, so a fixed horizontal line points to a row driver or its connection. Thin horizontal lines that flicker, crawl, or come and go are more often interference or a marginal cable.
+- **Lines that move, shimmer, or change with what's on screen.** That is almost always the signal: a loose or under-spec cable, a failing port, a driver problem, or a graphics card that is overheating.
+- **Lines only in games or one app, often with colored blocks or sparkles.** Classic graphics card artifacting — usually heat, an overclock, or failing video memory.
+- **Lines that appeared after a drop or a knock,** often with a dark blot nearby. Physical damage to the panel — see [Cracked Screen: Just the Glass, or the Display Too?](/blog/cracked-screen-glass-or-lcd).
+- **Laptop lines that change as you open and close the lid.** The display cable runs through the hinge and wears with every opening. It's one of the most common laptop faults, and replacing the cable is far cheaper than replacing the screen.
+
+## Tests to run
+
+1. Show a [White Screen](/white-screen) full-screen. Dead columns show up as dark lines, and lines that are faint on a busy desktop become obvious.
+2. Show a [Black Screen](/black-screen). Columns that are stuck on glow against black.
+3. Step through red, green and blue in the [Color Test](/color-test). A line visible on only one color has lost a single sub-pixel channel; a line that looks the same on every color is a dead or stuck column.
+4. Check whether the line runs the full height or width of the panel. A line that stops partway, or ends in a blot, suggests physical damage rather than a driver fault.
+5. Try a different cable and a different port, and drop to a lower resolution or refresh rate for a minute. If the lines vanish, the old cable wasn't carrying the full signal reliably.
+
+## What you can fix yourself
+
+- **Cables and ports.** Reseat both ends, try a certified cable that matches your resolution and refresh rate, and avoid cheap adapters. A cable that works at 60Hz can fail at 144Hz.
+- **Drivers.** Update the graphics driver — or, if the lines started right after an update, roll it back.
+- **Heat and overclocks.** Remove any graphics card overclock, clean out the dust, and watch temperatures under load. If the artifacts stop when the card is cool, the card is the problem.
+- **Laptop hinge cables.** A repair shop can usually swap the display cable for a fraction of the cost of a new panel.
+
+## What you can't
+
+A failed column or row driver, a lifted bond along the panel's edge, or a cracked panel means a panel replacement. You'll find videos recommending heating the edge of the screen, pressing on it, or wedging folded paper under the bezel. These occasionally make a line disappear for a while by pushing a cracked bond back into contact, and they just as often make things worse. Don't try them on a screen you might still return.
+
+## Warranty and returns
+
+Unlike a single dead pixel, a line across the screen is a clear defect, and manufacturers almost always treat it as one — as long as there's no sign of impact. Photograph it on a white and a black screen, note the date, and contact the retailer while the return window is still open. If you've spotted a few dead pixels as well, [Dead Pixel Warranty Policies, Explained](/blog/dead-pixel-warranty-policies) covers how manufacturers count them.
+
+And if the lines vanished the moment you tapped the screen, someone may simply have been running the [Fake Broken Screen](/fake-broken-screen) prank on you.`,
+  },
+  {
+    slug: "why-is-my-screen-flickering",
+    title: "Why Is My Screen Flickering? Causes and Fixes",
+    excerpt:
+      "Visible flicker usually comes from a cable, the refresh rate, adaptive sync, a driver or a failing backlight. Here's how to work out which one you have.",
+    tags: ["flicker", "troubleshooting", "refresh rate"],
+    publishedAt: "2026-10-01",
+    body: `A flickering screen is hard to ignore and easy to misdiagnose. The fixes for a loose cable, a sync setting, a misbehaving app and a dying backlight have nothing in common, so it pays to narrow the cause down before changing anything.
+
+This guide is about flicker you can **see**: blinking, brightness pumping, black flashes, shimmering. If your screen looks steady but gives you headaches at low brightness, that's a different problem — see [What Is PWM Flicker and How Do You Test for It?](/blog/what-is-pwm-flicker).
+
+## Narrow it down first
+
+Answer these before you touch any settings:
+
+- **Does it flicker on the boot logo or in the BIOS?** Then it's hardware or the cable — no driver has loaded yet.
+- **Does it flicker with another source?** Plug a different device into the same screen. If the flicker stays with the screen, the screen is at fault.
+- **Does it flicker on a still image?** Put up a full-screen [White Screen](/white-screen) for a minute, then a [Black Screen](/black-screen). Flicker on a static solid color points to the signal or the backlight; flicker only when things move points to sync settings or software.
+- **Is it only in games, or only in one app?** That narrows it to frame rates, sync, or that app.
+- **Does it get worse as the screen warms up?** That points to hardware.
+
+## The usual causes
+
+### A cable or port that can't keep up
+The most common cause by far. A cable that is loose, damaged, too long, or rated below what you're asking of it drops the signal for a moment — you see a black flash, sparkles, or the screen blinking off and on. High refresh rates and resolutions are the first to suffer: a cable that works at 60Hz can flicker at 144Hz. Reseat both ends, try a certified cable and another port. If lowering the refresh rate stops it, the cable is marginal.
+
+### A refresh rate the screen doesn't like
+Overclocked or custom refresh rates, a laptop switching rates to save power, or two monitors running at different rates can all cause flicker on some systems. Set the screen to its native rate following [How to Enable Your Monitor's Full Refresh Rate](/blog/how-to-enable-full-refresh-rate-windows-mac), then check that the [Refresh Rate Test](/refresh-rate-test) shows a steady reading that matches.
+
+### Adaptive sync (G-Sync, FreeSync, VRR)
+Variable refresh keeps motion smooth, but many panels flicker in brightness when the frame rate swings wildly — most noticeably on loading screens, menus and dark scenes, and especially on VA and OLED panels. Capping your frame rate a few frames below the maximum usually calms it. Turning variable refresh off for a quick test tells you whether it's the culprit; [Screen Tearing, V-Sync, G-Sync, and FreeSync Explained](/blog/screen-tearing-vsync-gsync-freesync) covers the trade-offs.
+
+### Software and drivers
+On Windows, there's a useful trick: open Task Manager and watch it. If Task Manager flickers along with everything else, suspect the graphics driver — update it, or roll it back if the trouble started after an update. If Task Manager stays steady while other windows flicker, an app is to blame. Browser hardware acceleration, screen-recording overlays and some security software are frequent offenders.
+
+### Automatic brightness features
+Ambient light sensors, "adaptive contrast" and content-adaptive brightness on many laptops raise and lower the backlight as the picture changes. On a mostly dark page with something bright moving across it, that looks like pumping or flicker. Turn these features off in the display settings and in your graphics control panel, then test again.
+
+### A failing backlight or power supply
+Flicker that gets worse as the screen warms up, comes with buzzing or clicking, or shows as the whole screen dimming and recovering is usually hardware: the backlight driver, the power supply, or on older screens the backlight itself. That means a repair or a replacement.
+
+## A quick test sequence
+
+1. Show a [White Screen](/white-screen) and a [Black Screen](/black-screen) full-screen for a minute each.
+2. Run the [Refresh Rate Test](/refresh-rate-test) and check the reading holds steady.
+3. Swap the cable and the port; try a lower refresh rate.
+4. Turn off adaptive sync, automatic brightness and any overlays, one at a time.
+5. Update or roll back the graphics driver.
+6. Try a different device on the same screen.
+
+Whichever step makes the flicker stop is your answer.
+
+## When it's the hardware
+
+If the flicker survives a new cable, a different source and a clean driver, the screen itself is faulty, and visible flicker is a defect manufacturers accept. Record a short phone video — slow-motion mode makes flicker much easier to see — and contact the retailer or manufacturer while you're inside the return window.
+
+One last thing: if a flickering screen gives you headaches or makes you feel unwell, stop using it until it's fixed. It isn't something to push through.`,
+  },
+  {
+    slug: "is-it-my-screen-or-my-graphics-card",
+    title: "Is It the Screen or the Graphics Card? How to Tell",
+    excerpt:
+      "Lines, artifacts, flicker or strange colors? A screenshot, a second display and the monitor's own menu tell you whether the panel or the GPU is to blame.",
+    tags: ["troubleshooting", "monitor", "guide"],
+    publishedAt: "2026-10-01",
+    body: `When the picture goes wrong, the expensive question is which part to replace. A monitor and a graphics card can produce surprisingly similar symptoms — lines, blocks, wrong colors, flicker — and buying the wrong one is an easy mistake. A few free tests, done in the right order, settle it.
+
+## Test 1: take a screenshot
+
+A screenshot captures the image your computer produced before it left the graphics card. Open it on a phone or another computer.
+
+- **The problem is in the screenshot:** the fault is upstream of the display — an app, the driver, or the graphics card's rendering.
+- **The screenshot looks clean:** the image was correct when it was produced, so the problem happens after that — in the card's video output, the cable, or the screen.
+
+This isn't conclusive on its own. A graphics card with failing video memory can corrupt what it sends out without the corruption appearing in a screenshot, so treat a clean screenshot as "probably not software", not "definitely the screen".
+
+## Test 2: swap one thing at a time
+
+- **Same screen, different source.** Plug a laptop, console or streaming stick into the monitor. If the fault is still there, it's the monitor.
+- **Same computer, different screen.** Connect your computer to a TV or another monitor. If the fault follows the computer, it's the graphics card, the driver or the cable.
+- **Different cable and port.** Swap both before blaming either device. A damaged cable can imitate almost any other fault.
+
+On a laptop, connect an external monitor. If the external picture is perfect and the built-in one isn't, the fault is in the laptop's panel or in the cable that feeds it through the hinge.
+
+## Test 3: look before the operating system loads
+
+The boot logo, the BIOS or UEFI setup screen and the monitor's own on-screen menu are all drawn without your graphics driver.
+
+- **The monitor's menu is the best test of all.** It's generated by the monitor's own electronics and drawn straight onto the panel. If lines, discoloration or flicker affect the menu itself, the monitor is faulty — your computer isn't involved.
+- **Artifacts on the boot logo or in the BIOS** rule out the driver and point at the graphics card or the screen.
+- **Problems that only begin once the desktop loads** point to the driver or software.
+
+## Symptoms that point to the graphics card
+
+- Checkerboard patterns, colored blocks or "sparkles" that appear in games or under heavy load
+- Stretched or flickering textures, and polygons shooting across the screen
+- Faults that get worse as the card heats up, or disappear after it cools down
+- The driver crashing and recovering, or the screen going black and coming back
+- Problems that follow the computer to every screen you try
+
+## Symptoms that point to the screen
+
+- A fixed line, or group of lines, that never moves — see [Why Are There Lines on My Screen?](/blog/why-are-there-lines-on-my-screen)
+- Dead or stuck pixels, which you can confirm with the [Dead Pixel Test](/dead-pixel-test)
+- Backlight bleed, pressure marks, dark spots or discolored patches
+- Anything that shows up in the monitor's own menu
+- Problems that stay with the screen whatever you plug into it
+
+## Symptoms that point to the cable
+
+- Sparkles or "snow", especially in dark areas
+- Brief black screens, or the signal dropping out
+- Faults that change when you touch or move the cable
+- Problems that only appear at high resolutions or refresh rates
+
+## Use test patterns to see clearly
+
+A busy desktop hides faults. Full-screen patterns make them obvious, and easy to compare between two screens:
+
+- The [Color Test](/color-test) shows whether a fault affects one color channel or all of them.
+- A [White Screen](/white-screen) and a [Black Screen](/black-screen) expose lines, spots and uneven backlighting.
+- The [Greyscale Test](/greyscale-test) reveals banding and color tints that point to a signal or driver setting rather than a hardware fault.
+- The [Refresh Rate Test](/refresh-rate-test) confirms the screen is actually running at the rate you set.
+
+Run the same pattern on both screens, or from both sources, and compare.
+
+## Before you buy anything
+
+Update or cleanly reinstall the graphics driver, remove any overclock, and check temperatures under load. If colors look washed out rather than broken, check the RGB range setting first — [Why Do Blacks Look Grey? Full vs Limited RGB Range](/blog/full-vs-limited-rgb-range) explains a mismatch that fools plenty of people into replacing a perfectly good monitor.
+
+If the monitor is still inside its return window, test it against a second computer before anything else. Returning a faulty screen is far easier than proving a graphics card fault months later.`,
+  },
+  {
+    slug: "full-vs-limited-rgb-range",
+    title: "Why Do Blacks Look Grey? Full vs Limited RGB Range",
+    excerpt:
+      "Washed-out blacks or crushed shadows over HDMI are often an RGB range mismatch, not a bad panel. Here's how to spot it and how to set it right.",
+    tags: ["color", "calibration", "troubleshooting"],
+    publishedAt: "2026-10-01",
+    body: `You connect a new monitor over HDMI and the picture looks flat: blacks are dark grey, whites are dull, everything looks faded. Or the opposite happens — shadows turn into solid black and bright skies lose their detail. Before you blame the panel, check one setting that catches out a huge number of people: the **RGB range**.
+
+## Two ways to count from black to white
+
+Digital video stores each color channel as a number. In 8-bit color there are 256 steps, from 0 to 255, but there are two conventions for using them:
+
+- **Full range (0–255):** 0 is black and 255 is white. This is what computers use.
+- **Limited range (16–235):** black sits at 16 and white at 235. It comes from broadcast video and is still the standard for TVs, Blu-ray and streaming.
+
+Neither is better. The problem only appears when the source and the screen disagree.
+
+## What a mismatch looks like
+
+- **The source sends limited, the screen expects full.** Black arrives as 16, which a full-range screen shows as dark grey, and white arrives as 235, which it shows as slightly dim. The result is the classic washed-out, low-contrast look.
+- **The source sends full, the screen expects limited.** Everything from 0 to 16 is shown as the same black, and everything from 235 to 255 as the same white. Shadow detail disappears and highlights clip. The picture looks punchy but loses detail at both ends.
+
+## Why it happens over HDMI
+
+HDMI carries both computer and TV signals, so graphics cards and displays try to guess which one you want. Many graphics drivers switch to limited range automatically when a screen reports a TV-style resolution such as 1920×1080 at 60Hz — even when it's a computer monitor. DisplayPort and USB-C connections are almost always full range, which is why the same monitor can look different from one input to the next.
+
+## How to test for it
+
+The [Black Level Test](/black-level-test) shows a row of near-black steps starting at 0, and it makes both mismatches easy to spot:
+
+- **Every step looks like the same black up to about 16, and the steps above are distinct:** shadows are being crushed — the source is sending full range to a screen that expects limited.
+- **Even the 0 step is visibly grey, and nothing is truly black:** the source is sending limited range to a full-range screen. Compare it with a full-screen [Black Screen](/black-screen) in a dark room; on a mismatched setup neither looks properly black.
+
+The bright end is easier to see with the [Greyscale Test](/greyscale-test): if the last few steps of the stepped ramp merge into one white, highlights are clipping. The [Contrast Test](/contrast-test) makes a good overall sanity check after you change a setting.
+
+Bear in mind that a budget panel can show grey blacks and faint steps for other reasons. The giveaway for a range problem is that changing a single setting makes a dramatic difference.
+
+## How to fix it
+
+The rule is simple: **both ends must match**. For a computer, full range on both ends is best.
+
+### On the computer
+- **NVIDIA:** in the NVIDIA Control Panel, open Change resolution, choose to use NVIDIA color settings, and set Output dynamic range to Full.
+- **AMD:** in AMD Software's display settings, set Pixel Format to the RGB 4:4:4 option marked Full RGB.
+- **Intel:** in the Intel Graphics Command Center's display settings, set Quantization Range to Full.
+- **Mac:** macOS doesn't offer a simple range switch for external displays. If a monitor looks washed out over HDMI, try a USB-C or DisplayPort connection, and set the monitor's own range option to match.
+
+Menu names move around between driver versions, so look for the nearest equivalent if yours is different.
+
+### On the display
+Look in the picture settings for **RGB range**, **HDMI black level** or simply **black level**. The options are usually Auto, Full (sometimes called High or Normal) and Limited (sometimes called Low). If Auto gets it wrong, set it by hand to match the source.
+
+### Consoles and streaming boxes
+Games consoles and streaming devices have their own range setting, usually left on Automatic. Leave it there unless you see one of the symptoms above — and if you do change it, change the TV to match.
+
+## What it isn't
+
+If blacks still look grey in a dark room after the range is right, you're seeing the panel's native black level: every LCD leaks some light, and IPS panels especially. [Contrast Ratio Explained](/blog/contrast-ratio-explained) covers what to expect from each panel type, and [Gamma Explained](/blog/gamma-explained) covers shadows that look wrong for a different reason. HDR adds its own tone mapping on top — [HDR Explained](/blog/hdr-explained) is the place to start if the problem only appears in HDR mode.`,
+  },
+  {
+    slug: "contrast-ratio-explained",
+    title: "Contrast Ratio Explained: What the Numbers Really Mean",
+    excerpt:
+      "Static, dynamic and \"infinite\" contrast ratios measure very different things. Here's what each panel type really delivers and how to judge it yourself.",
+    tags: ["contrast", "panel", "guide"],
+    publishedAt: "2026-10-01",
+    body: `Contrast ratio is one of the most quoted numbers on a spec sheet and one of the least understood. A 1,000:1 monitor and a 3,000:1 monitor look very different in a dark room, a "1,000,000:1" claim usually means nothing at all, and an OLED's "infinite" contrast comes with fine print of its own.
+
+## What contrast ratio measures
+
+Contrast ratio is the brightness of the whitest white a screen can show divided by the brightness of its blackest black. A screen with 300 nits of white and 0.3 nits of black has a contrast ratio of 1,000:1.
+
+The black end is what makes the difference. Every LCD lets a little light leak through when it shows black, so its black level rises with its brightness: turn the backlight up and white and black both get brighter, and the ratio stays roughly the same. That's why a low contrast ratio shows up as **grey blacks**, not dim whites.
+
+## Static, ANSI and dynamic contrast
+
+- **Static (native) contrast** is measured with a full white screen and then a full black screen at the same settings. It's the honest number for comparing LCD panels.
+- **ANSI contrast** measures white and black squares in a checkerboard at the same moment. Light scattering inside the panel makes it lower than the static figure, but it's closer to what you see in real content with bright and dark areas side by side.
+- **Dynamic contrast** lets the backlight dim in dark scenes and brighten in bright ones, then quotes the darkest black against the brightest white — measured at different moments. That's where figures like 1,000,000:1 come from. It doesn't describe any single image, and it's usually the setting that makes brightness pump up and down in films. Ignore it.
+
+## What each panel type really delivers
+
+- **IPS:** typically around 1,000:1, with some newer "IPS Black" panels approaching 2,000:1. Excellent colors and viewing angles, but blacks look grey in a dark room and IPS glow lightens the corners.
+- **VA:** typically 2,500:1 to 5,000:1 — the best of the LCD types for dark-room viewing, at the cost of narrower viewing angles and slower dark transitions.
+- **TN:** around 1,000:1, with the weakest viewing angles; mostly found in older or esports-focused screens now.
+- **OLED:** each pixel makes its own light and switches fully off for black, so the ratio is effectively infinite in a dark room. In a bright room, reflections lift the black level, and many OLEDs dim large bright areas to protect the panel.
+- **Mini-LED with local dimming:** hundreds or thousands of backlight zones dim independently, so dark parts of the picture get much darker. Real contrast can be very high, but small bright objects on black spread a halo into neighboring zones — blooming.
+
+[IPS vs VA vs TN vs OLED](/blog/ips-vs-va-vs-tn-vs-oled) and [Mini-LED vs OLED](/blog/mini-led-vs-oled) go deeper into each technology.
+
+## Why your room matters as much as the panel
+
+Contrast ratios are measured in the dark. In a bright room, light reflecting off the screen adds to the black level of every display, and the gap between panel types shrinks. A 5,000:1 VA panel and a 1,000:1 IPS look far more alike in a sunlit office than in a dark room at night. Glossy screens keep blacks deeper under controlled lighting; matte coatings spread reflections into a lighter haze.
+
+So buy for the room. If you mostly watch films with the lights off, contrast belongs near the top of your list. In a bright office, brightness and reflection handling matter more.
+
+## How to judge it without a meter
+
+You can't get a number without a light meter, but you can compare screens and settings reliably:
+
+1. In a dark room, show a full-screen [Black Screen](/black-screen). Note how grey it looks and whether the corners or edges are lighter. The [Backlight Bleed Test](/backlight-bleed-test) helps separate uneven leakage from a generally high black level.
+2. Run the [Black Level Test](/black-level-test). On a good panel the lowest steps stay distinct from each other and from black.
+3. Use the checkerboards in the [Contrast Test](/contrast-test). On a screen with local dimming, notice how much the white squares lift the black squares around them; the [Blooming Test](/blooming-test) shows the same halo around a single moving object.
+4. Compare a dark film scene on both screens side by side, at the brightness you'd actually use.
+
+## Reading the spec sheet
+
+- Look for **static** or **typical** contrast. "Dynamic", "DCR" and "mega contrast" figures are marketing.
+- An HDR badge doesn't guarantee high contrast. The entry-level DisplayHDR 400 tier doesn't require local dimming, so those screens keep their native LCD contrast — see [HDR Explained](/blog/hdr-explained).
+- Washed-out blacks over HDMI may not be the panel at all. Check the RGB range first, as explained in [Why Do Blacks Look Grey?](/blog/full-vs-limited-rgb-range)`,
+  },
+  {
+    slug: "cracked-screen-glass-or-lcd",
+    title: "Cracked Screen: Just the Glass, or the Display Too?",
+    excerpt:
+      "A cracked screen can mean a cover-glass repair or a full display replacement. These quick checks tell you which one before you pay for the fix.",
+    tags: ["phone", "troubleshooting", "lcd"],
+    publishedAt: "2026-10-01",
+    body: `A cracked screen always looks like bad news, but the damage can sit in two different layers. On top is the cover glass, which protects everything and carries your touch. Underneath is the display panel that makes the picture. Which one is broken decides whether you're looking at a small repair, a big one, or a new device.
+
+## How screens are built
+
+- **Phones and tablets:** on almost every modern phone, the cover glass is bonded directly to the display, with the touch sensor built into the same stack. Many repair shops replace the whole assembly even when only the glass is cracked, because separating the layers takes specialist equipment. Some shops offer glass-only repairs, which are cheaper but vary in quality.
+- **Laptops:** the panel sits behind the lid's bezel; some models add a cover glass, and on many premium laptops the glass and panel form a single assembly. Either way, a cracked laptop screen is usually replaced as a unit.
+- **Monitors and TVs:** there's no separate cover glass. If the surface is cracked, the panel itself is cracked, and a replacement often costs close to a new screen.
+
+## Signs only the glass is damaged
+
+- The picture is perfect everywhere, including directly under the cracks.
+- Touch works across the whole screen, with no phantom taps.
+- There are no black spots, lines or discolored areas.
+- The cracks are easiest to see with the screen off, in reflected light.
+
+If all four are true, the display underneath is probably fine.
+
+## Signs the display is damaged too
+
+- **Black spots or blots** that may spread over days. On an LCD this is liquid crystal leaking from the damaged layer.
+- **Lines** — single bright or colored lines, or bands of them, often starting near the impact. [Why Are There Lines on My Screen?](/blog/why-are-there-lines-on-my-screen) explains what they mean.
+- **Dead zones** where the picture is missing or frozen.
+- **Discoloration:** green or purple tints, or bright white patches where the backlight shows through.
+- **Touch problems:** areas that don't respond, or taps you didn't make.
+- **Flicker** that wasn't there before the drop.
+
+LCD and OLED break differently. Damaged LCDs tend to show black ink blots and patches of uneven backlight. Damaged OLEDs more often show colored lines, black areas that grow, or green and pink tints.
+
+## Quick tests
+
+1. Show a full-screen [White Screen](/white-screen). Black spots, dead areas and lines stand out sharply against white.
+2. Show a [Black Screen](/black-screen). Bright lines and light leaking around the damage are easiest to see against black.
+3. Step through red, green and blue with the [Color Test](/color-test). A damaged area sometimes loses only one color.
+4. Run the [Dead Pixel Test](/dead-pixel-test) and look closely around the impact point, where small clusters of dead pixels are common.
+5. Test touch: draw slowly across every part of the screen in a notes or drawing app, or drag an icon along the edges and into the corners.
+
+## Act quickly
+
+- **Cracks spread.** Temperature changes, pressure in a pocket and every tap make them longer.
+- **Cover it.** A screen protector or clear tape holds loose shards in place and protects your fingers until it's repaired.
+- **Keep it dry.** A cracked screen is no longer sealed against moisture.
+- **Watch for a swollen battery.** If the screen is lifting away from the body, or cracks appeared without a drop, the battery underneath may be swelling. Stop charging the device and get it checked — that's a safety problem, not a cosmetic one.
+- **Back up your data** while the screen still works.
+
+## Repair or replace?
+
+Get a quote that says whether it covers the glass only or the full display assembly. Standard warranties rarely cover accidental damage, but device insurance, extended protection plans and some credit cards do, so check before you pay. For an older phone, a full display replacement can approach the phone's value; for a laptop, a used or refurbished panel is often the cheaper route.
+
+For monitors and TVs, a cracked panel usually means a new screen. When you buy one, test it properly — [How to Test a Monitor Before (and Right After) Buying](/blog/how-to-test-a-monitor-before-buying) covers what to check while you can still return it.
+
+## Not sure it's real?
+
+If the cracks vanished when someone tapped the screen, you may have been on the receiving end of the [Fake Broken Screen](/fake-broken-screen) prank. It draws a realistic crack in a browser tab and changes nothing on the device.`,
+  },
+  {
+    slug: "do-you-still-need-a-screensaver",
+    title: "Do You Still Need a Screensaver?",
+    excerpt:
+      "Screensavers were invented to stop CRT burn-in. Here's what they still do for OLED, LCD and TVs today, and when sleep or a black screen is the better choice.",
+    tags: ["oled", "burn-in", "guide"],
+    publishedAt: "2026-10-01",
+    body: `Screensavers were invented to solve a real problem. On old CRT monitors, an image left on screen for hours burned permanently into the phosphor coating, and a moving picture spread the wear evenly. Displays have changed completely since then. Whether you still need one depends on the kind of screen you have — and on what you actually want it to do while you're away.
+
+## LCD monitors and laptops
+
+LCDs don't burn in the way CRTs did. A static image can occasionally leave a faint temporary ghost on some panels, called image retention, but it fades on its own within minutes or hours.
+
+A screensaver does nothing to extend an LCD's life, because the backlight stays on whatever the pixels are showing. Turning the display off does: it saves power and backlight hours. On an LCD, a screensaver is purely cosmetic — enjoy one if you like it, but set the display to switch off as well.
+
+## OLED monitors, laptops and TVs
+
+OLED is where burn-in matters again. Each pixel makes its own light and wears a little whenever it's lit, so a taskbar, a channel logo or a game's HUD left on screen for long stretches can wear those pixels faster than their neighbors and leave a permanent shadow. [OLED Burn-In: Causes, Prevention, and How to Check](/blog/oled-burn-in-and-how-to-check-for-it) covers how much risk there really is.
+
+A moving screensaver is better than a static desktop on OLED, because it spreads the wear around. But it still lights pixels. Two things protect an OLED better:
+
+- **Turning the screen off** — the best protection, and the default on most OLED monitors after a few minutes.
+- **A pure black screen.** An OLED pixel showing black is switched off and doesn't wear at all, so a full-screen [Black Screen](/black-screen) is the next best thing to switching the display off.
+
+Most OLED screens also protect themselves with pixel shifting, logo dimming and periodic refresh cycles. Leave those features on, and let the refresh cycles run when the screen asks.
+
+## TVs
+
+Modern TVs switch to their own screensaver or ambient mode when a source sits on a static menu, and most turn off after a period without input. On an OLED TV that's worth keeping. If you've disabled it to keep a picture up, use a black screen during long pauses instead.
+
+## When a screensaver still makes sense
+
+- **As an ambient display:** a clock or a slow animation on a spare monitor, or a TV in the background.
+- **On a shared or public screen,** where you want something on display rather than a blank panel.
+- **When the screen needs to stay awake** — while you monitor something, or for guests — but you'd rather show motion than a static image.
+- **For the look of it.** Matrix rain, a starfield or a bouncing logo still make a desk feel alive.
+
+The [Screensaver](/screensaver) runs those classics in a browser tab, full-screen, with nothing to install. It lets your display sleep normally by default; switch on Keep awake in its controls when you want it to stay up.
+
+## Lock your computer, too
+
+A screensaver doesn't lock your computer unless you tell it to. On Windows, tick "On resume, display logon screen" in the screen saver settings. On a Mac, set the password requirement after the screen saver begins in Lock Screen settings. Better still, get in the habit of locking manually: Windows key + L on Windows, Control-Command-Q on a Mac.
+
+## Recommended settings
+
+- **Windows:** Settings, then Personalization, then Lock screen, then Screen saver sets the screensaver. Settings, then System, then Power (or Power & battery) sets when the screen turns off.
+- **macOS:** System Settings, then Lock Screen, sets when the screen saver starts and when the display turns off.
+- **Turn the display off after 5 to 15 minutes** on any screen, and sooner on OLED.
+- **Hide static elements on OLED:** auto-hide the taskbar or Dock, and use a dark theme.
+
+If you're worried an OLED already has some wear, the [Burn-In Test](/burn-in-test) shows full-screen solid colors where a faint ghost of a taskbar or logo is easiest to spot.`,
+  },
+  {
+    slug: "harmless-screen-pranks",
+    title: "Harmless Screen Pranks: Fake Cracks, Crashes and Boot Loops",
+    excerpt:
+      "How to pull off a convincing fake cracked screen, blue screen or endless boot prank, and the simple rules that keep it funny rather than upsetting.",
+    tags: ["prank", "fun", "guide"],
+    publishedAt: "2026-10-01",
+    body: `The best screen prank borrows a few seconds of panic and hands them straight back. Everything here runs in an ordinary browser tab: nothing is installed, nothing on the device changes, and the effect disappears with a tap or the Esc key. What makes it convincing is the setup, and what keeps it funny is knowing when to stop.
+
+## The fake cracked screen
+
+The [Fake Broken Screen](/fake-broken-screen) shows a shattered screen with a flickering, damaged display underneath. It's the classic: hand someone their phone, or slide a laptop back across the desk, and watch them find the crack.
+
+- Pick **Cracked** with the arrows under the Start button before you begin, so the other person never sees a menu.
+- Turn the brightness up. Cracks look more convincing on a bright screen.
+- Set the scene. "I think I knocked it off the table" does more work than any effect.
+- A tap anywhere ends it, so the other person usually reveals the prank themselves — which is half the fun.
+
+## The crash screens
+
+The same tool includes the screens nobody wants to see: a Windows blue screen, the classic Windows XP stop error, a Mac restart message, a Linux kernel panic, an iPhone recovery screen and an Android "System UI isn't responding" dialog.
+
+**Match the screen to the device.** A Windows blue screen on a MacBook gives the game away instantly; a Mac restart message on the same MacBook doesn't. TV static and the no-signal screen work best on a TV, or on a monitor plugged into a laptop.
+
+## The endless startup
+
+The [Boot Screen Simulator](/boot-screen-simulator) shows a Windows 10, Windows XP or macOS startup screen that never finishes loading. Leave it on a colleague's monitor while they fetch a coffee. "It's been doing that for ten minutes" is the line that sells it.
+
+## The not-quite-a-prank screensaver
+
+The [Screensaver](/screensaver) is less of a scare and more of a slow burn. Put Matrix rain on someone's monitor and let them wonder whether they've been hacked — or start the bouncing DVD logo and take bets on whether it'll hit the corner.
+
+## Making it convincing
+
+- **Go full-screen.** Always use the Start button so the browser's tabs and address bar disappear. On some phones the browser can't hide everything, so check how it looks before you hand the phone over.
+- **Keep your hands off the mouse.** Moving it brings up the controls along the bottom of the screen, which is a giveaway.
+- **Time it.** The moment someone sits back down or picks their phone up is when they're least suspicious.
+- **Keep it short.** A prank that lasts ten seconds is a story. One that lasts ten minutes is an argument.
+
+## Keep it harmless
+
+A few simple rules keep it on the right side of funny:
+
+- **Reveal it quickly.** Never let someone get as far as booking a repair, restarting in a panic, or resetting their device.
+- **Flashing effects aren't for everyone.** Several effects flicker or flash. Don't use them on anyone with photosensitive epilepsy or light-triggered migraines, or on anyone you don't know well enough to ask.
+- **Pick your moment.** Not before a deadline, not in the middle of a presentation, and not on someone who's already having a bad day.
+- **Be careful with work devices.** A fake crash on a shared or company computer can send people to the IT department or to a real repair shop. Make sure the reveal happens before anyone acts on it.
+- **Don't leave it running on an OLED screen for hours.** Like any static image, a prank left on an OLED screen for a long time adds a little uneven wear. A few minutes is nothing.
+
+## How to end it
+
+Tap anywhere or press Esc to end the cracked screen, the crash screens and the boot screens. On the screensaver, press Esc or use the Exit button in the controls.
+
+And if you're the one who got pranked and you're reading this to check: tap the screen. If the crack disappears, your screen is fine. If it doesn't, [Cracked Screen: Just the Glass, or the Display Too?](/blog/cracked-screen-glass-or-lcd) will help you work out what's broken.`,
   },
 ];
 

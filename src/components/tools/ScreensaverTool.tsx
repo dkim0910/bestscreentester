@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import FullscreenStage from "./FullscreenStage";
+import FullscreenStage, { type StageApi } from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
 
@@ -612,6 +612,10 @@ function useClock(fmtRef: React.RefObject<{ military: boolean }>) {
 // Aspect ratio of the real logo artwork (public/dvd_logo.png, 602×273), a
 // transparent white silhouette of the DVD Video logo we tint at runtime.
 const DVD_ASPECT = 602 / 273;
+// Largest the logo may get, as a fraction of the screen on each axis. Without a cap, a
+// big logo on a phone was wider than the screen, hit both walls every frame, and the
+// color changed at the refresh rate — a strobe. At half, it always has room to travel.
+const DVD_MAX_FRACTION = 0.5;
 
 function useBouncing(optsRef: React.RefObject<BounceOpts>) {
   const state = useRef({ x: 80, y: 80, vx: 150, vy: 120, hue: 0, last: 0 });
@@ -635,8 +639,13 @@ function useBouncing(optsRef: React.RefObject<BounceOpts>) {
     s.last = t;
 
     // Collision box equals the rendered art, so it touches the walls exactly.
-    const h = Math.round(92 * size);
-    const w = Math.round(h * DVD_ASPECT);
+    let h = Math.round(92 * size);
+    let w = Math.round(h * DVD_ASPECT);
+    const fit = Math.min(1, (width * DVD_MAX_FRACTION) / w, (height * DVD_MAX_FRACTION) / h);
+    if (fit < 1) {
+      h = Math.max(1, Math.floor(h * fit));
+      w = Math.max(1, Math.floor(h * DVD_ASPECT));
+    }
 
     // --- Move and bounce on the exact box edges.
     s.x += s.vx * dt * speed;
@@ -698,6 +707,8 @@ export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
   const [snowWind, setSnowWind] = useState(0.3);
   const [pipeSpeed, setPipeSpeed] = useState(1);
   const [military, setMilitary] = useState(false);
+  // Off by default, like a real screensaver; on for an always-on clock or ambient display.
+  const [keepAwake, setKeepAwake] = useState(false);
   const optsRef = useRef<BounceOpts>({ speed: 1, size: 1.4 });
   const matrixRef = useRef<MatrixOpts>({ charset: "jp", speed: 1 });
   const starRef = useRef({ speed: 1 });
@@ -733,154 +744,169 @@ export default function ScreensaverTool({ tool }: { tool: ToolDef }) {
 
   const drawers = [matrix, starfield, snow, pipes, clock, bouncing];
 
+  const effectControls = (api: StageApi) => {
+    if (api.index === 0) {
+      return (
+        <span className="flex items-center gap-3">
+          <span className="flex items-center gap-1">
+            {(["jp", "en"] as const).map((cs) => (
+              <button
+                key={cs}
+                onClick={() => setCharset(cs)}
+                className={`rounded-full px-3 py-1 ${
+                  charset === cs ? "bg-white text-black" : "hover:bg-white/15"
+                }`}
+              >
+                {cs === "jp" ? "Japanese" : "English"}
+              </button>
+            ))}
+          </span>
+          <label className="flex items-center gap-1.5">
+            Speed
+            <input
+              type="range"
+              min={0.25}
+              max={2.5}
+              step={0.25}
+              value={matrixSpeed}
+              onChange={(e) => setMatrixSpeed(Number(e.target.value))}
+              style={{ accentColor: "var(--accent)" }}
+              className="w-20"
+              aria-label="Matrix fall speed"
+            />
+          </label>
+        </span>
+      );
+    }
+    if (api.index === 1) {
+      return (
+        <label className="flex items-center gap-1.5">
+          Warp
+          <input
+            type="range"
+            min={0.25}
+            max={3}
+            step={0.25}
+            value={starSpeed}
+            onChange={(e) => setStarSpeed(Number(e.target.value))}
+            style={{ accentColor: "var(--accent)" }}
+            className="w-20"
+            aria-label="Starfield warp speed"
+          />
+        </label>
+      );
+    }
+    if (api.index === 2) {
+      return (
+        <label className="flex items-center gap-1.5">
+          Wind
+          <input
+            type="range"
+            min={-1}
+            max={1}
+            step={0.1}
+            value={snowWind}
+            onChange={(e) => setSnowWind(Number(e.target.value))}
+            style={{ accentColor: "var(--accent)" }}
+            className="w-20"
+            aria-label="Snow wind"
+          />
+        </label>
+      );
+    }
+    if (api.index === 3) {
+      return (
+        <label className="flex items-center gap-1.5">
+          Speed
+          <input
+            type="range"
+            min={0.25}
+            max={3}
+            step={0.25}
+            value={pipeSpeed}
+            onChange={(e) => setPipeSpeed(Number(e.target.value))}
+            style={{ accentColor: "var(--accent)" }}
+            className="w-20"
+            aria-label="Pipes speed"
+          />
+        </label>
+      );
+    }
+    if (api.index === 4) {
+      return (
+        <span className="flex items-center gap-1">
+          {([false, true] as const).map((mil) => (
+            <button
+              key={String(mil)}
+              onClick={() => setMilitary(mil)}
+              className={`rounded-full px-3 py-1 ${
+                military === mil ? "bg-white text-black" : "hover:bg-white/15"
+              }`}
+            >
+              {mil ? "24-hour" : "12-hour"}
+            </button>
+          ))}
+        </span>
+      );
+    }
+    if (api.index === 5) {
+      return (
+        <span className="flex items-center gap-3">
+          <label className="flex items-center gap-1.5">
+            Speed
+            <input
+              type="range"
+              min={0.25}
+              max={3}
+              step={0.25}
+              value={speed}
+              onChange={(e) => setSpeed(Number(e.target.value))}
+              style={{ accentColor: "var(--accent)" }}
+              className="w-20"
+              aria-label="DVD logo speed"
+            />
+          </label>
+          <label className="flex items-center gap-1.5">
+            Size
+            <input
+              type="range"
+              min={0.5}
+              max={2.5}
+              step={0.1}
+              value={size}
+              onChange={(e) => setSize(Number(e.target.value))}
+              style={{ accentColor: "var(--accent)" }}
+              className="w-20"
+              aria-label="DVD logo size"
+            />
+          </label>
+        </span>
+      );
+    }
+    return null;
+  };
+
   return (
     <FullscreenStage
       tool={tool}
       frameCount={LABELS.length}
-      keepAwake={false}
+      keepAwake={keepAwake}
       startLabel="Start screensaver"
       frameLabel={(i) => LABELS[i]}
-      controls={(api) => {
-        if (api.index === 0) {
-          return (
-            <span className="flex items-center gap-3">
-              <span className="flex items-center gap-1">
-                {(["jp", "en"] as const).map((cs) => (
-                  <button
-                    key={cs}
-                    onClick={() => setCharset(cs)}
-                    className={`rounded-full px-3 py-1 ${
-                      charset === cs ? "bg-white text-black" : "hover:bg-white/15"
-                    }`}
-                  >
-                    {cs === "jp" ? "Japanese" : "English"}
-                  </button>
-                ))}
-              </span>
-              <label className="flex items-center gap-1.5">
-                Speed
-                <input
-                  type="range"
-                  min={0.25}
-                  max={2.5}
-                  step={0.25}
-                  value={matrixSpeed}
-                  onChange={(e) => setMatrixSpeed(Number(e.target.value))}
-                  style={{ accentColor: "var(--accent)" }}
-                  className="w-20"
-                  aria-label="Matrix fall speed"
-                />
-              </label>
-            </span>
-          );
-        }
-        if (api.index === 1) {
-          return (
-            <label className="flex items-center gap-1.5">
-              Warp
-              <input
-                type="range"
-                min={0.25}
-                max={3}
-                step={0.25}
-                value={starSpeed}
-                onChange={(e) => setStarSpeed(Number(e.target.value))}
-                style={{ accentColor: "var(--accent)" }}
-                className="w-20"
-                aria-label="Starfield warp speed"
-              />
-            </label>
-          );
-        }
-        if (api.index === 2) {
-          return (
-            <label className="flex items-center gap-1.5">
-              Wind
-              <input
-                type="range"
-                min={-1}
-                max={1}
-                step={0.1}
-                value={snowWind}
-                onChange={(e) => setSnowWind(Number(e.target.value))}
-                style={{ accentColor: "var(--accent)" }}
-                className="w-20"
-                aria-label="Snow wind"
-              />
-            </label>
-          );
-        }
-        if (api.index === 3) {
-          return (
-            <label className="flex items-center gap-1.5">
-              Speed
-              <input
-                type="range"
-                min={0.25}
-                max={3}
-                step={0.25}
-                value={pipeSpeed}
-                onChange={(e) => setPipeSpeed(Number(e.target.value))}
-                style={{ accentColor: "var(--accent)" }}
-                className="w-20"
-                aria-label="Pipes speed"
-              />
-            </label>
-          );
-        }
-        if (api.index === 4) {
-          return (
-            <span className="flex items-center gap-1">
-              {([false, true] as const).map((mil) => (
-                <button
-                  key={String(mil)}
-                  onClick={() => setMilitary(mil)}
-                  className={`rounded-full px-3 py-1 ${
-                    military === mil ? "bg-white text-black" : "hover:bg-white/15"
-                  }`}
-                >
-                  {mil ? "24-hour" : "12-hour"}
-                </button>
-              ))}
-            </span>
-          );
-        }
-        if (api.index === 5) {
-          return (
-            <span className="flex items-center gap-3">
-              <label className="flex items-center gap-1.5">
-                Speed
-                <input
-                  type="range"
-                  min={0.25}
-                  max={3}
-                  step={0.25}
-                  value={speed}
-                  onChange={(e) => setSpeed(Number(e.target.value))}
-                  style={{ accentColor: "var(--accent)" }}
-                  className="w-20"
-                  aria-label="DVD logo speed"
-                />
-              </label>
-              <label className="flex items-center gap-1.5">
-                Size
-                <input
-                  type="range"
-                  min={0.5}
-                  max={2.5}
-                  step={0.1}
-                  value={size}
-                  onChange={(e) => setSize(Number(e.target.value))}
-                  style={{ accentColor: "var(--accent)" }}
-                  className="w-20"
-                  aria-label="DVD logo size"
-                />
-              </label>
-            </span>
-          );
-        }
-        return null;
-      }}
+      controls={(api) => (
+        <>
+          {effectControls(api)}
+          <button
+            onClick={() => setKeepAwake((v) => !v)}
+            aria-pressed={keepAwake}
+            className={`rounded-full px-3 py-1 ${
+              keepAwake ? "bg-white text-black" : "hover:bg-white/15"
+            }`}
+          >
+            Keep awake: {keepAwake ? "On" : "Off"}
+          </button>
+        </>
+      )}
       renderFrame={(i) => <PatternCanvas frame={i} draw={drawers[i]} animate />}
     />
   );

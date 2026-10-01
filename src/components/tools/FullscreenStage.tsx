@@ -28,17 +28,24 @@ export interface StageHandle {
 interface FullscreenStageProps {
   tool: ToolDef;
   frameCount: number;
-  renderFrame: (index: number) => React.ReactNode;
+  /** `active` is true while the stage is full-screen, false in the inline preview. */
+  renderFrame: (index: number, active: boolean) => React.ReactNode;
   /** Label for the current frame, shown in the control overlay. */
   frameLabel?: (index: number) => string;
   /** Extra controls rendered in the overlay (e.g. speed/effect pickers). */
   controls?: (api: StageApi) => React.ReactNode;
-  /** Keep the screen awake while active. Default true. */
+  /** Keep the screen awake while active. Default true. Can change while active. */
   keepAwake?: boolean;
   /** Text shown on the inline launch button. */
   startLabel?: string;
   /** Hide the built-in launch button/preview; drive start() via the ref instead. */
   hideLauncher?: boolean;
+  /**
+   * A tap anywhere on the stage exits instead of switching frames (the pranks: the
+   * person handed the device taps to "reveal" it). Frames still change via ← / →
+   * and the overlay arrows, and can be picked on the inline preview before Start.
+   */
+  tapToExit?: boolean;
 }
 
 const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function FullscreenStage(
@@ -51,11 +58,11 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
     keepAwake = true,
     startLabel = "Start full-screen test",
     hideLauncher = false,
+    tapToExit = false,
   },
   ref,
 ) {
   const stageRef = useRef<HTMLDivElement>(null);
-  const wakeLockRef = useRef<WakeLock | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [active, setActive] = useState(false);
@@ -77,10 +84,14 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
     hideTimer.current = setTimeout(() => setOverlay(false), 2500);
   }, []);
 
+  const hideOverlay = useCallback(() => {
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    setOverlay(false);
+  }, []);
+
   const stop = useCallback(() => {
     setActive(false);
     void exitFullscreen();
-    void wakeLockRef.current?.release();
   }, []);
 
   const start = useCallback(
@@ -88,13 +99,9 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       setIndexState(clamp(startIndex));
       setActive(true);
       if (stageRef.current) await enterFullscreen(stageRef.current);
-      if (keepAwake) {
-        wakeLockRef.current = new WakeLock();
-        void wakeLockRef.current.request();
-      }
       showOverlay();
     },
-    [clamp, keepAwake, showOverlay],
+    [clamp, showOverlay],
   );
 
   useImperativeHandle(ref, () => ({ start: (i?: number) => void start(i ?? 0) }), [start]);
@@ -102,38 +109,51 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
   // Sync with browser fullscreen exit (Esc / system gesture).
   useEffect(() => {
     function onChange() {
-      if (!document.fullscreenElement && active) {
-        setActive(false);
-        void wakeLockRef.current?.release();
-      }
+      if (!document.fullscreenElement && active) setActive(false);
     }
     document.addEventListener("fullscreenchange", onChange);
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, [active]);
 
-  // Re-acquire wake lock when returning to the tab.
+  // Hold a screen wake lock while active. Driven by an effect rather than by start()
+  // so a tool can flip `keepAwake` mid-session (the screensaver's toggle). The
+  // browser drops the lock whenever the tab is hidden, so re-acquire on return.
   useEffect(() => {
+    if (!active || !keepAwake) return;
+    const lock = new WakeLock();
+    void lock.request();
     function onVisible() {
-      if (document.visibilityState === "visible" && active && keepAwake) {
-        void wakeLockRef.current?.request();
-      }
+      if (document.visibilityState === "visible") void lock.request();
     }
     document.addEventListener("visibilitychange", onVisible);
-    return () => document.removeEventListener("visibilitychange", onVisible);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisible);
+      void lock.release();
+    };
   }, [active, keepAwake]);
 
   // Keyboard navigation.
   useEffect(() => {
     if (!active) return;
     function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        stop();
+        return;
+      }
+      // A focused slider owns the arrow keys, and a focused button already fires its own
+      // click on Space — handling those here too moved a slider *and* switched frames, or
+      // advanced twice.
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
+      if (e.key === " " && tag === "BUTTON") return;
       if (e.key === "ArrowRight" || e.key === " ") {
+        e.preventDefault();
         next();
         showOverlay();
       } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
         prev();
         showOverlay();
-      } else if (e.key === "Escape") {
-        stop();
       }
     }
     window.addEventListener("keydown", onKey);
@@ -143,7 +163,6 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
   useEffect(() => {
     return () => {
       if (hideTimer.current) clearTimeout(hideTimer.current);
-      void wakeLockRef.current?.release();
     };
   }, []);
 
@@ -151,12 +170,29 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
 
   function onStageClick(e: React.MouseEvent) {
     if (!active) return;
+    if (tapToExit) {
+      stop();
+      return;
+    }
     const x = e.clientX / window.innerWidth;
-    if (x < 0.33) prev();
-    else if (x > 0.66) next();
-    else setOverlay((v) => !v);
-    showOverlay();
+    if (x < 0.33) {
+      prev();
+      showOverlay();
+    } else if (x > 0.66) {
+      next();
+      showOverlay();
+    } else if (overlay) {
+      hideOverlay();
+    } else {
+      showOverlay();
+    }
   }
+
+  const hint = tapToExit
+    ? "Tap anywhere or press Esc to exit"
+    : frameCount > 1
+      ? "← / → or tap the sides to switch · Esc to exit"
+      : "Tap for controls · Esc to exit";
 
   return (
     <div
@@ -173,30 +209,60 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
             : "relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black"
       }
     >
-      <div className="absolute inset-0">{renderFrame(index)}</div>
+      <div className="absolute inset-0">{renderFrame(index, active)}</div>
 
-      {/* Inline launch button (only when not active and no external launcher). */}
+      {/* Inline launcher (only when not active and no external launcher). The whole
+          preview starts the test; the frame picker sits above that hit area so a
+          pattern can be chosen before going full-screen. */}
       {!active && !hideLauncher && (
-        <button
-          type="button"
-          onClick={() => start(0)}
-          aria-label={`${startLabel} — ${tool.name}`}
-          className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/40 text-white transition hover:bg-black/30"
-        >
-          <span className="rounded-full bg-accent px-6 py-3 text-base font-semibold text-black shadow-lg">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white">
+          <button
+            type="button"
+            onClick={() => start(index)}
+            aria-label={`${startLabel} — ${tool.name}`}
+            className="absolute inset-0 bg-black/40 transition hover:bg-black/30"
+          />
+          <span className="pointer-events-none relative rounded-full bg-accent px-6 py-3 text-base font-semibold text-black shadow-lg">
             ▶ {startLabel}
           </span>
-          <span className="text-sm text-white/70">
-            {frameCount > 1 ? "← / → or tap to change · Esc to exit" : "Esc or tap to exit"}
-          </span>
-        </button>
+          {frameCount > 1 && (
+            <span className="relative flex items-center gap-1 rounded-full bg-black/70 px-2 py-1 text-sm">
+              <button
+                type="button"
+                onClick={prev}
+                className="rounded-full px-3 py-1 hover:bg-white/15"
+                aria-label="Previous pattern"
+              >
+                ←
+              </button>
+              <span className="min-w-28 text-center font-medium">
+                {frameLabel ? frameLabel(index) : `${index + 1} / ${frameCount}`}
+              </span>
+              <button
+                type="button"
+                onClick={next}
+                className="rounded-full px-3 py-1 hover:bg-white/15"
+                aria-label="Next pattern"
+              >
+                →
+              </button>
+            </span>
+          )}
+          <span className="pointer-events-none relative text-sm text-white/70">{hint}</span>
+        </div>
       )}
 
-      {/* Control overlay (only when active). */}
+      {/* Control overlay (only when active). Pointer activity inside it keeps it up, so
+          it can't time out under a finger dragging a slider (touch fires no mousemove). */}
       {active && overlay && (
         <div
           className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 p-4"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            showOverlay();
+          }}
+          onPointerDown={showOverlay}
+          onPointerMove={showOverlay}
         >
           <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm text-white shadow-lg backdrop-blur">
             {frameCount > 1 && (

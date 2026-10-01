@@ -2,6 +2,7 @@
 
 import ColorCycler, { SOLID_COLORS } from "./ColorCycler";
 import CanvasStage from "./CanvasStage";
+import DeadPixelTool from "./DeadPixelTool";
 import GhostingTool from "./GhostingTool";
 import BloomingTool from "./BloomingTool";
 import RefreshRateTool from "./RefreshRateTool";
@@ -29,6 +30,8 @@ import type { ToolDef } from "@/lib/tools";
 export default function ToolRunner({ tool }: { tool: ToolDef }) {
   switch (tool.slug) {
     case "dead-pixel-test":
+      return <DeadPixelTool tool={tool} />;
+
     case "color-test":
       return <ColorCycler tool={tool} />;
 
@@ -97,7 +100,9 @@ export default function ToolRunner({ tool }: { tool: ToolDef }) {
       return <CanvasStage tool={tool} labels={["Grey & color"]} draw={viewingAngle} />;
 
     case "gamma-test":
-      return <CanvasStage tool={tool} labels={["Gamma reference"]} draw={gamma} />;
+      return (
+        <CanvasStage tool={tool} labels={["Gamma reference"]} draw={gamma} nativeResolution />
+      );
 
     case "screen-tearing-test":
       return <ScreenTearingTool tool={tool} />;

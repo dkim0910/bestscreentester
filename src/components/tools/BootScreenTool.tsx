@@ -137,6 +137,7 @@ export default function BootScreenTool({ tool }: { tool: ToolDef }) {
       tool={tool}
       frameCount={LABELS.length}
       keepAwake
+      tapToExit
       startLabel="Start boot screen (full-screen)"
       frameLabel={(i) => LABELS[i]}
       renderFrame={(i) => frames[i]}
