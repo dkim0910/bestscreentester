@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ...pageMetadata({
   title: "Free Online Screen Test",
   description:
-    "Run 20 free screen tests in your browser: find dead pixels, backlight bleed, color and contrast faults, ghosting and refresh-rate issues. No sign-up.",
+    `Run ${TOOLS.length} free screen tests in your browser: find dead pixels, backlight bleed, color and contrast faults, ghosting and refresh-rate issues. No sign-up.`,
   path: "/",
   keywords: [
     "screen test",

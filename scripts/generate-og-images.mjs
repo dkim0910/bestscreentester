@@ -20,7 +20,7 @@ const tools = [...toolsSrc.matchAll(/\n    slug: "([^"]+)",\n    name: "([^"]+)"
   .map((m) => ({ slug: m[1], title: m[3], label: CAT[m[4]] }));
 const guides = [...guidesSrc.matchAll(/\n    slug: "([^"]+)",\n    title: "([^"]+)",/g)]
   .map((m) => ({ slug: m[1], title: m[2], label: "Guide" }));
-if (tools.length !== 20 || guides.length !== 44) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
+if (tools.length !== 28 || guides.length !== 44) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
 
 // ---------- screen motifs ----------
 // Each draws inside the screen viewport x,y,w,h and returns SVG.
@@ -121,6 +121,49 @@ const M = {
     <line x1="${x + w * 0.42}" y1="${y + h * 0.5}" x2="${x + w * 0.52}" y2="${y + h * 0.44}" stroke="${ACCENT}" stroke-width="4" stroke-dasharray="7 6"/>`,
 };
 
+Object.assign(M, {
+  touch: (x, y, w, h) => { const cols = 10, rows = 6, cw = w / cols, ch = h / rows;
+    const lit = new Set([0, 1, 2, 3, 11, 12, 13, 22, 23, 24, 25, 34, 35, 44, 45, 46, 47, 48]);
+    const cells = Array.from({ length: cols * rows }, (_, i) =>
+      `<rect x="${x + (i % cols) * cw + 2}" y="${y + Math.floor(i / cols) * ch + 2}" width="${cw - 4}" height="${ch - 4}" rx="3" fill="${lit.has(i) ? "#16a34a" : "#1a1d24"}"/>`).join("");
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#0b0d12"/>${cells}
+      <circle cx="${x + w * 0.52}" cy="${y + h * 0.7}" r="26" fill="rgba(232,234,237,0.25)" stroke="${ACCENT}" stroke-width="4"/>`;
+  },
+  info: (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#111318"/>
+    <text x="${x + w / 2}" y="${y + h * 0.42}" font-family="${FONT}" font-size="54" font-weight="700" fill="${FG}" text-anchor="middle">1920 × 1080</text>
+    ${[0, 1, 2].map((i) => `<rect x="${x + w * 0.18}" y="${y + h * (0.58 + i * 0.11)}" width="${w * (0.64 - i * 0.12)}" height="12" rx="6" fill="rgba(232,234,237,${0.3 - i * 0.07})"/>`).join("")}
+    <rect x="${x + w * 0.18}" y="${y + h * 0.58}" width="${w * 0.16}" height="12" rx="6" fill="${ACCENT}"/>`,
+  overscan: (x, y, w, h) => { const colors = ["#ffffff", "#ef4444", "#f59e0b", "#22c55e", "#3b82f6"];
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#000"/>` + colors.map((c, i) =>
+      `<rect x="${x + 3 + i * 14}" y="${y + 3 + i * 14}" width="${w - 6 - i * 28}" height="${h - 6 - i * 28}" fill="none" stroke="${c}" stroke-width="3"/>`).join("") +
+      `<circle cx="${x + w / 2}" cy="${y + h / 2}" r="${h * 0.24}" fill="none" stroke="rgba(232,234,237,0.8)" stroke-width="3"/>`;
+  },
+  sharp: (x, y, w, h) => { const lines = Array.from({ length: 60 }, (_, i) =>
+      `<rect x="${x + i * (w / 2 / 60) * 2}" y="${y}" width="${w / 2 / 60}" height="${h * 0.5}" fill="#fff"/>`).join("");
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#000"/>${lines}
+      <rect x="${x}" y="${y + h * 0.5}" width="${w}" height="${h * 0.5}" fill="#f4f5f7"/>
+      ${[0, 1, 2].map((i) => `<text x="${x + 18}" y="${y + h * (0.64 + i * 0.12)}" font-family="${FONT}" font-size="${14 + i * 6}" fill="#000">The quick brown fox jumps</text>`).join("")}`;
+  },
+  frameskip: (x, y, w, h) => { const cols = 10, rows = 6, cw = w / cols, ch = h / rows;
+    const run = new Set([21, 22, 23, 25, 26]);
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#000"/>` + Array.from({ length: cols * rows }, (_, i) =>
+      `<rect x="${x + (i % cols) * cw + 3}" y="${y + Math.floor(i / cols) * ch + 3}" width="${cw - 6}" height="${ch - 6}" fill="${run.has(i) ? "#ffffff" : i === 24 ? "#3a1020" : "#1a1d24"}" ${i === 24 ? `stroke="${ACCENT}" stroke-width="3"` : ""}/>`).join("");
+  },
+  gamut: (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#e02424"/>
+    <circle cx="${x + w / 2}" cy="${y + h / 2}" r="${h * 0.34}" fill="#c81414"/>
+    <rect x="${x + w / 2 - h * 0.15}" y="${y + h / 2 - h * 0.15}" width="${h * 0.3}" height="${h * 0.3}" rx="8" fill="#e02424"/>
+    <polygon points="${x + w * 0.08},${y + h * 0.9} ${x + w * 0.2},${y + h * 0.62} ${x + w * 0.32},${y + h * 0.9}" fill="none" stroke="#fff" stroke-width="3"/>`,
+  pwm: (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#000"/>` + Array.from({ length: 9 }, (_, i) =>
+    `<rect x="${x + w * (0.18 + i * 0.075)}" y="${y + h * 0.12}" width="7" height="${h * 0.76}" fill="rgba(244,245,247,${0.15 + i * 0.1})"/>`).join(""),
+  hdr: (x, y, w, h) => { const vals = [70, 110, 150, 190, 225, 255];
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#000"/>
+      <defs><radialGradient id="hg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(255,255,255,0.35)"/><stop offset="1" stop-color="rgba(255,255,255,0)"/></radialGradient></defs>
+      <circle cx="${x + w * 0.86}" cy="${y + h * 0.42}" r="${h * 0.32}" fill="url(#hg)"/>` + vals.map((v, i) =>
+      `<rect x="${x + 14 + i * ((w - 28) / 6)}" y="${y + h * 0.22}" width="${(w - 28) / 6 - 10}" height="${h * 0.42}" rx="4" fill="rgb(${v},${v},${v})"/>`).join("") +
+      `<text x="${x + w / 2}" y="${y + h * 0.86}" font-family="${FONT}" font-size="30" font-weight="700" fill="${ACCENT}" text-anchor="middle">HDR</text>`;
+  },
+});
+
 const TOOL_MOTIF = {
   "dead-pixel-test": "pixels", "color-test": "rgb", "black-screen": "black", "white-screen": "white",
   "backlight-bleed-test": "bleed", "greyscale-test": "greysteps", "color-gradient-test": "gradient",
@@ -128,6 +171,8 @@ const TOOL_MOTIF = {
   "blooming-test": "bloom", "fake-broken-screen": "crack", "screensaver": "dvd", "boot-screen-simulator": "boot",
   "burn-in-test": "burnin", "contrast-test": "contrast", "black-level-test": "blacklevel",
   "viewing-angle-test": "angle", "gamma-test": "gamma", "screen-tearing-test": "tear",
+  "touch-screen-test": "touch", "screen-info": "info", "overscan-test": "overscan", "sharpness-test": "sharp",
+  "frame-skipping-test": "frameskip", "wide-color-gamut-test": "gamut", "pwm-flicker-test": "pwm", "hdr-test": "hdr",
 };
 const GUIDE_RULES = [
   [/lines-on-my-screen/, "rgb"], [/graphics-card/, "twoscreens"], [/rgb-range/, "blacklevel"],

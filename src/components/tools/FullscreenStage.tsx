@@ -46,6 +46,11 @@ interface FullscreenStageProps {
    * and the overlay arrows, and can be picked on the inline preview before Start.
    */
   tapToExit?: boolean;
+  /**
+   * Taps switch frames / toggle the controls. Default true. Turn it off when the frame
+   * itself needs every tap (the touch test); a press-and-hold then shows the controls.
+   */
+  tapNavigation?: boolean;
 }
 
 const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function FullscreenStage(
@@ -59,6 +64,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
     startLabel = "Start full-screen test",
     hideLauncher = false,
     tapToExit = false,
+    tapNavigation = true,
   },
   ref,
 ) {
@@ -160,11 +166,38 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
     return () => window.removeEventListener("keydown", onKey);
   }, [active, next, prev, stop, showOverlay]);
 
+  // Press-and-hold brings the controls back when taps belong to the frame.
+  const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const holdFrom = useRef<{ x: number; y: number } | null>(null);
+  const cancelHold = useCallback(() => {
+    if (holdTimer.current) clearTimeout(holdTimer.current);
+    holdTimer.current = null;
+    holdFrom.current = null;
+  }, []);
+
   useEffect(() => {
     return () => {
       if (hideTimer.current) clearTimeout(hideTimer.current);
+      if (holdTimer.current) clearTimeout(holdTimer.current);
     };
   }, []);
+
+  const holdHandlers =
+    active && !tapNavigation
+      ? {
+          onPointerDown: (e: React.PointerEvent) => {
+            cancelHold();
+            holdFrom.current = { x: e.clientX, y: e.clientY };
+            holdTimer.current = setTimeout(showOverlay, 700);
+          },
+          onPointerMove: (e: React.PointerEvent) => {
+            const from = holdFrom.current;
+            if (from && Math.hypot(e.clientX - from.x, e.clientY - from.y) > 12) cancelHold();
+          },
+          onPointerUp: cancelHold,
+          onPointerCancel: cancelHold,
+        }
+      : {};
 
   const api: StageApi = { index, count: frameCount, next, prev, setIndex, exit: stop };
 
@@ -174,6 +207,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       stop();
       return;
     }
+    if (!tapNavigation) return;
     const x = e.clientX / window.innerWidth;
     if (x < 0.33) {
       prev();
@@ -190,7 +224,9 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
 
   const hint = tapToExit
     ? "Tap anywhere or press Esc to exit"
-    : frameCount > 1
+    : !tapNavigation
+      ? "Press and hold for controls · Esc to exit"
+      : frameCount > 1
       ? "← / → or tap the sides to switch · Esc to exit"
       : "Tap for controls · Esc to exit";
 
@@ -199,6 +235,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       ref={stageRef}
       onClick={onStageClick}
       onMouseMove={active ? showOverlay : undefined}
+      {...holdHandlers}
       className={
         active
           ? `fixed inset-0 z-50 h-screen w-screen select-none bg-black ${

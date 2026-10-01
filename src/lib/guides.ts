@@ -139,6 +139,7 @@ Photograph anything questionable now, on a solid color, with the room dark and y
       "Use your TV's browser or a phone to run solid-color and gray tests that reveal panel defects and dirty-screen effect.",
     tags: ["tv", "guide", "uniformity"],
     publishedAt: "2026-06-21",
+    updatedAt: "2026-10-01",
     body: `TVs are big, so defects are easy to miss — and easy to spot once you know what to display.
 
 Do this in the first week. A retailer's return policy is almost always more forgiving than a manufacturer's pixel policy, so the cheapest moment to reject a bad panel is before the return window closes. Check what that window actually is on your receipt before you start.
@@ -149,6 +150,7 @@ Three things will lie to you if you skip them.
 
 - **Picture mode.** Switch to **Filmmaker**, **Movie**, or **Cinema**. Showroom modes like **Vivid** and **Dynamic** crush shadow detail and oversaturate everything, which hides some faults and invents others.
 - **Auto-dimming.** Turn off the ambient light sensor, eco mode, and any energy-saving brightness limiter. Otherwise the screen changes under you mid-test and you will chase a fault that is really just the sensor working.
+- **Picture size.** Set it to **Just Scan**, **Screen Fit** or **1:1**, so the TV isn't cropping and rescaling the edges. The [Overscan Test](/overscan-test) shows at a glance whether it still is.
 - **The room.** Kill the lights. Backlight and black-level problems are close to invisible with a lamp on, and uniformity problems disappear entirely in daylight.
 
 Let the set run 20–30 minutes before judging uniformity. Panels shift slightly as they warm up.
@@ -164,7 +166,7 @@ What matters is a genuinely full-screen field with no menu bar, no overlay, and 
 ## The tests
 
 1. **Pixels** — full-screen red, green, blue, white, and black via the [Color Test](/color-test). Get within arm's reach and sweep the panel in overlapping strips; a 65-inch screen is far too big to judge in one glance. A **dead pixel** stays black on every field. A **stuck pixel** stays lit in one color and jumps out on the opposite field, so a stuck red dot is easiest to find on green or blue. The [Dead Pixel Test](/dead-pixel-test) cycles the fields for you, and [Dead vs Stuck vs Hot Pixels](/blog/dead-vs-stuck-vs-hot-pixels) covers telling them apart.
-2. **Dirty screen effect (DSE)** — a 5% gray or [Brightness Uniformity](/brightness-uniformity-test) field shows vertical bands and blotches that ruin panning shots in sports. This is the most useful TV test and the one almost nobody runs. Look for vertical stripes, a darker middle, and cloudy smudges. Check a mid-gray field too: some sets look filthy at 5% and clean at 50%, others the reverse.
+2. **Dirty screen effect (DSE)** — a 5% gray or [Brightness Uniformity](/brightness-uniformity-test) field shows vertical bands and blotches that ruin panning shots in sports; its Panning gray frame recreates a camera pan, which is when DSE is most obvious. This is the most useful TV test and the one almost nobody runs. Look for vertical stripes, a darker middle, and cloudy smudges. Check a mid-gray field too: some sets look filthy at 5% and clean at 50%, others the reverse.
 3. **Backlight and blooming** — on LED and Mini-LED sets, the [Blooming Test](/blooming-test) reveals halos around bright objects on black. Every backlit panel does this to some degree; the question is how big the halo is and whether it visibly lags behind the object as it moves. A halo that trails the object is the local dimming algorithm reacting late, and it will show up on white subtitles over a dark scene.
 4. **OLED black** — on OLED, a [Black Screen](/black-screen) should look truly off, with no glow. Faint vertical banding on a very dark gray is a common OLED trait rather than a fault; judge it on real content before you call it a defect.
 5. **Burn-in and image retention** — mandatory on anything used, refurbished, or ex-display. Run the [Burn-in Test](/burn-in-test) and look for a ghosted news ticker, channel logo, or menu bar in the gray fields. [OLED Burn-In: Causes, Prevention, and How to Check](/blog/oled-burn-in-and-how-to-check-for-it) explains what is temporary retention and what is permanent.
@@ -539,7 +541,7 @@ For color-critical work, a $100–200 colorimeter still pays off — but this ge
       "What gamut percentages on a spec sheet actually mean, how sRGB, DCI-P3 and Adobe RGB differ, and which one matters for the work you do.",
     tags: ["color gamut", "color", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `"99% sRGB" and "95% DCI-P3" describe how many colors a display can show. Here's how to read them — and when a bigger number actually makes your screen worse.
 
 ## What is a gamut?
@@ -554,7 +556,7 @@ Two things follow from that, and both matter:
 ## The three you'll see
 
 - **sRGB** — the web and most everyday content standard. Almost every photo, website, game, and SDR video you look at is authored for it. Aim for ~99–100% sRGB coverage.
-- **DCI-P3** — a wider gamut used for HDR video and modern phones/laptops. It extends mainly into deep reds and greens. ~90%+ P3 looks noticeably richer on HDR movies and games.
+- **DCI-P3** — a wider gamut used for HDR video and modern phones/laptops. It extends mainly into deep reds and greens. ~90%+ P3 looks noticeably richer on HDR movies and games. The [Wide Color Gamut Test](/wide-color-gamut-test) shows whether your screen and browser can display it.
 - **Adobe RGB** — wide in the greens/cyans, used in **print** workflows because it maps better onto what CMYK ink can reproduce. Mostly relevant to photographers preparing for print.
 
 There's also **Rec. 2020**, the target for future HDR video. No consumer display fully covers it — even the best OLED TVs measure in the 80–90% range — so treat any Rec. 2020 percentage on a spec sheet as a rough indicator rather than a promise.
@@ -1112,7 +1114,7 @@ Watch a tear appear and vanish as you toggle sync with the [Screen Tearing Test]
       "Bought a 144Hz monitor but it still feels like 60? It probably is. Here's the two-minute fix in Windows and macOS, plus the cable to check.",
     tags: ["refresh rate", "windows", "macos"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `New high-refresh monitors frequently default to 60Hz. The hardware is fine — the setting isn't.
 
 This happens because the operating system picks a mode it knows is safe for whatever cable and port it detects, and never revisits the choice. Nothing warns you. The monitor's own on-screen menu often reports the incoming signal, which is the fastest way to confirm you're being shortchanged before you touch any settings.
@@ -1133,6 +1135,8 @@ On some external monitors the available rates depend on which resolution you've 
 
 ## Confirm it worked
 Open the [Refresh Rate Test](/refresh-rate-test). It should read close to your panel's rating (a 144Hz panel typically measures approximately 143-144).
+
+If you reached that rate with a custom resolution or an overclock, also run the [Frame Skipping Test](/frame-skipping-test): an overclocked screen can report the higher rate while quietly dropping frames.
 
 A small shortfall is normal. Browsers measure frame delivery, so a reading a fraction under the rated number just means the timing isn't perfectly exact. A reading of 60 when you asked for 144, or 120 when you asked for 240, is a real problem. If the number bounces around wildly, close background apps and video playback and try again — screen recording software and hardware-accelerated video can both pin the measurement down.
 
@@ -1508,7 +1512,7 @@ If it is burn-in, nothing you run will remove it — the emitters are worn, not 
       "Many screens dim by flickering the backlight faster than you can consciously see — but your eyes may still feel it. Here's how to test yours.",
     tags: ["pwm", "flicker", "eye strain"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `PWM (pulse-width modulation) is a common way displays control brightness: instead of lowering power, they switch the backlight **on and off** very fast. Lower brightness = longer "off" periods.
 
 The reason it exists is that LEDs do not dim gracefully. Feed an LED less current and its color shifts and its output becomes hard to control precisely. Flashing it at full power and varying how long it stays on sidesteps both problems, and it is cheap. The alternative, **DC dimming**, lowers the current instead — steadier light, harder and more expensive to keep accurate at low levels.
@@ -1525,7 +1529,7 @@ If a screen only bothers you at night, PWM is a strong suspect — that is exact
 
 ## How to test for it
 
-- **Pencil/finger test:** wave a pen quickly in front of a bright [White Screen](/white-screen). Smooth blur = likely flicker-free; multiple crisp "ghost" images = PWM flicker. Count the ghosts: more, closely spaced copies mean a higher frequency, which is generally less troublesome than a few widely spaced ones.
+- **Pencil/finger test:** wave a pen quickly in front of a bright [White Screen](/white-screen), or use the [PWM Flicker Test](/pwm-flicker-test), which adds a fast-moving line that splits into a row of copies on PWM screens. Smooth blur = likely flicker-free; multiple crisp "ghost" images = PWM flicker. Count the ghosts: more, closely spaced copies mean a higher frequency, which is generally less troublesome than a few widely spaced ones.
 - **Phone camera:** point a slow-motion or regular camera at the screen and lower brightness — visible scrolling bands suggest PWM. The slowest slow-motion mode your phone offers makes it much clearer. Be careful here: your phone's rolling shutter can produce bands from a perfectly steady screen at some shutter speeds, so compare against a screen you already know is flicker-free before you trust the result.
 - Repeat at **low brightness**, where PWM is most aggressive. Many displays are flicker-free above roughly half brightness and switch to PWM below it, so a test at 100% proves nothing.
 
@@ -1564,7 +1568,7 @@ If you're flicker-sensitive, prioritize flicker-free certification when buying �
       "Resolution alone doesn't tell you how sharp a screen looks — pixel density and viewing distance do. Here's how to work out what you need.",
     tags: ["ppi", "resolution", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `Two screens can share a resolution yet look very different. **Pixel density (PPI)** — pixels per inch — is what determines sharpness.
 
 ## Resolution vs density
@@ -1611,7 +1615,7 @@ Running a high-PPI laptop screen next to a low-PPI external monitor is the one s
 
 Sharpness problems often aren't density problems:
 
-- **A blurry image at the right resolution** usually means the display isn't running at its native resolution, or a TV is applying overscan. Fix the resolution first.
+- **A blurry image at the right resolution** usually means the display isn't running at its native resolution, or a TV is applying overscan. The [Sharpness & Text Clarity Test](/sharpness-test) and the [Overscan Test](/overscan-test) show which. Fix the resolution first.
 - **A visible grid between pixels** at close range is the [screen-door effect](/blog/screen-door-effect-explained), not low resolution as such.
 - **Fringed color on text edges** is a subpixel rendering mismatch — common when a panel uses a non-standard subpixel layout.
 - **Soft text on one app only** is that app, not the panel.
@@ -1631,7 +1635,7 @@ If you're still choosing a screen, work backwards: fix your seating distance fir
       "Most monitors labeled 'HDR' aren't. Here's what real HDR needs — peak brightness, local dimming, contrast and wide color — and how to check.",
     tags: ["hdr", "color", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `HDR (High Dynamic Range) promises brighter highlights, deeper shadows, and richer color. The label is wildly overused.
 
 An HDR display is not just a brighter display. Real HDR changes three things at once: the range between the dimmest and brightest thing on screen, the number of tone steps available to fill that range, and the width of the color space. Miss any one and you get a signal that is technically accepted and visibly worse than plain SDR.
@@ -1667,7 +1671,7 @@ Support is a device and service question, not a quality ranking. A good HDR10 im
 - Turn off any monitor-side "dynamic contrast" or picture-enhancement mode, which fights the HDR tone mapping.
 
 ## Check the basics first
-HDR leans on black level and gradients. Verify deep blacks with the [Black Screen](/black-screen) and [Black Level Test](/black-level-test), dynamic range with the [Contrast Test](/contrast-test), blooming with the [Blooming Test](/blooming-test), and smooth tone transitions with the [Color Gradient Test](/color-gradient-test).
+Start with the [HDR Test](/hdr-test): if its brightness steps stop separating at 203 nits, the screen or browser isn't showing HDR at all, and nothing else on this list matters yet. After that, HDR leans on black level and gradients. Verify deep blacks with the [Black Screen](/black-screen) and [Black Level Test](/black-level-test), dynamic range with the [Contrast Test](/contrast-test), blooming with the [Blooming Test](/blooming-test), and smooth tone transitions with the [Color Gradient Test](/color-gradient-test).
 
 Read the results in that order. If black looks dark grey in a dark room, HDR will not fix it. If the gradient steps visibly in SDR it will step worse in HDR, since those tone levels are stretched across a much larger brightness range — [what is color banding](/blog/what-is-color-banding-and-how-to-reduce-it) covers what you can do about it. If bright objects on black are ringed by a halo, you are seeing the dimming zones, which is the price a Mini-LED pays for its brightness. [Mini-LED vs OLED](/blog/mini-led-vs-oled) compares the two approaches directly.
 
@@ -1917,7 +1921,7 @@ Clean often enough that dust never builds into a film — a dry microfiber pass 
       "Buying secondhand? Run these quick checks for dead pixels, OLED burn-in, touch dead zones and tint before you hand over any money.",
     tags: ["phone", "used", "buying guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `A great secondhand deal can hide an expensive screen problem. A replacement display is often one of the most expensive repairs on a phone, and a bad panel is the one fault you cannot negotiate away after the fact. Test before you pay.
 
 ## Set up first
@@ -1960,9 +1964,9 @@ Then check a mid-grey for **blotchiness** — uneven, cloudy patches often mean 
 
 ## 4. Touch dead zones
 
-In a notes app or drawing app, drag a finger across **every** part of the screen in one stroke. Any gaps mean a dead touch zone. Draw a tight zigzag so the line covers the full surface, then repeat right along the edges — edge dead zones are the most common and the easiest to miss.
+Open the [Touch Screen Test](/touch-screen-test) and drag a finger over **every** cell of its grid; any cell that won't turn green is a dead touch zone. No signal? A notes or drawing app works too — draw a tight zigzag so the line covers the full surface. Either way, go right along the edges: edge dead zones are the most common and the easiest to miss.
 
-Test multi-touch too: hold one finger still and drag a second. Erratic jumping means a digitizer fault. Try typing a full sentence on the keyboard; a key that needs a second press is a touch problem, not a software one.
+Test multi-touch too: the touch test counts how many fingers the screen tracks at once, and its Free draw mode shows each finger's line. Hold one finger still and drag a second — erratic jumping means a digitizer fault. Try typing a full sentence on the keyboard; a key that needs a second press is a touch problem, not a software one.
 
 ## 5. Cracks and pressure spots
 
@@ -1987,11 +1991,11 @@ If more than one of these checks fails, walk away — a phone with a good screen
       "Resolution, refresh rate, scaling, and color-range settings people miss when plugging in a second screen — on both macOS and Windows.",
     tags: ["monitor", "windows", "macos"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-10-01",
     body: `Plugging in an external monitor "just works" — but rarely at its best. Five settings make the difference.
 
 ## 1. Native resolution
-Set the monitor to its **native** resolution (e.g. 2560×1440 for a 27" 1440p). Anything else looks soft.
+Set the monitor to its **native** resolution (e.g. 2560×1440 for a 27" 1440p). Anything else looks soft. Not sure what you're running at? [Screen Info](/screen-info) shows the resolution and scaling your browser sees, and the [Sharpness & Text Clarity Test](/sharpness-test) makes any resampling obvious.
 
 An LCD or OLED has a fixed grid of pixels. Feed it any other resolution and it has to interpolate, which blurs text permanently — no amount of ClearType or font smoothing recovers it. On Windows this lives under Settings → System → Display → Display resolution, where the native mode is marked "Recommended". On macOS, open System Settings → Displays; if the mode you want isn't offered, recent versions have a Show all resolutions switch behind the Advanced button (on older versions, holding Option while clicking Scaled reveals the full list).
 
@@ -2429,7 +2433,7 @@ LCD and OLED break differently. Damaged LCDs tend to show black ink blots and pa
 2. Show a [Black Screen](/black-screen). Bright lines and light leaking around the damage are easiest to see against black.
 3. Step through red, green and blue with the [Color Test](/color-test). A damaged area sometimes loses only one color.
 4. Run the [Dead Pixel Test](/dead-pixel-test) and look closely around the impact point, where small clusters of dead pixels are common.
-5. Test touch: draw slowly across every part of the screen in a notes or drawing app, or drag an icon along the edges and into the corners.
+5. Test touch with the [Touch Screen Test](/touch-screen-test): every cell of its grid should turn green under your finger, including along the edges and in the corners.
 
 ## Act quickly
 

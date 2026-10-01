@@ -6,22 +6,24 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # BestScreenTester
 
-A suite of **20** free, browser-based screen tests plus **44** guides. **Fully static — no
+A suite of **28** free, browser-based screen tests plus **44** guides. **Fully static — no
 database, no accounts, no backend services.** The display tests run 100% client-side (Fullscreen
 API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts` — the
 `category` field there is what actually drives the nav/homepage grouping, so trust it over any
 summary (including this one):
 
-- **`panel`** (8) — dead-pixel-test, backlight-bleed-test, brightness-uniformity-test,
-  blooming-test, burn-in-test, contrast-test, black-level-test, viewing-angle-test
-- **`color`** (6) — color-test, black-screen, white-screen, greyscale-test, color-gradient-test,
-  gamma-test
-- **`motion`** (3) — refresh-rate-test, ghosting-test, screen-tearing-test
-- **`fun`** (3) — fake-broken-screen, screensaver, boot-screen-simulator
+- **`panel`** (12) — dead-pixel-test, backlight-bleed-test, brightness-uniformity-test,
+  blooming-test, burn-in-test, contrast-test, black-level-test, viewing-angle-test,
+  touch-screen-test, overscan-test, sharpness-test, pwm-flicker-test
+- **`color`** (8) — color-test, black-screen, white-screen, greyscale-test, color-gradient-test,
+  gamma-test, wide-color-gamut-test, hdr-test
+- **`motion`** (4) — refresh-rate-test, ghosting-test, screen-tearing-test, frame-skipping-test
+- **`fun`** (4) — fake-broken-screen, screensaver, boot-screen-simulator, screen-info
 
 Note the non-obvious ones: `blooming-test`, `contrast-test`, `black-level-test`, and
 `viewing-angle-test` are **panel**, not motion/color; `black-screen` and `white-screen` are
-**color**, not panel.
+**color**, not panel; `touch-screen-test` and `pwm-flicker-test` are **panel**; `screen-info` is
+**fun** ("Fun & Utilities").
 
 ## Stack
 
@@ -69,9 +71,15 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     `src/lib/fullscreen.ts`.
   - `ColorCycler`, `PatternCanvas`, `CanvasStage` build on the stage. `patterns.ts` holds canvas
     draw helpers (greyscale, color gradient, gray field, burn-in, contrast, black level, viewing
-    angle, gamma). Bespoke tools have their own components: `DeadPixelTool` (solid colors + the
-    stuck-pixel fixer frame), `RefreshRateTool`, `GhostingTool`, `BloomingTool`,
-    `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`. The prank's
+    angle, gamma, overscan, sharpness). Bespoke tools have their own components: `DeadPixelTool`
+    (solid colors + the stuck-pixel fixer frame), `RefreshRateTool`, `GhostingTool`, `BloomingTool`
+    (dot + zone sweeps), `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`,
+    `TouchTool` (uses `tapNavigation={false}` — press-and-hold shows the controls), `ScreenInfoTool`
+    (no stage, an info panel), `FrameSkipTool`, `WideGamutTool`, `PwmTool`, `HdrTool`. The measured
+    refresh rate is the shared `useRefreshRate` hook. The HDR test image
+    (`public/hdr/pq-brightness-steps.avif`, BT.2020/PQ) comes from
+    `scripts/generate-hdr-test-image.mjs` (needs ffmpeg + libsvtav1); it patches the AVIF `colr`
+    box because ffmpeg's muxer leaves primaries/transfer "unspecified". The prank's
     "Cracked" effect lives in `crackedScreen.ts`: it grows a crack network (cracks stop at the
     first crack they hit), flood-fills the shards, then shifts/re-lights each shard's pixels over
     a plain light display colour (`DISPLAY_COLOR`). Seeded; the display and glass layers are
