@@ -1,0 +1,321 @@
+{
+  "summary": {
+    "health_score": 77,
+    "business_type": "Publisher / free web utility (AdSense + donations)",
+    "top_findings": [
+      "Homepage copy shares 31.7% of 6-word sequences verbatim with screentester.io (HomeSections.tsx); tool pages 0%",
+      "Four factual errors (ISO classes, iPhone parts history, Color Gradient DCI-P3 claim, 'IPS ~1ms') + homepage advice contradicting guides",
+      "No named author/maintainer and zero outbound citations across 44 guides",
+      "Money tool pages thin/less capable than SERP leaders: white-screen preview renders grey, refresh rate is one rounded integer, 14 tools have 1 FAQ",
+      "Sitemap lastmod: all 36 tool/static URLs share SITE_UPDATED=2026-10-01 incl. unchanged pages; IndexNow submits them as fresh"
+    ],
+    "quick_wins": [
+      "/donate: use TOOLS.length (says 20 and 21+, actual 28)",
+      "Fix over-promising excerpts/titles (burn-in 'still fixable', '4 Methods That Actually Work', warranty 'each major manufacturer')",
+      "not-found.tsx: add metadata title + robots noindex",
+      "Remove bg-black/40 scrim on solid-colour previews (FullscreenStage.tsx:256-261)",
+      "Replace 188 KB 512px src/app/icon.png with a small icon"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 85,
+      "what_works": [
+        "80/80 sitemap URLs 200, no redirects",
+        "Self-canonical trailing-slash, index/follow, one H1 on every page",
+        "No broken/redirecting internal links, no orphans",
+        "Single-hop http->https, www->apex; real 404",
+        "Primary content in static HTML; IndexNow working"
+      ],
+      "findings": [
+        {
+          "title": "Transient client crash on homepage (unreproduced)",
+          "severity": "Medium",
+          "description": "Next built-in global error 'This page couldn't load' seen on 2 cold loads ~11 min after deploy; 6+ later renders clean",
+          "recommendation": "Add app/error.tsx + global-error.tsx; reproduce with console open right after next deploy"
+        },
+        {
+          "title": "404 page conflicting robots meta and generic title",
+          "severity": "Medium",
+          "description": "not-found.tsx has no metadata; emits noindex and index,follow",
+          "recommendation": "Add metadata {title:'Page not found', robots:{index:false}}"
+        },
+        {
+          "title": "No security headers",
+          "severity": "Medium",
+          "description": "GitHub Pages cannot set headers",
+          "recommendation": "Requires hosting change (e.g. Cloudflare proxy)"
+        },
+        {
+          "title": "/feedback/ heading skip H1->H3",
+          "severity": "Low",
+          "description": "Footer h3s without H2",
+          "recommendation": "Add H2 or make footer headings non-heading elements"
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 60,
+      "what_works": [
+        "Specific, dense guides with tables and numbers",
+        "Low internal duplication (max 6.4%)",
+        "Readability ~grade 7",
+        "Honest published/updated dates"
+      ],
+      "findings": [
+        {
+          "title": "Homepage copy overlaps screentester.io verbatim",
+          "severity": "High",
+          "description": "31.7% of 6-grams shared, 30-45 word identical runs, mirrored H2 order; tool pages 0%",
+          "recommendation": "Rewrite HomeSections.tsx:5-141 and :157-387 in own words/structure"
+        },
+        {
+          "title": "Factual errors",
+          "severity": "High",
+          "description": "guides.ts:444 ISO classes; guides.ts:1983 iPhone parts; tools.ts:189-194 + HomeSections.tsx:29,178 DCI-P3 on sRGB canvas; HomeSections.tsx:39 IPS ~1ms",
+          "recommendation": "Correct each; route gamut to /wide-color-gamut-test/"
+        },
+        {
+          "title": "No named author/maintainer",
+          "severity": "High",
+          "description": "Byline 'By BestScreenTester'; /about promises 'who builds' but names nobody",
+          "recommendation": "Who-makes-this section on /about; author field on Guide; Person in Article schema"
+        },
+        {
+          "title": "Zero outbound citations",
+          "severity": "High",
+          "description": "0 external links in 44 guides naming ISO/VESA/ITU/Apple sources",
+          "recommendation": "Link primary sources inline"
+        },
+        {
+          "title": "Titles/excerpts over-promise",
+          "severity": "Medium",
+          "description": "guides.ts:324 vs :367; :1460 vs body; :427 vs :431-477",
+          "recommendation": "Reword or add content"
+        },
+        {
+          "title": "Thin tool pages",
+          "severity": "Medium",
+          "description": "90-268 unique words; 14 tools with 1 FAQ",
+          "recommendation": "Add about/results blocks + FAQs (C1)"
+        },
+        {
+          "title": "Cannibalisation",
+          "severity": "Medium",
+          "description": "color-gradient vs wide-gamut; greyscale 'gamma test'; black-screen vs bleed; 3 bleed/glow guides",
+          "recommendation": "One owner per query"
+        },
+        {
+          "title": "Stale /donate counts",
+          "severity": "Medium",
+          "description": "'20' and '21+' vs 28",
+          "recommendation": "Use TOOLS.length"
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 82,
+      "what_works": [
+        "Titles 24-62 chars, descriptions 116-159, no duplicates",
+        "Dense internal linking"
+      ],
+      "findings": [
+        {
+          "title": "Homepage H1 misses 'screen test'/'monitor test'",
+          "severity": "Medium",
+          "description": "page.tsx:41-43",
+          "recommendation": "H1 'Free Online Screen Test & Monitor Test'"
+        },
+        {
+          "title": "Related-guides modules pick by array order / generic tag",
+          "severity": "Medium",
+          "description": "guides.ts:2600-2602 first 4 in array order; :2583-2595 dominated by 'guide' tag (23/44)",
+          "recommendation": "Rank by relevance; drop generic tag from scoring"
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 84,
+      "what_works": [
+        "Organization/WebSite @id graph on every page",
+        "WebApplication with free Offer, no fabricated ratings",
+        "Article dates match visible dates"
+      ],
+      "findings": [
+        {
+          "title": "HowTo on tool pages",
+          "severity": "Info",
+          "description": "Rich result removed Sept 2023",
+          "recommendation": "Leave; do not extend"
+        },
+        {
+          "title": "FAQPage on home + tools",
+          "severity": "Info",
+          "description": "FAQ rich results retired May 7 2026",
+          "recommendation": "No action"
+        },
+        {
+          "title": "Inline publisher/author Organizations",
+          "severity": "Low",
+          "description": "seo.ts:151, :203",
+          "recommendation": "Reference #organization by @id; Person author once named"
+        },
+        {
+          "title": "No BreadcrumbList on hub pages",
+          "severity": "Low",
+          "description": "/tools/, /blog/, /about/",
+          "recommendation": "Use breadcrumbJsonLd"
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 90,
+      "what_works": [
+        "Lab mobile 93-99 / desktop 100 on tool pages",
+        "CLS 0",
+        "Text LCP element"
+      ],
+      "findings": [
+        {
+          "title": "188 KB favicon on every page",
+          "severity": "Medium",
+          "description": "src/app/icon.png 512x512",
+          "recommendation": "Ship a small icon"
+        },
+        {
+          "title": "All 16 tool components bundled on every tool page",
+          "severity": "Medium",
+          "description": "ToolRunner.tsx:3-18 static imports (~38 KB gz)",
+          "recommendation": "next/dynamic per slug"
+        },
+        {
+          "title": "Geist Mono preloaded everywhere",
+          "severity": "Medium",
+          "description": "layout.tsx:3-4",
+          "recommendation": "Load only where used"
+        },
+        {
+          "title": "No field data",
+          "severity": "Info",
+          "description": "No CrUX/PSI key",
+          "recommendation": "Configure google-api.json"
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 65,
+      "what_works": [
+        "All AI crawlers allowed (12 UAs identical 200)",
+        "Server-rendered content",
+        "Labelled controls"
+      ],
+      "findings": [
+        {
+          "title": "No citable 'what this test checks' passage on tool pages",
+          "severity": "High",
+          "description": "~132 words prose, FAQ answers ~30 words",
+          "recommendation": "Add about block (C1)"
+        },
+        {
+          "title": "Thin entity / anonymous operator",
+          "severity": "Medium",
+          "description": "Organization only name/url/logo",
+          "recommendation": "C2: named maintainer, contactPoint, real sameAs"
+        },
+        {
+          "title": "No off-site brand presence found",
+          "severity": "Medium",
+          "description": "0 HN/Wikipedia/YouTube mentions; not in Common Crawl graph",
+          "recommendation": "Reddit answers, demo videos, directories"
+        },
+        {
+          "title": "llms.txt absent",
+          "severity": "Low",
+          "description": "404; optional, ignored by Google",
+          "recommendation": "Optional static public/llms.txt"
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 85,
+      "what_works": [
+        "All images have alt + dimensions",
+        "Header logo 3.4 KB"
+      ],
+      "findings": [
+        {
+          "title": "Eager hover previews",
+          "severity": "Low",
+          "description": "~14 PNGs ~95 KB on homepage (ToolCard.tsx:23-29)",
+          "recommendation": "Load on hover / WebP"
+        },
+        {
+          "title": "Oversized guide hero",
+          "severity": "Low",
+          "description": "1200x630 PNG shown at 574x301",
+          "recommendation": "Smaller WebP/AVIF in-page"
+        },
+        {
+          "title": "Inaccurate hero alt text",
+          "severity": "Low",
+          "description": "'illustrated diagram' for a title card (blog/[slug]/page.tsx:117)",
+          "recommendation": "Describe the actual image"
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "C3 homepage rewrite (overlap + factual errors + H1 targeting)",
+          "Fix 4 factual errors and 3 over-promising titles/excerpts; /donate counts",
+          "Per-page honest lastmod for tools/static pages",
+          "not-found metadata; error.tsx/global-error.tsx; small favicon; no scrim on solid-colour previews",
+          "Fix related-guides ranking (guides.ts:2583-2602)"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "C1 tool-page depth + capability (white/black presets, refresh-rate detail, dead-pixel swatches + fixer button, F to start)",
+          "C2 named maintainer, Person author, @id refs, primary-source citations, real photos"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "C4 resolve cannibalisation",
+          "New pages: by-brand dead-pixel policies, used-monitor test, fix burn-in, RMA guide, device pages",
+          "Off-site: Reddit answers, demo videos, directories",
+          "Perf: dynamic tool imports, font loading, lazy previews"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Configure google-api.json for CrUX/GSC",
+          "/seo drift baseline now; compare after each phase",
+          "Weekly GSC impressions for 6 money queries + brand queries",
+          "Re-audit in ~8 weeks"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
