@@ -210,22 +210,27 @@ export const TOOLS: ToolDef[] = [
     slug: "brightness-uniformity-test",
     name: "Brightness Uniformity",
     title: "Brightness Uniformity Test",
-    tagline: "50% gray field and a 9-zone grid to spot uneven backlighting.",
+    tagline: "A 50% gray field, a 9-zone grid and a panning gray to spot uneven backlighting.",
     description:
-      "Free brightness uniformity test. Display a 50% gray field and a 9-zone grid to detect uneven backlighting, clouding, and dark corners.",
+      "Free brightness uniformity test: a 50% gray field, a 9-zone grid and a panning gray to reveal uneven backlighting, clouding and the dirty screen effect.",
     category: "panel",
     icon: "🔲",
     keywords: ["brightness uniformity", "screen clouding", "uniformity test", "gray screen"],
     howTo: [
       "Click Start and view the gray field full-screen.",
-      "Use ← / → to toggle the 9-zone grid overlay.",
+      "Use ← / → to switch to the 9-zone grid and the panning gray.",
       "Compare the brightness of the center against each corner.",
+      "On Panning gray, follow the drifting bands with your eyes: smudges or stripes that stay put are the panel's dirty screen effect.",
       "Press Esc to exit.",
     ],
     faq: [
       {
         q: "How much variation is acceptable?",
         a: "Good monitors stay within roughly 10% brightness variation across the panel. Larger differences show as visibly darker corners or brighter hotspots.",
+      },
+      {
+        q: "What is the dirty screen effect?",
+        a: "Blotches and faint vertical bands on large panels, most visible when the camera pans across a uniform area such as a sports pitch. The Panning gray frame recreates that: the bands drift, and any patches that stay fixed belong to the panel.",
       },
     ],
   },
@@ -289,6 +294,7 @@ export const TOOLS: ToolDef[] = [
       "Dim the room and click Start.",
       "Move your cursor / finger to drag the bright dot around the black field.",
       "Watch for a glowing halo (bloom) around the bright object.",
+      "Use → for the zone sweeps: count how often the halo jumps as the square crosses the screen — that's roughly the number of dimming zones across (or down).",
       "Press Esc to exit.",
     ],
     faq: [
@@ -540,6 +546,240 @@ export const TOOLS: ToolDef[] = [
       },
     ],
   },
+  {
+    slug: "touch-screen-test",
+    name: "Touch Screen Test",
+    title: "Touch Screen Test",
+    tagline: "Touch every cell or draw freely to find dead zones and multi-touch limits.",
+    description:
+      "Free touch screen test for phones, tablets and touch laptops. Fill a grid or draw freely to find dead zones, ghost touches and multi-touch limits.",
+    category: "panel",
+    icon: "👆",
+    keywords: ["touch screen test", "touchscreen test", "dead zone test", "multi touch test", "digitizer test", "phone touch test"],
+    howTo: [
+      "Click Start and hold the device the way you normally would.",
+      "Drag a finger slowly over every cell of the grid — each one turns green as it registers.",
+      "Cells that stay dark after you've covered them are dead zones. In Free draw (→), breaks or jumps in your lines show dead spots and ghost touches.",
+      "Put several fingers down at once to see how many touches the screen tracks.",
+      "Press and hold anywhere for the controls (Reset, Exit), or press Esc.",
+    ],
+    faq: [
+      {
+        q: "What does a dead zone look like?",
+        a: "A patch of cells that won't turn green however slowly you drag over them, or a gap that appears in the same place every time you draw a line through it. One stubborn cell is usually just a missed spot; the same cells failing every time is a fault in the touch layer.",
+      },
+      {
+        q: "How many touch points should a screen support?",
+        a: "Most phones and tablets track at least five fingers at once, and many track ten. Touch laptops vary. The counter shows the most fingers seen at the same time — if it never goes above one or two, multi-touch isn't working.",
+      },
+      {
+        q: "Does a screen protector affect the test?",
+        a: "A thick, cracked or lifting protector can create dead spots of its own. If you find one, take the protector off and test again before you blame the screen.",
+      },
+    ],
+  },
+  {
+    slug: "screen-info",
+    name: "Screen Info",
+    title: "Screen Resolution & Display Info Checker",
+    tagline: "See your screen resolution, scaling, refresh rate, color gamut and HDR support.",
+    description:
+      "What's my screen resolution? See your display's resolution, scaling, aspect ratio, refresh rate, color gamut and HDR support, read live in your browser.",
+    category: "fun",
+    icon: "ℹ️",
+    keywords: ["what is my screen resolution", "screen resolution checker", "display info", "my screen size", "device pixel ratio", "screen resolution test"],
+    howTo: [
+      "Open the page — every value is read live from your browser, with nothing to start.",
+      "Check the pixel resolution and display scaling against your screen's specifications.",
+      "Give the measured refresh rate a second to settle.",
+      "Use Copy all to paste the details into a support ticket or a forum post.",
+    ],
+    faq: [
+      {
+        q: "Why doesn't it show my screen's exact resolution?",
+        a: "Browsers report sizes after display scaling, so the pixel resolution here is the scaled size multiplied by the scaling factor. With unusual scaling or browser zoom it can be off by a few pixels. Your operating system's display settings show the true native resolution.",
+      },
+      {
+        q: "Why does it say 24-bit color on a 10-bit monitor?",
+        a: "The browser reports what the operating system hands it: usually 24-bit (8 bits per channel), and 30-bit on some 10-bit setups such as Apple's XDR displays. Many 10-bit monitors still show 24 because the computer is sending 8-bit color, so the color gamut and HDR rows are often more telling.",
+      },
+      {
+        q: "Is any of this sent anywhere?",
+        a: "No. Everything is read and shown in your browser, and nothing leaves the page unless you copy it yourself.",
+      },
+    ],
+  },
+  {
+    slug: "overscan-test",
+    name: "Overscan Test",
+    title: "Overscan & Aspect Ratio Test",
+    tagline: "Edge markers, circles and a grid to catch cropping, stretching and distortion.",
+    description:
+      "Free overscan and aspect ratio test for TVs and projectors. Check for cropped edges, stretched pictures and geometry distortion with full-screen patterns.",
+    category: "panel",
+    icon: "📐",
+    keywords: ["overscan test", "aspect ratio test", "tv overscan", "projector test pattern", "geometry test", "screen fit test"],
+    howTo: [
+      "Open the page on the device connected to the TV or projector, then click Start.",
+      "Overscan border: the outermost colored frame you can see all the way round is how much is being cropped — 0% means nothing is.",
+      "Aspect ratio (→): the circles must look perfectly round and the square square.",
+      "Geometry grid (→): lines should be straight and evenly spaced. Use it to line up a projector.",
+      "Press Esc to exit.",
+    ],
+    faq: [
+      {
+        q: "What is overscan?",
+        a: "Many TVs still enlarge the picture by a few percent and crop the edges — a habit left over from analog broadcasts. It cuts off taskbars and menus and softens the image. Look for a picture-size setting called Just Scan, Screen Fit, Fit to Screen, 1:1 or Overscan Off.",
+      },
+      {
+        q: "The circles look oval — what's wrong?",
+        a: "The picture is being stretched. Set the TV or projector's picture size to 16:9 or its native/Original mode, and check that your computer's output resolution matches the screen's aspect ratio.",
+      },
+    ],
+  },
+  {
+    slug: "sharpness-test",
+    name: "Sharpness Test",
+    title: "Sharpness & Text Clarity Test",
+    tagline: "Pixel-level lines, checkerboards and text to expose scaling blur and oversharpening.",
+    description:
+      "Free sharpness and text clarity test. Pixel-perfect lines and small text reveal blur from non-native resolution, display scaling and TV oversharpening.",
+    category: "panel",
+    icon: "🔎",
+    keywords: ["sharpness test", "text clarity test", "monitor sharpness", "native resolution test", "chroma subsampling test", "pixel perfect test"],
+    howTo: [
+      "Click Start and view each pattern full-screen at your normal distance.",
+      "1-pixel lines and checkerboards should look crisp and evenly striped. Grey mush or wavy moiré means the image is being scaled.",
+      "Text clarity (→): small text should be sharp, and red or yellow text shouldn't smear.",
+      "Sharpening halos (→): turn the screen's Sharpness setting down until the outlines around the lines and rings disappear.",
+      "Press Esc to exit.",
+    ],
+    faq: [
+      {
+        q: "Why do the fine lines look grey and blurry?",
+        a: "Something between the page and the panel is resampling the image: a non-native resolution, display scaling that isn't a whole number, browser zoom, or the TV's own scaling. Set your output to the screen's native resolution and test again.",
+      },
+      {
+        q: "Why does red text look smeared on my TV?",
+        a: "Many TVs and some HDMI connections carry color at reduced resolution (chroma subsampling, 4:2:2 or 4:2:0). Colored text smears while black-and-white text stays sharp. Use the TV's PC or Game mode, or set the output to RGB / 4:4:4.",
+      },
+    ],
+  },
+  {
+    slug: "frame-skipping-test",
+    name: "Frame Skipping Test",
+    title: "Frame Skipping Test",
+    tagline: "One cell per frame — photograph it to catch a screen that drops frames.",
+    description:
+      "Free frame skipping test. One cell lights per refresh, so a photo with a slow shutter shows an unbroken run — or gaps where your monitor drops frames.",
+    category: "motion",
+    icon: "🎞️",
+    keywords: ["frame skipping test", "monitor overclock test", "dropped frames test", "refresh rate overclock", "frame skip"],
+    howTo: [
+      "Close other apps and tabs, then click Start.",
+      "Photograph the screen with a slow shutter — around 1/15 to 1/30 s, using your phone's Pro or manual mode.",
+      "In the photo, the lit cells should form one unbroken run. A gap means a frame was skipped.",
+      "Use the 120-cell grid (→) on screens above 144Hz so the run doesn't wrap around.",
+      "Take a few photos before drawing conclusions, then press Esc to exit.",
+    ],
+    faq: [
+      {
+        q: "Why would a monitor skip frames?",
+        a: "Usually because its refresh rate has been overclocked or set through a custom resolution. The screen accepts the faster signal but quietly drops frames to keep up, so it feels no smoother than before.",
+      },
+      {
+        q: "Can the browser cause gaps too?",
+        a: "Yes — if the computer is busy, the browser can miss a frame as well. Close other apps, repeat the photo a few times, and only worry about gaps that keep appearing.",
+      },
+    ],
+  },
+  {
+    slug: "wide-color-gamut-test",
+    name: "Wide Color Gamut Test",
+    title: "Wide Color Gamut (P3) Test",
+    tagline: "Hidden logos in P3 colors that only a wide-gamut screen can show.",
+    description:
+      "Free wide color gamut test. Check whether your screen and browser can show Display P3 colors beyond sRGB, with hidden logos only wide-gamut displays reveal.",
+    category: "color",
+    icon: "△",
+    keywords: ["wide color gamut test", "p3 test", "display p3 test", "dci-p3 test", "color gamut test", "srgb vs p3"],
+    howTo: [
+      "Click Start and look at each color full-screen.",
+      "On a wide-gamut screen you'll see a logo inside each color — a more intense ring around a square.",
+      "On a standard sRGB screen the logo is invisible, because both colors are clipped to the same shade.",
+      "Check the chips above the test to see what your browser reports, then press Esc to exit.",
+    ],
+    faq: [
+      {
+        q: "I can't see the logo — is my screen faulty?",
+        a: "Not at all. Most office monitors and many laptops are sRGB, which is accurate for the web. The logo only appears when the screen, the operating system and the browser all handle wide color.",
+      },
+      {
+        q: "Which colors show it best?",
+        a: "Reds and greens: Display P3 extends furthest beyond sRGB there. Blue shows the smallest difference, so a faint logo on blue is normal.",
+      },
+    ],
+  },
+  {
+    slug: "pwm-flicker-test",
+    name: "PWM Flicker Test",
+    title: "PWM Flicker Test",
+    tagline: "Bright fields and a fast-moving line for the pencil and camera flicker tests.",
+    description:
+      "Free PWM flicker test. Bright fields for the pencil and camera tests, plus a fast-moving line that turns into a row of copies on a PWM-dimmed screen.",
+    category: "panel",
+    icon: "〰️",
+    keywords: ["pwm test", "pwm flicker test", "screen flicker test", "pwm dimming test", "flicker free test"],
+    howTo: [
+      "Set the screen to the brightness you normally use — PWM usually appears at low brightness.",
+      "On the White field, wave a pencil quickly in front of the screen: several crisp copies mean PWM, a smooth blur means flicker-free.",
+      "Or point your phone camera at the screen: dark bands rolling across it suggest PWM.",
+      "On the Fast moving line (→), follow the line with your eyes: a row of separate lines instead of one smooth streak means PWM.",
+      "Press Esc to exit.",
+    ],
+    faq: [
+      {
+        q: "Can this page detect PWM by itself?",
+        a: "No. A web page can't see your backlight, so the result comes from what you observe — these patterns just make the effects easy to spot. A slow-motion camera or a cheap light sensor gives a definitive answer.",
+      },
+      {
+        q: "Why does it only show at low brightness?",
+        a: "Many screens dim by switching the backlight off for part of each cycle. At high brightness the off periods are short or absent, so the flicker appears as you turn the brightness down.",
+      },
+    ],
+  },
+  {
+    slug: "hdr-test",
+    name: "HDR Test",
+    title: "HDR Test: Does Your Screen Show HDR?",
+    tagline: "A real HDR image with brightness steps up to 1,600 nits, plus HDR detection.",
+    description:
+      "Free HDR test. Check whether your screen and browser display HDR with a real HDR image of brightness steps from 100 to 1,600 nits, plus capability checks.",
+    category: "color",
+    icon: "☀️",
+    keywords: ["hdr test", "is my screen hdr", "hdr brightness test", "hdr monitor test", "peak brightness test", "hdr check"],
+    howTo: [
+      "Turn HDR on first — on Windows, Settings > System > Display > Use HDR.",
+      "Check the chips above the test: the browser should report an HDR display.",
+      "Click Start. On a working HDR setup, the patches keep getting brighter past 203 nits (SDR white) up to your screen's peak.",
+      "If every patch from 203 nits up looks the same white, the image is being shown in SDR.",
+      "Press Esc to exit.",
+    ],
+    faq: [
+      {
+        q: "Why do all the bright patches look the same?",
+        a: "The image is being shown in SDR: HDR is off in your operating system, the browser can't display HDR images, or the screen isn't HDR. Every patch above 203 nits then clips to the same white.",
+      },
+      {
+        q: "Where do the patches stop getting brighter?",
+        a: "At roughly your screen's peak brightness. An entry-level DisplayHDR 400 monitor tops out around 400 nits, so the 600, 1,000 and 1,600 patches look alike; a good Mini-LED or OLED keeps them apart further.",
+      },
+      {
+        q: "Which browsers show HDR images?",
+        a: "Support still varies by browser and operating system; Chromium-based browsers such as Chrome and Edge are currently the most consistent. If the chips say HDR is available but the patches look flat, try another browser.",
+      },
+    ],
+  },
 ];
 
 // Extra practical tips per tool, shown in a callout on each tool page.
@@ -625,6 +865,38 @@ export const TOOL_TIPS: Record<string, string[]> = {
   "screensaver": [
     "Turn on 'Keep awake' in the controls if you want the display to stay on instead of sleeping.",
     "The DVD logo's corner-hit is rare by design — that's the moment everyone waits for.",
+  ],
+  "touch-screen-test": [
+    "Go slowly along the edges and into the corners — touch faults usually start there.",
+    "Test with the case and screen protector off if anything looks wrong.",
+  ],
+  "screen-info": [
+    "On a laptop with an external monitor, drag this window onto the screen you want to check first.",
+    "Browser zoom changes the scaling value — press Ctrl/Cmd + 0 before reading it.",
+  ],
+  "overscan-test": [
+    "Each TV input can have its own picture-size setting, so test the input you actually use.",
+    "On a projector, set keystone and lens shift with the geometry grid before focusing.",
+  ],
+  "sharpness-test": [
+    "Check at your normal viewing distance first, then up close.",
+    "Display scaling of 100%, 150% or 200% keeps fine detail cleaner than in-between values.",
+  ],
+  "frame-skipping-test": [
+    "Pick a shutter long enough to catch 6–10 frames: about 1/15 s at 144Hz, 1/30 s at 240Hz.",
+    "Re-test after changing refresh rate or overclock settings — skipping often appears only at the highest rate.",
+  ],
+  "wide-color-gamut-test": [
+    "Many wide-gamut monitors have an sRGB mode that clamps colors — switch it off for this test.",
+    "View it in a dim room; the difference is subtle in bright light.",
+  ],
+  "pwm-flicker-test": [
+    "Repeat at several brightness levels — many screens are flicker-free above about half brightness.",
+    "A screen that only bothers you at night is a strong PWM suspect.",
+  ],
+  "hdr-test": [
+    "Turn HDR on in your operating system before opening the test.",
+    "If the 1,000 and 1,600-nit patches look identical, you've found your screen's brightness ceiling.",
   ],
 };
 
