@@ -71,10 +71,18 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     draw helpers (greyscale, color gradient, gray field, burn-in, contrast, black level, viewing
     angle, gamma). Bespoke tools have their own components: `DeadPixelTool` (solid colors + the
     stuck-pixel fixer frame), `RefreshRateTool`, `GhostingTool`, `BloomingTool`,
-    `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`.
+    `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`. The prank's
+    "Cracked" effect lives in `crackedScreen.ts`: it grows a crack network (cracks stop at the
+    first crack they hit), flood-fills the shards, then shifts/re-lights each shard's pixels over
+    a plain light display colour (`DISPLAY_COLOR`). Seeded; the display and glass layers are
+    cached per canvas size (~100–250 ms to build), then each frame only blits them and applies
+    the flicker (stuttering backlight bursts, scanline bands near the damage, blinking stuck
+    columns) to the display layer. Photosensitivity limits (WCAG 2.3.1) it must keep: whole-screen
+    brightness under a 10% *luminance* swing (≈4% of pixel value — values are gamma-encoded);
+    strong changes only in thin bands/lines, total band height capped at 48 CSS px.
+    `ToolRunner` maps each slug → its component (with a solid-color cycler fallback).
   - Gamma stripes must sit on physical pixels: `gamma()` draws in backing-store pixels and runs
     with `nativeResolution` (uncapped DPR). Other canvases cap DPR at 2.
-    `ToolRunner` maps each slug → its component (with a solid-color cycler fallback).
   - **Model selectable options (colors, speeds, patterns) as stage "frames"** (`frameCount` +
     `frameLabel`), so ←/→ keys, tap zones, and the overlay arrows all navigate them for free. A
     tool with `frameCount={1}` has dead arrows — that was the ghosting-speed bug.
