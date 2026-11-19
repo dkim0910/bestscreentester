@@ -157,7 +157,7 @@ export default function ScreenInfoTool({ tool }: { tool: ToolDef }) {
       <p className="mt-4 text-xs text-foreground/50">
         Browsers report sizes after display scaling, so the pixel resolution is an estimate. If it doesn&apos;t
         match your screen&apos;s native resolution, check your scaling settings — and use the{" "}
-        <Link href="/sharpness-test" className="text-accent hover:underline">
+        <Link href="/sharpness-test" className="text-accent-soft hover:underline">
           Sharpness &amp; Text Clarity Test
         </Link>{" "}
         to see whether the picture is being scaled.

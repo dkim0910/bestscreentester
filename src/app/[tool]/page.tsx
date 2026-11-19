@@ -57,7 +57,7 @@ export default async function ToolPage({
   const tips = getTips(tool.slug);
 
   return (
-    <article className="mx-auto max-w-4xl px-4 py-8">
+    <article className="mx-auto max-w-6xl px-4 py-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd(tool.title, tool.howTo)) }}
@@ -95,7 +95,7 @@ export default async function ToolPage({
         }}
       />
 
-      <nav className="mb-4 text-sm text-foreground/50">
+      <nav className="mb-5 text-[13px] text-foreground/50">
         <Link href="/" className="hover:text-foreground">
           Home
         </Link>{" "}
@@ -103,158 +103,174 @@ export default async function ToolPage({
         <Link href="/tools" className="hover:text-foreground">
           Tools
         </Link>{" "}
-        / <span className="text-foreground/80">{tool.name}</span>
+        / <span className="text-foreground/75">{tool.name}</span>
       </nav>
 
-      <header className="mb-6">
-        <div className="mb-1 text-xs font-medium uppercase tracking-wide text-accent">
-          {tool.noindex ? "Just for fun" : LISTING_LABELS[tool.category]}
+      <header className="mb-6 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div className="eyebrow">{tool.noindex ? "Just for fun" : LISTING_LABELS[tool.category]}</div>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.5rem] sm:leading-tight">{tool.title}</h1>
+          <p className="mt-2 text-lg text-foreground/65">{tool.tagline}</p>
         </div>
-        <h1 className="text-3xl font-bold sm:text-4xl">{tool.title}</h1>
-        <p className="mt-2 text-lg text-foreground/70">{tool.tagline}</p>
+        {deepGuide && results?.guide && (
+          <Link href={`/blog/${deepGuide.slug}`} className="btn-ghost min-h-9! px-3.5! text-sm!">
+            Read the guide →
+          </Link>
+        )}
       </header>
 
       <ToolRunner tool={tool} />
 
-      <section className="mt-10 grid gap-8 md:grid-cols-2">
-        <div>
-          <h2 className="mb-3 text-xl font-semibold">{results?.howToHeading ?? "How to use"}</h2>
-          <ol className="space-y-2 text-foreground/80">
-            {tool.howTo.map((step, i) => (
-              <li key={i} className="flex gap-3">
-                <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-accent text-sm font-bold text-black">
-                  {i + 1}
-                </span>
-                <span>{step}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-        <div>
-          <h2 className="mb-3 text-xl font-semibold">{results?.faqHeading ?? "FAQ"}</h2>
-          <div className="space-y-4">
-            {tool.faq.map((f, i) => (
-              <details key={i} className="rounded-lg border border-border bg-card p-4">
-                <summary className="cursor-pointer font-medium">{f.q}</summary>
-                <p className="mt-2 text-sm text-foreground/70">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {results && (
-        <section className="mt-12">
-          <h2 className="mb-4 text-2xl font-semibold">{results.heading}</h2>
-          {results.terms && (
-            <dl className="mb-6 divide-y divide-border rounded-xl border border-border bg-card">
-              {results.terms.map((t) => (
-                <div key={t.name} className="grid gap-1 px-5 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4">
-                  <dt className="font-medium">{t.name}</dt>
-                  <dd className="text-foreground/75">{t.text}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
-          {(results.pass || results.fail) && (
-            <div className="grid gap-4 md:grid-cols-2">
-              {results.pass && (
-                <div className="rounded-xl border border-border bg-card p-5">
-                  <h3 className="mb-3 font-semibold text-emerald-400">Normal</h3>
-                  <ul className="space-y-2.5 text-foreground/80">
-                    {results.pass.map((p, i) => (
-                      <li key={i} className="flex gap-2.5">
-                        <span aria-hidden className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-emerald-400" />
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {results.fail && (
-                <div className="rounded-xl border border-border bg-card p-5">
-                  <h3 className="mb-3 font-semibold text-amber-400">A fault</h3>
-                  <ul className="space-y-2.5 text-foreground/80">
-                    {results.fail.map((f, i) => (
-                      <li key={i} className="flex gap-2.5">
-                        <span aria-hidden className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-amber-400" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          )}
-          {results.threshold && (
-            <p className="mt-5 text-foreground/80">
-              <strong className="text-foreground">Where the line is drawn.</strong>{" "}
-              {results.threshold}
-            </p>
-          )}
-          {results.note && <p className="mt-4 text-foreground/80">{results.note}</p>}
-          {deepGuide && results.guide && (
-            <p className="mt-5">
-              <Link href={`/blog/${deepGuide.slug}`} className="font-medium text-accent hover:underline">
-                Guide: {results.guide.label} →
-              </Link>
-            </p>
-          )}
-        </section>
-      )}
-
-      {tips.length > 0 && (
-        <section className="mt-10">
-          <div className="rounded-xl border border-accent/30 bg-accent/5 p-5">
-            <h2 className="mb-3 flex items-center gap-2 text-xl font-semibold">
-              <span aria-hidden>💡</span> Tips
+      <div className="mt-12 grid gap-x-12 gap-y-12 lg:grid-cols-[minmax(0,1fr)_20rem]">
+        <div className="min-w-0 space-y-12">
+          <section>
+            <h2 className="mb-4 text-[1.375rem] font-semibold tracking-tight">
+              {results?.howToHeading ?? "How to use"}
             </h2>
-            <ul className="space-y-2 text-foreground/80">
-              {tips.map((tip, i) => (
-                <li key={i} className="flex gap-2.5">
-                  <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
-                  <span>{tip}</span>
+            <ol className="border-b border-border">
+              {tool.howTo.map((step, i) => (
+                <li key={i} className="grid grid-cols-[2rem_1fr] gap-2 border-t border-border py-3.5 text-foreground/85">
+                  <span aria-hidden className="eyebrow leading-6!">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="leading-relaxed">{step}</span>
                 </li>
               ))}
-            </ul>
-          </div>
-        </section>
-      )}
+            </ol>
+          </section>
 
-      {related.length > 0 && (
-        <section className="mt-12">
-          <h2 className="mb-4 text-xl font-semibold">Related tests</h2>
-          {/* Same cards as the homepage: hovering shows the test pattern itself. */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {related.map((t) => (
-              <ToolCard key={t.slug} tool={t} />
-            ))}
-          </div>
-        </section>
-      )}
+          {results && (
+            <section>
+              <h2 className="mb-4 text-[1.375rem] font-semibold tracking-tight">{results.heading}</h2>
+              {results.terms && (
+                <dl className="panel mb-5 divide-y divide-border">
+                  {results.terms.map((t) => (
+                    <div key={t.name} className="grid gap-1 px-5 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-4">
+                      <dt className="font-medium">{t.name}</dt>
+                      <dd className="text-foreground/70">{t.text}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              {(results.pass || results.fail) && (
+                <div className="grid gap-4 md:grid-cols-2">
+                  {results.pass && (
+                    <div className="panel px-5 py-4">
+                      <h3 className="flex items-center gap-2 pb-3 font-semibold">
+                        <span aria-hidden className="h-2 w-2 rounded-full bg-emerald-400" />
+                        Normal
+                      </h3>
+                      <ul className="text-[15px] leading-relaxed text-foreground/75">
+                        {results.pass.map((p, i) => (
+                          <li key={i} className="border-t border-border py-2.5">
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {results.fail && (
+                    <div className="panel px-5 py-4">
+                      <h3 className="flex items-center gap-2 pb-3 font-semibold">
+                        <span aria-hidden className="h-2 w-2 rounded-full bg-amber-400" />A fault
+                      </h3>
+                      <ul className="text-[15px] leading-relaxed text-foreground/75">
+                        {results.fail.map((f, i) => (
+                          <li key={i} className="border-t border-border py-2.5">
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+              {results.threshold && (
+                <p className="mt-5 leading-relaxed text-foreground/80">
+                  <strong className="text-foreground">Where the line is drawn.</strong>{" "}
+                  {results.threshold}
+                </p>
+              )}
+              {results.note && <p className="mt-4 leading-relaxed text-foreground/80">{results.note}</p>}
+              {deepGuide && results.guide && (
+                <p className="mt-5">
+                  <Link href={`/blog/${deepGuide.slug}`} className="font-medium text-accent-soft hover:underline">
+                    Guide: {results.guide.label} →
+                  </Link>
+                </p>
+              )}
+            </section>
+          )}
 
-      {guides.length > 0 && (
-        <section className="mt-12">
-          <h2 className="mb-4 text-xl font-semibold">Related guides</h2>
-          <p className="mb-4 text-sm text-foreground/60">
-            Learn more about what this test reveals and how to act on the results.
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {guides.map((g) => (
-              <Link
-                key={g.slug}
-                href={`/blog/${g.slug}`}
-                className="flex flex-col rounded-lg border border-border bg-card p-4 transition hover:border-accent/50"
-              >
-                <span className="font-medium">{g.title}</span>
-                {g.excerpt && (
-                  <span className="mt-1 text-sm text-foreground/60">{g.excerpt}</span>
-                )}
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+          {guides.length > 0 && (
+            <section>
+              <h2 className="mb-2 text-[1.375rem] font-semibold tracking-tight">Related guides</h2>
+              <p className="mb-4 text-sm text-foreground/60">
+                Learn more about what this test reveals and how to act on the results.
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {guides.map((g) => (
+                  <Link
+                    key={g.slug}
+                    href={`/blog/${g.slug}`}
+                    className="panel flex flex-col p-4 transition-colors hover:border-border-strong"
+                  >
+                    <span className="font-medium">{g.title}</span>
+                    {g.excerpt && (
+                      <span className="mt-1 text-sm text-foreground/60">{g.excerpt}</span>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+
+        <aside className="space-y-4">
+          <section className="panel px-5 pb-2 pt-4">
+            <h2 className="eyebrow pb-1">{results?.faqHeading ?? "FAQ"}</h2>
+            <div className="divide-y divide-border">
+              {tool.faq.map((f, i) => (
+                <details key={i} className="group py-3">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-3 text-[15px] font-medium [&::-webkit-details-marker]:hidden">
+                    {f.q}
+                    <span aria-hidden className="text-foreground/40 transition-transform group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/70">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          {tips.length > 0 && (
+            <section className="panel px-5 py-4">
+              <h2 className="eyebrow pb-2">Tips</h2>
+              <ul className="space-y-2 text-sm leading-relaxed text-foreground/75">
+                {tips.map((tip, i) => (
+                  <li key={i} className="flex gap-2.5">
+                    <span aria-hidden className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent-soft" />
+                    <span>{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {related.length > 0 && (
+            <section className="panel px-5 pt-4">
+              <h2 className="eyebrow pb-1">Related tests</h2>
+              {/* Same rows as the listings; the last one drops its divider inside the panel. */}
+              <div className="[&>a:last-child]:border-b-0">
+                {related.map((t) => (
+                  <ToolCard key={t.slug} tool={t} compact />
+                ))}
+              </div>
+            </section>
+          )}
+        </aside>
+      </div>
     </article>
   );
 }

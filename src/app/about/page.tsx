@@ -14,8 +14,8 @@ const TEST_DEVICES = Object.values(DEVICES);
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8 md:p-10">
-      <h1 className="text-3xl font-bold sm:text-4xl">About {SITE_NAME}</h1>
+      <div className="panel p-6 sm:p-8 md:p-10">
+      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">About {SITE_NAME}</h1>
       <div className="prose-content mt-6">
         <p>
           {SITE_NAME} is a free collection of browser-based tools for testing displays — monitors,
