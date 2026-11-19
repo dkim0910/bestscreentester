@@ -1,38 +1,55 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ToolDef } from "@/lib/tools";
-import RevealWhenCentered from "./RevealWhenCentered";
 
-export default function ToolCard({ tool }: { tool: ToolDef }) {
+/**
+ * Container for a listing of ToolCards. They are hairline-divided rows, not gapped
+ * cards, so the grid only sets the column gap.
+ */
+export const TOOL_GRID = "grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3";
+
+/**
+ * One test in a listing: a thumbnail of the pattern it displays, its name and summary.
+ * `compact` is the small version for narrow columns (the tool page sidebar).
+ */
+export default function ToolCard({ tool, compact = false }: { tool: ToolDef; compact?: boolean }) {
   return (
     <Link
       href={`/${tool.slug}`}
-      className="group relative flex min-h-[190px] flex-col overflow-hidden rounded-xl border border-border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-lg hover:shadow-accent/20 data-[centered]:border-accent data-[centered]:shadow-lg data-[centered]:shadow-accent/20"
+      className={`group grid items-center border-b border-border ${
+        compact
+          ? "grid-cols-[4.5rem_minmax(0,1fr)] gap-3.5 py-3.5"
+          : "grid-cols-[6.5rem_minmax(0,1fr)] gap-4 py-5 sm:grid-cols-[8rem_minmax(0,1fr)]"
+      }`}
     >
-      <span className="font-semibold group-hover:text-accent">{tool.name}</span>
-      <span className="mt-1.5 text-sm text-foreground/60">{tool.tagline}</span>
-      <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent/70 transition-colors duration-200 group-hover:text-accent">
-        Open test
-        <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-      </span>
-      {/* Preview: the actual pattern this test displays, full-bleed. Revealed by CSS on
-          hover; on touch screens RevealWhenCentered sets data-centered on the card while
-          it crosses the middle of the viewport, which reveals it the same way. */}
-      <RevealWhenCentered />
+      {/* 16:10, the shape of the preview images. */}
       <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-data-[centered]:opacity-100"
+        className={`relative block aspect-[16/10] overflow-hidden border border-border-strong bg-black transition-colors group-hover:border-accent-soft ${
+          compact ? "rounded-md" : "rounded-lg"
+        }`}
       >
         <Image
           src={`/previews/${tool.slug}.png`}
           alt=""
           fill
-          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition-transform duration-300 group-hover:scale-105 group-data-[centered]:scale-105"
+          sizes={compact ? "72px" : "128px"}
+          className="object-cover"
         />
-        <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/85 to-transparent px-4 pb-2.5 pt-8 text-sm font-semibold text-accent">
+      </span>
+      <span className="min-w-0">
+        <span
+          className={`block font-semibold leading-snug transition-colors group-hover:text-accent-soft ${
+            compact ? "" : "text-lg tracking-tight"
+          }`}
+        >
           {tool.name}
-          <span>→</span>
+        </span>
+        <span
+          className={`block leading-snug text-foreground/60 ${
+            compact ? "mt-0.5 line-clamp-2 text-[13px]" : "mt-1 text-sm"
+          }`}
+        >
+          {tool.tagline}
         </span>
       </span>
     </Link>

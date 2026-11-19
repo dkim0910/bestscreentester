@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
 export default function DonatePage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-20">
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-accent-soft">
         Support Us
       </p>
       <h1 className="mb-4 text-3xl font-black leading-tight sm:text-4xl">

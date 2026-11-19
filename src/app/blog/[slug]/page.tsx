@@ -87,7 +87,7 @@ export default async function BlogPost({
         <h1 className="text-2xl font-bold">This guide has moved</h1>
         <p className="mt-3 text-foreground/70">
           It is now part of{" "}
-          <Link href={href} className="text-accent hover:underline">
+          <Link href={href} className="text-accent-soft hover:underline">
             {target.title}
           </Link>
           .
@@ -134,7 +134,7 @@ export default async function BlogPost({
           ← All guides
         </Link>
       </nav>
-      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8 md:p-10">
+      <div className="panel p-6 sm:p-8 md:p-10">
         {/* Real, indexable page image — OG/Twitter/Article schema reference the same file. */}
         <Image
           src={`/og/guides/${post.slug}.png`}
@@ -144,7 +144,7 @@ export default async function BlogPost({
           priority
           className="mb-6 w-full rounded-xl border border-border"
         />
-        <h1 className="text-3xl font-bold sm:text-4xl">{post.title}</h1>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{post.title}</h1>
         <p className="mt-3 text-sm text-foreground/50">
           By{" "}
           <Link href="/about" className="underline-offset-2 hover:text-foreground hover:underline">
@@ -160,7 +160,7 @@ export default async function BlogPost({
           )}
         </p>
         {post.tested && (
-          <aside className="mt-6 rounded-xl border border-accent/30 bg-accent/5 p-5 text-sm">
+          <aside className="mt-6 rounded-xl border border-border-strong bg-card-2 p-5 text-sm">
             <h2 className="font-semibold">
               {post.tested.saw ? "What I tested" : "The screens behind this guide"}{" "}
               <span className="font-normal text-foreground/50">
@@ -207,7 +207,7 @@ export default async function BlogPost({
               <Link
                 key={g.slug}
                 href={`/blog/${g.slug}/`}
-                className="flex flex-col rounded-lg border border-border bg-card p-4 transition hover:border-accent/50"
+                className="panel flex flex-col p-4 transition-colors hover:border-border-strong"
               >
                 <span className="font-medium">{g.title}</span>
                 <span className="mt-1 text-sm text-foreground/60">{g.excerpt}</span>

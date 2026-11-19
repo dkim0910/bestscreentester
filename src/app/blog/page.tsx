@@ -27,9 +27,10 @@ export default function BlogIndex() {
   const groups = guidesByTopic();
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-10">
-      <h1 className="text-3xl font-bold">Guides &amp; articles</h1>
-      <p className="mt-2 text-foreground/70">
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
+      <p className="eyebrow">Guides</p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Guides &amp; articles</h1>
+      <p className="mt-2 text-foreground/65">
         Practical help for testing, troubleshooting, and buying displays, grouped by problem.
       </p>
 
@@ -38,7 +39,7 @@ export default function BlogIndex() {
           <a
             key={g.title}
             href={`#${topicId(g.title)}`}
-            className="rounded-full border border-border px-3 py-1.5 text-foreground/70 hover:border-accent/50 hover:text-foreground"
+            className="rounded-md border border-border px-3 py-1.5 text-foreground/70 transition-colors hover:border-border-strong hover:text-foreground"
           >
             {g.title}
           </a>
@@ -47,23 +48,25 @@ export default function BlogIndex() {
 
       {groups.map((g) => (
         <section key={g.title} id={topicId(g.title)} className="mt-12 scroll-mt-20">
-          <h2 className="text-2xl font-bold">{g.title}</h2>
-          {g.blurb && <p className="mt-1 text-foreground/60">{g.blurb}</p>}
-          <div className="mt-5 grid gap-5 sm:grid-cols-2">
+          <div className="border-b border-border pb-3">
+            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">{g.title}</h2>
+            {g.blurb && <p className="mt-1 text-foreground/60">{g.blurb}</p>}
+          </div>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {g.guides.map((p) => (
               <Link
                 key={p.slug}
                 href={`/blog/${p.slug}`}
-                className="flex flex-col rounded-xl border border-border bg-card p-5 transition hover:border-accent/50"
+                className="panel group flex flex-col p-5 transition-colors hover:border-border-strong"
               >
-                <h3 className="text-lg font-semibold">{p.title}</h3>
+                <h3 className="font-semibold leading-snug group-hover:text-accent-soft">{p.title}</h3>
                 <time
                   dateTime={p.updatedAt ?? p.publishedAt}
-                  className="mt-1 text-xs text-foreground/40"
+                  className="eyebrow mt-2"
                 >
                   {formatDate(p.updatedAt ?? p.publishedAt)}
                 </time>
-                {p.excerpt && <p className="mt-2 text-sm text-foreground/60">{p.excerpt}</p>}
+                {p.excerpt && <p className="mt-2 text-sm leading-relaxed text-foreground/60">{p.excerpt}</p>}
               </Link>
             ))}
           </div>

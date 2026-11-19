@@ -236,6 +236,10 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       ? "← / → or tap the sides to switch · Esc to exit"
       : "Tap for controls · Esc to exit";
 
+  const labelFor = (i: number) => (frameLabel ? frameLabel(i) : `${i + 1} / ${frameCount}`);
+  // Up to eight labelled frames fit as tabs under the preview on anything wider than a phone.
+  const showTabs = Boolean(frameLabel) && frameCount > 1 && frameCount <= 8;
+
   return (
     <div
       ref={stageRef}
@@ -249,7 +253,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
             }`
           : hideLauncher
             ? "pointer-events-none fixed inset-0 -z-10 bg-black opacity-0"
-            : "relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black"
+            : "relative aspect-video w-full overflow-hidden rounded-xl border border-border-strong bg-black"
       }
     >
       <div className="absolute inset-0">{renderFrame(index, active)}</div>
@@ -267,26 +271,28 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
               previewScrim ? "absolute inset-0 bg-black/40 transition hover:bg-black/30" : "absolute inset-0"
             }
           />
-          <span className="pointer-events-none relative rounded-full bg-accent px-6 py-3 text-base font-semibold text-black shadow-lg">
+          <span className="btn-primary pointer-events-none relative px-6! shadow-lg">
             ▶ {startLabel}
           </span>
           {frameCount > 1 && (
-            <span className="relative flex items-center gap-1 rounded-full bg-black/70 px-2 py-1 text-sm">
+            <span
+              className={`relative flex items-center gap-1 rounded-lg bg-black/70 px-2 py-1 text-sm ${
+                showTabs ? "sm:hidden" : ""
+              }`}
+            >
               <button
                 type="button"
                 onClick={prev}
-                className="rounded-full px-3 py-1 hover:bg-white/15"
+                className="rounded-md px-3 py-1 hover:bg-white/15"
                 aria-label="Previous pattern"
               >
                 ←
               </button>
-              <span className="min-w-28 text-center font-medium">
-                {frameLabel ? frameLabel(index) : `${index + 1} / ${frameCount}`}
-              </span>
+              <span className="min-w-28 text-center font-medium">{labelFor(index)}</span>
               <button
                 type="button"
                 onClick={next}
-                className="rounded-full px-3 py-1 hover:bg-white/15"
+                className="rounded-md px-3 py-1 hover:bg-white/15"
                 aria-label="Next pattern"
               >
                 →
@@ -296,11 +302,35 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
           {/* Without the scrim the hint can sit on white, so it gets its own backing. */}
           <span
             className={`pointer-events-none relative text-sm ${
-              previewScrim ? "text-white/70" : "rounded-full bg-black/70 px-3 py-1 text-white/80"
+              previewScrim ? "text-white/70" : "rounded-md bg-black/70 px-3 py-1 text-white/80"
             }`}
           >
             {hint}
           </span>
+          {/* Frame tabs along the bottom edge: every pattern visible and one click away.
+              Only with a handful of frames and room for them; otherwise the ← → picker. */}
+          {showTabs && (
+            <div
+              role="tablist"
+              aria-label="Pattern"
+              className="absolute inset-x-0 bottom-0 hidden divide-x divide-white/10 border-t border-white/10 bg-[#111318]/90 backdrop-blur sm:flex"
+            >
+              {Array.from({ length: frameCount }, (_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === index}
+                  onClick={() => setIndex(i)}
+                  className={`h-11 min-w-0 flex-1 truncate px-2 text-[13px] transition-colors ${
+                    i === index ? "bg-white/10 font-medium text-white" : "text-white/60 hover:text-white"
+                  }`}
+                >
+                  {labelFor(i)}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

@@ -13,10 +13,8 @@ export default function FeedbackPage() {
 
   return (
     <div className="mx-auto max-w-xl px-4 py-16 text-center">
-      <div className="text-5xl" aria-hidden>
-        ✉️
-      </div>
-      <h1 className="mt-4 text-3xl font-bold">Contact &amp; feedback</h1>
+      <p className="eyebrow">Contact</p>
+      <h1 className="mt-3 text-3xl font-bold tracking-tight">Contact &amp; feedback</h1>
       <p className="mt-3 text-foreground/70">
         Found a bug, want a new test, or spotted a dead pixel worth reporting? We&apos;d love to
         hear from you.
@@ -24,7 +22,7 @@ export default function FeedbackPage() {
 
       <a
         href={`mailto:${CONTACT_EMAIL}?subject=${subject}`}
-        className="mt-8 inline-block rounded-full bg-accent px-7 py-3 font-semibold text-black hover:opacity-90"
+        className="btn-primary mt-8"
       >
         Email us
       </a>
