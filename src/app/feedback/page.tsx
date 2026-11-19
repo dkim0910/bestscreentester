@@ -28,6 +28,12 @@ export default function FeedbackPage() {
       >
         Email us
       </a>
+      <p className="mt-4 text-sm text-foreground/60">
+        Or write to{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="text-foreground underline underline-offset-2">
+          {CONTACT_EMAIL}
+        </a>
+      </p>
     </div>
   );
 }

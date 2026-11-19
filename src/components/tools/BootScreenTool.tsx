@@ -10,31 +10,60 @@ const LABELS = ["Windows 10", "Windows XP", "macOS"];
 const WIN_DOTS = 5;
 const WIN_RADIUS = 26; // px from centre
 const WIN_DOT = 5; // dot diameter, px
-const WIN_PERIOD = 2200; // ms per revolution
-const WIN_DELAY = 0.085; // phase gap between trailing dots (fraction of a cycle)
-// Speed variation around the ring. < 1 keeps the comet always moving (it slows
-// near the top and accelerates at the bottom but never fully stops, which is
-// the detail that made the old CSS version look fake).
-const WIN_AMP = 0.7;
+const WIN_PERIOD = 4000; // ms for one full cycle, including the empty pause
+const WIN_DELAY = 0.042; // gap between consecutive dots, as a fraction of the cycle
 
-// The authentic Windows "chasing dots": five dots sweep the ring as a comet,
-// driven on a single rAF loop so the motion is smooth and continuous.
+// One dot's path through a cycle, as [time fraction, degrees clockwise from the bottom].
+// Each dot rises out of the bottom, goes round twice — quick up the sides, slow over
+// the top, where the dots bunch together — then drops back to the bottom and vanishes.
+// The ring is empty for the rest of the cycle before the dots re-emerge one by one.
+const WIN_PATH: [number, number][] = [
+  [0, 0],
+  [0.07, 120],
+  [0.3, 230],
+  [0.39, 465],
+  [0.7, 590],
+  [0.75, 720],
+];
+const WIN_VISIBLE_UNTIL = 0.75;
+const WIN_FADE = 0.02; // fade in and out over this fraction of the cycle
+
+const easeOut = (x: number) => 1 - (1 - x) * (1 - x);
+const easeInOut = (x: number) => (x < 0.5 ? 2 * x * x : 1 - 2 * (1 - x) * (1 - x));
+// Per-segment easing, matching WIN_PATH: launch, crawl, sprint, crawl, exit.
+const WIN_EASE = [easeOut, (x: number) => x, easeInOut, (x: number) => x, easeOut];
+
+/** Angle (degrees clockwise from the bottom) and opacity of a dot at cycle fraction p. */
+function winDot(p: number): { angle: number; opacity: number } {
+  if (p >= WIN_VISIBLE_UNTIL) return { angle: 0, opacity: 0 };
+  let i = 0;
+  while (i < WIN_PATH.length - 2 && p >= WIN_PATH[i + 1][0]) i++;
+  const [t0, a0] = WIN_PATH[i];
+  const [t1, a1] = WIN_PATH[i + 1];
+  const angle = a0 + (a1 - a0) * WIN_EASE[i]((p - t0) / (t1 - t0));
+  const opacity = Math.min(1, p / WIN_FADE, (WIN_VISIBLE_UNTIL - p) / WIN_FADE);
+  return { angle, opacity };
+}
+
+// The Windows 10 boot ring: five dots chase each other out of the bottom, bunch at the
+// top, disappear at the bottom and re-form. Driven on one rAF loop so it stays smooth.
 function WindowsSpinner() {
   const dots = useRef<Array<HTMLSpanElement | null>>([]);
   useEffect(() => {
     let raf = 0;
     const start = performance.now();
-    // Eased fraction around the ring: slow at the top, fast at the bottom.
-    const ease = (x: number) => x - (WIN_AMP * Math.sin(2 * Math.PI * x)) / (2 * Math.PI);
     const frame = (now: number) => {
       const base = (now - start) / WIN_PERIOD;
       for (let i = 0; i < WIN_DOTS; i++) {
-        const p = (((base - i * WIN_DELAY) % 1) + 1) % 1;
-        const a = 2 * Math.PI * ease(p) - Math.PI / 2; // start at the top
         const el = dots.current[i];
-        if (el) {
-          el.style.transform = `translate(${Math.cos(a) * WIN_RADIUS}px, ${Math.sin(a) * WIN_RADIUS}px)`;
-        }
+        if (!el) continue;
+        const t = base - i * WIN_DELAY;
+        // Before a dot's first turn it simply hasn't appeared yet.
+        const { angle, opacity } = t < 0 ? { angle: 0, opacity: 0 } : winDot(t % 1);
+        // 0° is the bottom of the ring; angles increase clockwise.
+        const rad = (angle * Math.PI) / 180;
+        el.style.transform = `translate(${-Math.sin(rad) * WIN_RADIUS}px, ${Math.cos(rad) * WIN_RADIUS}px)`;
+        el.style.opacity = `${opacity}`;
       }
       raf = requestAnimationFrame(frame);
     };
@@ -59,7 +88,8 @@ function WindowsSpinner() {
             top: "50%",
             marginLeft: -WIN_DOT / 2,
             marginTop: -WIN_DOT / 2,
-            willChange: "transform",
+            opacity: 0,
+            willChange: "transform, opacity",
           }}
         />
       ))}
@@ -67,12 +97,18 @@ function WindowsSpinner() {
   );
 }
 
-// Windows 10 boot: manufacturer/Windows logo + the chasing-dots spinner.
+// Windows 10-style boot: the chasing-dots spinner under a generic four-tile mark.
+// The marks on these screens are deliberately generic shapes, not the vendors' logos.
 function Windows10Boot() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-12 bg-black">
       <svg width="90" height="90" viewBox="0 0 24 24" aria-hidden>
-        <path fill="#4cc2f1" d="M3 4.5l8-1.1v8.1H3zM12 3.3L21 2v9.5h-9zM3 12.5h8v8.1l-8-1.1zM12 12.5h9V22l-9-1.3z" />
+        <g fill="#4cc2f1">
+          <rect x="3" y="3" width="8" height="8" rx="1.5" />
+          <rect x="13" y="3" width="8" height="8" rx="1.5" />
+          <rect x="3" y="13" width="8" height="8" rx="1.5" />
+          <rect x="13" y="13" width="8" height="8" rx="1.5" />
+        </g>
       </svg>
       <WindowsSpinner />
     </div>
@@ -84,7 +120,6 @@ function WindowsXpBoot() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-14 bg-black text-white">
       <div className="text-center leading-tight">
-        <div className="text-[2vmin] tracking-wide text-white/70">Microsoft</div>
         <div className="text-[7vmin] font-bold">
           Windows<span className="align-top text-[3.5vmin] text-[#f08000]">xp</span>
         </div>
@@ -107,18 +142,23 @@ function WindowsXpBoot() {
           </div>
         </div>
       </div>
-      <div className="text-[1.6vmin] text-white/50">Microsoft Corporation</div>
+      <div className="text-[1.6vmin] text-white/50">Starting up…</div>
     </div>
   );
 }
 
-// macOS boot: Apple logo + determinate progress bar.
+// macOS-style boot: a generic power mark + determinate progress bar.
 function MacBoot() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-10 bg-black">
-      <svg width="78" height="94" viewBox="0 0 24 24" fill="#f5f5f7" aria-hidden>
-        <path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.03 2.29-1.27 3.15-2.53.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.13z" />
-        <path d="M14.69 4.81c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z" />
+      <svg width="84" height="84" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path
+          d="M7.5 5.6a8 8 0 1 0 9 0"
+          stroke="#f5f5f7"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+        <line x1="12" y1="3" x2="12" y2="11" stroke="#f5f5f7" strokeWidth="1.6" strokeLinecap="round" />
       </svg>
       <div className="h-1.5 w-56 overflow-hidden rounded-full bg-white/20">
         <div

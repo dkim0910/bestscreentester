@@ -12,6 +12,7 @@ import {
   absoluteUrl,
   OPERATOR_NAME,
 } from "@/lib/seo";
+import { DEVICES } from "@/lib/devices";
 
 export const dynamicParams = false;
 
@@ -54,12 +55,14 @@ export async function generateMetadata({
   return pageMetadata({
     title: post.title,
     description: post.excerpt ?? post.title,
-    path: `/blog/${post.slug}`,
+    // A merged guide declares the guide it was folded into as its canonical.
+    path: `/blog/${post.mergedInto ?? post.slug}`,
     keywords: post.tags,
     images: [`/og/guides/${post.slug}.png`],
     type: "article",
     publishedTime: post.publishedAt,
     modifiedTime: post.updatedAt ?? post.publishedAt,
+    noindex: post.noindex,
   });
 }
 
@@ -71,6 +74,27 @@ export default async function BlogPost({
   const { slug } = await params;
   const post = getGuide(slug);
   if (!post) notFound();
+
+  // Folded into another guide. GitHub Pages can't send a 301, so forward with an instant
+  // meta refresh (which search engines treat as a redirect) and leave a visible link.
+  if (post.mergedInto) {
+    const target = getGuide(post.mergedInto);
+    if (!target) notFound();
+    const href = `/blog/${target.slug}/`;
+    return (
+      <article className="mx-auto max-w-3xl px-4 py-16 text-center">
+        <meta httpEquiv="refresh" content={`0; url=${href}`} />
+        <h1 className="text-2xl font-bold">This guide has moved</h1>
+        <p className="mt-3 text-foreground/70">
+          It is now part of{" "}
+          <Link href={href} className="text-accent hover:underline">
+            {target.title}
+          </Link>
+          .
+        </p>
+      </article>
+    );
+  }
 
   const url = absoluteUrl(`/blog/${post.slug}`);
   const updated = post.updatedAt ?? post.publishedAt;
@@ -135,6 +159,36 @@ export default async function BlogPost({
             </>
           )}
         </p>
+        {post.tested && (
+          <aside className="mt-6 rounded-xl border border-accent/30 bg-accent/5 p-5 text-sm">
+            <h2 className="font-semibold">
+              {post.tested.saw ? "What I tested" : "The screens behind this guide"}{" "}
+              <span className="font-normal text-foreground/50">
+                · <time dateTime={post.tested.date}>{formatDate(post.tested.date)}</time>
+              </span>
+            </h2>
+            <ul className="mt-2 space-y-1 text-foreground/80">
+              {post.tested.devices.map((d) => (
+                <li key={d}>
+                  <strong className="text-foreground">{DEVICES[d].name}</strong> — {DEVICES[d].panel}
+                </li>
+              ))}
+            </ul>
+            {post.tested.saw && (
+              <p className="mt-3 text-foreground/80">
+                <strong className="text-foreground">What I saw.</strong> {post.tested.saw}
+              </p>
+            )}
+            {post.tested.spec && (
+              <p className="mt-3 text-foreground/80">
+                <strong className="text-foreground">From the spec sheets.</strong> {post.tested.spec}
+              </p>
+            )}
+            <p className="mt-3 text-xs text-foreground/50">
+              These are my own devices. <Link href="/about" className="underline underline-offset-2 hover:text-foreground">More about how the site is tested</Link>.
+            </p>
+          </aside>
+        )}
         <div className="prose-content mt-6">
           {/* GFM for the tables in guide bodies — without it they render as raw pipes. */}
           <MDXRemote

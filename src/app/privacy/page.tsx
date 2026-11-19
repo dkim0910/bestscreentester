@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { pageMetadata, SITE_NAME, CONTACT_EMAIL, LEGAL_UPDATED } from "@/lib/seo";
+import { pageMetadata, SITE_NAME, CONTACT_EMAIL, PRIVACY_UPDATED } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <div className="mx-auto max-w-3xl px-4 py-12">
       <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8 md:p-10">
       <h1 className="text-3xl font-bold sm:text-4xl">Privacy Policy</h1>
-      <p className="mt-2 text-sm text-foreground/50">Last updated: {LEGAL_UPDATED}</p>
+      <p className="mt-2 text-sm text-foreground/50">Last updated: {PRIVACY_UPDATED}</p>
 
       <div className="prose-content mt-6">
         <p>
@@ -58,19 +58,28 @@ export default function PrivacyPage() {
 
         <h2>Advertising</h2>
         <p>
-          We show ads through <strong>Google AdSense</strong>. Google and its partners may use
-          cookies or similar technologies to serve and measure ads, which can include personalized
-          advertising based on your prior visits to this and other sites. You can review and change
-          your ad settings at{" "}
-          <a
-            href="https://myadcenter.google.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Google My Ad Center
-          </a>
-          , or block these cookies with your browser or an ad blocker.
+          We show ads through <strong>Google AdSense</strong>. Third-party vendors, including
+          Google, use cookies to serve ads based on your prior visits to this website and to other
+          websites. Google&apos;s use of advertising cookies enables it and its partners to serve
+          ads to you based on your visits to this site and other sites on the Internet.
         </p>
+        <p>
+          You can opt out of personalized advertising in{" "}
+          <a href="https://www.google.com/settings/ads" rel="noopener noreferrer" target="_blank">
+            Google&apos;s Ads Settings
+          </a>{" "}
+          (also reachable as{" "}
+          <a href="https://myadcenter.google.com/" rel="noopener noreferrer" target="_blank">
+            My Ad Center
+          </a>
+          ). To opt out of some other vendors&apos; use of cookies for personalized advertising,
+          visit{" "}
+          <a href="https://www.aboutads.info/choices/" rel="noopener noreferrer" target="_blank">
+            www.aboutads.info
+          </a>
+          . You can also block these cookies with your browser settings or an ad blocker.
+        </p>
+
 
         <h2>Donations</h2>
         <p>

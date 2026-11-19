@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Analytics from "@/components/Analytics";
+import AdSenseScript from "@/components/AdSenseScript";
+import { NOVELTY_TOOLS } from "@/lib/tools";
+import { GUIDES } from "@/lib/guides";
 import { SITE_NAME, SITE_TAGLINE, siteUrl, siteJsonLd } from "@/lib/seo";
+
+const ADSENSE_CLIENT = "ca-pub-7400069037778721";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
   // page, so keep it small) + src/app/apple-icon.png.
   robots: { index: true, follow: true },
   // Google AdSense site verification (rendered into every page's <head>).
-  other: { "google-adsense-account": "ca-pub-7400069037778721" },
+  other: { "google-adsense-account": ADSENSE_CLIENT },
   // Both properties are currently verified out-of-band (Google via a DNS TXT record on
   // the sc-domain property, Bing via its own verification), so neither tag is required.
   // These stay as an optional fallback if a verification ever needs re-establishing;
@@ -33,6 +37,12 @@ export const metadata: Metadata = {
       : {},
   },
 };
+
+// Noindexed pages get no ad script. Paths carry the trailing slash the site uses.
+const NO_AD_PATHS = [
+  ...NOVELTY_TOOLS.map((t) => `/${t.slug}/`),
+  ...GUIDES.filter((g) => g.noindex).map((g) => `/blog/${g.slug}/`),
+];
 
 export default function RootLayout({
   children,
@@ -54,12 +64,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7400069037778721"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <AdSenseScript client={ADSENSE_CLIENT} skip={NO_AD_PATHS} />
       </body>
     </html>
   );

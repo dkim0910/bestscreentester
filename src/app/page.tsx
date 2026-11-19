@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ToolCard from "@/components/ToolCard";
 import QuickColors from "@/components/tools/QuickColors";
-import HomeSections from "@/components/HomeSections";
-import { TOOLS, toolsByCategory, CATEGORY_LABELS, type ToolCategory } from "@/lib/tools";
+import HomeSections, { HomeAnswers } from "@/components/HomeSections";
+import { INDEXED_TOOLS, toolsByCategory, LISTING_LABELS, type ToolCategory } from "@/lib/tools";
 import { SITE_NAME, pageMetadata } from "@/lib/seo";
 
 // Without this the homepage inherits only the layout defaults: no canonical, no OG,
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ...pageMetadata({
   title: "Free Online Screen Test",
   description:
-    `Run ${TOOLS.length} free screen and monitor tests in your browser: dead pixels, backlight bleed, refresh rate, color, ghosting and more. No sign-up.`,
+    `Run ${INDEXED_TOOLS.length} free screen and monitor tests in your browser: dead pixels, backlight bleed, refresh rate, color, ghosting and more. No sign-up.`,
   path: "/",
   keywords: [
     "screen test",
@@ -30,7 +30,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const byCat = toolsByCategory();
+  // The novelty pages (pranks, screensaver) are noindexed and live on /tools only.
+  const byCat = toolsByCategory(INDEXED_TOOLS);
   const order: ToolCategory[] = ["panel", "color", "motion", "fun"];
 
   return (
@@ -43,7 +44,7 @@ export default function HomePage() {
               Free Online Screen Test &amp; Monitor Test
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
-              {TOOLS.length} free display tests that run in your browser: dead pixels, backlight
+              {INDEXED_TOOLS.length} free display tests that run in your browser: dead pixels, backlight
               bleed, refresh rate, PWM flicker, HDR and more. Nothing to install, no account.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -57,7 +58,7 @@ export default function HomePage() {
                 href="/tools"
                 className="rounded-full border border-border px-6 py-3 font-semibold hover:bg-white/5"
               >
-                Browse all {TOOLS.length} tools
+                Browse all {INDEXED_TOOLS.length} tests
               </Link>
             </div>
           </div>
@@ -67,11 +68,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Written content first: what people are actually asking when they arrive. */}
+      <HomeAnswers />
+
       {/* Tool categories */}
       <div className="mx-auto max-w-6xl px-4 py-12">
         {order.map((cat) => (
           <section key={cat} className="mb-12">
-            <h2 className="mb-4 text-2xl font-bold">{CATEGORY_LABELS[cat]}</h2>
+            <h2 className="mb-4 text-2xl font-bold">{LISTING_LABELS[cat]}</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {byCat[cat].map((tool) => (
                 <ToolCard key={tool.slug} tool={tool} />

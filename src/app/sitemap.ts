@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { TOOLS } from "@/lib/tools";
+import { INDEXED_TOOLS } from "@/lib/tools";
 import { GUIDES } from "@/lib/guides";
 import { absoluteUrl, PAGE_UPDATED, SITE_UPDATED } from "@/lib/seo";
 
@@ -20,8 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/terms"), lastModified: PAGE_UPDATED.terms, changeFrequency: "yearly", priority: 0.2 },
   ];
 
-  // Each tool carries its own date, like the guides below.
-  const toolRoutes: MetadataRoute.Sitemap = TOOLS.map((t) => ({
+  // Each tool carries its own date, like the guides below. Noindexed pages stay out:
+  // a sitemap entry that says "index me" on a noindex page is a mixed signal.
+  const toolRoutes: MetadataRoute.Sitemap = INDEXED_TOOLS.map((t) => ({
     url: absoluteUrl(`/${t.slug}`),
     lastModified: t.updatedAt,
     changeFrequency: "monthly",
@@ -30,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Guides carry their own dates, so lastmod reflects real content changes instead of
   // resetting to the build timestamp on every deploy.
-  const postRoutes: MetadataRoute.Sitemap = GUIDES.map((g) => ({
+  const postRoutes: MetadataRoute.Sitemap = GUIDES.filter((g) => !g.noindex).map((g) => ({
     url: absoluteUrl(`/blog/${g.slug}`),
     lastModified: g.updatedAt ?? g.publishedAt,
     changeFrequency: "monthly",

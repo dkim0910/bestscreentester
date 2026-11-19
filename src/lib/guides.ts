@@ -3,6 +3,7 @@
 // of truth for the blog — no database involved.
 
 import { TOOL_MAP } from "./tools";
+import type { DeviceKey } from "./devices";
 
 export interface Guide {
   slug: string;
@@ -15,6 +16,15 @@ export interface Guide {
   // guides (d8cdb5c, 2026-06-21) — not invented.
   publishedAt: string;
   updatedAt?: string;
+  // Served with a robots noindex and left out of the sitemap and "Related guides".
+  noindex?: boolean;
+  // Slug of the guide this one was folded into. The page keeps its URL but only
+  // forwards there; it is left out of every listing. Always set `noindex` with it.
+  mergedInto?: string;
+  // The "What I tested" box. `saw` is only ever what Daniel reported seeing on his own
+  // devices; `spec` is what the manufacturers publish. Never write an observation he
+  // didn't make — leave `saw` out and let the box show specifications only.
+  tested?: { devices: DeviceKey[]; date: string; saw?: string; spec?: string };
   body: string;
 }
 
@@ -46,7 +56,7 @@ Switch to the [Black Screen](/black-screen) and look for:
 - **Backlight bleed** — cloudy light at the edges (LCD only).
 - **Dust or debris** trapped under the glass.
 - **Bright (hot) pixels** glowing against the black.
-- **IPS glow** — a broad silvery haze in the corners that shifts or vanishes when you move your head. That's a property of IPS panels, not a fault; see [Backlight Bleed vs IPS Glow](/blog/backlight-bleed-vs-ips-glow) before you decide to return anything.
+- **IPS glow** — a broad silvery haze in the corners that shifts or vanishes when you move your head. That's a property of IPS panels, not a fault; see [Backlight Bleed vs IPS Glow](/blog/what-is-backlight-bleed) before you decide to return anything.
 
 Do this step with the room lights off. In a bright room you will see almost nothing; in a pitch-dark room you'll see flaws you would never notice in normal use. Judge it at the brightness you'll actually use.
 
@@ -115,7 +125,7 @@ Some of what you'll see on day one is inherent to the technology, not a fault:
 - **Dark grey rather than true black with the lights off, on an IPS** — normal. IPS contrast is typically around 1000:1, so blacks lift in a dark room.
 - **A faint cloudy variation across a full-screen grey** — mura, present to some degree on most LCDs; a problem only when it's obvious in real content.
 
-Glow and bleed get confused constantly. Glow changes as you move your head; bleed stays put. [Backlight Bleed vs IPS Glow](/blog/backlight-bleed-vs-ips-glow) shows how to tell them apart in about ten seconds.
+Glow and bleed get confused constantly. Glow changes as you move your head; bleed stays put. [Backlight Bleed vs IPS Glow](/blog/what-is-backlight-bleed) shows how to tell them apart in about ten seconds.
 
 ## Red flags worth a return
 - More than one or two stuck/dead pixels.
@@ -202,7 +212,15 @@ Photograph the fault in a dark room with the phone's exposure and focus locked, 
       "A step-by-step guide to checking a new or used laptop display for dead and stuck pixels before it's too late to return it.",
     tags: ["laptop", "dead pixel", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["mbp"],
+      date: "2026-11-19",
+      saw:
+        "No dead or stuck pixels on any color in the Dead Pixel Test.",
+      spec:
+        "At 254 pixels per inch a single pixel on this screen is very small, which is why the guide tells you to look closer than you normally sit.",
+    },
     body: `New laptops should arrive with a flawless panel — but defects slip through. Here's how to check yours in under two minutes, and what to do about anything you find.
 
 ## Why test right away?
@@ -382,6 +400,8 @@ If the display is still inside a retailer's return window, returning it is almos
     tags: ["dead pixel", "guide", "panel"],
     publishedAt: "2026-06-21",
     updatedAt: "2026-08-27",
+    // Near-zero search impressions in the three months to 2026-11-17; noindexed until reworked.
+    noindex: true,
     body: `Each pixel has red, green, and blue sub-pixels driven by tiny transistors. When something interrupts that, the pixel fails. On an LCD the transistor either stops switching or sticks on; on an OLED the emitter itself stops producing light.
 
 ## Common causes
@@ -953,7 +973,15 @@ If the option appears, is selected, and the [Refresh Rate Test](/refresh-rate-te
       "Trails behind moving objects come from slow pixels — and the cure, overdrive, can overshoot into inverse ghosting. Here's how to balance it.",
     tags: ["ghosting", "response time", "gaming"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["lg"],
+      date: "2026-11-19",
+      saw:
+        "No visible ghosting trail behind the boxes in the Ghosting Test.",
+      spec:
+        "LG rates this panel at 1 ms grey-to-grey.",
+    },
     body: `Ghosting is a smeared trail behind moving objects, caused by pixels changing color too slowly.
 
 Every LCD pixel takes time to twist its liquid crystal from one state to another. If a frame lasts 16.7ms at 60Hz but the pixel needs 20ms to finish the transition, the old image is still partly on screen when the new one arrives — and you see the leftover as a trail.
@@ -1117,7 +1145,13 @@ Watch a tear appear and vanish as you toggle sync with the [Screen Tearing Test]
       "Bought a 144Hz monitor but it still feels like 60? It probably is. Here's the two-minute fix in Windows and macOS, plus the cable to check.",
     tags: ["refresh rate", "windows", "macos"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["lg", "mbp", "iphone17", "s22u", "iphoneXs", "ipadMini"],
+      date: "2026-11-19",
+      spec:
+        "Rated maximums: 165 Hz on the LG, or 180 Hz overclocked, which LG says needs a DisplayPort 1.4 graphics card. Up to 120 Hz on the MacBook Pro, iPhone 17 and Galaxy S22 Ultra, all of which lower the rate by themselves to save power. 60 Hz on the iPhone XS and iPad mini.",
+    },
     body: `New high-refresh monitors frequently default to 60Hz. The hardware is fine — the setting isn't.
 
 This happens because the operating system picks a mode it knows is safe for whatever cable and port it detects, and never revisits the choice. Nothing warns you. The monitor's own on-screen menu often reports the incoming signal, which is the fastest way to confirm you're being shortchanged before you touch any settings.
@@ -1253,7 +1287,7 @@ TN panels shift color badly the moment your eye moves off-centre, and vertically
 - **Cons:** "IPS glow" in dark corners; contrast lower than VA.
 - **Best for:** all-rounders, creative work, most gaming.
 
-IPS is the safe default. Colors hold steady off-axis, which matters if two people share the screen or if you use a large or curved panel where the edges are at an angle to your eyes. The weakness is blacks: in a dark room a black screen looks dark grey, and the corners take on a silvery sheen that moves as you move. That sheen is **IPS glow**, and it is a characteristic of the technology, not a defect — [What Is IPS Glow](/blog/what-is-ips-glow) explains how to tell it apart from actual backlight bleed.
+IPS is the safe default. Colors hold steady off-axis, which matters if two people share the screen or if you use a large or curved panel where the edges are at an angle to your eyes. The weakness is blacks: in a dark room a black screen looks dark grey, and the corners take on a silvery sheen that moves as you move. That sheen is **IPS glow**, and it is a characteristic of the technology, not a defect — [What Is IPS Glow](/blog/what-is-backlight-bleed) explains how to tell it apart from actual backlight bleed.
 
 ## VA
 
@@ -1300,59 +1334,103 @@ Run these in the order that matches the return window, not the order above: unif
     slug: "what-is-backlight-bleed",
     title: "What Is Backlight Bleed and Is It Normal?",
     excerpt:
-      "Light leaking around the edges of an LCD is common, but not always acceptable — when to shrug it off, and when it's grounds for a return.",
-    tags: ["backlight bleed", "lcd", "panel"],
+      "Light on a black screen is either backlight bleed or IPS glow. How to tell them apart in one second, what's normal, how to reduce it, and when to return the screen.",
+    tags: ["backlight bleed", "ips glow", "lcd", "panel"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
-    body: `Backlight bleed is light from an LCD's backlight escaping unevenly around the panel edges, visible as cloudy patches on dark content.
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["lg", "ipadMini", "mbp", "iphone17", "iphoneXs", "s22u"],
+      date: "2026-11-19",
+      spec:
+        "The LG and the iPad mini are IPS LCDs, the panel type that shows IPS glow. The MacBook Pro dims its backlight in zones, which trades bleed for blooming. The three phones are OLED and have no backlight to leak.",
+    },
+    body: `Put a black image on an LCD in a dark room and you will almost always see some light. It is one of two things. **Backlight bleed** is light escaping around the edges of the panel. **IPS glow** is a sheen in the corners that depends on the angle you look from. They look alike in a photo, they have different causes, and only one of them is ever a defect.
 
-## See it
-In a dark room at full brightness, open the [Backlight Bleed Test](/backlight-bleed-test) (a pure black field) and inspect the edges and corners.
+## The one-second test
+Load a [Black Screen](/black-screen), then lean left and right by about a foot, and up and down.
 
-Give your eyes two or three minutes to adapt to the dark first — bleed always looks worse in the first thirty seconds. Sit at your normal viewing distance, not with your nose against the bezel, and judge with your eyes rather than through a phone camera. A long-exposure photo brightens everything and routinely makes a perfectly acceptable panel look unusable.
+| | Backlight bleed | IPS glow |
+| --- | --- | --- |
+| Changes with head movement | No | Yes |
+| Shape | Streaks, patches, torch-beam from an edge | Broad wash from a corner |
+| Color | Usually white or warm | Silvery, blue, or amber |
+| Panels affected | Any LCD, worst on edge-lit designs | IPS specifically |
+| Is it a defect | Sometimes, if severe | No, inherent to the technology |
+| Warranty | Occasionally accepted | Almost never |
 
-## Why it happens
-The backlight sits behind or along the edge of the panel and has to be blocked by layers of diffuser, polarizer and liquid crystal. Any gap in that stack lets light out where it shouldn't. Typical causes:
+Glow moves. It brightens in the corner you lean away from and shrinks toward the corner you lean into. Bleed stays exactly where it is. Most IPS monitors show both, so assess them separately.
+
+## How to run the test properly
+1. Kill every light in the room, including standby LEDs, and close the curtains.
+2. Wait two or three minutes. Your eyes take that long to adapt, and glow always looks worst in the first thirty seconds.
+3. Use the [Backlight Bleed Test](/backlight-bleed-test) full screen, so no browser bar or taskbar adds light.
+4. Sit at your normal viewing distance, not with your nose against the bezel.
+5. Look with your eyes, not a phone. Cameras take long exposures in the dark and turn a barely-visible haze into a dramatic photo. Almost every alarming bleed picture online is a camera artefact.
+
+Maximum brightness makes a leak easy to find, but it exaggerates everything. Once you know where the light is, set brightness to what you use day to day and look again with the room lit as usual. A black field at full brightness in a blacked-out room is a diagnostic, not a viewing condition. The second look is the one that matters, because it is the one you will live with.
+
+## Why bleed happens
+An LCD makes black by blocking a backlight that is always on. The backlight sits behind or along the edge of the panel, behind layers of diffuser, polarizer and liquid crystal, and any gap in that stack lets light out where it shouldn't. Typical causes:
 
 - **Assembly pressure** — a bezel or frame clamped slightly too tight distorts the layer stack at that point.
 - **Edge-lit designs** — LEDs along one edge push light sideways across the whole panel, so leaks concentrate near that edge.
 - **Transport and handling** — a knock in shipping can shift the stack.
 - **Heat cycling** — layers expand at different rates, which is why bleed sometimes changes slightly over the first weeks.
 
-None of this is something you caused, and it is entirely a panel-lottery outcome: two identical units off the same line can differ considerably.
+None of this is something you caused. It is a panel-lottery outcome: two identical units off the same line can differ considerably.
 
-## Is it normal?
-Some bleed is normal — LCDs are lit from behind and can't seal perfectly. It becomes a *problem* when:
-- It's bright enough to notice during normal dark-scene viewing (movies, games).
+## Why IPS glow happens
+Glow is inherent to how IPS liquid crystals pass light at an angle. Every IPS panel has some.
+
+The panel blocks the backlight best when you look at a pixel straight on. The corners of a screen are, by geometry, the parts you view at the steepest angle, so they leak the most. Sit closer and the corner angles get steeper still, which is why the same monitor looks worse on a shallow desk, and why a larger screen at the same distance shows more glow than a smaller one. The amount also varies between individual units of the same model.
+
+## What's normal
+Almost every LCD has some bleed and some glow. Bleed becomes a problem when:
+
+- It's bright enough to notice during normal dark-scene viewing, in films or games.
 - It's heavily concentrated in one corner.
-- It looks like distinct flashlight beams rather than faint, even glow.
+- It looks like distinct flashlight beams rather than a faint, even glow.
 
-A useful practical test: play an actual dark scene at your normal brightness, in your normal room lighting. If you cannot see the bleed under those conditions, it will not bother you. A black test field at maximum brightness in a blacked-out room is a diagnostic, not a viewing condition.
+A practical threshold: if you can't see it while watching a film with the lights on, ignore it. If a bright streak is visible during normal use — dark scenes in games, a black web page, a video with letterbox bars — that's worth acting on.
 
-## Bleed vs IPS glow vs clouding
-- **Bleed:** visible **head-on**; doesn't move with your head. A panel/assembly issue.
-- **IPS glow:** a silvery sheen in corners that **shifts as you move**. Normal for IPS — see our [IPS glow guide](/blog/what-is-ips-glow).
-- **Clouding (mura):** irregular blotches spread across the middle of the panel rather than the edges. Best seen on a dark grey field rather than pure black.
+Glow is never a defect, however much there is. Whether you can live with it is a separate question.
 
-The head-movement check settles bleed versus glow in seconds: lean left and right, then up and down. Glow moves and changes intensity, bleed stays exactly where it is. [Backlight bleed vs IPS glow](/blog/backlight-bleed-vs-ips-glow) walks through the comparison in more detail, and the [Viewing Angle Test](/viewing-angle-test) makes the angle dependence obvious. For blotchy mid-panel unevenness, the [Brightness Uniformity Test](/brightness-uniformity-test) is the right pattern.
+## How to reduce it
+For both:
 
-## What you can do
-- Lower brightness — bleed scales with backlight intensity. Dropping from 100% to a more typical 30-40% for dark-room use often removes the complaint entirely.
-- Add a bias light behind the screen. Raising the ambient level slightly reduces your eyes' sensitivity to faint edge glow, and it is easier on your eyes anyway.
-- Gently flex the bezel; sometimes assembly pressure is the cause (do this carefully).
+- **Lower the brightness.** Both scale with backlight intensity. Dropping from 100% to a more typical 30–40% for dark-room use often removes the complaint entirely.
+- **Add a bias light** behind the screen. Raising the ambient level slightly reduces your eyes' sensitivity to faint light at the edges.
+
+For glow:
+
+- **Sit centered and further back.** Glow is worst when you are close and off-axis.
+- **Raise the monitor** so your eyes are near the center of the screen, and tilt the top slightly toward you so the vertical angle across the panel is more even.
+- **Choose a curved screen** if you sit close. Curvature reduces the angle at which you view the edges.
+
+For bleed:
+
 - Check the display isn't being squeezed by a monitor arm clamp, a tight laptop case, or a screen protector pressing on the edges.
-- Leave it alone for a couple of weeks before deciding. Mild bleed frequently settles as the panel heat-cycles.
+- Leave it alone for a couple of weeks before deciding. Mild bleed frequently settles as the frame relaxes and the panel heat-cycles.
 
-Do not loosen the bezel screws or dismantle the housing. It voids the warranty and rarely helps.
+Don't press on the panel, loosen the bezel screws or dismantle the housing. It voids the warranty and can easily make things worse. And nothing in software touches either problem: raising contrast, changing color temperature or installing a different driver won't help, because both are optical properties of the panel.
+
+## Things that are neither
+- **Clouding (mura)** — mottled, uneven patches across the middle of the screen rather than the edges, often caused by pressure on the panel. Confirm it on a mid-grey field with the [Brightness Uniformity Test](/brightness-uniformity-test).
+- **Blooming** — a halo that follows a bright object around a dark screen. This only occurs on displays with a local-dimming backlight, and it's a limit of the dimming zones, not a fault. Use the [Blooming Test](/blooming-test) and see [Mini-LED vs OLED](/blog/mini-led-vs-oled).
+- **A raised black level** — the whole screen looks dark grey rather than black, evenly. That's contrast, not leakage. Check it with the [Black Level Test](/black-level-test) and the [Contrast Test](/contrast-test), and turn off any "black equalizer" or shadow-boost setting in the monitor menu first.
+- **A dark patch instead of a bright one** — see [why does my screen have a dark spot](/blog/why-does-my-screen-have-a-dark-spot).
+
+OLED displays have neither bleed nor glow, because each pixel makes its own light and switches fully off for black. If a black screen on an OLED shows patchy brightness, you're looking at something else, usually panel non-uniformity or early [burn-in](/blog/oled-burn-in-and-how-to-check-for-it).
 
 ## When to return it
-If it's severe, it's a valid reason to exchange the unit. Judge it against three questions: does it show during ordinary content, is it in more than one area, and would you notice it if nobody had told you to look?
+Judge it against three questions: does it show during ordinary content, is it in more than one area, and would you notice it if nobody had told you to look?
 
-Timing matters more than argument. Manufacturer warranties often treat mild bleed as within specification, because there is no pixel-style standard for it — but a retailer's return window generally does not require you to prove a defect. Decide within that window. If you exchange, test the replacement the same way immediately, and be prepared for it to be different rather than better.
+Timing matters more than argument. Manufacturer warranties often treat mild bleed as within specification, because there is no pixel-style standard for it, and they almost never cover glow. A retailer's return window generally does not require you to prove a defect. Photograph the screen as your eyes see it, note the date, and decide inside that window. If you exchange, test the replacement the same way immediately, and be prepared for it to be different rather than better. The pixel-defect thresholds, which are far more clearly defined, are covered in [dead pixel warranty policies](/blog/dead-pixel-warranty-policies).
 
-OLED has **no** backlight and therefore no bleed. Mini-LED backlights split the light into hundreds or thousands of independently dimmed zones, which suppresses bleed but introduces blooming around bright objects instead — the trade-off is covered in [Mini-LED vs OLED](/blog/mini-led-vs-oled).
+## If it still bothers you
+Before you replace anything, spend a week with bias lighting behind the screen and brightness set for the room. That fixes the complaint for most people.
 
-Run the black field once at your normal brightness before you decide anything — that is the only result that reflects how you will actually use the screen.`,
+If it doesn't, the answer is a different panel type. **VA** has higher contrast and no IPS glow, with its own quirk: a gamma shift when viewed off-center. **OLED** has perfect blacks and neither problem, and trades them for a burn-in risk. **Mini-LED** suppresses bleed by dimming the backlight in zones, and introduces blooming around bright objects instead. The full comparison is in [IPS vs VA vs TN vs OLED](/blog/ips-vs-va-vs-tn-vs-oled).`,
   },
   {
     slug: "what-is-ips-glow",
@@ -1362,51 +1440,11 @@ Run the black field once at your normal brightness before you decide anything �
     tags: ["ips glow", "ips", "panel"],
     publishedAt: "2026-06-21",
     updatedAt: "2026-08-27",
-    body: `IPS glow is a characteristic glow — often silvery, blue, or amber — in the corners of IPS panels when showing dark content.
-
-## How to identify it
-On a [Black Screen](/black-screen) in a dark room, move your head around. If the glow **changes or fades as your viewing angle changes**, it's IPS glow. If it stays put head-on, it's [backlight bleed](/blog/what-is-backlight-bleed) instead.
-
-Do the test properly or you'll misread it:
-
-1. Turn the room lights off and give your eyes a few minutes to adjust — glow looks dramatically worse in the first thirty seconds than it does once your eyes settle.
-2. Set brightness where you actually use it, not at 100%.
-3. Sit at your normal distance, then lean left, right, up and down.
-4. Judge with your eyes, not a phone camera. Long exposures amplify dim light enormously, and a photo that looks alarming often corresponds to something you can't see in person.
-
-Glow moves. It brightens in the corner you lean away from and shrinks toward the corner you lean into. Bleed doesn't move at all. If you see both — most IPS monitors show both — assess them separately: [backlight bleed vs IPS glow](/blog/backlight-bleed-vs-ips-glow) puts them side by side.
-
-## Why it happens
-It's inherent to how IPS liquid crystals pass light at an angle. **Every** IPS panel has some — it's not a defect.
-
-The panel blocks the backlight to make black, and that blocking works best when you look at the pixel straight on. The corners of a screen are, by geometry, the parts you view at the steepest angle — so they leak the most. Sit closer and the corner angles get steeper still, which is why the same monitor looks worse on a shallow desk. A larger screen at the same distance also shows more glow than a smaller one for exactly this reason.
-
-The amount varies between individual units of the same model, so two identical monitors bought together can look different. That's manufacturing variation, not a fault in one of them.
-
-## How to reduce it
-- **Sit centered and back** — glow is worst when you're close and off-axis.
-- **Lower brightness** for dark-room use.
-- **Add bias lighting** behind the monitor; raising ambient light hides the glow.
-- **Raise the monitor** so your eyes are near screen center.
-- **Tilt the top of the screen slightly toward you**, so the vertical angle across the panel is more even.
-- **Choose a curved screen** if you sit close — curvature reduces the angle at which you view the edges.
-- **Clean the panel.** A hazy coating scatters glow and makes it look worse. Follow [how to clean your monitor safely](/blog/how-to-clean-your-monitor-safely) — never spray liquid onto the screen.
-
-What won't help: raising contrast, changing color temperature, or installing a different driver. Glow is an optical property of the panel, so nothing in software touches it.
-
-## Things people mistake for IPS glow
-- **Backlight bleed** — fixed bright patches or streaks at the edges, unchanged by head movement. Confirm with the [Backlight Bleed Test](/backlight-bleed-test).
-- **Clouding** — uneven mottled patches across the middle of the screen, often from panel pressure or overtightened assembly. Check with the [Brightness Uniformity Test](/brightness-uniformity-test).
-- **Blooming** — a halo around bright objects on a dark background, which appears on backlights with local dimming, such as Mini-LED. It follows the bright object around the screen rather than sitting in the corner. Use the [Blooming Test](/blooming-test) to confirm, and see [Mini-LED vs OLED](/blog/mini-led-vs-oled).
-- **A dark patch instead of a bright one** — that's a different problem entirely; see [why does my screen have a dark spot](/blog/why-does-my-screen-have-a-dark-spot).
-
-## Is it covered by warranty?
-Usually not. Because glow is inherent to the technology, manufacturers treat it as normal panel behavior rather than a defect, while severe bleed is sometimes accepted. Your realistic option is the retailer's return window: if the glow bothers you in the first two weeks, return or exchange while you still can, rather than waiting and filing a claim later.
-
-## If glow bothers you
-Consider **VA** (higher contrast, no IPS glow but slower) or **OLED** (perfect blacks, no glow) for dark-room movie and gaming setups. VA has its own quirk — a dark halo or gamma shift when viewed off-center — and OLED trades glow for a burn-in risk worth understanding first: [OLED burn-in](/blog/oled-burn-in-and-how-to-check-for-it). The full comparison is in [IPS vs VA vs TN vs OLED](/blog/ips-vs-va-vs-tn-vs-oled).
-
-Before you replace anything, though, spend a week with bias lighting behind the screen and brightness set for the room. That fixes the complaint for most people.`,
+    // Folded into the backlight bleed guide on 2026-11-19: the three covered the same
+    // ground. The URL stays so old links land somewhere; the page forwards to the keeper.
+    noindex: true,
+    mergedInto: "what-is-backlight-bleed",
+    body: `This guide is now part of [What Is Backlight Bleed and Is It Normal?](/blog/what-is-backlight-bleed), which covers bleed and IPS glow together.`,
   },
   {
     slug: "mini-led-vs-oled",
@@ -1463,7 +1501,13 @@ Check blacks on either with the [Black Screen](/black-screen), and compare how m
       "OLED panels can retain static images over time. Here's what causes burn-in, how to avoid it, and how to tell permanent burn-in from retention that fades.",
     tags: ["oled", "burn-in", "tv"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["iphoneXs", "s22u"],
+      date: "2026-11-19",
+      saw:
+        "No retained image on either phone on the grey field of the Burn-in Test. The iPhone XS is a 2018 model.",
+    },
     body: `OLED delivers perfect blacks, but static content can wear pixels unevenly and leave a permanent ghost ("burn-in").
 
 ## What causes it
@@ -1638,7 +1682,13 @@ If you're still choosing a screen, work backwards: fix your seating distance fir
       "Most monitors labeled 'HDR' aren't. Here's what real HDR needs — peak brightness, local dimming, contrast and wide color — and how to check.",
     tags: ["hdr", "color", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["mbp", "iphone17", "lg"],
+      date: "2026-11-19",
+      spec:
+        "Published HDR peaks: 1,600 nits on the MacBook Pro and the iPhone 17, against about 350 nits on the LG, which carries an HDR10 label without the brightness to show much of it. That gap is what this guide is about.",
+    },
     body: `HDR (High Dynamic Range) promises brighter highlights, deeper shadows, and richer color. The label is wildly overused.
 
 An HDR display is not just a brighter display. Real HDR changes three things at once: the range between the dimmest and brightest thing on screen, the number of tone steps available to fill that range, and the width of the color space. Miss any one and you get a signal that is technically accepted and visibly worse than plain SDR.
@@ -1863,6 +1913,8 @@ Document it on solid colors before contacting support. Shoot in a dark room, squ
     tags: ["cleaning", "maintenance", "guide"],
     publishedAt: "2026-06-21",
     updatedAt: "2026-08-27",
+    // Near-zero search impressions in the three months to 2026-11-17; noindexed until reworked.
+    noindex: true,
     body: `Screens have delicate anti-glare and oleophobic coatings. Clean them wrong and you can haze or scratch them for good.
 
 The damage is not always instant. A paper towel does not gouge a screen the first time; it leaves fine scratches that add up over months until the panel looks permanently milky in daylight. Alcohol on a matte coating can strip it in patches that never come back. Neither is repairable — the coating is part of the panel.
@@ -1924,7 +1976,13 @@ Clean often enough that dust never builds into a film — a dry microfiber pass 
       "Buying secondhand? Run these quick checks for dead pixels, OLED burn-in, touch dead zones and tint before you hand over any money.",
     tags: ["phone", "used", "buying guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["iphoneXs", "s22u", "iphone17"],
+      date: "2026-11-19",
+      saw:
+        "No dead or stuck pixels on any of the three in the Dead Pixel Test, and no retained image on the iPhone XS or Galaxy S22 Ultra in the Burn-in Test.",
+    },
     body: `A great secondhand deal can hide an expensive screen problem. A replacement display is often one of the most expensive repairs on a phone, and a bad panel is the one fault you cannot negotiate away after the fact. Test before you pay.
 
 ## Set up first
@@ -2042,58 +2100,11 @@ Do the five settings in order, top to bottom, before judging the picture — mos
       "Both show up as light on a black screen, but they're different problems. Learn how to tell them apart and what's normal.",
     tags: ["monitor", "backlight bleed", "ips"],
     publishedAt: "2026-06-21",
-    body: `Turn on a black screen in a dark room and you may see glowing patches. Are they a defect or just physics? It depends.
-
-## Backlight bleed
-Light leaking through the edges of an LCD panel. It's visible **head-on**, looks like cloudy patches in the corners, and doesn't change as you move.
-
-Check yours with the [Backlight Bleed Test](/backlight-bleed-test).
-
-It happens because an LCD makes black by blocking a backlight that is always on. Where the panel is clamped slightly unevenly in its frame, or the bezel presses harder on one edge, a little of that light escapes around the layers instead of being blocked. That's why bleed shows up as streaks and patches along the borders rather than in the middle, and why it varies between two units of the same model.
-
-## IPS glow
-A **viewing-angle** effect unique to IPS panels. It shifts and fades as you move your head, and is most visible in the corners from an angle.
-
-The liquid crystal blocks light best when you look at it straight on. The corners of the screen are the parts you view at the steepest angle, so they leak the most — which is also why sitting closer, or using a bigger screen at the same distance, makes glow more obvious.
-
-## The one-second test
-Load a [Black Screen](/black-screen), then lean left and right by about a foot.
-
-| | Backlight bleed | IPS glow |
-| --- | --- | --- |
-| Changes with head movement | No | Yes |
-| Shape | Streaks, patches, torch-beam from an edge | Broad wash from a corner |
-| Color | Usually white or warm | Silvery, blue, or amber |
-| Panels affected | Any LCD, worst on edge-lit designs | IPS specifically |
-| Is it a defect | Sometimes, if severe | No, inherent to the technology |
-| Warranty | Occasionally accepted | Almost never |
-
-## How to run the test properly
-1. Kill every light in the room, including standby LEDs, and close the curtains.
-2. Wait two or three minutes. Your eyes take that long to adapt, and glow always looks worst in the first thirty seconds.
-3. Set brightness to what you actually use day to day — testing at 100% exaggerates everything.
-4. Go full screen so no browser chrome or taskbar adds light.
-5. Look with your eyes, not a phone. Cameras take long exposures in the dark and turn a barely-visible haze into a dramatic photo. Almost every alarming bleed picture online is a camera artefact.
-
-Then repeat at your normal seating position with the room lit as usual. That is the only condition that matters, because it's the one you'll live with.
-
-## Things that are neither
-- **Clouding / mura** — mottled uneven patches across the middle of the screen rather than the edges, often caused by pressure on the panel. Confirm it on a mid-grey field with the [Brightness Uniformity Test](/brightness-uniformity-test).
-- **Blooming** — a halo that follows a bright object around a dark screen. This only occurs on displays with a local-dimming backlight, and it's a limitation of the dimming zones, not a fault. Use the [Blooming Test](/blooming-test) and see [Mini-LED vs OLED](/blog/mini-led-vs-oled).
-- **A raised black level** — the whole screen looks dark grey rather than black, evenly. That's contrast, not leakage; check it with the [Black Level Test](/black-level-test) and the [Contrast Test](/contrast-test), and turn off any "black equalizer" or shadow-boost setting in the monitor menu first.
-- **A dark patch instead of a bright one** — see [why does my screen have a dark spot](/blog/why-does-my-screen-have-a-dark-spot).
-
-OLED displays have neither bleed nor glow, because each pixel makes its own light and switches fully off for black. If a black screen on an OLED shows patchy brightness, you're looking at something else — usually panel non-uniformity or early [burn-in](/blog/oled-burn-in-and-how-to-check-for-it).
-
-## What's normal?
-Almost every LCD has *some* bleed and glow. Worry only when it's uneven, distracting in everyday use, or severe in the corners. Deep-dive guides: [backlight bleed](/blog/what-is-backlight-bleed) and [IPS glow](/blog/what-is-ips-glow).
-
-A practical threshold: if you can't see it while watching a film with the lights on, ignore it. If a bright streak is visible during normal use — dark scenes in games, a black web page, a video with letterbox bars — that's worth acting on.
-
-## If you want to act on it
-Bleed sometimes settles over the first few weeks as the frame relaxes. Beyond that, do not try to fix it by pressing or loosening bezel screws yourself; you'll void the warranty and can easily make it worse.
-
-Use the retailer's return window instead — it's faster and more certain than a warranty claim, and it doesn't require anyone to agree the panel is defective. Photograph the screen exactly as your eyes see it, note the date, and decide within the return period rather than after it. Manufacturer policies on bleed are vague and vary by brand, so the exchange you can make today beats the claim you might win in two months. The related pixel-defect thresholds, which are far more clearly defined, are covered in [dead pixel warranty policies](/blog/dead-pixel-warranty-policies).`,
+    // Folded into the backlight bleed guide on 2026-11-19: the three covered the same
+    // ground. The URL stays so old links land somewhere; the page forwards to the keeper.
+    noindex: true,
+    mergedInto: "what-is-backlight-bleed",
+    body: `This guide is now part of [What Is Backlight Bleed and Is It Normal?](/blog/what-is-backlight-bleed), which covers bleed and IPS glow together.`,
   },
 
   // ---------- Troubleshooting, explainers & fun (added 2026-10-01) ----------
@@ -2104,6 +2115,13 @@ Use the retailer's return window instead — it's faster and more certain than a
       "Vertical or horizontal lines usually come from a cable, the graphics card, or the panel's own driver connections. Here's how to tell which one you have.",
     tags: ["troubleshooting", "lcd", "guide"],
     publishedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
+    tested: {
+      devices: ["lg", "mbp", "iphone17", "iphoneXs", "s22u", "ipadMini"],
+      date: "2026-11-19",
+      saw:
+        "All six show clean solid colors in the Dead Pixel Test: no dead or stuck pixels on any of them. So I have no line fault of my own to show here.",
+    },
     body: `Lines across a screen look alarming, but they are rarely random. Their direction, their color, whether they move, and whether they show up in a screenshot together point to one of three places: the signal coming in, the graphics hardware producing it, or the panel itself. Ten minutes of testing usually tells you which — and whether a repair is worth paying for.
 
 ## First: is it the screen or the signal?
@@ -2516,6 +2534,7 @@ If you're worried an OLED already has some wear, the [Burn-In Test](/burn-in-tes
       "How to pull off a convincing fake cracked screen, blue screen or endless boot prank, and the simple rules that keep it funny rather than upsetting.",
     tags: ["prank", "fun", "guide"],
     publishedAt: "2026-10-01",
+    noindex: true,
     body: `The best screen prank borrows a few seconds of panic and hands them straight back. Everything here runs in an ordinary browser tab: nothing is installed, nothing on the device changes, and the effect disappears with a tap or the Esc key. What makes it convincing is the setup, and what keeps it funny is knowing when to stop.
 
 ## The fake cracked screen
@@ -2566,6 +2585,108 @@ And if you're the one who got pranked and you're reading this to check: tap the 
   },
 ];
 
+// The /blog hub groups guides by the problem a reader has, not by date. A guide that
+// isn't listed here falls into "More guides", so a new one is never orphaned — but
+// give it a home.
+export const GUIDE_TOPICS: { title: string; blurb: string; slugs: string[] }[] = [
+  {
+    title: "Pixels, lines and spots",
+    blurb: "Dots, lines and patches that shouldn't be there, and what a warranty will do about them.",
+    slugs: [
+      "dead-vs-stuck-vs-hot-pixels",
+      "how-to-fix-a-stuck-pixel",
+      "dead-pixel-warranty-policies",
+      "what-causes-dead-pixels",
+      "how-to-test-a-laptop-screen-for-dead-pixels",
+      "why-are-there-lines-on-my-screen",
+      "why-does-my-screen-have-a-dark-spot",
+    ],
+  },
+  {
+    title: "Backlight, uniformity and burn-in",
+    blurb: "Glow, bleed, flicker, uneven patches and retained images.",
+    slugs: [
+      "what-is-backlight-bleed",
+      "oled-burn-in-and-how-to-check-for-it",
+      "do-you-still-need-a-screensaver",
+      "what-is-pwm-flicker",
+      "why-is-my-screen-flickering",
+      "why-is-part-of-my-screen-discolored",
+      "mini-led-vs-oled",
+      "contrast-ratio-explained",
+    ],
+  },
+  {
+    title: "Motion and refresh rate",
+    blurb: "Refresh rate, ghosting, tearing and input lag.",
+    slugs: [
+      "how-to-enable-full-refresh-rate-windows-mac",
+      "what-is-ghosting-and-how-to-fix-it",
+      "refresh-rate-explained-60-vs-120-vs-144-vs-240",
+      "screen-tearing-vsync-gsync-freesync",
+      "response-time-vs-input-lag",
+      "motion-blur-reduction-bfi-ulmb",
+    ],
+  },
+  {
+    title: "Color and calibration",
+    blurb: "Washed-out blacks, banding, gamma, gamut and HDR.",
+    slugs: [
+      "full-vs-limited-rgb-range",
+      "how-to-calibrate-your-monitor-without-a-colorimeter",
+      "what-is-color-banding-and-how-to-reduce-it",
+      "gamma-explained",
+      "color-gamut-srgb-vs-dci-p3-vs-adobe-rgb",
+      "color-accuracy-and-delta-e-explained",
+      "hdr-explained",
+      "monitor-setup-for-photo-editing",
+      "blue-light-and-color-temperature",
+    ],
+  },
+  {
+    title: "Buying and setup checklists",
+    blurb: "What to check before you pay, and on the first day at home.",
+    slugs: [
+      "how-to-test-a-monitor-before-buying",
+      "how-to-test-a-used-phone-screen-before-buying",
+      "how-to-test-a-tv-for-defects",
+      "new-device-screen-test-checklist",
+      "ips-vs-va-vs-tn-vs-oled",
+      "laptop-external-monitor-mac-windows",
+      "ppi-and-pixel-density-explained",
+    ],
+  },
+  {
+    title: "Troubleshooting and care",
+    blurb: "Working out what is actually broken, and looking after the screen.",
+    slugs: [
+      "is-it-my-screen-or-my-graphics-card",
+      "cracked-screen-glass-or-lcd",
+      "how-to-clean-your-monitor-safely",
+      "screen-door-effect-explained",
+      "harmless-screen-pranks",
+    ],
+  },
+];
+
+/** GUIDE_TOPICS resolved to guides, plus a trailing "More guides" group for strays. */
+export function guidesByTopic(): { title: string; blurb: string; guides: Guide[] }[] {
+  const seen = new Set<string>();
+  const groups = GUIDE_TOPICS.map((t) => ({
+    title: t.title,
+    blurb: t.blurb,
+    guides: t.slugs.flatMap((slug) => {
+      const g = GUIDE_MAP[slug];
+      if (!g) return [];
+      seen.add(slug);
+      return [g];
+    }),
+  }));
+  const rest = GUIDES.filter((g) => !seen.has(g.slug) && !g.mergedInto);
+  if (rest.length) groups.push({ title: "More guides", blurb: "", guides: rest });
+  return groups.filter((g) => g.guides.length > 0);
+}
+
 export const GUIDE_MAP: Record<string, Guide> = Object.fromEntries(
   GUIDES.map((g) => [g.slug, g]),
 );
@@ -2588,7 +2709,7 @@ export function getRelatedGuides(slug: string, take = 3): Guide[] {
   const current = GUIDE_MAP[slug];
   if (!current) return [];
   const tags = new Set(current.tags);
-  return GUIDES.filter((g) => g.slug !== slug)
+  return GUIDES.filter((g) => g.slug !== slug && !g.noindex)
     .map((g) => ({ g, score: g.tags.filter((t) => tags.has(t)).length }))
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score || a.g.title.localeCompare(b.g.title))

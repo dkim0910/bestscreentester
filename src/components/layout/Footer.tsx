@@ -47,11 +47,6 @@ export default function Footer() {
                 Guides &amp; articles
               </Link>
             </li>
-            <li>
-              <Link href="/feedback" className="hover:text-foreground">
-                Send feedback
-              </Link>
-            </li>
           </ul>
         </div>
         <div>
@@ -79,7 +74,7 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/feedback" className="hover:text-foreground">
-                Feedback
+                Contact
               </Link>
             </li>
           </ul>

@@ -17,13 +17,17 @@ export default function Header() {
         </Link>
         <nav className="flex shrink-0 items-center gap-0.5 text-sm sm:gap-1">
           <Link href="/tools" className="rounded-md px-2 py-2 hover:bg-white/5 sm:px-3">
-            All Tools
+            Tools
           </Link>
           <Link href="/blog" className="rounded-md px-2 py-2 hover:bg-white/5 sm:px-3">
             Guides
           </Link>
+          {/* Hidden on phones, where four links squeeze the site name out; it's in the footer. */}
+          <Link href="/about" className="hidden rounded-md px-2 py-2 hover:bg-white/5 sm:block sm:px-3">
+            About
+          </Link>
           <Link href="/feedback" className="rounded-md px-2 py-2 hover:bg-white/5 sm:px-3">
-            Feedback
+            Contact
           </Link>
         </nav>
       </div>
