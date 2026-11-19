@@ -25,6 +25,30 @@ Note the non-obvious ones: `blooming-test`, `contrast-test`, `black-level-test`,
 **color**, not panel; `touch-screen-test` and `pwm-flicker-test` are **panel**; `screen-info` is
 **fun** ("Fun & Utilities").
 
+**Novelty pages are noindexed.** `fake-broken-screen`, `boot-screen-simulator`, `screensaver`
+(`noindex: true` in `tools.ts`) and the `harmless-screen-pranks` guide (`noindex: true` in
+`guides.ts`) get a `noindex, follow` robots meta via `pageMetadata({ noindex })`, are left out of
+the sitemap and the homepage grid, and appear only on `/tools` under "Just for fun". Use
+`INDEXED_TOOLS` (25) for public counts and listings, `TOOLS` (28) for routing. This was done for
+the AdSense "low value content" review.
+
+**Merged guides forward to their keeper.** A guide with `mergedInto` (always with `noindex`) keeps
+its URL but renders only a meta-refresh and a link to the target, with the target as canonical —
+GitHub Pages can't send a 301. `what-is-ips-glow` and `backlight-bleed-vs-ips-glow` were folded
+into `what-is-backlight-bleed` this way; link to the keeper, never to a merged slug.
+
+**No ad script on noindexed pages:** `AdSenseScript` (client) skips the paths the layout passes in.
+The `google-adsense-account` meta tag still ships everywhere.
+
+**Tool pages carry a per-test "reading your results" section** from `src/lib/toolResults.ts`
+(`TOOL_RESULTS`, keyed by slug): normal vs fault, thresholds, panel/device notes, test-specific
+headings, and one deep guide. A tool with `guide` set shows that single link and drops the generic
+"Related guides" grid. Its thresholds must match the guide it links. All 25 indexed tools have one. No own photos exist anywhere on the site yet.
+
+**Homepage order:** hero, `HomeAnswers` (four written "defect or normal?" sections), the tool grid,
+then `HomeSections`. `/blog` is grouped by problem via `GUIDE_TOPICS` in `guides.ts`; a new guide
+must be added to a topic or it lands in "More guides".
+
 ## Stack
 
 - **Next.js 16** App Router with **`output: "export"`** (`next.config.ts`) → a fully static site
@@ -119,8 +143,8 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
 - **Feedback** is a `mailto:` contact page (`src/app/feedback/page.tsx`), address from
   `NEXT_PUBLIC_CONTACT_EMAIL` (centralized as `CONTACT_EMAIL` in `src/lib/seo.ts`). No form/storage.
 - **Static info pages:** `/about`, `/privacy`, `/terms` (`src/app/{about,privacy,terms}/page.tsx`),
-  linked from the footer's "Company" column and the sitemap. Legal review date = `LEGAL_UPDATED`
-  in `seo.ts`. `/donate` (`src/app/donate/page.tsx`) is a static support page (Ko-fi / Buy Me a
+  linked from the footer's "Company" column and the sitemap. Terms shows `LEGAL_UPDATED` and Privacy shows
+  `PRIVACY_UPDATED` (both in `seo.ts`). `/donate` (`src/app/donate/page.tsx`) is a static support page (Ko-fi / Buy Me a
   Coffee / Patreon links) — keep the donation + advertising sections of `/privacy` and `/terms` in
   sync with whichever platforms and ad networks actually load. `/tools` lists all tools; `/blog`
   lists all guides.
@@ -177,11 +201,5 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
  ## TODO:
 
 - (should we tunnel this aswell for the fix?) its public for now and working but make it private in github?
-
-- fake broken screen needs update it looks shit need fixing (still bad)
-
-- fix the pipe animations (the pipe don't look like the one from window)
-
-- window booting looks fake need to fix the loading circle to make it more realistic (it should disappear from the bottom and repair)
 
 

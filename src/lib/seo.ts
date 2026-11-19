@@ -7,31 +7,36 @@ export const SITE_TAGLINE =
 export const CONTACT_EMAIL =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello+bestscreentester@nelera.net";
 
-// Who runs the site: the guides' byline and Article author, the About page, and the
-// Organization schema's parent. Plain "Nelera" until the LLC is actually formed —
-// don't claim "Nelera LLC" before it exists.
-export const OPERATOR_NAME = "Nelera";
+// Who runs the site: the guides' byline and Article author (a Person in the schema),
+// the About page, and the Organization schema's founder.
+export const OPERATOR_NAME = "Daniel Kim";
+// The name he publishes software under, shown once on the About page. The LLC isn't
+// formed yet — don't write "Nelera LLC" before it exists.
+export const OPERATOR_BRAND = "Nelera";
 
-// Last review date for the legal pages (About / Privacy / Terms).
+// Last review date for the Terms page.
 export const LEGAL_UPDATED = "July 29, 2026";
+// The Privacy Policy carries its own date: it changes whenever the trackers or ad
+// disclosures do, and bumping Terms along with it would misdate a page that didn't change.
+export const PRIVACY_UPDATED = "November 19, 2026";
 
 // Freshness date for the listing pages (/tools, /blog), which change whenever a tool
 // or guide is added. Sitemap `lastmod` is derived from these dates rather than from
 // build time: Bing discounts sitemaps whose lastmod is always "now", and the IndexNow
 // ping submits whatever is dated within the last week, so each must be a stable value
 // that only moves when its own page does. Tools carry their own `updatedAt` (tools.ts).
-export const SITE_UPDATED = "2026-10-01";
+export const SITE_UPDATED = "2026-11-19";
 
 // Last change to each static page's visible content (meta-description-only edits don't
 // count). The homepage is here too: its long-form copy changes independently of the
-// tool and guide lists. Privacy and Terms must match LEGAL_UPDATED, the date those pages
-// display.
+// tool and guide lists. Privacy must match PRIVACY_UPDATED and Terms LEGAL_UPDATED, the
+// dates those pages display.
 export const PAGE_UPDATED = {
-  home: "2026-10-02",
-  about: "2026-10-02",
-  donate: "2026-10-01",
-  feedback: "2026-06-21",
-  privacy: "2026-07-29",
+  home: "2026-11-19",
+  about: "2026-11-19",
+  donate: "2026-11-19",
+  feedback: "2026-11-19",
+  privacy: "2026-11-19",
   terms: "2026-07-29",
 } as const;
 
@@ -62,6 +67,8 @@ interface PageMetaArgs {
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
+  /** Keep the page out of search results while still letting crawlers follow its links. */
+  noindex?: boolean;
 }
 
 // Titles render as "<title> · BestScreenTester" via the layout template. That suffix
@@ -79,6 +86,7 @@ export function pageMetadata({
   type = "website",
   publishedTime,
   modifiedTime,
+  noindex,
 }: PageMetaArgs): Metadata {
   const url = absoluteUrl(path);
   const ogImages = images?.length ? images : [absoluteUrl("/og.png")];
@@ -88,6 +96,7 @@ export function pageMetadata({
     description,
     keywords,
     alternates: { canonical: url },
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: templated,
       description,
@@ -172,10 +181,10 @@ export function webAppJsonLd(args: {
   };
 }
 
-/** The site's operator. Its url is the About page, which says who that is. */
+/** The site's author and operator, a person. Its url is the About page, which says who that is. */
 function operatorJsonLd() {
   return {
-    "@type": "Organization",
+    "@type": "Person",
     "@id": `${absoluteUrl("/")}#operator`,
     name: OPERATOR_NAME,
     url: absoluteUrl("/about"),
@@ -198,7 +207,7 @@ export function siteJsonLd() {
         width: 512,
         height: 512,
       },
-      parentOrganization: operatorJsonLd(),
+      founder: operatorJsonLd(),
     },
     {
       "@context": "https://schema.org",

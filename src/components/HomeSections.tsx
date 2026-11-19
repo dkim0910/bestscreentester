@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TOOLS } from "@/lib/tools";
+import { INDEXED_TOOLS } from "@/lib/tools";
 import { SITE_NAME, OPERATOR_NAME, faqJsonLd } from "@/lib/seo";
 
 // Homepage long-form content. An earlier version mirrored a competitor's homepage
@@ -9,66 +9,45 @@ import { SITE_NAME, OPERATOR_NAME, faqJsonLd } from "@/lib/seo";
 
 type LinkRef = { name: string; href: string };
 
-const SYMPTOMS: { see: string; test: LinkRef; guide: LinkRef }[] = [
+// The written sections directly under the hero: the four questions people arrive
+// with, answered in prose, each with its test and its one deep guide. These replaced
+// a twelve-card grid of bare links. Thresholds come from the linked guides.
+const ANSWERS: { title: string; body: string[]; test: LinkRef; guide: LinkRef }[] = [
   {
-    see: "A dot that stays one color",
+    title: "A dot that won't go away",
+    body: [
+      "Step through solid colors and watch the dot. If it stays dark on every color, white included, it is a dead pixel and it will not come back. If it holds one color, or glows on black, it is stuck, and stuck pixels sometimes recover: the last frame of the Dead Pixel Test flashes colors over the spot for that purpose. Wipe the screen before you decide, because dust looks identical until it moves.",
+      "Whether it is worth a return depends less on the dot than on the calendar. Manufacturers allow a small number of faults per panel, count bright pixels more strictly than dark ones, and often replace a cluster while refusing scattered dots. A full row or column is a connection fault and almost always qualifies. Inside the retailer's return window none of those counts apply to you, which is the reason to test on the first day.",
+    ],
     test: { name: "Dead Pixel Test", href: "/dead-pixel-test" },
-    guide: { name: "Dead, stuck or hot?", href: "/blog/dead-vs-stuck-vs-hot-pixels" },
+    guide: { name: "Dead pixel warranty policies", href: "/blog/dead-pixel-warranty-policies" },
   },
   {
-    see: "Glow along the edges in a dark room",
+    title: "Glow on a black screen",
+    body: [
+      "Nearly every LCD shows some light on black, because it makes black by blocking a backlight that never switches off. Put up a black screen in a dark room and lean about a foot to each side. A glow that shifts and fades as you move is IPS glow: a trait of the panel type, not a defect, and almost never covered by warranty. Streaks or patches along an edge that stay exactly where they are is backlight bleed.",
+      "A workable rule: if you can't see it while watching a film with the lights on, ignore it. A bright streak that shows during normal use, in dark game scenes or the bars around a film, is worth acting on. Judge it with your eyes at the brightness you actually use. Phone cameras take long exposures in the dark and make a faint haze look alarming. An OLED should show neither.",
+    ],
     test: { name: "Backlight Bleed Test", href: "/backlight-bleed-test" },
-    guide: { name: "Bleed or IPS glow?", href: "/blog/backlight-bleed-vs-ips-glow" },
+    guide: { name: "Backlight bleed and IPS glow", href: "/blog/what-is-backlight-bleed" },
   },
   {
-    see: "Patchy or uneven brightness",
-    test: { name: "Brightness Uniformity Test", href: "/brightness-uniformity-test" },
-    guide: { name: "Checking a TV for defects", href: "/blog/how-to-test-a-tv-for-defects" },
-  },
-  {
-    see: "A faint ghost of an old image on an OLED",
+    title: "A ghost image on an OLED",
+    body: [
+      "A faint outline of a taskbar, a channel logo or a game's HUD on a grey screen is one of two things, and time tells them apart. Play varied full-screen video for an hour or two, then look at the same grey field again. Image retention will have faded or gone. Burn-in will be exactly where you left it, because the pixels there are worn rather than stuck.",
+      "Look for a shape you recognize. Random blotches with no clear edge are more likely ordinary panel non-uniformity. Burn-in can't be removed, only slowed: lower the brightness, hide static elements, and let the panel run its compensation cycle. Some manufacturers now cover it under warranty for a limited period, so read that clause before assuming either way.",
+    ],
     test: { name: "Burn-in Test", href: "/burn-in-test" },
-    guide: { name: "OLED burn-in", href: "/blog/oled-burn-in-and-how-to-check-for-it" },
+    guide: { name: "OLED burn-in: how to check", href: "/blog/oled-burn-in-and-how-to-check-for-it" },
   },
   {
-    see: "A 144 Hz monitor that feels like 60",
+    title: "A fast monitor that doesn't feel fast",
+    body: [
+      "Measure it before you blame the panel. A 144 Hz monitor reading 60 Hz is almost never faulty: the higher rate hasn't been selected in the display settings, the cable or port can't carry it at that resolution, or a power-saving mode has lowered it. A reading within about 1 Hz of the rating is normal, since many displays run a fraction off their nominal rate.",
+      "If the number is right and motion still looks wrong, look at the trail behind a moving object. A smeared trail is ghosting from slow pixel response; a bright fringe is overshoot from overdrive set too high, and one notch down usually cures it. A soft, even blur with no afterimage is not a fault. Every display that holds each frame still produces it.",
+    ],
     test: { name: "Refresh Rate Test", href: "/refresh-rate-test" },
-    guide: { name: "Enable full refresh rate", href: "/blog/how-to-enable-full-refresh-rate-windows-mac" },
-  },
-  {
-    see: "Smears trailing behind moving objects",
-    test: { name: "Ghosting Test", href: "/ghosting-test" },
-    guide: { name: "Fixing ghosting", href: "/blog/what-is-ghosting-and-how-to-fix-it" },
-  },
-  {
-    see: "The picture splitting sideways in games",
-    test: { name: "Screen Tearing Test", href: "/screen-tearing-test" },
-    guide: { name: "V-Sync, G-Sync, FreeSync", href: "/blog/screen-tearing-vsync-gsync-freesync" },
-  },
-  {
-    see: "Tired eyes when the brightness is low",
-    test: { name: "PWM Flicker Test", href: "/pwm-flicker-test" },
-    guide: { name: "PWM flicker", href: "/blog/what-is-pwm-flicker" },
-  },
-  {
-    see: "Halos around bright objects on black",
-    test: { name: "Blooming Test", href: "/blooming-test" },
-    guide: { name: "Mini-LED vs OLED", href: "/blog/mini-led-vs-oled" },
-  },
-  {
-    see: "Grey, washed-out blacks",
-    test: { name: "Black Level Test", href: "/black-level-test" },
-    guide: { name: "Full vs limited RGB", href: "/blog/full-vs-limited-rgb-range" },
-  },
-  {
-    see: "Thin lines running across the screen",
-    test: { name: "Color Test", href: "/color-test" },
-    guide: { name: "Lines on the screen", href: "/blog/why-are-there-lines-on-my-screen" },
-  },
-  {
-    see: "Stripes where a gradient should be smooth",
-    test: { name: "Greyscale & Banding Test", href: "/greyscale-test" },
-    guide: { name: "Color banding", href: "/blog/what-is-color-banding-and-how-to-reduce-it" },
+    guide: { name: "Enable your full refresh rate", href: "/blog/how-to-enable-full-refresh-rate-windows-mac" },
   },
 ];
 
@@ -105,7 +84,7 @@ const VERDICTS: { see: string; usually: string; next: string; guide?: LinkRef }[
     see: "A glow that moves when you move your head",
     usually: "IPS glow, a trait of the panel type",
     next: "Not a defect. Sitting further back or adding a little room light reduces it.",
-    guide: { name: "IPS glow", href: "/blog/what-is-ips-glow" },
+    guide: { name: "Bleed or IPS glow?", href: "/blog/what-is-backlight-bleed" },
   },
   {
     see: "Corners a little darker than the center",
@@ -167,12 +146,18 @@ const NEWER_SCREENS: (LinkRef & { body: string })[] = [
   },
 ];
 
-// Each card is named after its guide and describes what that guide actually covers.
-const DEVICE_GUIDES: (LinkRef & { body: string })[] = [
+// Six guides to start with. Each card is named after its guide and describes what
+// that guide actually covers.
+const FEATURED_GUIDES: (LinkRef & { body: string })[] = [
   {
-    name: "Any new screen: the 10-minute checklist",
-    href: "/blog/new-device-screen-test-checklist",
-    body: "Seven checks in order, from dead pixels and dark-screen defects through motion and viewing angle, and what counts as a defect.",
+    name: "Backlight bleed or IPS glow?",
+    href: "/blog/what-is-backlight-bleed",
+    body: "A one-second test that separates the two, a side-by-side table, and the things that are neither: clouding, blooming and a raised black level.",
+  },
+  {
+    name: "OLED burn-in",
+    href: "/blog/oled-burn-in-and-how-to-check-for-it",
+    body: "What wears an OLED, how to check for it on grey, how to tell it from retention that fades, and which habits slow it down.",
   },
   {
     name: "Laptops",
@@ -193,11 +178,6 @@ const DEVICE_GUIDES: (LinkRef & { body: string })[] = [
     name: "Monitors, in the store and at home",
     href: "/blog/how-to-test-a-monitor-before-buying",
     body: "What you can check before paying, what to run on day one, and the red flags worth a return, the cable included.",
-  },
-  {
-    name: "Which panel type?",
-    href: "/blog/ips-vs-va-vs-tn-vs-oled",
-    body: "TN, IPS, VA and OLED compared on color, contrast, speed and viewing angle, with a pick for gaming, work and movies.",
   },
 ];
 
@@ -264,38 +244,50 @@ function SectionHeading({ title, subtitle }: { title: string; subtitle?: string 
   );
 }
 
+/** Written answers shown directly under the hero, before the tool grid. */
+export function HomeAnswers() {
+  return (
+    <section className="border-b border-border">
+      <div className="mx-auto max-w-4xl px-4 py-14">
+        <h2 className="text-2xl font-bold sm:text-3xl">Is it a defect, or is it normal?</h2>
+        <p className="mt-2 text-foreground/60">
+          Most screens have small quirks. These are the four questions people bring here most
+          often, and how to answer each one with a test.
+        </p>
+        <div className="mt-8 space-y-10">
+          {ANSWERS.map((a) => (
+            <article key={a.title}>
+              <h3 className="text-xl font-semibold">{a.title}</h3>
+              {a.body.map((p, i) => (
+                <p key={i} className="mt-3 leading-relaxed text-foreground/80">
+                  {p}
+                </p>
+              ))}
+              <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                <Link href={a.test.href} className="font-medium text-accent hover:underline">
+                  Run the {a.test.name} →
+                </Link>
+                <Link href={a.guide.href} className="text-foreground/60 hover:text-foreground hover:underline">
+                  Guide: {a.guide.name}
+                </Link>
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomeSections() {
   return (
     <div className="border-t border-border bg-gradient-to-b from-white/[0.02] to-transparent">
       <div className="mx-auto max-w-6xl space-y-20 px-4 py-20">
-        {/* Symptom → test → guide */}
-        <section>
-          <SectionHeading
-            title="What's wrong with my screen?"
-            subtitle="Find what you're seeing, run the matching screen test, then read what the result means."
-          />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {SYMPTOMS.map((s) => (
-              <div key={s.see} className="rounded-xl border border-border bg-card p-5">
-                <h3 className="font-semibold">{s.see}</h3>
-                <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                  <Link href={s.test.href} className="text-accent hover:underline">
-                    Run the {s.test.name} →
-                  </Link>
-                  <Link href={s.guide.href} className="text-foreground/60 hover:text-foreground hover:underline">
-                    Guide: {s.guide.name}
-                  </Link>
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Normal vs return-worthy */}
         <section>
           <SectionHeading
-            title="Normal, or worth returning?"
-            subtitle="Most panels have small quirks. Here's how to tell them apart from real defects."
+            title="Quick reference: normal, or worth returning?"
+            subtitle="The same verdicts at a glance, for the faults people ask about most."
           />
           <div className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
             <div className="hidden gap-4 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-foreground/50 md:grid md:grid-cols-[1.2fr_1fr_1.5fr]">
@@ -343,14 +335,14 @@ export default function HomeSections() {
           </div>
         </section>
 
-        {/* Device guides */}
+        {/* Featured guides */}
         <section>
           <SectionHeading
-            title="Testing a specific device?"
-            subtitle="Step-by-step walkthroughs for laptops, phones, TVs and monitors."
+            title="Guides to read first"
+            subtitle="What a result means, and walkthroughs for laptops, phones, TVs and monitors."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {DEVICE_GUIDES.map((g) => (
+            {FEATURED_GUIDES.map((g) => (
               <Link
                 key={g.name}
                 href={g.href}
@@ -397,8 +389,8 @@ export default function HomeSections() {
         <section className="rounded-2xl border border-border bg-card p-8 text-center sm:p-10">
           <h2 className="text-2xl font-bold sm:text-3xl">Who makes {SITE_NAME}</h2>
           <p className="mx-auto mt-3 max-w-2xl text-foreground/70">
-            {SITE_NAME} is built and maintained by {OPERATOR_NAME}, currently a one-person
-            operation. Every guide shows when it was last updated, and many link the standards and
+            {SITE_NAME} is built and maintained by {OPERATOR_NAME}, an independent developer
+            working alone. Every guide shows when it was last updated, and many link the standards and
             manufacturer documents they draw on.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -406,7 +398,7 @@ export default function HomeSections() {
               href="/tools"
               className="rounded-full bg-accent px-6 py-3 font-semibold text-black hover:opacity-90"
             >
-              Browse all {TOOLS.length} tests
+              Browse all {INDEXED_TOOLS.length} tests
             </Link>
             <Link
               href="/about"

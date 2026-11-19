@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { pageMetadata, SITE_NAME, CONTACT_EMAIL, OPERATOR_NAME } from "@/lib/seo";
+import { pageMetadata, SITE_NAME, CONTACT_EMAIL, OPERATOR_NAME, OPERATOR_BRAND } from "@/lib/seo";
+import { DEVICES } from "@/lib/devices";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: `What ${SITE_NAME} is, how the browser-based screen tests work, why every one of them is free, and who builds and maintains the tools behind them.`,
+  description: `Who builds ${SITE_NAME}, the monitors, laptops and phones every screen test is checked on, how the guides are written, and how to get in touch.`,
   path: "/about",
 });
+
+const TEST_DEVICES = Object.values(DEVICES);
 
 export default function AboutPage() {
   return (
@@ -37,21 +40,49 @@ export default function AboutPage() {
         <h2>Our guides</h2>
         <p>
           Alongside the tools we publish{" "}
-          <Link href="/blog">practical guides</Link> on fixing stuck pixels, understanding backlight
-          bleed, calibrating color, choosing a panel, and more — so you can act on what a test shows
-          you.
+          <Link href="/blog">guides</Link> that explain what a result means: how to tell a dead
+          pixel from a stuck one, backlight bleed from IPS glow, and image retention from burn-in,
+          and when a fault is worth a return.
         </p>
 
         <h2>Who makes {SITE_NAME}</h2>
         <p>
-          {SITE_NAME} is built and maintained by {OPERATOR_NAME}, an independent developer —
-          currently a one-person operation. {OPERATOR_NAME} builds the tools and writes the
-          guides on this site.
+          {SITE_NAME} is built and maintained by {OPERATOR_NAME}, an independent developer who
+          publishes software as {OPERATOR_BRAND}. It is a one-person operation: Daniel builds the
+          tools and writes the guides on this site.
+        </p>
+
+        <h2>The screens the tests are checked on</h2>
+        <p>
+          These are the screens Daniel owns and checks the tests on. Between them they cover IPS,
+          Mini-LED and OLED panels, from a phone up to a 32-inch monitor:
+        </p>
+        <ul>
+          {TEST_DEVICES.map((d) => (
+            <li key={d.name}>
+              <strong>{d.name}</strong> — {d.panel}
+            </li>
+          ))}
+        </ul>
+        <p>
+          As of November 2026 none of these six screens has a dead or stuck pixel, checked with
+          the <Link href="/dead-pixel-test">Dead Pixel Test</Link> on this site.
         </p>
         <p>
-          If you spot a mistake, tell us: we correct the page and update its date. Many guides
-          also link the standards and manufacturer documents they draw on, so you can check the
-          source yourself.
+          That list has limits, and they are worth knowing. There is no television on it, and no
+          VA or TN panel. What the guides say about those comes from manufacturer documentation
+          and published standards, not from hardware on Daniel&apos;s desk.
+        </p>
+
+        <h2>How the guides are written and corrected</h2>
+        <p>
+          AI tools are used to help draft and edit the guides and the text on this site. Daniel
+          decides what is published and is responsible for it. Many guides link the standards and
+          manufacturer documents they draw on, so you can check the source yourself.
+        </p>
+        <p>
+          If you spot a mistake, tell us: we correct the page and update its date. A guide&apos;s
+          date changes only when its content does.
         </p>
 
         <h2>A note on accuracy</h2>

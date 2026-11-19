@@ -16,6 +16,9 @@ export interface ToolDef {
   description: string; // meta description (<=160 chars ideally)
   category: ToolCategory;
   icon: string; // emoji used in cards/nav
+  // Novelty pages (pranks, screensaver): served with a robots noindex, left out of the
+  // sitemap and the homepage, and listed on /tools under "Just for fun" only.
+  noindex?: boolean;
   // ISO YYYY-MM-DD: the last time this tool's own content changed — its copy here, its
   // TOOL_TIPS, or its test component. Drives the sitemap lastmod (and so the IndexNow
   // ping), so move it only when the tool changes; shared template edits don't count.
@@ -32,6 +35,13 @@ export const CATEGORY_LABELS: Record<ToolCategory, string> = {
   fun: "Fun & Utilities",
 };
 
+// Headings for the tool listings (homepage, /tools). There the novelty tools are split
+// out of "fun" into their own "Just for fun" block, which leaves only utilities behind.
+export const LISTING_LABELS: Record<ToolCategory, string> = {
+  ...CATEGORY_LABELS,
+  fun: "Utilities",
+};
+
 export const TOOLS: ToolDef[] = [
   {
     slug: "dead-pixel-test",
@@ -42,7 +52,7 @@ export const TOOLS: ToolDef[] = [
       "Free online dead pixel test. Cycle full-screen solid colors to spot dead, stuck, and bright sub-pixels on any monitor, laptop, phone, or TV.",
     category: "panel",
     icon: "🔬",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["dead pixel test", "stuck pixel", "bright pixel", "pixel checker", "monitor test"],
     howTo: [
       "Set your display brightness to maximum and clean the screen.",
@@ -70,12 +80,12 @@ export const TOOLS: ToolDef[] = [
     slug: "color-test",
     name: "Color Test",
     title: "Screen Color Test",
-    tagline: "Display pure black, white, red, green, blue and more, full-screen.",
+    tagline: "Nine full-screen solid colors for finding stuck sub-pixels, tint and uneven patches.",
     description:
       "Free full-screen color test. Show pure black, white, red, green, blue, cyan, magenta, yellow and gray to check uniformity and find pixel defects.",
     category: "color",
     icon: "🎨",
-    updatedAt: "2026-06-21",
+    updatedAt: "2026-11-19",
     keywords: ["color test", "solid color screen", "rgb test", "full screen color"],
     howTo: [
       "Click Start to go full-screen.",
@@ -89,8 +99,8 @@ export const TOOLS: ToolDef[] = [
         a: "Solid red, green, and blue isolate each sub-pixel so defective sub-pixels and color uniformity issues become obvious.",
       },
       {
-        q: "Is there a dedicated black and white screen?",
-        a: "Yes — open the Black Screen or White Screen tool for a single, distraction-free color you can use for cleaning or backlight checks.",
+        q: "Why does a dot show on some colors but not others?",
+        a: "Because each color lights a different set of sub-pixels. A red sub-pixel stuck on is invisible on red, white and yellow, and obvious on black, green and blue. Note which colors it appears on: that is how you tell a dead pixel from a stuck one.",
       },
     ],
   },
@@ -98,12 +108,12 @@ export const TOOLS: ToolDef[] = [
     slug: "black-screen",
     name: "Black Screen",
     title: "Black Screen",
-    tagline: "A pure black full-screen for backlight, dust, and OLED checks.",
+    tagline: "A pure black full-screen for checking backlight bleed, IPS glow and OLED blacks.",
     description:
-      "Free pure black screen, full-screen. Check backlight bleed, find dust before cleaning, test OLED blacks, or dim your display.",
+      "Free pure black screen, full-screen. Check for backlight bleed and IPS glow on an LCD, confirm true blacks on an OLED, and spot stuck bright pixels.",
     category: "color",
     icon: "⬛",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["black screen", "pure black", "black screen full screen", "oled black"],
     howTo: [
       "Click Start for a full-screen pure black field.",
@@ -113,15 +123,15 @@ export const TOOLS: ToolDef[] = [
     faq: [
       {
         q: "What is a black screen used for?",
-        a: "Checking backlight bleed and IPS glow, spotting dust before cleaning, testing true blacks on OLED panels, and as a simple low-glare background.",
+        a: "Checking an LCD for backlight bleed and IPS glow, confirming that an OLED shows true black, and finding pixels stuck on, which only show against black.",
       },
       {
         q: "Why do the edges glow on a black screen?",
         a: "On an LCD, that's backlight bleed or IPS glow: light from the backlight leaking at the edges, or showing through as a haze when you look at an angle. A little is normal on almost every LCD. An OLED should stay fully black, because its pixels switch off.",
       },
       {
-        q: "Does a black screen save power?",
-        a: "On OLED, yes: black pixels are switched off and draw almost nothing. On an LCD the backlight stays on behind the black image, so the saving is small. Lowering brightness, or turning the display off, saves far more.",
+        q: "Should an LCD look completely black?",
+        a: "No. An LCD makes black by blocking a backlight that stays on, so some light always gets through and the screen looks very dark grey in a dark room. What matters is that the grey is even. An evenly raised black level is a contrast or RGB-range setting, not leakage.",
       },
     ],
   },
@@ -129,13 +139,13 @@ export const TOOLS: ToolDef[] = [
     slug: "white-screen",
     name: "White Screen",
     title: "White Screen",
-    tagline: "A pure white full-screen for cleaning, lighting, and uniformity.",
+    tagline: "A pure white full-screen for finding dark dead pixels, dust and uneven brightness.",
     description:
-      "Free pure white screen, full-screen. Spot dark dead pixels and dust, check brightness uniformity, or use as a softbox light.",
+      "Free pure white screen, full-screen. Spot dark dead pixels and trapped dust, check brightness uniformity, and look for tinted patches.",
     category: "color",
     icon: "⬜",
-    updatedAt: "2026-10-01",
-    keywords: ["white screen", "pure white", "white screen full screen", "screen light"],
+    updatedAt: "2026-11-19",
+    keywords: ["white screen", "pure white", "white screen full screen", "white screen test"],
     howTo: [
       "Click Start for a full-screen pure white field.",
       "Look for dark dots (dead pixels) and smudges or dust.",
@@ -144,10 +154,10 @@ export const TOOLS: ToolDef[] = [
     faq: [
       {
         q: "What is a white screen used for?",
-        a: "Finding dark dead pixels and dust, checking brightness uniformity, lighting your face on video calls, and cleaning your display.",
+        a: "Finding dark dead pixels and dust, checking that brightness is even from the center to the corners, and spotting patches of a different tint.",
       },
       {
-        q: "Will the screen stay on while I use it as a light?",
+        q: "Will the screen stay on while I inspect it?",
         a: "Yes, in browsers that support the Screen Wake Lock API, which includes current Chrome, Edge, Safari and Firefox. The page asks your device to keep the display awake until you exit. Where the browser doesn't support it, your normal sleep timer applies.",
       },
       {
@@ -165,10 +175,10 @@ export const TOOLS: ToolDef[] = [
       "Free backlight bleed test. Display pure black to reveal LCD light leakage and IPS glow around the edges and corners of your screen.",
     category: "panel",
     icon: "💡",
-    updatedAt: "2026-06-21",
+    updatedAt: "2026-11-19",
     keywords: ["backlight bleed test", "ips glow", "light leakage", "lcd bleed"],
     howTo: [
-      "Turn off room lights and set brightness to maximum.",
+      "Turn off the room lights. Start at maximum brightness to find any bleed, then judge it again at the brightness you normally use.",
       "Click Start for a full-screen black field.",
       "Inspect the edges and corners for cloudy or glowing patches.",
       "Press Esc to exit.",
@@ -193,7 +203,7 @@ export const TOOLS: ToolDef[] = [
       "Free greyscale and banding test. View a smooth black-to-white gradient and a 32-step ramp to detect banding, posterization, and tinted greys.",
     category: "color",
     icon: "🌫️",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["greyscale test", "gradient test", "color banding", "gamma test"],
     howTo: [
       "Click Start to view the gradient full-screen.",
@@ -225,7 +235,7 @@ export const TOOLS: ToolDef[] = [
       "Free color gradient test. View smooth red, green, blue and full-spectrum gradients to check color transitions, banding, and posterization.",
     category: "color",
     icon: "🌈",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["color gradient test", "color banding test", "rgb gradient", "spectrum gradient", "color transition"],
     howTo: [
       "Click Start to view the gradient full-screen.",
@@ -258,7 +268,7 @@ export const TOOLS: ToolDef[] = [
       "Free brightness uniformity test: a 50% gray field, a 9-zone grid and a panning gray to reveal uneven backlighting, clouding and the dirty screen effect.",
     category: "panel",
     icon: "🔲",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["brightness uniformity", "screen clouding", "uniformity test", "gray screen"],
     howTo: [
       "Click Start and view the gray field full-screen.",
@@ -287,7 +297,7 @@ export const TOOLS: ToolDef[] = [
       "Free refresh rate test. Measure your display's actual refresh rate in Hz using the browser and watch a moving object to confirm smoothness.",
     category: "motion",
     icon: "⏱️",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["refresh rate test", "hz test", "fps test", "144hz test", "monitor hz"],
     howTo: [
       "Click Start — the measured refresh rate appears within a second or two.",
@@ -319,7 +329,7 @@ export const TOOLS: ToolDef[] = [
       "Free ghosting and response time test. Watch moving boxes at adjustable speeds to reveal motion blur, ghosting trails, and overshoot.",
     category: "motion",
     icon: "👻",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["ghosting test", "response time test", "motion blur", "overdrive test", "ufo test"],
     howTo: [
       "Click Start and watch the boxes move across the screen.",
@@ -351,7 +361,7 @@ export const TOOLS: ToolDef[] = [
       "Free blooming test for Mini-LED and local-dimming displays. Move a bright object on a black field to reveal halo and blooming around highlights.",
     category: "panel",
     icon: "🌟",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["blooming test", "mini-led test", "local dimming", "halo test", "fald"],
     howTo: [
       "Dim the room and click Start.",
@@ -384,6 +394,7 @@ export const TOOLS: ToolDef[] = [
     description:
       "Free fake broken screen prank. Show a realistic cracked screen, TV static, no-signal bars, a Windows blue screen or Mac kernel panic — tap to reveal it's fake.",
     category: "fun",
+    noindex: true,
     icon: "💥",
     updatedAt: "2026-10-01",
     keywords: [
@@ -428,6 +439,7 @@ export const TOOLS: ToolDef[] = [
     description:
       "Free online screensaver. Run matrix rain, a warp starfield, falling snow, 3D pipes, a big clock, or the classic bouncing DVD logo full-screen. No install.",
     category: "fun",
+    noindex: true,
     icon: "✨",
     updatedAt: "2026-10-01",
     keywords: [
@@ -467,6 +479,7 @@ export const TOOLS: ToolDef[] = [
     description:
       "Free boot screen simulator. Show a realistic Windows 10, Windows XP, or macOS startup screen full-screen — great for pranks, mock-ups, and videos.",
     category: "fun",
+    noindex: true,
     icon: "🔌",
     updatedAt: "2026-10-01",
     keywords: [
@@ -501,7 +514,7 @@ export const TOOLS: ToolDef[] = [
       "Free OLED/AMOLED burn-in test. Cycle solid white, grey, RGB and a checkerboard full-screen to reveal retained images, ghosting, and uneven pixel aging.",
     category: "panel",
     icon: "🔥",
-    updatedAt: "2026-06-21",
+    updatedAt: "2026-11-19",
     keywords: ["burn-in test", "oled burn in", "image retention", "amoled", "ghost image"],
     howTo: [
       "Set brightness high and click Start.",
@@ -530,7 +543,7 @@ export const TOOLS: ToolDef[] = [
       "Free contrast test. View black-and-white checkerboards at increasing density to evaluate contrast, black/white level separation, and panel sharpness.",
     category: "panel",
     icon: "◧",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["contrast test", "checkerboard", "black white level", "contrast ratio"],
     howTo: [
       "Click Start and view the checkerboard full-screen.",
@@ -562,7 +575,7 @@ export const TOOLS: ToolDef[] = [
       "Free black level test. Compare near-black grey steps to judge shadow detail, black depth, and IPS glow — see which dark levels your screen still shows.",
     category: "panel",
     icon: "▰",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["black level test", "shadow detail", "near black", "black depth", "ips glow"],
     howTo: [
       "Dim the room and set brightness to your normal level, then click Start.",
@@ -594,7 +607,7 @@ export const TOOLS: ToolDef[] = [
       "Free viewing angle test. Show grey steps and color bars, then move your head to see how much brightness and color shift off-axis on TN and VA panels.",
     category: "panel",
     icon: "◑",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["viewing angle test", "color shift", "off axis", "tn va ips angle"],
     howTo: [
       "Click Start and sit centered first to set a reference.",
@@ -626,7 +639,7 @@ export const TOOLS: ToolDef[] = [
       "Free gamma test. A 1-pixel stripe pattern (≈50% grey) sits beside reference patches for gamma 1.8–2.4. The patch that blends in reveals your display's gamma.",
     category: "color",
     icon: "◐",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["gamma test", "gamma 2.2", "gamma calibration", "grayscale gamma"],
     howTo: [
       "Click Start and step back a little (the stripes should blur into solid grey).",
@@ -658,7 +671,7 @@ export const TOOLS: ToolDef[] = [
       "Free screen tearing test. Fast-scrolling bars reveal horizontal tears when frame rate and refresh rate aren't synced — check V-Sync, G-Sync and FreeSync.",
     category: "motion",
     icon: "⇿",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["screen tearing test", "vsync", "g-sync", "freesync", "vrr test"],
     howTo: [
       "Click Start and watch the moving bars.",
@@ -691,7 +704,7 @@ export const TOOLS: ToolDef[] = [
       "Free touch screen test for phones, tablets and touch laptops. Fill a grid or draw freely to find dead zones, ghost touches and multi-touch limits.",
     category: "panel",
     icon: "👆",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["touch screen test", "touchscreen test", "dead zone test", "multi touch test", "digitizer test", "phone touch test"],
     howTo: [
       "Click Start and hold the device the way you normally would.",
@@ -724,7 +737,7 @@ export const TOOLS: ToolDef[] = [
       "What's my screen resolution? See your display's resolution, scaling, aspect ratio, refresh rate, color gamut and HDR support, read live in your browser.",
     category: "fun",
     icon: "ℹ️",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["what is my screen resolution", "screen resolution checker", "display info", "my screen size", "device pixel ratio", "screen resolution test"],
     howTo: [
       "Open the page — every value is read live from your browser, with nothing to start.",
@@ -756,7 +769,7 @@ export const TOOLS: ToolDef[] = [
       "Free overscan and aspect ratio test for TVs and projectors. Check for cropped edges, stretched pictures and geometry distortion with full-screen patterns.",
     category: "panel",
     icon: "📐",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["overscan test", "aspect ratio test", "tv overscan", "projector test pattern", "geometry test", "screen fit test"],
     howTo: [
       "Open the page on the device connected to the TV or projector, then click Start.",
@@ -785,7 +798,7 @@ export const TOOLS: ToolDef[] = [
       "Free sharpness and text clarity test. Pixel-perfect lines and small text reveal blur from non-native resolution, display scaling and TV oversharpening.",
     category: "panel",
     icon: "🔎",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["sharpness test", "text clarity test", "monitor sharpness", "native resolution test", "chroma subsampling test", "pixel perfect test"],
     howTo: [
       "Click Start and view each pattern full-screen at your normal distance.",
@@ -814,7 +827,7 @@ export const TOOLS: ToolDef[] = [
       "Free frame skipping test. One cell lights per refresh, so a photo with a slow shutter shows an unbroken run — or gaps where your monitor drops frames.",
     category: "motion",
     icon: "🎞️",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["frame skipping test", "monitor overclock test", "dropped frames test", "refresh rate overclock", "frame skip"],
     howTo: [
       "Close other apps and tabs, then click Start.",
@@ -843,7 +856,7 @@ export const TOOLS: ToolDef[] = [
       "Free wide color gamut test. Check whether your screen and browser can show Display P3 colors beyond sRGB, with hidden logos only wide-gamut displays reveal.",
     category: "color",
     icon: "△",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["wide color gamut test", "p3 test", "display p3 test", "dci-p3 test", "color gamut test", "srgb vs p3"],
     howTo: [
       "Click Start and look at each color full-screen.",
@@ -871,7 +884,7 @@ export const TOOLS: ToolDef[] = [
       "Free PWM flicker test. Bright fields for the pencil and camera tests, plus a fast-moving line that turns into a row of copies on a PWM-dimmed screen.",
     category: "panel",
     icon: "〰️",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["pwm test", "pwm flicker test", "screen flicker test", "pwm dimming test", "flicker free test"],
     howTo: [
       "Set the screen to the brightness you normally use — PWM usually appears at low brightness.",
@@ -900,7 +913,7 @@ export const TOOLS: ToolDef[] = [
       "Free HDR test. Check whether your screen and browser display HDR with a real HDR image of brightness steps from 100 to 1,600 nits, plus capability checks.",
     category: "color",
     icon: "☀️",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-19",
     keywords: ["hdr test", "is my screen hdr", "hdr brightness test", "hdr monitor test", "peak brightness test", "hdr check"],
     howTo: [
       "Turn HDR on first — on Windows, Settings > System > Display > Use HDR.",
@@ -936,19 +949,22 @@ export const TOOL_TIPS: Record<string, string[]> = {
   ],
   "color-test": [
     "Solid red, green, and blue are best for spotting a defective sub-pixel.",
+    "Write down which colors a dot shows on. That list is what tells a dead pixel from a stuck one, and it is what a warranty claim asks for.",
     "A faint overall tint on the white field usually means your color temperature / white balance is off.",
   ],
   "black-screen": [
-    "Turn the lights off and crank brightness to maximum — bleed is invisible in a bright room.",
-    "Let your eyes adjust for 30 seconds before judging the corners.",
+    "Turn the lights off: bleed is invisible in a bright room. Maximum brightness helps you find it; your normal brightness tells you whether it matters.",
+    "Give your eyes two or three minutes to adjust before judging the corners. Glow looks worst in the first thirty seconds.",
+    "Lean about a foot to each side: a glow that moves with you is IPS glow, one that stays put is bleed.",
   ],
   "white-screen": [
-    "Great as a cheap softbox light for video calls in a dark room.",
+    "Wipe the screen first, then look again: anything that moved was on the surface.",
     "Dark specks that don't wipe off are usually dust between layers or dead pixels, not dirt.",
   ],
   "backlight-bleed-test": [
     "Photograph the black screen with your phone to compare panels objectively.",
     "Some bleed and IPS glow is normal — only uneven, distracting clouding is a defect worth returning a panel over.",
+    "Look again with the room lit as usual and at your normal brightness. That is the condition you will live with.",
   ],
   "greyscale-test": [
     "Step back from the screen — banding is far easier to see at a distance.",
@@ -965,10 +981,12 @@ export const TOOL_TIPS: Record<string, string[]> = {
   "refresh-rate-test": [
     "Close other tabs and apps; background load can drag the measured rate below your panel's rating.",
     "If you bought a high-refresh monitor, make sure the rate is actually selected in your OS display settings.",
+    "On a laptop or phone, test plugged in or with battery saver off: power saving can lower the refresh rate.",
   ],
   "ghosting-test": [
     "Track a moving box with your eyes, then try staring at a fixed point — each reveals different artifacts.",
     "If you see a bright fringe instead of a smeared trail, your overdrive is too high (overshoot) — turn it down a notch.",
+    "Re-check the overdrive setting whenever you change refresh rate: a level that looks clean at 144Hz can overshoot at 60Hz.",
   ],
   "blooming-test": [
     "Run it in a dark room; blooming around the bright dot is hard to see with the lights on.",
@@ -985,6 +1003,8 @@ export const TOOL_TIPS: Record<string, string[]> = {
   "burn-in-test": [
     "The 50% grey field reveals retained logos and HUD bars best — look there first.",
     "Run the checkerboard for a while to help clear short-term image retention (real burn-in won't budge).",
+    "Found an outline? Play varied full-screen video for an hour or two and check again before calling it burn-in.",
+    "Photograph the grey field and note the date, so you have a reference to compare against later.",
   ],
   "contrast-test": [
     "Black squares should stay inky black; a grey wash means low contrast or raised black level.",
@@ -1056,13 +1076,17 @@ export function getTool(slug: string): ToolDef | undefined {
   return TOOL_MAP[slug];
 }
 
-export function toolsByCategory(): Record<ToolCategory, ToolDef[]> {
+/** The tools search engines may index: everything except the novelty pages. */
+export const INDEXED_TOOLS: ToolDef[] = TOOLS.filter((t) => !t.noindex);
+export const NOVELTY_TOOLS: ToolDef[] = TOOLS.filter((t) => t.noindex);
+
+export function toolsByCategory(tools: ToolDef[] = TOOLS): Record<ToolCategory, ToolDef[]> {
   const out: Record<ToolCategory, ToolDef[]> = {
     panel: [],
     color: [],
     motion: [],
     fun: [],
   };
-  for (const t of TOOLS) out[t.category].push(t);
+  for (const t of tools) out[t.category].push(t);
   return out;
 }

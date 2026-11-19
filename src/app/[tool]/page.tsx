@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getTool, getTips, TOOLS, CATEGORY_LABELS } from "@/lib/tools";
+import { getTool, getTips, TOOLS, LISTING_LABELS } from "@/lib/tools";
 import { pageMetadata, faqJsonLd, howToJsonLd, breadcrumbJsonLd, webAppJsonLd } from "@/lib/seo";
-import { getGuidesForTool } from "@/lib/guides";
+import { getGuidesForTool, getGuide } from "@/lib/guides";
+import { getResults } from "@/lib/toolResults";
 import ToolRunner from "@/components/tools/ToolRunner";
 import ToolCard from "@/components/ToolCard";
 
@@ -27,6 +28,7 @@ export async function generateMetadata({
     path: `/${tool.slug}`,
     keywords: tool.keywords,
     images: [`/og/tools/${tool.slug}.png`],
+    noindex: tool.noindex,
   });
 }
 
@@ -39,12 +41,19 @@ export default async function ToolPage({
   const tool = getTool(slug);
   if (!tool) notFound();
 
-  const related = TOOLS.filter((t) => t.category === tool.category && t.slug !== tool.slug).slice(
-    0,
-    4,
-  );
+  // Novelty pages only cross-link each other; indexed pages don't point at them.
+  const related = TOOLS.filter(
+    (t) =>
+      t.category === tool.category &&
+      t.slug !== tool.slug &&
+      Boolean(t.noindex) === Boolean(tool.noindex),
+  ).slice(0, 4);
 
-  const guides = getGuidesForTool(tool.slug);
+  const results = getResults(tool.slug);
+  const deepGuide = results?.guide ? getGuide(results.guide.slug) : undefined;
+  // A test with its own deep guide links that one guide from the results section
+  // instead of the generic four-card grid.
+  const guides = deepGuide ? [] : getGuidesForTool(tool.slug);
   const tips = getTips(tool.slug);
 
   return (
@@ -99,7 +108,7 @@ export default async function ToolPage({
 
       <header className="mb-6">
         <div className="mb-1 text-xs font-medium uppercase tracking-wide text-accent">
-          {CATEGORY_LABELS[tool.category]}
+          {tool.noindex ? "Just for fun" : LISTING_LABELS[tool.category]}
         </div>
         <h1 className="text-3xl font-bold sm:text-4xl">{tool.title}</h1>
         <p className="mt-2 text-lg text-foreground/70">{tool.tagline}</p>
@@ -109,7 +118,7 @@ export default async function ToolPage({
 
       <section className="mt-10 grid gap-8 md:grid-cols-2">
         <div>
-          <h2 className="mb-3 text-xl font-semibold">How to use</h2>
+          <h2 className="mb-3 text-xl font-semibold">{results?.howToHeading ?? "How to use"}</h2>
           <ol className="space-y-2 text-foreground/80">
             {tool.howTo.map((step, i) => (
               <li key={i} className="flex gap-3">
@@ -122,7 +131,7 @@ export default async function ToolPage({
           </ol>
         </div>
         <div>
-          <h2 className="mb-3 text-xl font-semibold">FAQ</h2>
+          <h2 className="mb-3 text-xl font-semibold">{results?.faqHeading ?? "FAQ"}</h2>
           <div className="space-y-4">
             {tool.faq.map((f, i) => (
               <details key={i} className="rounded-lg border border-border bg-card p-4">
@@ -133,6 +142,66 @@ export default async function ToolPage({
           </div>
         </div>
       </section>
+
+      {results && (
+        <section className="mt-12">
+          <h2 className="mb-4 text-2xl font-semibold">{results.heading}</h2>
+          {results.terms && (
+            <dl className="mb-6 divide-y divide-border rounded-xl border border-border bg-card">
+              {results.terms.map((t) => (
+                <div key={t.name} className="grid gap-1 px-5 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4">
+                  <dt className="font-medium">{t.name}</dt>
+                  <dd className="text-foreground/75">{t.text}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+          {(results.pass || results.fail) && (
+            <div className="grid gap-4 md:grid-cols-2">
+              {results.pass && (
+                <div className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="mb-3 font-semibold text-emerald-400">Normal</h3>
+                  <ul className="space-y-2.5 text-foreground/80">
+                    {results.pass.map((p, i) => (
+                      <li key={i} className="flex gap-2.5">
+                        <span aria-hidden className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-emerald-400" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {results.fail && (
+                <div className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="mb-3 font-semibold text-amber-400">A fault</h3>
+                  <ul className="space-y-2.5 text-foreground/80">
+                    {results.fail.map((f, i) => (
+                      <li key={i} className="flex gap-2.5">
+                        <span aria-hidden className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-amber-400" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+          {results.threshold && (
+            <p className="mt-5 text-foreground/80">
+              <strong className="text-foreground">Where the line is drawn.</strong>{" "}
+              {results.threshold}
+            </p>
+          )}
+          {results.note && <p className="mt-4 text-foreground/80">{results.note}</p>}
+          {deepGuide && results.guide && (
+            <p className="mt-5">
+              <Link href={`/blog/${deepGuide.slug}`} className="font-medium text-accent hover:underline">
+                Guide: {results.guide.label} →
+              </Link>
+            </p>
+          )}
+        </section>
+      )}
 
       {tips.length > 0 && (
         <section className="mt-10">
