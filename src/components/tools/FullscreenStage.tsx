@@ -10,6 +10,7 @@ import {
 } from "react";
 import { enterFullscreen, exitFullscreen, WakeLock } from "@/lib/fullscreen";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 export interface StageApi {
   index: number;
@@ -66,7 +67,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
     frameLabel,
     controls,
     keepAwake = true,
-    startLabel = "Start full-screen test",
+    startLabel,
     hideLauncher = false,
     tapToExit = false,
     tapNavigation = true,
@@ -74,6 +75,8 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
   },
   ref,
 ) {
+  const t = useT();
+  const launchLabel = startLabel ?? t("Start full-screen test");
   const stageRef = useRef<HTMLDivElement>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -229,12 +232,12 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
   }
 
   const hint = tapToExit
-    ? "Tap anywhere or press Esc to exit"
+    ? t("Tap anywhere or press Esc to exit")
     : !tapNavigation
-      ? "Press and hold for controls · Esc to exit"
+      ? t("Press and hold for controls · Esc to exit")
       : frameCount > 1
-      ? "← / → or tap the sides to switch · Esc to exit"
-      : "Tap for controls · Esc to exit";
+      ? t("← / → or tap the sides to switch · Esc to exit")
+      : t("Tap for controls · Esc to exit");
 
   const labelFor = (i: number) => (frameLabel ? frameLabel(i) : `${i + 1} / ${frameCount}`);
   // Up to eight labelled frames fit as tabs under the preview on anything wider than a phone.
@@ -266,13 +269,13 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
           <button
             type="button"
             onClick={() => start(index)}
-            aria-label={`${startLabel} — ${tool.name}`}
+            aria-label={`${launchLabel} — ${tool.name}`}
             className={
               previewScrim ? "absolute inset-0 bg-black/40 transition hover:bg-black/30" : "absolute inset-0"
             }
           />
           <span className="btn-primary pointer-events-none relative px-6! shadow-lg">
-            ▶ {startLabel}
+            ▶ {launchLabel}
           </span>
           {frameCount > 1 && (
             <span
@@ -284,7 +287,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
                 type="button"
                 onClick={prev}
                 className="rounded-md px-3 py-1 hover:bg-white/15"
-                aria-label="Previous pattern"
+                aria-label={t("Previous pattern")}
               >
                 ←
               </button>
@@ -293,7 +296,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
                 type="button"
                 onClick={next}
                 className="rounded-md px-3 py-1 hover:bg-white/15"
-                aria-label="Next pattern"
+                aria-label={t("Next pattern")}
               >
                 →
               </button>
@@ -312,7 +315,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
           {showTabs && (
             <div
               role="tablist"
-              aria-label="Pattern"
+              aria-label={t("Pattern")}
               className="absolute inset-x-0 bottom-0 hidden divide-x divide-white/10 border-t border-white/10 bg-[#111318]/90 backdrop-blur sm:flex"
             >
               {Array.from({ length: frameCount }, (_, i) => (
@@ -349,13 +352,13 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
           <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm text-white shadow-lg backdrop-blur">
             {frameCount > 1 && (
               <>
-                <button onClick={prev} className="rounded-full px-3 py-1 hover:bg-white/15" aria-label="Previous">
+                <button onClick={prev} className="rounded-full px-3 py-1 hover:bg-white/15" aria-label={t("Previous")}>
                   ←
                 </button>
                 <span className="min-w-28 text-center font-medium">
                   {frameLabel ? frameLabel(index) : `${index + 1} / ${frameCount}`}
                 </span>
-                <button onClick={next} className="rounded-full px-3 py-1 hover:bg-white/15" aria-label="Next">
+                <button onClick={next} className="rounded-full px-3 py-1 hover:bg-white/15" aria-label={t("Next")}>
                   →
                 </button>
                 <span className="mx-1 h-4 w-px bg-white/20" />
@@ -366,7 +369,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
               onClick={stop}
               className="rounded-full bg-white/15 px-3 py-1 font-medium hover:bg-white/25"
             >
-              Exit ✕
+              {t("Exit")} ✕
             </button>
           </div>
         </div>

@@ -1,0 +1,447 @@
+{
+  "screen-info": {
+    "name": "Infos écran",
+    "title": "Résolution d'écran et infos d'affichage",
+    "tagline": "Consultez la résolution, la mise à l'échelle, la fréquence de rafraîchissement, le gamut et la prise en charge HDR de votre écran.",
+    "description": "Quelle est la résolution de mon écran ? Résolution, mise à l'échelle, format, fréquence de rafraîchissement, gamut et HDR, lus en direct dans le navigateur.",
+    "keywords": [
+      "quelle est ma résolution d'écran",
+      "connaître résolution écran",
+      "infos écran",
+      "taille de mon écran",
+      "device pixel ratio",
+      "test résolution écran"
+    ],
+    "howTo": [
+      "Ouvrez la page — chaque valeur est lue en direct dans votre navigateur, il n'y a rien à lancer.",
+      "Comparez la résolution en pixels et la mise à l'échelle aux caractéristiques de votre écran.",
+      "Laissez une seconde à la fréquence de rafraîchissement mesurée pour se stabiliser.",
+      "Utilisez Tout copier pour coller les détails dans un ticket d'assistance ou un message de forum."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi la résolution exacte de mon écran n'est-elle pas affichée ?",
+        "a": "Les navigateurs indiquent les tailles après mise à l'échelle : la résolution en pixels affichée ici est donc la taille mise à l'échelle multipliée par le facteur d'échelle. Avec une mise à l'échelle inhabituelle ou un zoom du navigateur, elle peut être fausse de quelques pixels. Les réglages d'affichage de votre système indiquent la véritable résolution native."
+      },
+      {
+        "q": "Pourquoi la page indique-t-elle une couleur 24 bits sur un moniteur 10 bits ?",
+        "a": "Le navigateur rapporte ce que lui transmet le système : en général 24 bits (8 bits par canal), et 30 bits sur certaines configurations 10 bits comme les écrans XDR d'Apple. Beaucoup de moniteurs 10 bits affichent quand même 24 parce que l'ordinateur envoie une couleur 8 bits ; les lignes Gamut de couleurs et HDR sont donc souvent plus parlantes."
+      },
+      {
+        "q": "Ces informations sont-elles envoyées quelque part ?",
+        "a": "Non. Tout est lu et affiché dans votre navigateur, et rien ne quitte la page à moins que vous ne le copiiez vous-même."
+      },
+      {
+        "q": "Comment connaître la taille de mon écran en pouces ?",
+        "a": "Un navigateur ne peut pas vous le dire. Il sait combien de pixels compte l'écran, pas quelle taille ils font. Consultez la fiche technique du modèle, ou mesurez l'image visible en diagonale, d'un coin à l'autre."
+      },
+      {
+        "q": "J'ai deux moniteurs. Lequel ces valeurs décrivent-elles ?",
+        "a": "Celui sur lequel se trouve cette fenêtre de navigateur. Déplacez la fenêtre sur l'autre écran et rechargez la page pour lire ses valeurs."
+      }
+    ],
+    "tips": [
+      "Sur un portable relié à un moniteur externe, commencez par faire glisser cette fenêtre sur l'écran que vous voulez vérifier.",
+      "Le zoom du navigateur modifie la valeur de mise à l'échelle — appuyez sur Ctrl/Cmd + 0 avant de la lire."
+    ]
+  },
+  "overscan-test": {
+    "name": "Test d'overscan",
+    "title": "Test d'overscan et de format d'image",
+    "tagline": "Des repères de bord, des cercles et une grille pour détecter recadrage, étirement et déformation.",
+    "description": "Test gratuit d'overscan et de format d'image pour TV et vidéoprojecteurs. Vérifiez bords rognés, image étirée et déformations avec des mires plein écran.",
+    "keywords": [
+      "test overscan",
+      "test format d'image",
+      "overscan tv",
+      "mire vidéoprojecteur",
+      "mire de géométrie",
+      "image coupée tv"
+    ],
+    "howTo": [
+      "Ouvrez la page sur l'appareil relié au téléviseur ou au vidéoprojecteur, puis cliquez sur Démarrer.",
+      "Bordure d'overscan : le cadre coloré le plus extérieur que vous voyez sur tout son pourtour indique la part d'image rognée — 0 % signifie que rien ne l'est.",
+      "Format d'image (→) : les cercles doivent paraître parfaitement ronds et le carré bien carré.",
+      "Grille de géométrie (→) : les lignes doivent être droites et régulièrement espacées. Servez-vous-en pour aligner un vidéoprojecteur.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Qu'est-ce que l'overscan ?",
+        "a": "Beaucoup de téléviseurs agrandissent encore l'image de quelques pour cent et en rognent les bords — une habitude héritée de la diffusion analogique (on parle aussi de surbalayage). Cela coupe les barres des tâches et les menus et adoucit l'image. Cherchez un réglage de taille d'image nommé Just Scan, Screen Fit, Fit to Screen, 1:1 ou Overscan Off."
+      },
+      {
+        "q": "Les cercles paraissent ovales — quel est le problème ?",
+        "a": "L'image est étirée. Réglez la taille d'image du téléviseur ou du vidéoprojecteur sur 16:9 ou sur son mode natif/Original, et vérifiez que la résolution de sortie de votre ordinateur correspond au format de l'écran."
+      },
+      {
+        "q": "Le bureau de mon PC est coupé sur le téléviseur. Faut-il corriger cela sur le téléviseur ou sur le PC ?",
+        "a": "D'abord sur le téléviseur. Passer sa taille d'image en mode 1:1 ou Just Scan affiche chaque pixel tel qu'il est envoyé. Le curseur de sous-balayage (underscan) du pilote graphique ramène lui aussi les bords, mais en réduisant et en rééchantillonnant l'image, ce qui rend le texte flou."
+      },
+      {
+        "q": "Les moniteurs d'ordinateur font-ils de l'overscan ?",
+        "a": "Rarement. Cela peut arriver en HDMI, quand le moniteur ou la carte graphique traite le signal comme un format TV. Si les cadres extérieurs manquent sur un moniteur, cherchez une option d'overscan ou de mise à l'échelle dans le menu du moniteur et dans le pilote graphique."
+      },
+      {
+        "q": "Quelle part d'overscan est normale ?",
+        "a": "Sur un téléviseur qui applique de l'overscan, quelques pour cent sont rognés sur chaque bord. Pour un ordinateur ou une console, la bonne valeur est zéro : chaque pixel envoyé doit être affiché. Si le cadre 0 % n'est pas entièrement visible, il y a un réglage à modifier."
+      },
+      {
+        "q": "Pourquoi l'image est-elle plus petite que l'écran, avec des bordures noires ?",
+        "a": "C'est de l'underscan, le problème inverse. Un curseur de mise à l'échelle du pilote graphique réduit l'image, ou la résolution de sortie ne correspond pas à celle de l'écran. Réglez la mise à l'échelle du pilote sur 0 % ou désactivez-la, et sélectionnez la résolution native de l'écran."
+      },
+      {
+        "q": "L'overscan rend-il l'image moins nette ?",
+        "a": "Oui. Une image en overscan est agrandie avant d'être affichée : un pixel de la source ne correspond plus à un pixel de l'écran, et les petits textes deviennent flous. Un mode d'image 1:1 corrige à la fois le rognage et le flou."
+      }
+    ],
+    "tips": [
+      "Chaque entrée du téléviseur peut avoir son propre réglage de taille d'image : testez donc l'entrée que vous utilisez vraiment.",
+      "Sur un vidéoprojecteur, réglez la correction de trapèze et le lens shift avec la grille de géométrie avant de faire la mise au point."
+    ]
+  },
+  "sharpness-test": {
+    "name": "Test de netteté",
+    "title": "Test de netteté et de lisibilité du texte",
+    "tagline": "Des lignes au pixel près, des damiers et du texte pour débusquer le flou de mise à l'échelle et l'excès d'accentuation.",
+    "description": "Test de netteté et de lisibilité du texte gratuit. Lignes au pixel près et petit texte révèlent le flou dû à la résolution, à l'échelle ou à l'accentuation.",
+    "keywords": [
+      "test netteté écran",
+      "test lisibilité texte écran",
+      "netteté moniteur",
+      "test résolution native",
+      "test chroma 4:4:4",
+      "écran flou texte"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et regardez chaque mire en plein écran à votre distance habituelle.",
+      "Les lignes de 1 pixel et les damiers doivent paraître nets et régulièrement rayés. Une bouillie grise ou un moiré ondulé signifie que l'image est mise à l'échelle.",
+      "Lisibilité du texte (→) : le petit texte doit être net, et le texte rouge ou jaune ne doit pas baver.",
+      "Halos d'accentuation (→) : baissez le réglage Netteté de l'écran jusqu'à ce que les liserés autour des lignes et des anneaux disparaissent.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi les lignes fines paraissent-elles grises et floues ?",
+        "a": "Quelque chose, entre la page et la dalle, rééchantillonne l'image : une résolution non native, une mise à l'échelle qui n'est pas un nombre entier, le zoom du navigateur ou la mise à l'échelle propre au téléviseur. Réglez votre sortie sur la résolution native de l'écran et refaites le test."
+      },
+      {
+        "q": "Pourquoi le texte rouge bave-t-il sur mon téléviseur ?",
+        "a": "Beaucoup de téléviseurs et certaines connexions HDMI transportent la couleur à une résolution réduite (sous-échantillonnage de la chrominance, 4:2:2 ou 4:2:0). Le texte coloré bave alors que le texte noir et blanc reste net. Utilisez le mode PC ou Jeu du téléviseur, ou réglez la sortie sur RGB / 4:4:4."
+      },
+      {
+        "q": "Sur quelle valeur régler la Netteté ?",
+        "a": "Sur la valeur à laquelle rien n'est ajouté et rien n'est flouté. C'est 0 sur certains téléviseurs et le milieu de l'échelle sur d'autres : le chiffre en lui-même ne vous apprend donc pas grand-chose. Utilisez la vue Halos d'accentuation : baissez le réglage jusqu'à ce que les liserés disparaissent, et arrêtez-vous avant que les lignes commencent à s'adoucir."
+      },
+      {
+        "q": "Pourquoi le texte a-t-il des franges colorées sur mon OLED ou mon téléviseur ?",
+        "a": "Les systèmes d'exploitation lissent le texte en supposant que chaque pixel est fait d'une bande rouge, d'une verte et d'une bleue, dans cet ordre. Beaucoup de dalles OLED et certains téléviseurs disposent leurs sous-pixels autrement : le lissage tombe alors sur les mauvais et se traduit par des bords colorés. Une mise à l'échelle plus élevée le rend moins visible."
+      },
+      {
+        "q": "Pourquoi mon moniteur est-il flou à une résolution inférieure ?",
+        "a": "Un écran LCD ou OLED a une grille de pixels fixe. Toute autre résolution doit être étirée sur cette grille, et la plupart des étirements étalent chaque pixel source sur plusieurs pixels de l'écran. Seule exception : un multiple exact, comme le 1080p sur un écran 4K, qui peut rester net avec une mise à l'échelle par nombres entiers (integer scaling)."
+      },
+      {
+        "q": "Une densité de pixels plus élevée rend-elle le texte plus net ?",
+        "a": "Oui. Plus de pixels par pouce, c'est plus de pixels dans chaque lettre : les courbes et les traits fins sont dessinés plus fidèlement. Un écran dense a besoin d'une mise à l'échelle pour garder un texte de taille lisible. Le Calculateur de taille d'écran donne la densité de n'importe quel écran."
+      },
+      {
+        "q": "Pourquoi le texte est-il flou dans certaines applications seulement ?",
+        "a": "Les anciennes applications Windows ne tiennent pas compte de la mise à l'échelle. Au-delà de 100 %, Windows les dessine à la taille normale puis agrandit le résultat comme une image, ce qui rend le texte flou. Dans les Propriétés de l'application, l'onglet Compatibilité propose un réglage PPP élevés qui laisse l'application gérer elle-même sa mise à l'échelle."
+      }
+    ],
+    "tips": [
+      "Vérifiez d'abord à votre distance de vision habituelle, puis de près.",
+      "Une mise à l'échelle de 100 %, 150 % ou 200 % préserve mieux les détails fins que les valeurs intermédiaires."
+    ]
+  },
+  "frame-skipping-test": {
+    "name": "Test de saut d'images",
+    "title": "Test de saut d'images",
+    "tagline": "Une cellule par image — photographiez-la pour démasquer un écran qui saute des images.",
+    "description": "Test de saut d'images gratuit. Une cellule s'allume à chaque rafraîchissement : une photo en pose lente révèle les trous là où votre moniteur saute des images.",
+    "keywords": [
+      "test saut d'images",
+      "test overclock écran",
+      "test frame skipping",
+      "overclock fréquence de rafraîchissement",
+      "frame skip écran"
+    ],
+    "howTo": [
+      "Fermez les autres applications et onglets, puis cliquez sur Démarrer.",
+      "Photographiez l'écran avec une vitesse d'obturation lente — environ 1/15 à 1/30 s, avec le mode Pro ou manuel de votre téléphone.",
+      "Sur la photo, les cellules allumées doivent former une suite ininterrompue. Un trou signifie qu'une image a été sautée.",
+      "Utilisez la grille de 120 cellules (→) sur les écrans au-delà de 144 Hz pour que la suite ne revienne pas au début.",
+      "Prenez plusieurs photos avant de conclure, puis appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi un moniteur sauterait-il des images ?",
+        "a": "En général parce que sa fréquence de rafraîchissement a été overclockée ou réglée via une résolution personnalisée. L'écran accepte le signal plus rapide mais saute discrètement des images pour suivre, si bien qu'il ne paraît pas plus fluide qu'avant."
+      },
+      {
+        "q": "Le navigateur peut-il lui aussi provoquer des trous ?",
+        "a": "Oui — si l'ordinateur est occupé, le navigateur peut lui aussi manquer une image. Fermez les autres applications, refaites la photo plusieurs fois, et ne vous inquiétez que des trous qui reviennent sans cesse."
+      },
+      {
+        "q": "L'appareil photo de mon téléphone n'a pas de mode manuel. Que faire ?",
+        "a": "Assombrissez la pièce. En basse lumière, la plupart des appareils photo de téléphone choisissent d'eux-mêmes une vitesse d'obturation plus lente, et c'est ce qu'il faut pour ce test. Tenez le téléphone bien stable ou posez-le sur un support, et prenez plusieurs photos."
+      },
+      {
+        "q": "Le test montre des images sautées. Et maintenant ?",
+        "a": "Baissez la fréquence de rafraîchissement un cran à la fois jusqu'à ce que la suite de cellules soit ininterrompue, et gardez cette fréquence. Un moniteur qui saute des images à un réglage overclocké n'est pas défectueux. Il ne peut simplement pas afficher plus d'images que son maximum annoncé."
+      },
+      {
+        "q": "Le saut d'images, est-ce la même chose que les saccades dans les jeux ?",
+        "a": "Non. Les saccades (stuttering) viennent de l'ordinateur, qui livre les images à un rythme irrégulier. Le saut d'images, c'est l'écran qui accepte un signal puis n'affiche pas certaines images. Ce test dessine une cellule par rafraîchissement : il isole donc la part du problème qui revient à l'écran."
+      },
+      {
+        "q": "Ai-je besoin de ce test si je n'ai pas overclocké mon moniteur ?",
+        "a": "En général, non. Les moniteurs ne sautent pas d'images à leurs réglages nominaux. Faites-le après avoir défini une résolution personnalisée ou une fréquence de rafraîchissement overclockée, ou quand un adaptateur ou une station d'accueil annonce une fréquence avec laquelle l'écran n'a pas été vendu."
+      },
+      {
+        "q": "Pourquoi faut-il une photo ? Ne puis-je pas simplement regarder ?",
+        "a": "Chaque cellule ne s'allume que le temps d'un rafraîchissement, soit moins de 7 ms à 144 Hz. À cette vitesse, votre œil ne peut pas remarquer une cellule manquante. Une obturation lente enregistre toutes les cellules allumées pendant la pose : une cellule sautée y apparaît comme un trou."
+      }
+    ],
+    "tips": [
+      "Choisissez une vitesse d'obturation assez lente pour capter 6 à 10 images : environ 1/15 s à 144 Hz, 1/30 s à 240 Hz.",
+      "Refaites le test après avoir changé la fréquence de rafraîchissement ou les réglages d'overclocking — le saut d'images n'apparaît souvent qu'à la fréquence la plus élevée."
+    ]
+  },
+  "wide-color-gamut-test": {
+    "name": "Test de gamut étendu",
+    "title": "Test de gamut étendu (P3)",
+    "tagline": "Des logos cachés en couleurs P3 que seul un écran à gamut étendu peut afficher.",
+    "description": "Test de gamut étendu gratuit. Vérifiez si votre écran et votre navigateur affichent les couleurs Display P3 au-delà du sRGB grâce à des logos cachés.",
+    "keywords": [
+      "test gamut étendu",
+      "test p3 écran",
+      "test display p3",
+      "test dci-p3",
+      "test gamut couleurs",
+      "srgb vs p3"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et regardez chaque couleur en plein écran.",
+      "Sur un écran à gamut étendu, vous verrez un logo dans chaque couleur — un anneau plus intense autour d'un carré.",
+      "Sur un écran sRGB standard, le logo est invisible, car les deux couleurs sont écrêtées vers la même nuance.",
+      "Regardez les pastilles au-dessus du test pour voir ce qu'annonce votre navigateur, puis appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Je ne vois pas le logo — mon écran est-il défectueux ?",
+        "a": "Pas du tout. La plupart des moniteurs de bureau et beaucoup de portables sont sRGB, ce qui est fidèle pour le web. Le logo n'apparaît que si l'écran, le système d'exploitation et le navigateur gèrent tous le gamut étendu."
+      },
+      {
+        "q": "Quelles couleurs le montrent le mieux ?",
+        "a": "Les rouges et les verts : c'est là que le Display P3 dépasse le plus le sRGB. Le bleu présente l'écart le plus faible : un logo à peine visible sur le bleu est donc normal."
+      },
+      {
+        "q": "Un écran à gamut étendu est-il meilleur ?",
+        "a": "Pour la vidéo HDR et les photos réalisées en Display P3, oui : il peut afficher des rouges et des verts plus saturés. Pour le contenu web ordinaire, cela ne change rien, et sans gestion des couleurs tout peut paraître sursaturé ; c'est pourquoi beaucoup de moniteurs à gamut étendu proposent un mode sRGB."
+      },
+      {
+        "q": "Quels appareils ont un écran à gamut étendu ?",
+        "a": "Les iPhone, iPad et Mac récents, la plupart des téléphones à écran OLED, et beaucoup de moniteurs destinés au jeu ou à la création. Les moniteurs de bureau classiques et les portables d'entrée de gamme ne couvrent que le sRGB."
+      },
+      {
+        "q": "Pourquoi les couleurs paraissent-elles sursaturées sur mon moniteur à gamut étendu ?",
+        "a": "La plupart des contenus sont conçus pour le sRGB. Une dalle à gamut étendu qui les affiche sans gestion des couleurs étire ces couleurs jusqu'à ses propres primaires, plus intenses : les tons chair virent au rouge et les verts deviennent fluo. Utilisez le mode sRGB du moniteur au quotidien, ou des applications qui gèrent les couleurs."
+      },
+      {
+        "q": "Quelle est la différence entre Display P3 et DCI-P3 ?",
+        "a": "Ils partagent les mêmes primaires rouge, verte et bleue. Le DCI-P3 est la version cinéma, avec un point blanc verdâtre et un gamma de 2,6 pour les salles obscures. Le Display P3 est la version utilisée par les écrans et les téléphones, avec le point blanc standard D65 et la courbe tonale du sRGB."
+      },
+      {
+        "q": "Le navigateur a-t-il une importance ?",
+        "a": "Oui. Le navigateur doit comprendre les couleurs à gamut étendu et les transmettre à la gestion des couleurs du système d'exploitation. Les versions actuelles des principaux navigateurs le font, tandis que les plus anciennes écrêtent tout vers le sRGB. Les pastilles au-dessus du test indiquent ce qu'annonce le vôtre."
+      }
+    ],
+    "tips": [
+      "Beaucoup de moniteurs à gamut étendu ont un mode sRGB qui bride les couleurs — désactivez-le pour ce test.",
+      "Regardez le test dans une pièce peu éclairée ; la différence est subtile en pleine lumière."
+    ]
+  },
+  "pwm-flicker-test": {
+    "name": "Test de scintillement PWM",
+    "title": "Test de scintillement PWM",
+    "tagline": "Des aplats lumineux et une ligne rapide pour les tests du crayon et de l'appareil photo.",
+    "description": "Test de scintillement PWM gratuit. Des aplats lumineux pour les tests du crayon et de l'appareil photo, et une ligne rapide qui se dédouble en cas de PWM.",
+    "keywords": [
+      "test pwm",
+      "test scintillement pwm",
+      "test scintillement écran",
+      "test pwm oled",
+      "test écran flicker free"
+    ],
+    "howTo": [
+      "Réglez l'écran à votre luminosité habituelle — le PWM apparaît en général à faible luminosité.",
+      "Sur la vue Blanc, agitez rapidement un crayon devant l'écran : plusieurs copies nettes trahissent du PWM, un flou continu indique un écran sans scintillement.",
+      "Ou pointez l'appareil photo de votre téléphone vers l'écran : des bandes sombres qui défilent suggèrent du PWM.",
+      "Sur Ligne rapide (→), suivez la ligne des yeux : une rangée de lignes séparées au lieu d'une traînée continue signifie du PWM.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Cette page peut-elle détecter le PWM toute seule ?",
+        "a": "Non. Une page web ne peut pas voir votre rétroéclairage : le résultat vient donc de ce que vous observez — ces mires rendent simplement les effets faciles à repérer. Une caméra en mode ralenti ou un capteur de lumière bon marché donne une réponse définitive."
+      },
+      {
+        "q": "Pourquoi n'apparaît-il qu'à faible luminosité ?",
+        "a": "Beaucoup d'écrans baissent leur luminosité en éteignant le rétroéclairage pendant une partie de chaque cycle. À forte luminosité, les périodes d'extinction sont courtes ou absentes : le scintillement apparaît donc quand vous baissez la luminosité."
+      },
+      {
+        "q": "Le scintillement PWM est-il mauvais pour la santé ?",
+        "a": "Cela dépend des personnes. Certaines ressentent des maux de tête, de la fatigue oculaire ou de la lassitude avec les écrans qui utilisent le PWM, surtout à faible luminosité, et beaucoup ne remarquent rien du tout. Si un écran en particulier vous gêne et qu'un autre dans la même pièce ne vous gêne pas, le PWM mérite d'être vérifié."
+      },
+      {
+        "q": "Les téléphones OLED utilisent-ils le PWM ?",
+        "a": "La plupart, du moins aux niveaux de luminosité les plus bas. Certains proposent un réglage qui le réduit, souvent appelé DC dimming, anti-scintillement ou réduction du scintillement. Garder une luminosité plus élevée et baisser plutôt l'éclairage de la pièce aide aussi."
+      }
+    ],
+    "tips": [
+      "Répétez le test à plusieurs niveaux de luminosité — beaucoup d'écrans ne scintillent pas au-dessus de la moitié environ.",
+      "Un écran qui ne vous gêne que la nuit est un sérieux suspect de PWM."
+    ]
+  },
+  "hdr-test": {
+    "name": "Test HDR",
+    "title": "Test HDR : votre écran affiche-t-il le HDR ?",
+    "tagline": "Une véritable image HDR avec des paliers de luminosité jusqu'à 1 600 nits, plus la détection du HDR.",
+    "description": "Test HDR gratuit. Votre écran et votre navigateur affichent-ils le HDR ? Une vraie image HDR aux paliers de 100 à 1 600 nits et des contrôles de compatibilité.",
+    "keywords": [
+      "test hdr",
+      "mon écran est-il hdr",
+      "test luminosité hdr",
+      "test écran hdr",
+      "test pic de luminosité",
+      "vérifier hdr"
+    ],
+    "howTo": [
+      "Activez d'abord le HDR — sous Windows, Paramètres > Système > Écran > Utiliser HDR.",
+      "Regardez les pastilles au-dessus du test : le navigateur doit détecter un écran HDR.",
+      "Cliquez sur Démarrer. Avec une configuration HDR fonctionnelle, les pavés continuent de gagner en luminosité au-delà de 203 nits (le blanc SDR), jusqu'au pic de votre écran.",
+      "Si tous les pavés à partir de 203 nits affichent le même blanc, l'image est affichée en SDR.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi tous les pavés lumineux se ressemblent-ils ?",
+        "a": "L'image est affichée en SDR : le HDR est désactivé dans votre système d'exploitation, le navigateur ne sait pas afficher les images HDR, ou l'écran n'est pas HDR. Tous les pavés au-dessus de 203 nits sont alors écrêtés vers le même blanc."
+      },
+      {
+        "q": "À partir d'où les pavés cessent-ils de gagner en luminosité ?",
+        "a": "À peu près au pic de luminosité de votre écran. Un moniteur DisplayHDR 400 d'entrée de gamme plafonne vers 400 nits : les pavés 600, 1 000 et 1 600 se ressemblent donc ; un bon Mini-LED ou OLED continue de les distinguer bien au-delà."
+      },
+      {
+        "q": "Quels navigateurs affichent les images HDR ?",
+        "a": "La prise en charge varie encore selon le navigateur et le système d'exploitation ; les navigateurs basés sur Chromium, comme Chrome et Edge, sont actuellement les plus constants. Si les pastilles indiquent que le HDR est disponible mais que les pavés paraissent plats, essayez un autre navigateur."
+      },
+      {
+        "q": "Comment activer le HDR sur un Mac ou un téléphone ?",
+        "a": "Sur un Mac relié à un écran HDR externe, ouvrez Réglages Système > Moniteurs et activez Plage dynamique étendue. Les écrans XDR intégrés des MacBook Pro affichent le HDR automatiquement, tout comme les téléphones à écran HDR : il n'y a donc rien à activer."
+      },
+      {
+        "q": "Pourquoi tout paraît-il délavé quand le HDR est activé dans Windows ?",
+        "a": "Quand le HDR est activé, Windows doit convertir le contenu SDR ordinaire vers le signal HDR, et le résultat est souvent terne et gris. Augmentez le curseur de luminosité du contenu SDR dans les paramètres HDR, et lancez l'application Windows HDR Calibration. Beaucoup de gens n'activent le HDR que pour les jeux et les films."
+      }
+    ],
+    "tips": [
+      "Activez le HDR dans votre système d'exploitation avant d'ouvrir le test.",
+      "Si les pavés à 1 000 et 1 600 nits sont identiques, vous avez trouvé le plafond de luminosité de votre écran."
+    ]
+  },
+  "screen-size-calculator": {
+    "name": "Calculateur de taille d'écran",
+    "title": "Calculateur de taille d'écran et de PPI",
+    "tagline": "Calculez la densité de pixels, la largeur et la hauteur réelles et le format d'image à partir de la taille et de la résolution d'un écran.",
+    "description": "Calculateur gratuit de taille d'écran et de PPI : saisissez diagonale et résolution pour obtenir densité de pixels, dimensions, format d'image et pas de pixel.",
+    "keywords": [
+      "calculateur ppi",
+      "calcul taille écran",
+      "calcul densité de pixels",
+      "calculateur format d'image",
+      "dimensions écran en cm",
+      "calcul dpi écran"
+    ],
+    "howTo": [
+      "Saisissez la diagonale de l'écran en pouces, telle qu'elle figure dans sa fiche technique.",
+      "Saisissez sa résolution en pixels. Les champs sont préremplis avec la résolution que votre navigateur indique pour cet écran.",
+      "Lisez la densité de pixels (PPI), la largeur et la hauteur réelles, ainsi que le format d'image.",
+      "Modifiez les chiffres pour comparer avec un autre écran, par exemple un moniteur 27 pouces en 1440p face à un 32 pouces en 4K."
+    ],
+    "faq": [
+      {
+        "q": "Qu'est-ce que le PPI ?",
+        "a": "Le nombre de pixels par pouce (pixels per inch) : combien de pixels tiennent sur un pouce d'écran. C'est la résolution rapportée à la taille réelle, et c'est elle qui détermine la netteté du texte et des détails fins. Deux écrans de même résolution mais de tailles différentes n'ont pas le même PPI."
+      },
+      {
+        "q": "Quel PPI un moniteur doit-il avoir ?",
+        "a": "À une distance de bureau normale, la plage courante va d'environ 90 à 110 PPI : un écran 24 pouces en 1080p atteint environ 92, un 27 pouces en 1440p environ 109. Entre 135 et 165 PPI environ, comme sur un 27 ou un 32 pouces en 4K, l'image est très fine mais demande en général une mise à l'échelle. En dessous de 90 environ, le texte commence à manquer de netteté."
+      },
+      {
+        "q": "PPI et DPI, est-ce la même chose ?",
+        "a": "Pour un écran, les deux termes s'emploient l'un pour l'autre. En toute rigueur, le PPI compte les pixels d'un écran et le DPI les points d'encre d'une imprimante, mais les systèmes d'exploitation et les réglages de souris parlent de DPI dans les deux cas."
+      },
+      {
+        "q": "Pourquoi la diagonale ne suffit-elle pas pour comparer deux écrans ?",
+        "a": "Parce que la forme compte. Un ultra-large de 34 pouces est plus large qu'un 32 pouces en 16:9, mais moins haut, et sa surface est plus petite que sa diagonale ne le laisse penser. Comparez la largeur et la hauteur données par le calculateur, pas la diagonale."
+      },
+      {
+        "q": "Cette page peut-elle mesurer la taille de mon écran ?",
+        "a": "Non. Un navigateur sait combien de pixels compte un écran, mais pas quelle taille ils font : c'est donc à vous d'indiquer la diagonale. Reprenez la taille de la fiche technique, ou mesurez l'image visible d'un coin au coin opposé."
+      }
+    ],
+    "tips": [
+      "Mesurez uniquement l'image visible, sans le cadre qui l'entoure.",
+      "Un écran 4K n'est pas forcément plus net qu'un 1440p : un 43 pouces en 4K est moins dense qu'un 27 pouces en 1440p."
+    ]
+  },
+  "screen-test-checklist": {
+    "name": "Checklist de test d'écran",
+    "title": "Checklist de test d'écran",
+    "tagline": "Les tests à faire sur un moniteur, un portable, un téléphone ou un téléviseur, dans l'ordre, avec votre progression enregistrée.",
+    "description": "Checklist gratuite pour tester un écran neuf ou d'occasion : moniteur, portable, téléphone ou TV. Les bons tests, dans le bon ordre, à cocher un par un.",
+    "keywords": [
+      "checklist test écran",
+      "checklist nouveau moniteur",
+      "tester un écran neuf",
+      "vérifier écran téléphone d'occasion",
+      "tester une tv neuve",
+      "test écran pc portable"
+    ],
+    "howTo": [
+      "Choisissez l'appareil que vous testez : moniteur, ordinateur portable, téléphone ou tablette, ou téléviseur.",
+      "Commencez par les tests marqués Essentiel. Ils détectent les défauts pour lesquels un vendeur reprend un écran.",
+      "Ouvrez chaque test, faites-le, puis revenez le cocher. Vos coches sont enregistrées uniquement dans ce navigateur.",
+      "Terminez les tests essentiels tant que vous pouvez encore renvoyer l'appareil. Les autres peuvent attendre."
+    ],
+    "faq": [
+      {
+        "q": "Quels tests comptent le plus sur un écran neuf ?",
+        "a": "Ceux qui détectent les vrais défauts matériels : pixels morts et bloqués, fuites de lumière et luminosité inégale. Sur un téléphone, ajoutez le test tactile et, pour un OLED, le test de burn-in. Ce sont les défauts pour lesquels vous pouvez renvoyer un appareil, et ils sont marqués Essentiel."
+      },
+      {
+        "q": "Combien de temps prend la checklist ?",
+        "a": "Les tests essentiels prennent une dizaine de minutes. La liste complète pour un appareil demande plutôt une demi-heure, surtout parce que les tests en pièce sombre exigent que vos yeux s'habituent à l'obscurité."
+      },
+      {
+        "q": "Pourquoi l'ordre est-il important ?",
+        "a": "Les délais de retour sont courts. En commençant par les tests de défauts matériels, vous aurez déjà vérifié ce qu'un retour couvre si le temps vient à manquer. Les problèmes de réglage, comme une mauvaise fréquence de rafraîchissement, se corrigent à tout moment."
+      },
+      {
+        "q": "Ma progression est-elle enregistrée quelque part ?",
+        "a": "Uniquement dans ce navigateur, sur cet appareil. Rien n'est envoyé à un serveur, et effacer les données de site du navigateur efface les coches."
+      },
+      {
+        "q": "Que faire quand un test révèle un problème ?",
+        "a": "Chaque page de test comporte une section qui explique comment lire le résultat et quoi faire ensuite. En règle générale : photographiez le défaut, notez la date et contactez le vendeur tant que le délai de retour court encore."
+      }
+    ],
+    "tips": [
+      "Gardez le carton et la facture jusqu'à ce que tous les tests essentiels soient cochés.",
+      "Regroupez les tests en pièce sombre, après avoir laissé à vos yeux une ou deux minutes pour s'habituer."
+    ]
+  }
+}

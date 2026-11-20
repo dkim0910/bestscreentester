@@ -5,12 +5,13 @@ import FullscreenStage from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
 import { useRefreshRate } from "./useRefreshRate";
+import { useT } from "@/i18n/ui";
 
 // Two grid sizes: one cycle every 60 frames suits 60–144Hz; 120 cells suits faster
 // panels, so a 1/15 s exposure doesn't wrap around the grid.
 const GRIDS = [
-  { label: "60 cells", cols: 10, rows: 6 },
-  { label: "120 cells", cols: 15, rows: 8 },
+  { cols: 10, rows: 6 },
+  { cols: 15, rows: 8 },
 ];
 
 /**
@@ -45,20 +46,22 @@ function useFrameSkip() {
 
 function Readout() {
   const hz = useRefreshRate();
+  const t = useT();
   return (
     <div className="pointer-events-none absolute right-3 top-3 rounded-md bg-black/70 px-3 py-1.5 text-sm font-medium tabular-nums text-white">
-      {hz ? `≈ ${hz} Hz` : "Measuring…"}
+      {hz ? `≈ ${hz} Hz` : t("Measuring…")}
     </div>
   );
 }
 
 export default function FrameSkipTool({ tool }: { tool: ToolDef }) {
   const draw = useFrameSkip();
+  const t = useT();
   return (
     <FullscreenStage
       tool={tool}
       frameCount={GRIDS.length}
-      frameLabel={(i) => GRIDS[i].label}
+      frameLabel={(i) => t("{n} cells", { n: GRIDS[i].cols * GRIDS[i].rows })}
       renderFrame={(i) => (
         <div className="relative h-full w-full">
           <PatternCanvas frame={i} draw={draw} animate />

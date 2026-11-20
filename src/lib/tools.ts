@@ -42,7 +42,7 @@ export const LISTING_LABELS: Record<ToolCategory, string> = {
   fun: "Utilities",
 };
 
-export const TOOLS: ToolDef[] = [
+const BASE_TOOLS: ToolDef[] = [
   {
     slug: "dead-pixel-test",
     name: "Dead Pixel Test",
@@ -52,7 +52,7 @@ export const TOOLS: ToolDef[] = [
       "Free online dead pixel test. Cycle full-screen solid colors to spot dead, stuck, and bright sub-pixels on any monitor, laptop, phone, or TV.",
     category: "panel",
     icon: "🔬",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["dead pixel test", "stuck pixel", "bright pixel", "pixel checker", "monitor test"],
     howTo: [
       "Set your display brightness to maximum and clean the screen.",
@@ -85,7 +85,7 @@ export const TOOLS: ToolDef[] = [
       "Free full-screen color test. Show pure black, white, red, green, blue, cyan, magenta, yellow and gray to check uniformity and find pixel defects.",
     category: "color",
     icon: "🎨",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["color test", "solid color screen", "rgb test", "full screen color"],
     howTo: [
       "Click Start to go full-screen.",
@@ -113,7 +113,7 @@ export const TOOLS: ToolDef[] = [
       "Free pure black screen, full-screen. Check for backlight bleed and IPS glow on an LCD, confirm true blacks on an OLED, and spot stuck bright pixels.",
     category: "color",
     icon: "⬛",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["black screen", "pure black", "black screen full screen", "oled black"],
     howTo: [
       "Click Start for a full-screen pure black field.",
@@ -144,7 +144,7 @@ export const TOOLS: ToolDef[] = [
       "Free pure white screen, full-screen. Spot dark dead pixels and trapped dust, check brightness uniformity, and look for tinted patches.",
     category: "color",
     icon: "⬜",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["white screen", "pure white", "white screen full screen", "white screen test"],
     howTo: [
       "Click Start for a full-screen pure white field.",
@@ -175,7 +175,7 @@ export const TOOLS: ToolDef[] = [
       "Free backlight bleed test. Display pure black to reveal LCD light leakage and IPS glow around the edges and corners of your screen.",
     category: "panel",
     icon: "💡",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["backlight bleed test", "ips glow", "light leakage", "lcd bleed"],
     howTo: [
       "Turn off the room lights. Start at maximum brightness to find any bleed, then judge it again at the brightness you normally use.",
@@ -203,7 +203,7 @@ export const TOOLS: ToolDef[] = [
       "Free greyscale and banding test. View a smooth black-to-white gradient and a 32-step ramp to detect banding, posterization, and tinted greys.",
     category: "color",
     icon: "🌫️",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["greyscale test", "gradient test", "color banding", "gamma test"],
     howTo: [
       "Click Start to view the gradient full-screen.",
@@ -235,7 +235,7 @@ export const TOOLS: ToolDef[] = [
       "Free color gradient test. View smooth red, green, blue and full-spectrum gradients to check color transitions, banding, and posterization.",
     category: "color",
     icon: "🌈",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["color gradient test", "color banding test", "rgb gradient", "spectrum gradient", "color transition"],
     howTo: [
       "Click Start to view the gradient full-screen.",
@@ -268,7 +268,7 @@ export const TOOLS: ToolDef[] = [
       "Free brightness uniformity test: a 50% gray field, a 9-zone grid and a panning gray to reveal uneven backlighting, clouding and the dirty screen effect.",
     category: "panel",
     icon: "🔲",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["brightness uniformity", "screen clouding", "uniformity test", "gray screen"],
     howTo: [
       "Click Start and view the gray field full-screen.",
@@ -297,7 +297,7 @@ export const TOOLS: ToolDef[] = [
       "Free refresh rate test. Measure your display's actual refresh rate in Hz using the browser and watch a moving object to confirm smoothness.",
     category: "motion",
     icon: "⏱️",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["refresh rate test", "hz test", "fps test", "144hz test", "monitor hz"],
     howTo: [
       "Click Start — the measured refresh rate appears within a second or two.",
@@ -329,7 +329,7 @@ export const TOOLS: ToolDef[] = [
       "Free ghosting and response time test. Watch moving boxes at adjustable speeds to reveal motion blur, ghosting trails, and overshoot.",
     category: "motion",
     icon: "👻",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["ghosting test", "response time test", "motion blur", "overdrive test", "ufo test"],
     howTo: [
       "Click Start and watch the boxes move across the screen.",
@@ -361,7 +361,7 @@ export const TOOLS: ToolDef[] = [
       "Free blooming test for Mini-LED and local-dimming displays. Move a bright object on a black field to reveal halo and blooming around highlights.",
     category: "panel",
     icon: "🌟",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["blooming test", "mini-led test", "local dimming", "halo test", "fald"],
     howTo: [
       "Dim the room and click Start.",
@@ -514,7 +514,7 @@ export const TOOLS: ToolDef[] = [
       "Free OLED/AMOLED burn-in test. Cycle solid white, grey, RGB and a checkerboard full-screen to reveal retained images, ghosting, and uneven pixel aging.",
     category: "panel",
     icon: "🔥",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["burn-in test", "oled burn in", "image retention", "amoled", "ghost image"],
     howTo: [
       "Set brightness high and click Start.",
@@ -543,7 +543,7 @@ export const TOOLS: ToolDef[] = [
       "Free contrast test. View black-and-white checkerboards at increasing density to evaluate contrast, black/white level separation, and panel sharpness.",
     category: "panel",
     icon: "◧",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["contrast test", "checkerboard", "black white level", "contrast ratio"],
     howTo: [
       "Click Start and view the checkerboard full-screen.",
@@ -575,7 +575,7 @@ export const TOOLS: ToolDef[] = [
       "Free black level test. Compare near-black grey steps to judge shadow detail, black depth, and IPS glow — see which dark levels your screen still shows.",
     category: "panel",
     icon: "▰",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["black level test", "shadow detail", "near black", "black depth", "ips glow"],
     howTo: [
       "Dim the room and set brightness to your normal level, then click Start.",
@@ -607,7 +607,7 @@ export const TOOLS: ToolDef[] = [
       "Free viewing angle test. Show grey steps and color bars, then move your head to see how much brightness and color shift off-axis on TN and VA panels.",
     category: "panel",
     icon: "◑",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["viewing angle test", "color shift", "off axis", "tn va ips angle"],
     howTo: [
       "Click Start and sit centered first to set a reference.",
@@ -639,7 +639,7 @@ export const TOOLS: ToolDef[] = [
       "Free gamma test. A 1-pixel stripe pattern (≈50% grey) sits beside reference patches for gamma 1.8–2.4. The patch that blends in reveals your display's gamma.",
     category: "color",
     icon: "◐",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["gamma test", "gamma 2.2", "gamma calibration", "grayscale gamma"],
     howTo: [
       "Click Start and step back a little (the stripes should blur into solid grey).",
@@ -671,7 +671,7 @@ export const TOOLS: ToolDef[] = [
       "Free screen tearing test. Fast-scrolling bars reveal horizontal tears when frame rate and refresh rate aren't synced — check V-Sync, G-Sync and FreeSync.",
     category: "motion",
     icon: "⇿",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["screen tearing test", "vsync", "g-sync", "freesync", "vrr test"],
     howTo: [
       "Click Start and watch the moving bars.",
@@ -704,7 +704,7 @@ export const TOOLS: ToolDef[] = [
       "Free touch screen test for phones, tablets and touch laptops. Fill a grid or draw freely to find dead zones, ghost touches and multi-touch limits.",
     category: "panel",
     icon: "👆",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["touch screen test", "touchscreen test", "dead zone test", "multi touch test", "digitizer test", "phone touch test"],
     howTo: [
       "Click Start and hold the device the way you normally would.",
@@ -737,7 +737,7 @@ export const TOOLS: ToolDef[] = [
       "What's my screen resolution? See your display's resolution, scaling, aspect ratio, refresh rate, color gamut and HDR support, read live in your browser.",
     category: "fun",
     icon: "ℹ️",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["what is my screen resolution", "screen resolution checker", "display info", "my screen size", "device pixel ratio", "screen resolution test"],
     howTo: [
       "Open the page — every value is read live from your browser, with nothing to start.",
@@ -769,7 +769,7 @@ export const TOOLS: ToolDef[] = [
       "Free overscan and aspect ratio test for TVs and projectors. Check for cropped edges, stretched pictures and geometry distortion with full-screen patterns.",
     category: "panel",
     icon: "📐",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["overscan test", "aspect ratio test", "tv overscan", "projector test pattern", "geometry test", "screen fit test"],
     howTo: [
       "Open the page on the device connected to the TV or projector, then click Start.",
@@ -798,7 +798,7 @@ export const TOOLS: ToolDef[] = [
       "Free sharpness and text clarity test. Pixel-perfect lines and small text reveal blur from non-native resolution, display scaling and TV oversharpening.",
     category: "panel",
     icon: "🔎",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["sharpness test", "text clarity test", "monitor sharpness", "native resolution test", "chroma subsampling test", "pixel perfect test"],
     howTo: [
       "Click Start and view each pattern full-screen at your normal distance.",
@@ -827,7 +827,7 @@ export const TOOLS: ToolDef[] = [
       "Free frame skipping test. One cell lights per refresh, so a photo with a slow shutter shows an unbroken run — or gaps where your monitor drops frames.",
     category: "motion",
     icon: "🎞️",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["frame skipping test", "monitor overclock test", "dropped frames test", "refresh rate overclock", "frame skip"],
     howTo: [
       "Close other apps and tabs, then click Start.",
@@ -856,7 +856,7 @@ export const TOOLS: ToolDef[] = [
       "Free wide color gamut test. Check whether your screen and browser can show Display P3 colors beyond sRGB, with hidden logos only wide-gamut displays reveal.",
     category: "color",
     icon: "△",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["wide color gamut test", "p3 test", "display p3 test", "dci-p3 test", "color gamut test", "srgb vs p3"],
     howTo: [
       "Click Start and look at each color full-screen.",
@@ -884,7 +884,7 @@ export const TOOLS: ToolDef[] = [
       "Free PWM flicker test. Bright fields for the pencil and camera tests, plus a fast-moving line that turns into a row of copies on a PWM-dimmed screen.",
     category: "panel",
     icon: "〰️",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["pwm test", "pwm flicker test", "screen flicker test", "pwm dimming test", "flicker free test"],
     howTo: [
       "Set the screen to the brightness you normally use — PWM usually appears at low brightness.",
@@ -913,7 +913,7 @@ export const TOOLS: ToolDef[] = [
       "Free HDR test. Check whether your screen and browser display HDR with a real HDR image of brightness steps from 100 to 1,600 nits, plus capability checks.",
     category: "color",
     icon: "☀️",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-20",
     keywords: ["hdr test", "is my screen hdr", "hdr brightness test", "hdr monitor test", "peak brightness test", "hdr check"],
     howTo: [
       "Turn HDR on first — on Windows, Settings > System > Display > Use HDR.",
@@ -937,7 +937,497 @@ export const TOOLS: ToolDef[] = [
       },
     ],
   },
+  {
+    slug: "screen-size-calculator",
+    name: "Screen Size Calculator",
+    title: "Screen Size & PPI Calculator",
+    tagline: "Work out pixel density, physical width and height, and aspect ratio from a screen's size and resolution.",
+    description:
+      "Free screen size and PPI calculator. Enter a diagonal and a resolution to get pixel density, physical width and height, aspect ratio and pixel pitch.",
+    category: "fun",
+    icon: "📏",
+    updatedAt: "2026-11-20",
+    keywords: ["ppi calculator", "screen size calculator", "pixel density calculator", "aspect ratio calculator", "monitor size calculator", "dpi calculator"],
+    howTo: [
+      "Enter the screen's diagonal size in inches, as printed in its specifications.",
+      "Enter its resolution in pixels. The fields start with the resolution your browser reports for this screen.",
+      "Read the pixel density (PPI), the physical width and height, and the aspect ratio.",
+      "Change the numbers to compare another screen, for example a 27-inch 1440p monitor against a 32-inch 4K one.",
+    ],
+    faq: [
+      {
+        q: "What is PPI?",
+        a: "Pixels per inch: how many pixels fit along one inch of the screen. It is the resolution spread over the physical size, and it decides how sharp text and fine detail look. Two screens with the same resolution but different sizes have different PPI.",
+      },
+      {
+        q: "What PPI should a monitor have?",
+        a: "At a normal desk distance, about 90 to 110 PPI is the standard range: a 24-inch 1080p screen is about 92 and a 27-inch 1440p about 109. Around 135 to 165 PPI, such as a 27-inch or 32-inch 4K, looks very crisp but usually needs display scaling. Below about 90, text starts to look soft.",
+      },
+      {
+        q: "Is PPI the same as DPI?",
+        a: "For screens the two are used to mean the same thing. Strictly, PPI counts the pixels of a display and DPI counts the ink dots of a printer, but operating systems and mouse settings say DPI for both.",
+      },
+      {
+        q: "Why isn't the diagonal enough to compare two screens?",
+        a: "Because the shape matters. A 34-inch ultrawide is wider than a 32-inch 16:9 screen but not as tall, and has less area than its diagonal suggests. Compare the width and height the calculator gives, not the diagonal.",
+      },
+      {
+        q: "Can this page measure how big my screen is?",
+        a: "No. A browser knows how many pixels a screen has, but not how large they are, so the diagonal has to come from you. Use the size in the specifications, or measure the visible picture from corner to corner.",
+      },
+    ],
+  },
+  {
+    slug: "screen-test-checklist",
+    name: "Screen Test Checklist",
+    title: "Screen Test Checklist",
+    tagline: "The tests to run on a monitor, laptop, phone or TV, in order, with your progress saved.",
+    description:
+      "Free screen test checklist for a new or used monitor, laptop, phone or TV. Run the right tests in the right order and tick each one off as you go.",
+    category: "fun",
+    icon: "✅",
+    updatedAt: "2026-11-20",
+    keywords: ["screen test checklist", "new monitor checklist", "test new monitor", "used phone screen check", "new tv test", "laptop screen test"],
+    howTo: [
+      "Pick the device you are testing: monitor, laptop, phone or tablet, or TV.",
+      "Start with the tests marked Essential. They find the faults a retailer will take a screen back for.",
+      "Open each test, run it, then come back and tick it off. Your ticks are saved in this browser only.",
+      "Finish the essential tests while you can still return the device. The others can wait.",
+    ],
+    faq: [
+      {
+        q: "Which tests matter most on a new screen?",
+        a: "The ones that find hard defects: dead and stuck pixels, backlight bleed, and uneven brightness. On a phone, add the touch test and, for an OLED, the burn-in test. Those are the faults you can send a device back for, and they are marked Essential.",
+      },
+      {
+        q: "How long does the checklist take?",
+        a: "The essential tests take about ten minutes. The full list for a device takes closer to half an hour, mostly because the dark-room tests need your eyes to adjust.",
+      },
+      {
+        q: "Why does the order matter?",
+        a: "Return windows are short. Running the tests for hard defects first means that if you run out of time, you have already checked the things a return covers. Settings problems, such as a wrong refresh rate, can be fixed at any point.",
+      },
+      {
+        q: "Is my progress stored anywhere?",
+        a: "Only in this browser, on this device. Nothing is sent to a server, and clearing the browser's site data clears the ticks.",
+      },
+      {
+        q: "What should I do when a test finds a problem?",
+        a: "Each test page has a section on reading the result and what to do next. In general: photograph the fault, note the date, and contact the retailer while the return window is still open.",
+      },
+    ],
+  },
 ];
+
+// Further questions per tool, appended to each tool's `faq` above. Kept apart for the
+// same reason as TOOL_TIPS. They cover what to do about a result: settings paths,
+// device differences, and whether a fault can be fixed. Settings paths and limits must
+// agree with the guides (the refresh-rate, HDR and RGB-range guides in particular).
+const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
+  "dead-pixel-test": [
+    {
+      q: "How many dead pixels are acceptable on a new screen?",
+      a: "There is no universal number. Each manufacturer publishes its own pixel policy, and most allow a few faults before a panel counts as defective, with bright pixels counted more strictly than dark ones. That only applies to warranty claims. Inside the retailer's return window you can send a screen back for a single dead pixel.",
+    },
+    {
+      q: "Do dead pixels spread?",
+      a: "A single dead pixel does not spread to its neighbors. If new ones keep appearing, or a dark area is growing, the cause is something else: pressure or impact damage, liquid, or a failing connection to the panel. That is worth a warranty claim whatever the pixel count.",
+    },
+    {
+      q: "Is the stuck-pixel fixer safe to use?",
+      a: "It only shows rapidly changing colors inside a small box, so it cannot harm the panel. It does flash quickly: don't watch it, and don't use it at all if you are sensitive to flashing light. Drag the box over the pixel, start it and look away.",
+    },
+    {
+      q: "How do I check a phone or a laptop for dead pixels?",
+      a: "The same way, only closer. Pixels on a phone or a high-resolution laptop are very small, so hold the screen nearer than usual and scan it in strips. iPhone Safari can't go fully full-screen, so there the color fills the browser window; scroll the address bar away and check the top and bottom edges separately.",
+    },
+  ],
+  "color-test": [
+    {
+      q: "What does an uneven tint on white or gray mean?",
+      a: "If the whole screen leans warm or cool, that is the color temperature setting, or a night mode that is still on. If only one area is tinted, such as a yellowish edge or a pink corner, the panel or its backlight is uneven there, and no setting will remove it.",
+    },
+    {
+      q: "Should I test at maximum brightness?",
+      a: "Use maximum brightness to find faults, because faint dots and patches are easier to see. Then look again at the brightness you normally use to decide whether a fault matters in practice.",
+    },
+    {
+      q: "How is this different from the Dead Pixel Test?",
+      a: "Both show the same solid colors. The Dead Pixel Test adds the Stuck-pixel fixer frame and guidance on pixel faults. Use this page when you are checking for tint and uneven patches, or when you simply want a full-screen color.",
+    },
+    {
+      q: "Why does red look orange, or the colors look washed out?",
+      a: "Check the picture mode first. Eco and reading modes lower saturation, a night mode pulls everything toward orange, and an sRGB mode on a wide-gamut monitor deliberately tones the colors down. If the colors are weak in every mode, the panel has a narrow gamut.",
+    },
+  ],
+  "black-screen": [
+    {
+      q: "Does a black screen save power?",
+      a: "On an OLED, yes: black pixels are switched off and draw almost nothing. On an LCD, hardly at all, because the backlight stays on behind the black image. To save power on an LCD, lower the brightness or let the display sleep.",
+    },
+    {
+      q: "Is the display off, or showing black?",
+      a: "It is on and showing a black image. On an LCD in a dark room you can tell from the faint grey glow of the backlight. On an OLED there is nothing to see, which is why the page keeps the screen awake: you can be sure it has not simply gone to sleep.",
+    },
+  ],
+  "white-screen": [
+    {
+      q: "Can I use the white screen as a light?",
+      a: "Yes. At full brightness a white screen makes a soft, even light for a video call, for reading in the dark, or for tracing a drawing onto paper. A larger screen gives a softer light.",
+    },
+    {
+      q: "Will a white screen at full brightness harm my display?",
+      a: "Not in a short test. Full white is the hardest picture for a screen to show, so it will get warm and use the most power, and an OLED may dim itself after a while to protect the panel. Avoid leaving any static image on an OLED for hours.",
+    },
+  ],
+  "backlight-bleed-test": [
+    {
+      q: "Does backlight bleed get worse over time?",
+      a: "Usually not. It tends to stay the same, and on a new screen it sometimes eases over the first few weeks as the frame settles. Bleed that appears suddenly or keeps growing points to pressure on the panel, heat, or a knock.",
+    },
+    {
+      q: "Can backlight bleed be fixed?",
+      a: "There is no reliable fix at home. Pressing on the panel or loosening the bezel can damage it and may void the warranty. Lower brightness and a little light in the room make bleed much less visible. If it bothers you in normal use, return the screen while you still can.",
+    },
+    {
+      q: "Why does bleed look so much worse in my photo?",
+      a: "In the dark a phone camera uses a long exposure and boosts the signal, which turns a faint haze into bright clouds. Use photos to record where the bleed is, with the exposure locked, and trust your eyes for how strong it is.",
+    },
+  ],
+  "greyscale-test": [
+    {
+      q: "Is the banding from my screen or from the video I was watching?",
+      a: "This page draws its gradient fresh, with no compression, so any bands you see here come from your display or its settings. If this gradient is smooth but a film or stream shows bands in skies and shadows, the video's compression is the cause, not the screen.",
+    },
+    {
+      q: "Why is banding easiest to see in dark areas?",
+      a: "The eye is more sensitive to small steps in brightness at the dark end, and many panels handle the last few shades above black less precisely. That is why night skies and shadows band first.",
+    },
+    {
+      q: "How many steps should I be able to count?",
+      a: "All 32. If the darkest two or three merge into black, shadow detail is being crushed. If the brightest few merge into white, highlights are clipping, usually because the Contrast setting is too high.",
+    },
+    {
+      q: "Does a picture mode or HDR change the result?",
+      a: "Yes. Vivid, dynamic and game modes reshape the tone curve, and dynamic contrast changes it from moment to moment. Test in the standard or sRGB mode. With HDR switched on in Windows, ordinary content is remapped and can band where it did not before.",
+    },
+    {
+      q: "Is banding a reason to return a monitor?",
+      a: "Mild banding in a full-screen gradient is common, especially on 6-bit + FRC panels, and is not a defect. Clear bars in ordinary content, after you have ruled out the settings, on a panel sold as 8-bit or 10-bit, are worth raising with the seller inside the return window.",
+    },
+  ],
+  "color-gradient-test": [
+    {
+      q: "Why did banding appear after I turned on night mode or changed a color profile?",
+      a: "Night modes, color profiles and manual RGB adjustments all work by remapping the values sent to the screen. With standard 8-bit color that leaves fewer distinct steps per channel, so bands appear in gradients that were smooth before. Switch them off and check again.",
+    },
+    {
+      q: "What do 8-bit, 10-bit and 6-bit + FRC mean?",
+      a: "They say how many brightness steps each color channel has. 8-bit gives 256 steps, 10-bit gives 1,024. A 6-bit panel has only 64 real steps and uses FRC, rapid switching between two neighboring shades, to imitate the ones in between.",
+    },
+    {
+      q: "Will a 10-bit monitor remove banding?",
+      a: "Only when the content, the app, the graphics output and the cable all carry 10-bit color. Most desktop content is 8-bit, and it should still look smooth on a good 8-bit panel. Banding you see here is more often a setting than a missing bit depth.",
+    },
+    {
+      q: "I see a fine grain shimmering in the dark gradients. Is that a fault?",
+      a: "No. That is dithering or FRC: the panel is alternating between two shades to produce one it cannot show directly. It is normal on many screens and usually disappears at a normal viewing distance.",
+    },
+  ],
+  "brightness-uniformity-test": [
+    {
+      q: "Can uneven brightness be fixed?",
+      a: "Not with a normal setting, because it comes from the backlight and the panel layers. Some monitors have a uniformity compensation mode that evens the picture out at the cost of some brightness and contrast. If a patch is distracting in normal use, return the screen inside the return window.",
+    },
+    {
+      q: "Why test on gray instead of white?",
+      a: "Differences in brightness show most clearly on a mid-tone. On full white the screen is at its brightest and your eyes adapt to it, which hides darker corners and patches that are plain to see on gray.",
+    },
+    {
+      q: "Do OLED screens have uniformity problems?",
+      a: "They have no backlight, so they do not cloud or bleed. They can still show faint vertical bands or a slight tint difference on very dark gray, and worn areas after long use. Light banding on a dark gray field is common on large OLED and VA panels.",
+    },
+    {
+      q: "Why are the corners of my laptop screen darker?",
+      a: "Most laptop screens are lit from one edge, and the light is spread across the panel by a thin guide layer. Some falloff toward the far corners is normal. A sharp-edged dark patch is different and points to pressure damage.",
+    },
+    {
+      q: "How do I photograph uneven brightness fairly?",
+      a: "Stand back, shoot from straight in front and lock the exposure on the middle of the screen. Turn off the camera's night mode, which exaggerates small differences. Use the photo as a record, and judge severity with your eyes.",
+    },
+  ],
+  "refresh-rate-test": [
+    {
+      q: "How do I change my refresh rate?",
+      a: "On Windows, go to Settings > System > Display > Advanced display and choose a refresh rate. On a Mac, open System Settings > Displays and use the Refresh Rate menu. With more than one monitor, the rate is set separately for each display.",
+    },
+    {
+      q: "Is refresh rate the same as frame rate?",
+      a: "No. Refresh rate (Hz) is how many times a second the screen redraws. Frame rate (fps) is how many new pictures the computer or game produces. You only see the benefit of a 144 Hz screen when the source also delivers close to 144 frames a second.",
+    },
+    {
+      q: "Why does my 120 Hz phone read 60 Hz?",
+      a: "Phones change their refresh rate to save battery, and a battery-saver mode usually locks it to 60 Hz. Some mobile browsers also limit web pages to 60 updates a second whatever the panel can do. A 60 Hz reading on a phone is therefore not proof of a problem.",
+    },
+    {
+      q: "Which screen does it measure when I have two monitors?",
+      a: "The one the browser window is on. Drag the window to the other monitor and the reading follows after a moment. With monitors running at different rates, some browsers tie themselves to one of them, so test each monitor with the window fully on it.",
+    },
+  ],
+  "ghosting-test": [
+    {
+      q: "My monitor is rated 1 ms. Why do I still see a trail?",
+      a: "A response-time figure is a best case, usually measured at the strongest overdrive setting, where the bright fringe of overshoot is already visible. At the setting that looks cleanest, real transitions take longer. The blur you get from your eyes following a moving object also has nothing to do with response time.",
+    },
+    {
+      q: "Do OLED screens have ghosting?",
+      a: "Almost none. OLED pixels change state nearly instantly, so there is no smeared trail. They still show the ordinary blur of any display that holds each frame still, which only a higher refresh rate or a strobing mode reduces.",
+    },
+  ],
+  "blooming-test": [
+    {
+      q: "Why is blooming worse when I watch from the side?",
+      a: "LCD panels block the backlight less effectively at an angle, so more of each lit zone leaks through around a bright object. Halos that are mild from straight ahead can look much larger from the end of the sofa.",
+    },
+    {
+      q: "Is blooming stronger in HDR?",
+      a: "Yes. HDR highlights are far brighter than anything in SDR, so the zones behind them are driven harder and more light spills into the dark areas next to them. Subtitles on a dark scene are the classic example.",
+    },
+    {
+      q: "How many dimming zones are enough?",
+      a: "There is no fixed number. More zones mean each one is smaller, so the halo around a bright object is smaller too. Screens that dim in a handful of vertical strips light a whole column behind a small object. The zone sweeps show how fine yours is.",
+    },
+    {
+      q: "Is blooming the same as backlight bleed?",
+      a: "No. Backlight bleed stays in the same place, usually at an edge, whatever is on screen. Blooming follows bright objects around and only exists on screens with local dimming.",
+    },
+    {
+      q: "Should I turn local dimming off?",
+      a: "For desktop work, often yes: a white cursor or text on a dark background causes halos and makes the brightness pump. For films, games and HDR, leave it on, because it is what gives those screens their deep blacks.",
+    },
+  ],
+  "burn-in-test": [
+    {
+      q: "Can burn-in be fixed?",
+      a: "No. Burn-in is uneven wear of the pixels, and worn pixels do not recover. A panel's own refresh or compensation cycle can make a mark less visible by evening out the area around it, but it cannot restore the worn pixels.",
+    },
+    {
+      q: "Can an LCD get burn-in?",
+      a: "LCDs can show image persistence: a faint outline after a static picture has been up for a long time. It nearly always fades by itself after varied content or some time switched off. Permanent burn-in on an LCD is rare.",
+    },
+    {
+      q: "How do I prevent burn-in?",
+      a: "Lower the brightness, hide static elements such as the taskbar or a channel logo where you can, and vary what is on screen. Let the panel run its compensation cycle, which on most TVs happens in standby, so don't cut the power at the wall after every use.",
+    },
+  ],
+  "contrast-test": [
+    {
+      q: "Why does contrast look worse in a bright room?",
+      a: "Room light reflects off the screen and adds to every dark area, so black is lifted to grey while white hardly changes. The panel's own contrast is the same as before. Judge black depth in a dim room, and judge everyday usability in the light you actually work in.",
+    },
+    {
+      q: "Should I leave dynamic contrast on?",
+      a: "Turn it off for testing. Dynamic contrast changes the backlight according to the picture, so the same pattern looks different from one moment to the next. Many people leave it off for good, because the shifts in brightness are distracting in mixed scenes.",
+    },
+    {
+      q: "What is a good contrast ratio?",
+      a: "It depends on where you watch. An IPS panel at around 1,000:1 looks fine in a lit room. A VA panel at 2,500:1 to 5,000:1 looks clearly deeper in the dark, and an OLED deeper still, because its black pixels are off. In daylight the gap shrinks, since reflections lift black on every screen.",
+    },
+    {
+      q: "Why is the contrast figure on the box so much higher?",
+      a: "Figures in the millions are dynamic contrast: the brightest white with the backlight at full, compared with the darkest black after the backlight has dimmed. The two never appear on screen together. The native, or static, contrast ratio is the one that describes what you see in a single picture.",
+    },
+    {
+      q: "Does raising the Contrast setting improve contrast?",
+      a: "No. That setting changes how bright the lightest tones are driven, and the panel's contrast ratio stays the same. Set too high, it merges the brightest shades into plain white. Leave it at the default unless bright detail is clipping.",
+    },
+  ],
+  "black-level-test": [
+    {
+      q: "What do Full and Limited RGB range have to do with this?",
+      a: "Video signals can use the full range of values, 0 to 255, or a limited range, 16 to 235. If the computer sends one and the screen expects the other, either the darkest steps all turn black or black turns grey. Set both to the same range: Full for a monitor, and whatever matches the input mode on a TV.",
+    },
+    {
+      q: "Why can I see fewer steps during the day?",
+      a: "Light in the room reflects off the screen and hides the darkest steps, and your eyes are adjusted to brighter surroundings. Shadow detail that is clear at night can vanish at midday. That is normal, and it is a reason to test in the light you watch in.",
+    },
+  ],
+  "viewing-angle-test": [
+    {
+      q: "Can I improve my screen's viewing angles?",
+      a: "No setting changes them, but position does. Face the screen straight on, set its height so your eyes are level with the upper third, and tilt it until the top and bottom look equally bright. On a laptop, the lid angle makes the largest difference.",
+    },
+    {
+      q: "Why does the picture change when I tilt my laptop lid?",
+      a: "Lower-cost laptops often use TN panels, which shift strongly when viewed from above or below. A few degrees of tilt is enough to darken or wash out the image. IPS and OLED laptop screens hardly change.",
+    },
+  ],
+  "gamma-test": [
+    {
+      q: "Why do the stripes show colors or wavy patterns?",
+      a: "The pattern only works when each stripe lands on exactly one row of pixels. Browser zoom, a non-native resolution or the TV's own scaling breaks that and produces colored or wavy interference. Reset zoom with Ctrl/Cmd + 0, use the native resolution and reload.",
+    },
+    {
+      q: "How do I change my display's gamma?",
+      a: "Start with the monitor's own menu, where most models offer gamma presets. On Windows, search for 'Calibrate display color' to open the built-in tool. On a Mac, open System Settings > Displays and use the color profile menu. Run this test again after each change.",
+    },
+    {
+      q: "What is gamma, in plain terms?",
+      a: "It is the curve that turns a signal value into brightness. Black and white stay where they are; gamma decides how bright everything in between looks. A lower gamma makes mid-tones brighter and flatter, a higher one makes them darker and heavier.",
+    },
+    {
+      q: "Why does the reading change when I move my head?",
+      a: "On VA and TN panels gamma shifts with the viewing angle, so the patch that blends in at the top of the screen may not be the one that blends in at the bottom. Read the pattern from straight in front, at eye level. IPS and OLED screens change very little.",
+    },
+    {
+      q: "Should I use 2.4 for films?",
+      a: "In a blacked-out room, a curve near 2.4 is what many films are mastered for, and it gives deeper shadows. In a room with any light it hides shadow detail. For general use, and for anything viewed in daylight, 2.2 is the right target.",
+    },
+  ],
+  "screen-tearing-test": [
+    {
+      q: "How do I check that G-Sync or FreeSync is actually on?",
+      a: "It has to be switched on in two places: the monitor's own menu and the graphics driver's control panel. It also needs the right connection, DisplayPort on a PC, or HDMI 2.1 on a console or TV, where it is usually listed as VRR.",
+    },
+    {
+      q: "Does a higher refresh rate reduce tearing?",
+      a: "It makes tears harder to see, not rarer. At 144 Hz each torn frame is on screen for under 7 ms instead of nearly 17 ms at 60 Hz, and the offset at the tear is smaller. Only V-Sync or adaptive sync removes tearing completely.",
+    },
+  ],
+  "touch-screen-test": [
+    {
+      q: "What causes ghost touches?",
+      a: "The common causes are a poor-quality charger or cable injecting electrical noise, moisture on the glass, a lifting screen protector, and a damaged touch layer after a drop. Test once unplugged, with the protector off and the screen dry. If marks still appear by themselves, the screen needs repair.",
+    },
+    {
+      q: "Can a dead zone be fixed without replacing the screen?",
+      a: "Sometimes. Restart the device, remove the case and protector, clean the glass and install any pending system update, then test again. A zone that fails in the same place every time after that is a hardware fault, and the usual repair is a new screen.",
+    },
+  ],
+  "screen-info": [
+    {
+      q: "How do I find my screen's size in inches?",
+      a: "A browser can't tell you. It knows how many pixels the screen has, not how large they are. Look up the model's specifications, or measure the visible picture diagonally from corner to corner.",
+    },
+    {
+      q: "I have two monitors. Which one do these values describe?",
+      a: "The one this browser window is on. Move the window to the other screen and reload the page to read that one.",
+    },
+  ],
+  "overscan-test": [
+    {
+      q: "My PC desktop is cut off on the TV. Should I fix it on the TV or on the PC?",
+      a: "On the TV first. Changing its picture size to a 1:1 or Just Scan mode shows every pixel as sent. The underscan slider in a graphics driver also brings the edges back, but it does so by shrinking and resampling the image, which blurs text.",
+    },
+    {
+      q: "Do computer monitors overscan?",
+      a: "Rarely. It can happen over HDMI, when the monitor or the graphics card treats the signal as a TV format. If the outer frames are missing on a monitor, look for an overscan or scaling option in the monitor's menu and in the graphics driver.",
+    },
+    {
+      q: "How much overscan is normal?",
+      a: "On a TV that overscans, a few percent is cropped from each edge. For a computer or a console the right amount is none: every pixel sent should be shown. If the 0% frame is not fully visible, there is a setting to change.",
+    },
+    {
+      q: "Why is the picture smaller than the screen, with black borders?",
+      a: "That is underscan, the opposite problem. A scaling slider in the graphics driver is shrinking the picture, or the output resolution does not match the screen. Set the driver's scaling to 0% or off, and select the screen's native resolution.",
+    },
+    {
+      q: "Does overscan make the picture less sharp?",
+      a: "Yes. An overscanned picture is enlarged before it is shown, so it no longer maps one pixel to one pixel, and small text turns soft. A 1:1 picture mode fixes the cropping and the softness together.",
+    },
+  ],
+  "sharpness-test": [
+    {
+      q: "What should the Sharpness setting be?",
+      a: "The value at which nothing is added and nothing is blurred. That is 0 on some TVs and the middle of the scale on others, so the number itself tells you little. Use the Sharpening halos frame: lower the setting until the outlines disappear, and stop before the lines start to soften.",
+    },
+    {
+      q: "Why does text have colored fringes on my OLED or TV?",
+      a: "Operating systems smooth text on the assumption that every pixel is a red, green and blue stripe in that order. Many OLED panels and some TVs arrange their sub-pixels differently, so the smoothing lands on the wrong ones and shows as colored edges. Higher display scaling makes it less noticeable.",
+    },
+    {
+      q: "Why is my monitor blurry at a lower resolution?",
+      a: "An LCD or OLED has a fixed grid of pixels. Any other resolution has to be stretched across that grid, and most stretches smear each source pixel over several screen pixels. The exception is an exact multiple, such as 1080p on a 4K screen, which can stay sharp when integer scaling is used.",
+    },
+    {
+      q: "Does a higher pixel density make text sharper?",
+      a: "Yes. More pixels per inch means more pixels in each letter, so curves and thin strokes are drawn more accurately. A dense screen needs display scaling to keep text a readable size. The Screen Size Calculator works out the density of any screen.",
+    },
+    {
+      q: "Why is text fuzzy in only some apps?",
+      a: "Older Windows apps are not aware of display scaling. Above 100%, Windows draws them at normal size and enlarges the result as a picture, which blurs the text. In the app's Properties, the Compatibility tab has a high DPI setting that lets the app scale itself.",
+    },
+  ],
+  "frame-skipping-test": [
+    {
+      q: "My phone camera has no manual mode. What can I do?",
+      a: "Dim the room. In low light most phone cameras choose a slower shutter by themselves, which is what this test needs. Hold the phone steady or rest it on something, and take several photos.",
+    },
+    {
+      q: "The test shows skipped frames. What now?",
+      a: "Lower the refresh rate one step at a time until the run of cells is unbroken, and use that rate. A monitor that skips at an overclocked setting is not faulty. It simply can't display more frames than its rated maximum.",
+    },
+    {
+      q: "Is frame skipping the same as stutter in games?",
+      a: "No. Stutter is the computer delivering frames unevenly. Frame skipping is the display accepting a signal and then failing to show some of the frames. This test draws one cell per refresh, so it isolates the display's side of the problem.",
+    },
+    {
+      q: "Do I need this test if I haven't overclocked my monitor?",
+      a: "Usually not. Monitors do not skip frames at their rated settings. Run it after setting a custom resolution or an overclocked refresh rate, or when an adapter or dock claims a rate the screen was not sold with.",
+    },
+    {
+      q: "Why does it have to be a photo? Can't I just watch?",
+      a: "Each cell is lit for a single refresh, which is under 7 ms at 144 Hz. Your eye cannot notice one missing cell at that speed. A slow shutter records every cell that lit while it was open, so a skipped one shows as a gap.",
+    },
+  ],
+  "wide-color-gamut-test": [
+    {
+      q: "Is a wide-gamut screen better?",
+      a: "For HDR video and photos made in Display P3, yes: it can show more saturated reds and greens. For ordinary web content it makes no difference, and without color management it can make everything look oversaturated, which is why many wide-gamut monitors include an sRGB mode.",
+    },
+    {
+      q: "Which devices have wide-gamut screens?",
+      a: "Recent iPhones, iPads and Macs, most phones with OLED screens, and many monitors sold for gaming or creative work. Typical office monitors and budget laptops cover sRGB only.",
+    },
+    {
+      q: "Why do colors look oversaturated on my wide-gamut monitor?",
+      a: "Most content is made for sRGB. A wide-gamut panel that shows it without color management stretches those colors to its own stronger primaries, so skin tones turn red and greens glow. Use the monitor's sRGB mode for everyday work, or apps that manage color.",
+    },
+    {
+      q: "What is the difference between Display P3 and DCI-P3?",
+      a: "They share the same red, green and blue primaries. DCI-P3 is the cinema version, with a greenish white point and a 2.6 gamma for dark theatres. Display P3 is the version screens and phones use, with the standard D65 white point and the sRGB tone curve.",
+    },
+    {
+      q: "Does the browser matter?",
+      a: "Yes. The browser has to understand wide-gamut colors and pass them to the operating system's color management. Current versions of the major browsers do, and older ones clip everything to sRGB. The chips above the test show what yours reports.",
+    },
+  ],
+  "pwm-flicker-test": [
+    {
+      q: "Is PWM flicker bad for you?",
+      a: "It depends on the person. Some people get headaches, eye strain or tiredness from screens that use PWM, especially at low brightness, and many notice nothing at all. If one particular screen bothers you and another in the same room doesn't, PWM is worth checking.",
+    },
+    {
+      q: "Do OLED phones use PWM?",
+      a: "Most do, at least at lower brightness levels. Some offer a setting that reduces it, often called DC dimming, anti-flicker or flicker reduction. Keeping the brightness higher and lowering the room light instead also helps.",
+    },
+  ],
+  "hdr-test": [
+    {
+      q: "How do I turn on HDR on a Mac or a phone?",
+      a: "On a Mac with an external HDR display, open System Settings > Displays and switch on High Dynamic Range. The built-in XDR displays on MacBook Pro show HDR automatically, as do phones with HDR screens, so there is nothing to switch on there.",
+    },
+    {
+      q: "Why does everything look washed out when HDR is on in Windows?",
+      a: "With HDR on, Windows has to map ordinary SDR content into the HDR signal, and it often comes out dull and grey. Raise the SDR content brightness slider in the HDR settings, and run the Windows HDR Calibration app. Many people switch HDR on only for games and films.",
+    },
+  ],
+};
+
+export const TOOLS: ToolDef[] = BASE_TOOLS.map((t) => ({
+  ...t,
+  faq: [...t.faq, ...(TOOL_FAQ_MORE[t.slug] ?? [])],
+}));
 
 // Extra practical tips per tool, shown in a callout on each tool page.
 // Keyed by slug so the tool objects above stay focused on core copy/SEO.
@@ -1061,6 +1551,14 @@ export const TOOL_TIPS: Record<string, string[]> = {
   "hdr-test": [
     "Turn HDR on in your operating system before opening the test.",
     "If the 1,000 and 1,600-nit patches look identical, you've found your screen's brightness ceiling.",
+  ],
+  "screen-size-calculator": [
+    "Measure the visible picture only, without the frame around it.",
+    "A 4K screen is not automatically sharper than a 1440p one: a 43-inch 4K is less dense than a 27-inch 1440p.",
+  ],
+  "screen-test-checklist": [
+    "Keep the box and receipt until every essential test is ticked.",
+    "Do the dark-room tests together, after giving your eyes a couple of minutes to adjust.",
   ],
 };
 

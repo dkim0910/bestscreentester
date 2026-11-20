@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRefreshRate } from "./tools/useRefreshRate";
+import { useLocalHref, useT } from "@/i18n/ui";
 
 // SMPTE-style 75% bars over a grey ramp: decoration, but a real test pattern.
 const BARS = ["#c0c0c0", "#c0c000", "#00c0c0", "#00c000", "#c000c0", "#c00000", "#0000c0"];
@@ -34,6 +35,8 @@ function read(): Reading {
 export default function ScreenReadout() {
   const [reading, setReading] = useState<Reading | null>(null);
   const hz = useRefreshRate();
+  const t = useT();
+  const localHref = useLocalHref();
 
   useEffect(() => {
     const update = () => setReading(read());
@@ -44,16 +47,16 @@ export default function ScreenReadout() {
   }, []);
 
   const cells = [
-    { label: "Resolution", value: reading?.resolution ?? "—" },
-    { label: "Refresh rate", value: hz ? `≈ ${hz} Hz` : "Measuring…" },
-    { label: "Color gamut", value: reading?.gamut ?? "—" },
+    { label: t("Resolution"), value: reading?.resolution ?? "—" },
+    { label: t("Refresh rate"), value: hz ? `≈ ${hz} Hz` : t("Measuring…") },
+    { label: t("Color gamut"), value: reading ? t(reading.gamut) : "—" },
   ];
 
   return (
     <div className="overflow-hidden rounded-xl border border-border-strong bg-card">
       <div className="eyebrow flex justify-between border-b border-border px-4 py-3">
-        <span>Your screen</span>
-        <span>Read live</span>
+        <span>{t("Your screen")}</span>
+        <span>{t("Read live")}</span>
       </div>
       <div aria-hidden className="flex h-28 sm:h-32">
         {BARS.map((c) => (
@@ -74,10 +77,10 @@ export default function ScreenReadout() {
         ))}
       </dl>
       <Link
-        href="/screen-info"
+        href={localHref("/screen-info")}
         className="flex items-center justify-between border-t border-border px-4 py-3 text-sm text-foreground/65 transition-colors hover:text-foreground"
       >
-        Full Screen Info report <span aria-hidden>→</span>
+        {t("Full Screen Info report")} <span aria-hidden>→</span>
       </Link>
     </div>
   );

@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "siteTagline": "Testes de tela online e gratuitos para pixels mortos, cores, vazamento de luz e movimento.",
+    "defaultTitle": "Testes de Tela Online Grátis",
+    "homeTitle": "Teste de Tela Online Grátis",
+    "homeDescription": "Faça {n} testes gratuitos de tela e monitor no navegador: pixels mortos, vazamento de luz, taxa de atualização, cores, ghosting e mais. Sem cadastro.",
+    "homeKeywords": ["teste de tela", "teste de monitor", "teste de pixel morto", "teste de display", "teste de tela online"],
+    "toolsTitle": "Todos os Testes de Tela",
+    "toolsDescription": "Veja todos os {n} testes de tela online e gratuitos: pixel morto, cores, vazamento de luz, taxa de atualização, ghosting, blooming e mais."
+  },
+  "nav": {
+    "tools": "Ferramentas",
+    "guides": "Guias",
+    "about": "Sobre",
+    "contact": "Contato",
+    "start": "Iniciar um teste",
+    "language": "Idioma"
+  },
+  "footer": {
+    "blurb": "Testes de tela gratuitos, direto no navegador. Sem instalação e sem cadastro.",
+    "popular": "Testes populares",
+    "explore": "Explorar",
+    "allTools": "Todas as ferramentas",
+    "guides": "Guias e artigos",
+    "company": "Institucional",
+    "about": "Sobre",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso",
+    "donate": "Doar",
+    "contact": "Contato",
+    "languages": "Idiomas",
+    "copyright": "Todos os testes rodam localmente no seu navegador."
+  },
+  "categories": {
+    "panel": "Painel e iluminação",
+    "color": "Cores e calibração",
+    "motion": "Movimento e sincronia",
+    "fun": "Utilitários"
+  },
+  "common": {
+    "home": "Início",
+    "tools": "Ferramentas",
+    "testCountOne": "{n} teste",
+    "testCountMany": "{n} testes",
+    "inEnglish": "em inglês",
+    "logoAlt": "Logo do {site}"
+  },
+  "toolPage": {
+    "howTo": "Como usar",
+    "normal": "Normal",
+    "fault": "Defeito",
+    "threshold": "Onde fica o limite.",
+    "next": "Encontrou um problema? Veja o que fazer",
+    "guide": "Guia: {label}",
+    "readGuide": "Ler o guia",
+    "relatedGuides": "Guias relacionados",
+    "relatedGuidesIntro": "Saiba mais sobre o que este teste revela e o que fazer com os resultados.",
+    "faq": "Perguntas frequentes",
+    "tips": "Dicas",
+    "relatedTests": "Testes relacionados"
+  },
+  "toolsPage": {
+    "eyebrow": "{n} testes",
+    "title": "Todos os testes de tela",
+    "intro": "{n} testes de tela gratuitos, direto no navegador. Escolha uma categoria abaixo.",
+    "funTitle": "Só por diversão",
+    "funIntro": "Não são testes de tela: pegadinhas em tela cheia e um protetor de tela."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "{n} testes de tela gratuitos",
+      "title": "Teste de Tela e de Monitor Online Grátis",
+      "intro": "{n} testes de tela gratuitos que rodam no navegador: pixels mortos, vazamento de luz, taxa de atualização, cintilação PWM, HDR e mais. Sem instalar nada, sem criar conta.",
+      "primary": "Iniciar o Teste de Pixel Morto",
+      "secondary": "Ver todos os {n} testes"
+    },
+    "allTests": {
+      "eyebrow": "Todos os testes",
+      "title": "{n} testes, agrupados pelo que verificam",
+      "link": "Abrir a lista completa"
+    },
+    "answers": {
+      "eyebrow": "Comece pelo sintoma",
+      "title": "É defeito ou é normal?",
+      "subtitle": "As quatro dúvidas que mais trazem gente até aqui, cada uma com o teste que a resolve.",
+      "runTest": "Fazer o {name}",
+      "guide": "Guia: {name}",
+      "readFull": "Ler a resposta completa",
+      "items": [
+        {
+          "title": "Um ponto que não some",
+          "summary": "Escuro em todas as cores, inclusive no branco, é pixel morto e não volta. Preso em uma cor só é pixel preso, e pixels presos às vezes se recuperam.",
+          "body": [
+            "Passe pelas cores sólidas e observe o ponto. Se ele fica escuro em todas as cores, inclusive no branco, é um pixel morto e não vai voltar. Se ele mantém uma única cor, ou brilha no preto, é um pixel preso, e pixels presos às vezes se recuperam: o último quadro do Teste de Pixel Morto pisca cores sobre o ponto justamente para isso. Limpe a tela antes de decidir, porque um grão de poeira parece idêntico até sair do lugar.",
+            "Se vale a devolução depende menos do ponto do que do calendário. Os fabricantes toleram um pequeno número de falhas por painel, contam pixels brilhantes com mais rigor do que os escuros e muitas vezes trocam um painel com falhas agrupadas, mas recusam pontos espalhados. Uma linha ou coluna inteira é falha de conexão e quase sempre dá direito a reparo. Dentro do prazo de devolução da loja, nenhuma dessas contagens vale para você, e é por isso que convém testar logo no primeiro dia."
+          ],
+          "test": "Teste de Pixel Morto",
+          "guide": "Políticas de garantia para pixels mortos"
+        },
+        {
+          "title": "Brilho em uma tela preta",
+          "summary": "Um brilho que muda e some conforme você se move é IPS glow, característica do tipo de painel. Faixas fixas ao longo de uma borda são vazamento de luz.",
+          "body": [
+            "Quase todo LCD mostra alguma luz no preto, porque produz o preto bloqueando uma luz de fundo que nunca se apaga. Abra uma tela preta em um quarto escuro e incline-se uns 30 cm para cada lado. Um brilho que muda e some conforme você se move é IPS glow: uma característica do tipo de painel, não um defeito, e quase nunca coberto pela garantia. Faixas ou manchas ao longo de uma borda que ficam exatamente onde estão são vazamento de luz (backlight bleed).",
+            "Uma regra prática: se você não vê o problema assistindo a um filme com as luzes acesas, ignore. Uma faixa clara que aparece no uso normal, em cenas escuras de jogos ou nas barras pretas de um filme, merece providência. Avalie com os próprios olhos, no brilho que você realmente usa. No escuro, a câmera do celular faz exposições longas e deixa uma névoa discreta com cara de problema grave. Um OLED não deve mostrar nenhum dos dois."
+          ],
+          "test": "Teste de Vazamento de Luz",
+          "guide": "Vazamento de luz e IPS glow"
+        },
+        {
+          "title": "Uma imagem fantasma em um OLED",
+          "summary": "Reproduza vídeo variado em tela cheia por uma ou duas horas e olhe de novo. A retenção de imagem desaparece. O burn-in continua exatamente onde estava.",
+          "body": [
+            "Um contorno discreto de barra de tarefas, logo de canal ou HUD de jogo em uma tela cinza é uma de duas coisas, e o tempo mostra qual. Reproduza vídeo variado em tela cheia por uma ou duas horas e depois olhe o mesmo campo cinza. A retenção de imagem terá diminuído ou sumido. O burn-in estará exatamente onde você o deixou, porque ali os pixels estão desgastados, não presos.",
+            "Procure uma forma que você reconheça. Manchas aleatórias, sem borda definida, têm mais cara de falta de uniformidade comum do painel. O burn-in não tem conserto, só dá para retardá-lo: reduza o brilho, oculte elementos estáticos e deixe o painel rodar o ciclo de compensação. Alguns fabricantes já cobrem o burn-in na garantia por um período limitado, então leia essa cláusula antes de tirar conclusões."
+          ],
+          "test": "Teste de Burn-in",
+          "guide": "Burn-in em OLED: como verificar"
+        },
+        {
+          "title": "Um monitor rápido que não parece rápido",
+          "summary": "Um monitor de 144 Hz marcando 60 Hz quase nunca está com defeito. A taxa não foi selecionada, o cabo não dá conta ou um modo de economia de energia a reduziu.",
+          "body": [
+            "Meça antes de culpar o painel. Um monitor de 144 Hz marcando 60 Hz quase nunca está com defeito: a taxa mais alta não foi selecionada nas configurações de vídeo, o cabo ou a porta não dá conta dela nessa resolução, ou um modo de economia de energia a reduziu. Uma leitura a cerca de 1 Hz do valor nominal é normal, já que muitas telas rodam uma fração fora da taxa anunciada.",
+            "Se o número está certo e o movimento continua estranho, observe o rastro atrás de um objeto em movimento. Um rastro borrado é ghosting, causado por resposta lenta dos pixels; uma borda clara é overshoot, de um overdrive alto demais, e baixar um nível costuma resolver. Um desfoque suave e uniforme, sem imagem residual, não é defeito. Toda tela que mantém cada quadro parado produz isso."
+          ],
+          "test": "Teste de Taxa de Atualização",
+          "guide": "Ative a taxa de atualização máxima"
+        }
+      ]
+    },
+    "inFull": {
+      "eyebrow": "Em detalhes",
+      "title": "Como diferenciar um defeito de uma característica",
+      "subtitle": "A maioria das telas tem pequenas peculiaridades. Veja como responder a cada uma das quatro dúvidas com um teste."
+    },
+    "verdicts": {
+      "eyebrow": "Consulta rápida",
+      "title": "É normal ou vale devolver?",
+      "subtitle": "Os mesmos veredictos em resumo, para as falhas que mais geram dúvidas.",
+      "colSee": "O que você vê",
+      "colUsually": "O que costuma ser",
+      "colNext": "O que fazer",
+      "items": [
+        {
+          "see": "Um pixel escuro (morto)",
+          "tag": "Costuma ser tolerado",
+          "usually": "Costuma estar dentro da tolerância do fabricante",
+          "next": "Consulte a política de pixels. Dentro do prazo de devolução, geralmente basta devolver.",
+          "guide": "Políticas de pixels"
+        },
+        {
+          "see": "Um pixel brilhante ou preso",
+          "tag": "Mais rigoroso",
+          "usually": "Contado com mais rigor do que um pixel escuro",
+          "next": "Experimente o reparador de pixel preso do Teste de Pixel Morto e depois consulte a política.",
+          "guide": "Como recuperar um pixel preso"
+        },
+        {
+          "see": "Várias falhas próximas umas das outras",
+          "tag": "Costuma dar troca",
+          "usually": "Falhas agrupadas costumam dar direito à troca quando as espalhadas não dão",
+          "next": "Fotografe as falhas em uma cor sólida e conte-as por tipo.",
+          "guide": ""
+        },
+        {
+          "see": "Uma linha ou coluna inteira acesa ou apagada",
+          "tag": "Defeito",
+          "usually": "Falha de conexão, não defeito de pixel",
+          "next": "Quase sempre dá direito a reparo. Fale com o suporte.",
+          "guide": ""
+        },
+        {
+          "see": "Brilho fraco nos cantos em uma tela preta",
+          "tag": "Normal",
+          "usually": "Normal em quase todo LCD",
+          "next": "Só vale devolver se for irregular ou visível no uso do dia a dia.",
+          "guide": "Vazamento de luz"
+        },
+        {
+          "see": "Um brilho que se move quando você mexe a cabeça",
+          "tag": "Normal",
+          "usually": "IPS glow, característica do tipo de painel",
+          "next": "Não é defeito. Sentar mais longe ou deixar um pouco de luz no ambiente reduz o efeito.",
+          "guide": "Vazamento ou IPS glow?"
+        },
+        {
+          "see": "Cantos um pouco mais escuros que o centro",
+          "tag": "Normal",
+          "usually": "Alguma queda de brilho é normal em todo LCD",
+          "next": "Uma mancha nítida, com borda visível, não é normal; essa vale a devolução.",
+          "guide": ""
+        },
+        {
+          "see": "Manchas na tela do notebook, muitas vezes em linha",
+          "tag": "Defeito",
+          "usually": "Marcas de pressão, um defeito mecânico",
+          "next": "Vale devolver, principalmente em um notebook novo.",
+          "guide": ""
+        },
+        {
+          "see": "Um contorno no OLED que some depois de conteúdo variado",
+          "tag": "Temporário",
+          "usually": "Retenção de imagem temporária",
+          "next": "Reproduza vídeo variado em tela cheia por um tempo e verifique de novo.",
+          "guide": ""
+        },
+        {
+          "see": "Um contorno no OLED que nunca some",
+          "tag": "Permanente",
+          "usually": "Burn-in, que é permanente",
+          "next": "Veja se a sua garantia cobre burn-in; algumas já cobrem.",
+          "guide": ""
+        },
+        {
+          "see": "60 Hz em um monitor de 144 Hz",
+          "tag": "Configuração",
+          "usually": "Problema de configuração ou de cabo, não de painel",
+          "next": "Selecione a taxa máxima nas configurações de vídeo, confira o cabo e teste de novo.",
+          "guide": ""
+        }
+      ]
+    },
+    "newer": {
+      "eyebrow": "Telas mais novas",
+      "title": "Testes para telas mais novas",
+      "subtitle": "Painéis HDR, Mini-LED, OLED e de alta taxa de atualização falham de maneiras que uma cor sólida não mostra.",
+      "items": [
+        {
+          "name": "Teste de HDR",
+          "body": "Uma imagem HDR de verdade, com degraus de brilho até 1.600 nits, para você ver onde a sua tela para de ficar mais clara."
+        },
+        {
+          "name": "Teste de Cintilação PWM",
+          "body": "Flagre uma luz de fundo que pisca com o teste do lápis, ou com uma linha rápida que se divide em cópias nas telas com PWM."
+        },
+        {
+          "name": "Teste de Ampla Gama de Cores (P3)",
+          "body": "Logos escondidos em cores Display P3 só aparecem se a tela e o navegador forem além do sRGB."
+        },
+        {
+          "name": "Teste de Frame Skipping",
+          "body": "Uma célula acende por quadro. Fotografe para descobrir se um monitor com overclock está descartando quadros sem avisar."
+        },
+        {
+          "name": "Varreduras de zonas do blooming",
+          "body": "Conte quantas vezes o halo salta enquanto um quadrado cruza a tela para estimar as zonas de escurecimento de um Mini-LED."
+        },
+        {
+          "name": "Cinza em movimento",
+          "body": "Faixas cinza deslizantes que expõem o efeito de tela suja (dirty screen effect) que TVs grandes mostram quando a câmera faz uma panorâmica."
+        }
+      ]
+    },
+    "guides": {
+      "eyebrow": "Guias",
+      "title": "Guias para ler primeiro",
+      "subtitle": "O que cada resultado significa e passo a passo para notebooks, celulares, TVs e monitores.",
+      "all": "Todos os guias",
+      "items": [
+        {
+          "name": "Vazamento de luz ou IPS glow?",
+          "body": "Um teste de um segundo que separa os dois, uma tabela comparativa e o que não é nem um nem outro: clouding, blooming e nível de preto elevado."
+        },
+        {
+          "name": "Burn-in em OLED",
+          "body": "O que desgasta um OLED, como procurar o problema no cinza, como diferenciá-lo da retenção que some e quais hábitos o retardam."
+        },
+        {
+          "name": "Notebooks",
+          "body": "Uma checagem de pixels em 60 segundos e o que parece pixel morto em um notebook mas não é, como brilho nos cantos e marcas de pressão da tampa."
+        },
+        {
+          "name": "Celulares usados",
+          "body": "O que conferir antes de entregar o dinheiro: imagens retidas no OLED, áreas que ignoram o toque, tela trocada e cintilação."
+        },
+        {
+          "name": "TVs",
+          "body": "Coloque um padrão de teste na tela pelo navegador da TV ou pelo celular e avalie pixels e uniformidade do lugar onde você realmente se senta."
+        },
+        {
+          "name": "Monitores, na loja e em casa",
+          "body": "O que dá para conferir antes de pagar, o que rodar no primeiro dia e os sinais de alerta que justificam a devolução, cabo incluído."
+        }
+      ]
+    },
+    "prep": {
+      "eyebrow": "Preparação",
+      "title": "Antes de testar",
+      "subtitle": "Um minuto de preparação deixa todos os resultados mais confiáveis.",
+      "items": [
+        {
+          "title": "Deixe a tela aquecer",
+          "body": "O brilho e as cores de um painel frio variam um pouco no começo. Espere uns cinco minutos antes de testar e de 20 a 30 minutos antes de calibrar."
+        },
+        {
+          "title": "Desligue os filtros",
+          "body": "Luz noturna, Night Shift, True Tone, contraste dinâmico e modos de conforto visual mudam o que você vê. Desative tudo para checar cores e escala de cinza."
+        },
+        {
+          "title": "Reduza as luzes",
+          "body": "Os testes de vazamento de luz, blooming e nível de preto pedem um ambiente bem escuro. Todo o resto funciona melhor à meia-luz, sem reflexos no vidro."
+        },
+        {
+          "title": "Use a resolução nativa",
+          "body": "Uma resolução redimensionada suaviza os detalhes finos e pode diluir um único pixel defeituoso nos vizinhos. Ajuste o sistema para a resolução nativa do painel."
+        },
+        {
+          "title": "Ocupe a tela inteira",
+          "body": "As barras do navegador e a barra de tarefas cobrem as bordas, justamente onde vazamentos e pixels mortos gostam de se esconder. Todo teste tem um botão Iniciar para tela cheia."
+        },
+        {
+          "title": "Fotografe o que encontrar",
+          "body": "Trave a exposição da câmera do celular, fotografe em um ambiente escuro e anote a data. Essa foto é a sua prova para uma devolução ou um acionamento da garantia."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Perguntas frequentes",
+      "title": "Perguntas",
+      "items": [
+        {
+          "q": "O {site} é gratuito?",
+          "a": "Sim. Todos os testes são gratuitos, sem conta e sem nada para baixar. O site se mantém com anúncios e doações."
+        },
+        {
+          "q": "Alguma coisa é enviada quando eu faço um teste?",
+          "a": "Não. O navegador desenha os padrões de teste no seu próprio aparelho, e nada sobre a sua tela é enviado para lugar nenhum. Como a maioria dos sites, usamos ferramentas de estatísticas e anúncios; a página de Privacidade lista o que eles coletam."
+        },
+        {
+          "q": "Os testes funcionam em celulares e tablets?",
+          "a": "Sim, em qualquer navegador móvel atual. O Safari do iPhone não deixa sites entrarem em tela cheia de verdade, então nele o teste ocupa a janela do navegador. O Teste de Touch Screen foi feito especialmente para celulares e tablets."
+        },
+        {
+          "q": "Um teste no navegador pode ser preciso?",
+          "a": "Para defeitos visíveis, sim: uma cor sólida em tela cheia mostra um pixel morto ou um vazamento de luz com a mesma clareza de um programa dedicado. Medições como Delta E, brilho em nits ou taxa de contraste exigem um colorímetro; estes testes mostram a aparência desses problemas, não os números."
+        },
+        {
+          "q": "Quantos pixels mortos são aceitáveis?",
+          "a": "Depende da política de pixels do fabricante. Um pixel escuro costuma estar dentro da tolerância, enquanto pixels brilhantes e falhas agrupadas são tratados com mais rigor. Dentro do prazo de devolução da loja, em geral você nem precisa discutir contagens."
+        },
+        {
+          "q": "Qual teste devo fazer primeiro em uma tela nova?",
+          "a": "O Teste de Pixel Morto. Depois, procure vazamento de luz no preto, confira a uniformidade no cinza e o banding nos gradientes e, em um monitor ou TV, termine pela taxa de atualização. O checklist para aparelhos novos, nos nossos guias, traz a ordem completa."
+        }
+      ]
+    },
+    "who": {
+      "title": "Quem faz o {site}",
+      "body": "O {site} é criado e mantido por {operator}, um desenvolvedor independente que trabalha sozinho. Cada guia mostra a data da última atualização, e muitos trazem links para as normas e os documentos de fabricantes em que se baseiam.",
+      "browse": "Ver todos os {n} testes",
+      "about": "Sobre o site",
+      "feedback": "Enviar feedback"
+    }
+  }
+}

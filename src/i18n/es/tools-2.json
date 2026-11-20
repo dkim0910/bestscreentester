@@ -1,0 +1,448 @@
+{
+  "ghosting-test": {
+    "name": "Test de ghosting",
+    "title": "Test de ghosting y tiempo de respuesta",
+    "tagline": "Recuadros en movimiento a varias velocidades para sacar a la vista el ghosting y las estelas.",
+    "description": "Test de ghosting y tiempo de respuesta gratis. Observa recuadros en movimiento a velocidad ajustable para detectar desenfoque, estelas de ghosting y overshoot.",
+    "keywords": [
+      "test ghosting",
+      "test tiempo de respuesta",
+      "desenfoque de movimiento",
+      "test overdrive",
+      "test ufo"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y observa cómo los recuadros cruzan la pantalla.",
+      "Usa ← / → para cambiar la velocidad.",
+      "Busca una estela tenue (ghosting) o un borde brillante (overshoot) detrás de cada recuadro.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué es el ghosting?",
+        "a": "El ghosting es una estela emborronada detrás de los objetos en movimiento, causada por una respuesta lenta de los píxeles. Subir el overdrive del monitor puede reducirlo, pero en exceso provoca ghosting inverso (overshoot)."
+      },
+      {
+        "q": "¿Qué velocidad debo usar?",
+        "a": "Empieza con Media (480 px/s), que se parece al desplazamiento cotidiano y al movimiento de los juegos. Lenta (240 px/s) muestra con qué limpieza se estabiliza el panel, y Rápida (960 px/s) exagera las estelas y el overshoot, de modo que las pequeñas diferencias entre ajustes de overdrive se hacen visibles."
+      },
+      {
+        "q": "¿La estela es ghosting o desenfoque de movimiento?",
+        "a": "Algo de desenfoque es inevitable en cualquier pantalla normal: cada fotograma se mantiene fijo mientras tus ojos siguen moviéndose, así que a mayor frecuencia de actualización, menos desenfoque. El ghosting es otra cosa: una imagen residual o un emborronado definido que dejan las transiciones lentas de los píxeles, y en los paneles VA suele ser peor en escenas oscuras."
+      },
+      {
+        "q": "Mi monitor es de 1 ms. ¿Por qué sigo viendo una estela?",
+        "a": "La cifra de tiempo de respuesta es el mejor de los casos, normalmente medida con el overdrive más fuerte, donde el borde brillante del overshoot ya es visible. En el ajuste que se ve más limpio, las transiciones reales tardan más. Además, el desenfoque que produce tu vista al seguir un objeto en movimiento no tiene nada que ver con el tiempo de respuesta."
+      },
+      {
+        "q": "¿Las pantallas OLED tienen ghosting?",
+        "a": "Casi nada. Los píxeles OLED cambian de estado de forma casi instantánea, así que no hay estela emborronada. Aun así muestran el desenfoque normal de cualquier pantalla que mantiene fijo cada fotograma, que solo reducen una frecuencia de actualización más alta o un modo estroboscópico."
+      }
+    ],
+    "tips": [
+      "Sigue un recuadro con la vista y luego prueba a mirar a un punto fijo: cada forma revela artefactos distintos.",
+      "Si ves un borde brillante en lugar de una estela emborronada, el overdrive está demasiado alto (overshoot): bájalo un nivel.",
+      "Vuelve a revisar el overdrive cada vez que cambies la frecuencia de actualización: un nivel que se ve limpio a 144 Hz puede causar overshoot a 60 Hz."
+    ]
+  },
+  "blooming-test": {
+    "name": "Test de blooming",
+    "title": "Test de blooming (Mini-LED)",
+    "tagline": "Un objeto brillante sobre negro para juzgar los halos de la atenuación local.",
+    "description": "Test de blooming gratis para pantallas Mini-LED y con atenuación local. Mueve un objeto brillante sobre negro para ver el halo alrededor de las luces.",
+    "keywords": [
+      "test blooming",
+      "test mini led",
+      "local dimming",
+      "test halo pantalla",
+      "fald"
+    ],
+    "howTo": [
+      "Deja la habitación en penumbra y haz clic en Iniciar.",
+      "Mueve el cursor o el dedo para arrastrar el punto brillante por el campo negro.",
+      "Fíjate en si aparece un halo luminoso (blooming) alrededor del objeto brillante.",
+      "Usa → para los barridos de zonas: cuenta cuántas veces salta el halo mientras el cuadrado cruza la pantalla; ese es aproximadamente el número de zonas de atenuación a lo ancho (o a lo alto).",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué se produce el blooming?",
+        "a": "Las retroiluminaciones con atenuación local (local dimming) tienen un número limitado de zonas. Un objeto brillante pequeño enciende toda su zona, así que parte del resplandor se derrama sobre el negro que lo rodea."
+      },
+      {
+        "q": "¿Un OLED tiene blooming?",
+        "a": "No. Cada píxel OLED genera su propia luz, así que un objeto brillante sobre negro no tiene ninguna zona de retroiluminación de la que desbordarse. El blooming es propio de los LCD con atenuación local, Mini-LED incluidos."
+      },
+      {
+        "q": "¿Cómo reduzco el blooming?",
+        "a": "La mayoría de las pantallas con atenuación local permiten ajustar lo agresiva que es. Un ajuste más bajo encoge los halos pero eleva los negros; uno más alto da negros más profundos pero más blooming. Un poco de luz en la habitación también hace que los halos se noten menos que a oscuras total."
+      },
+      {
+        "q": "¿Por qué el blooming es peor cuando miro de lado?",
+        "a": "Los paneles LCD bloquean peor la retroiluminación en ángulo, así que alrededor de un objeto brillante se escapa más luz de cada zona encendida. Unos halos leves de frente pueden verse mucho más grandes desde el extremo del sofá."
+      },
+      {
+        "q": "¿El blooming es más fuerte en HDR?",
+        "a": "Sí. Las altas luces del HDR son mucho más brillantes que cualquier cosa en SDR, así que las zonas que tienen detrás trabajan con más intensidad y se derrama más luz sobre las zonas oscuras contiguas. Los subtítulos sobre una escena oscura son el ejemplo clásico."
+      },
+      {
+        "q": "¿Cuántas zonas de atenuación son suficientes?",
+        "a": "No hay un número fijo. Más zonas significa que cada una es más pequeña, así que el halo alrededor de un objeto brillante también lo es. Las pantallas que atenúan en unas pocas franjas verticales iluminan una columna entera detrás de un objeto pequeño. Los barridos de zonas muestran lo fina que es la tuya."
+      },
+      {
+        "q": "¿El blooming es lo mismo que las fugas de luz?",
+        "a": "No. Las fugas de luz se quedan en el mismo sitio, normalmente en un borde, haya lo que haya en pantalla. El blooming sigue a los objetos brillantes y solo existe en pantallas con atenuación local."
+      },
+      {
+        "q": "¿Debería desactivar la atenuación local?",
+        "a": "Para trabajar en el escritorio, a menudo sí: un cursor blanco o un texto sobre fondo oscuro provocan halos y hacen que el brillo suba y baje. Para películas, juegos y HDR, déjala activada, porque es lo que da a esas pantallas sus negros profundos."
+      }
+    ],
+    "tips": [
+      "Hazlo en una habitación a oscuras; el blooming alrededor del punto brillante cuesta verlo con la luz encendida.",
+      "Más zonas de atenuación = menos blooming. Un OLED prácticamente no muestra ninguno."
+    ]
+  },
+  "burn-in-test": {
+    "name": "Test de quemado",
+    "title": "Test de quemado de pantalla (burn-in)",
+    "tagline": "Campos a pantalla completa y un tablero de ajedrez para sacar a la vista el quemado de un OLED.",
+    "description": "Test de quemado (burn-in) OLED/AMOLED gratis. Recorre blanco, gris, RGB y un tablero de ajedrez para ver imágenes retenidas y desgaste desigual.",
+    "keywords": [
+      "test quemado pantalla",
+      "quemado oled",
+      "retención de imagen",
+      "amoled",
+      "imagen fantasma"
+    ],
+    "howTo": [
+      "Sube el brillo y haz clic en Iniciar.",
+      "Recorre el blanco, el gris y cada campo RGB con ← / →.",
+      "Busca contornos tenues de logotipos, barras o HUD que no deberían estar ahí; el gris es donde mejor se ven.",
+      "Usa el patrón de tablero de ajedrez para ayudar a igualar la retención a corto plazo.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué diferencia hay entre el quemado y la retención de imagen?",
+        "a": "La retención de imagen es temporal y se desvanece tras ver contenido variado. El quemado (burn-in) es un desgaste desigual y permanente de los subpíxeles OLED. Si un contorno persiste con muchas imágenes distintas, es quemado."
+      },
+      {
+        "q": "¿Qué campo muestra mejor el quemado?",
+        "a": "Un campo gris al 50% suele ser el más revelador, seguido de los colores lisos. Los elementos estáticos de la interfaz (barras de tareas, logotipos) dejan los fantasmas más nítidos."
+      },
+      {
+        "q": "¿El quemado se puede reparar?",
+        "a": "No. El quemado es un desgaste desigual de los píxeles, y los píxeles desgastados no se recuperan. El ciclo de refresco o de compensación del propio panel puede hacer que una marca se note menos igualando la zona que la rodea, pero no puede restaurar los píxeles desgastados."
+      },
+      {
+        "q": "¿Un LCD puede sufrir quemado?",
+        "a": "Los LCD pueden mostrar persistencia de imagen: un contorno tenue después de tener mucho tiempo una imagen estática. Casi siempre se desvanece solo tras contenido variado o un rato apagado. El quemado permanente en un LCD es raro."
+      },
+      {
+        "q": "¿Cómo evito el quemado?",
+        "a": "Baja el brillo, oculta cuando puedas los elementos estáticos, como la barra de tareas o el logotipo de un canal, y varía lo que hay en pantalla. Deja que el panel ejecute su ciclo de compensación, que en la mayoría de los televisores ocurre en reposo, así que no cortes la corriente en el enchufe después de cada uso."
+      }
+    ],
+    "tips": [
+      "El campo gris al 50% es el que mejor revela logotipos y barras de HUD retenidos: mira ahí primero.",
+      "Deja el tablero de ajedrez un rato para ayudar a eliminar la retención de imagen a corto plazo (el quemado real no se moverá).",
+      "¿Has encontrado un contorno? Reproduce vídeo variado a pantalla completa durante una o dos horas y vuelve a comprobarlo antes de darlo por quemado.",
+      "Fotografía el campo gris y anota la fecha, para tener una referencia con la que comparar más adelante."
+    ]
+  },
+  "contrast-test": {
+    "name": "Test de contraste",
+    "title": "Test de contraste",
+    "tagline": "Tableros de ajedrez en blanco y negro para juzgar la separación entre negro y blanco.",
+    "description": "Test de contraste gratis. Tableros de ajedrez en blanco y negro de densidad creciente para evaluar el contraste, la separación negro/blanco y la nitidez.",
+    "keywords": [
+      "test de contraste",
+      "tablero de ajedrez",
+      "nivel de negro y blanco",
+      "relación de contraste"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y mira el tablero de ajedrez a pantalla completa.",
+      "Usa ← / → para cambiar la densidad de la cuadrícula (de 4×4 a 32×32).",
+      "Los cuadrados negros deberían seguir siendo de un negro profundo y los blancos, brillantes, con bordes nítidos entre ellos.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿En qué debo fijarme?",
+        "a": "En una separación limpia entre negro y blanco, con bordes nítidos. Unos negros grisáceos indican poco contraste; unos bordes borrosos pueden indicar poca nitidez o un escalado."
+      },
+      {
+        "q": "¿Sirve para medir mi relación de contraste?",
+        "a": "No. La relación de contraste es una medida de la luz emitida y requiere un medidor. Esto es una comprobación visual: muestra si el negro sigue siendo profundo justo al lado de un blanco brillante, que es como se traduce en la práctica una relación de contraste alta o baja."
+      },
+      {
+        "q": "¿Qué tipos de panel lo hacen mejor?",
+        "a": "OLED, porque cada píxel se apaga: sus cuadrados negros siguen totalmente oscuros junto a los blancos. Entre los LCD, los paneles VA suelen alcanzar de 2500:1 a 5000:1 y los IPS en torno a 1000:1, así que los negros de un IPS se ven claramente más grises en una habitación a oscuras."
+      },
+      {
+        "q": "¿Por qué el contraste se ve peor en una habitación luminosa?",
+        "a": "La luz de la habitación se refleja en la pantalla y se suma a todas las zonas oscuras, de modo que el negro sube a gris mientras el blanco apenas cambia. El contraste propio del panel es el mismo que antes. Juzga la profundidad del negro en una habitación con poca luz, y la comodidad del día a día con la luz con la que trabajas de verdad."
+      },
+      {
+        "q": "¿Dejo activado el contraste dinámico?",
+        "a": "Desactívalo para hacer tests. El contraste dinámico cambia la retroiluminación según la imagen, así que el mismo patrón se ve distinto de un momento a otro. Mucha gente lo deja apagado para siempre, porque los cambios de brillo distraen en escenas mixtas."
+      },
+      {
+        "q": "¿Qué relación de contraste es buena?",
+        "a": "Depende de dónde mires la pantalla. Un panel IPS de unos 1000:1 se ve bien en una habitación iluminada. Un panel VA de 2500:1 a 5000:1 se ve claramente más profundo a oscuras, y un OLED todavía más, porque sus píxeles negros están apagados. A la luz del día la diferencia se reduce, ya que los reflejos elevan el negro en cualquier pantalla."
+      },
+      {
+        "q": "¿Por qué la cifra de contraste de la caja es tan superior?",
+        "a": "Las cifras de millones son contraste dinámico: el blanco más brillante con la retroiluminación al máximo, comparado con el negro más oscuro después de que la retroiluminación se haya atenuado. Los dos nunca aparecen juntos en pantalla. La relación de contraste nativa, o estática, es la que describe lo que ves en una misma imagen."
+      },
+      {
+        "q": "¿Subir el ajuste de Contraste mejora el contraste?",
+        "a": "No. Ese ajuste cambia el brillo con el que se muestran los tonos más claros, y la relación de contraste del panel sigue siendo la misma. Si está demasiado alto, funde los tonos más claros en un blanco plano. Déjalo en el valor por defecto, salvo que el detalle de las zonas claras se esté recortando."
+      }
+    ],
+    "tips": [
+      "Los cuadrados negros deberían seguir siendo de un negro intenso; un velo gris indica poco contraste o un nivel de negro elevado.",
+      "Unos bordes borrosos entre cuadrados apuntan a problemas de escalado o de nitidez, no de contraste."
+    ]
+  },
+  "black-level-test": {
+    "name": "Test de nivel de negro",
+    "title": "Test de nivel de negro",
+    "tagline": "Escalones casi negros para ver hasta dónde llega de verdad tu panel en oscuro.",
+    "description": "Test de nivel de negro gratis. Compara escalones de gris casi negro para juzgar el detalle en sombras, la profundidad del negro y el IPS glow de tu pantalla.",
+    "keywords": [
+      "test nivel de negro",
+      "detalle en sombras",
+      "casi negro",
+      "profundidad del negro",
+      "ips glow"
+    ],
+    "howTo": [
+      "Deja la habitación en penumbra, pon el brillo en tu nivel habitual y haz clic en Iniciar.",
+      "Cada banda vertical es ligeramente más clara que el negro puro (el número es su valor).",
+      "Anota la banda más baja que todavía distingues del negro puro: ese es tu límite de detalle en sombras.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Cuántos escalones debería ver?",
+        "a": "En una buena pantalla y en una habitación a oscuras normalmente se distinguen los escalones a partir del valor 2–4. Si todos los escalones bajos se ven idénticos al negro, el detalle en sombras se está perdiendo (a menudo por un ajuste de brillo o nivel de negro, o por un rango RGB «Limitado»)."
+      },
+      {
+        "q": "¿Subo el brillo hasta ver todos los escalones?",
+        "a": "En un monitor, no: su control de brillo actúa sobre todo sobre la retroiluminación, lo que hace más visible cada escalón pero también eleva el negro. Haz el test con el brillo que usas de verdad. En los televisores, el ajuste llamado Brillo suele controlar el propio nivel de negro, y ese es el que hay que tocar."
+      },
+      {
+        "q": "¿Por qué las bandas oscuras brillan hacia las esquinas?",
+        "a": "Eso es IPS glow o fugas de luz, no un problema de detalle en sombras: retroiluminación que se ve en ángulo o que se escapa por los bordes. Juzga los escalones desde el centro de la pantalla y usa el Test de fugas de luz para revisar las esquinas."
+      },
+      {
+        "q": "¿Qué tienen que ver los rangos RGB Completo y Limitado con esto?",
+        "a": "Las señales de vídeo pueden usar el rango completo de valores, de 0 a 255, o un rango limitado, de 16 a 235. Si el ordenador envía uno y la pantalla espera el otro, o bien los escalones más oscuros se vuelven todos negros, o bien el negro se vuelve gris. Pon los dos en el mismo rango: Completo para un monitor, y el que corresponda al modo de entrada en un televisor."
+      },
+      {
+        "q": "¿Por qué veo menos escalones durante el día?",
+        "a": "La luz de la habitación se refleja en la pantalla y oculta los escalones más oscuros, y tus ojos están adaptados a un entorno más luminoso. Un detalle en sombras que de noche se ve claro puede desaparecer a mediodía. Es normal, y es un motivo para hacer el test con la luz con la que ves la pantalla."
+      }
+    ],
+    "tips": [
+      "Deja la habitación en penumbra y usa tu brillo habitual, no el máximo, para juzgar el detalle real en sombras.",
+      "Si los escalones más bajos se funden todos en negro, comprueba si hay un rango RGB «Limitado» o un nivel de negro demasiado bajo."
+    ]
+  },
+  "viewing-angle-test": {
+    "name": "Test de ángulos de visión",
+    "title": "Test de ángulos de visión",
+    "tagline": "Escalones de gris y barras de color para sacar a la vista los cambios de color y brillo fuera del eje.",
+    "description": "Test de ángulos de visión gratis. Muestra escalones de gris y barras de color y mueve la cabeza para ver cuánto cambian el brillo y el color en paneles TN y VA.",
+    "keywords": [
+      "test ángulos de visión",
+      "cambio de color pantalla",
+      "ángulo de visión monitor",
+      "ángulos de visión tn va ips"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y siéntate primero centrado para fijar una referencia.",
+      "Mueve la cabeza a izquierda y derecha, arriba y abajo, y aléjate.",
+      "Observa cuánto se lavan los escalones de gris y cuánto cambian los colores: cuanto menos cambio, mejor.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué es lo normal?",
+        "a": "Los IPS y los OLED mantienen bien el color y el brillo fuera del eje. Los paneles TN cambian mucho (sobre todo en vertical) y los VA muestran un cambio de contraste y de gamma y resplandor en las esquinas. Algo de cambio es normal; los cambios grandes indican un cono de visión estrecho."
+      },
+      {
+        "q": "¿Por qué las esquinas se ven distintas aunque me siente centrado?",
+        "a": "En una pantalla grande, o cercana, las esquinas ya se ven en ángulo. Los paneles TN y VA lo muestran como esquinas más oscuras o lavadas incluso desde el asiento central. Un monitor curvo mantiene los bordes más de frente y lo reduce."
+      },
+      {
+        "q": "¿En qué parte del patrón debo fijarme?",
+        "a": "Los escalones de gris de la parte superior muestran el cambio de brillo y de gamma: en un panel de ángulo estrecho, los escalones oscuros se lavan o se funden al moverte, y los grises adquieren un tinte. Las barras de color de debajo muestran cómo cae la saturación y cómo cambian los tonos."
+      },
+      {
+        "q": "¿Puedo mejorar los ángulos de visión de mi pantalla?",
+        "a": "Ningún ajuste los cambia, pero la posición sí. Mira la pantalla de frente, ajusta su altura para que tus ojos queden a la altura del tercio superior e inclínala hasta que la parte de arriba y la de abajo se vean igual de brillantes. En un portátil, el ángulo de la tapa es lo que más influye."
+      },
+      {
+        "q": "¿Por qué cambia la imagen cuando inclino la tapa del portátil?",
+        "a": "Los portátiles más baratos suelen usar paneles TN, que cambian mucho vistos desde arriba o desde abajo. Unos pocos grados de inclinación bastan para oscurecer o lavar la imagen. Las pantallas IPS y OLED de portátil apenas cambian."
+      }
+    ],
+    "tips": [
+      "Fija primero tu referencia sentado justo en el centro y después muévete fuera del eje para comparar.",
+      "Un cambio fuerte al moverte en vertical es típico de los paneles TN; un cambio de contraste y de gamma con resplandor en las esquinas es típico de los VA."
+    ]
+  },
+  "gamma-test": {
+    "name": "Test de gamma",
+    "title": "Test de gamma",
+    "tagline": "Un patrón de rayas frente a parches para leer la gamma de tu pantalla.",
+    "description": "Test de gamma gratis. Rayas de 1 píxel (≈50% de gris) junto a parches de referencia de gamma 1.8–2.4. El parche que se funde es la gamma de tu pantalla.",
+    "keywords": [
+      "test gamma",
+      "gamma 2.2",
+      "calibrar gamma monitor",
+      "gamma escala de grises"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y aléjate un poco (las rayas deberían fundirse en un gris liso).",
+      "Compara cada parche etiquetado (γ 1.8–2.4) con el fondo de rayas.",
+      "El parche que más desaparece entre las rayas es la gamma de tu pantalla; lo ideal es 2.2.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué gamma debo buscar?",
+        "a": "2.2 (el estándar sRGB) para uso general. Si se funden los parches de valor más bajo, tu gamma es demasiado baja (imagen lavada); si coinciden los más altos, es demasiado alta (sombras empastadas). Ajusta el modo de gamma del monitor o la calibración del sistema."
+      },
+      {
+        "q": "¿Mac y Windows usan una gamma distinta?",
+        "a": "Ya no. Ambos apuntan a 2.2 por defecto; macOS pasó de 1.8 a 2.2 en 2009. Lo que difiere es la respuesta propia de cada pantalla, y eso es lo que lee este test."
+      },
+      {
+        "q": "¿Es tan preciso como una herramienta de calibración?",
+        "a": "No. Da una buena estimación visual de la gamma de tu pantalla en torno al gris medio, pero no puede medir toda la curva de negro a blanco ni corregirla. Un colorímetro hace ambas cosas."
+      },
+      {
+        "q": "¿Por qué las rayas muestran colores o patrones ondulados?",
+        "a": "El patrón solo funciona cuando cada raya cae exactamente sobre una fila de píxeles. El zoom del navegador, una resolución no nativa o el escalado del propio televisor lo rompen y producen interferencias de colores u onduladas. Restablece el zoom con Ctrl/Cmd + 0, usa la resolución nativa y recarga."
+      },
+      {
+        "q": "¿Cómo cambio la gamma de mi pantalla?",
+        "a": "Empieza por el menú del propio monitor, donde la mayoría de los modelos ofrecen modos de gamma. En Windows, busca «Calibrar el color de la pantalla» para abrir la herramienta integrada. En un Mac, abre Ajustes del Sistema > Pantallas y usa el menú del perfil de color. Repite este test después de cada cambio."
+      },
+      {
+        "q": "¿Qué es la gamma, en pocas palabras?",
+        "a": "Es la curva que convierte un valor de señal en brillo. El negro y el blanco se quedan donde están; la gamma decide lo brillante que se ve todo lo que hay en medio. Una gamma más baja hace los tonos medios más claros y planos; una más alta, más oscuros y densos."
+      },
+      {
+        "q": "¿Por qué cambia la lectura cuando muevo la cabeza?",
+        "a": "En los paneles VA y TN la gamma varía con el ángulo de visión, así que el parche que se funde en la parte superior de la pantalla puede no ser el que se funde en la inferior. Lee el patrón justo de frente, a la altura de los ojos. Las pantallas IPS y OLED cambian muy poco."
+      },
+      {
+        "q": "¿Debería usar 2.4 para ver películas?",
+        "a": "En una habitación completamente a oscuras, una curva cercana a 2.4 es la referencia con la que se masterizan muchas películas, y da sombras más profundas. En una habitación con algo de luz oculta el detalle de las sombras. Para uso general, y para cualquier cosa que se vea de día, 2.2 es el objetivo correcto."
+      }
+    ],
+    "tips": [
+      "Aléjate hasta que las rayas se fundan en un gris liso antes de comparar los parches.",
+      "Lo ideal es que desaparezca el parche 2.2; si se funde uno de valor más bajo, tu imagen está lavada, y uno más alto significa sombras empastadas."
+    ]
+  },
+  "screen-tearing-test": {
+    "name": "Test de tearing",
+    "title": "Test de tearing (screen tearing)",
+    "tagline": "Barras de desplazamiento rápido que sacan a la vista el tearing sin V-Sync/VRR.",
+    "description": "Test de tearing gratis. Unas barras en desplazamiento rápido revelan cortes cuando fps y Hz no están sincronizados: revisa V-Sync, G-Sync y FreeSync.",
+    "keywords": [
+      "test tearing",
+      "vsync",
+      "g-sync",
+      "freesync",
+      "test vrr"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y observa las barras en movimiento.",
+      "Usa ← / → para alternar entre barras verticales (revelan cortes horizontales) y barras horizontales (revelan cortes verticales).",
+      "Una imagen limpia significa que no hay tearing; un corte donde las barras no coinciden es tearing.",
+      "Activa y desactiva V-Sync o la sincronización adaptativa (G-Sync/FreeSync) y compara.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo elimino el tearing?",
+        "a": "Activa la sincronización adaptativa (G-Sync/FreeSync) para un movimiento sin cortes y con poca latencia, o V-Sync para limitar los fotogramas a la frecuencia de actualización (añade algo de latencia). Consulta nuestra guía sobre el tearing para ver la explicación completa."
+      },
+      {
+        "q": "¿Por qué aquí no veo tearing?",
+        "a": "Los navegadores suelen dibujar sincronizados con la pantalla, así que un resultado limpio es habitual y no demuestra que tus juegos no vayan a tener tearing. Los juegos lo producen cuando envían fotogramas con V-Sync desactivado. Si ves cortes aquí, comprueba que la aceleración por hardware está activada en tu navegador y que la pantalla funciona a su frecuencia de actualización nominal."
+      },
+      {
+        "q": "¿Qué cambia el control de velocidad?",
+        "a": "La velocidad a la que se mueven las barras. Un movimiento más rápido hace que el desfase en el corte sea más ancho y más fácil de ver. Si el movimiento se ve a tirones más que cortado, se están saltando o repitiendo fotogramas; el Test de salto de fotogramas lo comprueba directamente."
+      },
+      {
+        "q": "¿Cómo compruebo que G-Sync o FreeSync están realmente activados?",
+        "a": "Hay que activarlo en dos sitios: en el menú del propio monitor y en el panel de control del controlador gráfico. También necesita la conexión adecuada: DisplayPort en un PC, o HDMI 2.1 en una consola o un televisor, donde suele aparecer como VRR."
+      },
+      {
+        "q": "¿Una frecuencia de actualización más alta reduce el tearing?",
+        "a": "Hace que los cortes se vean menos, no que sean menos frecuentes. A 144 Hz cada fotograma cortado está en pantalla menos de 7 ms, frente a casi 17 ms a 60 Hz, y el desfase en el corte es menor. Solo V-Sync o la sincronización adaptativa eliminan el tearing por completo."
+      }
+    ],
+    "tips": [
+      "Usa el patrón de barras verticales para los cortes horizontales y el de barras horizontales para los cortes verticales.",
+      "Activa y desactiva V-Sync o la sincronización adaptativa (G-Sync/FreeSync) y observa cómo aparece o desaparece la línea de corte."
+    ]
+  },
+  "touch-screen-test": {
+    "name": "Test de pantalla táctil",
+    "title": "Test de pantalla táctil",
+    "tagline": "Toca todas las celdas o dibuja libremente para encontrar zonas muertas y los límites del multitáctil.",
+    "description": "Test de pantalla táctil gratis para móviles, tabletas y portátiles. Rellena una cuadrícula o dibuja para hallar zonas muertas y toques fantasma.",
+    "keywords": [
+      "test pantalla táctil",
+      "probar táctil móvil",
+      "test zonas muertas pantalla",
+      "test multitáctil",
+      "test digitalizador",
+      "comprobar táctil del móvil"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y sujeta el dispositivo como lo haces normalmente.",
+      "Arrastra un dedo despacio por todas las celdas de la cuadrícula: cada una se pone verde cuando registra el toque.",
+      "Las celdas que siguen oscuras después de pasar por ellas son zonas muertas. En Dibujo libre (→), los cortes o saltos en tus líneas delatan puntos muertos y toques fantasma.",
+      "Apoya varios dedos a la vez para ver cuántos toques sigue la pantalla.",
+      "Mantén pulsado en cualquier sitio para ver los controles (Reiniciar, Salir), o pulsa Esc."
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo se ve una zona muerta?",
+        "a": "Como un grupo de celdas que no se ponen verdes por muy despacio que pases el dedo, o como un hueco que aparece en el mismo sitio cada vez que trazas una línea por ahí. Una celda rebelde suele ser simplemente un punto que te has saltado; que fallen las mismas celdas todas las veces es un fallo de la capa táctil."
+      },
+      {
+        "q": "¿Cuántos puntos táctiles debería admitir una pantalla?",
+        "a": "La mayoría de los móviles y tabletas siguen al menos cinco dedos a la vez, y muchos siguen diez. Los portátiles táctiles varían. El contador muestra el máximo de dedos detectados al mismo tiempo: si nunca pasa de uno o dos, el multitáctil no funciona."
+      },
+      {
+        "q": "¿Un protector de pantalla afecta al test?",
+        "a": "Un protector grueso, agrietado o que se despega puede crear sus propios puntos muertos. Si encuentras uno, quita el protector y repite el test antes de culpar a la pantalla."
+      },
+      {
+        "q": "¿Qué causa los toques fantasma?",
+        "a": "Las causas habituales son un cargador o un cable de mala calidad que introduce ruido eléctrico, humedad en el cristal, un protector de pantalla que se despega y una capa táctil dañada tras una caída. Haz el test una vez desenchufado, sin protector y con la pantalla seca. Si siguen apareciendo marcas solas, la pantalla necesita reparación."
+      },
+      {
+        "q": "¿Se puede arreglar una zona muerta sin cambiar la pantalla?",
+        "a": "A veces. Reinicia el dispositivo, quita la funda y el protector, limpia el cristal e instala cualquier actualización del sistema pendiente, y repite el test. Una zona que después de eso falla siempre en el mismo sitio es un fallo de hardware, y la reparación habitual es una pantalla nueva."
+      }
+    ],
+    "tips": [
+      "Ve despacio por los bordes y hasta las esquinas: los fallos táctiles suelen empezar ahí.",
+      "Si algo no se ve bien, haz el test sin funda y sin protector de pantalla."
+    ]
+  }
+}

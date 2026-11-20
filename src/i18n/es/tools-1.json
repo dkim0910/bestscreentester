@@ -1,0 +1,455 @@
+{
+  "dead-pixel-test": {
+    "name": "Test de píxeles muertos",
+    "title": "Test de píxeles muertos",
+    "tagline": "Colores lisos a pantalla completa para encontrar píxeles muertos, atascados y brillantes.",
+    "description": "Test de píxeles muertos online y gratis. Recorre colores lisos a pantalla completa para detectar píxeles muertos, atascados o brillantes en cualquier pantalla.",
+    "keywords": [
+      "test píxeles muertos",
+      "píxel atascado",
+      "píxel brillante",
+      "comprobar píxeles muertos",
+      "test de monitor"
+    ],
+    "howTo": [
+      "Sube el brillo de la pantalla al máximo y límpiala.",
+      "Haz clic en Iniciar para entrar en pantalla completa y usa ← / → o toca los lados para cambiar de color.",
+      "Recorre despacio cada color liso por todo el panel.",
+      "Un punto que sigue negro en todos los colores es un píxel muerto; un punto fijo en un solo color es un píxel atascado.",
+      "¿Has encontrado un píxel atascado? Ve al último patrón, Reparador de píxeles atascados, arrastra el recuadro encima y tócalo para iniciar el parpadeo. Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué diferencia hay entre un píxel muerto y uno atascado?",
+        "a": "Un píxel muerto se queda negro en todos los colores porque no recibe corriente. Un píxel atascado (stuck pixel) está encendido de forma permanente en un color (rojo, verde o azul) y a veces se puede reactivar haciendo parpadear colores rápidamente."
+      },
+      {
+        "q": "¿Puedo reparar un píxel atascado?",
+        "a": "A veces. Alternar colores rápidamente sobre la zona atascada, o masajearla con suavidad, puede desbloquearlo. Los píxeles muertos normalmente no se pueden reparar por software."
+      },
+      {
+        "q": "¿Funciona en móviles y televisores?",
+        "a": "Sí. Funciona en cualquier navegador moderno en móviles, tabletas, portátiles, monitores y televisores inteligentes."
+      },
+      {
+        "q": "¿Cuántos píxeles muertos son aceptables en una pantalla nueva?",
+        "a": "No hay una cifra universal. Cada fabricante publica su propia política de píxeles, y la mayoría admite algunos fallos antes de considerar defectuoso un panel, contando con más rigor los píxeles brillantes que los oscuros. Eso solo se aplica a las reclamaciones de garantía. Dentro del plazo de devolución de la tienda puedes devolver una pantalla por un solo píxel muerto."
+      },
+      {
+        "q": "¿Los píxeles muertos se extienden?",
+        "a": "Un píxel muerto aislado no se extiende a sus vecinos. Si siguen apareciendo nuevos, o una zona oscura va creciendo, la causa es otra: daños por presión o por un golpe, líquido o una conexión con el panel que está fallando. Eso justifica una reclamación de garantía sea cual sea el número de píxeles."
+      },
+      {
+        "q": "¿Es seguro usar el Reparador de píxeles atascados?",
+        "a": "Solo muestra colores que cambian rápidamente dentro de un recuadro pequeño, así que no puede dañar el panel. Eso sí, parpadea muy rápido: no lo mires, y no lo uses en absoluto si eres sensible a los destellos. Arrastra el recuadro sobre el píxel, inícialo y aparta la vista."
+      },
+      {
+        "q": "¿Cómo compruebo los píxeles muertos de un móvil o un portátil?",
+        "a": "Igual, pero más de cerca. Los píxeles de un móvil o de un portátil de alta resolución son muy pequeños, así que acerca la pantalla más de lo habitual y recórrela por franjas. Safari en iPhone no permite la pantalla completa real, así que ahí el color ocupa la ventana del navegador; desplázate para ocultar la barra de direcciones y revisa por separado los bordes superior e inferior."
+      }
+    ],
+    "tips": [
+      "Limpia primero la pantalla: una mota de polvo se ve exactamente igual que un píxel muerto.",
+      "Mira cada color desde unos 30 cm para que un solo píxel defectuoso destaque de verdad.",
+      "¿Has encontrado un píxel atascado (no muerto)? Usa el patrón Reparador de píxeles atascados y deja su recuadro parpadeante sobre el píxel entre 10 y 20 minutos para intentar reactivarlo."
+    ]
+  },
+  "color-test": {
+    "name": "Test de color",
+    "title": "Test de color de pantalla",
+    "tagline": "Nueve colores lisos a pantalla completa para encontrar subpíxeles atascados, tintes y manchas irregulares.",
+    "description": "Test de color a pantalla completa y gratis. Muestra negro, blanco, rojo, verde, azul y más colores lisos para ver la uniformidad y hallar píxeles defectuosos.",
+    "keywords": [
+      "test de color pantalla",
+      "pantalla de un solo color",
+      "test rgb",
+      "colores a pantalla completa"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar para pasar a pantalla completa.",
+      "Usa ← / → o toca a la izquierda o a la derecha para cambiar de color.",
+      "Busca tintes, manchas o puntos que se distingan del campo liso.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué probar colores lisos uno a uno?",
+        "a": "El rojo, el verde y el azul lisos aíslan cada subpíxel, de modo que los subpíxeles defectuosos y los problemas de uniformidad de color saltan a la vista."
+      },
+      {
+        "q": "¿Por qué un punto se ve en unos colores y en otros no?",
+        "a": "Porque cada color enciende un conjunto distinto de subpíxeles. Un subpíxel rojo atascado en encendido es invisible sobre rojo, blanco y amarillo, y evidente sobre negro, verde y azul. Anota en qué colores aparece: así se distingue un píxel muerto de uno atascado."
+      },
+      {
+        "q": "¿Qué significa un tinte irregular sobre blanco o gris?",
+        "a": "Si toda la pantalla tira a cálido o a frío, es el ajuste de temperatura de color, o un modo nocturno que sigue activado. Si solo una zona tiene tinte, como un borde amarillento o una esquina rosada, el panel o su retroiluminación es irregular ahí, y ningún ajuste lo quitará."
+      },
+      {
+        "q": "¿Debo hacer el test con el brillo al máximo?",
+        "a": "Usa el brillo máximo para encontrar fallos, porque los puntos y las manchas tenues se ven mejor. Después vuelve a mirar con el brillo que usas normalmente para decidir si el fallo importa en la práctica."
+      },
+      {
+        "q": "¿En qué se diferencia del Test de píxeles muertos?",
+        "a": "Los dos muestran los mismos colores lisos. El Test de píxeles muertos añade el patrón Reparador de píxeles atascados y orientación sobre los fallos de píxel. Usa esta página cuando busques dominantes de color y zonas desiguales, o cuando simplemente quieras un color a pantalla completa."
+      },
+      {
+        "q": "¿Por qué el rojo se ve naranja o los colores se ven lavados?",
+        "a": "Revisa primero el modo de imagen. Los modos eco y de lectura reducen la saturación, un modo nocturno lo lleva todo hacia el naranja y un modo sRGB en un monitor de gama amplia atenúa los colores a propósito. Si los colores son flojos en todos los modos, el panel tiene una gama estrecha."
+      }
+    ],
+    "tips": [
+      "El rojo, el verde y el azul lisos son los mejores para detectar un subpíxel defectuoso.",
+      "Apunta en qué colores se ve un punto. Esa lista es la que distingue un píxel muerto de uno atascado, y es lo que te piden en una reclamación de garantía.",
+      "Un tinte general tenue en el campo blanco suele indicar que la temperatura de color o el balance de blancos están desajustados."
+    ]
+  },
+  "black-screen": {
+    "name": "Pantalla negra",
+    "title": "Pantalla negra",
+    "tagline": "Negro puro a pantalla completa para comprobar fugas de luz, IPS glow y los negros de un OLED.",
+    "description": "Pantalla negra pura y gratis, a pantalla completa. Comprueba las fugas de luz y el IPS glow de un LCD, el negro real de un OLED y los píxeles atascados.",
+    "keywords": [
+      "pantalla negra",
+      "negro puro",
+      "pantalla negra completa",
+      "negro oled"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar para ver un campo negro puro a pantalla completa.",
+      "En una habitación a oscuras, busca bordes o manchas que brillen (fugas de luz / IPS glow).",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Para qué sirve una pantalla negra?",
+        "a": "Para comprobar si un LCD tiene fugas de luz e IPS glow, para confirmar que un OLED muestra negro real y para encontrar píxeles atascados en encendido, que solo se ven sobre negro."
+      },
+      {
+        "q": "¿Por qué brillan los bordes en una pantalla negra?",
+        "a": "En un LCD, son fugas de luz (backlight bleed) o IPS glow: luz de la retroiluminación que se escapa por los bordes, o que se ve como un velo cuando miras en ángulo. Un poco es normal en casi todos los LCD. Un OLED debería quedarse totalmente negro, porque sus píxeles se apagan."
+      },
+      {
+        "q": "¿Un LCD debería verse completamente negro?",
+        "a": "No. Un LCD genera el negro bloqueando una retroiluminación que sigue encendida, así que siempre pasa algo de luz y la pantalla se ve gris muy oscuro en una habitación a oscuras. Lo que importa es que ese gris sea uniforme. Un nivel de negro elevado de forma uniforme es un ajuste de contraste o de rango RGB, no una fuga."
+      },
+      {
+        "q": "¿Una pantalla negra ahorra energía?",
+        "a": "En un OLED, sí: los píxeles negros están apagados y casi no consumen. En un LCD, apenas, porque la retroiluminación sigue encendida detrás de la imagen negra. Para ahorrar energía en un LCD, baja el brillo o deja que la pantalla entre en reposo."
+      },
+      {
+        "q": "¿La pantalla está apagada o mostrando negro?",
+        "a": "Está encendida y mostrando una imagen negra. En un LCD en una habitación a oscuras se nota por el tenue resplandor gris de la retroiluminación. En un OLED no hay nada que ver, y por eso la página mantiene la pantalla activa: puedes estar seguro de que no ha entrado simplemente en reposo."
+      }
+    ],
+    "tips": [
+      "Apaga las luces: las fugas de luz son invisibles en una habitación iluminada. El brillo máximo te ayuda a encontrarlas; tu brillo habitual te dice si importan.",
+      "Da a tus ojos dos o tres minutos para adaptarse antes de juzgar las esquinas. El resplandor se ve peor en los primeros treinta segundos.",
+      "Inclínate unos 30 cm hacia cada lado: un resplandor que se mueve contigo es IPS glow; uno que no se mueve es una fuga de luz."
+    ]
+  },
+  "white-screen": {
+    "name": "Pantalla blanca",
+    "title": "Pantalla blanca",
+    "tagline": "Blanco puro a pantalla completa para encontrar píxeles muertos oscuros, polvo y brillo irregular.",
+    "description": "Pantalla blanca pura y gratis, a pantalla completa. Detecta píxeles muertos oscuros y polvo, comprueba la uniformidad del brillo y busca manchas con tinte.",
+    "keywords": [
+      "pantalla blanca",
+      "blanco puro",
+      "pantalla blanca completa",
+      "test pantalla blanca"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar para ver un campo blanco puro a pantalla completa.",
+      "Busca puntos oscuros (píxeles muertos), manchas o polvo.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Para qué sirve una pantalla blanca?",
+        "a": "Para encontrar píxeles muertos oscuros y polvo, comprobar que el brillo es uniforme del centro a las esquinas y detectar manchas de un tinte distinto."
+      },
+      {
+        "q": "¿La pantalla seguirá encendida mientras la reviso?",
+        "a": "Sí, en los navegadores compatibles con la API Screen Wake Lock, que incluye las versiones actuales de Chrome, Edge, Safari y Firefox. La página pide a tu dispositivo que mantenga la pantalla activa hasta que salgas. Donde el navegador no lo admite, se aplica tu temporizador de reposo habitual."
+      },
+      {
+        "q": "¿Por qué el blanco se ve ligeramente amarillo o azul?",
+        "a": "El blanco depende de la temperatura de color de la pantalla. Luz nocturna, Night Shift, True Tone y los modos cálidos de «cuidado visual» lo tiñen a propósito, así que desactívalos antes del test. Sin ellos, una dominante cálida o fría uniforme es una diferencia de calibración, no un defecto; lo que hay que buscar son manchas de tinte distinto repartidas por la pantalla."
+      },
+      {
+        "q": "¿Puedo usar la pantalla blanca como luz?",
+        "a": "Sí. Con el brillo al máximo, una pantalla blanca da una luz suave y uniforme para una videollamada, para leer a oscuras o para calcar un dibujo en papel. Una pantalla más grande da una luz más suave."
+      },
+      {
+        "q": "¿Una pantalla blanca con el brillo al máximo daña mi pantalla?",
+        "a": "En un test corto, no. El blanco total es la imagen más exigente para una pantalla, así que se calentará y consumirá al máximo, y un OLED puede atenuarse solo al cabo de un rato para proteger el panel. Evita dejar cualquier imagen estática durante horas en un OLED."
+      }
+    ],
+    "tips": [
+      "Limpia primero la pantalla y vuelve a mirar: lo que se haya movido estaba en la superficie.",
+      "Las motas oscuras que no se van al limpiar suelen ser polvo entre capas o píxeles muertos, no suciedad."
+    ]
+  },
+  "backlight-bleed-test": {
+    "name": "Fugas de luz",
+    "title": "Test de fugas de luz (backlight bleed)",
+    "tagline": "Saca a la vista las fugas de la retroiluminación LCD y el IPS glow en una habitación a oscuras.",
+    "description": "Test de fugas de luz gratis. Muestra negro puro para revelar las fugas de luz (backlight bleed) y el IPS glow en los bordes y esquinas de tu pantalla.",
+    "keywords": [
+      "test fugas de luz",
+      "ips glow",
+      "backlight bleed",
+      "fugas de luz monitor"
+    ],
+    "howTo": [
+      "Apaga las luces de la habitación. Empieza con el brillo al máximo para encontrar cualquier fuga y luego júzgala de nuevo con el brillo que usas normalmente.",
+      "Haz clic en Iniciar para ver un campo negro a pantalla completa.",
+      "Revisa los bordes y las esquinas en busca de manchas turbias o brillantes.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Es normal que haya algo de fuga de luz?",
+        "a": "Sí. Casi todos los paneles LCD/LED tienen fugas leves. Solo es un problema cuando son irregulares, molestan en el uso normal o son excesivas en las esquinas."
+      },
+      {
+        "q": "¿Qué diferencia hay entre las fugas de luz y el IPS glow?",
+        "a": "Las fugas de luz (backlight bleed) son luz que se escapa por los bordes del panel y se ven de frente. El IPS glow es un efecto del ángulo de visión que cambia cuando mueves la cabeza."
+      },
+      {
+        "q": "¿Las fugas de luz empeoran con el tiempo?",
+        "a": "Normalmente no. Suelen mantenerse igual, y en una pantalla nueva a veces mejoran durante las primeras semanas a medida que el marco se asienta. Una fuga que aparece de repente o que sigue creciendo apunta a presión sobre el panel, calor o un golpe."
+      },
+      {
+        "q": "¿Se pueden arreglar las fugas de luz?",
+        "a": "No hay un arreglo fiable en casa. Presionar el panel o aflojar el marco puede dañarlo y anular la garantía. Bajar el brillo y dejar algo de luz en la habitación hacen que las fugas se noten mucho menos. Si te molestan en el uso normal, devuelve la pantalla mientras aún puedas."
+      },
+      {
+        "q": "¿Por qué las fugas se ven mucho peor en mi foto?",
+        "a": "A oscuras, la cámara del móvil usa una exposición larga y amplifica la señal, lo que convierte un velo tenue en nubes brillantes. Usa las fotos para dejar constancia de dónde está la fuga, con la exposición bloqueada, y fíate de tus ojos para valorar su intensidad."
+      }
+    ],
+    "tips": [
+      "Fotografía la pantalla negra con el móvil para comparar paneles de forma objetiva.",
+      "Algo de fuga de luz y de IPS glow es normal: solo unas nubes irregulares y molestas son un defecto que justifica devolver un panel.",
+      "Vuelve a mirar con la habitación iluminada como siempre y con tu brillo habitual. Esas son las condiciones con las que vas a convivir."
+    ]
+  },
+  "greyscale-test": {
+    "name": "Escala de grises",
+    "title": "Test de escala de grises y banding",
+    "tagline": "Un degradado suave y una rampa de 32 escalones para sacar a la vista el banding.",
+    "description": "Test de escala de grises y banding gratis. Un degradado suave de negro a blanco y una rampa de 32 escalones para detectar banding y grises teñidos.",
+    "keywords": [
+      "test escala de grises",
+      "test degradado",
+      "banding monitor",
+      "test gamma"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar para ver el degradado a pantalla completa.",
+      "Usa ← / → para alternar entre el degradado suave y la rampa de 32 escalones.",
+      "Busca bandas visibles o saltos bruscos en lugar de una transición suave.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué causa el banding?",
+        "a": "El banding (bandas de color) aparece cuando un panel no puede reproducir suficientes tonos distintos: es habitual en paneles de 6 bits + FRC, o se debe a una compresión agresiva o a una salida configurada con poca profundidad de bits."
+      },
+      {
+        "q": "¿Qué diferencia hay entre los dos patrones?",
+        "a": "El degradado suave va de negro a blanco sin escalones, así que cualquier banda que veas en él viene de tu cadena de imagen. La rampa escalonada divide el mismo rango en 32 bloques iguales: cada uno debería verse como un gris distinto y neutro, incluidos los más oscuros."
+      },
+      {
+        "q": "¿Por qué algunas partes de la rampa se ven teñidas?",
+        "a": "Una rampa neutra debería ser gris de principio a fin. Una dominante verde, azul o magenta en una parte apunta al balance de blancos o a los ajustes de color de la pantalla, no al banding. Probar otro modo de color o calibrar suele corregirlo."
+      },
+      {
+        "q": "¿El banding es de mi pantalla o del vídeo que estaba viendo?",
+        "a": "Esta página dibuja su degradado al momento, sin compresión, así que las bandas que veas aquí vienen de tu pantalla o de sus ajustes. Si este degradado es suave pero una película o un streaming muestra bandas en cielos y sombras, la causa es la compresión del vídeo, no la pantalla."
+      },
+      {
+        "q": "¿Por qué el banding se ve mejor en las zonas oscuras?",
+        "a": "El ojo es más sensible a los pequeños saltos de brillo en el extremo oscuro, y muchos paneles manejan con menos precisión los últimos tonos por encima del negro. Por eso los cielos nocturnos y las sombras son lo primero que muestra bandas."
+      },
+      {
+        "q": "¿Cuántos escalones debería poder contar?",
+        "a": "Los 32. Si los dos o tres más oscuros se funden con el negro, se está perdiendo detalle en las sombras. Si los más claros se funden con el blanco, las luces altas se están recortando, normalmente porque el ajuste de Contraste está demasiado alto."
+      },
+      {
+        "q": "¿Un modo de imagen o el HDR cambian el resultado?",
+        "a": "Sí. Los modos vívido, dinámico y de juego alteran la curva de tonos, y el contraste dinámico la cambia de un momento a otro. Haz el test en el modo estándar o sRGB. Con el HDR activado en Windows, el contenido normal se reasigna y puede mostrar banding donde antes no lo había."
+      },
+      {
+        "q": "¿El banding es motivo para devolver un monitor?",
+        "a": "Un banding leve en un degradado a pantalla completa es habitual, sobre todo en paneles de 6 bits + FRC, y no es un defecto. Si ves barras claras en contenido normal, después de descartar los ajustes y en un panel vendido como de 8 o 10 bits, merece la pena planteárselo al vendedor dentro del plazo de devolución."
+      }
+    ],
+    "tips": [
+      "Aléjate de la pantalla: el banding se ve mucho mejor a distancia.",
+      "Si el degradado suave muestra barras definidas, prueba a configurar la salida de la GPU en RGB completo y con una profundidad de color de 8 bits o más."
+    ]
+  },
+  "color-gradient-test": {
+    "name": "Degradado de color",
+    "title": "Test de degradado de color",
+    "tagline": "Degradados suaves de espectro y RGB para juzgar las transiciones de color y el banding.",
+    "description": "Test de degradado de color gratis. Degradados suaves de rojo, verde, azul y espectro completo para comprobar las transiciones de color y el banding.",
+    "keywords": [
+      "test degradado de color",
+      "test banding",
+      "degradado rgb",
+      "degradado espectro",
+      "transición de color"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar para ver el degradado a pantalla completa.",
+      "Usa ← / → para recorrer los degradados de espectro, rojo, verde, azul, blanco, gris y negro.",
+      "Comprueba que las transiciones son suaves y que los colores se ven saturados y uniformes.",
+      "Las rampas de blanco y de gris son las que mejor muestran el banding de luminancia en las sombras.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Sirve para probar mi gama de colores?",
+        "a": "No. Estos degradados usan colores sRGB estándar, que cualquier pantalla puede mostrar, así que revelan el banding y las transiciones irregulares, no la gama. Para saber si tu pantalla muestra colores más allá de sRGB, usa el Test de gama de colores amplia (P3)."
+      },
+      {
+        "q": "¿Cómo es un buen resultado?",
+        "a": "Cada degradado se funde con suavidad de un extremo a otro, sin barras visibles, saltos bruscos ni manchas. El espectro debería pasar de forma uniforme por amarillo, verde, cian, azul y magenta, sin que un tono se coma una franja ancha."
+      },
+      {
+        "q": "¿Por qué mirar el rojo, el verde y el azul por separado?",
+        "a": "Cada canal se controla por separado, así que un banding o un cambio de color que aparece en una sola rampa apunta a la calibración de ese canal y no al panel en su conjunto. Cierta diferencia de brillo es normal: el verde siempre es el que más brillante se ve."
+      },
+      {
+        "q": "¿Por qué apareció banding al activar el modo nocturno o cambiar un perfil de color?",
+        "a": "Los modos nocturnos, los perfiles de color y los ajustes RGB manuales funcionan reasignando los valores que se envían a la pantalla. Con el color estándar de 8 bits eso deja menos escalones distintos por canal, así que aparecen bandas en degradados que antes eran suaves. Desactívalos y vuelve a comprobarlo."
+      },
+      {
+        "q": "¿Qué significan 8 bits, 10 bits y 6 bits + FRC?",
+        "a": "Indican cuántos escalones de brillo tiene cada canal de color. Con 8 bits hay 256 escalones; con 10 bits, 1024. Un panel de 6 bits solo tiene 64 escalones reales y usa FRC, una alternancia rápida entre dos tonos vecinos, para imitar los intermedios."
+      },
+      {
+        "q": "¿Un monitor de 10 bits elimina el banding?",
+        "a": "Solo cuando el contenido, la aplicación, la salida gráfica y el cable transportan color de 10 bits. La mayor parte del contenido de escritorio es de 8 bits, y aun así debería verse suave en un buen panel de 8 bits. El banding que veas aquí se debe más a menudo a un ajuste que a una profundidad de color insuficiente."
+      },
+      {
+        "q": "Veo un grano fino que vibra en los degradados oscuros. ¿Es un fallo?",
+        "a": "No. Es dithering o FRC: el panel alterna entre dos tonos para producir uno que no puede mostrar directamente. Es normal en muchas pantallas y suele desaparecer a una distancia de visión normal."
+      }
+    ],
+    "tips": [
+      "Usa las rampas de blanco y de gris para aislar el banding de luminancia sin que el color distraiga.",
+      "Las bandas anchas y posterizadas suelen venir de un panel de 6 bits o de una compresión de vídeo agresiva más que de tu GPU."
+    ]
+  },
+  "brightness-uniformity-test": {
+    "name": "Uniformidad de brillo",
+    "title": "Test de uniformidad de brillo",
+    "tagline": "Un campo gris al 50%, una cuadrícula de 9 zonas y un gris en movimiento para detectar una retroiluminación irregular.",
+    "description": "Test de uniformidad de brillo gratis: un campo gris al 50%, una cuadrícula de 9 zonas y un gris en movimiento para ver clouding y efecto de pantalla sucia.",
+    "keywords": [
+      "uniformidad de brillo",
+      "clouding pantalla",
+      "test uniformidad pantalla",
+      "pantalla gris"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y mira el campo gris a pantalla completa.",
+      "Usa ← / → para pasar a la cuadrícula de 9 zonas y al gris en movimiento.",
+      "Compara el brillo del centro con el de cada esquina.",
+      "En Gris en movimiento, sigue con la vista las bandas que se desplazan: las manchas o rayas que no se mueven son el efecto de pantalla sucia del panel.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Cuánta variación es aceptable?",
+        "a": "Los buenos monitores se mantienen en torno a un 10% de variación de brillo en todo el panel. Las diferencias mayores se ven como esquinas claramente más oscuras o puntos más brillantes."
+      },
+      {
+        "q": "¿Qué es el efecto de pantalla sucia?",
+        "a": "El efecto de pantalla sucia (dirty screen effect, DSE) son manchas y bandas verticales tenues en paneles grandes, que se ven sobre todo cuando la cámara hace un barrido sobre una zona uniforme, como un campo de fútbol. El patrón Gris en movimiento lo recrea: las bandas se desplazan, y las manchas que se quedan fijas son del panel."
+      },
+      {
+        "q": "¿Se puede corregir un brillo irregular?",
+        "a": "Con un ajuste normal no, porque viene de la retroiluminación y de las capas del panel. Algunos monitores tienen un modo de compensación de uniformidad que iguala la imagen a costa de algo de brillo y contraste. Si una mancha molesta en el uso normal, devuelve la pantalla dentro del plazo de devolución."
+      },
+      {
+        "q": "¿Por qué hacer el test sobre gris y no sobre blanco?",
+        "a": "Las diferencias de brillo se ven con más claridad en un tono medio. En blanco total la pantalla está en su máximo brillo y tus ojos se adaptan a él, lo que oculta esquinas más oscuras y manchas que sobre gris se ven sin esfuerzo."
+      },
+      {
+        "q": "¿Las pantallas OLED tienen problemas de uniformidad?",
+        "a": "No tienen retroiluminación, así que no presentan clouding ni fugas de luz. Aun así pueden mostrar bandas verticales tenues o una ligera diferencia de tono sobre un gris muy oscuro, y zonas desgastadas tras un uso prolongado. Un banding leve sobre un campo gris oscuro es habitual en los paneles OLED y VA grandes."
+      },
+      {
+        "q": "¿Por qué las esquinas de la pantalla de mi portátil son más oscuras?",
+        "a": "La mayoría de las pantallas de portátil se iluminan desde un borde, y una fina capa guía reparte la luz por el panel. Cierta caída de brillo hacia las esquinas más alejadas es normal. Una mancha oscura de bordes definidos es otra cosa y apunta a daños por presión."
+      },
+      {
+        "q": "¿Cómo fotografío el brillo desigual de forma fiel?",
+        "a": "Aléjate, dispara justo de frente y bloquea la exposición en el centro de la pantalla. Desactiva el modo noche de la cámara, que exagera las diferencias pequeñas. Usa la foto como registro y juzga la gravedad con tus ojos."
+      }
+    ],
+    "tips": [
+      "Compara el centro con cada esquina, una a una, en vez de recorrer todo el campo.",
+      "Haz una foto con una exposición uniforme: tus ojos se adaptan solos y ocultan diferencias reales."
+    ]
+  },
+  "refresh-rate-test": {
+    "name": "Frecuencia de actualización",
+    "title": "Test de frecuencia de actualización (Hz)",
+    "tagline": "Mide tu frecuencia de actualización real y observa una referencia en movimiento.",
+    "description": "Test de frecuencia de actualización gratis. Mide en el navegador los Hz reales (tasa de refresco) de tu pantalla y confirma la fluidez con un objeto móvil.",
+    "keywords": [
+      "test hz monitor",
+      "test tasa de refresco",
+      "test fps",
+      "test 144hz",
+      "cuántos hz tiene mi monitor"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar: la frecuencia de actualización medida aparece en uno o dos segundos.",
+      "Observa el recuadro en movimiento para confirmar que se ve fluido.",
+      "Compara la lectura con los Hz nominales de tu panel; la línea de debajo indica el tiempo de fotograma y la frecuencia estándar más cercana.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué la lectura no coincide exactamente con la de mi monitor?",
+        "a": "Muchas pantallas funcionan una fracción por debajo o por encima de su frecuencia nominal, como 59,94 Hz en lugar de 60, y la temporización del navegador añade algo de ruido. Una lectura a menos de 1 Hz del valor nominal es normal. Una diferencia grande suele significar que hay una frecuencia más baja seleccionada en la configuración de pantalla del sistema."
+      },
+      {
+        "q": "¿Por qué marca 60 Hz en mi monitor de 144 Hz?",
+        "a": "Porque el panel está funcionando a 60 Hz. Las causas habituales: la frecuencia de actualización se quedó en 60 en la configuración de pantalla de Windows o macOS, el cable o el puerto no soportan la frecuencia más alta a tu resolución (usa DisplayPort o un cable HDMI de alta velocidad), o un modo de ahorro de energía del portátil o del móvil la ha bajado. Corrígelo y repite el test."
+      },
+      {
+        "q": "¿Qué significan el tiempo de fotograma y la frecuencia estándar más cercana?",
+        "a": "El tiempo de fotograma es lo que dura cada actualización: 1000 ms dividido entre la frecuencia, es decir, 16,67 ms a 60 Hz y 6,94 ms a 144 Hz. La frecuencia estándar más cercana indica a qué ajuste habitual de panel corresponde tu lectura, lo que ayuda cuando la medición se desvía una fracción."
+      },
+      {
+        "q": "¿Cómo cambio mi frecuencia de actualización?",
+        "a": "En Windows, ve a Configuración > Sistema > Pantalla > Pantalla avanzada y elige una frecuencia de actualización. En un Mac, abre Ajustes del Sistema > Pantallas y usa el menú Frecuencia de actualización. Con más de un monitor, la frecuencia se ajusta por separado para cada pantalla."
+      },
+      {
+        "q": "¿La frecuencia de actualización es lo mismo que los fotogramas por segundo?",
+        "a": "No. La frecuencia de actualización (Hz) es cuántas veces por segundo se redibuja la pantalla. Los fotogramas por segundo (fps) son cuántas imágenes nuevas produce el ordenador o el juego. Solo notas la ventaja de una pantalla de 144 Hz cuando la fuente también entrega cerca de 144 fotogramas por segundo."
+      },
+      {
+        "q": "¿Por qué mi móvil de 120 Hz marca 60 Hz?",
+        "a": "Los móviles cambian su frecuencia de actualización para ahorrar batería, y el modo de ahorro de batería suele fijarla en 60 Hz. Algunos navegadores móviles también limitan las páginas web a 60 actualizaciones por segundo, pueda lo que pueda el panel. Por eso, una lectura de 60 Hz en un móvil no demuestra que haya un problema."
+      },
+      {
+        "q": "¿Qué pantalla mide si tengo dos monitores?",
+        "a": "Aquella en la que está la ventana del navegador. Arrastra la ventana al otro monitor y la lectura lo sigue al cabo de un momento. Con monitores a frecuencias distintas, algunos navegadores se sincronizan con uno de ellos, así que prueba cada monitor con la ventana completamente dentro de él."
+      }
+    ],
+    "tips": [
+      "Cierra otras pestañas y aplicaciones; la carga en segundo plano puede hacer que la frecuencia medida quede por debajo de la nominal del panel.",
+      "Si has comprado un monitor de alta frecuencia, asegúrate de que la frecuencia está realmente seleccionada en la configuración de pantalla del sistema.",
+      "En un portátil o un móvil, haz el test enchufado o con el ahorro de batería desactivado: el ahorro de energía puede bajar la frecuencia de actualización."
+    ]
+  }
+}

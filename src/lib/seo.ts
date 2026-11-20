@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { INDEXED_TOOLS } from "@/lib/tools";
+import { LANGS, OG_LOCALE, isTranslatedPath, localePath, type Lang } from "@/i18n/config";
 
 export const SITE_NAME = "BestScreenTester";
 export const SITE_TAGLINE =
@@ -25,14 +27,14 @@ export const PRIVACY_UPDATED = "November 19, 2026";
 // build time: Bing discounts sitemaps whose lastmod is always "now", and the IndexNow
 // ping submits whatever is dated within the last week, so each must be a stable value
 // that only moves when its own page does. Tools carry their own `updatedAt` (tools.ts).
-export const SITE_UPDATED = "2026-11-19";
+export const SITE_UPDATED = "2026-11-21";
 
 // Last change to each static page's visible content (meta-description-only edits don't
 // count). The homepage is here too: its long-form copy changes independently of the
 // tool and guide lists. Privacy must match PRIVACY_UPDATED and Terms LEGAL_UPDATED, the
 // dates those pages display.
 export const PAGE_UPDATED = {
-  home: "2026-11-19",
+  home: "2026-11-21",
   about: "2026-11-19",
   donate: "2026-11-19",
   feedback: "2026-11-19",
@@ -58,10 +60,27 @@ export function absoluteUrl(path = ""): string {
   return `${base}${needsSlash && !withLeading.endsWith("/") ? `${withLeading}/` : withLeading}`;
 }
 
+const TRANSLATED_SLUGS = INDEXED_TOOLS.map((t) => t.slug);
+
+/**
+ * hreflang alternates for a page that exists in every language: one entry per language
+ * (the page's own included, as Google requires) plus x-default pointing at English.
+ * Undefined for pages that exist in English only. `path` is the English path.
+ */
+export function languageAlternates(path: string): Record<string, string> | undefined {
+  if (!isTranslatedPath(path, TRANSLATED_SLUGS)) return undefined;
+  const out: Record<string, string> = {};
+  for (const lang of LANGS) out[lang] = absoluteUrl(localePath(lang, path, TRANSLATED_SLUGS));
+  out["x-default"] = absoluteUrl(path);
+  return out;
+}
+
 interface PageMetaArgs {
   title: string;
   description: string;
+  /** The English path. For another language, pass `lang` and the prefix is added here. */
   path: string;
+  lang?: Lang;
   keywords?: string[];
   images?: string[];
   type?: "website" | "article";
@@ -87,22 +106,24 @@ export function pageMetadata({
   publishedTime,
   modifiedTime,
   noindex,
+  lang = "en",
 }: PageMetaArgs): Metadata {
-  const url = absoluteUrl(path);
+  const url = absoluteUrl(localePath(lang, path, TRANSLATED_SLUGS));
+  const languages = noindex ? undefined : languageAlternates(path);
   const ogImages = images?.length ? images : [absoluteUrl("/og.png")];
   const templated = `${title} · ${SITE_NAME}`;
   return {
     title: templated.length > TITLE_BUDGET ? { absolute: title } : title,
     description,
     keywords,
-    alternates: { canonical: url },
+    alternates: { canonical: url, ...(languages ? { languages } : {}) },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: templated,
       description,
       url,
       siteName: SITE_NAME,
-      locale: "en_US",
+      locale: OG_LOCALE[lang],
       type,
       images: ogImages,
       ...(type === "article" ? { publishedTime, modifiedTime } : {}),
@@ -161,9 +182,11 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
 export function webAppJsonLd(args: {
   name: string;
   description: string;
+  /** The page's own path, language prefix included. */
   path: string;
   category: string;
   image?: string;
+  lang?: Lang;
 }) {
   return {
     "@context": "https://schema.org",
@@ -177,6 +200,7 @@ export function webAppJsonLd(args: {
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     image: args.image ? absoluteUrl(args.image) : undefined,
     isAccessibleForFree: true,
+    inLanguage: args.lang ?? "en",
     publisher: { "@type": "Organization", name: SITE_NAME, url: siteUrl() },
   };
 }

@@ -3,6 +3,7 @@
 import FullscreenStage from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 const SPEEDS = [
   { label: "Slow", px: 240 },
@@ -17,6 +18,7 @@ const ROWS = [
 ];
 
 export default function GhostingTool({ tool }: { tool: ToolDef }) {
+  const t = useT();
   // Speed is selected by the stage's frame index, so the ← / → arrows
   // (keyboard, tap zones, and overlay buttons) all change speed.
   const draw = ({ ctx, width, height, t, frame }: DrawArgs) => {
@@ -38,7 +40,7 @@ export default function GhostingTool({ tool }: { tool: ToolDef }) {
     <FullscreenStage
       tool={tool}
       frameCount={SPEEDS.length}
-      frameLabel={(i) => `${SPEEDS[i]?.label ?? ""} speed`}
+      frameLabel={(i) => t("{label} speed", { label: t(SPEEDS[i]?.label ?? "") })}
       renderFrame={(i) => <PatternCanvas frame={i} draw={draw} animate />}
       controls={(api) => (
         <span className="flex items-center gap-1">
@@ -50,7 +52,7 @@ export default function GhostingTool({ tool }: { tool: ToolDef }) {
                 i === api.index ? "bg-white text-black" : "hover:bg-white/15"
               }`}
             >
-              {s.label}
+              {t(s.label)}
             </button>
           ))}
         </span>

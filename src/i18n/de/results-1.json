@@ -1,0 +1,584 @@
+{
+  "dead-pixel-test": {
+    "heading": "Tot, hängend oder nur Staub? So liest du das Ergebnis",
+    "howToHeading": "So läuft der Pixel-Check",
+    "faqHeading": "Fragen zu toten und hängenden Pixeln",
+    "pass": [
+      "Jede Farbe ist eine durchgehende Fläche, ohne Punkt, der dunkel bleibt, und ohne Punkt, der in der falschen Farbe leuchtet.",
+      "Ein Fleckchen, das sich wegwischen lässt oder von der Seite betrachtet über dem Bild zu schweben scheint, ist Staub oder eine Spur auf der Oberfläche, kein Pixel."
+    ],
+    "fail": [
+      "Ein Punkt, der auf jeder Farbe dunkel ist, auch auf Weiß, ist ein totes Pixel. Es erholt sich nicht.",
+      "Ein Punkt, der dauerhaft eine Farbe zeigt oder auf dem schwarzen Testbild weiß leuchtet, ist ein hängendes Pixel oder ein Hot Pixel. Probier das Testbild „Stuck-Pixel-Fixer“ aus, bevor du irgendetwas entscheidest.",
+      "Eine ganze Zeile oder Spalte, die leuchtet oder dunkel bleibt, ist ein Kontaktfehler und kein Pixelfehler – und fast immer ein Garantiefall.",
+      "Zwei oder mehr Fehler dicht beieinander sind eine Häufung (Cluster). Viele Richtlinien tauschen ein Panel wegen einer Häufung, tolerieren aber dieselbe Anzahl, wenn sie verstreut ist."
+    ],
+    "threshold": "Hersteller stufen Panels nach ISO 9241-307 ein. Die meisten Bildschirme für Privatkunden sind Class II (Fehlerklasse II), die ein paar Fehler pro Million Pixel erlaubt, und die meisten Marken veröffentlichen statt dieser Angabe eigene feste Stückzahlen. Helle Pixel werden strenger bewertet als dunkle, einzelne Subpixel-Fehler am nachsichtigsten. Es gilt die Zahl in deinen eigenen Garantieunterlagen. Innerhalb der Rückgabefrist des Händlers musst du überhaupt keine Mindestzahl erreichen.",
+    "note": "Eine einzelne Farbe reicht nicht. Ein dauerhaft leuchtendes Pixel ist auf Weiß unsichtbar, ein abgeschaltetes auf Schwarz – schalte also bei LCD wie OLED jedes Testbild durch. Auf einem Handy oder einem 4K-Laptop ist ein Pixel sehr klein: Geh näher heran, als du sonst sitzt.",
+    "next": [
+      "Wisch den Bildschirm mit einem trockenen Mikrofasertuch ab und schau noch einmal hin. Hat sich der Punkt bewegt oder ist er weg, war es Staub.",
+      "Schalte jede Farbe durch und schreib auf, wo der Punkt zu sehen ist. Auf allen dunkel bedeutet tot; eine feste Farbe oder Leuchten auf Schwarz bedeutet hängend.",
+      "Lass bei einem hängenden Pixel das Testbild „Stuck-Pixel-Fixer“ 10 bis 30 Minuten darüber laufen und prüf es noch einmal.",
+      "Fotografiere den Fehler auf einer Vollfarbe und notiere das Datum und die Stelle auf dem Bildschirm.",
+      "Prüf, wann du den Bildschirm gekauft hast. Innerhalb der Rückgabefrist des Händlers gibst du ihn zurück oder tauschst ihn um. Danach zählst du die Fehler nach Art getrennt und vergleichst sie mit der Pixelfehler-Richtlinie des Herstellers."
+    ],
+    "tables": [
+      {
+        "title": "So sieht jede Fehlerart auf den Testfarben aus",
+        "head": [
+          "Fehler",
+          "Auf Schwarz",
+          "Auf Weiß",
+          "Auf Rot, Grün, Blau",
+          "Erholt es sich?"
+        ],
+        "rows": [
+          [
+            "Totes Pixel",
+            "Unsichtbar",
+            "Dunkler Punkt",
+            "Dunkler Punkt auf allen drei",
+            "Nein"
+          ],
+          [
+            "Hängendes Subpixel",
+            "Farbiger Punkt",
+            "Punkt in der Gegenfarbe",
+            "Unsichtbar auf seiner eigenen Farbe",
+            "Manchmal"
+          ],
+          [
+            "Hot Pixel",
+            "Weißer Punkt",
+            "Unsichtbar",
+            "Heller Punkt auf allen drei",
+            "Selten"
+          ],
+          [
+            "Staub auf der Oberfläche",
+            "Schwer zu sehen",
+            "Fleckchen mit weichem Rand",
+            "Dunkles Fleckchen",
+            "Lässt sich wegwischen"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Pixelfehler und Garantie: wie gezählt wird und wann die Rückgabe der bessere Weg ist"
+  },
+  "color-test": {
+    "heading": "Was jede Farbe zeigt",
+    "howToHeading": "Die Farben durchschalten",
+    "faqHeading": "Fragen zum Farbtest",
+    "terms": [
+      {
+        "name": "Schwarz",
+        "text": "Dauerhaft leuchtende Pixel und Licht, das an den Rändern aus der Hintergrundbeleuchtung austritt."
+      },
+      {
+        "name": "Weiß",
+        "text": "Abgeschaltete Pixel, Staub und Flecken mit ungleichmäßigem Farbstich oder ungleichmäßiger Helligkeit."
+      },
+      {
+        "name": "Rot, Grün, Blau",
+        "text": "Jede Farbe lässt nur ein Subpixel leuchten. Ein dunkler Punkt, der nur auf einer davon erscheint, ist ein einzelnes totes Subpixel – der Fehler, den Garantierichtlinien am ehesten tolerieren."
+      },
+      {
+        "name": "Cyan, Magenta, Gelb",
+        "text": "Jede Farbe lässt zwei Subpixel leuchten. Ein dauerhaft leuchtendes Subpixel zeigt sich hier als Punkt in der falschen Farbe, verschwindet aber auf seiner eigenen Grundfarbe."
+      },
+      {
+        "name": "Grau",
+        "text": "Ungleichmäßige Helligkeit und Farbstiche sind auf einem Mittelton am leichtesten zu sehen, ebenso ein eingebranntes Bild auf einem OLED."
+      }
+    ],
+    "pass": [
+      "Jede Farbe ist über den ganzen Bildschirm flächig und gleichmäßig, in den Ecken derselbe Ton wie in der Mitte."
+    ],
+    "fail": [
+      "Ein Punkt, der sich auf einer oder mehreren Farben von der Fläche abhebt: Merk dir, auf welchen Farben, denn daran erkennst du, ob er tot ist oder hängt.",
+      "Eine dünne Linie über die volle Höhe oder Breite auf jeder Farbe: ein Kontaktfehler, kein Pixelfehler.",
+      "Ein Bereich mit anderem Farbstich als der Rest, vor allem auf Weiß und Grau."
+    ],
+    "next": [
+      "Schreib auf, auf welchen Farben der Punkt oder Fleck zu sehen ist.",
+      "Bei einem Punkt: Mach den Pixelfehler-Test, der auch den Stuck-Pixel-Fixer hat.",
+      "Bei einem farbstichigen Bereich: Schalte jeden Nachtmodus und Farbfilter aus und schau noch einmal auf Weiß und Grau hin.",
+      "Ein Farbstich, der in einem Teil des Bildschirms bleibt, liegt am Panel. Fotografiere ihn auf Weiß und melde dich innerhalb der Rückgabefrist beim Händler."
+    ],
+    "guideLabel": "Warum ist ein Teil meines Bildschirms verfärbt oder farbstichig?"
+  },
+  "black-screen": {
+    "heading": "Wie ein schwarzer Bildschirm aussehen sollte",
+    "howToHeading": "So nutzt du den schwarzen Bildschirm",
+    "faqHeading": "Fragen zum schwarzen Bildschirm",
+    "pass": [
+      "Auf einem OLED: komplett dunkel, als wäre der Bildschirm aus, weil schwarze Pixel abgeschaltet sind.",
+      "Auf einem LCD: ein gleichmäßiges, sehr dunkles Grau. Ein LCD schirmt eine Hintergrundbeleuchtung ab, die immer an ist, und erreicht deshalb nie echtes Schwarz.",
+      "Ein weicher Schimmer in den Ecken, der wandert oder schwächer wird, wenn du den Kopf bewegst, ist IPS-Glow – eine Eigenheit von IPS-Panels und kein Defekt."
+    ],
+    "fail": [
+      "Streifen oder Flecken am Rand, die an Ort und Stelle bleiben, wenn du den Kopf bewegst: Backlight Bleeding. Es zählt, wenn du es im Alltag siehst, etwa in dunklen Szenen oder in den schwarzen Balken um einen Film.",
+      "Ein heller Punkt in irgendeiner Farbe: ein hängendes Pixel oder ein Hot Pixel. Überprüf ihn im Pixelfehler-Test.",
+      "Auf einem OLED jeder Bereich, der nicht komplett schwarz ist. OLED hat keine Hintergrundbeleuchtung, die durchscheinen könnte – das deutet also auf eine Ungleichmäßigkeit oder Abnutzung des Panels hin, nicht auf Bleeding."
+    ],
+    "note": "Gib deinen Augen zuerst zwei bis drei Minuten im Dunkeln: In den ersten dreißig Sekunden wirkt das Leuchten am schlimmsten. Bei maximaler Helligkeit sind Fehler leicht zu finden, aber ob sie eine Rolle spielen, beurteilst du bei der Helligkeit, die du wirklich nutzt. Vertrau deinen Augen mehr als einem Handyfoto, denn die lange Belichtung einer Kamera macht aus einem schwachen Schleier etwas Dramatisches.",
+    "next": [
+      "Bei einem Leuchten an den Rändern oder in den Ecken: Mach den Backlight-Bleeding-Test und lehn dich zu jeder Seite, um Bleeding von IPS-Glow zu unterscheiden.",
+      "Bei einem hellen Punkt: Mach den Pixelfehler-Test und probier den Stuck-Pixel-Fixer aus.",
+      "Sieht der ganze Bildschirm grau statt schwarz aus, prüf den RGB-Bereich mit dem Schwarzwert-Test."
+    ],
+    "guideLabel": "Backlight Bleeding vs. IPS-Glow: So unterscheidest du beides"
+  },
+  "white-screen": {
+    "heading": "Worauf du bei Weiß achten solltest",
+    "howToHeading": "So nutzt du den weißen Bildschirm",
+    "faqHeading": "Fragen zum weißen Bildschirm",
+    "pass": [
+      "Ein gleichmäßiges Weiß von Rand zu Rand, ohne dunkle Punkte.",
+      "Ein gleichmäßig warmer oder kühler Stich über den ganzen Bildschirm ist die Farbtemperatur, kein Fehler. Schalte Nachtmodus, Night Shift oder True Tone aus und schau noch einmal hin.",
+      "Ecken etwas dunkler als die Mitte: Ein leichter Helligkeitsabfall ist bei jedem LCD normal."
+    ],
+    "fail": [
+      "Ein dunkler Punkt, der sich nicht wegwischen lässt: ein totes Pixel oder Staub, der zwischen den Schichten des Panels eingeschlossen ist.",
+      "Ein deutlich dunklerer Fleck mit sichtbarer Kante, oder Flecken in einer Reihe auf einem Laptop-Display – das sind meist Druckstellen.",
+      "Flecken mit abweichendem Farbstich auf einem Teil des Bildschirms statt eines gleichmäßigen Stichs.",
+      "Auf einem OLED der schwache Umriss einer Taskleiste, eines Logos oder einer Tastatur: Image Retention oder Burn-in. Prüf das auf Grau im Burn-in-Test."
+    ],
+    "note": "Weiß zeigt nur Pixel, die abgeschaltet sind. Ein dauerhaft leuchtendes Pixel geht darin unter, ein vollständiger Pixel-Check braucht also auch Schwarz und die Grundfarben – die schaltet der Pixelfehler-Test durch.",
+    "next": [
+      "Wisch den Bildschirm mit einem trockenen Mikrofasertuch ab und schau noch einmal hin.",
+      "Ein dunkler Punkt, der bleibt: Schalte im Pixelfehler-Test die Farben durch, um zu sehen, ob es ein Pixel oder eingeschlossener Staub ist.",
+      "Ein dunklerer Fleck: Überprüf ihn auf Grau mit dem Ausleuchtungs-Test.",
+      "Auf einem OLED der Umriss einer Taskleiste oder eines Logos: Überprüf ihn mit dem Burn-in-Test."
+    ],
+    "guideLabel": "Warum hat mein Bildschirm einen dunklen Punkt oder Fleck?"
+  },
+  "backlight-bleed-test": {
+    "heading": "Bleeding, Glow oder normal? So liest du die schwarze Fläche",
+    "howToHeading": "Den Bleeding-Check vorbereiten",
+    "faqHeading": "Fragen zu Backlight Bleeding",
+    "pass": [
+      "Ein Schimmer, der sich verändert, wenn du dich etwa 30 cm zur Seite lehnst, ist IPS-Glow. Er gehört zu IPS-Panels dazu, und Garantien decken ihn fast nie ab.",
+      "Ein schwacher Schleier, den du nur in einem völlig abgedunkelten Raum findest. Siehst du ihn nicht, während du bei eingeschaltetem Licht einen Film schaust, ignorier ihn."
+    ],
+    "fail": [
+      "Streifen, Flecken oder ein Lichtkegel wie von einer Taschenlampe, die von einem Rand ausgehen und gleich aussehen, egal wo dein Kopf ist: Backlight Bleeding.",
+      "Ein heller Streifen, den du im Alltag siehst: in dunklen Spielszenen, auf einer schwarzen Webseite, in den Balken über und unter einem Film.",
+      "Wolkige Flecken in der Bildschirmmitte statt an den Rändern: Clouding. Überprüf das auf Grau mit dem Ausleuchtungs-Test."
+    ],
+    "threshold": "Für Bleeding gibt es keinen genormten Grenzwert, und die Richtlinien der Hersteller dazu sind vage. Deshalb zählt hier die Rückgabefrist des Händlers mehr als die Garantie: Entscheide innerhalb dieser Frist.",
+    "note": "Bei maximaler Helligkeit ist Bleeding leicht zu finden, aber sie übertreibt alles – beurteile es also noch einmal bei der Helligkeit, die du im Alltag nutzt. Bleeding lässt in den ersten Wochen manchmal nach, wenn sich der Rahmen setzt. Drück nicht auf das Panel und lockere keine Rahmenschrauben, um es zu beheben. OLED-Bildschirme haben weder Bleeding noch Glow.",
+    "next": [
+      "Lehn dich etwa 30 cm nach links und rechts. Ein Schimmer, der sich mit deiner Position verändert, ist IPS-Glow, kein Bleeding, und kein Defekt.",
+      "Senk die Helligkeit auf dein übliches Niveau, schalte das Licht im Raum ein und schau noch einmal hin.",
+      "Spiel eine dunkle Szene aus einem Film oder Spiel ab, das du kennst. Siehst du das Bleeding dort nicht, wird es dich nicht stören.",
+      "Zeigt es sich doch im Alltag, fotografiere es mit fixierter Belichtung und wende dich an den Händler, solange die Rückgabefrist läuft. Ob die Garantie bei Bleeding greift, ist ungewiss – warte also nicht."
+    ],
+    "tables": [
+      {
+        "title": "Backlight Bleeding und IPS-Glow im Vergleich",
+        "head": [
+          "",
+          "Backlight Bleeding",
+          "IPS-Glow"
+        ],
+        "rows": [
+          [
+            "Ändert sich, wenn du den Kopf bewegst",
+            "Nein",
+            "Ja"
+          ],
+          [
+            "Form",
+            "Streifen, Flecken, Lichtkegel von einem Rand",
+            "Breiter Schimmer aus einer Ecke"
+          ],
+          [
+            "Farbe",
+            "Meist weiß oder warm",
+            "Silbrig, bläulich oder bernsteinfarben"
+          ],
+          [
+            "Betroffene Panels",
+            "Jedes LCD, am stärksten mit Edge-LED",
+            "Nur IPS"
+          ],
+          [
+            "Ist es ein Defekt?",
+            "Manchmal, wenn es stark ist",
+            "Nein, technikbedingt"
+          ],
+          [
+            "Garantie",
+            "Gelegentlich anerkannt",
+            "Fast nie"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Backlight Bleeding vs. IPS-Glow: der Ein-Sekunden-Test und was normal ist"
+  },
+  "greyscale-test": {
+    "heading": "Stufenlos oder streifig? So liest du den Verlauf",
+    "howToHeading": "Verlauf und Stufenverlauf ansehen",
+    "faqHeading": "Fragen zu Graustufen und Banding",
+    "pass": [
+      "Der stufenlose Verlauf läuft von Schwarz nach Weiß, ohne sichtbare Balken oder plötzliche Sprünge.",
+      "Im Stufenverlauf mit 32 Stufen ist jeder Block ein eigenes, neutrales Grau, auch die dunkelsten."
+    ],
+    "fail": [
+      "Deutliche Balken im stufenlosen Verlauf: Banding, das irgendwo in deiner Anzeigekette entsteht.",
+      "Dunkle Stufen, die mit Schwarz verschmelzen, oder helle Stufen, die mit Weiß verschmelzen.",
+      "Ein grüner, blauer oder magentafarbener Stich in einem Teil des Stufenverlaufs. Das ist der Weißabgleich oder eine Farbeinstellung, kein Banding."
+    ],
+    "note": "Tritt einen Schritt vom Bildschirm zurück, denn aus der Entfernung ist Banding viel leichter zu sehen. Zeigt der stufenlose Verlauf Balken, prüf, ob deine Grafikausgabe auf vollen RGB-Bereich und mindestens 8 Bit Farbtiefe steht, bevor du dem Panel die Schuld gibst. Banding, das dann noch bleibt, ist bei 6-Bit-Panels mit FRC üblich.",
+    "next": [
+      "Stell die Grafikausgabe auf vollen RGB-Bereich und mindestens 8 Bit Farbtiefe.",
+      "Schalte Nachtmodi und eigene Farbprofile aus und stell den Bildschirm auf seinen Standard-Bildmodus.",
+      "Verschmelzen die dunklen Stufen weiterhin, mach den Schwarzwert-Test, um zu sehen, wo Schattendetails verloren gehen.",
+      "Banding, das nach alldem bleibt, ist die Grenze des Panels selbst."
+    ],
+    "guideLabel": "Was ist Color Banding, und wie verringerst du es?"
+  },
+  "color-gradient-test": {
+    "heading": "Wie ein sauberer Verlauf aussieht",
+    "howToHeading": "Die Verläufe durchschalten",
+    "faqHeading": "Fragen zum Farbverlauf",
+    "pass": [
+      "Jeder Verlauf geht von Anfang bis Ende weich ineinander über, ohne Balken, Sprünge oder Flecken.",
+      "Das Spektrum läuft gleichmäßig durch Gelb, Grün, Cyan, Blau und Magenta.",
+      "Grün wirkt von den drei Farbverläufen am hellsten. So funktioniert das Auge, das ist kein Fehler."
+    ],
+    "fail": [
+      "Breite Bänder mit Tonwertabrissen in jedem Verlauf: oft ein 6-Bit-Panel oder eine Ausgabe mit geringer Farbtiefe.",
+      "Banding oder eine Farbverschiebung in nur einem der Verläufe für Rot, Grün und Blau: die Kalibrierung dieses Kanals, nicht das Panel insgesamt.",
+      "Ein Farbton, der einen breiten Abschnitt des Spektrums verschluckt."
+    ],
+    "note": "Diese Verläufe nutzen Standard-sRGB-Farben. Sie zeigen also Banding und ungleichmäßige Übergänge, nicht, wie groß der Farbraum deines Bildschirms ist. Die Weiß- und Grauverläufe isolieren Helligkeits-Banding in den Schatten, ohne dass Farbe ablenkt.",
+    "next": [
+      "Schalte Nachtmodi, Farbfilter und eigene Farbprofile aus und lad die Seite neu.",
+      "Zeigt nur einer der Verläufe in Rot, Grün oder Blau Banding, setz die Farbvoreinstellung und die RGB-Gain-Regler des Monitors auf Standard zurück.",
+      "Vergleich mit dem Graustufen-Test. Banding in beiden deutet auf die Ausgabeeinstellungen oder das Panel hin, nicht auf die Farbe."
+    ],
+    "guideLabel": "Was ist Color Banding, und wie verringerst du es?"
+  },
+  "brightness-uniformity-test": {
+    "heading": "Gleichmäßig genug? So liest du die Graufläche",
+    "howToHeading": "Die Ausleuchtung prüfen",
+    "faqHeading": "Fragen zur Ausleuchtung",
+    "pass": [
+      "Das Grau sieht von der Mitte bis in jede Ecke wie ein einziger Ton aus. Gute Monitore bleiben über das Panel hinweg bei rund 10 % Helligkeitsabweichung.",
+      "Ecken etwas dunkler als die Mitte: Ein leichter Helligkeitsabfall ist bei jedem LCD normal.",
+      "Bei „Wanderndes Grau“ ziehen die Bänder über den Bildschirm, und nichts bleibt zurück."
+    ],
+    "fail": [
+      "Ein klar abgegrenzter dunklerer oder hellerer Fleck mit sichtbarer Kante.",
+      "Wolkige Flecken in der Bildschirmmitte: Clouding, oft durch Druck auf das Panel.",
+      "Bei „Wanderndes Grau“ Schlieren oder vertikale Streifen, die an Ort und Stelle bleiben, während die Bänder an ihnen vorbeiziehen: der Dirty-Screen-Effekt."
+    ],
+    "note": "Vergleich die Mitte immer nur mit einer Ecke auf einmal. Deine Augen passen sich an langsame Veränderungen über eine Fläche an und verdecken echte Unterschiede – deshalb kann ein gleichmäßig belichtetes Foto mehr zeigen als ein kurzer Blick. Beurteile es bei einem Fernseher von dort, wo du wirklich sitzt.",
+    "next": [
+      "Reinige den Bildschirm und prüf es noch einmal, denn Schmierer sehen auf Grau aus wie schwache Flecken.",
+      "Sieh dir dieselbe Stelle bei normalen Inhalten an: einem Fußballrasen, einer Schneeszene, einem leeren Dokument.",
+      "Ist dort ein Fleck oder Streifen sichtbar, fotografiere die Graufläche und wende dich innerhalb der Rückgabefrist an den Händler."
+    ],
+    "tables": [
+      {
+        "title": "Normal oder ein Fall für die Rückgabe?",
+        "head": [
+          "Was du siehst",
+          "Meist normal",
+          "Rückgabe einfordern, wenn"
+        ],
+        "rows": [
+          [
+            "Schwaches Leuchten in den Ecken eines LCD im dunklen Raum",
+            "Ja, besonders bei IPS",
+            "es bei normaler Nutzung sichtbar ist, nicht nur auf einer Testfläche"
+          ],
+          [
+            "Leichte vertikale Streifen auf einer dunkelgrauen Fläche",
+            "Verbreitet bei großen VA- und OLED-Panels",
+            "du sie bei einem Kameraschwenk über einen Fußballrasen siehst"
+          ],
+          [
+            "Ein dunkler Fleck, der nicht mit dem Inhalt mitwandert",
+            "Nein",
+            "Immer"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "So testest du einen neuen Fernseher auf tote Pixel und Ausleuchtung"
+  },
+  "refresh-rate-test": {
+    "heading": "Stimmt der Messwert für deinen Bildschirm?",
+    "howToHeading": "Deine Bildwiederholrate messen",
+    "faqHeading": "Fragen zur Bildwiederholrate",
+    "pass": [
+      "Ein Messwert, der höchstens etwa 1 Hz von der Angabe des Panels abweicht. Viele Displays laufen einen Bruchteil neben dem Nennwert, etwa mit 59,94 Hz statt 60.",
+      "Eine stabile Zahl und ein Quadrat, das sich ohne Ruckeln bewegt."
+    ],
+    "fail": [
+      "60 Hz auf einem Bildschirm mit 120, 144 oder 240 Hz. Das ist ein Einstellungs- oder Kabelproblem, kein defektes Panel: Wähle in den Anzeigeeinstellungen die volle Rate und prüf Kabel und Anschluss.",
+      "Ein Messwert, der absackt oder hin und her springt. Schließ andere Tabs und Apps und miss noch einmal, bevor du dem Display die Schuld gibst."
+    ],
+    "note": "Laptops und Handys können die Bildwiederholrate senken, um Strom zu sparen – wiederhol den Test also am Netzteil oder mit ausgeschaltetem Energiesparmodus. Hast du einen Monitor übertaktet, beweist eine passende Zahl hier nicht, dass er jeden Frame zeigt: Das prüft der Frame-Skipping-Test.",
+    "next": [
+      "Öffne deine Anzeigeeinstellungen und wähle die höchste Bildwiederholrate, die für diesen Bildschirm angeboten wird.",
+      "Steht die erwartete Rate nicht in der Liste, wechsle Kabel oder Anschluss: Nimm DisplayPort oder ein HDMI-Kabel und einen HDMI-Anschluss, die für diese Rate bei deiner Auflösung ausgelegt sind.",
+      "Such im Menü des Monitors nach einer Einstellung, die die volle Rate freischaltet, etwa eine Übertaktungsoption, die DisplayPort-Version oder ein HDMI-Modus.",
+      "Schließ Laptop oder Handy ans Netzteil an, schalte den Energiesparmodus aus und miss dann noch einmal."
+    ],
+    "tables": [
+      {
+        "title": "Frame-Zeit bei gängigen Bildwiederholraten",
+        "head": [
+          "Bildwiederholrate",
+          "Zeit pro Frame"
+        ],
+        "rows": [
+          [
+            "60 Hz",
+            "16,67 ms"
+          ],
+          [
+            "75 Hz",
+            "13,33 ms"
+          ],
+          [
+            "120 Hz",
+            "8,33 ms"
+          ],
+          [
+            "144 Hz",
+            "6,94 ms"
+          ],
+          [
+            "165 Hz",
+            "6,06 ms"
+          ],
+          [
+            "240 Hz",
+            "4,17 ms"
+          ],
+          [
+            "360 Hz",
+            "2,78 ms"
+          ]
+        ]
+      },
+      {
+        "title": "Was die Verbindung meist können muss",
+        "head": [
+          "Was du betreibst",
+          "Braucht meist"
+        ],
+        "rows": [
+          [
+            "1080p bei 144 Hz",
+            "DisplayPort oder HDMI 2.0"
+          ],
+          [
+            "1440p bei 144 Hz",
+            "DisplayPort 1.2 oder neuer, oder HDMI 2.0"
+          ],
+          [
+            "4K bei 120 Hz oder mehr",
+            "HDMI 2.1 oder DisplayPort 1.4 mit DSC"
+          ]
+        ],
+        "note": "Das Kabel, der Anschluss am Computer und der Anschluss am Bildschirm müssen die Rate alle unterstützen."
+      }
+    ],
+    "guideLabel": "So aktivierst du die volle Bildwiederholrate deines Monitors unter Windows und auf dem Mac"
+  },
+  "ghosting-test": {
+    "heading": "Spur, Saum oder Unschärfe? Was die Quadrate zeigen",
+    "howToHeading": "So läuft der Ghosting-Test",
+    "faqHeading": "Fragen zu Ghosting und Overdrive",
+    "pass": [
+      "Eine weiche, gleichmäßige Unschärfe an den bewegten Kanten. Das macht jedes normale Display, weil jedes Bild stillsteht, während deine Augen sich weiterbewegen, und bei höheren Bildwiederholraten nimmt sie ab.",
+      "Kein eigenes Nachbild hinter den Quadraten beim Tempo Mittel."
+    ],
+    "fail": [
+      "Ein deutlicher Schmierer oder ein Nachbild hinter jedem Quadrat: Ghosting durch Pixel, die zu langsam umschalten. Bei VA-Panels ist es meist in dunklen Szenen am stärksten.",
+      "Ein heller Saum hinter jedem Quadrat: Overshoot durch zu hoch eingestelltes Overdrive. Stell die Overdrive-Einstellung des Monitors eine Stufe herunter."
+    ],
+    "note": "Overdrive ist ein Kompromiss: Mehr davon verkürzt die Spur, bis es in Overshoot umkippt. Vergleich die Overdrive-Stufen deines Monitors beim Tempo Mittel und nimm dann Schnell, um kleine Unterschiede zwischen ihnen sichtbar zu machen.",
+    "next": [
+      "Such die Overdrive-Einstellung im Menü des Monitors. Sie heißt oft Response Time, Reaktionszeit, Overdrive, TraceFree oder AMA.",
+      "Probier jede Stufe beim Tempo Mittel aus und behalte die mit der kürzesten Spur und ohne hellen Saum.",
+      "Prüf, ob der Monitor mit seiner vollen Bildwiederholrate läuft, denn darauf ist Overdrive abgestimmt.",
+      "Bleiben bei einem VA-Panel auf jeder Stufe dunkle Spuren, ist das die Grenze des Panels und kein Fehler, den du wegstellen kannst."
+    ],
+    "tables": [
+      {
+        "title": "Typisches Bewegtbildverhalten nach Paneltyp",
+        "head": [
+          "Panel",
+          "Was dich erwartet"
+        ],
+        "rows": [
+          [
+            "TN",
+            "Schnellste Übergänge, schwächste Farben und Blickwinkel"
+          ],
+          [
+            "IPS",
+            "Schnell genug für die meisten Spiele; etwas Schlieren bei dunklen Übergängen"
+          ],
+          [
+            "VA",
+            "Starker Kontrast, von Dunkel zu Dunkel spürbar langsam: das klassische Black Smearing"
+          ],
+          [
+            "OLED",
+            "Nahezu verzögerungsfreie Übergänge; die verbleibende Unschärfe entsteht, weil jeder Frame gehalten wird"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Was ist Ghosting, und wie behebst du es?"
+  },
+  "blooming-test": {
+    "heading": "Wie viel Halo ist normal?",
+    "howToHeading": "So läuft der Blooming-Test",
+    "faqHeading": "Fragen zu Blooming und Local Dimming",
+    "pass": [
+      "Auf einem OLED: überhaupt kein Halo. Jedes Pixel erzeugt sein eigenes Licht, es gibt also keine Backlight-Zone, die überstrahlen könnte.",
+      "Auf einem Mini-LED-Display oder einem anderen LCD mit Local Dimming: ein weicher Schimmer um den Punkt, der dicht bei ihm bleibt. Das ist die Größe einer Dimming-Zone, kein Defekt.",
+      "Auf einem LCD ohne Local Dimming: kein Halo, der dem Punkt folgt, nur der übliche gleichmäßige Schwarzwert des Panels."
+    ],
+    "fail": [
+      "Ein Halo, der so breit ist, dass er in normalen dunklen Szenen auffällt – etwa wenn Untertitel oder Sterne einen großen Block des Bildes aufhellen.",
+      "Blöcke, die sichtbar an- und ausgehen, während der Punkt wandert, oder ihm hinterherhinken."
+    ],
+    "note": "Blooming ist eine Grenze der Hintergrundbeleuchtung, es lässt sich also abstimmen, aber nicht beseitigen. Eine niedrigere Local-Dimming-Stufe verkleinert die Halos und hebt das Schwarz an; eine höhere vertieft das Schwarz und zeigt mehr Blooming. Die Zonendurchläufe verraten dir, wie viele Zonen du hast: Je öfter der Halo springt, während das Quadrat über den Bildschirm wandert, desto feiner ist die Hintergrundbeleuchtung.",
+    "next": [
+      "Stell Local Dimming eine Stufe niedriger und lass den beweglichen Punkt noch einmal laufen.",
+      "Sorg für etwas Licht hinter oder neben dem Bildschirm. Halos fallen viel weniger auf, wenn der Raum nicht stockdunkel ist.",
+      "Probier für die Arbeit am Desktop, Local Dimming auszuschalten, und lass es für Filme und Spiele an.",
+      "Hinken Zonen dem Punkt sichtbar hinterher oder schalten sie blockweise ein und aus, sprich das innerhalb der Rückgabefrist beim Händler an."
+    ],
+    "guideLabel": "Mini-LED vs. OLED: Was passt besser zu dir?"
+  },
+  "burn-in-test": {
+    "heading": "Image Retention oder Burn-in? Was die Flächen zeigen",
+    "howToHeading": "Ein OLED auf Burn-in prüfen",
+    "faqHeading": "Fragen zu Burn-in",
+    "pass": [
+      "Jede Fläche ist gleichmäßig, ohne Form, die du wiedererkennst.",
+      "Ein Umriss, der nach ein bis zwei Stunden abwechslungsreichem Video im Vollbild verblasst oder verschwunden ist, ist vorübergehende Image Retention, kein Burn-in.",
+      "Zufällige Flecken ohne erkennbare Kante sind eher eine Frage der Panel-Gleichmäßigkeit als Burn-in."
+    ],
+    "fail": [
+      "Eine Form, die du wiedererkennst – etwa eine Taskleiste am unteren Rand, ein Senderlogo oder ein Spiele-HUD –, die nach wechselnden Inhalten immer noch da ist. Das ist Burn-in, und es bleibt.",
+      "Ein warmer oder gelblicher Fleck, wo früher statische Inhalte standen. Der blaue Emitter nutzt sich am schnellsten ab, abgenutzte Bereiche wirken deshalb oft verfärbt und nicht einfach nur dunkler."
+    ],
+    "threshold": "Wie Burn-in abgedeckt ist, hängt von der Marke ab. Manche Hersteller nehmen es inzwischen für begrenzte Zeit in die Garantie auf – lies die Klausel, bevor du das eine oder das andere annimmst.",
+    "note": "Prüf in einem dunklen Raum, direkt von vorn und mit ausgeschalteter dynamischer Helligkeit und ohne Bildoptimierungs-Modi, denn die können genau den Unterschied verdecken, nach dem du suchst. Grau zeigt die meiste Abnutzung, Weiß und jede Farbfläche zeigen sie unterschiedlich stark – schalte also alle durch.",
+    "next": [
+      "Merk dir, wo der Umriss sitzt, und lass dann ein bis zwei Stunden abwechslungsreiches Video im Vollbild laufen.",
+      "Sieh dir die Graufläche noch einmal an. Ist der Umriss verblasst, war es vorübergehende Image Retention, und du musst nichts tun.",
+      "Ist er unverändert, starte einmal über das Menü den Pixel-Refresh oder Kompensationszyklus des Panels und prüf es noch einmal.",
+      "Immer noch da? Fotografiere die Graufläche, lies dann die Burn-in-Klausel deiner Garantie und wende dich an den Hersteller."
+    ],
+    "tables": [
+      {
+        "title": "Image Retention und Burn-in im Vergleich",
+        "head": [
+          "",
+          "Image Retention",
+          "Burn-in"
+        ],
+        "rows": [
+          [
+            "Nach ein, zwei Stunden mit wechselndem Videobild",
+            "Verblasst oder weg",
+            "Unverändert"
+          ],
+          [
+            "Ursache",
+            "Vorübergehender Nacheffekt eines Standbilds",
+            "Ungleichmäßige Abnutzung der Pixel"
+          ],
+          [
+            "Dauerhaft",
+            "Nein",
+            "Ja"
+          ],
+          [
+            "Garantie",
+            "Kein Fehler",
+            "Je nach Marke; lies die Klausel"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "OLED-Burn-in: Ursachen, Vorbeugung und wie du es prüfst"
+  },
+  "contrast-test": {
+    "heading": "Wie guter Kontrast aussieht",
+    "howToHeading": "So nutzt du die Schachbretter",
+    "faqHeading": "Fragen zum Kontrast",
+    "pass": [
+      "Schwarze Felder bleiben direkt neben hellen weißen tiefschwarz.",
+      "Die Grenzen zwischen den Feldern sind bei jeder Dichte scharf, bis 32 × 32."
+    ],
+    "fail": [
+      "Schwarze Felder, die grau oder ausgewaschen wirken: geringer Kontrast oder ein angehobener Schwarzwert.",
+      "Unscharfe oder farbige Kanten zwischen den Feldern. Das deutet auf Skalierung oder die Schärfe-Einstellung hin, nicht auf den Kontrast."
+    ],
+    "note": "Der Paneltyp gibt die Obergrenze vor. OLED hält schwarze Felder komplett dunkel, weil sich die Pixel abschalten. Unter den LCDs erreichen VA-Panels typischerweise 2.500:1 bis 5.000:1 und IPS rund 1.000:1, IPS-Schwarz wirkt im dunklen Raum also merklich grauer. Das hier ist eine Sichtprüfung: Für ein echtes Kontrastverhältnis brauchst du ein Lichtmessgerät.",
+    "next": [
+      "Sieht Schwarz grau aus, prüf zuerst den RGB-Bereich mit dem Schwarzwert-Test.",
+      "Schalte den dynamischen Kontrast und jeden Eco- oder Umgebungslichtmodus aus und schau dann in einem abgedunkelten Raum noch einmal hin.",
+      "Ist Schwarz auf einem IPS-Panel im dunklen Raum immer noch grau, ist das die Grenze des Paneltyps, und keine Einstellung ändert etwas daran."
+    ],
+    "tables": [
+      {
+        "title": "Paneltypen im Überblick",
+        "head": [
+          "Panel",
+          "Kontrast",
+          "Blickwinkel",
+          "Bewegung",
+          "Burn-in-Risiko"
+        ],
+        "rows": [
+          [
+            "TN",
+            "Am niedrigsten",
+            "Schwach",
+            "Schnell",
+            "Keines"
+          ],
+          [
+            "IPS",
+            "Niedrig bis mittel",
+            "Hervorragend",
+            "Schnell (aktuelle Panels)",
+            "Keines"
+          ],
+          [
+            "VA",
+            "Hoch",
+            "Mittel",
+            "Langsam im Dunklen",
+            "Keines"
+          ],
+          [
+            "OLED",
+            "Praktisch unendlich",
+            "Hervorragend",
+            "Am schnellsten",
+            "Real, beherrschbar"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Kontrastverhältnis erklärt: Was die Zahlen wirklich bedeuten"
+  }
+}

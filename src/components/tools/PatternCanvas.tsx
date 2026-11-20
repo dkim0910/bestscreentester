@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useT, type Translate } from "@/i18n/ui";
 
 export interface DrawArgs {
   ctx: CanvasRenderingContext2D;
@@ -9,6 +10,7 @@ export interface DrawArgs {
   t: number; // seconds since mount
   frame: number; // frame index from the stage
   pointer: { x: number; y: number } | null; // CSS pixels, null until moved
+  tr: Translate; // translate text drawn onto the canvas
 }
 
 interface PatternCanvasProps {
@@ -35,10 +37,13 @@ export default function PatternCanvas({
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
   const startRef = useRef<number>(0);
   const drawRef = useRef(draw);
+  const tr = useT();
+  const trRef = useRef(tr);
 
   // Keep the latest draw callback without reading/writing refs during render.
   useEffect(() => {
     drawRef.current = draw;
+    trRef.current = tr;
   });
 
   useEffect(() => {
@@ -72,7 +77,7 @@ export default function PatternCanvas({
     function render() {
       if (!ctx) return;
       const t = (performance.now() - startRef.current) / 1000;
-      drawRef.current({ ctx, width, height, t, frame, pointer: pointerRef.current });
+      drawRef.current({ ctx, width, height, t, frame, pointer: pointerRef.current, tr: trRef.current });
     }
 
     function loop() {

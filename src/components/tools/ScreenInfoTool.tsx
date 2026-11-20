@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { ToolDef } from "@/lib/tools";
 import { useRefreshRate } from "./useRefreshRate";
+import { useLocalHref, useT, type Translate } from "@/i18n/ui";
 
 interface Info {
   screen: string;
@@ -43,7 +44,15 @@ function aspectName(w: number, h: number) {
   return exact === near[1] || exact === near[1].split(":").reverse().join(":") ? exact : `${exact} (≈ ${near[1]})`;
 }
 
-function readInfo(): Info {
+/** "landscape", "portrait", or either with "(flipped)" when the screen is upside down. */
+function orientationName(t: Translate) {
+  const type = window.screen.orientation?.type;
+  if (!type) return t(window.innerWidth >= window.innerHeight ? "landscape" : "portrait");
+  const name = t(type.startsWith("portrait") ? "portrait" : "landscape");
+  return type.endsWith("secondary") ? `${name} ${t("(flipped)")}` : name;
+}
+
+function readInfo(t: Translate): Info {
   const s = window.screen;
   const dpr = window.devicePixelRatio || 1;
   const mq = (q: string) => window.matchMedia(q).matches;
@@ -53,26 +62,29 @@ function readInfo(): Info {
     screen: `${s.width} × ${s.height}`,
     physical: `${pw} × ${ph}`,
     aspect: aspectName(pw, ph),
-    scaling: `${Math.round(dpr * 100)}% (device pixel ratio ${+dpr.toFixed(3)})`,
+    scaling: t("{pct}% (device pixel ratio {dpr})", { pct: Math.round(dpr * 100), dpr: +dpr.toFixed(3) }),
     viewport: `${window.innerWidth} × ${window.innerHeight}`,
     available: `${s.availWidth} × ${s.availHeight}`,
-    colorDepth: `${s.colorDepth}-bit`,
+    colorDepth: t("{n}-bit", { n: s.colorDepth }),
     gamut: mq("(color-gamut: rec2020)")
-      ? "Rec. 2020 (wide)"
+      ? t("Rec. 2020 (wide)")
       : mq("(color-gamut: p3)")
-        ? "Display P3 (wide)"
+        ? t("Display P3 (wide)")
         : mq("(color-gamut: srgb)")
-          ? "sRGB (standard)"
-          : "Not reported",
-    hdr: mq("(dynamic-range: high)") ? "Yes — HDR is available" : "No (or HDR is switched off)",
-    orientation:
-      s.orientation?.type?.replace("-primary", "").replace("-secondary", " (flipped)") ??
-      (window.innerWidth >= window.innerHeight ? "landscape" : "portrait"),
-    input: mq("(pointer: coarse)") ? "Touch" : mq("(pointer: fine)") ? "Mouse or trackpad" : "None detected",
-    touchPoints: navigator.maxTouchPoints ? `${navigator.maxTouchPoints}` : "None",
+          ? t("sRGB (standard)")
+          : t("Not reported"),
+    hdr: mq("(dynamic-range: high)") ? t("Yes — HDR is available") : t("No (or HDR is switched off)"),
+    orientation: orientationName(t),
+    input: mq("(pointer: coarse)")
+      ? t("Touch")
+      : mq("(pointer: fine)")
+        ? t("Mouse or trackpad")
+        : t("None detected"),
+    touchPoints: navigator.maxTouchPoints ? `${navigator.maxTouchPoints}` : t("None"),
   };
 }
 
+// Labels and hints are English here and translated where they are rendered.
 const ROWS: { key: keyof Info; label: string; hint: string }[] = [
   { key: "physical", label: "Screen resolution (pixels)", hint: "Estimated from the browser: screen size × scaling." },
   { key: "screen", label: "Screen size in CSS pixels", hint: "What websites lay out against, after display scaling." },
@@ -92,9 +104,11 @@ export default function ScreenInfoTool({ tool }: { tool: ToolDef }) {
   const [info, setInfo] = useState<Info | null>(null);
   const [copied, setCopied] = useState(false);
   const hz = useRefreshRate();
+  const t = useT();
+  const localHref = useLocalHref();
 
   useEffect(() => {
-    const update = () => setInfo(readInfo());
+    const update = () => setInfo(readInfo(t));
     // One-shot client-only read: screen and media-query values don't exist during the static render.
     update();
     const queries = [
@@ -110,16 +124,16 @@ export default function ScreenInfoTool({ tool }: { tool: ToolDef }) {
       window.removeEventListener("resize", update);
       queries.forEach((m) => m.removeEventListener("change", update));
     };
-  }, []);
+  }, [t]);
 
   const rows = [
-    ...ROWS.slice(0, 4).map((r) => ({ label: r.label, value: info?.[r.key], hint: r.hint })),
+    ...ROWS.slice(0, 4).map((r) => ({ label: t(r.label), value: info?.[r.key], hint: r.hint && t(r.hint) })),
     {
-      label: "Refresh rate",
-      value: hz ? `≈ ${hz} Hz` : "Measuring…",
-      hint: "Measured from animation frames. Check it with the Refresh Rate Test.",
+      label: t("Refresh rate"),
+      value: hz ? `≈ ${hz} Hz` : t("Measuring…"),
+      hint: t("Measured from animation frames. Check it with the Refresh Rate Test."),
     },
-    ...ROWS.slice(4).map((r) => ({ label: r.label, value: info?.[r.key], hint: r.hint })),
+    ...ROWS.slice(4).map((r) => ({ label: t(r.label), value: info?.[r.key], hint: r.hint && t(r.hint) })),
   ];
 
   const copy = async () => {
@@ -133,16 +147,21 @@ export default function ScreenInfoTool({ tool }: { tool: ToolDef }) {
     }
   };
 
+  // One sentence with a link in the middle: translated whole, then split at the link.
+  const scaleNote = t(
+    "Browsers report sizes after display scaling, so the pixel resolution is an estimate. If it doesn't match your screen's native resolution, check your scaling settings — and use the {link} to see whether the picture is being scaled.",
+  ).split("{link}");
+
   return (
     <section aria-label={tool.name} className="rounded-xl border border-border bg-card p-4 sm:p-6">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm text-foreground/60">Read live from this browser — nothing is sent anywhere.</p>
+        <p className="text-sm text-foreground/60">{t("Read live from this browser — nothing is sent anywhere.")}</p>
         <button
           type="button"
           onClick={copy}
           className="rounded-full border border-border px-4 py-1.5 text-sm font-medium hover:bg-white/5"
         >
-          {copied ? "Copied ✓" : "Copy all"}
+          {copied ? t("Copied ✓") : t("Copy all")}
         </button>
       </div>
       <dl className="grid gap-3 sm:grid-cols-2">
@@ -155,12 +174,11 @@ export default function ScreenInfoTool({ tool }: { tool: ToolDef }) {
         ))}
       </dl>
       <p className="mt-4 text-xs text-foreground/50">
-        Browsers report sizes after display scaling, so the pixel resolution is an estimate. If it doesn&apos;t
-        match your screen&apos;s native resolution, check your scaling settings — and use the{" "}
-        <Link href="/sharpness-test" className="text-accent-soft hover:underline">
-          Sharpness &amp; Text Clarity Test
-        </Link>{" "}
-        to see whether the picture is being scaled.
+        {scaleNote[0]}
+        <Link href={localHref("/sharpness-test")} className="text-accent-soft hover:underline">
+          {t("Sharpness & Text Clarity Test")}
+        </Link>
+        {scaleNote[1]}
       </p>
     </section>
   );

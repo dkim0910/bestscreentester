@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "siteTagline": "Free online screen tests for dead pixels, color, backlight, and motion.",
+    "defaultTitle": "Free Online Screen Tests",
+    "homeTitle": "Free Online Screen Test",
+    "homeDescription": "Run {n} free screen and monitor tests in your browser: dead pixels, backlight bleed, refresh rate, color, ghosting and more. No sign-up.",
+    "homeKeywords": ["screen test", "monitor test", "dead pixel test", "display test", "online screen test"],
+    "toolsTitle": "All Screen Tests",
+    "toolsDescription": "Browse all {n} free online screen tests: dead pixel, color, backlight bleed, refresh rate, ghosting, blooming and more."
+  },
+  "nav": {
+    "tools": "Tools",
+    "guides": "Guides",
+    "about": "About",
+    "contact": "Contact",
+    "start": "Start a test",
+    "language": "Language"
+  },
+  "footer": {
+    "blurb": "Free, browser-based screen tests. No install, no sign-up required.",
+    "popular": "Popular tests",
+    "explore": "Explore",
+    "allTools": "All tools",
+    "guides": "Guides & articles",
+    "company": "Company",
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "donate": "Donate",
+    "contact": "Contact",
+    "languages": "Languages",
+    "copyright": "All tests run locally in your browser."
+  },
+  "categories": {
+    "panel": "Panel & Backlight",
+    "color": "Color & Calibration",
+    "motion": "Motion & Timing",
+    "fun": "Utilities"
+  },
+  "common": {
+    "home": "Home",
+    "tools": "Tools",
+    "testCountOne": "{n} test",
+    "testCountMany": "{n} tests",
+    "inEnglish": "in English",
+    "logoAlt": "{site} logo"
+  },
+  "toolPage": {
+    "howTo": "How to use",
+    "normal": "Normal",
+    "fault": "A fault",
+    "threshold": "Where the line is drawn.",
+    "next": "Found a problem? What to do next",
+    "guide": "Guide: {label}",
+    "readGuide": "Read the guide",
+    "relatedGuides": "Related guides",
+    "relatedGuidesIntro": "Learn more about what this test reveals and how to act on the results.",
+    "faq": "FAQ",
+    "tips": "Tips",
+    "relatedTests": "Related tests"
+  },
+  "toolsPage": {
+    "eyebrow": "{n} tests",
+    "title": "All screen tests",
+    "intro": "{n} free, browser-based screen tests. Pick a category below.",
+    "funTitle": "Just for fun",
+    "funIntro": "Not screen tests: full-screen pranks and a screensaver."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "{n} free display tests",
+      "title": "Free Online Screen Test & Monitor Test",
+      "intro": "{n} free display tests that run in your browser: dead pixels, backlight bleed, refresh rate, PWM flicker, HDR and more. Nothing to install, no account.",
+      "primary": "Start Dead Pixel Test",
+      "secondary": "Browse all {n} tests"
+    },
+    "allTests": {
+      "eyebrow": "All tests",
+      "title": "{n} tests, grouped by what they check",
+      "link": "Open the full list"
+    },
+    "answers": {
+      "eyebrow": "Start from the symptom",
+      "title": "Is it a defect, or is it normal?",
+      "subtitle": "The four questions people bring here most often, each with the test that answers it.",
+      "runTest": "Run the {name}",
+      "guide": "Guide: {name}",
+      "readFull": "Read the full answer",
+      "items": [
+        {
+          "title": "A dot that won't go away",
+          "summary": "Dark on every color, white included, is a dead pixel and will not come back. One held color is stuck, and stuck pixels sometimes recover.",
+          "body": [
+            "Step through solid colors and watch the dot. If it stays dark on every color, white included, it is a dead pixel and it will not come back. If it holds one color, or glows on black, it is stuck, and stuck pixels sometimes recover: the last frame of the Dead Pixel Test flashes colors over the spot for that purpose. Wipe the screen before you decide, because dust looks identical until it moves.",
+            "Whether it is worth a return depends less on the dot than on the calendar. Manufacturers allow a small number of faults per panel, count bright pixels more strictly than dark ones, and often replace a cluster while refusing scattered dots. A full row or column is a connection fault and almost always qualifies. Inside the retailer's return window none of those counts apply to you, which is the reason to test on the first day."
+          ],
+          "test": "Dead Pixel Test",
+          "guide": "Dead pixel warranty policies"
+        },
+        {
+          "title": "Glow on a black screen",
+          "summary": "A glow that shifts and fades as you move is IPS glow, a trait of the panel type. Streaks along an edge that stay put are backlight bleed.",
+          "body": [
+            "Nearly every LCD shows some light on black, because it makes black by blocking a backlight that never switches off. Put up a black screen in a dark room and lean about a foot to each side. A glow that shifts and fades as you move is IPS glow: a trait of the panel type, not a defect, and almost never covered by warranty. Streaks or patches along an edge that stay exactly where they are is backlight bleed.",
+            "A workable rule: if you can't see it while watching a film with the lights on, ignore it. A bright streak that shows during normal use, in dark game scenes or the bars around a film, is worth acting on. Judge it with your eyes at the brightness you actually use. Phone cameras take long exposures in the dark and make a faint haze look alarming. An OLED should show neither."
+          ],
+          "test": "Backlight Bleed Test",
+          "guide": "Backlight bleed and IPS glow"
+        },
+        {
+          "title": "A ghost image on an OLED",
+          "summary": "Play varied full-screen video for an hour or two, then look again. Image retention fades. Burn-in is exactly where you left it.",
+          "body": [
+            "A faint outline of a taskbar, a channel logo or a game's HUD on a grey screen is one of two things, and time tells them apart. Play varied full-screen video for an hour or two, then look at the same grey field again. Image retention will have faded or gone. Burn-in will be exactly where you left it, because the pixels there are worn rather than stuck.",
+            "Look for a shape you recognize. Random blotches with no clear edge are more likely ordinary panel non-uniformity. Burn-in can't be removed, only slowed: lower the brightness, hide static elements, and let the panel run its compensation cycle. Some manufacturers now cover it under warranty for a limited period, so read that clause before assuming either way."
+          ],
+          "test": "Burn-in Test",
+          "guide": "OLED burn-in: how to check"
+        },
+        {
+          "title": "A fast monitor that doesn't feel fast",
+          "summary": "A 144 Hz monitor reading 60 Hz is almost never faulty. The rate is not selected, the cable can't carry it, or a power-saving mode lowered it.",
+          "body": [
+            "Measure it before you blame the panel. A 144 Hz monitor reading 60 Hz is almost never faulty: the higher rate hasn't been selected in the display settings, the cable or port can't carry it at that resolution, or a power-saving mode has lowered it. A reading within about 1 Hz of the rating is normal, since many displays run a fraction off their nominal rate.",
+            "If the number is right and motion still looks wrong, look at the trail behind a moving object. A smeared trail is ghosting from slow pixel response; a bright fringe is overshoot from overdrive set too high, and one notch down usually cures it. A soft, even blur with no afterimage is not a fault. Every display that holds each frame still produces it."
+          ],
+          "test": "Refresh Rate Test",
+          "guide": "Enable your full refresh rate"
+        }
+      ]
+    },
+    "inFull": {
+      "eyebrow": "In detail",
+      "title": "How to tell a defect from a quirk",
+      "subtitle": "Most screens have small quirks. This is how to answer each of the four questions with a test."
+    },
+    "verdicts": {
+      "eyebrow": "Quick reference",
+      "title": "Normal, or worth returning?",
+      "subtitle": "The same verdicts at a glance, for the faults people ask about most.",
+      "colSee": "What you see",
+      "colUsually": "What it usually is",
+      "colNext": "What to do",
+      "items": [
+        {
+          "see": "One dark (dead) pixel",
+          "tag": "Often allowed",
+          "usually": "Often within the maker's allowance",
+          "next": "Check the pixel policy. Inside the return window you can usually just send it back.",
+          "guide": "Pixel policies"
+        },
+        {
+          "see": "One bright or stuck pixel",
+          "tag": "Stricter",
+          "usually": "Counted more strictly than a dark one",
+          "next": "Try the stuck-pixel fixer in the Dead Pixel Test, then check the policy.",
+          "guide": "Fixing a stuck pixel"
+        },
+        {
+          "see": "Several faults close together",
+          "tag": "Often qualifies",
+          "usually": "Clusters often qualify when scattered faults don't",
+          "next": "Photograph them on a solid color and count them by type.",
+          "guide": ""
+        },
+        {
+          "see": "A whole row or column lit or dark",
+          "tag": "Fault",
+          "usually": "A connection fault, not a pixel defect",
+          "next": "This almost always qualifies for service. Contact support.",
+          "guide": ""
+        },
+        {
+          "see": "Faint glow in the corners on a black screen",
+          "tag": "Normal",
+          "usually": "Normal on nearly every LCD",
+          "next": "Only worth returning if it's uneven or visible in everyday use.",
+          "guide": "Backlight bleed"
+        },
+        {
+          "see": "A glow that moves when you move your head",
+          "tag": "Normal",
+          "usually": "IPS glow, a trait of the panel type",
+          "next": "Not a defect. Sitting further back or adding a little room light reduces it.",
+          "guide": "Bleed or IPS glow?"
+        },
+        {
+          "see": "Corners a little darker than the center",
+          "tag": "Normal",
+          "usually": "Some falloff is normal on every LCD",
+          "next": "A distinct patch with a visible edge is not; that one is worth returning.",
+          "guide": ""
+        },
+        {
+          "see": "Blotches on a laptop screen, often in a line",
+          "tag": "Fault",
+          "usually": "Pressure marks, a mechanical fault",
+          "next": "Worth returning, especially on a new laptop.",
+          "guide": ""
+        },
+        {
+          "see": "An OLED outline that fades after varied content",
+          "tag": "Temporary",
+          "usually": "Temporary image retention",
+          "next": "Play varied full-screen video for a while and check again.",
+          "guide": ""
+        },
+        {
+          "see": "An OLED outline that never fades",
+          "tag": "Permanent",
+          "usually": "Burn-in, which is permanent",
+          "next": "Check whether your warranty covers burn-in; some now do.",
+          "guide": ""
+        },
+        {
+          "see": "60 Hz on a 144 Hz monitor",
+          "tag": "Setting",
+          "usually": "A setting or cable problem, not a faulty panel",
+          "next": "Select the full rate in your display settings, check the cable, then test again.",
+          "guide": ""
+        }
+      ]
+    },
+    "newer": {
+      "eyebrow": "Newer screens",
+      "title": "Tests for newer screens",
+      "subtitle": "HDR, Mini-LED, OLED and high-refresh panels fail in ways a solid color can't show.",
+      "items": [
+        {
+          "name": "HDR Test",
+          "body": "A real HDR image with brightness steps up to 1,600 nits, so you can see where your screen stops getting brighter."
+        },
+        {
+          "name": "PWM Flicker Test",
+          "body": "Catch a flickering backlight with the pencil test, or a fast line that splits into copies on PWM-dimmed screens."
+        },
+        {
+          "name": "Wide Color Gamut (P3) Test",
+          "body": "Logos hidden in Display P3 colors only appear if both your screen and your browser go beyond sRGB."
+        },
+        {
+          "name": "Frame Skipping Test",
+          "body": "One cell lights per frame. Photograph it to find out whether an overclocked monitor quietly drops frames."
+        },
+        {
+          "name": "Blooming zone sweeps",
+          "body": "Count how often the halo jumps as a square crosses the screen to estimate a Mini-LED's dimming zones."
+        },
+        {
+          "name": "Panning grey",
+          "body": "Drifting grey bands that expose the dirty screen effect large TVs show when the camera pans."
+        }
+      ]
+    },
+    "guides": {
+      "eyebrow": "Guides",
+      "title": "Guides to read first",
+      "subtitle": "What a result means, and walkthroughs for laptops, phones, TVs and monitors.",
+      "all": "All guides",
+      "items": [
+        {
+          "name": "Backlight bleed or IPS glow?",
+          "body": "A one-second test that separates the two, a side-by-side table, and the things that are neither: clouding, blooming and a raised black level."
+        },
+        {
+          "name": "OLED burn-in",
+          "body": "What wears an OLED, how to check for it on grey, how to tell it from retention that fades, and which habits slow it down."
+        },
+        {
+          "name": "Laptops",
+          "body": "A 60-second pixel check, plus the things that look like dead pixels on a laptop but aren't, such as corner glow and lid pressure marks."
+        },
+        {
+          "name": "Secondhand phones",
+          "body": "What to check before you hand over money: retained images on OLED, areas that ignore touch, a replacement panel, and flicker."
+        },
+        {
+          "name": "TVs",
+          "body": "Get a test pattern up with the TV's browser or your phone, then judge pixels and uniformity from where you actually sit."
+        },
+        {
+          "name": "Monitors, in the store and at home",
+          "body": "What you can check before paying, what to run on day one, and the red flags worth a return, the cable included."
+        }
+      ]
+    },
+    "prep": {
+      "eyebrow": "Setup",
+      "title": "Before you test",
+      "subtitle": "A minute of setup makes every result easier to trust.",
+      "items": [
+        {
+          "title": "Let it warm up",
+          "body": "A cold panel's brightness and color drift slightly at first. Give it about five minutes before testing, and 20–30 minutes before calibrating."
+        },
+        {
+          "title": "Switch off the filters",
+          "body": "Night Light, Night Shift, True Tone, dynamic contrast and eye-care modes all change what you see. Turn them off for color and greyscale checks."
+        },
+        {
+          "title": "Dim the lights",
+          "body": "Bleed, blooming and black-level tests need a properly dark room. Everything else works best dimly lit, with no reflections on the glass."
+        },
+        {
+          "title": "Use the native resolution",
+          "body": "A scaled resolution softens fine detail and can blur a single bad pixel into its neighbors. Set your system to the panel's native resolution."
+        },
+        {
+          "title": "Fill the whole screen",
+          "body": "Browser bars and the taskbar cover the edges, which is where bleed and dead pixels like to hide. Every test has a full-screen Start button."
+        },
+        {
+          "title": "Photograph what you find",
+          "body": "Lock your phone camera's exposure, shoot in a dark room and note the date. That photo is your evidence for a return or warranty claim."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions",
+      "items": [
+        {
+          "q": "Is {site} free?",
+          "a": "Yes. Every test is free to use, with no account and nothing to download. The site is supported by ads and donations."
+        },
+        {
+          "q": "Is anything uploaded when I run a test?",
+          "a": "No. Your browser draws the test patterns on your own device, and nothing about your screen is sent anywhere. Like most websites, the site uses analytics and ads; the Privacy page lists what they collect."
+        },
+        {
+          "q": "Do the tests work on phones and tablets?",
+          "a": "Yes, in any modern mobile browser. iPhone Safari doesn't let websites go truly full-screen, so there a test fills the browser window instead. The Touch Screen Test is built specifically for phones and tablets."
+        },
+        {
+          "q": "Can a browser test be accurate?",
+          "a": "For defects you can see, yes: a full-screen solid color shows a dead pixel or backlight bleed just as clearly as dedicated software would. Measurements such as Delta E, brightness in nits or contrast ratio need a colorimeter; these tests show what those problems look like, not the numbers."
+        },
+        {
+          "q": "How many dead pixels are acceptable?",
+          "a": "It depends on the manufacturer's pixel policy. One dark pixel often falls within the allowance, while bright pixels and clusters are treated more strictly. Inside the retailer's return window you usually don't need to argue about counts at all."
+        },
+        {
+          "q": "Which test should I run first on a new screen?",
+          "a": "The Dead Pixel Test. Then check for bleed on black, uniformity on grey and banding in the gradients, and on a monitor or TV finish with the refresh rate. The new-device checklist in our guides walks through the full order."
+        }
+      ]
+    },
+    "who": {
+      "title": "Who makes {site}",
+      "body": "{site} is built and maintained by {operator}, an independent developer working alone. Every guide shows when it was last updated, and many link the standards and manufacturer documents they draw on.",
+      "browse": "Browse all {n} tests",
+      "about": "About the site",
+      "feedback": "Send feedback"
+    }
+  }
+}

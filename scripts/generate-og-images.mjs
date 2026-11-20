@@ -20,7 +20,7 @@ const tools = [...toolsSrc.matchAll(/\n    slug: "([^"]+)",\n    name: "([^"]+)"
   .map((m) => ({ slug: m[1], title: m[3], label: CAT[m[4]] }));
 const guides = [...guidesSrc.matchAll(/\n    slug: "([^"]+)",\n    title: "([^"]+)",/g)]
   .map((m) => ({ slug: m[1], title: m[2], label: "Guide" }));
-if (tools.length !== 28 || guides.length !== 44) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
+if (tools.length !== 30 || guides.length !== 44) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
 
 // ---------- screen motifs ----------
 // Each draws inside the screen viewport x,y,w,h and returns SVG.
@@ -105,6 +105,15 @@ const M = {
     <rect x="${x}" y="${y}" width="${w}" height="${h * 0.45}" fill="url(#tr)"/>
     <rect x="${x - 26}" y="${y + h * 0.45}" width="${w + 26}" height="${h * 0.55}" fill="url(#tr)" opacity="0.85"/>
     <line x1="${x}" y1="${y + h * 0.45}" x2="${x + w}" y2="${y + h * 0.45}" stroke="${ACCENT}" stroke-width="3"/>`,
+  ruler: (x, y, w, h) => { // a screen outline with its diagonal and tick marks along the bottom
+    const sx = x + w * 0.2, sy = y + h * 0.16, sw = w * 0.6, sh = h * 0.5;
+    const ticks = Array.from({ length: 13 }, (_, i) =>
+      `<line x1="${sx + (sw / 12) * i}" y1="${y + h * 0.78}" x2="${sx + (sw / 12) * i}" y2="${y + h * (i % 4 === 0 ? 0.88 : 0.84)}" stroke="rgba(232,234,237,0.55)" stroke-width="3"/>`).join("");
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#111318"/>
+      <rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" rx="6" fill="#1a1d24" stroke="rgba(232,234,237,0.5)" stroke-width="3"/>
+      <line x1="${sx}" y1="${sy + sh}" x2="${sx + sw}" y2="${sy}" stroke="${ACCENT}" stroke-width="4"/>
+      <line x1="${sx}" y1="${y + h * 0.78}" x2="${sx + sw}" y2="${y + h * 0.78}" stroke="rgba(232,234,237,0.55)" stroke-width="3"/>${ticks}`;
+  },
   checklist: (x, y, w, h) => { const rows = [0, 1, 2].map((i) =>
       `<rect x="${x + w * 0.12}" y="${y + h * (0.18 + i * 0.24)}" width="26" height="26" rx="6" fill="none" stroke="${ACCENT}" stroke-width="3"/>
        <path d="M ${x + w * 0.12 + 5} ${y + h * (0.18 + i * 0.24) + 13} l 6 7 l 11 -14" fill="none" stroke="${ACCENT}" stroke-width="3" stroke-linecap="round"/>
@@ -173,6 +182,7 @@ const TOOL_MOTIF = {
   "viewing-angle-test": "angle", "gamma-test": "gamma", "screen-tearing-test": "tear",
   "touch-screen-test": "touch", "screen-info": "info", "overscan-test": "overscan", "sharpness-test": "sharp",
   "frame-skipping-test": "frameskip", "wide-color-gamut-test": "gamut", "pwm-flicker-test": "pwm", "hdr-test": "hdr",
+  "screen-size-calculator": "ruler", "screen-test-checklist": "checklist",
 };
 const GUIDE_RULES = [
   [/lines-on-my-screen/, "rgb"], [/graphics-card/, "twoscreens"], [/rgb-range/, "blacklevel"],

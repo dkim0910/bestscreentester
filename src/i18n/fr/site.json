@@ -1,0 +1,362 @@
+{
+  "meta": {
+    "siteTagline": "Tests d'écran gratuits en ligne : pixels morts, couleurs, rétroéclairage et fluidité.",
+    "defaultTitle": "Tests d'écran gratuits en ligne",
+    "homeTitle": "Test d'écran gratuit en ligne",
+    "homeDescription": "Lancez {n} tests d'écran gratuits dans votre navigateur : pixels morts, fuites de lumière, fréquence de rafraîchissement, couleurs, ghosting, etc. Sans inscription.",
+    "homeKeywords": [
+      "test écran",
+      "test moniteur",
+      "test pixel mort",
+      "test écran pc",
+      "test écran en ligne"
+    ],
+    "toolsTitle": "Tous les tests d'écran",
+    "toolsDescription": "Parcourez les {n} tests d'écran gratuits en ligne : pixels morts, couleurs, fuites de lumière, fréquence de rafraîchissement, ghosting, blooming, etc."
+  },
+  "nav": {
+    "tools": "Outils",
+    "guides": "Guides",
+    "about": "À propos",
+    "contact": "Contact",
+    "start": "Lancer un test",
+    "language": "Langue"
+  },
+  "footer": {
+    "blurb": "Des tests d'écran gratuits, directement dans le navigateur. Sans installation ni inscription.",
+    "popular": "Tests populaires",
+    "explore": "Explorer",
+    "allTools": "Tous les outils",
+    "guides": "Guides et articles",
+    "company": "Le site",
+    "about": "À propos",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "donate": "Faire un don",
+    "contact": "Contact",
+    "languages": "Langues",
+    "copyright": "Tous les tests s'exécutent localement dans votre navigateur."
+  },
+  "categories": {
+    "panel": "Dalle et rétroéclairage",
+    "color": "Couleurs et calibrage",
+    "motion": "Mouvement et fluidité",
+    "fun": "Utilitaires"
+  },
+  "common": {
+    "home": "Accueil",
+    "tools": "Outils",
+    "testCountOne": "{n} test",
+    "testCountMany": "{n} tests",
+    "inEnglish": "en anglais",
+    "logoAlt": "Logo {site}"
+  },
+  "toolPage": {
+    "howTo": "Mode d'emploi",
+    "normal": "Normal",
+    "fault": "Un défaut",
+    "threshold": "Où se situe la limite.",
+    "next": "Un problème ? Que faire ensuite",
+    "guide": "Guide : {label}",
+    "readGuide": "Lire le guide",
+    "relatedGuides": "Guides associés",
+    "relatedGuidesIntro": "Pour mieux comprendre ce que révèle ce test et savoir quoi faire des résultats.",
+    "faq": "FAQ",
+    "tips": "Conseils",
+    "relatedTests": "Tests associés"
+  },
+  "toolsPage": {
+    "eyebrow": "{n} tests",
+    "title": "Tous les tests d'écran",
+    "intro": "{n} tests d'écran gratuits, directement dans le navigateur. Choisissez une catégorie ci-dessous.",
+    "funTitle": "Juste pour le plaisir",
+    "funIntro": "Ce ne sont pas des tests d'écran : des farces en plein écran et un économiseur d'écran."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "{n} tests d'écran gratuits",
+      "title": "Test d'écran et de moniteur gratuit en ligne",
+      "intro": "{n} tests d'écran gratuits qui tournent dans votre navigateur : pixels morts, fuites de lumière, fréquence de rafraîchissement, scintillement PWM, HDR, etc. Rien à installer, pas de compte.",
+      "primary": "Lancer le Test de pixels morts",
+      "secondary": "Voir les {n} tests"
+    },
+    "allTests": {
+      "eyebrow": "Tous les tests",
+      "title": "{n} tests, classés selon ce qu'ils vérifient",
+      "link": "Ouvrir la liste complète"
+    },
+    "answers": {
+      "eyebrow": "Partez du symptôme",
+      "title": "Défaut, ou comportement normal ?",
+      "subtitle": "Les quatre questions qui reviennent le plus souvent ici, chacune avec le test qui y répond.",
+      "runTest": "Lancer le {name}",
+      "guide": "Guide : {name}",
+      "readFull": "Lire la réponse complète",
+      "items": [
+        {
+          "title": "Un point qui ne disparaît pas",
+          "summary": "Sombre sur toutes les couleurs, blanc compris : c'est un pixel mort, il ne reviendra pas. Figé sur une seule couleur : il est bloqué, et un pixel bloqué se rétablit parfois.",
+          "body": [
+            "Faites défiler les couleurs unies en surveillant le point. S'il reste sombre sur toutes les couleurs, blanc compris, c'est un pixel mort et il ne reviendra pas. S'il garde une seule couleur, ou s'il brille sur le noir, il est bloqué, et un pixel bloqué se rétablit parfois : la dernière vue du Test de pixels morts fait clignoter des couleurs sur la zone dans ce but. Essuyez l'écran avant de trancher, car une poussière a exactement le même aspect tant qu'elle ne bouge pas.",
+            "Savoir si cela justifie un retour dépend moins du point que du calendrier. Les fabricants tolèrent un petit nombre de défauts par dalle, comptent les pixels lumineux plus sévèrement que les pixels sombres, et remplacent souvent un groupe de pixels alors qu'ils refusent des points dispersés. Une ligne ou une colonne entière est un défaut de connexion et ouvre presque toujours droit à une prise en charge. Pendant le délai de retour du vendeur, aucun de ces décomptes ne vous concerne : c'est la raison de tester dès le premier jour."
+          ],
+          "test": "Test de pixels morts",
+          "guide": "Pixels morts : les politiques de garantie"
+        },
+        {
+          "title": "Une lueur sur un écran noir",
+          "summary": "Une lueur qui se déplace et s'atténue quand vous bougez, c'est de l'IPS glow, une caractéristique de ce type de dalle. Des traînées le long d'un bord qui ne bougent pas, ce sont des fuites de lumière.",
+          "body": [
+            "Presque tous les écrans LCD laissent passer un peu de lumière sur du noir, parce qu'ils produisent le noir en bloquant un rétroéclairage qui ne s'éteint jamais. Affichez un écran noir dans une pièce sombre et penchez-vous d'une trentaine de centimètres de chaque côté. Une lueur qui se déplace et s'atténue quand vous bougez, c'est de l'IPS glow : une caractéristique de ce type de dalle, pas un défaut, et presque jamais couverte par la garantie. Des traînées ou des taches le long d'un bord qui restent exactement au même endroit, ce sont des fuites de lumière (backlight bleed).",
+            "Une règle pratique : si vous ne les voyez pas en regardant un film lumières allumées, n'y pensez plus. Une traînée claire visible en usage normal, dans les scènes sombres d'un jeu ou dans les bandes noires d'un film, mérite en revanche d'agir. Jugez à l'œil nu, à la luminosité que vous utilisez vraiment. Dans le noir, l'appareil photo d'un téléphone fait des poses longues et rend alarmant un voile à peine visible. Un écran OLED ne doit montrer ni l'un ni l'autre."
+          ],
+          "test": "Test de fuites de lumière",
+          "guide": "Fuites de lumière et IPS glow"
+        },
+        {
+          "title": "Une image fantôme sur un OLED",
+          "summary": "Lisez une vidéo variée en plein écran pendant une heure ou deux, puis regardez à nouveau. La rémanence s'estompe. Le burn-in, lui, est exactement là où vous l'avez laissé.",
+          "body": [
+            "La silhouette discrète d'une barre des tâches, d'un logo de chaîne ou du HUD d'un jeu sur un écran gris, c'est l'une de deux choses, et le temps permet de les départager. Lisez une vidéo variée en plein écran pendant une heure ou deux, puis regardez à nouveau le même aplat gris. Une rémanence d'image se sera estompée ou aura disparu. Un burn-in (marquage) sera exactement là où vous l'avez laissé, parce que les pixels y sont usés et non bloqués.",
+            "Cherchez une forme que vous reconnaissez. Des taches aléatoires sans contour net relèvent plus probablement d'un simple défaut d'uniformité de la dalle. Le burn-in ne s'efface pas, on peut seulement le ralentir : baissez la luminosité, masquez les éléments statiques et laissez la dalle effectuer son cycle de compensation. Certains fabricants le couvrent désormais sous garantie pendant une durée limitée : lisez cette clause avant de conclure dans un sens ou dans l'autre."
+          ],
+          "test": "Test de burn-in",
+          "guide": "Burn-in OLED : comment le vérifier"
+        },
+        {
+          "title": "Un écran rapide qui ne paraît pas rapide",
+          "summary": "Un moniteur 144 Hz qui affiche 60 Hz n'est presque jamais défectueux. La fréquence n'est pas sélectionnée, le câble ne peut pas la transporter, ou un mode d'économie d'énergie l'a abaissée.",
+          "body": [
+            "Mesurez avant d'accuser la dalle. Un moniteur 144 Hz qui affiche 60 Hz n'est presque jamais défectueux : la fréquence la plus élevée n'a pas été sélectionnée dans les réglages d'affichage, le câble ou le port ne peut pas la transporter à cette résolution, ou un mode d'économie d'énergie l'a abaissée. Une mesure à environ 1 Hz de la valeur annoncée est normale, car beaucoup d'écrans tournent à une fraction de hertz de leur fréquence nominale.",
+            "Si le chiffre est bon mais que le mouvement paraît toujours anormal, regardez la traînée derrière un objet en mouvement. Une traînée baveuse, c'est du ghosting dû à des pixels trop lents ; un liseré clair, c'est de l'overshoot dû à un overdrive réglé trop fort, et un cran de moins suffit en général à le corriger. Un flou doux et régulier, sans image résiduelle, n'est pas un défaut. Tout écran qui maintient chaque image fixe le produit."
+          ],
+          "test": "Test de fréquence de rafraîchissement",
+          "guide": "Activer la fréquence de rafraîchissement maximale"
+        }
+      ]
+    },
+    "inFull": {
+      "eyebrow": "En détail",
+      "title": "Distinguer un défaut d'une simple particularité",
+      "subtitle": "La plupart des écrans ont leurs petites particularités. Voici comment répondre à chacune des quatre questions avec un test."
+    },
+    "verdicts": {
+      "eyebrow": "Aide-mémoire",
+      "title": "Normal, ou à renvoyer ?",
+      "subtitle": "Les mêmes verdicts en un coup d'œil, pour les défauts qui suscitent le plus de questions.",
+      "colSee": "Ce que vous voyez",
+      "colUsually": "Ce que c'est en général",
+      "colNext": "Que faire",
+      "items": [
+        {
+          "see": "Un pixel sombre (mort)",
+          "tag": "Souvent toléré",
+          "usually": "Souvent dans la tolérance du fabricant",
+          "next": "Consultez la politique de pixels. Pendant le délai de retour, vous pouvez en général simplement renvoyer l'écran.",
+          "guide": "Politiques de pixels"
+        },
+        {
+          "see": "Un pixel lumineux ou bloqué",
+          "tag": "Plus strict",
+          "usually": "Compté plus sévèrement qu'un pixel sombre",
+          "next": "Essayez le réparateur de pixels bloqués du Test de pixels morts, puis consultez la politique du fabricant.",
+          "guide": "Réparer un pixel bloqué"
+        },
+        {
+          "see": "Plusieurs défauts rapprochés",
+          "tag": "Souvent pris en charge",
+          "usually": "Un groupe est souvent pris en charge quand des défauts dispersés ne le sont pas",
+          "next": "Photographiez-les sur une couleur unie et comptez-les par type.",
+          "guide": ""
+        },
+        {
+          "see": "Une ligne ou une colonne entière allumée ou éteinte",
+          "tag": "Défaut",
+          "usually": "Un défaut de connexion, pas un défaut de pixel",
+          "next": "Cela ouvre presque toujours droit à une réparation. Contactez le SAV.",
+          "guide": ""
+        },
+        {
+          "see": "Une faible lueur dans les coins sur un écran noir",
+          "tag": "Normal",
+          "usually": "Normal sur presque tous les LCD",
+          "next": "Ne justifie un retour que si elle est irrégulière ou visible au quotidien.",
+          "guide": "Fuites de lumière"
+        },
+        {
+          "see": "Une lueur qui bouge quand vous bougez la tête",
+          "tag": "Normal",
+          "usually": "De l'IPS glow, une caractéristique de ce type de dalle",
+          "next": "Ce n'est pas un défaut. Reculer un peu ou ajouter un léger éclairage dans la pièce l'atténue.",
+          "guide": "Fuite de lumière ou IPS glow ?"
+        },
+        {
+          "see": "Des coins un peu plus sombres que le centre",
+          "tag": "Normal",
+          "usually": "Un léger assombrissement est normal sur tous les LCD",
+          "next": "Une tache nette aux contours visibles ne l'est pas : celle-là justifie un retour.",
+          "guide": ""
+        },
+        {
+          "see": "Des taches sur un écran de portable, souvent alignées",
+          "tag": "Défaut",
+          "usually": "Des marques de pression, un défaut mécanique",
+          "next": "À renvoyer, surtout sur un portable neuf.",
+          "guide": ""
+        },
+        {
+          "see": "Sur un OLED, une silhouette qui s'estompe après des contenus variés",
+          "tag": "Temporaire",
+          "usually": "Une rémanence d'image temporaire",
+          "next": "Lisez une vidéo variée en plein écran pendant un moment, puis vérifiez à nouveau.",
+          "guide": ""
+        },
+        {
+          "see": "Sur un OLED, une silhouette qui ne s'estompe jamais",
+          "tag": "Permanent",
+          "usually": "Du burn-in, qui est permanent",
+          "next": "Vérifiez si votre garantie couvre le burn-in ; c'est désormais parfois le cas.",
+          "guide": ""
+        },
+        {
+          "see": "60 Hz sur un moniteur 144 Hz",
+          "tag": "Réglage",
+          "usually": "Un problème de réglage ou de câble, pas une dalle défectueuse",
+          "next": "Sélectionnez la fréquence maximale dans vos réglages d'affichage, vérifiez le câble, puis refaites le test.",
+          "guide": ""
+        }
+      ]
+    },
+    "newer": {
+      "eyebrow": "Écrans récents",
+      "title": "Des tests pour les écrans récents",
+      "subtitle": "Les dalles HDR, Mini-LED, OLED et à haute fréquence ont des défauts qu'une couleur unie ne peut pas montrer.",
+      "items": [
+        {
+          "name": "Test HDR",
+          "body": "Une véritable image HDR avec des paliers de luminosité jusqu'à 1 600 nits, pour voir où votre écran cesse de gagner en luminosité."
+        },
+        {
+          "name": "Test de scintillement PWM",
+          "body": "Repérez un rétroéclairage qui scintille avec le test du crayon, ou avec une ligne rapide qui se dédouble sur les écrans à gradation PWM."
+        },
+        {
+          "name": "Test de gamut étendu (P3)",
+          "body": "Des logos cachés dans des couleurs Display P3 n'apparaissent que si votre écran et votre navigateur vont tous deux au-delà du sRGB."
+        },
+        {
+          "name": "Test de saut d'images",
+          "body": "Une cellule s'allume à chaque image. Photographiez-la pour savoir si un moniteur overclocké saute discrètement des images."
+        },
+        {
+          "name": "Blooming : balayage des zones",
+          "body": "Comptez les sauts du halo pendant qu'un carré traverse l'écran pour estimer le nombre de zones de gradation d'un Mini-LED."
+        },
+        {
+          "name": "Gris défilant",
+          "body": "Des bandes grises qui dérivent et révèlent le dirty screen effect que montrent les grands téléviseurs lors des travellings."
+        }
+      ]
+    },
+    "guides": {
+      "eyebrow": "Guides",
+      "title": "Les guides à lire d'abord",
+      "subtitle": "Ce que signifie un résultat, et des pas-à-pas pour les portables, les téléphones, les téléviseurs et les moniteurs.",
+      "all": "Tous les guides",
+      "items": [
+        {
+          "name": "Fuite de lumière ou IPS glow ?",
+          "body": "Un test d'une seconde qui départage les deux, un tableau comparatif, et ce qui n'est ni l'un ni l'autre : clouding, blooming et niveau de noir relevé."
+        },
+        {
+          "name": "Burn-in OLED",
+          "body": "Ce qui use un OLED, comment le vérifier sur du gris, comment le distinguer d'une rémanence qui s'estompe, et les habitudes qui le ralentissent."
+        },
+        {
+          "name": "Ordinateurs portables",
+          "body": "Un contrôle des pixels en 60 secondes, plus ce qui ressemble à des pixels morts sur un portable sans en être, comme la lueur dans les coins et les marques de pression du capot."
+        },
+        {
+          "name": "Téléphones d'occasion",
+          "body": "Ce qu'il faut vérifier avant de payer : images rémanentes sur OLED, zones insensibles au toucher, dalle de remplacement et scintillement."
+        },
+        {
+          "name": "Téléviseurs",
+          "body": "Affichez une mire avec le navigateur du téléviseur ou votre téléphone, puis jugez les pixels et l'uniformité depuis votre place habituelle."
+        },
+        {
+          "name": "Moniteurs, en magasin et à la maison",
+          "body": "Ce que vous pouvez vérifier avant de payer, ce qu'il faut lancer le premier jour, et les signaux d'alerte qui justifient un retour, câble compris."
+        }
+      ]
+    },
+    "prep": {
+      "eyebrow": "Préparation",
+      "title": "Avant de tester",
+      "subtitle": "Une minute de préparation rend chaque résultat plus fiable.",
+      "items": [
+        {
+          "title": "Laissez-le chauffer",
+          "body": "La luminosité et les couleurs d'une dalle froide dérivent légèrement au début. Attendez environ cinq minutes avant de tester, et 20 à 30 minutes avant de calibrer."
+        },
+        {
+          "title": "Désactivez les filtres",
+          "body": "Éclairage nocturne, Night Shift, True Tone, le contraste dynamique et les modes de confort visuel modifient tous ce que vous voyez. Coupez-les pour les tests de couleurs et de niveaux de gris."
+        },
+        {
+          "title": "Baissez la lumière",
+          "body": "Les tests de fuites de lumière, de blooming et de niveau de noir exigent une pièce vraiment sombre. Tout le reste fonctionne mieux sous un éclairage tamisé, sans reflets sur la vitre."
+        },
+        {
+          "title": "Utilisez la résolution native",
+          "body": "Une résolution mise à l'échelle adoucit les détails fins et peut noyer un pixel défectueux dans ses voisins. Réglez votre système sur la résolution native de la dalle."
+        },
+        {
+          "title": "Remplissez tout l'écran",
+          "body": "Les barres du navigateur et la barre des tâches masquent les bords, là où les fuites de lumière et les pixels morts aiment se cacher. Chaque test a un bouton Démarrer pour passer en plein écran."
+        },
+        {
+          "title": "Photographiez ce que vous trouvez",
+          "body": "Verrouillez l'exposition de l'appareil photo de votre téléphone, photographiez dans une pièce sombre et notez la date. Cette photo est votre preuve pour un retour ou une demande de garantie."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions",
+      "items": [
+        {
+          "q": "{site} est-il gratuit ?",
+          "a": "Oui. Tous les tests sont gratuits, sans compte et sans rien à télécharger. Le site est financé par la publicité et les dons."
+        },
+        {
+          "q": "Des données sont-elles envoyées quand je lance un test ?",
+          "a": "Non. Votre navigateur dessine les mires sur votre propre appareil, et aucune information sur votre écran n'est envoyée où que ce soit. Comme la plupart des sites, celui-ci utilise des outils de mesure d'audience et de la publicité ; la page Confidentialité détaille ce qu'ils collectent."
+        },
+        {
+          "q": "Les tests fonctionnent-ils sur téléphone et tablette ?",
+          "a": "Oui, dans n'importe quel navigateur mobile récent. Sur iPhone, Safari n'autorise pas les sites à passer en véritable plein écran : le test y remplit donc la fenêtre du navigateur. Le Test d'écran tactile est conçu spécialement pour les téléphones et les tablettes."
+        },
+        {
+          "q": "Un test dans le navigateur peut-il être fiable ?",
+          "a": "Pour les défauts visibles, oui : une couleur unie en plein écran montre un pixel mort ou une fuite de lumière aussi clairement qu'un logiciel dédié. Les mesures comme le Delta E, la luminosité en nits ou le taux de contraste exigent une sonde colorimétrique ; ces tests montrent à quoi ressemblent ces problèmes, pas les chiffres."
+        },
+        {
+          "q": "Combien de pixels morts sont acceptables ?",
+          "a": "Cela dépend de la politique de pixels du fabricant. Un pixel sombre entre souvent dans la tolérance, alors que les pixels lumineux et les groupes sont traités plus sévèrement. Pendant le délai de retour du vendeur, vous n'avez en général pas à discuter de décomptes."
+        },
+        {
+          "q": "Quel test lancer en premier sur un écran neuf ?",
+          "a": "Le Test de pixels morts. Vérifiez ensuite les fuites de lumière sur du noir, l'uniformité sur du gris et le banding dans les dégradés, puis, sur un moniteur ou un téléviseur, terminez par la fréquence de rafraîchissement. La checklist pour appareil neuf de nos guides détaille l'ordre complet."
+        }
+      ]
+    },
+    "who": {
+      "title": "Qui fait {site}",
+      "body": "{site} est conçu et maintenu par {operator}, un développeur indépendant qui travaille seul. Chaque guide indique sa date de dernière mise à jour, et beaucoup renvoient aux normes et aux documents de fabricants sur lesquels ils s'appuient.",
+      "browse": "Voir les {n} tests",
+      "about": "À propos du site",
+      "feedback": "Envoyer un avis"
+    }
+  }
+}

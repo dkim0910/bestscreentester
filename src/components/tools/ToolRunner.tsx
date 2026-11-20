@@ -16,6 +16,8 @@ import FrameSkipTool from "./FrameSkipTool";
 import WideGamutTool from "./WideGamutTool";
 import PwmTool from "./PwmTool";
 import HdrTool from "./HdrTool";
+import ChecklistTool from "./ChecklistTool";
+import ScreenCalcTool from "./ScreenCalcTool";
 import {
   smoothGreyscale,
   steppedGreyscale,
@@ -38,7 +40,10 @@ import {
 import type { DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
 
-export default function ToolRunner({ tool }: { tool: ToolDef }) {
+/** The indexed tests in the page's language, for tools that list other tests. */
+export type ToolSummary = Pick<ToolDef, "slug" | "name" | "tagline">;
+
+export default function ToolRunner({ tool, tools = [] }: { tool: ToolDef; tools?: ToolSummary[] }) {
   switch (tool.slug) {
     case "dead-pixel-test":
       return <DeadPixelTool tool={tool} />;
@@ -141,6 +146,12 @@ export default function ToolRunner({ tool }: { tool: ToolDef }) {
 
     case "hdr-test":
       return <HdrTool tool={tool} />;
+
+    case "screen-size-calculator":
+      return <ScreenCalcTool tool={tool} />;
+
+    case "screen-test-checklist":
+      return <ChecklistTool tool={tool} tools={tools} />;
 
     default:
       // Fallback to the full solid-color cycler.

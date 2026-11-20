@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import FullscreenStage from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 // frame 0: vertical bars scrolling horizontally -> reveals horizontal tears.
 // frame 1: horizontal bars scrolling vertically -> reveals vertical tears.
@@ -41,6 +42,7 @@ function useTearing(speedRef: React.RefObject<number>) {
 }
 
 export default function ScreenTearingTool({ tool }: { tool: ToolDef }) {
+  const t = useT();
   const [speed, setSpeed] = useState(1);
   const speedRef = useRef(1);
   useEffect(() => {
@@ -53,10 +55,10 @@ export default function ScreenTearingTool({ tool }: { tool: ToolDef }) {
     <FullscreenStage
       tool={tool}
       frameCount={LABELS.length}
-      frameLabel={(i) => LABELS[i]}
+      frameLabel={(i) => t(LABELS[i])}
       controls={() => (
         <label className="flex items-center gap-1.5">
-          Speed
+          {t("Speed")}
           <input
             type="range"
             min={0}
@@ -66,7 +68,7 @@ export default function ScreenTearingTool({ tool }: { tool: ToolDef }) {
             onChange={(e) => setSpeed(Number(e.target.value))}
             style={{ accentColor: "var(--accent)" }}
             className="w-24"
-            aria-label="Scroll speed"
+            aria-label={t("Scroll speed")}
           />
         </label>
       )}

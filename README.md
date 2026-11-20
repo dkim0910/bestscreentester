@@ -41,7 +41,7 @@ npm run build && npx serve out
 - `src/components/tools/` — the tool engine: `FullscreenStage` controller, `ColorCycler`,
   `PatternCanvas`, `CanvasStage`, and per-tool components wired up in `ToolRunner`.
 - `src/lib/guides.ts` — all blog/guide content (the `GUIDES` array). Add or edit guides here.
-- `src/app/[tool]/page.tsx` — statically generated page per tool, with how-to, FAQ, related
+- `src/components/pages/ToolPage.tsx` (routed from `src/app/(en)/[tool]/` and `src/app/(intl)/<lang>/[tool]/`) — statically generated page per tool, with how-to, FAQ, related
   tools, and related guides.
 - `src/app/blog/` — guide index and individual guide pages (static).
 - `src/lib/seo.ts` — shared metadata/JSON-LD helpers plus `SITE_NAME`, `CONTACT_EMAIL`, and

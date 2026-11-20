@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "siteTagline": "Tests de pantalla online y gratis para píxeles muertos, color, retroiluminación y movimiento.",
+    "defaultTitle": "Tests de pantalla online gratis",
+    "homeTitle": "Test de pantalla online gratis",
+    "homeDescription": "Haz {n} tests gratuitos de pantalla y monitor en tu navegador: píxeles muertos, fugas de luz, frecuencia de actualización, color, ghosting y más. Sin registro.",
+    "homeKeywords": ["test de pantalla", "test de monitor", "test de píxeles muertos", "probar pantalla", "test de pantalla online"],
+    "toolsTitle": "Todos los tests de pantalla",
+    "toolsDescription": "Consulta los {n} tests de pantalla online y gratuitos: píxeles muertos, color, fugas de luz, frecuencia de actualización, ghosting, blooming y más."
+  },
+  "nav": {
+    "tools": "Herramientas",
+    "guides": "Guías",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "start": "Iniciar un test",
+    "language": "Idioma"
+  },
+  "footer": {
+    "blurb": "Tests de pantalla gratuitos en el navegador. Sin instalar nada y sin registro.",
+    "popular": "Tests populares",
+    "explore": "Explorar",
+    "allTools": "Todas las herramientas",
+    "guides": "Guías y artículos",
+    "company": "El sitio",
+    "about": "Acerca de",
+    "privacy": "Política de privacidad",
+    "terms": "Términos del servicio",
+    "donate": "Donar",
+    "contact": "Contacto",
+    "languages": "Idiomas",
+    "copyright": "Todos los tests se ejecutan localmente en tu navegador."
+  },
+  "categories": {
+    "panel": "Panel y retroiluminación",
+    "color": "Color y calibración",
+    "motion": "Movimiento y sincronización",
+    "fun": "Utilidades"
+  },
+  "common": {
+    "home": "Inicio",
+    "tools": "Herramientas",
+    "testCountOne": "{n} test",
+    "testCountMany": "{n} tests",
+    "inEnglish": "en inglés",
+    "logoAlt": "Logotipo de {site}"
+  },
+  "toolPage": {
+    "howTo": "Cómo se usa",
+    "normal": "Normal",
+    "fault": "Un defecto",
+    "threshold": "Dónde está el límite.",
+    "next": "¿Has encontrado un problema? Qué hacer ahora",
+    "guide": "Guía: {label}",
+    "readGuide": "Leer la guía",
+    "relatedGuides": "Guías relacionadas",
+    "relatedGuidesIntro": "Aprende más sobre lo que revela este test y qué hacer con los resultados.",
+    "faq": "Preguntas frecuentes",
+    "tips": "Consejos",
+    "relatedTests": "Tests relacionados"
+  },
+  "toolsPage": {
+    "eyebrow": "{n} tests",
+    "title": "Todos los tests de pantalla",
+    "intro": "{n} tests de pantalla gratuitos que funcionan en el navegador. Elige una categoría.",
+    "funTitle": "Solo por diversión",
+    "funIntro": "No son tests de pantalla: bromas a pantalla completa y un salvapantallas."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "{n} tests de pantalla gratis",
+      "title": "Test de pantalla y de monitor online gratis",
+      "intro": "{n} tests de pantalla gratuitos que funcionan en tu navegador: píxeles muertos, fugas de luz, frecuencia de actualización, parpadeo PWM, HDR y más. Sin instalar nada y sin cuenta.",
+      "primary": "Iniciar el Test de píxeles muertos",
+      "secondary": "Ver los {n} tests"
+    },
+    "allTests": {
+      "eyebrow": "Todos los tests",
+      "title": "{n} tests, agrupados según lo que comprueban",
+      "link": "Abrir la lista completa"
+    },
+    "answers": {
+      "eyebrow": "Empieza por el síntoma",
+      "title": "¿Es un defecto o es normal?",
+      "subtitle": "Las cuatro dudas más habituales de quienes llegan aquí, cada una con el test que la resuelve.",
+      "runTest": "Abrir el {name}",
+      "guide": "Guía: {name}",
+      "readFull": "Leer la respuesta completa",
+      "items": [
+        {
+          "title": "Un punto que no desaparece",
+          "summary": "Si se ve oscuro en todos los colores, incluido el blanco, es un píxel muerto y no volverá. Si se queda en un solo color, está atascado, y los píxeles atascados a veces se recuperan.",
+          "body": [
+            "Ve pasando colores lisos y fíjate en el punto. Si sigue oscuro en todos los colores, incluido el blanco, es un píxel muerto y no volverá. Si mantiene un color o brilla sobre el negro, está atascado, y los píxeles atascados a veces se recuperan: el último patrón del Test de píxeles muertos hace parpadear colores sobre esa zona con ese fin. Limpia la pantalla antes de decidir, porque una mota de polvo se ve idéntica hasta que se mueve.",
+            "Que merezca o no una devolución depende menos del punto que del calendario. Los fabricantes admiten un pequeño número de fallos por panel, cuentan con más rigor los píxeles brillantes que los oscuros y a menudo sustituyen un panel por un grupo de fallos juntos pero no por puntos dispersos. Una fila o columna entera es un fallo de conexión y casi siempre da derecho a reparación. Dentro del plazo de devolución de la tienda no se te aplica ninguno de esos recuentos, y por eso conviene hacer el test el primer día."
+          ],
+          "test": "Test de píxeles muertos",
+          "guide": "Políticas de garantía para píxeles muertos"
+        },
+        {
+          "title": "Resplandor en una pantalla negra",
+          "summary": "Un resplandor que cambia y se atenúa cuando te mueves es IPS glow, una característica del tipo de panel. Las franjas en un borde que no se mueven son fugas de luz.",
+          "body": [
+            "Casi todos los LCD dejan ver algo de luz en negro, porque generan el negro bloqueando una retroiluminación que nunca se apaga. Pon una pantalla negra en una habitación a oscuras e inclínate unos 30 cm hacia cada lado. Un resplandor que cambia y se atenúa cuando te mueves es IPS glow: una característica del tipo de panel, no un defecto, y casi nunca lo cubre la garantía. Las franjas o manchas en un borde que se quedan exactamente donde están son fugas de luz (backlight bleed).",
+            "Una regla práctica: si no lo ves al mirar una película con la luz encendida, olvídalo. Una franja brillante que se nota en el uso normal, en escenas oscuras de un juego o en las bandas negras de una película, sí merece que actúes. Júzgalo a simple vista y con el brillo que usas de verdad. Las cámaras de los móviles hacen exposiciones largas a oscuras y convierten un velo tenue en algo alarmante. Un OLED no debería mostrar ninguna de las dos cosas."
+          ],
+          "test": "Test de fugas de luz",
+          "guide": "Fugas de luz e IPS glow"
+        },
+        {
+          "title": "Una imagen fantasma en un OLED",
+          "summary": "Reproduce vídeo variado a pantalla completa durante una o dos horas y vuelve a mirar. La retención de imagen se desvanece. El quemado sigue exactamente donde estaba.",
+          "body": [
+            "El contorno tenue de una barra de tareas, del logotipo de un canal o del HUD de un juego sobre una pantalla gris es una de dos cosas, y el tiempo las distingue. Reproduce vídeo variado a pantalla completa durante una o dos horas y vuelve a mirar el mismo campo gris. La retención de imagen se habrá atenuado o habrá desaparecido. El quemado (burn-in) seguirá exactamente donde estaba, porque ahí los píxeles están desgastados, no atascados.",
+            "Busca una forma que reconozcas. Las manchas aleatorias sin un borde claro suelen ser la falta de uniformidad habitual del panel. El quemado no se puede eliminar, solo frenar: baja el brillo, oculta los elementos estáticos y deja que el panel ejecute su ciclo de compensación. Algunos fabricantes ya lo cubren en garantía durante un periodo limitado, así que lee esa cláusula antes de dar nada por hecho."
+          ],
+          "test": "Test de quemado",
+          "guide": "Quemado en OLED: cómo comprobarlo"
+        },
+        {
+          "title": "Un monitor rápido que no se nota rápido",
+          "summary": "Un monitor de 144 Hz que marca 60 Hz casi nunca está averiado. La frecuencia no está seleccionada, el cable no la soporta o un modo de ahorro de energía la ha bajado.",
+          "body": [
+            "Mide antes de culpar al panel. Un monitor de 144 Hz que marca 60 Hz casi nunca está averiado: la frecuencia más alta no se ha seleccionado en la configuración de pantalla, el cable o el puerto no la soportan a esa resolución, o un modo de ahorro de energía la ha bajado. Una lectura a menos de 1 Hz del valor nominal es normal, ya que muchas pantallas funcionan una fracción por debajo o por encima de su frecuencia nominal.",
+            "Si la cifra es correcta y el movimiento sigue viéndose mal, fíjate en la estela que deja un objeto en movimiento. Una estela emborronada es ghosting, causado por una respuesta lenta de los píxeles; un borde brillante es overshoot, causado por un overdrive demasiado alto, y bajarlo un nivel suele solucionarlo. Un desenfoque suave y uniforme, sin imagen residual, no es un defecto. Lo produce toda pantalla que mantiene fijo cada fotograma."
+          ],
+          "test": "Test de frecuencia de actualización",
+          "guide": "Activa toda tu frecuencia de actualización"
+        }
+      ]
+    },
+    "inFull": {
+      "eyebrow": "En detalle",
+      "title": "Cómo distinguir un defecto de una peculiaridad",
+      "subtitle": "Casi todas las pantallas tienen pequeñas peculiaridades. Así se responde con un test a cada una de las cuatro preguntas."
+    },
+    "verdicts": {
+      "eyebrow": "Referencia rápida",
+      "title": "¿Normal o para devolver?",
+      "subtitle": "Los mismos veredictos de un vistazo, para los fallos por los que más se pregunta.",
+      "colSee": "Lo que ves",
+      "colUsually": "Lo que suele ser",
+      "colNext": "Qué hacer",
+      "items": [
+        {
+          "see": "Un píxel oscuro (muerto)",
+          "tag": "Suele admitirse",
+          "usually": "A menudo dentro de lo que admite el fabricante",
+          "next": "Consulta la política de píxeles. Dentro del plazo de devolución normalmente puedes devolverlo sin más.",
+          "guide": "Políticas de píxeles"
+        },
+        {
+          "see": "Un píxel brillante o atascado",
+          "tag": "Más estricto",
+          "usually": "Se cuenta con más rigor que uno oscuro",
+          "next": "Prueba el Reparador de píxeles atascados del Test de píxeles muertos y luego consulta la política.",
+          "guide": "Reparar un píxel atascado"
+        },
+        {
+          "see": "Varios fallos juntos",
+          "tag": "Suele cubrirse",
+          "usually": "Los grupos suelen cubrirse cuando los fallos dispersos no",
+          "next": "Fotografíalos sobre un color liso y cuéntalos por tipo.",
+          "guide": ""
+        },
+        {
+          "see": "Una fila o columna entera encendida u oscura",
+          "tag": "Defecto",
+          "usually": "Un fallo de conexión, no un defecto de píxel",
+          "next": "Casi siempre da derecho a reparación. Contacta con el soporte.",
+          "guide": ""
+        },
+        {
+          "see": "Resplandor tenue en las esquinas con la pantalla en negro",
+          "tag": "Normal",
+          "usually": "Normal en casi todos los LCD",
+          "next": "Solo merece devolución si es irregular o se ve en el uso diario.",
+          "guide": "Fugas de luz"
+        },
+        {
+          "see": "Un resplandor que se mueve cuando mueves la cabeza",
+          "tag": "Normal",
+          "usually": "IPS glow, una característica del tipo de panel",
+          "next": "No es un defecto. Se reduce sentándote más lejos o añadiendo algo de luz en la habitación.",
+          "guide": "¿Fugas de luz o IPS glow?"
+        },
+        {
+          "see": "Esquinas un poco más oscuras que el centro",
+          "tag": "Normal",
+          "usually": "Cierta caída de brillo es normal en todos los LCD",
+          "next": "Una mancha definida con un borde visible no lo es; esa sí merece devolución.",
+          "guide": ""
+        },
+        {
+          "see": "Manchas en la pantalla de un portátil, a menudo en línea",
+          "tag": "Defecto",
+          "usually": "Marcas de presión, un fallo mecánico",
+          "next": "Merece devolución, sobre todo en un portátil nuevo.",
+          "guide": ""
+        },
+        {
+          "see": "Un contorno en un OLED que se desvanece tras contenido variado",
+          "tag": "Temporal",
+          "usually": "Retención de imagen temporal",
+          "next": "Reproduce vídeo variado a pantalla completa un rato y vuelve a comprobarlo.",
+          "guide": ""
+        },
+        {
+          "see": "Un contorno en un OLED que nunca se desvanece",
+          "tag": "Permanente",
+          "usually": "Quemado, que es permanente",
+          "next": "Comprueba si tu garantía cubre el quemado; algunas ya lo hacen.",
+          "guide": ""
+        },
+        {
+          "see": "60 Hz en un monitor de 144 Hz",
+          "tag": "Ajuste",
+          "usually": "Un problema de ajuste o de cable, no un panel averiado",
+          "next": "Selecciona la frecuencia completa en la configuración de pantalla, revisa el cable y repite el test.",
+          "guide": ""
+        }
+      ]
+    },
+    "newer": {
+      "eyebrow": "Pantallas recientes",
+      "title": "Tests para pantallas recientes",
+      "subtitle": "Los paneles HDR, Mini-LED, OLED y de alta frecuencia fallan de formas que un color liso no puede mostrar.",
+      "items": [
+        {
+          "name": "Test de HDR",
+          "body": "Una imagen HDR real con escalones de brillo de hasta 1600 nits, para que veas dónde deja de ganar brillo tu pantalla."
+        },
+        {
+          "name": "Test de parpadeo PWM",
+          "body": "Detecta una retroiluminación que parpadea con la prueba del lápiz, o con una línea rápida que se divide en copias en las pantallas atenuadas por PWM."
+        },
+        {
+          "name": "Test de gama de colores amplia (P3)",
+          "body": "Los logotipos ocultos en colores Display P3 solo aparecen si tanto tu pantalla como tu navegador van más allá de sRGB."
+        },
+        {
+          "name": "Test de salto de fotogramas",
+          "body": "Se enciende una celda por fotograma. Fotografíala para saber si un monitor con overclock descarta fotogramas sin avisar."
+        },
+        {
+          "name": "Barridos de zonas de blooming",
+          "body": "Cuenta cuántas veces salta el halo mientras un cuadrado cruza la pantalla para estimar las zonas de atenuación de un Mini-LED."
+        },
+        {
+          "name": "Gris en movimiento",
+          "body": "Bandas grises que se desplazan y delatan el efecto de pantalla sucia que muestran los televisores grandes cuando la cámara hace un barrido."
+        }
+      ]
+    },
+    "guides": {
+      "eyebrow": "Guías",
+      "title": "Guías para leer primero",
+      "subtitle": "Qué significa un resultado, y guías paso a paso para portátiles, móviles, televisores y monitores.",
+      "all": "Todas las guías",
+      "items": [
+        {
+          "name": "¿Fugas de luz o IPS glow?",
+          "body": "Una prueba de un segundo que separa las dos cosas, una tabla comparativa y lo que no es ninguna de ellas: clouding, blooming y un nivel de negro elevado."
+        },
+        {
+          "name": "Quemado en OLED",
+          "body": "Qué desgasta un OLED, cómo comprobarlo sobre gris, cómo distinguirlo de la retención que se desvanece y qué hábitos lo frenan."
+        },
+        {
+          "name": "Portátiles",
+          "body": "Una revisión de píxeles en 60 segundos, y lo que en un portátil parece un píxel muerto pero no lo es, como el resplandor en las esquinas o las marcas de presión de la tapa."
+        },
+        {
+          "name": "Móviles de segunda mano",
+          "body": "Qué comprobar antes de pagar: imágenes retenidas en OLED, zonas que no responden al tacto, un panel de recambio y parpadeo."
+        },
+        {
+          "name": "Televisores",
+          "body": "Pon un patrón de prueba con el navegador del televisor o con tu móvil y luego juzga los píxeles y la uniformidad desde donde te sientas de verdad."
+        },
+        {
+          "name": "Monitores, en la tienda y en casa",
+          "body": "Qué puedes comprobar antes de pagar, qué ejecutar el primer día y las señales de alarma que justifican una devolución, cable incluido."
+        }
+      ]
+    },
+    "prep": {
+      "eyebrow": "Preparación",
+      "title": "Antes de hacer el test",
+      "subtitle": "Un minuto de preparación hace que cada resultado sea más fiable.",
+      "items": [
+        {
+          "title": "Deja que se caliente",
+          "body": "El brillo y el color de un panel frío varían ligeramente al principio. Dale unos cinco minutos antes de hacer el test, y 20–30 minutos antes de calibrar."
+        },
+        {
+          "title": "Desactiva los filtros",
+          "body": "Luz nocturna, Night Shift, True Tone, el contraste dinámico y los modos de cuidado visual cambian lo que ves. Apágalos para las comprobaciones de color y de escala de grises."
+        },
+        {
+          "title": "Baja la luz",
+          "body": "Los tests de fugas de luz, blooming y nivel de negro necesitan una habitación realmente a oscuras. El resto funciona mejor con poca luz y sin reflejos en el cristal."
+        },
+        {
+          "title": "Usa la resolución nativa",
+          "body": "Una resolución escalada suaviza el detalle fino y puede fundir un píxel defectuoso con sus vecinos. Configura el sistema a la resolución nativa del panel."
+        },
+        {
+          "title": "Llena toda la pantalla",
+          "body": "Las barras del navegador y la barra de tareas tapan los bordes, que es donde suelen esconderse las fugas de luz y los píxeles muertos. Todos los tests tienen un botón Iniciar a pantalla completa."
+        },
+        {
+          "title": "Fotografía lo que encuentres",
+          "body": "Bloquea la exposición de la cámara del móvil, dispara en una habitación a oscuras y anota la fecha. Esa foto es tu prueba para una devolución o una reclamación de garantía."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Preguntas",
+      "items": [
+        {
+          "q": "¿{site} es gratis?",
+          "a": "Sí. Todos los tests son gratuitos, sin cuenta y sin descargar nada. El sitio se financia con anuncios y donaciones."
+        },
+        {
+          "q": "¿Se sube algo cuando hago un test?",
+          "a": "No. Tu navegador dibuja los patrones de prueba en tu propio dispositivo y no se envía a ningún sitio nada sobre tu pantalla. Como la mayoría de las webs, el sitio usa analítica y anuncios; la página de Privacidad detalla qué recogen."
+        },
+        {
+          "q": "¿Los tests funcionan en móviles y tabletas?",
+          "a": "Sí, en cualquier navegador móvil moderno. Safari en iPhone no permite a las webs una pantalla completa real, así que ahí el test ocupa la ventana del navegador. El Test de pantalla táctil está hecho específicamente para móviles y tabletas."
+        },
+        {
+          "q": "¿Puede ser preciso un test en el navegador?",
+          "a": "Para los defectos que se ven, sí: un color liso a pantalla completa muestra un píxel muerto o una fuga de luz con la misma claridad que un programa específico. Medidas como el Delta E, el brillo en nits o la relación de contraste requieren un colorímetro; estos tests muestran qué aspecto tienen esos problemas, no las cifras."
+        },
+        {
+          "q": "¿Cuántos píxeles muertos son aceptables?",
+          "a": "Depende de la política de píxeles del fabricante. Un píxel oscuro suele entrar en lo admitido, mientras que los píxeles brillantes y los grupos se tratan con más rigor. Dentro del plazo de devolución de la tienda normalmente no hace falta discutir recuentos."
+        },
+        {
+          "q": "¿Qué test hago primero en una pantalla nueva?",
+          "a": "El Test de píxeles muertos. Después comprueba las fugas de luz sobre negro, la uniformidad sobre gris y el banding en los degradados, y en un monitor o televisor termina con la frecuencia de actualización. La lista de comprobación para dispositivos nuevos de nuestras guías recorre el orden completo."
+        }
+      ]
+    },
+    "who": {
+      "title": "Quién hace {site}",
+      "body": "{site} lo desarrolla y mantiene {operator}, un desarrollador independiente que trabaja solo. Cada guía indica cuándo se actualizó por última vez, y muchas enlazan las normas y los documentos de fabricantes en los que se basan.",
+      "browse": "Ver los {n} tests",
+      "about": "Acerca del sitio",
+      "feedback": "Enviar comentarios"
+    }
+  }
+}

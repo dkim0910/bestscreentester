@@ -6,6 +6,14 @@
 // below are taken from those guides, not restated from memory. When a guide changes,
 // change this too, and move the tool's `updatedAt`.
 
+export interface ToolTable {
+  title: string;
+  /** Column headings; the first may be empty when the rows are labelled. */
+  head: string[];
+  rows: string[][];
+  note?: string;
+}
+
 export interface ToolResults {
   /** Section heading, written for this test. */
   heading: string;
@@ -21,6 +29,10 @@ export interface ToolResults {
   note?: string;
   /** The one deep guide for this test; replaces the generic "Related guides" grid. */
   guide?: { slug: string; label: string };
+  /** Reference tables shown under the results: comparisons and lookup values. */
+  tables?: ToolTable[];
+  /** Ordered steps for someone who found the fault: check, rule out, document, act. */
+  next?: string[];
   /** Test-specific replacements for the shared "How to use" / "FAQ" headings. */
   howToHeading?: string;
   faqHeading?: string;
@@ -534,8 +546,367 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
       "Turn HDR on in your operating system before opening the test, and check the chips above it. If they say HDR is available but the patches look flat, try another browser: support still varies, and Chromium-based browsers are currently the most consistent.",
     guide: { slug: "hdr-explained", label: "HDR explained: what makes a display actually HDR" },
   },
+  "screen-size-calculator": {
+    heading: "What the numbers mean",
+    howToHeading: "Using the calculator",
+    faqHeading: "Screen size and PPI questions",
+    terms: [
+      { name: "Pixel density (PPI)", text: "The diagonal in pixels divided by the diagonal in inches. Higher means sharper at the same viewing distance." },
+      { name: "Width and height", text: "The physical size of the picture, worked out from the diagonal and the shape of the pixel grid. Use these to check that a screen fits your desk or wall." },
+      { name: "Aspect ratio", text: "The shape of the screen: its width compared with its height. 16:9 is the standard for monitors and TVs, 16:10 and 3:2 are common on laptops, and 21:9 is ultrawide." },
+      { name: "Pixel pitch", text: "The distance from the center of one pixel to the next, in millimeters. It is PPI expressed the other way round, and is the figure monitor specifications usually quote." },
+      { name: "Total pixels", text: "Width multiplied by height, in megapixels. It is what the graphics card has to draw, so it matters more for game performance than for sharpness." },
+    ],
+    note:
+      "The result assumes square pixels, which every current monitor, laptop, phone and TV has. Density is only half of sharpness: the same PPI looks sharper from further away, which is why a TV needs far less than a phone.",
+    guide: { slug: "ppi-and-pixel-density-explained", label: "PPI and pixel density: how sharp is sharp enough?" },
+  },
+  "screen-test-checklist": {
+    heading: "What the three tiers mean",
+    howToHeading: "Working through the checklist",
+    faqHeading: "Checklist questions",
+    terms: [
+      { name: "Essential", text: "Finds hard defects that justify a return: pixel faults, bleed, uneven brightness, touch dead zones, burn-in. Run these on the first day." },
+      { name: "Worth doing", text: "Finds problems that are usually a setting or a cable, such as the wrong refresh rate, banding or soft text. Worth fixing, and not tied to the return window." },
+      { name: "Optional", text: "Depends on how you use the screen: HDR, wide color, flicker sensitivity, viewing angles." },
+    ],
+    note:
+      "A screen that passes every test can still have quirks that are normal for its panel type, such as IPS glow or a little blooming. Each test page says which results are normal and which are faults.",
+    guide: { slug: "new-device-screen-test-checklist", label: "The complete screen test checklist for a new device" },
+  },
+};
+
+// "Found a problem? What to do next", for the tests where a result leads to a decision.
+// Ordered: confirm it, rule out the harmless causes, record it, then act. Nothing here
+// may promise an outcome a warranty doesn't: the guides are deliberately cautious on that.
+const NEXT_STEPS: Record<string, string[]> = {
+  "dead-pixel-test": [
+    "Wipe the screen with a dry microfiber cloth and look again. If the dot moved or went, it was dust.",
+    "Step through every color and write down where the dot shows. Dark on all of them means dead; one fixed color, or lit on black, means stuck.",
+    "For a stuck pixel, run the Stuck-pixel fixer frame over it for 10 to 30 minutes and check again.",
+    "Photograph the fault on a solid color and note the date and where on the screen it is.",
+    "Check when you bought the screen. Inside the retailer's return window, return or exchange it. After that, count the faults by type and compare them with the manufacturer's pixel policy.",
+  ],
+  "backlight-bleed-test": [
+    "Lean about a foot to each side. A glow that changes with your position is IPS glow, not bleed, and is not a fault.",
+    "Lower the brightness to what you normally use, switch the room lights on, and look again.",
+    "Play a dark scene from a film or game you know. If you can't see the bleed there, it will not affect you.",
+    "If it does show in normal use, photograph it with the exposure locked and contact the retailer while the return window is open. Warranty cover for bleed is uncertain, so don't wait.",
+  ],
+  "burn-in-test": [
+    "Note where the outline is, then play varied full-screen video for an hour or two.",
+    "Look at the grey field again. If the outline has faded, it was temporary retention and nothing needs doing.",
+    "If it is unchanged, run the panel's pixel refresh or compensation cycle once from its menu and check again.",
+    "Still there? Photograph the grey field, then read the burn-in clause of your warranty and contact the manufacturer.",
+  ],
+  "refresh-rate-test": [
+    "Open your display settings and select the highest refresh rate offered for this screen.",
+    "If the rate you expect isn't in the list, change the cable or port: use DisplayPort, or an HDMI cable and port rated for that rate at your resolution.",
+    "Look in the monitor's own menu for a setting that unlocks the full rate, such as an overclock, a DisplayPort version or an HDMI mode option.",
+    "On a laptop or phone, plug in and turn off battery saver, then measure again.",
+  ],
+  "ghosting-test": [
+    "Find the overdrive setting in the monitor's menu. It may be called Response Time, Overdrive, TraceFree or AMA.",
+    "Try each level at Medium speed and keep the one with the shortest trail and no bright fringe.",
+    "Check that the monitor is running at its full refresh rate, because overdrive is tuned for it.",
+    "If dark trails remain on a VA panel at every setting, that is the panel's limit and not a fault you can adjust away.",
+  ],
+  "touch-screen-test": [
+    "Take off the case and the screen protector, clean and dry the glass, and run the grid again.",
+    "Unplug the charger and restart the device, then test once more.",
+    "Install any pending system update.",
+    "If the same area still fails, the touch layer is faulty. Contact the manufacturer or a repair shop, and say whether the screen has been dropped or replaced before.",
+  ],
+  "pwm-flicker-test": [
+    "Find the brightness level at which the copies or bands appear, and keep the screen above it.",
+    "Lower the room lighting instead of the screen brightness in the evening.",
+    "Look in the display settings for DC dimming, anti-flicker or flicker reduction and switch it on.",
+    "If the screen still bothers you and you are inside the return window, exchange it for a model that is sold as flicker-free.",
+  ],
+  "brightness-uniformity-test": [
+    "Clean the screen and check again, since smears look like faint patches on gray.",
+    "Look at the same area during normal content: a football pitch, a snow scene, a blank document.",
+    "If a patch or band is visible there, photograph the gray field and contact the retailer inside the return window.",
+  ],
+  "black-level-test": [
+    "If the lowest steps are all black, check the RGB range first: set the graphics output and the display to the same range.",
+    "Reset the monitor's black level, gamma and any shadow or 'black equalizer' setting to default.",
+    "Turn off dynamic contrast, then repeat the test in a dim room at your normal brightness.",
+  ],
+  "screen-tearing-test": [
+    "Turn on adaptive sync (G-Sync, FreeSync or VRR) in the monitor's menu and in the graphics driver.",
+    "If your screen has no adaptive sync, turn on V-Sync in the game, or cap its frame rate just below the refresh rate.",
+    "Check the connection: adaptive sync needs DisplayPort on a PC, or HDMI 2.1 on a console or TV.",
+  ],
+  "hdr-test": [
+    "Switch HDR on in the operating system and, on a monitor or TV, in its own menu for the input you use.",
+    "Check the cable: HDR needs HDMI 2.0 or newer, or DisplayPort.",
+    "Reload this page and look at the chips above the test. If they still report SDR, try a Chromium-based browser.",
+    "If the patches separate only as far as about 400 nits, HDR is working and that is your screen's limit.",
+  ],
+  "color-test": [
+    "Write down which colors the dot or patch shows on.",
+    "For a dot, run the Dead Pixel Test, which also has the Stuck-pixel fixer.",
+    "For a tinted area, turn off every night mode and color filter and look again on white and gray.",
+    "A tint that stays in one part of the screen is the panel. Photograph it on white and contact the retailer inside the return window.",
+  ],
+  "black-screen": [
+    "For a glow at the edges or corners, run the Backlight Bleed Test and lean to each side to tell bleed from IPS glow.",
+    "For a bright dot, run the Dead Pixel Test and try the Stuck-pixel fixer.",
+    "If the whole screen looks gray instead of black, check the RGB range with the Black Level Test.",
+  ],
+  "white-screen": [
+    "Wipe the screen with a dry microfiber cloth and look again.",
+    "A dark dot that stays: step through the colors in the Dead Pixel Test to see whether it is a pixel or trapped dust.",
+    "A darker patch: check it on gray with the Brightness Uniformity Test.",
+    "On an OLED, an outline of a taskbar or logo: check it with the Burn-in Test.",
+  ],
+  "greyscale-test": [
+    "Set the graphics output to full RGB and at least 8-bit color.",
+    "Turn off night modes and custom color profiles, and switch the screen to its standard picture mode.",
+    "If the dark steps still merge, run the Black Level Test to find where shadow detail is lost.",
+    "Banding that remains after all of that is the panel's own limit.",
+  ],
+  "color-gradient-test": [
+    "Turn off night modes, color filters and custom color profiles, then reload the page.",
+    "If only one of the red, green or blue ramps bands, reset the monitor's color preset and RGB gain settings to default.",
+    "Compare with the Greyscale Test. Banding in both points to the output settings or the panel, not to color.",
+  ],
+  "blooming-test": [
+    "Lower the local-dimming setting one level and run the moving dot again.",
+    "Put a little light behind or beside the screen. Halos are far less visible when the room is not pitch dark.",
+    "For desktop work, try local dimming off and keep it on for films and games.",
+    "If zones visibly lag behind the dot or switch on and off in blocks, raise it with the retailer inside the return window.",
+  ],
+  "contrast-test": [
+    "If black looks gray, check the RGB range first with the Black Level Test.",
+    "Turn off dynamic contrast and any eco or ambient-light mode, then look again in a dim room.",
+    "If black is still gray on an IPS panel in a dark room, that is the panel type's limit and no setting will change it.",
+  ],
+  "viewing-angle-test": [
+    "Face the screen straight on, with your eyes level with its upper third, and tilt it until top and bottom look equally bright.",
+    "For a TV, run the test from every seat people actually use.",
+    "If a screen sold as IPS or OLED shifts heavily, check the panel type in the specifications and raise it with the seller.",
+  ],
+  "gamma-test": [
+    "Reset browser zoom with Ctrl/Cmd + 0, select the native resolution and reload.",
+    "Step through the monitor's gamma presets and keep the one where the 2.2 patch blends in.",
+    "If no preset is right, use the operating system's display calibration tool.",
+    "Run the test again after each change.",
+  ],
+  "screen-info": [
+    "Resolution lower than the specification: select the native resolution in your display settings.",
+    "Refresh rate reads 60 on a faster screen: follow the steps on the Refresh Rate Test page.",
+    "HDR says No on an HDR screen: switch HDR on in the operating system and reload.",
+    "sRGB on a wide-gamut monitor: look for an sRGB mode in the monitor's menu and turn it off.",
+  ],
+  "overscan-test": [
+    "On the TV, set the picture size to a 1:1 mode such as Just Scan or Screen Fit.",
+    "If the TV lets you label inputs, set this one to PC.",
+    "Only if the TV has no such option, use the scaling control in the graphics driver.",
+    "Run the test again and confirm the 0% frame is visible all the way round.",
+  ],
+  "sharpness-test": [
+    "Select the screen's native resolution.",
+    "Set display scaling to 100%, 150% or 200% and reset browser zoom.",
+    "On a TV, switch the input to PC or Game mode and set the output to RGB or 4:4:4.",
+    "Lower the Sharpness setting until the outlines on the halo pattern disappear.",
+  ],
+  "frame-skipping-test": [
+    "Close other apps and take several more photos to confirm the gap is always there.",
+    "Lower the refresh rate one step and test again, until the run of cells is unbroken.",
+    "Remove any custom resolution or overclock and use the highest rate that passes.",
+  ],
+  "wide-color-gamut-test": [
+    "Read the chips above the test to see what the browser reports.",
+    "Turn off the monitor's sRGB mode, if it has one, and reload.",
+    "Try a different browser.",
+    "If the screen is sRGB, there is nothing to fix: sRGB is the correct target for web content.",
+  ],
+};
+
+// Reference tables per test. Where a guide has the same table, the rows here are that
+// guide's rows: change both together.
+const TABLES: Record<string, ToolTable[]> = {
+  "dead-pixel-test": [
+    {
+      title: "How each kind of fault looks on the test colors",
+      head: ["Fault", "On black", "On white", "On red, green, blue", "Can it recover?"],
+      rows: [
+        ["Dead pixel", "Invisible", "Dark dot", "Dark dot on all three", "No"],
+        ["Stuck sub-pixel", "Colored dot", "Dot of the opposite tint", "Invisible on its own color", "Sometimes"],
+        ["Hot pixel", "White dot", "Invisible", "Light dot on all three", "Rarely"],
+        ["Dust on the surface", "Hard to see", "Soft-edged speck", "Dark speck", "Wipes off"],
+      ],
+    },
+  ],
+  "backlight-bleed-test": [
+    {
+      title: "Backlight bleed and IPS glow compared",
+      head: ["", "Backlight bleed", "IPS glow"],
+      rows: [
+        ["Changes when you move your head", "No", "Yes"],
+        ["Shape", "Streaks, patches, torch-beam from an edge", "Broad wash from a corner"],
+        ["Color", "Usually white or warm", "Silvery, blue or amber"],
+        ["Panels affected", "Any LCD, worst on edge-lit designs", "IPS specifically"],
+        ["Is it a defect", "Sometimes, if severe", "No, inherent to the technology"],
+        ["Warranty", "Occasionally accepted", "Almost never"],
+      ],
+    },
+  ],
+  "refresh-rate-test": [
+    {
+      title: "Frame time at common refresh rates",
+      head: ["Refresh rate", "Time per frame"],
+      rows: [
+        ["60 Hz", "16.67 ms"],
+        ["75 Hz", "13.33 ms"],
+        ["120 Hz", "8.33 ms"],
+        ["144 Hz", "6.94 ms"],
+        ["165 Hz", "6.06 ms"],
+        ["240 Hz", "4.17 ms"],
+        ["360 Hz", "2.78 ms"],
+      ],
+    },
+    {
+      title: "What the connection usually needs",
+      head: ["What you are driving", "Usually needs"],
+      rows: [
+        ["1080p at 144 Hz", "DisplayPort, or HDMI 2.0"],
+        ["1440p at 144 Hz", "DisplayPort 1.2 or better, or HDMI 2.0"],
+        ["4K at 120 Hz or more", "HDMI 2.1, or DisplayPort 1.4 with DSC"],
+      ],
+      note: "The cable, the port on the computer and the port on the screen all have to support the rate.",
+    },
+  ],
+  "ghosting-test": [
+    {
+      title: "Typical motion behavior by panel type",
+      head: ["Panel", "What to expect"],
+      rows: [
+        ["TN", "Fastest transitions, weakest colors and viewing angles"],
+        ["IPS", "Fast enough for most gaming; some smear on dark transitions"],
+        ["VA", "Strong contrast, noticeably slow from dark to dark: the classic black smear"],
+        ["OLED", "Near-instant transitions; the blur that remains comes from each frame being held"],
+      ],
+    },
+  ],
+  "contrast-test": [
+    {
+      title: "Panel types at a glance",
+      head: ["Panel", "Contrast", "Viewing angles", "Motion", "Burn-in risk"],
+      rows: [
+        ["TN", "Lowest", "Poor", "Fast", "None"],
+        ["IPS", "Low to medium", "Excellent", "Fast (modern)", "None"],
+        ["VA", "High", "Medium", "Slow in darks", "None"],
+        ["OLED", "Effectively infinite", "Excellent", "Fastest", "Real, manageable"],
+      ],
+    },
+  ],
+  "pwm-flicker-test": [
+    {
+      title: "Which screens tend to use PWM",
+      head: ["Display type", "Typical behavior"],
+      rows: [
+        ["OLED phones", "Very commonly PWM, including flagships; often worst at low brightness"],
+        ["Budget LED monitors and laptops", "Mixed: many use PWM, some at a low frequency"],
+        ["Monitors marked flicker-free", "DC dimming or high-frequency PWM; usually fine"],
+        ["Older CCFL-backlit LCDs", "Often steadier than cheap LED dimming, but not guaranteed"],
+      ],
+    },
+  ],
+  "wide-color-gamut-test": [
+    {
+      title: "The three color spaces you will see in specifications",
+      head: ["Space", "Roughly what it is for", "Sensible target"],
+      rows: [
+        ["sRGB", "Web, office, SDR games, most photos", "99–100% coverage"],
+        ["DCI-P3", "HDR film and TV, phone displays", "90%+ coverage"],
+        ["Adobe RGB", "Photo editing headed for print", "95%+ coverage"],
+      ],
+    },
+  ],
+  "brightness-uniformity-test": [
+    {
+      title: "Normal, or worth a return?",
+      head: ["What you see", "Usually normal", "Push for a return when"],
+      rows: [
+        ["Faint corner glow on an LCD in a dark room", "Yes, especially on IPS", "It is visible during normal viewing, not only on a test field"],
+        ["Light vertical banding on a dark gray field", "Common on large VA and OLED panels", "You can see it in a panning shot of a football pitch"],
+        ["A dark patch that does not move with the content", "No", "Always"],
+      ],
+    },
+  ],
+  "screen-info": [
+    {
+      title: "Common screen resolutions",
+      head: ["Name", "Pixels", "Aspect ratio"],
+      rows: [
+        ["HD (720p)", "1280 × 720", "16:9"],
+        ["Full HD (1080p)", "1920 × 1080", "16:9"],
+        ["WUXGA", "1920 × 1200", "16:10"],
+        ["QHD (1440p)", "2560 × 1440", "16:9"],
+        ["Ultrawide QHD", "3440 × 1440", "21:9"],
+        ["4K UHD", "3840 × 2160", "16:9"],
+        ["5K", "5120 × 2880", "16:9"],
+        ["8K UHD", "7680 × 4320", "16:9"],
+      ],
+    },
+  ],
+  "frame-skipping-test": [
+    {
+      title: "Shutter speed to use",
+      head: ["Refresh rate", "Shutter", "Cells lit in one photo"],
+      rows: [
+        ["60 Hz", "1/8 s", "about 7"],
+        ["120 Hz", "1/15 s", "about 8"],
+        ["144 Hz", "1/15 s", "about 10"],
+        ["165 Hz", "1/20 s", "about 8"],
+        ["240 Hz", "1/30 s", "about 8"],
+        ["360 Hz", "1/50 s", "about 7"],
+      ],
+    },
+  ],
+  "black-level-test": [
+    {
+      title: "Full and Limited RGB range",
+      head: ["Range", "Black", "White", "Used by"],
+      rows: [
+        ["Full", "0", "255", "Computers and monitors"],
+        ["Limited", "16", "235", "TVs, Blu-ray and streaming"],
+      ],
+      note: "A Limited signal on a Full display gives gray blacks. A Full signal on a Limited display crushes the darkest steps to black.",
+    },
+  ],
+  "screen-tearing-test": [
+    {
+      title: "Ways to stop tearing",
+      head: ["Method", "Tearing", "Added lag", "Needs"],
+      rows: [
+        ["Sync off", "Yes", "None", "Nothing"],
+        ["V-Sync", "None", "Some", "Nothing"],
+        ["Adaptive sync (G-Sync, FreeSync, VRR)", "None inside its range", "Very little", "A compatible screen and graphics card, over DisplayPort or HDMI 2.1"],
+      ],
+    },
+  ],
+  "burn-in-test": [
+    {
+      title: "Image retention and burn-in compared",
+      head: ["", "Image retention", "Burn-in"],
+      rows: [
+        ["After an hour or two of varied video", "Faded or gone", "Unchanged"],
+        ["Cause", "A temporary after-effect of a static image", "Uneven wear of the pixels"],
+        ["Permanent", "No", "Yes"],
+        ["Warranty", "Not a fault", "Varies by brand; read the clause"],
+      ],
+    },
+  ],
 };
 
 export function getResults(slug: string): ToolResults | undefined {
-  return TOOL_RESULTS[slug];
+  const base = TOOL_RESULTS[slug];
+  if (!base) return undefined;
+  const next = NEXT_STEPS[slug];
+  const tables = TABLES[slug];
+  return { ...base, ...(next ? { next } : {}), ...(tables ? { tables } : {}) };
 }
