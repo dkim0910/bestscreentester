@@ -1,0 +1,570 @@
+{
+  "black-level-test": {
+    "heading": "Quais degraus você deveria conseguir ver?",
+    "howToHeading": "Como encontrar o seu limite de sombras",
+    "faqHeading": "Perguntas sobre nível de preto",
+    "pass": [
+      "Em um ambiente escuro, você distingue os degraus a partir do valor 2 a 4, aproximadamente.",
+      "Cada degrau visível é um pouco mais claro que o anterior, e todos continuam em cinza neutro."
+    ],
+    "fail": [
+      "Os degraus mais baixos parecem todos iguais ao preto: os detalhes nas sombras estão sendo esmagados. As causas habituais são uma configuração de nível de preto ou de brilho, ou uma faixa RGB Limitada incompatível.",
+      "Todos os degraus são bem visíveis, mas o preto puro parece cinza: o nível de preto está elevado, o que custa contraste."
+    ],
+    "note": "Teste no brilho que você realmente usa. Em um monitor, o controle de brilho atua principalmente na luz de fundo, então aumentá-lo facilita ver todos os degraus e, ao mesmo tempo, eleva o preto. Em uma TV, a configuração chamada Brilho muitas vezes controla o próprio nível de preto, e é essa que deve ser ajustada. Avalie os degraus pelo centro: brilho perto dos cantos é IPS glow ou vazamento de luz, não um problema de detalhes nas sombras.",
+    "next": [
+      "Se os degraus mais baixos estão todos pretos, confira primeiro a faixa RGB: ajuste a saída de vídeo e a tela para a mesma faixa.",
+      "Restaure o padrão do nível de preto, da gama e de qualquer configuração de sombras ou 'black equalizer' do monitor.",
+      "Desligue o contraste dinâmico e repita o teste em um ambiente à meia-luz, no seu brilho normal."
+    ],
+    "tables": [
+      {
+        "title": "Faixas RGB Completa e Limitada",
+        "head": [
+          "Faixa",
+          "Preto",
+          "Branco",
+          "Usada por"
+        ],
+        "rows": [
+          [
+            "Completa",
+            "0",
+            "255",
+            "Computadores e monitores"
+          ],
+          [
+            "Limitada",
+            "16",
+            "235",
+            "TVs, Blu-ray e streaming"
+          ]
+        ],
+        "note": "Um sinal Limitado em uma tela Completa dá pretos acinzentados. Um sinal Completo em uma tela Limitada esmaga os degraus mais escuros, que viram preto."
+      }
+    ],
+    "guideLabel": "Por que os pretos parecem cinza? Faixa RGB completa x limitada"
+  },
+  "viewing-angle-test": {
+    "heading": "Quanta variação é normal para o seu painel?",
+    "howToHeading": "Como checar o ângulo de visão",
+    "faqHeading": "Perguntas sobre ângulo de visão",
+    "terms": [
+      {
+        "name": "IPS e OLED",
+        "text": "Mantêm bem a cor e o brilho quando você sai do eixo. O resultado esperado é pouca mudança visível."
+      },
+      {
+        "name": "VA",
+        "text": "Mostra variação de contraste e de gama, com os degraus de cinza escuro ficando lavados, e algum brilho nos cantos."
+      },
+      {
+        "name": "TN",
+        "text": "Muda bastante, principalmente quando você se move para cima e para baixo. Os degraus escuros se fundem e as cores mudam de matiz."
+      }
+    ],
+    "pass": [
+      "O resultado corresponde ao que o seu tipo de painel normalmente faz.",
+      "Do seu lugar habitual, os cantos parecem iguais ao centro."
+    ],
+    "fail": [
+      "Uma tela IPS ou OLED que varia tanto quanto um painel TN variaria.",
+      "Cantos que parecem mais escuros ou lavados mesmo com você sentado bem de frente, em uma tela que não é especialmente grande nem está muito perto."
+    ],
+    "note": "Em uma tela grande, ou próxima de você, os cantos já são vistos em ângulo, então painéis TN e VA podem mostrar cantos mais escuros mesmo do lugar central. Um monitor curvo mantém as bordas mais de frente e reduz o efeito. O ângulo de visão é uma característica do painel, não algo que uma configuração resolva.",
+    "next": [
+      "Fique bem de frente para a tela, com os olhos na altura do terço superior, e incline-a até que o alto e a parte de baixo pareçam ter o mesmo brilho.",
+      "Em uma TV, faça o teste de cada lugar em que as pessoas realmente se sentam.",
+      "Se uma tela vendida como IPS ou OLED varia muito, confira o tipo de painel nas especificações e leve o caso ao vendedor."
+    ],
+    "guideLabel": "IPS x VA x TN x OLED: qual painel escolher?"
+  },
+  "gamma-test": {
+    "heading": "Qual bloco desapareceu? Como ler a sua gama",
+    "howToHeading": "Como ler o padrão de gama",
+    "faqHeading": "Perguntas sobre gama",
+    "terms": [
+      {
+        "name": "O bloco 2,2 se funde ao fundo",
+        "text": "Sua tela está no alvo. 2,2 é o padrão sRGB, e tanto o Windows quanto o macOS o adotam."
+      },
+      {
+        "name": "Um bloco mais baixo se funde ao fundo (1,8, 2,0)",
+        "text": "A gama está baixa demais. A imagem fica lavada, com os tons médios claros demais."
+      },
+      {
+        "name": "Um bloco mais alto se funde ao fundo (2,4)",
+        "text": "A gama está alta demais. As sombras ficam esmagadas e a imagem parece pesada."
+      }
+    ],
+    "note": "Afaste-se até as listras se fundirem em um cinza sólido antes de comparar. O teste lê a gama apenas em torno do cinza médio. Ele não mede a curva inteira do preto ao branco nem a corrige: um colorímetro faz as duas coisas. Se a sua leitura estiver fora, experimente primeiro a predefinição de gama do monitor.",
+    "next": [
+      "Redefina o zoom do navegador com Ctrl/Cmd + 0, selecione a resolução nativa e recarregue a página.",
+      "Passe pelas predefinições de gama do monitor e fique com aquela em que o bloco 2,2 se mistura ao fundo.",
+      "Se nenhuma predefinição acerta, use a ferramenta de calibração de vídeo do sistema operacional.",
+      "Refaça o teste depois de cada mudança."
+    ],
+    "guideLabel": "Gama explicada: por que suas sombras parecem erradas"
+  },
+  "screen-tearing-test": {
+    "heading": "Rasgo, engasgo ou imagem limpa? Como ler as barras",
+    "howToHeading": "Como fazer o teste de tearing",
+    "faqHeading": "Perguntas sobre screen tearing",
+    "pass": [
+      "As barras continuam inteiras de uma borda à outra da tela enquanto se movem.",
+      "O movimento é uniforme, sem trancos."
+    ],
+    "fail": [
+      "Uma linha em que as barras ficam deslocadas, de modo que as metades de cima e de baixo não se alinham: um rasgo.",
+      "Movimento aos trancos, sem quebra visível. Há quadros sendo pulados ou repetidos, o que é outro problema: use o Teste de Frame Skipping."
+    ],
+    "note": "Um resultado limpo aqui é comum e não prova que seus jogos não terão tearing. Os navegadores costumam desenhar em sincronia com a tela, enquanto os jogos apresentam tearing quando enviam quadros com o V-Sync desligado. Se você vir rasgos nesta página, confira se a aceleração de hardware está ativada no navegador e se a tela está na taxa de atualização nominal.",
+    "next": [
+      "Ative a sincronização adaptativa (G-Sync, FreeSync ou VRR) no menu do monitor e no driver de vídeo.",
+      "Se a sua tela não tem sincronização adaptativa, ative o V-Sync no jogo ou limite a taxa de quadros dele logo abaixo da taxa de atualização.",
+      "Confira a conexão: a sincronização adaptativa exige DisplayPort no PC, ou HDMI 2.1 em um console ou TV."
+    ],
+    "tables": [
+      {
+        "title": "Formas de acabar com o tearing",
+        "head": [
+          "Método",
+          "Tearing",
+          "Atraso adicional",
+          "Requisitos"
+        ],
+        "rows": [
+          [
+            "Sincronização desligada",
+            "Sim",
+            "Nenhum",
+            "Nenhum"
+          ],
+          [
+            "V-Sync",
+            "Não",
+            "Algum",
+            "Nenhum"
+          ],
+          [
+            "Sincronização adaptativa (G-Sync, FreeSync, VRR)",
+            "Não, dentro da faixa de operação",
+            "Muito pouco",
+            "Tela e placa de vídeo compatíveis, via DisplayPort ou HDMI 2.1"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Screen tearing, V-Sync, G-Sync e FreeSync explicados"
+  },
+  "touch-screen-test": {
+    "heading": "Zona morta ou ponto que escapou? Como ler a grade",
+    "howToHeading": "Como testar a camada de toque",
+    "faqHeading": "Perguntas sobre touch screen",
+    "pass": [
+      "Todas as células ficam verdes, inclusive as das bordas e dos cantos.",
+      "As linhas em Desenho livre são contínuas e acompanham o seu dedo.",
+      "O contador de toques chega a pelo menos cinco em um celular ou tablet."
+    ],
+    "fail": [
+      "As mesmas células continuam escuras todas as vezes, por mais devagar que você arraste o dedo. Uma célula teimosa em uma única passada costuma ser só um ponto que escapou.",
+      "Uma falha no mesmo lugar em toda linha que você traça por ali.",
+      "Linhas que saltam, ou marcas aparecendo onde você não está tocando: toques fantasmas.",
+      "Um contador que nunca passa de um ou dois dedos."
+    ],
+    "note": "Uma película grossa, trincada ou descolando pode causar tudo isso. Tire a capinha e a película e teste de novo antes de culpar a tela. As falhas de toque costumam começar nas bordas e nos cantos, então vá devagar ali.",
+    "next": [
+      "Tire a capinha e a película, limpe e seque o vidro e refaça a grade.",
+      "Desconecte o carregador, reinicie o aparelho e teste mais uma vez.",
+      "Instale qualquer atualização de sistema pendente.",
+      "Se a mesma área continua falhando, a camada de toque está com defeito. Procure o fabricante ou uma assistência técnica e informe se a tela já sofreu queda ou já foi trocada."
+    ],
+    "guideLabel": "Como testar a tela de um celular usado antes de comprar"
+  },
+  "screen-info": {
+    "heading": "O que cada valor informa",
+    "howToHeading": "Como ler os dados da sua tela",
+    "faqHeading": "Perguntas sobre as informações da tela",
+    "terms": [
+      {
+        "name": "Resolução da tela (pixels)",
+        "text": "A contagem de pixels do painel, estimada como o tamanho informado pelo navegador multiplicado pelo fator de escala. Compare com a especificação da tela: um número menor costuma indicar que uma resolução não nativa está selecionada, o que suaviza os detalhes finos."
+      },
+      {
+        "name": "Escala da tela",
+        "text": "Quanto o sistema amplia tudo, também chamada de device pixel ratio. Em 100%, um pixel de layout é um pixel da tela; em 200%, são dois em cada direção. O zoom do navegador muda esse valor, então redefina o zoom antes de lê-lo."
+      },
+      {
+        "name": "Tamanho da tela em pixels CSS",
+        "text": "A medida que os sites usam para montar o layout depois da escala. Explica por que um notebook 4K em 200% se comporta como uma tela de 1920 × 1080 com texto mais nítido."
+      },
+      {
+        "name": "Taxa de atualização",
+        "text": "Medida em tempo real. Se marca 60 em uma tela mais rápida, a taxa máxima não está selecionada nas configurações de vídeo, ou o cabo não dá conta dela."
+      },
+      {
+        "name": "Profundidade de cor",
+        "text": "Bits por pixel informados pelo navegador: 24 significa 8 bits por canal; 30 significa 10. Muitos monitores de 10 bits ainda mostram 24 porque o computador está enviando cor de 8 bits."
+      },
+      {
+        "name": "Gama de cores",
+        "text": "O espaço de cores mais amplo que, segundo o navegador, a tela cobre: sRGB é o padrão; Display P3 e Rec. 2020 são gamas amplas. O Teste de Ampla Gama de Cores mostra se essas cores extras chegam mesmo aos seus olhos."
+      },
+      {
+        "name": "HDR",
+        "text": "Se o navegador consegue exibir HDR nesta tela neste momento. \"Não\" em um monitor HDR costuma significar que o HDR está desligado no sistema operacional."
+      },
+      {
+        "name": "Área útil da tela e janela do navegador",
+        "text": "A tela sem a barra de tarefas, o Dock ou a barra de menus, e a parte dela que esta página ocupa no momento."
+      }
+    ],
+    "note": "Estes valores vêm do navegador, não do painel em si, então descrevem como a tela está sendo acionada neste momento. Isso os torna úteis para flagrar uma configuração errada, e menos úteis como prova do que o hardware é capaz de fazer.",
+    "next": [
+      "Resolução menor do que a da especificação: selecione a resolução nativa nas configurações de vídeo.",
+      "A taxa de atualização marca 60 em uma tela mais rápida: siga os passos da página do Teste de Taxa de Atualização.",
+      "O HDR diz Não em uma tela HDR: ligue o HDR no sistema operacional e recarregue a página.",
+      "sRGB em um monitor wide gamut: procure um modo sRGB no menu do monitor e desligue-o."
+    ],
+    "tables": [
+      {
+        "title": "Resoluções de tela mais comuns",
+        "head": [
+          "Nome",
+          "Pixels",
+          "Proporção de tela"
+        ],
+        "rows": [
+          [
+            "HD (720p)",
+            "1280 × 720",
+            "16:9"
+          ],
+          [
+            "Full HD (1080p)",
+            "1920 × 1080",
+            "16:9"
+          ],
+          [
+            "WUXGA",
+            "1920 × 1200",
+            "16:10"
+          ],
+          [
+            "QHD (1440p)",
+            "2560 × 1440",
+            "16:9"
+          ],
+          [
+            "QHD ultrawide",
+            "3440 × 1440",
+            "21:9"
+          ],
+          [
+            "4K UHD",
+            "3840 × 2160",
+            "16:9"
+          ],
+          [
+            "5K",
+            "5120 × 2880",
+            "16:9"
+          ],
+          [
+            "8K UHD",
+            "7680 × 4320",
+            "16:9"
+          ]
+        ]
+      }
+    ]
+  },
+  "overscan-test": {
+    "heading": "Sua imagem está cortada ou esticada?",
+    "howToHeading": "Como checar o enquadramento da imagem",
+    "faqHeading": "Perguntas sobre overscan",
+    "pass": [
+      "Borda de overscan: você vê a moldura mais externa, marcada com 0%, em toda a volta.",
+      "Proporção de tela: os círculos são perfeitamente redondos e o quadrado é quadrado.",
+      "Grade de geometria: as linhas são retas e têm espaçamento uniforme de ponta a ponta."
+    ],
+    "fail": [
+      "As molduras externas estão cortadas. A mais externa que você ainda vê inteira, em toda a volta, indica quanto está sendo cortado.",
+      "Círculos que parecem ovais: a imagem está sendo esticada.",
+      "Linhas da grade que se curvam ou convergem, o que em um projetor significa que o keystone ou a posição da lente precisa de ajuste."
+    ],
+    "note": "Overscan é uma configuração, não um defeito. Procure uma opção de tamanho da imagem chamada Just Scan, Screen Fit, Fit to Screen, 1:1 ou Overscan Off. Cada entrada da TV pode ter a própria configuração de tamanho da imagem, então teste a entrada que você realmente usa.",
+    "next": [
+      "Na TV, ajuste o tamanho da imagem para um modo 1:1, como Just Scan ou Screen Fit.",
+      "Se a TV permite dar nome às entradas, defina esta como PC.",
+      "Só se a TV não tiver essa opção, use o controle de escala do driver de vídeo.",
+      "Refaça o teste e confirme que a moldura de 0% aparece inteira, em toda a volta."
+    ]
+  },
+  "sharpness-test": {
+    "heading": "Nítida, redimensionada ou com nitidez em excesso?",
+    "howToHeading": "Como ler os padrões de nitidez",
+    "faqHeading": "Perguntas sobre nitidez e texto",
+    "pass": [
+      "As linhas de 1 pixel e os padrões xadrez parecem nítidos e uniformemente listrados.",
+      "O texto pequeno está nítido, inclusive o vermelho e o amarelo.",
+      "Nenhum contorno claro em volta das linhas e dos anéis no padrão de halos."
+    ],
+    "fail": [
+      "Linhas finas que viram uma massa cinza ou um moiré ondulado: a imagem está sendo reamostrada por uma resolução não nativa, uma escala fracionária, o zoom do navegador ou o redimensionamento da própria TV.",
+      "Texto vermelho ou amarelo que borra enquanto o texto em preto e branco continua nítido: subamostragem de croma (chroma subsampling). Use o modo PC ou Jogo da TV, ou ajuste a saída para RGB ou 4:4:4.",
+      "Contornos brancos em volta das bordas: a configuração de Nitidez está alta demais. Reduza até eles desaparecerem."
+    ],
+    "note": "Confira primeiro à sua distância normal de uso e depois de perto. Escalas de 100%, 150% ou 200% mantêm os detalhes finos mais limpos do que valores intermediários.",
+    "next": [
+      "Selecione a resolução nativa da tela.",
+      "Ajuste a escala da tela para 100%, 150% ou 200% e redefina o zoom do navegador.",
+      "Em uma TV, coloque a entrada no modo PC ou Jogo e ajuste a saída para RGB ou 4:4:4.",
+      "Reduza a configuração de Nitidez até os contornos do padrão de halos desaparecerem."
+    ]
+  },
+  "frame-skipping-test": {
+    "heading": "Como ler a foto: há quadros pulados ou não?",
+    "howToHeading": "Como fotografar o teste",
+    "faqHeading": "Perguntas sobre frame skipping",
+    "pass": [
+      "Na foto, as células acesas formam uma sequência contínua.",
+      "O mesmo resultado em várias fotos."
+    ],
+    "fail": [
+      "Uma falha na sequência que continua aparecendo foto após foto: a tela está descartando quadros.",
+      "Falhas que só aparecem na taxa de atualização mais alta ou depois de um overclock, e somem na taxa padrão."
+    ],
+    "note": "Uma falha em uma foto não prova nada, porque um computador ocupado também pode fazer o navegador perder um quadro. Feche outros aplicativos e tire várias fotos. Escolha um obturador longo o bastante para captar de 6 a 10 quadros: cerca de 1/15 s a 144 Hz e 1/30 s a 240 Hz.",
+    "next": [
+      "Feche outros aplicativos e tire mais algumas fotos para confirmar que a falha aparece sempre.",
+      "Baixe a taxa de atualização em um degrau e teste de novo, até a sequência de células ficar contínua.",
+      "Remova qualquer resolução personalizada ou overclock e use a taxa mais alta que passa no teste."
+    ],
+    "tables": [
+      {
+        "title": "Velocidade do obturador a usar",
+        "head": [
+          "Taxa de atualização",
+          "Obturador",
+          "Células acesas em uma foto"
+        ],
+        "rows": [
+          [
+            "60 Hz",
+            "1/8 s",
+            "cerca de 7"
+          ],
+          [
+            "120 Hz",
+            "1/15 s",
+            "cerca de 8"
+          ],
+          [
+            "144 Hz",
+            "1/15 s",
+            "cerca de 10"
+          ],
+          [
+            "165 Hz",
+            "1/20 s",
+            "cerca de 8"
+          ],
+          [
+            "240 Hz",
+            "1/30 s",
+            "cerca de 8"
+          ],
+          [
+            "360 Hz",
+            "1/50 s",
+            "cerca de 7"
+          ]
+        ]
+      }
+    ]
+  },
+  "wide-color-gamut-test": {
+    "heading": "Com logo ou sem logo? O que isso significa",
+    "howToHeading": "Como procurar os logos escondidos",
+    "faqHeading": "Perguntas sobre ampla gama de cores",
+    "terms": [
+      {
+        "name": "Você vê os logos",
+        "text": "Sua tela, o sistema operacional e o navegador estão todos lidando com cores além do sRGB."
+      },
+      {
+        "name": "Você só os vê no vermelho e no verde",
+        "text": "Normal. O Display P3 vai mais além do sRGB nos vermelhos e nos verdes, e menos no azul, então um logo apagado ou ausente no azul é esperado."
+      },
+      {
+        "name": "Você não vê nenhum logo",
+        "text": "A tela é sRGB, ou algo na cadeia está limitando as cores. Nenhum dos dois é defeito: o sRGB é o correto para a web."
+      }
+    ],
+    "note": "Antes de concluir que a tela é só sRGB, confira os indicadores acima do teste para ver o que o navegador informa e procure um modo sRGB no menu do monitor. Muitos monitores wide gamut têm um, e ele limita as cores de propósito. A diferença é sutil sob luz forte, então veja em um ambiente à meia-luz.",
+    "next": [
+      "Leia os indicadores acima do teste para ver o que o navegador informa.",
+      "Desligue o modo sRGB do monitor, se houver, e recarregue a página.",
+      "Experimente outro navegador.",
+      "Se a tela é sRGB, não há nada a corrigir: sRGB é o alvo correto para o conteúdo da web."
+    ],
+    "tables": [
+      {
+        "title": "Os três espaços de cores que aparecem nas especificações",
+        "head": [
+          "Espaço",
+          "Para que serve, em linhas gerais",
+          "Meta razoável"
+        ],
+        "rows": [
+          [
+            "sRGB",
+            "Web, escritório, jogos em SDR, a maioria das fotos",
+            "Cobertura de 99–100%"
+          ],
+          [
+            "DCI-P3",
+            "Filmes e TV em HDR, telas de celular",
+            "Cobertura de 90% ou mais"
+          ],
+          [
+            "Adobe RGB",
+            "Edição de fotos destinadas à impressão",
+            "Cobertura de 95% ou mais"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Gama de cores explicada: sRGB x DCI-P3 x Adobe RGB"
+  },
+  "pwm-flicker-test": {
+    "heading": "PWM ou sem cintilação? Como ler as três checagens",
+    "howToHeading": "Três jeitos de verificar o PWM",
+    "faqHeading": "Perguntas sobre cintilação PWM",
+    "pass": [
+      "Lápis: um borrão contínuo quando ele passa na frente do campo Branco.",
+      "Linha em movimento: um único risco contínuo quando você a acompanha com os olhos.",
+      "Câmera: nenhuma faixa escura na tela.",
+      "O mesmo resultado quando você repete com brilho baixo."
+    ],
+    "fail": [
+      "Lápis: várias cópias nítidas do lápis no lugar de um borrão.",
+      "Linha em movimento: uma fileira de linhas separadas.",
+      "Câmera: faixas escuras rolando pela imagem.",
+      "Qualquer um desses sinais aparecendo só quando você baixa o brilho. Isso também é PWM: muitas telas não cintilam acima de cerca de metade do brilho e passam a usar PWM abaixo disso."
+    ],
+    "note": "Uma página da web não enxerga a sua luz de fundo, então o veredicto é o que você observa. Uma câmera em câmera lenta ou um sensor de luz dão uma resposta definitiva. Uma tela que só incomoda à noite, quando o brilho está baixo, é forte suspeita.",
+    "next": [
+      "Descubra em que nível de brilho as cópias ou as faixas aparecem e mantenha a tela acima dele.",
+      "À noite, reduza a iluminação do ambiente em vez do brilho da tela.",
+      "Procure nas configurações de tela por DC dimming, anticintilação ou redução de cintilação e ative.",
+      "Se a tela ainda incomoda e você está dentro do prazo de devolução, troque-a por um modelo vendido como flicker-free (sem cintilação)."
+    ],
+    "tables": [
+      {
+        "title": "Quais telas costumam usar PWM",
+        "head": [
+          "Tipo de tela",
+          "Comportamento típico"
+        ],
+        "rows": [
+          [
+            "Celulares OLED",
+            "PWM é muito comum, inclusive nos topos de linha; em geral pior com brilho baixo"
+          ],
+          [
+            "Monitores e notebooks LED de entrada",
+            "Variado: muitos usam PWM, alguns em frequência baixa"
+          ],
+          [
+            "Monitores anunciados como flicker-free",
+            "DC dimming ou PWM de alta frequência; em geral sem problemas"
+          ],
+          [
+            "LCDs antigos com luz de fundo CCFL",
+            "Muitas vezes mais estáveis do que o dimming barato de LED, mas sem garantia"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "O que é cintilação PWM e como testá-la?"
+  },
+  "hdr-test": {
+    "heading": "Em que ponto os blocos param de ficar mais claros?",
+    "howToHeading": "Como conferir se o HDR está mesmo ligado",
+    "faqHeading": "Perguntas sobre HDR",
+    "terms": [
+      {
+        "name": "Todos os blocos a partir de 203 nits parecem iguais",
+        "text": "A imagem está sendo exibida em SDR. O HDR está desligado no sistema operacional, o navegador não exibe imagens HDR ou a tela não é HDR."
+      },
+      {
+        "name": "Eles se distinguem até cerca de 400 e depois se fundem",
+        "text": "O HDR está funcionando e você encontrou o teto da tela. Um monitor DisplayHDR 400 de entrada chega mais ou menos até aí."
+      },
+      {
+        "name": "Os blocos de 600, 1.000 e 1.600 continuam distintos",
+        "text": "Uma tela HDR brilhante. Um bom Mini-LED ou OLED mantém os blocos superiores distintos até mais longe."
+      }
+    ],
+    "note": "Ative o HDR no sistema operacional antes de abrir o teste e confira os indicadores acima dele. Se eles dizem que o HDR está disponível, mas os blocos parecem iguais, experimente outro navegador: o suporte ainda varia, e os navegadores baseados em Chromium são hoje os mais consistentes.",
+    "next": [
+      "Ative o HDR no sistema operacional e, em um monitor ou TV, também no menu do aparelho, para a entrada que você usa.",
+      "Confira o cabo: o HDR exige HDMI 2.0 ou mais recente, ou DisplayPort.",
+      "Recarregue esta página e olhe os indicadores acima do teste. Se ainda informarem SDR, experimente um navegador baseado em Chromium.",
+      "Se os blocos só se distinguem até cerca de 400 nits, o HDR está funcionando e esse é o limite da sua tela."
+    ],
+    "guideLabel": "HDR explicado: o que faz uma tela ser HDR de verdade"
+  },
+  "screen-size-calculator": {
+    "heading": "O que os números significam",
+    "howToHeading": "Como usar a calculadora",
+    "faqHeading": "Perguntas sobre tamanho de tela e PPI",
+    "terms": [
+      {
+        "name": "Densidade de pixels (PPI)",
+        "text": "A diagonal em pixels dividida pela diagonal em polegadas. Quanto maior, mais nítida a imagem à mesma distância de visualização."
+      },
+      {
+        "name": "Largura e altura",
+        "text": "O tamanho físico da imagem, calculado a partir da diagonal e do formato da grade de pixels. Use esses valores para conferir se a tela cabe na sua mesa ou na parede."
+      },
+      {
+        "name": "Proporção de tela",
+        "text": "O formato da tela: a largura em relação à altura. 16:9 é o padrão de monitores e TVs, 16:10 e 3:2 são comuns em notebooks, e 21:9 é ultrawide."
+      },
+      {
+        "name": "Pixel pitch",
+        "text": "A distância do centro de um pixel ao centro do seguinte, em milímetros. É o PPI expresso ao contrário, e é o número que as especificações de monitores costumam trazer."
+      },
+      {
+        "name": "Total de pixels",
+        "text": "A largura multiplicada pela altura, em megapixels. É o que a placa de vídeo precisa desenhar, então pesa mais no desempenho em jogos do que na nitidez."
+      }
+    ],
+    "note": "O resultado pressupõe pixels quadrados, como os de todo monitor, notebook, celular e TV atuais. A densidade é só metade da nitidez: o mesmo PPI parece mais nítido de mais longe, e é por isso que uma TV precisa de muito menos do que um celular.",
+    "guideLabel": "PPI e densidade de pixels: quanta nitidez é suficiente?"
+  },
+  "screen-test-checklist": {
+    "heading": "O que significam os três níveis",
+    "howToHeading": "Como percorrer o checklist",
+    "faqHeading": "Perguntas sobre o checklist",
+    "terms": [
+      {
+        "name": "Essencial",
+        "text": "Encontra defeitos de verdade, que justificam uma devolução: falhas de pixel, vazamento de luz, brilho irregular, zonas mortas no toque, burn-in. Faça estes no primeiro dia."
+      },
+      {
+        "name": "Vale a pena",
+        "text": "Encontra problemas que costumam ser uma configuração ou um cabo, como taxa de atualização errada, banding ou texto sem nitidez. Vale corrigir, e não depende do prazo de devolução."
+      },
+      {
+        "name": "Opcional",
+        "text": "Depende de como você usa a tela: HDR, ampla gama de cores, sensibilidade à cintilação, ângulos de visão."
+      }
+    ],
+    "note": "Uma tela que passa em todos os testes ainda pode ter particularidades normais do tipo de painel, como IPS glow ou um pouco de blooming. A página de cada teste explica quais resultados são normais e quais são defeitos.",
+    "guideLabel": "O checklist completo de testes de tela para um aparelho novo"
+  }
+}

@@ -4,36 +4,42 @@ import ToolCard, { TOOL_GRID } from "@/components/ToolCard";
 import ScreenReadout from "@/components/ScreenReadout";
 import QuickColors from "@/components/tools/QuickColors";
 import HomeSections, { HomeAnswers, HomeAnswersInFull, SectionHeading } from "@/components/HomeSections";
-import { INDEXED_TOOLS, toolsByCategory, LISTING_LABELS, type ToolCategory } from "@/lib/tools";
+import { INDEXED_TOOLS, toolsByCategory, type ToolCategory } from "@/lib/tools";
 import { SITE_NAME, pageMetadata } from "@/lib/seo";
+import { fmt, type Lang } from "@/i18n/config";
+import { getSite, getTools, href } from "@/i18n";
+
+// The homepage in any language. Routes: src/app/(en)/page.tsx and (intl)/<lang>/page.tsx.
 
 // Without this the homepage inherits only the layout defaults: no canonical, no OG,
 // no Twitter card, and a 90-char title Bing flags as too long.
 //
 // The title is set explicitly because `title.template` in the root layout applies only
-// to *child* segments — app/page.tsx sits in the same segment, so a bare string here
-// would ship without the brand suffix every other page gets.
-export const metadata: Metadata = {
-  ...pageMetadata({
-  title: "Free Online Screen Test",
-  description:
-    `Run ${INDEXED_TOOLS.length} free screen and monitor tests in your browser: dead pixels, backlight bleed, refresh rate, color, ghosting and more. No sign-up.`,
-  path: "/",
-  keywords: [
-    "screen test",
-    "monitor test",
-    "dead pixel test",
-    "display test",
-    "online screen test",
-  ],
-  }),
-  title: { absolute: `Free Online Screen Test · ${SITE_NAME}` },
-};
+// to *child* segments — the homepage sits in the same segment as its layout, so a bare
+// string here would ship without the brand suffix every other page gets.
+export function homeMetadata(lang: Lang): Metadata {
+  const meta = getSite(lang).meta;
+  return {
+    ...pageMetadata({
+      title: meta.homeTitle,
+      description: fmt(meta.homeDescription, { n: INDEXED_TOOLS.length }),
+      path: "/",
+      keywords: meta.homeKeywords,
+      lang,
+    }),
+    title: { absolute: `${meta.homeTitle} · ${SITE_NAME}` },
+  };
+}
 
-export default function HomePage() {
+export default function HomePage({ lang }: { lang: Lang }) {
+  const site = getSite(lang);
+  const t = site.home;
   // The novelty pages (pranks, screensaver) are noindexed and live on /tools only.
-  const byCat = toolsByCategory(INDEXED_TOOLS);
+  const tools = getTools(lang);
+  const byCat = toolsByCategory(tools);
   const order: ToolCategory[] = ["panel", "color", "motion", "fun"];
+  const n = tools.length;
+  const colorTest = tools.find((tool) => tool.slug === "color-test")!;
 
   return (
     <div>
@@ -41,20 +47,17 @@ export default function HomePage() {
       <section className="border-b border-border">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:py-18">
           <div>
-            <p className="eyebrow">{INDEXED_TOOLS.length} free display tests</p>
+            <p className="eyebrow">{fmt(t.hero.eyebrow, { n })}</p>
             <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight sm:text-[3.25rem]">
-              Free Online Screen Test &amp; Monitor Test
+              {t.hero.title}
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/65">
-              {INDEXED_TOOLS.length} free display tests that run in your browser: dead pixels, backlight
-              bleed, refresh rate, PWM flicker, HDR and more. Nothing to install, no account.
-            </p>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/65">{fmt(t.hero.intro, { n })}</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/dead-pixel-test" className="btn-primary">
-                Start Dead Pixel Test
+              <Link href={href(lang, "/dead-pixel-test")} className="btn-primary">
+                {t.hero.primary}
               </Link>
-              <Link href="/tools" className="btn-ghost">
-                Browse all {INDEXED_TOOLS.length} tests
+              <Link href={href(lang, "/tools")} className="btn-ghost">
+                {fmt(t.hero.secondary, { n })}
               </Link>
             </div>
           </div>
@@ -65,22 +68,22 @@ export default function HomePage() {
       {/* Quick colors: a test starts without leaving the page. */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-5">
-          <QuickColors />
+          <QuickColors tool={colorTest} />
         </div>
       </section>
 
       {/* What people are actually asking when they arrive, as four cards. */}
-      <HomeAnswers />
+      <HomeAnswers lang={lang} />
 
       {/* Tool categories */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
           <SectionHeading
-            eyebrow="All tests"
-            title={`${INDEXED_TOOLS.length} tests, grouped by what they check`}
+            eyebrow={t.allTests.eyebrow}
+            title={fmt(t.allTests.title, { n })}
             aside={
-              <Link href="/tools" className="text-sm font-medium text-accent-soft hover:underline">
-                Open the full list →
+              <Link href={href(lang, "/tools")} className="text-sm font-medium text-accent-soft hover:underline">
+                {t.allTests.link} →
               </Link>
             }
           />
@@ -88,14 +91,16 @@ export default function HomePage() {
             {order.map((cat) => (
               <section key={cat}>
                 <div className="flex items-baseline gap-3 border-b border-border pb-3">
-                  <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">{LISTING_LABELS[cat]}</h3>
+                  <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">{site.categories[cat]}</h3>
                   <span className="eyebrow">
-                    {byCat[cat].length} {byCat[cat].length === 1 ? "test" : "tests"}
+                    {fmt(byCat[cat].length === 1 ? site.common.testCountOne : site.common.testCountMany, {
+                      n: byCat[cat].length,
+                    })}
                   </span>
                 </div>
                 <div className={TOOL_GRID}>
                   {byCat[cat].map((tool) => (
-                    <ToolCard key={tool.slug} tool={tool} />
+                    <ToolCard key={tool.slug} tool={tool} lang={lang} />
                   ))}
                 </div>
               </section>
@@ -105,10 +110,10 @@ export default function HomePage() {
       </section>
 
       {/* The four answers written out in full. */}
-      <HomeAnswersInFull />
+      <HomeAnswersInFull lang={lang} />
 
       {/* Long-form landing content (verdicts, guides, FAQ, tips) */}
-      <HomeSections />
+      <HomeSections lang={lang} />
     </div>
   );
 }

@@ -1,0 +1,455 @@
+{
+  "dead-pixel-test": {
+    "name": "Teste de Pixel Morto",
+    "title": "Teste de Pixel Morto",
+    "tagline": "Cores sólidas em tela cheia para achar pixels mortos, presos e brilhantes.",
+    "description": "Teste de pixel morto online e grátis. Alterne cores sólidas em tela cheia para achar pixels mortos, presos e brilhantes em monitor, notebook, celular ou TV.",
+    "keywords": [
+      "teste de pixel morto",
+      "pixel preso",
+      "pixel queimado",
+      "teste de pixels",
+      "teste de monitor"
+    ],
+    "howTo": [
+      "Coloque o brilho da tela no máximo e limpe a tela.",
+      "Clique em Iniciar para entrar em tela cheia e use ← / → ou toque nas laterais para trocar de cor.",
+      "Percorra cada cor sólida devagar, por todo o painel.",
+      "Um ponto que fica preto em todas as cores é um pixel morto; um ponto travado em uma única cor é um pixel preso.",
+      "Achou um pixel preso? Vá até o último quadro, Reparador de pixel preso, arraste a caixa até ele e toque nela para começar a piscar. Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Qual é a diferença entre pixel morto e pixel preso?",
+        "a": "Um pixel morto fica preto em todas as cores porque não recebe energia. Um pixel preso (stuck pixel) fica permanentemente aceso em uma cor (vermelho, verde ou azul) e às vezes pode ser recuperado com cores piscando rapidamente."
+      },
+      {
+        "q": "Dá para consertar um pixel preso?",
+        "a": "Às vezes. Alternar cores rapidamente sobre a área, ou massageá-la com delicadeza, pode destravar o pixel. Pixels mortos em geral não têm conserto por software."
+      },
+      {
+        "q": "Funciona em celulares e TVs?",
+        "a": "Sim. Funciona em qualquer navegador atual, em celulares, tablets, notebooks, monitores e smart TVs."
+      },
+      {
+        "q": "Quantos pixels mortos são aceitáveis em uma tela nova?",
+        "a": "Não existe um número universal. Cada fabricante publica a própria política de pixels, e a maioria tolera algumas falhas antes de considerar o painel defeituoso, contando pixels brilhantes com mais rigor do que os escuros. Isso só vale para a garantia. Dentro do prazo de devolução da loja, você pode devolver a tela por um único pixel morto."
+      },
+      {
+        "q": "Pixels mortos se espalham?",
+        "a": "Um pixel morto isolado não contamina os vizinhos. Se novos pixels continuam aparecendo, ou se uma área escura está crescendo, a causa é outra: dano por pressão ou impacto, líquido ou uma conexão do painel falhando. Isso justifica acionar a garantia, seja qual for a contagem de pixels."
+      },
+      {
+        "q": "O reparador de pixel preso é seguro?",
+        "a": "Ele só mostra cores que mudam rapidamente dentro de uma caixa pequena, então não tem como danificar o painel. Mas pisca bem rápido: não fique olhando, e não use de jeito nenhum se você for sensível a luzes piscantes. Arraste a caixa até o pixel, inicie e desvie o olhar."
+      },
+      {
+        "q": "Como procurar pixels mortos em um celular ou notebook?",
+        "a": "Do mesmo jeito, só que mais de perto. Os pixels de um celular ou de um notebook de alta resolução são muito pequenos, então aproxime a tela mais do que o normal e percorra-a em faixas. O Safari do iPhone não entra em tela cheia de verdade, então nele a cor ocupa a janela do navegador; role a página para esconder a barra de endereço e confira as bordas de cima e de baixo separadamente."
+      }
+    ],
+    "tips": [
+      "Limpe a tela antes — um grão de poeira é idêntico a um pixel morto.",
+      "Veja cada cor a cerca de 30 cm de distância, para que um único pixel defeituoso se destaque de fato.",
+      "Achou um pixel preso (não morto)? Use o quadro Reparador de pixel preso e deixe a caixa piscando sobre o pixel por 10 a 20 minutos para tentar recuperá-lo."
+    ]
+  },
+  "color-test": {
+    "name": "Teste de Cores",
+    "title": "Teste de Cores da Tela",
+    "tagline": "Nove cores sólidas em tela cheia para achar subpixels presos, tons indesejados e manchas.",
+    "description": "Teste de cores em tela cheia, grátis. Exiba preto, branco, vermelho, verde, azul, ciano, magenta, amarelo e cinza para checar a uniformidade e achar defeitos.",
+    "keywords": [
+      "teste de cores",
+      "tela de cor sólida",
+      "teste rgb",
+      "cor em tela cheia"
+    ],
+    "howTo": [
+      "Clique em Iniciar para entrar em tela cheia.",
+      "Use ← / → ou toque à esquerda/direita para trocar de cor.",
+      "Procure tons indesejados, manchas ou pontos que destoem do campo sólido.",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Por que testar cores sólidas uma a uma?",
+        "a": "Vermelho, verde e azul sólidos isolam cada subpixel, então subpixels defeituosos e problemas de uniformidade de cor ficam evidentes."
+      },
+      {
+        "q": "Por que um ponto aparece em algumas cores e em outras não?",
+        "a": "Porque cada cor acende um conjunto diferente de subpixels. Um subpixel vermelho preso aceso é invisível no vermelho, no branco e no amarelo, e evidente no preto, no verde e no azul. Anote em quais cores ele aparece: é assim que se diferencia um pixel morto de um pixel preso."
+      },
+      {
+        "q": "O que significa um tom irregular no branco ou no cinza?",
+        "a": "Se a tela inteira puxa para o quente ou para o frio, é a temperatura de cor, ou um modo noturno que ficou ligado. Se só uma área tem outro tom, como uma borda amarelada ou um canto rosado, o painel ou a luz de fundo é irregular ali, e nenhuma configuração resolve."
+      },
+      {
+        "q": "Devo testar com o brilho no máximo?",
+        "a": "Use o brilho máximo para encontrar falhas, porque pontos e manchas discretos ficam mais fáceis de ver. Depois olhe de novo no brilho que você costuma usar para decidir se a falha importa na prática."
+      },
+      {
+        "q": "Qual é a diferença para o Teste de Pixel Morto?",
+        "a": "Os dois mostram as mesmas cores sólidas. O Teste de Pixel Morto acrescenta o quadro Reparador de pixel preso e orientações sobre falhas de pixel. Use esta página quando estiver procurando tons indesejados e manchas, ou quando quiser apenas uma cor em tela cheia."
+      },
+      {
+        "q": "Por que o vermelho parece laranja ou as cores parecem lavadas?",
+        "a": "Confira primeiro o modo de imagem. Os modos eco e de leitura reduzem a saturação, o modo noturno puxa tudo para o laranja, e o modo sRGB de um monitor wide gamut atenua as cores de propósito. Se as cores são fracas em todos os modos, o painel tem uma gama de cores estreita."
+      }
+    ],
+    "tips": [
+      "Vermelho, verde e azul sólidos são os melhores para flagrar um subpixel defeituoso.",
+      "Anote em quais cores o ponto aparece. Essa lista é o que diferencia um pixel morto de um preso, e é o que pedem na hora de acionar a garantia.",
+      "Um leve tom geral no campo branco costuma indicar temperatura de cor ou balanço de branco desajustado."
+    ]
+  },
+  "black-screen": {
+    "name": "Tela Preta",
+    "title": "Tela Preta",
+    "tagline": "Preto puro em tela cheia para checar vazamento de luz, IPS glow e os pretos do OLED.",
+    "description": "Tela preta pura em tela cheia, grátis. Procure vazamento de luz e IPS glow em um LCD, confirme o preto real de um OLED e ache pixels presos acesos.",
+    "keywords": [
+      "tela preta",
+      "tela preta pura",
+      "tela preta em tela cheia",
+      "preto oled"
+    ],
+    "howTo": [
+      "Clique em Iniciar para abrir um campo preto puro em tela cheia.",
+      "Em um ambiente escuro, procure bordas ou manchas brilhando (vazamento de luz / IPS glow).",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Para que serve uma tela preta?",
+        "a": "Para procurar vazamento de luz e IPS glow em um LCD, confirmar que um OLED exibe preto de verdade e achar pixels presos acesos, que só aparecem contra o preto."
+      },
+      {
+        "q": "Por que as bordas brilham na tela preta?",
+        "a": "Em um LCD, isso é vazamento de luz (backlight bleed) ou IPS glow: a luz de fundo escapando pelas bordas ou aparecendo como uma névoa quando você olha de lado. Um pouco é normal em quase todo LCD. Um OLED deve ficar totalmente preto, porque seus pixels se apagam."
+      },
+      {
+        "q": "Um LCD deveria ficar completamente preto?",
+        "a": "Não. Um LCD produz o preto bloqueando uma luz de fundo que continua acesa, então sempre passa alguma luz e a tela parece um cinza muito escuro em um ambiente escuro. O que importa é que esse cinza seja uniforme. Um nível de preto elevado por igual é configuração de contraste ou de faixa RGB, não vazamento."
+      },
+      {
+        "q": "Tela preta economiza energia?",
+        "a": "Em um OLED, sim: pixels pretos ficam apagados e não consomem quase nada. Em um LCD, quase nada muda, porque a luz de fundo continua acesa atrás da imagem preta. Para economizar energia em um LCD, reduza o brilho ou deixe a tela entrar em repouso."
+      },
+      {
+        "q": "A tela está desligada ou mostrando preto?",
+        "a": "Está ligada e mostrando uma imagem preta. Em um LCD, em um ambiente escuro, dá para perceber pelo leve brilho acinzentado da luz de fundo. Em um OLED não há nada para ver, e é por isso que a página mantém a tela ativa: você tem certeza de que ela não entrou em repouso."
+      }
+    ],
+    "tips": [
+      "Apague as luzes: o vazamento é invisível em um ambiente claro. O brilho máximo ajuda a encontrá-lo; o seu brilho normal mostra se ele importa.",
+      "Dê dois ou três minutos para os olhos se adaptarem antes de avaliar os cantos. O brilho parece pior nos primeiros trinta segundos.",
+      "Incline-se uns 30 cm para cada lado: um brilho que se move com você é IPS glow; um que fica parado é vazamento de luz."
+    ]
+  },
+  "white-screen": {
+    "name": "Tela Branca",
+    "title": "Tela Branca",
+    "tagline": "Branco puro em tela cheia para achar pixels mortos, poeira e brilho irregular.",
+    "description": "Tela branca pura em tela cheia, grátis. Encontre pixels mortos escuros e poeira presa, confira a uniformidade do brilho e procure manchas de outro tom.",
+    "keywords": [
+      "tela branca",
+      "tela branca pura",
+      "tela branca em tela cheia",
+      "teste de tela branca"
+    ],
+    "howTo": [
+      "Clique em Iniciar para abrir um campo branco puro em tela cheia.",
+      "Procure pontos escuros (pixels mortos), manchas e poeira.",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Para que serve uma tela branca?",
+        "a": "Para achar pixels mortos escuros e poeira, conferir se o brilho é uniforme do centro aos cantos e flagrar manchas de tom diferente."
+      },
+      {
+        "q": "A tela fica ligada enquanto eu a examino?",
+        "a": "Sim, nos navegadores compatíveis com a Screen Wake Lock API, o que inclui as versões atuais do Chrome, Edge, Safari e Firefox. A página pede ao aparelho que mantenha a tela ativa até você sair. Onde o navegador não oferece esse recurso, vale o tempo de repouso normal do aparelho."
+      },
+      {
+        "q": "Por que o branco parece um pouco amarelado ou azulado?",
+        "a": "O branco depende da temperatura de cor da tela. Luz noturna, Night Shift, True Tone e os modos quentes de 'conforto visual' alteram o tom de propósito, então desligue tudo antes de testar. Sem eles, um tom quente ou frio por igual é diferença de calibração, não defeito; o que você deve procurar são manchas de tom diferente pela tela."
+      },
+      {
+        "q": "Posso usar a tela branca como luz?",
+        "a": "Pode. No brilho máximo, uma tela branca dá uma luz suave e uniforme para uma videochamada, para ler no escuro ou para decalcar um desenho no papel. Quanto maior a tela, mais suave a luz."
+      },
+      {
+        "q": "Tela branca no brilho máximo faz mal para o display?",
+        "a": "Não em um teste curto. O branco total é a imagem mais exigente para uma tela, então ela esquenta e consome o máximo de energia, e um OLED pode reduzir o próprio brilho depois de um tempo para proteger o painel. Evite deixar qualquer imagem estática por horas em um OLED."
+      }
+    ],
+    "tips": [
+      "Passe um pano na tela antes e olhe de novo: o que saiu do lugar estava na superfície.",
+      "Pontinhos escuros que não saem com o pano costumam ser poeira entre as camadas ou pixels mortos, não sujeira."
+    ]
+  },
+  "backlight-bleed-test": {
+    "name": "Vazamento de Luz",
+    "title": "Teste de Vazamento de Luz (Backlight Bleed)",
+    "tagline": "Revele o vazamento da luz de fundo do LCD e o IPS glow em um ambiente escuro.",
+    "description": "Teste de vazamento de luz (backlight bleed) grátis. Exiba preto puro para revelar o vazamento do LCD e o IPS glow nas bordas e nos cantos da tela.",
+    "keywords": [
+      "teste de vazamento de luz",
+      "ips glow",
+      "backlight bleed",
+      "vazamento de luz monitor"
+    ],
+    "howTo": [
+      "Apague as luzes do ambiente. Comece no brilho máximo para achar qualquer vazamento e depois avalie de novo no brilho que você costuma usar.",
+      "Clique em Iniciar para abrir um campo preto em tela cheia.",
+      "Examine as bordas e os cantos em busca de manchas nubladas ou brilhantes.",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Um pouco de vazamento de luz é normal?",
+        "a": "Sim. Quase todos os painéis LCD/LED têm um vazamento leve. Só é problema quando é irregular, incomoda no uso normal ou é exagerado nos cantos."
+      },
+      {
+        "q": "Qual é a diferença entre vazamento de luz e IPS glow?",
+        "a": "O vazamento de luz (backlight bleed) é a luz escapando pelas bordas do painel e aparece mesmo de frente. O IPS glow é um efeito do ângulo de visão, que muda conforme você mexe a cabeça."
+      },
+      {
+        "q": "O vazamento de luz piora com o tempo?",
+        "a": "Em geral, não. Ele costuma ficar igual e, em uma tela nova, às vezes diminui nas primeiras semanas, conforme a moldura se acomoda. Um vazamento que surge de repente ou continua crescendo indica pressão sobre o painel, calor ou uma pancada."
+      },
+      {
+        "q": "Vazamento de luz tem conserto?",
+        "a": "Não existe solução caseira confiável. Pressionar o painel ou afrouxar a moldura pode danificá-lo e anular a garantia. Menos brilho e um pouco de luz no ambiente deixam o vazamento bem menos visível. Se ele incomoda no uso normal, devolva a tela enquanto ainda dá tempo."
+      },
+      {
+        "q": "Por que o vazamento parece tão pior na minha foto?",
+        "a": "No escuro, a câmera do celular usa uma exposição longa e amplifica o sinal, o que transforma uma névoa discreta em nuvens brilhantes. Use as fotos para registrar onde está o vazamento, com a exposição travada, e confie nos seus olhos para avaliar a intensidade."
+      }
+    ],
+    "tips": [
+      "Fotografe a tela preta com o celular para comparar painéis de forma objetiva.",
+      "Algum vazamento e algum IPS glow são normais — só manchas irregulares e incômodas são um defeito que justifica devolver o painel.",
+      "Olhe de novo com a iluminação habitual do ambiente e no seu brilho normal. É nessa condição que você vai conviver com a tela."
+    ]
+  },
+  "greyscale-test": {
+    "name": "Escala de Cinza",
+    "title": "Teste de Escala de Cinza e Banding",
+    "tagline": "Gradiente suave e rampa de 32 degraus para revelar banding de cores.",
+    "description": "Teste de escala de cinza e banding grátis. Veja um gradiente suave do preto ao branco e uma rampa de 32 degraus para detectar faixas e cinzas tingidos.",
+    "keywords": [
+      "teste de escala de cinza",
+      "teste de gradiente",
+      "color banding",
+      "teste de gama"
+    ],
+    "howTo": [
+      "Clique em Iniciar para ver o gradiente em tela cheia.",
+      "Use ← / → para alternar entre o gradiente suave e a rampa de 32 degraus.",
+      "Procure faixas visíveis ou saltos bruscos no lugar de uma transição suave.",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "O que causa o banding de cores?",
+        "a": "O banding aparece quando o painel não consegue reproduzir tons distintos em número suficiente — algo comum em painéis de 6 bits + FRC, ou resultado de compressão agressiva e de saída configurada com baixa profundidade de cor."
+      },
+      {
+        "q": "Qual é a diferença entre os dois quadros?",
+        "a": "O gradiente suave vai do preto ao branco sem degraus, então qualquer faixa que você veja nele vem da sua cadeia de exibição. A rampa em degraus divide a mesma faixa em 32 blocos iguais: cada um deve parecer um cinza distinto e neutro, inclusive os mais escuros."
+      },
+      {
+        "q": "Por que partes da rampa parecem tingidas?",
+        "a": "Uma rampa neutra deve continuar cinza de ponta a ponta. Um tom esverdeado, azulado ou magenta em parte dela aponta para o balanço de branco ou as configurações de cor da tela, não para banding. Trocar o modo de cor ou calibrar costuma resolver."
+      },
+      {
+        "q": "O banding é da minha tela ou do vídeo que eu estava vendo?",
+        "a": "Esta página desenha o gradiente na hora, sem compressão, então qualquer faixa que você veja aqui vem da tela ou das configurações dela. Se este gradiente está suave, mas um filme ou streaming mostra faixas em céus e sombras, a causa é a compressão do vídeo, não a tela."
+      },
+      {
+        "q": "Por que o banding é mais fácil de ver nas áreas escuras?",
+        "a": "O olho é mais sensível a pequenos degraus de brilho na ponta escura, e muitos painéis tratam os últimos tons acima do preto com menos precisão. É por isso que céus noturnos e sombras são os primeiros a mostrar faixas."
+      },
+      {
+        "q": "Quantos degraus eu devo conseguir contar?",
+        "a": "Todos os 32. Se os dois ou três mais escuros se fundem ao preto, os detalhes nas sombras estão sendo esmagados. Se os mais claros se fundem ao branco, os realces estão estourando, em geral porque a configuração de Contraste está alta demais."
+      },
+      {
+        "q": "O modo de imagem ou o HDR mudam o resultado?",
+        "a": "Sim. Os modos vívido, dinâmico e de jogo alteram a curva de tons, e o contraste dinâmico a muda de um instante para o outro. Teste no modo padrão ou sRGB. Com o HDR ligado no Windows, o conteúdo comum é remapeado e pode apresentar banding onde antes não havia."
+      },
+      {
+        "q": "Banding é motivo para devolver um monitor?",
+        "a": "Um banding leve em um gradiente em tela cheia é comum, principalmente em painéis de 6 bits + FRC, e não é defeito. Já faixas nítidas em conteúdo comum, depois de descartadas as configurações, em um painel vendido como 8 bits ou 10 bits, valem uma conversa com o vendedor dentro do prazo de devolução."
+      }
+    ],
+    "tips": [
+      "Afaste-se da tela — o banding é muito mais fácil de ver à distância.",
+      "Se o gradiente suave mostrar barras nítidas, experimente ajustar a saída da placa de vídeo para RGB completo e profundidade de cor de 8 bits ou mais."
+    ]
+  },
+  "color-gradient-test": {
+    "name": "Gradiente de Cores",
+    "title": "Teste de Gradiente de Cores",
+    "tagline": "Espectro e gradientes RGB suaves para avaliar transições de cor e banding.",
+    "description": "Teste de gradiente de cores grátis. Veja gradientes suaves de vermelho, verde, azul e do espectro completo para checar transições, banding e posterização.",
+    "keywords": [
+      "teste de gradiente de cores",
+      "teste de banding",
+      "gradiente rgb",
+      "gradiente de espectro",
+      "transição de cores"
+    ],
+    "howTo": [
+      "Clique em Iniciar para ver o gradiente em tela cheia.",
+      "Use ← / → para passar pelos gradientes de espectro, vermelho, verde, azul, branco, cinza e preto.",
+      "Confira se as transições são suaves e se as cores parecem saturadas e uniformes.",
+      "As rampas de branco e de cinza são as que mais facilitam ver banding de luminância nas sombras.",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Este teste mede a minha gama de cores?",
+        "a": "Não. Estes gradientes usam cores sRGB padrão, que toda tela consegue exibir, então revelam banding e transições irregulares, não a gama de cores. Para saber se a sua tela mostra cores além do sRGB, use o Teste de Ampla Gama de Cores (P3)."
+      },
+      {
+        "q": "Como é um bom resultado?",
+        "a": "Todo gradiente se funde suavemente de ponta a ponta, sem barras visíveis, saltos bruscos ou manchas. O espectro deve passar por igual pelo amarelo, verde, ciano, azul e magenta, sem que um matiz engula uma faixa larga."
+      },
+      {
+        "q": "Por que olhar vermelho, verde e azul separadamente?",
+        "a": "Cada canal é acionado de forma independente, então banding ou desvio de cor que aparece em uma única rampa aponta para a calibração daquele canal, e não para o painel como um todo. Alguma diferença de brilho é normal: o verde sempre parece o mais claro para o olho."
+      },
+      {
+        "q": "Por que o banding apareceu depois que liguei o modo noturno ou troquei o perfil de cor?",
+        "a": "Modos noturnos, perfis de cor e ajustes manuais de RGB funcionam remapeando os valores enviados à tela. Com a cor padrão de 8 bits, sobram menos degraus distintos por canal, e surgem faixas em gradientes que antes eram suaves. Desligue esses recursos e confira de novo."
+      },
+      {
+        "q": "O que significam 8 bits, 10 bits e 6 bits + FRC?",
+        "a": "Indicam quantos degraus de brilho cada canal de cor tem. 8 bits dão 256 degraus; 10 bits dão 1.024. Um painel de 6 bits tem só 64 degraus reais e usa FRC, a alternância rápida entre dois tons vizinhos, para imitar os intermediários."
+      },
+      {
+        "q": "Um monitor de 10 bits acaba com o banding?",
+        "a": "Só quando o conteúdo, o aplicativo, a saída de vídeo e o cabo transportam cor de 10 bits. A maior parte do conteúdo de desktop é de 8 bits e, mesmo assim, deve parecer suave em um bom painel de 8 bits. O banding que você vê aqui é mais frequentemente uma configuração do que falta de profundidade de cor."
+      },
+      {
+        "q": "Vejo um granulado fino tremeluzindo nos gradientes escuros. É defeito?",
+        "a": "Não. Isso é dithering ou FRC: o painel está alternando entre dois tons para produzir um que ele não consegue exibir diretamente. É normal em muitas telas e costuma sumir a uma distância normal de uso."
+      }
+    ],
+    "tips": [
+      "Use as rampas de branco e de cinza para isolar o banding de luminância sem a distração das cores.",
+      "Faixas largas e posterizadas costumam vir de um painel de 6 bits ou de compressão de vídeo agressiva, não da placa de vídeo."
+    ]
+  },
+  "brightness-uniformity-test": {
+    "name": "Uniformidade de Brilho",
+    "title": "Teste de Uniformidade de Brilho",
+    "tagline": "Campo cinza 50%, grade de 9 zonas e cinza em movimento para flagrar iluminação irregular.",
+    "description": "Teste de uniformidade de brilho grátis: campo cinza 50%, grade de 9 zonas e cinza em movimento para revelar iluminação irregular, clouding e tela suja (DSE).",
+    "keywords": [
+      "uniformidade de brilho",
+      "manchas na tela",
+      "teste de uniformidade",
+      "tela cinza"
+    ],
+    "howTo": [
+      "Clique em Iniciar e veja o campo cinza em tela cheia.",
+      "Use ← / → para passar à grade de 9 zonas e ao cinza em movimento.",
+      "Compare o brilho do centro com o de cada canto.",
+      "Em Cinza em movimento, acompanhe as faixas deslizantes com os olhos: manchas ou listras que ficam paradas são o efeito de tela suja (dirty screen effect) do painel.",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Quanta variação é aceitável?",
+        "a": "Bons monitores ficam dentro de cerca de 10% de variação de brilho ao longo do painel. Diferenças maiores aparecem como cantos visivelmente mais escuros ou pontos mais claros."
+      },
+      {
+        "q": "O que é o efeito de tela suja?",
+        "a": "O efeito de tela suja (dirty screen effect, DSE) são manchas e faixas verticais discretas em painéis grandes, mais visíveis quando a câmera percorre uma área uniforme, como um gramado de futebol. O quadro Cinza em movimento recria isso: as faixas deslizam, e as manchas que ficam fixas são do painel."
+      },
+      {
+        "q": "Brilho irregular tem conserto?",
+        "a": "Não com uma configuração comum, porque ele vem da luz de fundo e das camadas do painel. Alguns monitores têm um modo de compensação de uniformidade que nivela a imagem ao custo de um pouco de brilho e contraste. Se uma mancha incomoda no uso normal, devolva a tela dentro do prazo de devolução."
+      },
+      {
+        "q": "Por que testar no cinza e não no branco?",
+        "a": "As diferenças de brilho aparecem melhor em um tom médio. No branco total, a tela está no brilho máximo e seus olhos se adaptam a ele, o que esconde cantos mais escuros e manchas que são evidentes no cinza."
+      },
+      {
+        "q": "Telas OLED têm problemas de uniformidade?",
+        "a": "Elas não têm luz de fundo, então não apresentam nuvens nem vazamento de luz. Ainda assim, podem mostrar faixas verticais tênues ou uma leve diferença de tom no cinza muito escuro, além de áreas desgastadas depois de muito uso. Um banding leve em um campo cinza escuro é comum em painéis OLED e VA grandes."
+      },
+      {
+        "q": "Por que os cantos da tela do meu notebook são mais escuros?",
+        "a": "A maioria das telas de notebook é iluminada por uma das bordas, e a luz é espalhada pelo painel por uma fina camada-guia. Alguma queda de brilho em direção aos cantos mais distantes é normal. Uma mancha escura de contorno bem definido é outra coisa, e aponta para dano por pressão."
+      },
+      {
+        "q": "Como fotografar o brilho irregular de forma justa?",
+        "a": "Afaste-se, fotografe bem de frente e trave a exposição no meio da tela. Desligue o modo noturno da câmera, que exagera pequenas diferenças. Use a foto como registro e avalie a gravidade com os próprios olhos."
+      }
+    ],
+    "tips": [
+      "Compare o centro com cada canto, um de cada vez, em vez de varrer o campo inteiro.",
+      "Tire uma foto com exposição uniforme — seus olhos se ajustam sozinhos e escondem diferenças reais."
+    ]
+  },
+  "refresh-rate-test": {
+    "name": "Taxa de Atualização",
+    "title": "Teste de Taxa de Atualização",
+    "tagline": "Meça sua taxa de atualização real e observe uma referência em movimento.",
+    "description": "Teste de taxa de atualização grátis. Meça no navegador a taxa real da sua tela, em Hz, e observe um objeto em movimento para confirmar a fluidez.",
+    "keywords": [
+      "teste de taxa de atualização",
+      "teste de hz",
+      "teste de fps",
+      "teste 144hz",
+      "hz do monitor"
+    ],
+    "howTo": [
+      "Clique em Iniciar — a taxa de atualização medida aparece em um ou dois segundos.",
+      "Observe a caixa em movimento para confirmar que o movimento está fluido.",
+      "Compare a leitura com os Hz nominais do painel; a linha logo abaixo mostra o tempo de quadro e a taxa padrão mais próxima.",
+      "Pressione Esc para sair."
+    ],
+    "faq": [
+      {
+        "q": "Por que a leitura não é exatamente o valor nominal do monitor?",
+        "a": "Muitas telas rodam uma fração fora da taxa nominal, como 59,94 Hz em vez de 60, e a temporização do navegador acrescenta um pouco de ruído. Uma leitura a cerca de 1 Hz do valor nominal é normal. Uma diferença grande costuma indicar que uma taxa mais baixa está selecionada nas configurações de vídeo do sistema."
+      },
+      {
+        "q": "Por que aparece 60 Hz no meu monitor de 144 Hz?",
+        "a": "Porque o painel está sendo acionado a 60 Hz. As causas habituais: a taxa de atualização ficou em 60 nas configurações de vídeo do Windows ou do macOS, o cabo ou a porta não dá conta da taxa mais alta na sua resolução (use DisplayPort ou um cabo HDMI de alta velocidade), ou um modo de economia de energia do notebook ou do celular a reduziu. Corrija isso e faça o teste de novo."
+      },
+      {
+        "q": "O que significam tempo de quadro e taxa padrão mais próxima?",
+        "a": "O tempo de quadro é quanto dura cada atualização: 1000 ms divididos pela taxa, ou seja, 16,67 ms a 60 Hz e 6,94 ms a 144 Hz. A taxa padrão mais próxima indica a qual configuração comum de painel a sua leitura corresponde, o que ajuda quando a medição fica uma fração fora."
+      },
+      {
+        "q": "Como mudo a taxa de atualização?",
+        "a": "No Windows, vá em Configurações > Sistema > Tela > Tela avançada e escolha uma taxa de atualização. No Mac, abra Ajustes do Sistema > Telas e use o menu Taxa de Atualização. Com mais de um monitor, a taxa é definida separadamente para cada tela."
+      },
+      {
+        "q": "Taxa de atualização é o mesmo que taxa de quadros?",
+        "a": "Não. A taxa de atualização (Hz) é quantas vezes por segundo a tela se redesenha. A taxa de quadros (fps) é quantas imagens novas o computador ou o jogo produz. Você só aproveita uma tela de 144 Hz quando a fonte também entrega perto de 144 quadros por segundo."
+      },
+      {
+        "q": "Por que meu celular de 120 Hz marca 60 Hz?",
+        "a": "Os celulares mudam a taxa de atualização para poupar bateria, e o modo de economia de bateria costuma travá-la em 60 Hz. Alguns navegadores móveis também limitam as páginas a 60 atualizações por segundo, seja qual for a capacidade do painel. Por isso, uma leitura de 60 Hz no celular não prova que há um problema."
+      },
+      {
+        "q": "Qual tela ele mede quando tenho dois monitores?",
+        "a": "Aquela em que está a janela do navegador. Arraste a janela para o outro monitor e a leitura acompanha depois de um instante. Com monitores em taxas diferentes, alguns navegadores se prendem a um deles, então teste cada monitor com a janela inteira dentro dele."
+      }
+    ],
+    "tips": [
+      "Feche outras abas e aplicativos; a carga em segundo plano pode puxar a taxa medida para baixo do valor nominal do painel.",
+      "Se você comprou um monitor de alta taxa de atualização, confira se a taxa está de fato selecionada nas configurações de vídeo do sistema.",
+      "Em um notebook ou celular, teste na tomada ou com a economia de bateria desligada: a economia de energia pode reduzir a taxa de atualização."
+    ]
+  }
+}

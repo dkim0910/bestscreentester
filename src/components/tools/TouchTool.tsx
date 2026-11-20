@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import FullscreenStage from "./FullscreenStage";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 const LABELS = ["Touch grid", "Free draw"];
 const CELL = 44; // CSS px — roughly a fingertip, the standard minimum touch target
@@ -63,6 +64,7 @@ function Status({ text }: { text: string }) {
 
 function TouchGrid() {
   const grid = useRef({ cols: 0, rows: 0, cellW: 0, cellH: 0, hit: new Uint8Array(0) });
+  const t = useT();
   const [done, setDone] = useState(0);
   const [total, setTotal] = useState(0);
   const pointers = usePointerCount();
@@ -126,8 +128,13 @@ function TouchGrid() {
       <Status
         text={
           complete
-            ? `All ${total} cells responded ✓`
-            : `${done} / ${total} cells · ${pointers.now} touching (max ${pointers.max})`
+            ? t("All {total} cells responded ✓", { total })
+            : t("{done} / {total} cells · {now} touching (max {max})", {
+                done,
+                total,
+                now: pointers.now,
+                max: pointers.max,
+              })
         }
       />
     </div>
@@ -137,6 +144,7 @@ function TouchGrid() {
 // ---------- Frame 1: free drawing, one colour per finger ----------
 
 function FreeDraw() {
+  const t = useT();
   const last = useRef(new Map<number, { x: number; y: number; color: string }>());
   const nextColor = useRef(0);
   const pointers = usePointerCount();
@@ -191,7 +199,7 @@ function FreeDraw() {
           pointers.up(e.pointerId);
         }}
       />
-      <Status text={`${pointers.now} touching (max ${pointers.max})`} />
+      <Status text={t("{now} touching (max {max})", { now: pointers.now, max: pointers.max })} />
     </div>
   );
 }
@@ -199,16 +207,17 @@ function FreeDraw() {
 export default function TouchTool({ tool }: { tool: ToolDef }) {
   // Bumping the key remounts the frames, which clears them.
   const [round, setRound] = useState(0);
+  const t = useT();
   return (
     <FullscreenStage
       tool={tool}
       frameCount={LABELS.length}
-      frameLabel={(i) => LABELS[i]}
+      frameLabel={(i) => t(LABELS[i])}
       tapNavigation={false}
-      startLabel="Start touch test"
+      startLabel={t("Start touch test")}
       controls={() => (
         <button onClick={() => setRound((r) => r + 1)} className="rounded-full px-3 py-1 hover:bg-white/15">
-          Reset
+          {t("Reset")}
         </button>
       )}
       renderFrame={(i) => (i === 0 ? <TouchGrid key={`g${round}`} /> : <FreeDraw key={`d${round}`} />)}

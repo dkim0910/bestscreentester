@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import FullscreenStage from "./FullscreenStage";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 // Each frame: the most saturated sRGB color as the background, and the same hue at its
 // Display P3 maximum inside the logo. On a P3-capable screen and browser the logo stands
@@ -28,6 +29,7 @@ function Chip({ ok, children }: { ok: boolean | null; children: React.ReactNode 
 }
 
 export default function WideGamutTool({ tool }: { tool: ToolDef }) {
+  const t = useT();
   const [support, setSupport] = useState<Support | null>(null);
 
   useEffect(() => {
@@ -45,24 +47,24 @@ export default function WideGamutTool({ tool }: { tool: ToolDef }) {
     <div className="space-y-3">
       <div className="flex flex-wrap gap-2">
         <Chip ok={support ? support.css : null}>
-          {support ? (support.css ? "Browser supports P3 colors" : "Browser can't draw P3 colors") : "Checking browser…"}
+          {support ? (support.css ? t("Browser supports P3 colors") : t("Browser can't draw P3 colors")) : t("Checking browser…")}
         </Chip>
         <Chip ok={wide}>
           {!support
-            ? "Checking screen…"
+            ? t("Checking screen…")
             : support.gamut === "rec2020"
-              ? "Screen reports Rec. 2020 (wide)"
+              ? t("Screen reports Rec. 2020 (wide)")
               : support.gamut === "p3"
-                ? "Screen reports Display P3 (wide)"
+                ? t("Screen reports Display P3 (wide)")
                 : support.gamut === "srgb"
-                  ? "Screen reports sRGB only"
-                  : "Screen gamut not reported"}
+                  ? t("Screen reports sRGB only")
+                  : t("Screen gamut not reported")}
         </Chip>
       </div>
       <FullscreenStage
         tool={tool}
         frameCount={FRAMES.length}
-        frameLabel={(i) => `${FRAMES[i].name} — can you see the logo?`}
+        frameLabel={(i) => t("{name} — can you see the logo?", { name: t(FRAMES[i].name) })}
         renderFrame={(i) => {
           const f = FRAMES[i];
           return (

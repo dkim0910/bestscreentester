@@ -3,6 +3,7 @@
 import FullscreenStage from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 // A browser can't see the backlight flicker, so this provides the right screens for
 // the two reliable manual checks:
@@ -29,11 +30,12 @@ function sweep(speed: number) {
 const SWEEPS = FRAMES.map((f) => ("speed" in f && f.speed ? sweep(f.speed) : null));
 
 export default function PwmTool({ tool }: { tool: ToolDef }) {
+  const t = useT();
   return (
     <FullscreenStage
       tool={tool}
       frameCount={FRAMES.length}
-      frameLabel={(i) => FRAMES[i].label}
+      frameLabel={(i) => t(FRAMES[i].label)}
       renderFrame={(i) => {
         const f = FRAMES[i];
         const draw = SWEEPS[i];

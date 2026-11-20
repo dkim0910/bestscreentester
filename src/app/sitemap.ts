@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { INDEXED_TOOLS } from "@/lib/tools";
 import { GUIDES } from "@/lib/guides";
-import { absoluteUrl, PAGE_UPDATED, SITE_UPDATED } from "@/lib/seo";
+import { absoluteUrl, languageAlternates, PAGE_UPDATED, SITE_UPDATED } from "@/lib/seo";
+import { I18N_UPDATED, LOCALES } from "@/i18n/config";
+import { href } from "@/i18n";
 
 export const dynamic = "force-static";
 
@@ -38,5 +40,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...toolRoutes, ...postRoutes];
+  // The homepage, /tools and every test also exist under each language prefix. Each of
+  // those URLs gets its own entry, and every version of a page lists all the others as
+  // hreflang alternates, matching the <link rel="alternate"> tags in the pages.
+  // A translation's lastmod is the later of its English page's date and the day the
+  // translations were published: it can't be older than the translation itself.
+  const translatable = [...staticRoutes.slice(0, 2), ...toolRoutes];
+  const paths = ["/", "/tools", ...INDEXED_TOOLS.map((t) => `/${t.slug}`)];
+  const withAlternates = translatable.map((entry, i) => ({
+    ...entry,
+    alternates: { languages: languageAlternates(paths[i]) },
+  }));
+  const localized: MetadataRoute.Sitemap = LOCALES.flatMap((lang) =>
+    withAlternates.map((entry, i) => ({
+      ...entry,
+      url: absoluteUrl(href(lang, paths[i])),
+      lastModified: String(entry.lastModified) > I18N_UPDATED ? entry.lastModified : I18N_UPDATED,
+      priority: Math.round(((entry.priority ?? 0.5) - 0.1) * 10) / 10,
+    })),
+  );
+
+  return [...withAlternates, ...staticRoutes.slice(2), ...postRoutes, ...localized];
 }

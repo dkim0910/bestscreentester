@@ -1,0 +1,455 @@
+{
+  "dead-pixel-test": {
+    "name": "Pixelfehler-Test",
+    "title": "Pixelfehler-Test (Dead Pixel Test)",
+    "tagline": "Vollfarben im Vollbild, um tote, hängende und helle Pixel zu finden.",
+    "description": "Kostenloser Online-Pixelfehler-Test: Schalte Vollfarben im Vollbild durch und finde tote, hängende und helle Subpixel auf Monitor, Laptop, Handy oder TV.",
+    "keywords": [
+      "pixelfehler test",
+      "dead pixel test",
+      "tote pixel test",
+      "pixeltest",
+      "monitor test"
+    ],
+    "howTo": [
+      "Stell die Helligkeit deines Displays aufs Maximum und reinige den Bildschirm.",
+      "Klick auf „Starten“, um in den Vollbildmodus zu wechseln. Mit ← / → oder per Tipp auf die Seiten wechselst du die Farbe.",
+      "Such jede Vollfarbe langsam über das ganze Panel ab.",
+      "Ein Punkt, der auf jeder Farbe schwarz bleibt, ist ein totes Pixel; ein Punkt, der auf einer Farbe festhängt, ist ein hängendes Pixel (Stuck Pixel).",
+      "Hängendes Pixel gefunden? Geh zum letzten Testbild, dem Stuck-Pixel-Fixer, zieh das Feld darüber und tippe auf das Feld, um das Blinken zu starten. Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Was ist der Unterschied zwischen einem toten und einem hängenden Pixel?",
+        "a": "Ein totes Pixel bleibt auf jeder Farbe schwarz, weil es keinen Strom bekommt. Ein hängendes Pixel leuchtet dauerhaft in einer Farbe (Rot, Grün oder Blau) und lässt sich manchmal durch schnell wechselnde Farben wiederbeleben."
+      },
+      {
+        "q": "Kann ich ein hängendes Pixel reparieren?",
+        "a": "Manchmal. Schnell wechselnde Farben über der betroffenen Stelle oder sanftes Massieren können es lösen. Tote Pixel lassen sich per Software in der Regel nicht reparieren."
+      },
+      {
+        "q": "Funktioniert das auf Handys und Fernsehern?",
+        "a": "Ja. Der Test läuft in jedem modernen Browser auf Handys, Tablets, Laptops, Monitoren und Smart-TVs."
+      },
+      {
+        "q": "Wie viele tote Pixel sind bei einem neuen Bildschirm akzeptabel?",
+        "a": "Eine allgemeingültige Zahl gibt es nicht. Jeder Hersteller veröffentlicht seine eigene Pixelfehler-Richtlinie, und die meisten erlauben ein paar Fehler, bevor ein Panel als defekt gilt; helle Pixel werden dabei strenger bewertet als dunkle. Das gilt nur für Garantiefälle. Innerhalb der Rückgabefrist des Händlers kannst du einen Bildschirm schon wegen eines einzigen toten Pixels zurückschicken."
+      },
+      {
+        "q": "Breiten sich tote Pixel aus?",
+        "a": "Ein einzelnes totes Pixel greift nicht auf seine Nachbarn über. Kommen ständig neue dazu oder wächst ein dunkler Bereich, steckt etwas anderes dahinter: ein Druck- oder Stoßschaden, Flüssigkeit oder eine fehlerhafte Verbindung zum Panel. Das ist ein Fall für die Garantie, egal wie viele Pixel betroffen sind."
+      },
+      {
+        "q": "Ist der Stuck-Pixel-Fixer unbedenklich?",
+        "a": "Er zeigt nur schnell wechselnde Farben in einem kleinen Feld und kann dem Panel deshalb nicht schaden. Er blinkt allerdings schnell: Schau nicht hin, und verzichte ganz darauf, wenn du empfindlich auf Blinklicht reagierst. Zieh das Feld über das Pixel, starte es und schau weg."
+      },
+      {
+        "q": "Wie prüfe ich ein Handy oder einen Laptop auf tote Pixel?",
+        "a": "Genauso, nur aus kürzerer Entfernung. Die Pixel auf einem Handy oder einem hochauflösenden Laptop sind sehr klein, also halt den Bildschirm näher als sonst und such ihn in Streifen ab. Safari auf dem iPhone kann nicht in den echten Vollbildmodus wechseln, dort füllt die Farbe das Browserfenster; scroll die Adressleiste weg und prüf den oberen und unteren Rand getrennt."
+      }
+    ],
+    "tips": [
+      "Reinige zuerst den Bildschirm – ein Staubkorn sieht genauso aus wie ein totes Pixel.",
+      "Sieh dir jede Farbe aus etwa 30 cm Entfernung an, damit ein einzelnes fehlerhaftes Pixel wirklich auffällt.",
+      "Ein hängendes (nicht totes) Pixel gefunden? Nutze das Testbild „Stuck-Pixel-Fixer“ und lass das blinkende Feld 10–20 Minuten über dem Pixel, um es wiederzubeleben."
+    ]
+  },
+  "color-test": {
+    "name": "Farbtest",
+    "title": "Bildschirm-Farbtest",
+    "tagline": "Neun Vollfarben im Vollbild, um hängende Subpixel, Farbstiche und ungleichmäßige Flecken zu finden.",
+    "description": "Kostenloser Farbtest im Vollbild: reines Schwarz, Weiß, Rot, Grün, Blau, Cyan, Magenta, Gelb und Grau, um Gleichmäßigkeit zu prüfen und Pixelfehler zu finden.",
+    "keywords": [
+      "farbtest bildschirm",
+      "bildschirm einfarbig",
+      "rgb test",
+      "farbe vollbild"
+    ],
+    "howTo": [
+      "Klick auf „Starten“, um in den Vollbildmodus zu wechseln.",
+      "Wechsle die Farbe mit ← / → oder per Tipp links/rechts.",
+      "Achte auf Farbstiche, Flecken oder Punkte, die sich von der einfarbigen Fläche abheben.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Warum einzelne Vollfarben testen?",
+        "a": "Reines Rot, Grün und Blau sprechen jeweils nur ein Subpixel an. So fallen defekte Subpixel und Probleme mit der Farbgleichmäßigkeit sofort auf."
+      },
+      {
+        "q": "Warum ist ein Punkt auf manchen Farben zu sehen und auf anderen nicht?",
+        "a": "Weil jede Farbe andere Subpixel leuchten lässt. Ein dauerhaft leuchtendes rotes Subpixel ist auf Rot, Weiß und Gelb unsichtbar und auf Schwarz, Grün und Blau nicht zu übersehen. Merk dir, auf welchen Farben er erscheint: Daran unterscheidest du ein totes von einem hängenden Pixel."
+      },
+      {
+        "q": "Was bedeutet ein ungleichmäßiger Farbstich auf Weiß oder Grau?",
+        "a": "Wirkt der ganze Bildschirm zu warm oder zu kühl, liegt das an der Farbtemperatur oder an einem Nachtmodus, der noch aktiv ist. Ist nur ein Bereich verfärbt, etwa ein gelblicher Rand oder eine rosa Ecke, ist das Panel oder seine Hintergrundbeleuchtung dort ungleichmäßig, und das behebt keine Einstellung."
+      },
+      {
+        "q": "Sollte ich bei maximaler Helligkeit testen?",
+        "a": "Such Fehler bei maximaler Helligkeit, weil schwache Punkte und Flecken dann leichter zu sehen sind. Schau danach noch einmal bei deiner üblichen Helligkeit hin, um zu entscheiden, ob ein Fehler im Alltag stört."
+      },
+      {
+        "q": "Worin unterscheidet sich das vom Pixelfehler-Test?",
+        "a": "Beide zeigen dieselben Vollfarben. Der Pixelfehler-Test bringt zusätzlich das Testbild „Stuck-Pixel-Fixer“ und Hinweise zu Pixelfehlern mit. Nutz diese Seite, wenn du nach Farbstichen und ungleichmäßigen Flecken suchst oder einfach eine Farbe im Vollbild brauchst."
+      },
+      {
+        "q": "Warum sieht Rot orange aus, oder warum wirken die Farben ausgewaschen?",
+        "a": "Prüf zuerst den Bildmodus. Eco- und Lesemodi senken die Sättigung, ein Nachtmodus zieht alles Richtung Orange, und ein sRGB-Modus auf einem Wide-Gamut-Monitor dämpft die Farben absichtlich. Sind die Farben in jedem Modus schwach, hat das Panel einen kleinen Farbraum."
+      }
+    ],
+    "tips": [
+      "Reines Rot, Grün und Blau eignen sich am besten, um ein defektes Subpixel zu entdecken.",
+      "Schreib auf, auf welchen Farben ein Punkt zu sehen ist. Diese Liste unterscheidet ein totes von einem hängenden Pixel, und genau danach wird bei einem Garantieantrag gefragt.",
+      "Ein leichter Farbstich über die gesamte weiße Fläche bedeutet meist, dass Farbtemperatur bzw. Weißabgleich nicht stimmen."
+    ]
+  },
+  "black-screen": {
+    "name": "Schwarzer Bildschirm",
+    "title": "Schwarzer Bildschirm",
+    "tagline": "Reines Schwarz im Vollbild, um Backlight Bleeding, IPS-Glow und das OLED-Schwarz zu prüfen.",
+    "description": "Kostenloser schwarzer Bildschirm im Vollbild: Prüf dein LCD auf Backlight Bleeding und IPS-Glow, das OLED auf echtes Schwarz und finde hell leuchtende Pixel.",
+    "keywords": [
+      "schwarzer bildschirm",
+      "schwarzes bild",
+      "schwarzer bildschirm vollbild",
+      "oled schwarz"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ für eine rein schwarze Fläche im Vollbild.",
+      "Achte in einem dunklen Raum auf leuchtende Ränder oder Flecken (Backlight Bleeding / IPS-Glow).",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Wofür braucht man einen schwarzen Bildschirm?",
+        "a": "Um ein LCD auf Backlight Bleeding und IPS-Glow zu prüfen, um zu bestätigen, dass ein OLED echtes Schwarz zeigt, und um dauerhaft leuchtende Pixel zu finden, die nur vor Schwarz auffallen."
+      },
+      {
+        "q": "Warum leuchten die Ränder auf einem schwarzen Bildschirm?",
+        "a": "Bei einem LCD ist das Backlight Bleeding oder IPS-Glow: Licht der Hintergrundbeleuchtung, das an den Rändern austritt oder bei schrägem Blick als Schleier durchscheint. Ein wenig davon ist bei fast jedem LCD normal. Ein OLED sollte komplett schwarz bleiben, weil seine Pixel sich abschalten."
+      },
+      {
+        "q": "Sollte ein LCD komplett schwarz aussehen?",
+        "a": "Nein. Ein LCD erzeugt Schwarz, indem es eine Hintergrundbeleuchtung abschirmt, die eingeschaltet bleibt. Etwas Licht kommt also immer durch, und der Bildschirm wirkt im dunklen Raum sehr dunkelgrau. Entscheidend ist, dass dieses Grau gleichmäßig ist. Ein gleichmäßig angehobener Schwarzwert ist eine Frage der Kontrast- oder RGB-Bereich-Einstellung, kein austretendes Licht."
+      },
+      {
+        "q": "Spart ein schwarzer Bildschirm Strom?",
+        "a": "Bei einem OLED ja: Schwarze Pixel sind abgeschaltet und verbrauchen fast nichts. Bei einem LCD kaum, weil die Hintergrundbeleuchtung hinter dem schwarzen Bild weiterläuft. Um bei einem LCD Strom zu sparen, senk die Helligkeit oder lass das Display in den Ruhezustand gehen."
+      },
+      {
+        "q": "Ist das Display aus, oder zeigt es Schwarz?",
+        "a": "Es ist an und zeigt ein schwarzes Bild. Bei einem LCD erkennst du das im dunklen Raum am schwachen grauen Schimmer der Hintergrundbeleuchtung. Bei einem OLED gibt es nichts zu sehen, deshalb hält die Seite den Bildschirm wach: So kannst du sicher sein, dass er nicht einfach in den Ruhezustand gegangen ist."
+      }
+    ],
+    "tips": [
+      "Mach das Licht aus: In einem hellen Raum ist Bleeding unsichtbar. Bei maximaler Helligkeit findest du es leichter; deine übliche Helligkeit zeigt dir, ob es eine Rolle spielt.",
+      "Gib deinen Augen zwei bis drei Minuten zur Gewöhnung, bevor du die Ecken beurteilst. In den ersten dreißig Sekunden wirkt das Leuchten am schlimmsten.",
+      "Lehn dich etwa 30 cm nach links und rechts: Ein Schimmer, der mit dir wandert, ist IPS-Glow; einer, der an Ort und Stelle bleibt, ist Bleeding."
+    ]
+  },
+  "white-screen": {
+    "name": "Weißer Bildschirm",
+    "title": "Weißer Bildschirm",
+    "tagline": "Reines Weiß im Vollbild, um dunkle tote Pixel, Staub und ungleichmäßige Helligkeit zu finden.",
+    "description": "Kostenloser weißer Bildschirm im Vollbild: Finde dunkle tote Pixel und eingeschlossenen Staub, prüf die Ausleuchtung und achte auf verfärbte Flecken.",
+    "keywords": [
+      "weißer bildschirm",
+      "weißes bild",
+      "weißer bildschirm vollbild",
+      "weißer bildschirm test"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ für eine rein weiße Fläche im Vollbild.",
+      "Achte auf dunkle Punkte (tote Pixel) sowie auf Schmierer oder Staub.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Wofür braucht man einen weißen Bildschirm?",
+        "a": "Um dunkle tote Pixel und Staub zu finden, um zu prüfen, ob die Helligkeit von der Mitte bis in die Ecken gleichmäßig ist, und um Flecken mit abweichendem Farbstich zu entdecken."
+      },
+      {
+        "q": "Bleibt der Bildschirm an, während ich ihn untersuche?",
+        "a": "Ja, in Browsern, die die Screen Wake Lock API unterstützen – dazu gehören die aktuellen Versionen von Chrome, Edge, Safari und Firefox. Die Seite bittet dein Gerät, das Display wach zu halten, bis du den Test beendest. Wo der Browser das nicht unterstützt, gilt dein normaler Ruhezustand-Timer."
+      },
+      {
+        "q": "Warum wirkt das Weiß leicht gelblich oder bläulich?",
+        "a": "Weiß hängt von der Farbtemperatur des Displays ab. Nachtmodus, Night Shift, True Tone und warme „Augenschon“-Presets färben es absichtlich ein, schalte sie also vor dem Testen aus. Ohne sie ist ein gleichmäßig warmer oder kühler Stich ein Unterschied in der Kalibrierung, kein Fehler; achten solltest du auf Flecken mit abweichendem Farbstich."
+      },
+      {
+        "q": "Kann ich den weißen Bildschirm als Lichtquelle nutzen?",
+        "a": "Ja. Bei voller Helligkeit gibt ein weißer Bildschirm ein weiches, gleichmäßiges Licht ab – für einen Videocall, zum Lesen im Dunkeln oder zum Durchpausen einer Zeichnung auf Papier. Je größer der Bildschirm, desto weicher das Licht."
+      },
+      {
+        "q": "Schadet ein weißer Bildschirm bei voller Helligkeit meinem Display?",
+        "a": "Nicht bei einem kurzen Test. Vollweiß ist das anspruchsvollste Bild für einen Bildschirm, er wird also warm und verbraucht am meisten Strom, und ein OLED dimmt sich nach einer Weile womöglich selbst, um das Panel zu schützen. Lass auf einem OLED grundsätzlich kein statisches Bild stundenlang stehen."
+      }
+    ],
+    "tips": [
+      "Wisch den Bildschirm zuerst ab und schau dann noch einmal hin: Was sich bewegt hat, lag auf der Oberfläche.",
+      "Dunkle Pünktchen, die sich nicht wegwischen lassen, sind meist Staub zwischen den Schichten oder tote Pixel, kein Schmutz."
+    ]
+  },
+  "backlight-bleed-test": {
+    "name": "Backlight Bleeding",
+    "title": "Backlight-Bleeding-Test",
+    "tagline": "Mach austretendes Backlight und IPS-Glow im dunklen Raum sichtbar.",
+    "description": "Kostenloser Backlight-Bleeding-Test: Ein rein schwarzes Bild zeigt Lichthöfe und IPS-Glow an den Rändern und in den Ecken deines LCD-Bildschirms.",
+    "keywords": [
+      "backlight bleeding test",
+      "ips glow test",
+      "lichthöfe monitor",
+      "bildschirm lichthöfe test"
+    ],
+    "howTo": [
+      "Mach das Licht im Raum aus. Beginn mit maximaler Helligkeit, um Bleeding zu finden, und beurteile es dann noch einmal bei deiner üblichen Helligkeit.",
+      "Klick auf „Starten“ für eine schwarze Fläche im Vollbild.",
+      "Such Ränder und Ecken nach wolkigen oder leuchtenden Flecken ab.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Ist etwas Backlight Bleeding normal?",
+        "a": "Ja. Fast alle LCD-/LED-Panels haben leichtes Bleeding. Zum Problem wird es erst, wenn es ungleichmäßig ist, im Alltag stört oder in den Ecken übermäßig stark ausfällt."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Bleeding und IPS-Glow?",
+        "a": "Backlight Bleeding ist Licht, das an den Panelrändern austritt und auch frontal sichtbar ist. IPS-Glow ist ein Blickwinkeleffekt, der sich verändert, wenn du den Kopf bewegst."
+      },
+      {
+        "q": "Wird Backlight Bleeding mit der Zeit schlimmer?",
+        "a": "Meist nicht. Es bleibt in der Regel gleich, und bei einem neuen Bildschirm lässt es in den ersten Wochen manchmal nach, wenn sich der Rahmen setzt. Bleeding, das plötzlich auftaucht oder immer weiter wächst, deutet auf Druck auf das Panel, Hitze oder einen Stoß hin."
+      },
+      {
+        "q": "Lässt sich Backlight Bleeding beheben?",
+        "a": "Eine zuverlässige Lösung für zu Hause gibt es nicht. Auf das Panel zu drücken oder den Rahmen zu lockern kann es beschädigen und die Garantie kosten. Geringere Helligkeit und etwas Licht im Raum machen Bleeding deutlich weniger sichtbar. Stört es dich im Alltag, gib den Bildschirm zurück, solange das noch geht."
+      },
+      {
+        "q": "Warum sieht Bleeding auf meinem Foto so viel schlimmer aus?",
+        "a": "Im Dunkeln belichtet eine Handykamera lange und verstärkt das Signal – aus einem schwachen Schleier werden helle Wolken. Nutze Fotos, um mit fixierter Belichtung festzuhalten, wo das Bleeding sitzt, und vertrau bei der Stärke deinen Augen."
+      }
+    ],
+    "tips": [
+      "Fotografiere den schwarzen Bildschirm mit dem Handy, um Panels objektiv zu vergleichen.",
+      "Etwas Bleeding und IPS-Glow sind normal – nur ungleichmäßiges, störendes Clouding ist ein Defekt, der eine Rückgabe rechtfertigt.",
+      "Schau noch einmal bei normaler Raumbeleuchtung und deiner üblichen Helligkeit hin. Mit genau diesen Bedingungen wirst du leben."
+    ]
+  },
+  "greyscale-test": {
+    "name": "Graustufen-Test",
+    "title": "Graustufen- & Banding-Test",
+    "tagline": "Stufenloser Verlauf und 32-Stufen-Verlauf, um Color Banding sichtbar zu machen.",
+    "description": "Kostenloser Graustufen- und Banding-Test: Ein stufenloser Schwarz-Weiß-Verlauf und 32 Graustufen zeigen Banding, Tonwertabrisse und Farbstiche im Grau.",
+    "keywords": [
+      "graustufen test",
+      "grauverlauf test",
+      "color banding test",
+      "gamma test"
+    ],
+    "howTo": [
+      "Klick auf „Starten“, um den Verlauf im Vollbild zu sehen.",
+      "Mit ← / → wechselst du zwischen dem stufenlosen Verlauf und dem Stufenverlauf mit 32 Stufen.",
+      "Achte auf sichtbare Streifen oder abrupte Sprünge statt eines weichen Übergangs.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Was verursacht Color Banding?",
+        "a": "Banding entsteht, wenn ein Panel nicht genug unterschiedliche Abstufungen darstellen kann – häufig bei 6-Bit-Panels mit FRC, bei starker Kompression oder bei einer Ausgabe mit geringer Farbtiefe."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen den beiden Testbildern?",
+        "a": "Der stufenlose Verlauf läuft ohne Stufen von Schwarz nach Weiß; alle Streifen, die du darin siehst, stammen also aus deiner Anzeigekette. Der Stufenverlauf teilt denselben Bereich in 32 gleichmäßige Blöcke: Jeder sollte wie ein eigenes, neutrales Grau aussehen, auch die dunkelsten."
+      },
+      {
+        "q": "Warum wirken Teile des Stufenverlaufs farbstichig?",
+        "a": "Ein neutraler Verlauf sollte von Anfang bis Ende grau bleiben. Ein grüner, blauer oder magentafarbener Stich in einem Teil davon deutet auf den Weißabgleich oder die Farbeinstellungen des Displays hin, nicht auf Banding. Ein anderes Farb-Preset oder eine Kalibrierung behebt das meist."
+      },
+      {
+        "q": "Kommt das Banding von meinem Bildschirm oder von dem Video, das ich gesehen habe?",
+        "a": "Diese Seite zeichnet ihren Verlauf frisch und ohne Kompression. Streifen, die du hier siehst, kommen also von deinem Display oder seinen Einstellungen. Ist dieser Verlauf sauber, während ein Film oder Stream in Himmeln und Schatten Streifen zeigt, liegt es an der Kompression des Videos, nicht am Bildschirm."
+      },
+      {
+        "q": "Warum sieht man Banding in dunklen Bereichen am leichtesten?",
+        "a": "Das Auge reagiert am dunklen Ende empfindlicher auf kleine Helligkeitsstufen, und viele Panels stellen die letzten Abstufungen über Schwarz weniger genau dar. Deshalb zeigen Nachthimmel und Schatten zuerst Banding."
+      },
+      {
+        "q": "Wie viele Stufen sollte ich zählen können?",
+        "a": "Alle 32. Verschmelzen die dunkelsten zwei oder drei mit Schwarz, gehen Schattendetails verloren. Verschmelzen die hellsten paar mit Weiß, clippen die Lichter, meist weil die Einstellung „Kontrast“ zu hoch ist."
+      },
+      {
+        "q": "Verändert ein Bildmodus oder HDR das Ergebnis?",
+        "a": "Ja. Modi wie Lebhaft, Dynamisch und der Spielemodus verbiegen die Tonwertkurve, und dynamischer Kontrast ändert sie von Moment zu Moment. Teste im Standard- oder sRGB-Modus. Ist HDR in Windows eingeschaltet, werden gewöhnliche Inhalte umgerechnet und können Banding zeigen, wo vorher keines war."
+      },
+      {
+        "q": "Ist Banding ein Grund, einen Monitor zurückzugeben?",
+        "a": "Leichtes Banding in einem bildschirmfüllenden Verlauf ist verbreitet, besonders bei Panels mit 6 Bit + FRC, und kein Defekt. Deutliche Streifen in gewöhnlichen Inhalten, nachdem du die Einstellungen ausgeschlossen hast, auf einem Panel, das als 8 Bit oder 10 Bit verkauft wurde, solltest du innerhalb der Rückgabefrist beim Händler ansprechen."
+      }
+    ],
+    "tips": [
+      "Tritt einen Schritt vom Bildschirm zurück – aus der Entfernung ist Banding viel leichter zu sehen.",
+      "Zeigt der stufenlose Verlauf deutliche Balken, stell die Ausgabe deiner Grafikkarte auf vollen RGB-Bereich und mindestens 8 Bit Farbtiefe."
+    ]
+  },
+  "color-gradient-test": {
+    "name": "Farbverlauf",
+    "title": "Farbverlauf-Test",
+    "tagline": "Stufenlose Spektrum- und RGB-Verläufe, um Farbübergänge und Banding zu beurteilen.",
+    "description": "Kostenloser Farbverlauf-Test: Stufenlose Verläufe in Rot, Grün, Blau und im vollen Spektrum zeigen, wie sauber Farbübergänge sind – und wo Banding auftritt.",
+    "keywords": [
+      "farbverlauf test",
+      "color banding test",
+      "rgb verlauf",
+      "farbspektrum test",
+      "farbübergänge monitor"
+    ],
+    "howTo": [
+      "Klick auf „Starten“, um den Verlauf im Vollbild zu sehen.",
+      "Mit ← / → schaltest du durch die Verläufe für Spektrum, Rot, Grün, Blau, Weiß, Grau und Schwarz.",
+      "Prüf, ob die Übergänge weich sind und die Farben gesättigt und gleichmäßig wirken.",
+      "In den Weiß- und Grauverläufen fällt Helligkeits-Banding in den Schatten am leichtesten auf.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Kann ich damit meinen Farbraum testen?",
+        "a": "Nein. Diese Verläufe nutzen Standard-sRGB-Farben, die jedes Display darstellen kann. Sie zeigen also Banding und ungleichmäßige Übergänge, nicht den Farbraum. Ob dein Bildschirm Farben jenseits von sRGB zeigt, verrät der Wide-Color-Gamut-Test (P3)."
+      },
+      {
+        "q": "Wie sieht ein gutes Ergebnis aus?",
+        "a": "Jeder Verlauf geht von Anfang bis Ende weich ineinander über, ohne sichtbare Balken, plötzliche Sprünge oder Flecken. Das Spektrum sollte gleichmäßig durch Gelb, Grün, Cyan, Blau und Magenta laufen, ohne dass ein Farbton einen breiten Streifen verschluckt."
+      },
+      {
+        "q": "Warum Rot, Grün und Blau getrennt ansehen?",
+        "a": "Jeder Kanal wird einzeln angesteuert. Banding oder eine Farbverschiebung, die nur in einem Verlauf auftaucht, deutet also auf die Kalibrierung dieses Kanals hin, nicht auf das Panel insgesamt. Gewisse Helligkeitsunterschiede sind normal: Grün wirkt für das Auge immer am hellsten."
+      },
+      {
+        "q": "Warum ist Banding aufgetaucht, nachdem ich den Nachtmodus eingeschaltet oder ein Farbprofil geändert habe?",
+        "a": "Nachtmodi, Farbprofile und manuelle RGB-Anpassungen rechnen alle die Werte um, die an den Bildschirm gehen. Bei üblichen 8 Bit bleiben dann weniger unterschiedliche Stufen pro Kanal übrig, und in Verläufen, die vorher sauber waren, erscheinen Streifen. Schalte sie aus und prüf es noch einmal."
+      },
+      {
+        "q": "Was bedeuten 8 Bit, 10 Bit und 6 Bit + FRC?",
+        "a": "Sie geben an, wie viele Helligkeitsstufen jeder Farbkanal hat. 8 Bit ergeben 256 Stufen, 10 Bit ergeben 1.024. Ein 6-Bit-Panel hat nur 64 echte Stufen und nutzt FRC, also schnelles Umschalten zwischen zwei benachbarten Tönen, um die Stufen dazwischen nachzuahmen."
+      },
+      {
+        "q": "Beseitigt ein 10-Bit-Monitor das Banding?",
+        "a": "Nur wenn Inhalt, App, Grafikausgabe und Kabel alle 10-Bit-Farbe übertragen. Die meisten Desktop-Inhalte sind 8 Bit, und auf einem guten 8-Bit-Panel sollten sie trotzdem stufenlos aussehen. Banding, das du hier siehst, liegt häufiger an einer Einstellung als an fehlender Farbtiefe."
+      },
+      {
+        "q": "Ich sehe in den dunklen Verläufen ein feines, flirrendes Korn. Ist das ein Fehler?",
+        "a": "Nein. Das ist Dithering oder FRC: Das Panel wechselt zwischen zwei Tönen, um einen zu erzeugen, den es nicht direkt darstellen kann. Das ist bei vielen Bildschirmen normal und verschwindet meist bei normalem Betrachtungsabstand."
+      }
+    ],
+    "tips": [
+      "Nutze die Weiß- und Grauverläufe, um Helligkeits-Banding ohne Ablenkung durch Farbe zu isolieren.",
+      "Breite Bänder mit Tonwertabrissen kommen oft von einem 6-Bit-Panel oder starker Videokompression, nicht von deiner Grafikkarte."
+    ]
+  },
+  "brightness-uniformity-test": {
+    "name": "Ausleuchtung",
+    "title": "Ausleuchtungs-Test (Helligkeitsverteilung)",
+    "tagline": "Eine Graufläche mit 50 %, ein 9-Zonen-Raster und ein wanderndes Grau, um ungleichmäßige Ausleuchtung zu entdecken.",
+    "description": "Kostenloser Ausleuchtungs-Test: Graufläche mit 50 %, 9-Zonen-Raster und wanderndes Grau zeigen ungleichmäßige Ausleuchtung, Clouding und Dirty-Screen-Effekt.",
+    "keywords": [
+      "ausleuchtung monitor test",
+      "clouding test",
+      "helligkeitsverteilung test",
+      "grauer bildschirm"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und sieh dir die Graufläche im Vollbild an.",
+      "Mit ← / → wechselst du zum 9-Zonen-Raster und zum wandernden Grau.",
+      "Vergleich die Helligkeit der Mitte mit jeder Ecke.",
+      "Folge bei „Wanderndes Grau“ den wandernden Bändern mit den Augen: Schlieren oder Streifen, die an Ort und Stelle bleiben, sind der Dirty-Screen-Effekt des Panels.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Wie viel Abweichung ist akzeptabel?",
+        "a": "Gute Monitore bleiben über das Panel hinweg bei rund 10 % Helligkeitsabweichung. Größere Unterschiede zeigen sich als sichtbar dunklere Ecken oder hellere Hotspots."
+      },
+      {
+        "q": "Was ist der Dirty-Screen-Effekt?",
+        "a": "Flecken und schwache vertikale Streifen auf großen Panels, am deutlichsten, wenn die Kamera über eine gleichförmige Fläche wie einen Fußballrasen schwenkt. Das Testbild „Wanderndes Grau“ stellt das nach: Die Bänder wandern, und alle Flecken, die stehen bleiben, gehören zum Panel."
+      },
+      {
+        "q": "Lässt sich ungleichmäßige Helligkeit beheben?",
+        "a": "Nicht mit einer normalen Einstellung, denn sie entsteht in der Hintergrundbeleuchtung und den Panelschichten. Manche Monitore haben einen Modus zur Uniformitätskompensation, der das Bild auf Kosten von etwas Helligkeit und Kontrast ausgleicht. Stört ein Fleck im Alltag, gib den Bildschirm innerhalb der Rückgabefrist zurück."
+      },
+      {
+        "q": "Warum auf Grau statt auf Weiß testen?",
+        "a": "Helligkeitsunterschiede zeigen sich auf einem Mittelton am deutlichsten. Bei Vollweiß ist der Bildschirm am hellsten und deine Augen passen sich daran an – das verdeckt dunklere Ecken und Flecken, die auf Grau klar zu sehen sind."
+      },
+      {
+        "q": "Haben OLED-Bildschirme Probleme mit der Ausleuchtung?",
+        "a": "Sie haben keine Hintergrundbeleuchtung, also weder Clouding noch Bleeding. Trotzdem können sie auf sehr dunklem Grau schwache vertikale Streifen oder einen leichten Farbstichunterschied zeigen und nach langer Nutzung abgenutzte Bereiche. Leichtes Banding auf einer dunkelgrauen Fläche ist bei großen OLED- und VA-Panels verbreitet."
+      },
+      {
+        "q": "Warum sind die Ecken meines Laptop-Bildschirms dunkler?",
+        "a": "Die meisten Laptop-Bildschirme werden von einer Kante aus beleuchtet, und eine dünne Lichtleiterschicht verteilt das Licht über das Panel. Ein gewisser Helligkeitsabfall zu den entfernten Ecken hin ist normal. Ein dunkler Fleck mit scharfem Rand ist etwas anderes und deutet auf einen Druckschaden hin."
+      },
+      {
+        "q": "Wie fotografiere ich ungleichmäßige Helligkeit fair?",
+        "a": "Geh ein Stück zurück, fotografiere genau von vorn und fixier die Belichtung auf die Bildschirmmitte. Schalte den Nachtmodus der Kamera aus, er übertreibt kleine Unterschiede. Nimm das Foto als Beleg und beurteile mit deinen Augen, wie stark es ist."
+      }
+    ],
+    "tips": [
+      "Vergleich die Mitte nacheinander mit jeder einzelnen Ecke, statt die ganze Fläche abzusuchen.",
+      "Mach ein Foto mit gleichmäßiger Belichtung – deine Augen passen sich automatisch an und verdecken echte Unterschiede."
+    ]
+  },
+  "refresh-rate-test": {
+    "name": "Bildwiederholrate",
+    "title": "Bildwiederholraten-Test (Hz-Test)",
+    "tagline": "Miss deine tatsächliche Bildwiederholrate und beobachte eine bewegte Referenz.",
+    "description": "Kostenloser Bildwiederholraten-Test: Miss im Browser, mit wie viel Hz dein Display wirklich läuft, und prüf an einem bewegten Objekt, ob alles flüssig ist.",
+    "keywords": [
+      "hz test",
+      "bildwiederholrate test",
+      "bildwiederholfrequenz testen",
+      "144hz test",
+      "monitor hz prüfen"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ – die gemessene Bildwiederholrate erscheint nach ein bis zwei Sekunden.",
+      "Beobachte das bewegte Quadrat, um zu prüfen, ob die Bewegung flüssig aussieht.",
+      "Vergleich den Messwert mit der Hz-Angabe deines Panels; die Zeile darunter nennt die Frametime und die nächste Standardrate.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Warum entspricht der Messwert nicht genau der Angabe meines Monitors?",
+        "a": "Viele Displays laufen einen Bruchteil neben ihrer Nennrate, etwa mit 59,94 Hz statt 60, und das Timing des Browsers bringt etwas Rauschen hinein. Ein Messwert, der bis etwa 1 Hz von der Angabe abweicht, ist normal. Eine große Lücke bedeutet meist, dass in den Anzeigeeinstellungen deines Betriebssystems eine niedrigere Bildwiederholrate ausgewählt ist."
+      },
+      {
+        "q": "Warum zeigt mein 144-Hz-Monitor 60 Hz an?",
+        "a": "Weil das Panel mit 60 Hz angesteuert wird. Die üblichen Ursachen: Die Bildwiederholrate steht in den Anzeigeeinstellungen von Windows oder macOS noch auf 60, das Kabel oder der Anschluss schafft die höhere Rate bei deiner Auflösung nicht (nimm DisplayPort oder ein High-Speed-HDMI-Kabel), oder ein Energiesparmodus an Laptop oder Handy hat sie gesenkt. Behebe das und starte den Test noch einmal."
+      },
+      {
+        "q": "Was bedeuten Frametime und nächste Standardrate?",
+        "a": "Die Frametime ist die Dauer eines Bildaufbaus: 1000 ms geteilt durch die Rate, also 16,67 ms bei 60 Hz und 6,94 ms bei 144 Hz. Die nächste Standardrate nennt die gängige Panel-Einstellung, zu der dein Messwert passt – hilfreich, wenn die Messung einen Bruchteil danebenliegt."
+      },
+      {
+        "q": "Wie ändere ich meine Bildwiederholrate?",
+        "a": "Unter Windows gehst du zu Einstellungen > System > Anzeige > Erweiterte Anzeige und wählst eine Aktualisierungsrate. Auf dem Mac öffnest du Systemeinstellungen > Displays und nutzt das Menü „Wiederholrate“. Bei mehreren Monitoren wird die Rate für jedes Display getrennt eingestellt."
+      },
+      {
+        "q": "Ist die Bildwiederholrate dasselbe wie die Bildrate?",
+        "a": "Nein. Die Bildwiederholrate (Hz) gibt an, wie oft pro Sekunde der Bildschirm das Bild neu aufbaut. Die Bildrate (fps) gibt an, wie viele neue Bilder der Computer oder das Spiel liefert. Von einem 144-Hz-Bildschirm profitierst du nur, wenn auch die Quelle annähernd 144 Bilder pro Sekunde liefert."
+      },
+      {
+        "q": "Warum zeigt mein 120-Hz-Handy 60 Hz an?",
+        "a": "Handys ändern ihre Bildwiederholrate, um Akku zu sparen, und ein Energiesparmodus begrenzt sie meist auf 60 Hz. Manche mobilen Browser beschränken Webseiten außerdem auf 60 Aktualisierungen pro Sekunde, egal was das Panel kann. Ein Messwert von 60 Hz auf einem Handy ist deshalb kein Beweis für ein Problem."
+      },
+      {
+        "q": "Welcher Bildschirm wird gemessen, wenn ich zwei Monitore habe?",
+        "a": "Der, auf dem das Browserfenster liegt. Zieh das Fenster auf den anderen Monitor, und der Messwert folgt nach einem Moment. Laufen die Monitore mit unterschiedlichen Raten, koppeln sich manche Browser an einen davon – teste also jeden Monitor, während das Fenster vollständig darauf liegt."
+      }
+    ],
+    "tips": [
+      "Schließ andere Tabs und Apps; Last im Hintergrund kann die gemessene Rate unter die Angabe deines Panels drücken.",
+      "Hast du einen Monitor mit hoher Bildwiederholrate gekauft, stell sicher, dass die Rate in den Anzeigeeinstellungen deines Betriebssystems auch wirklich ausgewählt ist.",
+      "Teste auf Laptop oder Handy am Netzteil oder mit ausgeschaltetem Energiesparmodus: Stromsparen kann die Bildwiederholrate senken."
+    ]
+  }
+}

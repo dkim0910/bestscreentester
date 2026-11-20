@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import FullscreenStage from "./FullscreenStage";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 // public/hdr/pq-brightness-steps.avif is a real HDR image (BT.2020, PQ, 10-bit), built by
 // scripts/generate-hdr-test-image.mjs: six grey patches at fixed brightness and a
@@ -36,6 +37,7 @@ function Chip({ ok, children }: { ok: boolean | null; children: React.ReactNode 
 }
 
 export default function HdrTool({ tool }: { tool: ToolDef }) {
+  const t = useT();
   const [caps, setCaps] = useState<Caps | null>(null);
 
   useEffect(() => {
@@ -58,25 +60,27 @@ export default function HdrTool({ tool }: { tool: ToolDef }) {
     <div className="space-y-3">
       <div className="flex flex-wrap gap-2">
         <Chip ok={caps ? caps.hdr : null}>
-          {caps ? (caps.hdr ? "Browser reports an HDR display" : "Browser reports no HDR (SDR mode)") : "Checking…"}
+          {caps ? (caps.hdr ? t("Browser reports an HDR display") : t("Browser reports no HDR (SDR mode)")) : t("Checking…")}
         </Chip>
         <Chip ok={caps ? caps.hdrVideo : null}>
-          {caps ? (caps.hdrVideo ? "HDR video supported" : "No HDR video") : "Checking…"}
+          {caps ? (caps.hdrVideo ? t("HDR video supported") : t("No HDR video")) : t("Checking…")}
         </Chip>
         <Chip ok={caps ? caps.wide : null}>
-          {caps ? (caps.wide ? "Wide color gamut" : "Standard (sRGB) gamut") : "Checking…"}
+          {caps ? (caps.wide ? t("Wide color gamut") : t("Standard (sRGB) gamut")) : t("Checking…")}
         </Chip>
       </div>
       <FullscreenStage
         tool={tool}
         frameCount={1}
-        startLabel="Start HDR test"
+        startLabel={t("Start HDR test")}
         renderFrame={() => (
           <div className="flex h-full w-full items-center justify-center bg-black p-[2%]">
             <div className="relative aspect-[3/1] w-full max-w-full">
               <Image
                 src="/hdr/pq-brightness-steps.avif"
-                alt="HDR test image: grey patches at 100, 203, 400, 600, 1,000 and 1,600 nits above a 0 to 2,000 nit ramp"
+                alt={t(
+                  "HDR test image: grey patches at 100, 203, 400, 600, 1,000 and 1,600 nits above a 0 to 2,000 nit ramp",
+                )}
                 fill
                 sizes="100vw"
                 loading="eager" // the test *is* this 1.8 KB image; don't wait for it to scroll into view
@@ -88,14 +92,15 @@ export default function HdrTool({ tool }: { tool: ToolDef }) {
                   className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center text-[clamp(9px,1.4vw,15px)] font-medium text-white/80"
                   style={{ left: `${patchCenter(i)}%`, top: "69.2%" }}
                 >
-                  {p.nits} nits{p.note && <span className="block text-white/50">{p.note}</span>}
+                  {t("{n} nits", { n: p.nits })}
+                  {p.note && <span className="block text-white/50">{t(p.note)}</span>}
                 </span>
               ))}
               <span
                 className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[clamp(9px,1.3vw,14px)] text-white/60"
                 style={{ top: "94.5%" }}
               >
-                0 → 2,000 nit ramp
+                {t("0 → 2,000 nit ramp")}
               </span>
             </div>
           </div>

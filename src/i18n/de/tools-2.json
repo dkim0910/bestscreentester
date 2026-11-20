@@ -1,0 +1,448 @@
+{
+  "ghosting-test": {
+    "name": "Ghosting-Test",
+    "title": "Ghosting- & Reaktionszeit-Test",
+    "tagline": "Bewegte Quadrate in wählbarem Tempo, um Ghosting und Schlieren sichtbar zu machen.",
+    "description": "Kostenloser Ghosting- und Reaktionszeit-Test: Bewegte Quadrate in einstellbarem Tempo zeigen Bewegungsunschärfe, Schlieren (Ghosting) und Overshoot.",
+    "keywords": [
+      "ghosting test",
+      "reaktionszeit test monitor",
+      "schlieren test",
+      "overdrive test",
+      "ufo test"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und beobachte, wie die Quadrate über den Bildschirm wandern.",
+      "Mit ← / → änderst du das Tempo.",
+      "Achte auf eine schwache Spur (Ghosting) oder einen hellen Saum (Overshoot) hinter jedem Quadrat.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Was ist Ghosting?",
+        "a": "Ghosting ist eine verschmierte Spur hinter bewegten Objekten, verursacht durch träge Pixel. Mehr Overdrive am Monitor kann sie verringern, aber zu viel führt zu inversem Ghosting (Overshoot)."
+      },
+      {
+        "q": "Welches Tempo sollte ich nehmen?",
+        "a": "Beginn mit Mittel (480 px/s), das kommt alltäglichem Scrollen und Bewegungen in Spielen nahe. Langsam (240 px/s) zeigt, wie sauber das Panel zur Ruhe kommt, und Schnell (960 px/s) übertreibt Schlieren und Overshoot, sodass kleine Unterschiede zwischen Overdrive-Stufen sichtbar werden."
+      },
+      {
+        "q": "Ist die Spur Ghosting oder Bewegungsunschärfe?",
+        "a": "Etwas Unschärfe ist auf jedem normalen Display unvermeidlich: Jedes Bild steht still, während deine Augen sich weiterbewegen, höhere Bildwiederholraten sind deshalb schärfer. Ghosting ist etwas anderes – ein deutliches Nachbild oder ein Schmierer durch träge Pixelwechsel, und bei VA-Panels ist es meist in dunklen Szenen am stärksten."
+      },
+      {
+        "q": "Mein Monitor ist mit 1 ms angegeben. Warum sehe ich trotzdem eine Spur?",
+        "a": "Eine Reaktionszeit-Angabe ist ein Bestwert, meist gemessen auf der stärksten Overdrive-Stufe, bei der der helle Overshoot-Saum bereits sichtbar ist. Auf der Stufe, die am saubersten aussieht, dauern echte Pixelwechsel länger. Die Unschärfe, die entsteht, weil deine Augen einem bewegten Objekt folgen, hat mit der Reaktionszeit außerdem nichts zu tun."
+      },
+      {
+        "q": "Haben OLED-Bildschirme Ghosting?",
+        "a": "So gut wie keins. OLED-Pixel wechseln ihren Zustand fast augenblicklich, eine verschmierte Spur gibt es also nicht. Sie zeigen trotzdem die gewöhnliche Unschärfe jedes Displays, das jedes Bild stillstehend hält – die verringert nur eine höhere Bildwiederholrate oder ein Strobing-Modus."
+      }
+    ],
+    "tips": [
+      "Folge einem bewegten Quadrat mit den Augen und fixiere danach einen festen Punkt – beides zeigt unterschiedliche Artefakte.",
+      "Siehst du einen hellen Saum statt einer verschmierten Spur, ist dein Overdrive zu hoch eingestellt (Overshoot) – stell es eine Stufe herunter.",
+      "Prüf die Overdrive-Einstellung jedes Mal neu, wenn du die Bildwiederholrate änderst: Eine Stufe, die bei 144 Hz sauber aussieht, kann bei 60 Hz überschießen."
+    ]
+  },
+  "blooming-test": {
+    "name": "Blooming-Test",
+    "title": "Blooming-Test (Mini-LED)",
+    "tagline": "Ein helles Objekt auf Schwarz, um die Halos von Local Dimming zu beurteilen.",
+    "description": "Kostenloser Blooming-Test für Mini-LED- und Local-Dimming-Displays: Beweg ein helles Objekt über Schwarz und mach Halos und Blooming um helle Stellen sichtbar.",
+    "keywords": [
+      "blooming test",
+      "mini led test",
+      "local dimming test",
+      "halo effekt test",
+      "fald"
+    ],
+    "howTo": [
+      "Dunkle den Raum ab und klick auf „Starten“.",
+      "Beweg den Mauszeiger oder deinen Finger, um den hellen Punkt über die schwarze Fläche zu ziehen.",
+      "Achte auf einen leuchtenden Halo (Blooming) um das helle Objekt.",
+      "Mit → kommst du zu den Zonendurchläufen: Zähl, wie oft der Halo springt, während das Quadrat über den Bildschirm wandert – das entspricht ungefähr der Zahl der Dimming-Zonen in der Breite (oder Höhe).",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Warum entsteht Blooming?",
+        "a": "Eine Hintergrundbeleuchtung mit Local Dimming hat nur eine begrenzte Zahl von Zonen. Ein kleines helles Objekt lässt seine ganze Zone leuchten, und so strahlt etwas Licht in den schwarzen Bereich daneben."
+      },
+      {
+        "q": "Gibt es Blooming bei OLED?",
+        "a": "Nein. Jedes OLED-Pixel erzeugt sein eigenes Licht, ein helles Objekt auf Schwarz hat also keine Backlight-Zone, aus der es überstrahlen könnte. Blooming betrifft nur LCDs mit Local Dimming, Mini-LED eingeschlossen."
+      },
+      {
+        "q": "Wie verringere ich Blooming?",
+        "a": "Bei den meisten Displays mit Local Dimming lässt sich einstellen, wie aggressiv gedimmt wird. Eine niedrigere Stufe verkleinert die Halos, hebt aber das Schwarz an; eine höhere vertieft das Schwarz, zeigt aber mehr Blooming. Etwas Licht im Raum lässt Halos außerdem weniger auffallen als völlige Dunkelheit."
+      },
+      {
+        "q": "Warum ist Blooming stärker, wenn ich von der Seite schaue?",
+        "a": "LCD-Panels schirmen die Hintergrundbeleuchtung aus schrägem Winkel schlechter ab, um ein helles Objekt dringt also mehr Licht jeder aktiven Zone durch. Halos, die frontal harmlos sind, können vom Sofaende aus deutlich größer wirken."
+      },
+      {
+        "q": "Ist Blooming in HDR stärker?",
+        "a": "Ja. HDR-Spitzlichter sind weit heller als alles in SDR, die Zonen dahinter werden also stärker angesteuert, und mehr Licht strahlt in die dunklen Bereiche daneben. Untertitel in einer dunklen Szene sind das klassische Beispiel."
+      },
+      {
+        "q": "Wie viele Dimming-Zonen reichen aus?",
+        "a": "Eine feste Zahl gibt es nicht. Mehr Zonen heißt, dass jede einzelne kleiner ist, und damit auch der Halo um ein helles Objekt. Bildschirme, die in einer Handvoll vertikaler Streifen dimmen, beleuchten hinter einem kleinen Objekt eine ganze Spalte. Die Zonendurchläufe zeigen, wie fein dein Bildschirm arbeitet."
+      },
+      {
+        "q": "Ist Blooming dasselbe wie Backlight Bleeding?",
+        "a": "Nein. Backlight Bleeding bleibt an derselben Stelle, meist an einem Rand, egal was auf dem Bildschirm ist. Blooming wandert mit hellen Objekten mit und tritt nur bei Bildschirmen mit Local Dimming auf."
+      },
+      {
+        "q": "Sollte ich Local Dimming ausschalten?",
+        "a": "Für die Arbeit am Desktop oft ja: Ein weißer Mauszeiger oder Text auf dunklem Hintergrund erzeugt Halos und lässt die Helligkeit pumpen. Für Filme, Spiele und HDR lässt du es an, denn genau daher haben diese Bildschirme ihr tiefes Schwarz."
+      }
+    ],
+    "tips": [
+      "Teste in einem dunklen Raum; bei eingeschaltetem Licht ist Blooming um den hellen Punkt kaum zu sehen.",
+      "Mehr Dimming-Zonen = weniger Blooming. OLED zeigt praktisch keins."
+    ]
+  },
+  "burn-in-test": {
+    "name": "Burn-in-Test",
+    "title": "Burn-in-Test für Bildschirme",
+    "tagline": "Vollflächen und ein Schachbrett, um OLED-Burn-in sichtbar zu machen.",
+    "description": "Kostenloser Burn-in-Test für OLED und AMOLED: Weiß, Grau, RGB und ein Schachbrett im Vollbild zeigen eingebrannte Bilder und ungleichmäßig gealterte Pixel.",
+    "keywords": [
+      "burn in test",
+      "oled burn in test",
+      "oled einbrennen test",
+      "amoled einbrennen",
+      "geisterbild bildschirm"
+    ],
+    "howTo": [
+      "Stell die Helligkeit hoch und klick auf „Starten“.",
+      "Schalte mit ← / → durch Weiß, Grau und die einzelnen RGB-Flächen.",
+      "Achte auf schwache Umrisse von Logos, Leisten oder HUDs, die dort nicht hingehören – auf Grau sieht man sie am besten.",
+      "Das Schachbrett-Testbild hilft, kurzzeitige Image Retention auszugleichen.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Was ist der Unterschied zwischen Burn-in und Image Retention?",
+        "a": "Image Retention ist vorübergehend und verblasst nach wechselnden Inhalten. Burn-in (Einbrennen) ist eine dauerhafte, ungleichmäßige Abnutzung der OLED-Subpixel. Bleibt ein Umriss über viele verschiedene Bilder hinweg bestehen, ist es Burn-in."
+      },
+      {
+        "q": "Welche Fläche zeigt Burn-in am besten?",
+        "a": "Eine Graufläche mit 50 % ist meist am aufschlussreichsten, gefolgt von den Vollfarben. Statische Bedienelemente (Taskleisten, Logos) hinterlassen die deutlichsten Geisterbilder."
+      },
+      {
+        "q": "Lässt sich Burn-in beheben?",
+        "a": "Nein. Burn-in ist eine ungleichmäßige Abnutzung der Pixel, und abgenutzte Pixel erholen sich nicht. Der Refresh- oder Kompensationszyklus des Panels kann eine Stelle weniger sichtbar machen, indem er die Umgebung angleicht, aber die abgenutzten Pixel stellt er nicht wieder her."
+      },
+      {
+        "q": "Kann ein LCD einbrennen?",
+        "a": "LCDs können Nachbilder zeigen: einen schwachen Umriss, nachdem ein statisches Bild lange zu sehen war. Er verschwindet fast immer von selbst, nach wechselnden Inhalten oder einiger Zeit im ausgeschalteten Zustand. Dauerhaftes Burn-in ist bei einem LCD selten."
+      },
+      {
+        "q": "Wie beuge ich Burn-in vor?",
+        "a": "Senk die Helligkeit, blende statische Elemente wie die Taskleiste oder ein Senderlogo aus, wo es geht, und sorg für Abwechslung auf dem Bildschirm. Lass das Panel seinen Kompensationszyklus durchlaufen – bei den meisten Fernsehern passiert das im Standby, trenn das Gerät also nicht nach jeder Nutzung an der Steckdose vom Strom."
+      }
+    ],
+    "tips": [
+      "Die Graufläche mit 50 % zeigt eingebrannte Logos und HUD-Leisten am besten – schau dort zuerst hin.",
+      "Lass das Schachbrett eine Weile laufen, um kurzzeitige Image Retention zu beseitigen (echtes Burn-in rührt sich nicht).",
+      "Einen Umriss gefunden? Lass ein bis zwei Stunden abwechslungsreiches Video im Vollbild laufen und prüf es noch einmal, bevor du von Burn-in sprichst.",
+      "Fotografiere die Graufläche und notiere das Datum, damit du später einen Vergleich hast."
+    ]
+  },
+  "contrast-test": {
+    "name": "Kontrast-Test",
+    "title": "Kontrast-Test",
+    "tagline": "Schwarz-weiße Schachbretter, um die Trennung von Schwarz und Weiß zu beurteilen.",
+    "description": "Kostenloser Kontrast-Test: Schwarz-weiße Schachbretter in zunehmender Dichte zeigen, wie gut dein Bildschirm Kontrast, Schwarz- und Weißpegel und Schärfe hält.",
+    "keywords": [
+      "kontrast test",
+      "schachbrett testbild",
+      "schwarzwert weißwert",
+      "kontrastverhältnis"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und sieh dir das Schachbrett im Vollbild an.",
+      "Mit ← / → änderst du die Rasterdichte (4×4 bis 32×32).",
+      "Schwarze Felder sollten tiefschwarz bleiben und weiße hell, mit scharfen Kanten dazwischen.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Worauf sollte ich achten?",
+        "a": "Auf eine saubere Trennung von Schwarz und Weiß mit scharfen Grenzen. Gräuliches Schwarz deutet auf geringen Kontrast hin; unscharfe Kanten können auf mangelnde Schärfe oder Skalierung hindeuten."
+      },
+      {
+        "q": "Kann ich damit mein Kontrastverhältnis messen?",
+        "a": "Nein. Ein Kontrastverhältnis ist ein Messwert der Lichtleistung und braucht ein Messgerät. Das hier ist eine Sichtprüfung: Sie zeigt, ob Schwarz direkt neben hellem Weiß tief bleibt – so sieht ein hohes oder niedriges Kontrastverhältnis in der Praxis aus."
+      },
+      {
+        "q": "Welche Paneltypen schneiden am besten ab?",
+        "a": "OLED, weil sich jedes Pixel abschaltet: Die schwarzen Felder bleiben neben weißen komplett dunkel. Unter den LCDs erreichen VA-Panels typischerweise 2.500:1 bis 5.000:1 und IPS rund 1.000:1, IPS-Schwarz wirkt im dunklen Raum also merklich grauer."
+      },
+      {
+        "q": "Warum wirkt der Kontrast in einem hellen Raum schlechter?",
+        "a": "Raumlicht wird vom Bildschirm reflektiert und hellt jeden dunklen Bereich auf – Schwarz wird zu Grau, während sich Weiß kaum ändert. Der Kontrast des Panels selbst ist derselbe wie vorher. Beurteile die Schwarztiefe in einem abgedunkelten Raum und die Alltagstauglichkeit in dem Licht, in dem du wirklich arbeitest."
+      },
+      {
+        "q": "Sollte ich dynamischen Kontrast eingeschaltet lassen?",
+        "a": "Schalte ihn zum Testen aus. Dynamischer Kontrast regelt die Hintergrundbeleuchtung je nach Bildinhalt, dasselbe Testbild sieht also von einem Moment zum nächsten anders aus. Viele lassen ihn ganz aus, weil die Helligkeitssprünge in gemischten Szenen stören."
+      },
+      {
+        "q": "Was ist ein gutes Kontrastverhältnis?",
+        "a": "Das hängt davon ab, wo du schaust. Ein IPS-Panel mit rund 1.000:1 sieht in einem beleuchteten Raum gut aus. Ein VA-Panel mit 2.500:1 bis 5.000:1 wirkt im Dunkeln deutlich tiefer, und ein OLED noch tiefer, weil seine schwarzen Pixel aus sind. Bei Tageslicht schrumpft der Abstand, weil Reflexionen das Schwarz auf jedem Bildschirm aufhellen."
+      },
+      {
+        "q": "Warum ist der Kontrastwert auf dem Karton so viel höher?",
+        "a": "Werte in Millionenhöhe sind dynamischer Kontrast: das hellste Weiß bei voller Hintergrundbeleuchtung, verglichen mit dem dunkelsten Schwarz, nachdem die Hintergrundbeleuchtung gedimmt hat. Beides ist nie gleichzeitig auf dem Bildschirm. Das native, also statische Kontrastverhältnis beschreibt, was du in einem einzelnen Bild siehst."
+      },
+      {
+        "q": "Verbessert eine höhere Einstellung „Kontrast“ den Kontrast?",
+        "a": "Nein. Diese Einstellung verändert, wie hell die hellsten Töne angesteuert werden, das Kontrastverhältnis des Panels bleibt gleich. Ist sie zu hoch, verschmelzen die hellsten Töne zu reinem Weiß. Lass sie auf dem Standardwert, außer helle Details clippen."
+      }
+    ],
+    "tips": [
+      "Schwarze Felder sollten tiefschwarz bleiben; ein Grauschleier bedeutet geringen Kontrast oder einen angehobenen Schwarzwert.",
+      "Unscharfe Kanten zwischen den Feldern deuten auf Skalierungs- oder Schärfeprobleme hin, nicht auf den Kontrast."
+    ]
+  },
+  "black-level-test": {
+    "name": "Schwarzwert-Test",
+    "title": "Schwarzwert-Test",
+    "tagline": "Stufen nahe Schwarz zeigen, wie dunkel dein Panel wirklich wird.",
+    "description": "Kostenloser Schwarzwert-Test: Graustufen nahe Schwarz zeigen Schattendetails, Schwarztiefe und IPS-Glow – welche dunklen Stufen stellt dein Bildschirm noch dar?",
+    "keywords": [
+      "schwarzwert test",
+      "schattendetails monitor",
+      "schwarzwert einstellen",
+      "schwarztiefe",
+      "ips glow"
+    ],
+    "howTo": [
+      "Dunkle den Raum ab, stell die Helligkeit auf dein übliches Niveau und klick dann auf „Starten“.",
+      "Jeder vertikale Streifen ist etwas heller als reines Schwarz (die Zahl ist sein Wert).",
+      "Merk dir den niedrigsten Streifen, den du noch von reinem Schwarz unterscheiden kannst – das ist deine Untergrenze für Schattendetails.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Wie viele Stufen sollte ich sehen?",
+        "a": "Auf einem guten Display im dunklen Raum kannst du die Stufen meist ab Wert 2–4 unterscheiden. Sehen alle niedrigen Stufen aus wie Schwarz, saufen die Schattendetails ab (oft wegen einer Helligkeits- bzw. Schwarzwert-Einstellung oder eines „begrenzten“ RGB-Bereichs)."
+      },
+      {
+        "q": "Sollte ich die Helligkeit hochdrehen, bis ich jede Stufe sehe?",
+        "a": "Bei einem Monitor nicht: Sein Helligkeitsregler steuert vor allem die Hintergrundbeleuchtung, das macht jede Stufe leichter sichtbar, hebt aber auch das Schwarz an. Teste bei der Helligkeit, die du wirklich nutzt. Bei Fernsehern regelt die Einstellung namens „Helligkeit“ oft den Schwarzwert selbst, und die ist dann die richtige Stellschraube."
+      },
+      {
+        "q": "Warum leuchten die dunklen Streifen zu den Ecken hin?",
+        "a": "Das ist IPS-Glow oder Backlight Bleeding, kein Problem mit Schattendetails: Hintergrundlicht, das bei schrägem Blick durchscheint oder an den Rändern austritt. Beurteile die Stufen in der Bildschirmmitte und nutze den Backlight-Bleeding-Test für die Ecken."
+      },
+      {
+        "q": "Was haben voller und begrenzter RGB-Bereich damit zu tun?",
+        "a": "Videosignale können den vollen Wertebereich von 0 bis 255 nutzen oder einen begrenzten von 16 bis 235. Sendet der Computer das eine und erwartet der Bildschirm das andere, werden entweder die dunkelsten Stufen alle schwarz, oder Schwarz wird grau. Stell beide auf denselben Bereich: „Voll“ für einen Monitor und bei einem Fernseher das, was zum Eingangsmodus passt."
+      },
+      {
+        "q": "Warum sehe ich tagsüber weniger Stufen?",
+        "a": "Licht im Raum wird vom Bildschirm reflektiert und verdeckt die dunkelsten Stufen, und deine Augen sind an eine hellere Umgebung angepasst. Schattendetails, die nachts klar zu sehen sind, können mittags verschwinden. Das ist normal – und ein Grund, in dem Licht zu testen, in dem du schaust."
+      }
+    ],
+    "tips": [
+      "Dunkle den Raum ab und nimm deine übliche Helligkeit – nicht das Maximum –, um echte Schattendetails zu beurteilen.",
+      "Verschmelzen die niedrigsten Stufen alle mit Schwarz, prüf, ob ein „begrenzter“ RGB-Bereich oder ein zu niedrig eingestellter Schwarzwert schuld ist."
+    ]
+  },
+  "viewing-angle-test": {
+    "name": "Blickwinkel-Test",
+    "title": "Blickwinkel-Test",
+    "tagline": "Graustufen und Farbbalken zeigen, wie stark sich Farbe und Helligkeit bei schrägem Blick verändern.",
+    "description": "Kostenloser Blickwinkel-Test: Graustufen und Farbbalken anzeigen, Kopf bewegen und sehen, wie stark Helligkeit und Farben bei TN- und VA-Panels kippen.",
+    "keywords": [
+      "blickwinkel test",
+      "blickwinkelstabilität monitor",
+      "farbverschiebung bildschirm",
+      "tn va ips blickwinkel"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und setz dich zuerst mittig hin, um eine Referenz zu haben.",
+      "Beweg den Kopf nach links/rechts und oben/unten und geh einen Schritt zurück.",
+      "Beobachte, wie stark die Graustufen verblassen und die Farben kippen – je weniger, desto besser.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Was ist normal?",
+        "a": "IPS und OLED halten Farbe und Helligkeit bei schrägem Blick gut. TN-Panels kippen stark (vor allem vertikal), VA-Panels zeigen eine Kontrast- bzw. Gamma-Verschiebung und Aufhellungen in den Ecken. Etwas Veränderung ist normal – große Veränderungen bedeuten einen engen Blickwinkelbereich."
+      },
+      {
+        "q": "Warum sehen die Ecken anders aus, obwohl ich mittig sitze?",
+        "a": "Bei einem großen Bildschirm oder einem, der nah vor dir steht, siehst du die Ecken ohnehin schon schräg. TN- und VA-Panels zeigen das selbst vom mittleren Platz aus als dunklere oder ausgewaschene Ecken. Ein Curved-Monitor hält die Ränder näher an der Frontalsicht und verringert den Effekt."
+      },
+      {
+        "q": "Auf welchen Teil des Testbilds sollte ich achten?",
+        "a": "Die Graustufen oben zeigen Helligkeits- und Gamma-Verschiebungen: Auf einem Panel mit engem Blickwinkel verblassen oder verschmelzen die dunklen Stufen, wenn du dich bewegst, und die Grautöne bekommen einen Farbstich. Die Farbbalken darunter zeigen, wie die Sättigung nachlässt und Farbtöne kippen."
+      },
+      {
+        "q": "Kann ich die Blickwinkel meines Bildschirms verbessern?",
+        "a": "Keine Einstellung ändert sie, die Position aber schon. Sitz frontal vor dem Bildschirm, stell die Höhe so ein, dass deine Augen auf Höhe des oberen Drittels sind, und neig ihn, bis oben und unten gleich hell wirken. Bei einem Laptop macht der Winkel des Deckels den größten Unterschied."
+      },
+      {
+        "q": "Warum verändert sich das Bild, wenn ich den Laptop-Deckel neige?",
+        "a": "Günstigere Laptops haben oft TN-Panels, die von oben oder unten betrachtet stark kippen. Ein paar Grad Neigung reichen, um das Bild abzudunkeln oder auszuwaschen. Laptop-Displays mit IPS oder OLED verändern sich kaum."
+      }
+    ],
+    "tips": [
+      "Leg deine Referenz zuerst genau mittig sitzend fest und beweg dich dann zum Vergleich aus der Achse.",
+      "Starkes Kippen bei vertikaler Bewegung ist typisch für TN-Panels; eine Kontrast- bzw. Gamma-Verschiebung mit Aufhellungen in den Ecken ist typisch für VA."
+    ]
+  },
+  "gamma-test": {
+    "name": "Gamma-Test",
+    "title": "Gamma-Test",
+    "tagline": "Streifenmuster gegen Referenzfelder, um das Gamma deines Displays abzulesen.",
+    "description": "Kostenloser Gamma-Test: Ein 1-Pixel-Streifenmuster (≈50 % Grau) neben Referenzfeldern für Gamma 1,8–2,4. Das Feld, das verschwindet, verrät dein Display-Gamma.",
+    "keywords": [
+      "gamma test",
+      "gamma 2.2",
+      "gamma kalibrieren",
+      "monitor gamma einstellen"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und geh etwas zurück (die Streifen sollten zu einem einheitlichen Grau verschwimmen).",
+      "Vergleich jedes beschriftete Feld (γ 1,8–2,4) mit dem gestreiften Hintergrund.",
+      "Das Feld, das am stärksten in den Streifen verschwindet, entspricht dem Gamma deines Displays – das Ziel ist 2,2.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Welches Gamma sollte ich anpeilen?",
+        "a": "2,2 (sRGB-Standard) für den allgemeinen Gebrauch. Verschwinden die Felder mit niedrigeren Werten, ist dein Gamma zu niedrig (flaues Bild); passen die höheren, ist es zu hoch (abgesoffene Schatten). Ändere das Gamma-Preset des Monitors oder die Kalibrierung im Betriebssystem."
+      },
+      {
+        "q": "Nutzen Mac und Windows unterschiedliches Gamma?",
+        "a": "Nicht mehr. Beide zielen standardmäßig auf 2,2; macOS ist 2009 von 1,8 auf 2,2 gewechselt. Was sich unterscheidet, ist das Verhalten jedes einzelnen Displays, und genau das liest dieser Test ab."
+      },
+      {
+        "q": "Ist das so genau wie ein Kalibrierungsgerät?",
+        "a": "Nein. Der Test liefert eine gute visuelle Schätzung für das Gamma deines Displays rund um das mittlere Grau, kann aber weder die gesamte Kurve von Schwarz bis Weiß messen noch sie korrigieren. Ein Colorimeter kann beides."
+      },
+      {
+        "q": "Warum zeigen die Streifen Farben oder Wellenmuster?",
+        "a": "Das Muster funktioniert nur, wenn jeder Streifen auf genau einer Pixelzeile landet. Browser-Zoom, eine nicht native Auflösung oder die Skalierung des Fernsehers zerstört das und erzeugt farbige oder wellige Interferenzen. Setz den Zoom mit Strg/Cmd + 0 zurück, nimm die native Auflösung und lade die Seite neu."
+      },
+      {
+        "q": "Wie ändere ich das Gamma meines Displays?",
+        "a": "Fang mit dem Menü des Monitors an, die meisten Modelle bieten dort Gamma-Presets. Unter Windows suchst du nach „Bildschirmfarbe kalibrieren“, um das integrierte Tool zu öffnen. Auf dem Mac öffnest du Systemeinstellungen > Displays und nutzt das Menü für das Farbprofil. Wiederhol diesen Test nach jeder Änderung."
+      },
+      {
+        "q": "Was ist Gamma, einfach erklärt?",
+        "a": "Es ist die Kurve, die einen Signalwert in Helligkeit umsetzt. Schwarz und Weiß bleiben, wo sie sind; Gamma entscheidet, wie hell alles dazwischen aussieht. Ein niedrigeres Gamma macht Mitteltöne heller und flacher, ein höheres macht sie dunkler und schwerer."
+      },
+      {
+        "q": "Warum ändert sich das Ergebnis, wenn ich den Kopf bewege?",
+        "a": "Bei VA- und TN-Panels verschiebt sich das Gamma mit dem Blickwinkel. Das Feld, das oben auf dem Bildschirm verschmilzt, ist deshalb nicht unbedingt dasselbe wie unten. Lies das Testbild genau von vorn und auf Augenhöhe ab. Bei IPS- und OLED-Bildschirmen ändert sich kaum etwas."
+      },
+      {
+        "q": "Sollte ich für Filme 2,4 nehmen?",
+        "a": "In einem komplett abgedunkelten Raum ist eine Kurve nahe 2,4 das, wofür viele Filme gemastert werden, und sie sorgt für tiefere Schatten. In einem Raum mit etwas Licht verschluckt sie Schattendetails. Für den Alltag und für alles, was du bei Tageslicht ansiehst, ist 2,2 der richtige Zielwert."
+      }
+    ],
+    "tips": [
+      "Geh so weit zurück, bis die Streifen zu einem einheitlichen Grau verschwimmen, bevor du die Felder vergleichst.",
+      "Im Idealfall verschwindet das 2,2-Feld; verschwindet ein niedrigerer Wert, ist dein Bild flau, ein höherer bedeutet abgesoffene Schatten."
+    ]
+  },
+  "screen-tearing-test": {
+    "name": "Tearing-Test",
+    "title": "Screen-Tearing-Test",
+    "tagline": "Schnell laufende Balken, die Tearing ohne V-Sync/VRR sichtbar machen.",
+    "description": "Kostenloser Screen-Tearing-Test: Schnelle Balken zeigen Bildrisse, wenn Bildrate und Bildwiederholrate nicht synchron sind – prüf V-Sync, G-Sync und FreeSync.",
+    "keywords": [
+      "screen tearing test",
+      "vsync test",
+      "g-sync test",
+      "freesync test",
+      "vrr test"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und beobachte die bewegten Balken.",
+      "Mit ← / → wechselst du zwischen vertikalen Balken (zeigen horizontale Risse) und horizontalen Balken (zeigen vertikale Risse).",
+      "Ein sauberes Bild bedeutet kein Tearing; ein Bruch, an dem die Balken versetzt sind, ist ein Riss.",
+      "Schalte V-Sync oder Adaptive Sync (G-Sync/FreeSync) ein und aus und vergleich.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Wie stoppe ich Tearing?",
+        "a": "Aktiviere Adaptive Sync (G-Sync/FreeSync) für rissfreie Bewegung mit geringer Latenz, oder V-Sync, um die Bildrate an die Bildwiederholrate zu koppeln (bringt etwas Verzögerung mit). Unser Ratgeber zu Screen Tearing erklärt alles im Detail."
+      },
+      {
+        "q": "Warum sehe ich hier kein Tearing?",
+        "a": "Browser zeichnen meist synchron zum Display, ein sauberes Ergebnis ist also üblich und beweist nicht, dass deine Spiele kein Tearing zeigen. Spiele reißen, wenn sie Frames mit ausgeschaltetem V-Sync senden. Siehst du hier doch Risse, prüf, ob die Hardwarebeschleunigung in deinem Browser aktiv ist und das Display mit seiner vollen Bildwiederholrate läuft."
+      },
+      {
+        "q": "Was ändert der Tempo-Regler?",
+        "a": "Wie schnell sich die Balken bewegen. Schnellere Bewegung macht den Versatz an einem Riss breiter und leichter erkennbar. Wirkt die Bewegung ruckelig statt gerissen, werden Frames ausgelassen oder wiederholt; genau das prüft der Frame-Skipping-Test."
+      },
+      {
+        "q": "Wie prüfe ich, ob G-Sync oder FreeSync wirklich aktiv ist?",
+        "a": "Es muss an zwei Stellen eingeschaltet sein: im Menü des Monitors und in der Systemsteuerung des Grafiktreibers. Außerdem braucht es die richtige Verbindung – DisplayPort am PC oder HDMI 2.1 an Konsole oder Fernseher, wo es meist als VRR geführt wird."
+      },
+      {
+        "q": "Verringert eine höhere Bildwiederholrate das Tearing?",
+        "a": "Sie macht Risse schwerer sichtbar, nicht seltener. Bei 144 Hz ist jedes gerissene Bild weniger als 7 ms zu sehen statt knapp 17 ms bei 60 Hz, und der Versatz am Riss ist kleiner. Nur V-Sync oder Adaptive Sync beseitigt Tearing vollständig."
+      }
+    ],
+    "tips": [
+      "Nimm das Testbild mit vertikalen Balken für horizontale Risse und das mit horizontalen Balken für vertikale Risse.",
+      "Schalte V-Sync oder Adaptive Sync (G-Sync/FreeSync) um und beobachte, wie die Risslinie erscheint oder verschwindet."
+    ]
+  },
+  "touch-screen-test": {
+    "name": "Touchscreen-Test",
+    "title": "Touchscreen-Test",
+    "tagline": "Berühr jede Zelle oder zeichne frei, um tote Zonen und Multi-Touch-Grenzen zu finden.",
+    "description": "Kostenloser Touchscreen-Test für Handy, Tablet und Laptop: Füll ein Raster oder zeichne frei und finde tote Zonen, Geisterberührungen und Multi-Touch-Grenzen.",
+    "keywords": [
+      "touchscreen test",
+      "touch test handy",
+      "display touch testen",
+      "multitouch test",
+      "digitizer test",
+      "handy display test"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und halt das Gerät so, wie du es sonst auch hältst.",
+      "Zieh einen Finger langsam über jede Zelle des Rasters – jede wird grün, sobald sie die Berührung erkennt.",
+      "Zellen, die dunkel bleiben, obwohl du darübergefahren bist, sind tote Zonen. Unter „Freies Zeichnen“ (→) zeigen Lücken oder Sprünge in deinen Linien tote Stellen und Geisterberührungen.",
+      "Leg mehrere Finger gleichzeitig auf, um zu sehen, wie viele Berührungen der Bildschirm verfolgt.",
+      "Halt irgendwo gedrückt, um die Steuerung (Zurücksetzen, Beenden) einzublenden, oder drück Esc."
+    ],
+    "faq": [
+      {
+        "q": "Wie sieht eine tote Zone aus?",
+        "a": "Eine Gruppe von Zellen, die nicht grün wird, egal wie langsam du darüberfährst, oder eine Lücke, die jedes Mal an derselben Stelle auftaucht, wenn du eine Linie hindurchziehst. Eine einzelne hartnäckige Zelle hast du meist nur verfehlt; fallen immer dieselben Zellen aus, ist die Touch-Schicht defekt."
+      },
+      {
+        "q": "Wie viele Berührungspunkte sollte ein Bildschirm unterstützen?",
+        "a": "Die meisten Handys und Tablets verfolgen mindestens fünf Finger gleichzeitig, viele auch zehn. Bei Touch-Laptops ist das unterschiedlich. Der Zähler zeigt, wie viele Finger höchstens gleichzeitig erkannt wurden – kommt er nie über eins oder zwei hinaus, funktioniert Multi-Touch nicht."
+      },
+      {
+        "q": "Beeinflusst eine Schutzfolie den Test?",
+        "a": "Eine dicke, gesprungene oder sich ablösende Schutzfolie kann selbst tote Stellen erzeugen. Findest du eine, nimm die Folie ab und teste noch einmal, bevor du dem Bildschirm die Schuld gibst."
+      },
+      {
+        "q": "Was verursacht Geisterberührungen?",
+        "a": "Die häufigsten Ursachen sind ein minderwertiges Ladegerät oder Kabel, das elektrische Störungen einstreut, Feuchtigkeit auf dem Glas, eine sich ablösende Schutzfolie und eine nach einem Sturz beschädigte Touch-Schicht. Teste einmal ohne Ladekabel, ohne Folie und mit trockenem Bildschirm. Erscheinen dann immer noch Markierungen von selbst, muss der Bildschirm repariert werden."
+      },
+      {
+        "q": "Lässt sich eine tote Zone beheben, ohne den Bildschirm zu tauschen?",
+        "a": "Manchmal. Starte das Gerät neu, nimm Hülle und Schutzfolie ab, reinige das Glas, installiere ausstehende Systemupdates und teste dann noch einmal. Fällt eine Zone danach jedes Mal an derselben Stelle aus, ist es ein Hardwaredefekt, und die übliche Reparatur ist ein neuer Bildschirm."
+      }
+    ],
+    "tips": [
+      "Fahr langsam an den Rändern entlang und bis in die Ecken – Touch-Fehler beginnen meist dort.",
+      "Teste ohne Hülle und Schutzfolie, wenn dir etwas seltsam vorkommt."
+    ]
+  }
+}

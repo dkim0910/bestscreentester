@@ -1,0 +1,448 @@
+{
+  "ghosting-test": {
+    "name": "Test de ghosting",
+    "title": "Test de ghosting et de temps de réponse",
+    "tagline": "Des carrés mobiles à vitesse réglable pour révéler ghosting et traînées.",
+    "description": "Test gratuit de ghosting et de temps de réponse. Des carrés mobiles à vitesse réglable révèlent flou de mouvement, traînées de ghosting et overshoot.",
+    "keywords": [
+      "test ghosting",
+      "test temps de réponse écran",
+      "flou de mouvement",
+      "test overdrive",
+      "test ufo"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et observez les carrés qui traversent l'écran.",
+      "Utilisez ← / → pour changer la vitesse.",
+      "Cherchez une légère traînée (ghosting) ou un liseré clair (overshoot) derrière chaque carré.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Qu'est-ce que le ghosting ?",
+        "a": "Le ghosting est une traînée baveuse derrière les objets en mouvement, causée par des pixels trop lents à changer d'état. Augmenter l'overdrive de votre moniteur peut la réduire, mais un excès provoque du ghosting inversé (overshoot)."
+      },
+      {
+        "q": "Quelle vitesse choisir ?",
+        "a": "Commencez par Moyenne (480 px/s), proche du défilement quotidien et des mouvements en jeu. Lente (240 px/s) montre avec quelle netteté la dalle se stabilise, et Rapide (960 px/s) exagère les traînées et l'overshoot, ce qui rend visibles de petites différences entre les réglages d'overdrive."
+      },
+      {
+        "q": "La traînée est-elle du ghosting ou du flou de mouvement ?",
+        "a": "Un certain flou est inévitable sur tout écran classique : chaque image est maintenue fixe pendant que vos yeux continuent de bouger, et une fréquence de rafraîchissement plus élevée le réduit. Le ghosting, c'est autre chose : une image résiduelle ou une bavure distincte laissée par des transitions de pixels trop lentes, et sur les dalles VA il est en général le plus marqué dans les scènes sombres."
+      },
+      {
+        "q": "Mon moniteur est annoncé à 1 ms. Pourquoi est-ce que je vois encore une traînée ?",
+        "a": "Un temps de réponse annoncé est un meilleur cas, en général mesuré au réglage d'overdrive le plus fort, là où le liseré clair de l'overshoot est déjà visible. Au réglage qui donne l'image la plus propre, les transitions réelles sont plus longues. Le flou créé par vos yeux qui suivent un objet en mouvement n'a par ailleurs rien à voir avec le temps de réponse."
+      },
+      {
+        "q": "Les écrans OLED ont-ils du ghosting ?",
+        "a": "Presque pas. Les pixels OLED changent d'état quasi instantanément : il n'y a donc pas de traînée baveuse. Ils présentent tout de même le flou ordinaire de tout écran qui maintient chaque image fixe, que seuls une fréquence de rafraîchissement plus élevée ou un mode stroboscopique réduisent."
+      }
+    ],
+    "tips": [
+      "Suivez un carré des yeux, puis essayez de fixer un point immobile — chaque méthode révèle des artefacts différents.",
+      "Si vous voyez un liseré clair au lieu d'une traînée baveuse, votre overdrive est trop fort (overshoot) — baissez-le d'un cran.",
+      "Revérifiez le réglage d'overdrive à chaque changement de fréquence de rafraîchissement : un niveau propre à 144 Hz peut produire de l'overshoot à 60 Hz."
+    ]
+  },
+  "blooming-test": {
+    "name": "Test de blooming",
+    "title": "Test de blooming (Mini-LED)",
+    "tagline": "Un objet lumineux sur fond noir pour juger les halos du local dimming.",
+    "description": "Test de blooming gratuit pour écrans Mini-LED et à local dimming. Déplacez un objet lumineux sur fond noir pour révéler les halos autour des hautes lumières.",
+    "keywords": [
+      "test blooming",
+      "test mini-led",
+      "local dimming",
+      "test halo écran",
+      "fald"
+    ],
+    "howTo": [
+      "Assombrissez la pièce et cliquez sur Démarrer.",
+      "Déplacez le curseur ou votre doigt pour promener le point lumineux sur le fond noir.",
+      "Guettez un halo lumineux (blooming) autour de l'objet.",
+      "Appuyez sur → pour les balayages des zones : comptez les sauts du halo pendant que le carré traverse l'écran — c'est à peu près le nombre de zones de gradation en largeur (ou en hauteur).",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi le blooming se produit-il ?",
+        "a": "Les rétroéclairages à local dimming (gradation locale) comptent un nombre limité de zones. Un petit objet lumineux allume toute sa zone, et une partie de la lumière déborde donc sur le noir environnant."
+      },
+      {
+        "q": "L'OLED a-t-il du blooming ?",
+        "a": "Non. Chaque pixel OLED produit sa propre lumière : autour d'un objet lumineux sur fond noir, il n'y a aucune zone de rétroéclairage qui puisse déborder. Le blooming est propre aux LCD à local dimming, Mini-LED compris."
+      },
+      {
+        "q": "Comment réduire le blooming ?",
+        "a": "La plupart des écrans à local dimming permettent de régler l'intensité de la gradation. Un réglage plus faible réduit les halos mais relève les noirs ; un réglage plus fort approfondit les noirs mais accentue le blooming. Un peu de lumière dans la pièce rend aussi les halos moins visibles que le noir complet."
+      },
+      {
+        "q": "Pourquoi le blooming est-il pire quand je regarde de côté ?",
+        "a": "De biais, les dalles LCD bloquent moins bien le rétroéclairage : chaque zone allumée laisse donc passer davantage de lumière autour d'un objet lumineux. Des halos discrets de face peuvent paraître bien plus grands depuis le bout du canapé."
+      },
+      {
+        "q": "Le blooming est-il plus marqué en HDR ?",
+        "a": "Oui. Les hautes lumières HDR sont bien plus intenses que tout ce qu'on trouve en SDR : les zones situées derrière sont poussées plus fort, et davantage de lumière déborde sur les zones sombres voisines. Les sous-titres sur une scène sombre en sont l'exemple classique."
+      },
+      {
+        "q": "Combien de zones de gradation faut-il ?",
+        "a": "Il n'y a pas de chiffre fixe. Plus les zones sont nombreuses, plus chacune est petite, et plus le halo autour d'un objet lumineux l'est aussi. Les écrans qui ne gèrent qu'une poignée de bandes verticales éclairent toute une colonne derrière un petit objet. Les balayages des zones montrent la finesse du vôtre."
+      },
+      {
+        "q": "Le blooming, est-ce la même chose que les fuites de lumière ?",
+        "a": "Non. Une fuite de lumière reste au même endroit, en général sur un bord, quel que soit le contenu affiché. Le blooming suit les objets lumineux dans leurs déplacements et n'existe que sur les écrans à local dimming."
+      },
+      {
+        "q": "Faut-il désactiver le local dimming ?",
+        "a": "Pour un usage bureautique, souvent oui : un curseur blanc ou du texte sur fond sombre provoquent des halos et font pomper la luminosité. Pour les films, les jeux et le HDR, laissez-le activé : c'est lui qui donne à ces écrans leurs noirs profonds."
+      }
+    ],
+    "tips": [
+      "Lancez-le dans une pièce sombre ; le blooming autour du point lumineux se voit mal lumières allumées.",
+      "Plus de zones de gradation = moins de blooming. L'OLED n'en montre pratiquement aucun."
+    ]
+  },
+  "burn-in-test": {
+    "name": "Test de burn-in",
+    "title": "Test de burn-in (marquage d'écran)",
+    "tagline": "Des aplats en plein écran et un damier pour révéler le burn-in OLED.",
+    "description": "Test de burn-in OLED/AMOLED gratuit. Blanc, gris, RGB et damier en plein écran révèlent images rémanentes, marquage et usure inégale des pixels.",
+    "keywords": [
+      "test burn-in",
+      "burn in oled",
+      "rémanence écran",
+      "marquage amoled",
+      "image fantôme écran"
+    ],
+    "howTo": [
+      "Montez la luminosité et cliquez sur Démarrer.",
+      "Passez en revue le blanc, le gris et chaque aplat RGB avec ← / →.",
+      "Cherchez de légers contours de logos, de barres ou de HUD qui n'ont rien à faire là — c'est le gris qui les montre le mieux.",
+      "Utilisez la vue Damier pour aider à résorber une rémanence de courte durée.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Quelle est la différence entre burn-in et rémanence d'image ?",
+        "a": "La rémanence d'image est temporaire et s'estompe après des contenus variés. Le burn-in (ou marquage) est une usure inégale et permanente des sous-pixels OLED. Si un contour persiste sur de nombreuses images différentes, c'est du burn-in."
+      },
+      {
+        "q": "Quel aplat montre le mieux le burn-in ?",
+        "a": "Un gris à 50 % est en général le plus révélateur, suivi des couleurs unies. Les éléments d'interface statiques (barres des tâches, logos) laissent les fantômes les plus nets."
+      },
+      {
+        "q": "Peut-on réparer le burn-in ?",
+        "a": "Non. Le burn-in est une usure inégale des pixels, et des pixels usés ne se rétablissent pas. Le cycle de rafraîchissement ou de compensation de la dalle peut rendre une marque moins visible en égalisant la zone qui l'entoure, mais il ne peut pas restaurer les pixels usés."
+      },
+      {
+        "q": "Un LCD peut-il subir du burn-in ?",
+        "a": "Les LCD peuvent présenter une persistance d'image : un léger contour après l'affichage prolongé d'une image fixe. Elle disparaît presque toujours d'elle-même après des contenus variés ou un moment hors tension. Le burn-in permanent est rare sur un LCD."
+      },
+      {
+        "q": "Comment éviter le burn-in ?",
+        "a": "Baissez la luminosité, masquez quand c'est possible les éléments statiques comme la barre des tâches ou un logo de chaîne, et variez ce qui s'affiche. Laissez la dalle effectuer son cycle de compensation, qui se déroule en veille sur la plupart des téléviseurs : ne coupez donc pas l'alimentation à la prise après chaque utilisation."
+      }
+    ],
+    "tips": [
+      "L'aplat gris à 50 % est celui qui révèle le mieux les logos et les barres de HUD rémanents — commencez par là.",
+      "Laissez tourner le damier un moment pour aider à effacer une rémanence de courte durée (un vrai burn-in ne bougera pas).",
+      "Vous avez trouvé un contour ? Lisez une vidéo variée en plein écran pendant une heure ou deux et vérifiez à nouveau avant de parler de burn-in.",
+      "Photographiez l'aplat gris et notez la date, pour disposer d'une référence à comparer plus tard."
+    ]
+  },
+  "contrast-test": {
+    "name": "Test de contraste",
+    "title": "Test de contraste",
+    "tagline": "Des damiers noir et blanc pour juger la séparation entre noir et blanc.",
+    "description": "Test de contraste gratuit. Des damiers noir et blanc de plus en plus fins pour évaluer le contraste, la séparation du noir et du blanc et la netteté.",
+    "keywords": [
+      "test contraste écran",
+      "damier noir et blanc",
+      "niveau noir blanc",
+      "taux de contraste"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et affichez le damier en plein écran.",
+      "Utilisez ← / → pour changer la densité de la grille (de 4×4 à 32×32).",
+      "Les cases noires doivent rester d'un noir profond et les cases blanches lumineuses, avec des bords nets entre elles.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Que faut-il regarder ?",
+        "a": "Une séparation franche entre le noir et le blanc, avec des limites nettes. Des noirs grisâtres indiquent un contraste faible ; des bords flous peuvent indiquer un manque de netteté ou une mise à l'échelle."
+      },
+      {
+        "q": "Ce test peut-il mesurer mon taux de contraste ?",
+        "a": "Non. Un taux de contraste est une mesure de lumière émise et exige un appareil de mesure. Ceci est un contrôle visuel : il montre si le noir reste profond juste à côté d'un blanc lumineux, ce à quoi ressemble en pratique un taux de contraste élevé ou faible."
+      },
+      {
+        "q": "Quels types de dalle s'en sortent le mieux ?",
+        "a": "L'OLED, parce que chaque pixel s'éteint : ses cases noires restent totalement sombres à côté des blanches. Parmi les LCD, les dalles VA atteignent typiquement 2 500:1 à 5 000:1 et les IPS environ 1 000:1 : les noirs d'une IPS paraissent donc nettement plus gris dans une pièce sombre."
+      },
+      {
+        "q": "Pourquoi le contraste paraît-il moins bon dans une pièce lumineuse ?",
+        "a": "La lumière de la pièce se reflète sur l'écran et s'ajoute à chaque zone sombre : le noir remonte vers le gris alors que le blanc ne change presque pas. Le contraste propre de la dalle, lui, reste le même. Jugez la profondeur des noirs dans une pièce peu éclairée, et le confort au quotidien dans la lumière où vous travaillez vraiment."
+      },
+      {
+        "q": "Faut-il laisser le contraste dynamique activé ?",
+        "a": "Désactivez-le pour les tests. Le contraste dynamique fait varier le rétroéclairage en fonction de l'image, si bien que la même mire change d'aspect d'un instant à l'autre. Beaucoup de gens le laissent désactivé pour de bon, car les variations de luminosité sont gênantes dans les scènes mixtes."
+      },
+      {
+        "q": "Qu'est-ce qu'un bon taux de contraste ?",
+        "a": "Tout dépend de l'endroit où vous regardez l'écran. Une dalle IPS, autour de 1 000:1, convient très bien dans une pièce éclairée. Une dalle VA, entre 2 500:1 et 5 000:1, paraît nettement plus profonde dans le noir, et un OLED plus encore, puisque ses pixels noirs sont éteints. En plein jour, l'écart se resserre, car les reflets relèvent le noir sur tous les écrans."
+      },
+      {
+        "q": "Pourquoi le contraste annoncé sur le carton est-il tellement plus élevé ?",
+        "a": "Les chiffres en millions correspondent au contraste dynamique : le blanc le plus lumineux, rétroéclairage au maximum, comparé au noir le plus sombre une fois le rétroéclairage baissé. Les deux n'apparaissent jamais ensemble à l'écran. Le taux de contraste natif, ou statique, est celui qui décrit ce que vous voyez dans une même image."
+      },
+      {
+        "q": "Monter le réglage Contraste améliore-t-il le contraste ?",
+        "a": "Non. Ce réglage modifie la luminosité à laquelle sont affichés les tons les plus clairs, et le taux de contraste de la dalle reste le même. Réglé trop haut, il fond les nuances les plus claires en un blanc uniforme. Laissez-le sur sa valeur par défaut, sauf si les détails clairs sont écrêtés."
+      }
+    ],
+    "tips": [
+      "Les cases noires doivent rester d'un noir d'encre ; un voile gris signifie un contraste faible ou un niveau de noir relevé.",
+      "Des bords flous entre les cases renvoient à un problème de mise à l'échelle ou de netteté, pas de contraste."
+    ]
+  },
+  "black-level-test": {
+    "name": "Test du niveau de noir",
+    "title": "Test du niveau de noir",
+    "tagline": "Des paliers proches du noir pour voir jusqu'où votre dalle descend vraiment.",
+    "description": "Test du niveau de noir gratuit. Comparez des paliers de gris proches du noir pour juger les détails dans les ombres, la profondeur des noirs et l'IPS glow.",
+    "keywords": [
+      "test niveau de noir",
+      "détails dans les ombres",
+      "noirs bouchés",
+      "profondeur des noirs",
+      "ips glow"
+    ],
+    "howTo": [
+      "Assombrissez la pièce et réglez la luminosité à votre niveau habituel, puis cliquez sur Démarrer.",
+      "Chaque bande verticale est légèrement plus claire que le noir pur (le chiffre indique sa valeur).",
+      "Notez la bande la plus basse que vous distinguez encore du noir pur — c'est votre seuil dans les ombres.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Combien de paliers dois-je voir ?",
+        "a": "Sur un bon écran, dans une pièce sombre, on distingue en général les paliers à partir de la valeur 2 à 4. Si les paliers bas se confondent tous avec le noir, les détails dans les ombres sont bouchés (souvent à cause d'un réglage de luminosité ou de niveau de noir, ou d'une plage RGB « Limitée »)."
+      },
+      {
+        "q": "Dois-je monter la luminosité jusqu'à voir tous les paliers ?",
+        "a": "Pas sur un moniteur : son réglage de luminosité pilote surtout le rétroéclairage, ce qui rend chaque palier plus visible mais relève aussi le noir. Testez à la luminosité que vous utilisez vraiment. Sur les téléviseurs, le réglage nommé Luminosité contrôle souvent le niveau de noir lui-même, et c'est celui-là qu'il faut ajuster."
+      },
+      {
+        "q": "Pourquoi les bandes sombres luisent-elles vers les coins ?",
+        "a": "C'est de l'IPS glow ou une fuite de lumière, pas un problème de détails dans les ombres : le rétroéclairage transparaît de biais ou s'échappe par les bords. Jugez les paliers au centre de l'écran, et utilisez le Test de fuites de lumière pour examiner les coins."
+      },
+      {
+        "q": "Quel rapport avec les plages RGB Complète et Limitée ?",
+        "a": "Les signaux vidéo peuvent utiliser la plage complète de valeurs, de 0 à 255, ou une plage limitée, de 16 à 235. Si l'ordinateur envoie l'une et que l'écran attend l'autre, soit les paliers les plus sombres deviennent tous noirs, soit le noir devient gris. Réglez les deux sur la même plage : Complète pour un moniteur, et celle qui correspond au mode d'entrée sur un téléviseur."
+      },
+      {
+        "q": "Pourquoi est-ce que je vois moins de paliers en journée ?",
+        "a": "La lumière de la pièce se reflète sur l'écran et masque les paliers les plus sombres, et vos yeux sont adaptés à un environnement plus lumineux. Des détails dans les ombres bien visibles la nuit peuvent disparaître à midi. C'est normal, et c'est une raison de tester dans la lumière où vous regardez l'écran."
+      }
+    ],
+    "tips": [
+      "Assombrissez la pièce et utilisez votre luminosité habituelle — pas le maximum — pour juger les vrais détails dans les ombres.",
+      "Si les paliers les plus bas se fondent tous dans le noir, cherchez une plage RGB « Limitée » ou un réglage de niveau de noir qui bouche les ombres."
+    ]
+  },
+  "viewing-angle-test": {
+    "name": "Test des angles de vision",
+    "title": "Test des angles de vision",
+    "tagline": "Des paliers de gris et des barres de couleur pour révéler les dérives de couleur et de luminosité hors axe.",
+    "description": "Test des angles de vision gratuit. Affichez paliers de gris et barres de couleur, puis bougez la tête pour voir la dérive des couleurs sur TN et VA.",
+    "keywords": [
+      "test angle de vision écran",
+      "dérive des couleurs",
+      "angles de vision dalle",
+      "angle tn va ips"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et placez-vous d'abord bien en face pour prendre un repère.",
+      "Déplacez la tête à gauche et à droite, en haut et en bas, puis reculez.",
+      "Observez à quel point les paliers de gris se délavent et les couleurs dérivent — moins ça bouge, mieux c'est.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Qu'est-ce qui est normal ?",
+        "a": "L'IPS et l'OLED conservent bien couleurs et luminosité hors axe. Les dalles TN dérivent fortement (surtout à la verticale) et les dalles VA montrent une dérive de contraste et de gamma ainsi qu'une lueur dans les coins. Une certaine dérive est normale — une forte dérive signifie un cône de vision étroit."
+      },
+      {
+        "q": "Pourquoi les coins paraissent-ils différents même quand je suis bien en face ?",
+        "a": "Sur un grand écran, ou un écran proche de vous, les coins sont déjà vus de biais. Sur les dalles TN et VA, cela se traduit par des coins plus sombres ou délavés, même depuis la place centrale. Un moniteur incurvé garde les bords plus proches de l'axe et atténue le phénomène."
+      },
+      {
+        "q": "Quelle partie de la mire faut-il regarder ?",
+        "a": "Les paliers de gris du haut montrent la dérive de luminosité et de gamma : sur une dalle aux angles étroits, les paliers sombres se délavent ou se confondent quand vous bougez, et les gris prennent une teinte. Les barres de couleur du dessous montrent la saturation qui chute et les teintes qui dérivent."
+      },
+      {
+        "q": "Puis-je améliorer les angles de vision de mon écran ?",
+        "a": "Aucun réglage ne les change, mais la position, si. Placez-vous bien en face de l'écran, réglez sa hauteur pour que vos yeux soient au niveau du tiers supérieur, et inclinez-le jusqu'à ce que le haut et le bas paraissent aussi lumineux l'un que l'autre. Sur un portable, c'est l'angle du capot qui fait la plus grande différence."
+      },
+      {
+        "q": "Pourquoi l'image change-t-elle quand j'incline le capot de mon portable ?",
+        "a": "Les portables d'entrée de gamme utilisent souvent des dalles TN, qui dérivent fortement quand on les regarde d'en haut ou d'en bas. Quelques degrés d'inclinaison suffisent à assombrir ou à délaver l'image. Les écrans de portables IPS et OLED ne changent presque pas."
+      }
+    ],
+    "tips": [
+      "Prenez d'abord votre repère en étant parfaitement centré, puis décalez-vous pour comparer.",
+      "Une forte dérive à la verticale est typique des dalles TN ; une dérive de contraste et de gamma avec une lueur dans les coins est typique du VA."
+    ]
+  },
+  "gamma-test": {
+    "name": "Test de gamma",
+    "title": "Test de gamma",
+    "tagline": "Une mire à rayures et pavés de référence pour lire le gamma de votre écran.",
+    "description": "Test de gamma gratuit. Des rayures de 1 pixel (≈50 % de gris) côtoient des pavés de référence γ 1,8 à 2,4 : celui qui se fond révèle le gamma de votre écran.",
+    "keywords": [
+      "test gamma écran",
+      "gamma 2.2",
+      "réglage gamma écran",
+      "gamma niveaux de gris"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et reculez un peu (les rayures doivent se fondre en un gris uni).",
+      "Comparez chaque pavé étiqueté (γ 1,8–2,4) au fond rayé.",
+      "Le pavé qui disparaît le mieux dans les rayures correspond au gamma de votre écran — visez 2,2.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Quel gamma faut-il viser ?",
+        "a": "2,2 (la norme sRGB) pour un usage général. Si ce sont les pavés de valeur inférieure qui se fondent, votre gamma est trop bas (image délavée) ; si ce sont ceux de valeur supérieure, il est trop haut (ombres bouchées). Ajustez le préréglage de gamma du moniteur ou le calibrage du système."
+      },
+      {
+        "q": "Mac et Windows utilisent-ils un gamma différent ?",
+        "a": "Plus maintenant. Les deux visent 2,2 par défaut ; macOS est passé de 1,8 à 2,2 en 2009. Ce qui diffère, c'est la réponse propre à chaque écran, et c'est elle que ce test lit."
+      },
+      {
+        "q": "Est-ce aussi précis qu'un outil de calibrage ?",
+        "a": "Non. Le test donne une bonne estimation visuelle du gamma de votre écran autour du gris moyen, mais il ne peut pas mesurer toute la courbe du noir au blanc, ni la corriger. Une sonde colorimétrique fait les deux."
+      },
+      {
+        "q": "Pourquoi les rayures montrent-elles des couleurs ou des motifs ondulés ?",
+        "a": "La mire ne fonctionne que si chaque rayure tombe exactement sur une rangée de pixels. Le zoom du navigateur, une résolution non native ou la mise à l'échelle du téléviseur cassent cet alignement et produisent des interférences colorées ou ondulées. Réinitialisez le zoom avec Ctrl/Cmd + 0, utilisez la résolution native et rechargez la page."
+      },
+      {
+        "q": "Comment changer le gamma de mon écran ?",
+        "a": "Commencez par le menu du moniteur, où la plupart des modèles proposent des préréglages de gamma. Sous Windows, recherchez « Étalonner les couleurs de l'écran » pour ouvrir l'outil intégré. Sur Mac, ouvrez Réglages Système > Moniteurs et utilisez le menu du profil de couleur. Relancez ce test après chaque modification."
+      },
+      {
+        "q": "Le gamma, en clair, c'est quoi ?",
+        "a": "C'est la courbe qui convertit une valeur du signal en luminosité. Le noir et le blanc ne bougent pas ; le gamma détermine la luminosité de tout ce qui se trouve entre les deux. Un gamma plus bas rend les tons moyens plus clairs et plus plats, un gamma plus élevé les rend plus sombres et plus lourds."
+      },
+      {
+        "q": "Pourquoi le résultat change-t-il quand je bouge la tête ?",
+        "a": "Sur les dalles VA et TN, le gamma varie avec l'angle de vision : le pavé qui se fond en haut de l'écran n'est donc pas forcément celui qui se fond en bas. Lisez la mire bien en face, à hauteur des yeux. Les écrans IPS et OLED varient très peu."
+      },
+      {
+        "q": "Faut-il choisir 2,4 pour les films ?",
+        "a": "Dans une pièce plongée dans le noir, une courbe proche de 2,4 correspond à celle pour laquelle beaucoup de films sont masterisés, et elle donne des ombres plus profondes. Dès que la pièce est un peu éclairée, elle masque les détails dans les ombres. Pour un usage général, et pour tout ce qui se regarde en plein jour, 2,2 est la bonne cible."
+      }
+    ],
+    "tips": [
+      "Reculez jusqu'à ce que les rayures se fondent en un gris uni avant de comparer les pavés.",
+      "Cherchez à faire disparaître le pavé 2,2 ; si une valeur inférieure se fond, votre image est délavée, et une valeur supérieure signifie des ombres bouchées."
+    ]
+  },
+  "screen-tearing-test": {
+    "name": "Test de tearing",
+    "title": "Test de tearing (déchirement d'image)",
+    "tagline": "Des barres au défilement rapide qui révèlent le tearing sans V-Sync ni VRR.",
+    "description": "Test de tearing gratuit. Des barres rapides révèlent les déchirures quand images et rafraîchissement ne sont pas synchronisés : V-Sync, G-Sync, FreeSync.",
+    "keywords": [
+      "test tearing",
+      "déchirement d'écran",
+      "vsync",
+      "test g-sync freesync",
+      "test vrr"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et observez les barres en mouvement.",
+      "Utilisez ← / → pour passer des barres verticales (qui révèlent les déchirures horizontales) aux barres horizontales (qui révèlent les déchirures verticales).",
+      "Une image propre signifie qu'il n'y a pas de tearing ; une cassure où les barres se décalent est une déchirure.",
+      "Activez puis désactivez le V-Sync ou la synchronisation adaptative (G-Sync/FreeSync) et comparez.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Comment supprimer le tearing ?",
+        "a": "Activez la synchronisation adaptative (G-Sync/FreeSync) pour un mouvement sans déchirure et à faible latence, ou le V-Sync pour plafonner les images à la fréquence de rafraîchissement (au prix d'un peu de latence). Notre guide sur le tearing détaille tout cela."
+      },
+      {
+        "q": "Pourquoi est-ce que je ne vois aucun tearing ici ?",
+        "a": "Les navigateurs dessinent en général en synchronisation avec l'écran : un résultat propre est donc courant et ne prouve pas que vos jeux seront épargnés. Les jeux produisent du tearing quand ils envoient des images avec le V-Sync désactivé. Si vous voyez bel et bien des déchirures ici, vérifiez que l'accélération matérielle est activée dans votre navigateur et que l'écran tourne à sa fréquence de rafraîchissement nominale."
+      },
+      {
+        "q": "Que change le curseur de vitesse ?",
+        "a": "La vitesse de déplacement des barres. Un mouvement plus rapide élargit le décalage au niveau d'une déchirure et le rend plus facile à repérer. Si le mouvement paraît saccadé plutôt que déchiré, des images sont sautées ou répétées ; le Test de saut d'images vérifie précisément cela."
+      },
+      {
+        "q": "Comment vérifier que G-Sync ou FreeSync est vraiment activé ?",
+        "a": "Il doit être activé à deux endroits : dans le menu du moniteur et dans le panneau de configuration du pilote graphique. Il lui faut aussi la bonne connexion : DisplayPort sur un PC, ou HDMI 2.1 sur une console ou un téléviseur, où il figure en général sous le nom VRR."
+      },
+      {
+        "q": "Une fréquence de rafraîchissement plus élevée réduit-elle le tearing ?",
+        "a": "Elle rend les déchirures plus difficiles à voir, pas plus rares. À 144 Hz, chaque image déchirée reste à l'écran moins de 7 ms, contre près de 17 ms à 60 Hz, et le décalage au niveau de la déchirure est plus petit. Seuls le V-Sync ou la synchronisation adaptative suppriment complètement le tearing."
+      }
+    ],
+    "tips": [
+      "Utilisez la vue des barres verticales pour les déchirures horizontales et celle des barres horizontales pour les déchirures verticales.",
+      "Activez puis désactivez le V-Sync ou la synchronisation adaptative (G-Sync/FreeSync) et regardez la ligne de déchirure apparaître ou disparaître."
+    ]
+  },
+  "touch-screen-test": {
+    "name": "Test d'écran tactile",
+    "title": "Test d'écran tactile",
+    "tagline": "Touchez chaque cellule ou dessinez librement pour trouver les zones mortes et les limites du multi-touch.",
+    "description": "Test d'écran tactile gratuit pour téléphone, tablette et PC tactile. Grille ou dessin libre pour trouver zones mortes, touches fantômes et limites multi-touch.",
+    "keywords": [
+      "test écran tactile",
+      "test tactile téléphone",
+      "zone morte écran tactile",
+      "test multitouch",
+      "test dalle tactile",
+      "tester tactile smartphone"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et tenez l'appareil comme vous le faites d'habitude.",
+      "Faites glisser lentement un doigt sur chaque cellule de la grille — chacune passe au vert dès qu'elle est détectée.",
+      "Les cellules qui restent sombres après votre passage sont des zones mortes. Dans Dessin libre (→), les coupures ou les sauts dans vos traits révèlent les points morts et les touches fantômes.",
+      "Posez plusieurs doigts à la fois pour voir combien de contacts l'écran suit.",
+      "Maintenez le doigt appuyé n'importe où pour afficher les commandes (Réinitialiser, Quitter), ou appuyez sur Échap."
+    ],
+    "faq": [
+      {
+        "q": "À quoi ressemble une zone morte ?",
+        "a": "À un groupe de cellules qui refusent de passer au vert, aussi lentement que vous passiez dessus, ou à un trou qui apparaît au même endroit chaque fois que vous tracez un trait à travers. Une cellule récalcitrante est en général un simple endroit manqué ; les mêmes cellules qui échouent à chaque fois, c'est un défaut de la couche tactile."
+      },
+      {
+        "q": "Combien de points de contact un écran doit-il gérer ?",
+        "a": "La plupart des téléphones et des tablettes suivent au moins cinq doigts à la fois, et beaucoup en suivent dix. Les portables tactiles varient. Le compteur affiche le plus grand nombre de doigts détectés en même temps — s'il ne dépasse jamais un ou deux, le multi-touch ne fonctionne pas."
+      },
+      {
+        "q": "Un film de protection fausse-t-il le test ?",
+        "a": "Une protection épaisse, fissurée ou qui se décolle peut créer ses propres points morts. Si vous en trouvez un, retirez la protection et refaites le test avant d'accuser l'écran."
+      },
+      {
+        "q": "Qu'est-ce qui provoque les touches fantômes ?",
+        "a": "Les causes courantes sont un chargeur ou un câble de mauvaise qualité qui injecte du bruit électrique, de l'humidité sur la vitre, une protection d'écran qui se décolle, et une couche tactile endommagée après une chute. Testez une fois débranché, sans protection et avec l'écran sec. Si des marques apparaissent encore toutes seules, l'écran doit être réparé."
+      },
+      {
+        "q": "Peut-on réparer une zone morte sans remplacer l'écran ?",
+        "a": "Parfois. Redémarrez l'appareil, retirez la coque et la protection, nettoyez la vitre et installez toute mise à jour système en attente, puis refaites le test. Une zone qui échoue ensuite au même endroit à chaque fois est un défaut matériel, et la réparation habituelle est un nouvel écran."
+      }
+    ],
+    "tips": [
+      "Passez lentement le long des bords et dans les coins — les défauts tactiles commencent en général là.",
+      "Testez sans coque ni protection d'écran si quelque chose vous paraît anormal."
+    ]
+  }
+}

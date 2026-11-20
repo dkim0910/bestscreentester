@@ -1,0 +1,584 @@
+{
+  "dead-pixel-test": {
+    "heading": "Mort, bloqué, ou simple poussière ? Lire le résultat",
+    "howToHeading": "Lancer le contrôle des pixels",
+    "faqHeading": "Questions sur les pixels morts et bloqués",
+    "pass": [
+      "Chaque couleur forme un aplat continu, sans point qui reste sombre ni point qui reste allumé dans la mauvaise couleur.",
+      "Une tache qui part au chiffon, ou qui semble flotter au-dessus de l'image quand vous regardez de côté, est une poussière ou une marque en surface, pas un pixel."
+    ],
+    "fail": [
+      "Un point sombre sur toutes les couleurs, blanc compris, est un pixel mort. Il ne se rétablira pas.",
+      "Un point qui garde une seule couleur, ou qui apparaît blanc sur la vue noire, est un pixel bloqué ou chaud. Essayez la vue Réparateur de pixels bloqués avant de décider quoi que ce soit.",
+      "Une ligne ou une colonne entière allumée ou éteinte est un défaut de connexion plutôt qu'un défaut de pixel, et ouvre presque toujours droit à une réparation.",
+      "Deux défauts ou plus, proches les uns des autres, forment un groupe (cluster). Beaucoup de politiques remplacent une dalle pour un groupe tout en tolérant le même nombre de défauts dispersés."
+    ],
+    "threshold": "Les fabricants classent les dalles selon la norme ISO 9241-307. La plupart des écrans grand public sont de Class II, qui autorise quelques défauts par million de pixels, et la plupart des marques publient leurs propres décomptes fixes au lieu d'utiliser ce chiffre. Les pixels lumineux sont comptés plus sévèrement que les pixels sombres, et les défauts d'un seul sous-pixel avec le plus d'indulgence. Le chiffre qui s'applique est celui de votre propre document de garantie. Pendant le délai de retour du vendeur, vous n'avez aucun seuil à atteindre.",
+    "note": "Aucune couleur ne suffit à elle seule. Un pixel bloqué en position allumée est invisible sur du blanc, et un pixel éteint est invisible sur du noir : passez donc par toutes les vues, sur LCD comme sur OLED. Sur un téléphone ou un portable 4K, un pixel est minuscule : regardez de plus près que votre distance habituelle.",
+    "next": [
+      "Essuyez l'écran avec un chiffon microfibre sec et regardez à nouveau. Si le point a bougé ou disparu, c'était une poussière.",
+      "Passez par toutes les couleurs et notez où le point apparaît. Sombre sur toutes : il est mort ; une couleur fixe, ou allumé sur le noir : il est bloqué.",
+      "Pour un pixel bloqué, laissez tourner la vue Réparateur de pixels bloqués dessus pendant 10 à 30 minutes, puis vérifiez à nouveau.",
+      "Photographiez le défaut sur une couleur unie et notez la date ainsi que son emplacement sur l'écran.",
+      "Vérifiez la date d'achat de l'écran. Pendant le délai de retour du vendeur, renvoyez-le ou échangez-le. Passé ce délai, comptez les défauts par type et comparez-les à la politique de pixels du fabricant."
+    ],
+    "tables": [
+      {
+        "title": "L'aspect de chaque type de défaut sur les couleurs du test",
+        "head": [
+          "Défaut",
+          "Sur le noir",
+          "Sur le blanc",
+          "Sur le rouge, le vert, le bleu",
+          "Peut-il se rétablir ?"
+        ],
+        "rows": [
+          [
+            "Pixel mort",
+            "Invisible",
+            "Point sombre",
+            "Point sombre sur les trois",
+            "Non"
+          ],
+          [
+            "Sous-pixel bloqué",
+            "Point coloré",
+            "Point de la teinte opposée",
+            "Invisible sur sa propre couleur",
+            "Parfois"
+          ],
+          [
+            "Pixel chaud",
+            "Point blanc",
+            "Invisible",
+            "Point clair sur les trois",
+            "Rarement"
+          ],
+          [
+            "Poussière en surface",
+            "Difficile à voir",
+            "Tache aux bords flous",
+            "Tache sombre",
+            "Part au chiffon"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Pixels morts et garantie : comment fonctionnent les décomptes et quand préférer le retour"
+  },
+  "color-test": {
+    "heading": "Ce que révèle chaque couleur",
+    "howToHeading": "Passer les couleurs en revue",
+    "faqHeading": "Questions sur le test des couleurs",
+    "terms": [
+      {
+        "name": "Noir",
+        "text": "Les pixels bloqués en position allumée, et la lumière du rétroéclairage qui s'échappe par les bords."
+      },
+      {
+        "name": "Blanc",
+        "text": "Les pixels éteints, les poussières, et les zones de teinte ou de luminosité irrégulière."
+      },
+      {
+        "name": "Rouge, vert, bleu",
+        "text": "Chacune n'allume qu'un seul sous-pixel. Un point sombre qui n'apparaît que sur l'une d'elles est un sous-pixel mort isolé, le défaut que les politiques de garantie tolèrent le plus."
+      },
+      {
+        "name": "Cyan, magenta, jaune",
+        "text": "Chacune allume deux sous-pixels. Un sous-pixel bloqué en position allumée y apparaît comme un point de la mauvaise couleur, alors qu'il disparaît sur sa propre couleur primaire."
+      },
+      {
+        "name": "Gris",
+        "text": "Les irrégularités de luminosité et de teinte se voient le mieux sur un ton moyen, tout comme une image rémanente sur un OLED."
+      }
+    ],
+    "pass": [
+      "Chaque couleur est unie et régulière sur tout l'écran, avec la même nuance dans les coins qu'au centre."
+    ],
+    "fail": [
+      "Un point qui tranche sur l'aplat pour une ou plusieurs couleurs : notez lesquelles, car c'est ce qui vous dit s'il est mort ou bloqué.",
+      "Une fine ligne sur toute la hauteur ou toute la largeur, sur toutes les couleurs : un défaut de connexion, pas un défaut de pixel.",
+      "Une zone d'une teinte différente du reste, surtout sur le blanc et le gris."
+    ],
+    "next": [
+      "Notez sur quelles couleurs le point ou la zone apparaît.",
+      "Pour un point, lancez le Test de pixels morts, qui propose aussi le Réparateur de pixels bloqués.",
+      "Pour une zone teintée, désactivez tous les modes nuit et filtres de couleur, puis regardez à nouveau sur du blanc et du gris.",
+      "Une dominante qui reste dans une seule partie de l'écran vient de la dalle. Photographiez-la sur du blanc et contactez le vendeur pendant le délai de retour."
+    ],
+    "guideLabel": "Pourquoi une partie de mon écran est-elle décolorée ou teintée ?"
+  },
+  "black-screen": {
+    "heading": "À quoi doit ressembler un écran noir",
+    "howToHeading": "Utiliser l'écran noir",
+    "faqHeading": "Questions sur l'écran noir",
+    "pass": [
+      "Sur un OLED : complètement sombre, comme si l'écran était éteint, parce que les pixels noirs sont coupés.",
+      "Sur un LCD : un gris très foncé et régulier. Un LCD bloque un rétroéclairage toujours allumé : il n'atteint donc jamais le vrai noir.",
+      "Une lueur douce dans les coins qui se déplace ou s'atténue quand vous bougez la tête est de l'IPS glow, une caractéristique des dalles IPS et non un défaut."
+    ],
+    "fail": [
+      "Des traînées ou des taches le long d'un bord qui restent en place quand vous bougez la tête : des fuites de lumière. Elles comptent si vous les voyez en usage normal, par exemple dans les scènes sombres ou les bandes noires d'un film.",
+      "Un point lumineux, quelle que soit sa couleur : un pixel bloqué ou chaud. Confirmez-le avec le Test de pixels morts.",
+      "Sur un OLED, toute zone qui n'est pas totalement noire. L'OLED n'a pas de rétroéclairage qui puisse fuir : cela indique donc un défaut d'uniformité ou une usure de la dalle plutôt qu'une fuite de lumière."
+    ],
+    "note": "Laissez d'abord à vos yeux deux ou trois minutes dans le noir : la lueur paraît toujours pire pendant les trente premières secondes. La luminosité maximale rend les défauts faciles à trouver, mais jugez de leur importance à la luminosité que vous utilisez vraiment. Fiez-vous à vos yeux plutôt qu'à une photo de téléphone, car la pose longue d'un appareil photo transforme un voile discret en quelque chose de spectaculaire.",
+    "next": [
+      "Pour une lueur sur les bords ou dans les coins, lancez le Test de fuites de lumière et penchez-vous de chaque côté pour distinguer une fuite de l'IPS glow.",
+      "Pour un point lumineux, lancez le Test de pixels morts et essayez le Réparateur de pixels bloqués.",
+      "Si tout l'écran paraît gris au lieu de noir, vérifiez la plage RGB avec le Test du niveau de noir."
+    ],
+    "guideLabel": "Fuite de lumière ou IPS glow : comment les distinguer"
+  },
+  "white-screen": {
+    "heading": "Ce qu'il faut chercher sur du blanc",
+    "howToHeading": "Utiliser l'écran blanc",
+    "faqHeading": "Questions sur l'écran blanc",
+    "pass": [
+      "Un blanc régulier d'un bord à l'autre, sans point sombre.",
+      "Une dominante chaude ou froide régulière sur tout l'écran relève de la température de couleur, pas d'un défaut. Désactivez l'Éclairage nocturne, Night Shift ou True Tone et regardez à nouveau.",
+      "Des coins un peu plus sombres que le centre : un léger assombrissement est normal sur tous les LCD."
+    ],
+    "fail": [
+      "Un point sombre qui ne part pas au chiffon : un pixel mort, ou une poussière piégée entre les couches de la dalle.",
+      "Une tache nettement plus sombre aux contours visibles, ou des taches alignées sur un écran de portable, qui sont en général des marques de pression.",
+      "Des zones d'une teinte différente sur une partie de l'écran, plutôt qu'une dominante régulière.",
+      "Sur un OLED, le léger contour d'une barre des tâches, d'un logo ou d'un clavier : rémanence d'image ou burn-in. Vérifiez-le sur du gris avec le Test de burn-in."
+    ],
+    "note": "Le blanc ne montre que les pixels éteints. Un pixel bloqué en position allumée s'y fond : un contrôle complet des pixels exige donc aussi le noir et les couleurs primaires, que le Test de pixels morts fait défiler.",
+    "next": [
+      "Essuyez l'écran avec un chiffon microfibre sec et regardez à nouveau.",
+      "Un point sombre qui reste : passez par les couleurs du Test de pixels morts pour savoir s'il s'agit d'un pixel ou d'une poussière emprisonnée.",
+      "Une zone plus sombre : vérifiez-la sur du gris avec le Test d'uniformité de la luminosité.",
+      "Sur un OLED, la silhouette d'une barre des tâches ou d'un logo : vérifiez-la avec le Test de burn-in."
+    ],
+    "guideLabel": "Pourquoi mon écran a-t-il un point ou une tache sombre ?"
+  },
+  "backlight-bleed-test": {
+    "heading": "Fuite, glow, ou normal ? Lire l'écran noir",
+    "howToHeading": "Préparer le contrôle des fuites de lumière",
+    "faqHeading": "Questions sur les fuites de lumière",
+    "pass": [
+      "Une lueur qui change quand vous vous penchez d'une trentaine de centimètres d'un côté ou de l'autre est de l'IPS glow. Il est inhérent aux dalles IPS, et les garanties ne le couvrent presque jamais.",
+      "Un léger voile que vous ne trouvez que dans une pièce plongée dans le noir. Si vous ne le voyez pas en regardant un film lumières allumées, n'y pensez plus."
+    ],
+    "fail": [
+      "Des traînées, des taches ou une forme de faisceau de lampe torche partant d'un bord, identiques quelle que soit la position de votre tête : des fuites de lumière.",
+      "Une traînée claire visible au quotidien : scènes sombres d'un jeu, page web noire, bandes au-dessus et au-dessous d'un film.",
+      "Des taches marbrées au milieu de l'écran plutôt que sur les bords : du clouding. Confirmez-le sur du gris avec le Test d'uniformité de la luminosité."
+    ],
+    "threshold": "Il n'existe pas de limite normalisée pour les fuites de lumière, et les politiques des fabricants restent vagues à leur sujet. C'est pourquoi le délai de retour du vendeur compte ici plus que la garantie : décidez-vous pendant ce délai.",
+    "note": "La luminosité maximale rend les fuites faciles à trouver, mais elle exagère tout : jugez-les donc à nouveau à votre luminosité de tous les jours. Les fuites s'atténuent parfois au cours des premières semaines, le temps que le châssis se détende. N'appuyez pas sur la dalle et ne desserrez pas les vis du cadre pour les corriger. Les écrans OLED n'ont ni fuites de lumière ni glow.",
+    "next": [
+      "Penchez-vous d'une trentaine de centimètres de chaque côté. Une lueur qui change avec votre position est de l'IPS glow, pas une fuite, et ce n'est pas un défaut.",
+      "Baissez la luminosité à votre niveau habituel, allumez la lumière de la pièce et regardez à nouveau.",
+      "Lisez une scène sombre d'un film ou d'un jeu que vous connaissez. Si vous n'y voyez pas la fuite, elle ne vous gênera pas.",
+      "Si elle se voit en usage normal, photographiez-la exposition verrouillée et contactez le vendeur tant que le délai de retour court encore. La prise en charge des fuites par la garantie est incertaine : n'attendez pas."
+    ],
+    "tables": [
+      {
+        "title": "Fuites de lumière et IPS glow : le comparatif",
+        "head": [
+          "",
+          "Fuites de lumière",
+          "IPS glow"
+        ],
+        "rows": [
+          [
+            "Change quand vous bougez la tête",
+            "Non",
+            "Oui"
+          ],
+          [
+            "Forme",
+            "Traînées, taches, faisceau de lampe torche partant d'un bord",
+            "Large voile partant d'un coin"
+          ],
+          [
+            "Couleur",
+            "En général blanche ou chaude",
+            "Argentée, bleutée ou ambrée"
+          ],
+          [
+            "Dalles concernées",
+            "Tous les LCD, surtout ceux éclairés par les bords",
+            "Les IPS uniquement"
+          ],
+          [
+            "Est-ce un défaut ?",
+            "Parfois, si elles sont marquées",
+            "Non, inhérent à la technologie"
+          ],
+          [
+            "Garantie",
+            "Parfois acceptées",
+            "Presque jamais"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Fuite de lumière ou IPS glow : le test d'une seconde et ce qui est normal"
+  },
+  "greyscale-test": {
+    "heading": "Lisse ou en bandes ? Lire le dégradé",
+    "howToHeading": "Afficher le dégradé et l'échelle",
+    "faqHeading": "Questions sur les niveaux de gris et le banding",
+    "pass": [
+      "Le dégradé continu va du noir au blanc sans barres visibles ni sauts brusques.",
+      "Sur l'échelle de 32 paliers, chaque bloc est un gris distinct et neutre, y compris les plus sombres."
+    ],
+    "fail": [
+      "Des barres distinctes dans le dégradé continu : du banding, qui vient d'un maillon de votre chaîne d'affichage.",
+      "Des paliers sombres qui se fondent dans le noir, ou des paliers clairs qui se fondent dans le blanc.",
+      "Une dominante verte, bleue ou magenta sur une partie de l'échelle. C'est la balance des blancs ou un réglage de couleur, pas du banding."
+    ],
+    "note": "Éloignez-vous de l'écran, car le banding se voit bien mieux à distance. Si le dégradé continu montre des barres, vérifiez que votre sortie graphique est réglée sur RGB complet et sur une couleur d'au moins 8 bits avant d'accuser la dalle. Le banding qui subsiste est courant sur les dalles 6 bits + FRC.",
+    "next": [
+      "Réglez la sortie graphique sur RGB complet et sur une couleur 8 bits au minimum.",
+      "Désactivez les modes nuit et les profils de couleur personnalisés, et passez l'écran sur son mode d'image standard.",
+      "Si les paliers sombres se confondent encore, lancez le Test du niveau de noir pour trouver où les détails dans les ombres se perdent.",
+      "Le banding qui subsiste après tout cela est la limite de la dalle elle-même."
+    ],
+    "guideLabel": "Qu'est-ce que le banding, et comment le réduire ?"
+  },
+  "color-gradient-test": {
+    "heading": "À quoi ressemble un dégradé propre",
+    "howToHeading": "Passer les dégradés en revue",
+    "faqHeading": "Questions sur les dégradés de couleurs",
+    "pass": [
+      "Chaque dégradé se fond de façon continue d'un bout à l'autre, sans barres, sauts ni taches.",
+      "Le spectre traverse régulièrement le jaune, le vert, le cyan, le bleu et le magenta.",
+      "Le vert paraît le plus lumineux des trois dégradés de couleur. C'est ainsi que fonctionne l'œil, ce n'est pas un défaut."
+    ],
+    "fail": [
+      "De larges bandes postérisées dans tous les dégradés : souvent une dalle 6 bits ou une sortie réglée sur une faible profondeur de couleur.",
+      "Du banding ou une dérive de couleur dans un seul des dégradés rouge, vert et bleu : le calibrage de ce canal, plutôt que la dalle dans son ensemble.",
+      "Une teinte qui occupe une trop large portion du spectre."
+    ],
+    "note": "Ces dégradés utilisent des couleurs sRGB standard : ils montrent donc le banding et les transitions irrégulières, pas l'étendue du gamut de votre écran. Les dégradés blanc et gris isolent le banding de luminosité dans les ombres, sans que la couleur vienne gêner.",
+    "next": [
+      "Désactivez les modes nuit, les filtres de couleur et les profils de couleur personnalisés, puis rechargez la page.",
+      "Si une seule des rampes rouge, verte ou bleue présente du banding, remettez le préréglage de couleur et les gains RGB du moniteur à leurs valeurs par défaut.",
+      "Comparez avec le Test des niveaux de gris. Du banding dans les deux met en cause les réglages de sortie ou la dalle, pas la couleur."
+    ],
+    "guideLabel": "Qu'est-ce que le banding, et comment le réduire ?"
+  },
+  "brightness-uniformity-test": {
+    "heading": "Assez régulier ? Lire l'aplat gris",
+    "howToHeading": "Vérifier l'uniformité de la luminosité",
+    "faqHeading": "Questions sur l'uniformité",
+    "pass": [
+      "Le gris paraît d'une seule nuance du centre jusqu'à chaque coin. Les bons moniteurs restent dans une variation de luminosité d'environ 10 % sur toute la dalle.",
+      "Des coins un peu plus sombres que le centre : un léger assombrissement est normal sur tous les LCD.",
+      "Sur Gris défilant, les bandes traversent l'écran et rien ne reste en arrière."
+    ],
+    "fail": [
+      "Une tache nettement plus sombre ou plus claire, aux contours visibles.",
+      "Des taches marbrées au milieu de l'écran : du clouding, souvent dû à une pression sur la dalle.",
+      "Sur Gris défilant, des taches ou des rayures verticales qui restent en place pendant que les bandes passent devant : le dirty screen effect."
+    ],
+    "note": "Comparez le centre à un seul coin à la fois. Vos yeux s'adaptent aux variations lentes sur un aplat et masquent des écarts bien réels : c'est pourquoi une photo à l'exposition homogène peut en montrer plus qu'un coup d'œil. Sur un téléviseur, jugez depuis votre place habituelle.",
+    "next": [
+      "Nettoyez l'écran et vérifiez à nouveau, car les traces ressemblent à de légères taches sur du gris.",
+      "Regardez la même zone sur du contenu normal : un terrain de football, une scène de neige, un document vierge.",
+      "Si une tache ou une bande y est visible, photographiez l'aplat gris et contactez le vendeur pendant le délai de retour."
+    ],
+    "tables": [
+      {
+        "title": "Normal, ou motif de retour ?",
+        "head": [
+          "Ce que vous voyez",
+          "En général normal",
+          "Demandez un retour si"
+        ],
+        "rows": [
+          [
+            "Légère lueur dans les coins d'un LCD, dans une pièce sombre",
+            "Oui, surtout sur IPS",
+            "Elle se voit en usage normal, et pas seulement sur un aplat de test"
+          ],
+          [
+            "Légères bandes verticales sur un aplat gris sombre",
+            "Courant sur les grandes dalles VA et OLED",
+            "Vous les voyez dans un travelling sur un terrain de football"
+          ],
+          [
+            "Une zone sombre qui ne suit pas le contenu",
+            "Non",
+            "Toujours"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Comment tester les pixels morts et l'uniformité d'un téléviseur neuf"
+  },
+  "refresh-rate-test": {
+    "heading": "La mesure est-elle correcte pour votre écran ?",
+    "howToHeading": "Mesurer votre fréquence de rafraîchissement",
+    "faqHeading": "Questions sur la fréquence de rafraîchissement",
+    "pass": [
+      "Une mesure à environ 1 Hz de la fréquence annoncée de la dalle. Beaucoup d'écrans tournent à une fraction de hertz de la valeur nominale, par exemple 59,94 Hz pour 60.",
+      "Un chiffre stable, et un carré qui se déplace sans à-coups."
+    ],
+    "fail": [
+      "60 Hz sur un écran 120, 144 ou 240 Hz. C'est un problème de réglage ou de câble, pas une dalle défectueuse : sélectionnez la fréquence maximale dans vos réglages d'affichage et vérifiez le câble et le port.",
+      "Une mesure qui fléchit ou qui saute. Fermez les autres onglets et applications et mesurez à nouveau avant d'accuser l'écran."
+    ],
+    "note": "Les portables et les téléphones peuvent abaisser la fréquence de rafraîchissement pour économiser l'énergie : refaites donc le test sur secteur ou avec l'économiseur de batterie désactivé. Si vous avez overclocké un moniteur, un chiffre conforme ici ne prouve pas qu'il affiche chaque image : c'est le Test de saut d'images qui le vérifie.",
+    "next": [
+      "Ouvrez vos réglages d'affichage et sélectionnez la fréquence de rafraîchissement la plus élevée proposée pour cet écran.",
+      "Si la fréquence attendue ne figure pas dans la liste, changez de câble ou de port : utilisez du DisplayPort, ou un câble et un port HDMI certifiés pour cette fréquence à votre résolution.",
+      "Cherchez dans le menu du moniteur un réglage qui débloque la fréquence maximale, comme une option d'overclocking, de version DisplayPort ou de mode HDMI.",
+      "Sur un portable ou un téléphone, branchez le chargeur et désactivez l'économiseur de batterie, puis mesurez à nouveau."
+    ],
+    "tables": [
+      {
+        "title": "Durée d'une image aux fréquences courantes",
+        "head": [
+          "Fréquence de rafraîchissement",
+          "Durée par image"
+        ],
+        "rows": [
+          [
+            "60 Hz",
+            "16,67 ms"
+          ],
+          [
+            "75 Hz",
+            "13,33 ms"
+          ],
+          [
+            "120 Hz",
+            "8,33 ms"
+          ],
+          [
+            "144 Hz",
+            "6,94 ms"
+          ],
+          [
+            "165 Hz",
+            "6,06 ms"
+          ],
+          [
+            "240 Hz",
+            "4,17 ms"
+          ],
+          [
+            "360 Hz",
+            "2,78 ms"
+          ]
+        ]
+      },
+      {
+        "title": "Ce qu'exige en général la connexion",
+        "head": [
+          "Ce que vous affichez",
+          "Exige en général"
+        ],
+        "rows": [
+          [
+            "1080p à 144 Hz",
+            "DisplayPort, ou HDMI 2.0"
+          ],
+          [
+            "1440p à 144 Hz",
+            "DisplayPort 1.2 ou plus récent, ou HDMI 2.0"
+          ],
+          [
+            "4K à 120 Hz ou plus",
+            "HDMI 2.1, ou DisplayPort 1.4 avec DSC"
+          ]
+        ],
+        "note": "Le câble, le port de l'ordinateur et le port de l'écran doivent tous prendre en charge cette fréquence."
+      }
+    ],
+    "guideLabel": "Comment activer la fréquence de rafraîchissement maximale de votre moniteur sous Windows et Mac"
+  },
+  "ghosting-test": {
+    "heading": "Traînée, liseré ou flou ? Ce que montrent les carrés",
+    "howToHeading": "Lancer le test de ghosting",
+    "faqHeading": "Questions sur le ghosting et l'overdrive",
+    "pass": [
+      "Un flou doux et régulier sur les bords en mouvement. Tout écran classique le produit, parce que chaque image est maintenue fixe pendant que vos yeux continuent de bouger, et il diminue quand la fréquence de rafraîchissement augmente.",
+      "Aucune image résiduelle distincte derrière les carrés à la vitesse Moyenne."
+    ],
+    "fail": [
+      "Une bavure ou une image résiduelle distincte à la traîne de chaque carré : du ghosting, dû à des pixels qui changent trop lentement. Sur les dalles VA, il est en général le plus marqué dans les scènes sombres.",
+      "Un liseré clair derrière chaque carré : de l'overshoot, dû à un overdrive réglé trop fort. Baissez d'un cran le réglage d'overdrive du moniteur."
+    ],
+    "note": "L'overdrive est un compromis : l'augmenter raccourcit la traînée jusqu'au point où elle bascule dans l'overshoot. Comparez les réglages d'overdrive de votre moniteur à la vitesse Moyenne, puis passez à Rapide pour rendre visibles les petites différences entre eux.",
+    "next": [
+      "Trouvez le réglage d'overdrive dans le menu du moniteur. Il peut s'appeler Temps de réponse (Response Time), Overdrive, TraceFree ou AMA.",
+      "Essayez chaque niveau à la vitesse Moyenne et gardez celui qui donne la traînée la plus courte sans liseré clair.",
+      "Vérifiez que le moniteur tourne à sa fréquence de rafraîchissement maximale, car l'overdrive est optimisé pour elle.",
+      "Si des traînées sombres subsistent sur une dalle VA à tous les réglages, c'est la limite de la dalle et non un défaut que l'on peut corriger par réglage."
+    ],
+    "tables": [
+      {
+        "title": "Comportement habituel en mouvement selon le type de dalle",
+        "head": [
+          "Dalle",
+          "À quoi s'attendre"
+        ],
+        "rows": [
+          [
+            "TN",
+            "Les transitions les plus rapides, les couleurs et les angles de vision les plus faibles"
+          ],
+          [
+            "IPS",
+            "Assez rapide pour la plupart des jeux ; quelques traînées sur les transitions sombres"
+          ],
+          [
+            "VA",
+            "Contraste élevé, mais nettement lente d'un ton sombre à l'autre : le fameux black smear"
+          ],
+          [
+            "OLED",
+            "Transitions quasi instantanées ; le flou restant vient du maintien de chaque image à l'écran"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Qu'est-ce que le ghosting, et comment le corriger ?"
+  },
+  "blooming-test": {
+    "heading": "Quelle quantité de halo est normale ?",
+    "howToHeading": "Lancer le test de blooming",
+    "faqHeading": "Questions sur le blooming et le local dimming",
+    "pass": [
+      "Sur un OLED : aucun halo. Chaque pixel produit sa propre lumière : il n'y a donc aucune zone de rétroéclairage qui puisse déborder.",
+      "Sur un Mini-LED ou un autre LCD à local dimming : une lueur douce autour du point, qui reste proche de lui. C'est la taille d'une zone de gradation, pas un défaut.",
+      "Sur un LCD sans local dimming : aucun halo qui suit le point, seulement le niveau de noir régulier habituel de la dalle."
+    ],
+    "fail": [
+      "Un halo assez large pour se remarquer dans des scènes sombres ordinaires, par exemple des sous-titres ou des étoiles qui illuminent un large bloc de l'image.",
+      "Des blocs qui s'allument et s'éteignent visiblement quand le point se déplace, ou qui le suivent avec retard."
+    ],
+    "note": "Le blooming est une limite du rétroéclairage : on peut donc l'ajuster, mais pas le supprimer. Un réglage de local dimming plus faible réduit les halos et relève les noirs ; un réglage plus fort approfondit les noirs et accentue le blooming. Les balayages des zones vous indiquent combien de zones vous avez : plus le halo saute souvent pendant que le carré traverse l'écran, plus le rétroéclairage est fin.",
+    "next": [
+      "Baissez le réglage de local dimming d'un cran et relancez le point mobile.",
+      "Placez un peu de lumière derrière l'écran ou à côté. Les halos se voient bien moins quand la pièce n'est pas plongée dans le noir.",
+      "Pour un usage bureautique, essayez de désactiver le local dimming, et gardez-le activé pour les films et les jeux.",
+      "Si les zones sont visiblement en retard sur le point, ou s'allument et s'éteignent par blocs, signalez-le au vendeur pendant le délai de retour."
+    ],
+    "guideLabel": "Mini-LED ou OLED : lequel vous convient le mieux ?"
+  },
+  "burn-in-test": {
+    "heading": "Rémanence ou burn-in ? Ce que montrent les aplats",
+    "howToHeading": "Vérifier le burn-in d'un OLED",
+    "faqHeading": "Questions sur le burn-in",
+    "pass": [
+      "Chaque aplat est régulier, sans forme que vous reconnaissiez.",
+      "Un contour qui s'est estompé ou a disparu après une heure ou deux de vidéo variée en plein écran est une rémanence d'image temporaire, pas du burn-in.",
+      "Des taches aléatoires sans contour reconnaissable relèvent plus probablement de l'uniformité de la dalle que du burn-in."
+    ],
+    "fail": [
+      "Une forme que vous reconnaissez, comme une barre des tâches en bas, un logo de chaîne ou le HUD d'un jeu, toujours présente après des contenus variés. C'est du burn-in (marquage), et il est permanent.",
+      "Une tache chaude ou jaunâtre là où se trouvait un contenu statique. L'émetteur bleu est celui qui s'use le plus vite : les zones usées paraissent donc souvent teintées plutôt que simplement plus sombres."
+    ],
+    "threshold": "La prise en charge du burn-in varie selon les marques. Certains fabricants l'incluent désormais dans la garantie pendant une durée limitée : lisez cette clause avant de conclure dans un sens ou dans l'autre.",
+    "note": "Vérifiez dans une pièce sombre, bien en face, avec la luminosité dynamique et les modes d'optimisation d'image désactivés, car ils peuvent masquer précisément l'écart que vous cherchez. C'est le gris qui montre le plus l'usure, et le blanc et chaque aplat de couleur en montrent une part différente : passez donc par tous.",
+    "next": [
+      "Notez où se trouve le contour, puis lisez une vidéo variée en plein écran pendant une heure ou deux.",
+      "Regardez à nouveau l'aplat gris. Si le contour s'est estompé, c'était une rémanence temporaire et il n'y a rien à faire.",
+      "S'il n'a pas changé, lancez une fois le cycle de rafraîchissement des pixels ou de compensation de la dalle depuis son menu, puis vérifiez à nouveau.",
+      "Toujours là ? Photographiez l'aplat gris, puis lisez la clause de votre garantie consacrée au burn-in et contactez le fabricant."
+    ],
+    "tables": [
+      {
+        "title": "Rémanence d'image et burn-in : le comparatif",
+        "head": [
+          "",
+          "Rémanence d'image",
+          "Burn-in"
+        ],
+        "rows": [
+          [
+            "Après une heure ou deux de vidéo variée",
+            "Estompée ou disparue",
+            "Inchangé"
+          ],
+          [
+            "Cause",
+            "L'effet temporaire d'une image fixe",
+            "Une usure inégale des pixels"
+          ],
+          [
+            "Permanent",
+            "Non",
+            "Oui"
+          ],
+          [
+            "Garantie",
+            "Ce n'est pas un défaut",
+            "Variable selon la marque ; lisez la clause"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Burn-in OLED : causes, prévention et comment le vérifier"
+  },
+  "contrast-test": {
+    "heading": "À quoi ressemble un bon contraste",
+    "howToHeading": "Utiliser les damiers",
+    "faqHeading": "Questions sur le contraste",
+    "pass": [
+      "Les cases noires restent d'un noir profond juste à côté des cases blanches lumineuses.",
+      "Les limites entre les cases sont nettes à toutes les densités, jusqu'à 32 × 32."
+    ],
+    "fail": [
+      "Des cases noires qui paraissent grises ou délavées : un contraste faible, ou un niveau de noir relevé.",
+      "Des bords flous ou colorés entre les cases. Cela renvoie à la mise à l'échelle ou au réglage de netteté, pas au contraste."
+    ],
+    "note": "Le type de dalle fixe le plafond. L'OLED garde les cases noires totalement sombres parce que les pixels s'éteignent. Parmi les LCD, les dalles VA atteignent typiquement 2 500:1 à 5 000:1 et les IPS environ 1 000:1 : les noirs d'une IPS paraissent donc nettement plus gris dans une pièce sombre. Ceci est un contrôle visuel : un véritable taux de contraste exige un luxmètre ou une sonde.",
+    "next": [
+      "Si le noir paraît gris, vérifiez d'abord la plage RGB avec le Test du niveau de noir.",
+      "Désactivez le contraste dynamique et tout mode éco ou capteur de luminosité ambiante, puis regardez à nouveau dans une pièce peu éclairée.",
+      "Si le noir reste gris sur une dalle IPS dans une pièce sombre, c'est la limite de ce type de dalle et aucun réglage n'y changera rien."
+    ],
+    "tables": [
+      {
+        "title": "Les types de dalles en un coup d'œil",
+        "head": [
+          "Dalle",
+          "Contraste",
+          "Angles de vision",
+          "Mouvement",
+          "Risque de burn-in"
+        ],
+        "rows": [
+          [
+            "TN",
+            "Le plus faible",
+            "Médiocres",
+            "Rapide",
+            "Aucun"
+          ],
+          [
+            "IPS",
+            "Faible à moyen",
+            "Excellents",
+            "Rapide (dalles récentes)",
+            "Aucun"
+          ],
+          [
+            "VA",
+            "Élevé",
+            "Moyens",
+            "Lent dans les tons sombres",
+            "Aucun"
+          ],
+          [
+            "OLED",
+            "Quasi infini",
+            "Excellents",
+            "Le plus rapide",
+            "Réel, mais maîtrisable"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Le taux de contraste expliqué : ce que les chiffres veulent vraiment dire"
+  }
+}

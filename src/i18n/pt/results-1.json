@@ -1,0 +1,584 @@
+{
+  "dead-pixel-test": {
+    "heading": "Morto, preso ou só poeira? Como ler o resultado",
+    "howToHeading": "Como fazer a checagem de pixels",
+    "faqHeading": "Perguntas sobre pixels mortos e presos",
+    "pass": [
+      "Cada cor é um campo único e contínuo, sem nenhum ponto que fique escuro e nenhum que fique aceso na cor errada.",
+      "Um cisco que sai com o pano, ou que parece estar acima da imagem quando você olha de lado, é poeira ou uma marca na superfície, não um pixel."
+    ],
+    "fail": [
+      "Um ponto escuro em todas as cores, inclusive no branco, é um pixel morto. Ele não se recupera.",
+      "Um ponto que mantém uma cor, ou aparece branco no quadro preto, é um pixel preso ou brilhante (hot pixel). Experimente o quadro Reparador de pixel preso antes de decidir qualquer coisa.",
+      "Uma linha ou coluna inteira acesa ou apagada é falha de conexão, não defeito de pixel, e quase sempre dá direito a reparo.",
+      "Duas ou mais falhas próximas formam um agrupamento. Muitas políticas trocam o painel por um agrupamento, mas toleram o mesmo número de falhas espalhadas."
+    ],
+    "threshold": "Os fabricantes classificam os painéis segundo a ISO 9241-307. A maioria das telas de consumo é Class II, que admite algumas falhas por milhão de pixels, e a maioria das marcas publica contagens fixas próprias em vez de usar esse número. Pixels brilhantes são contados com mais rigor do que os escuros, e falhas de um único subpixel, com mais tolerância. O número que vale é o do seu termo de garantia. Dentro do prazo de devolução da loja, você não precisa atingir contagem nenhuma.",
+    "note": "Nenhuma cor sozinha basta. Um pixel preso aceso é invisível no branco, e um pixel apagado é invisível no preto, então passe por todos os quadros, seja em LCD ou em OLED. Em um celular ou em um notebook 4K, um pixel é muito pequeno: olhe mais de perto do que você costuma ficar.",
+    "next": [
+      "Passe um pano de microfibra seco na tela e olhe de novo. Se o ponto mudou de lugar ou sumiu, era poeira.",
+      "Passe por todas as cores e anote onde o ponto aparece. Escuro em todas significa morto; uma cor fixa, ou aceso no preto, significa preso.",
+      "No caso de um pixel preso, deixe o quadro Reparador de pixel preso sobre ele por 10 a 30 minutos e confira de novo.",
+      "Fotografe a falha em uma cor sólida e anote a data e a posição dela na tela.",
+      "Veja quando você comprou a tela. Dentro do prazo de devolução da loja, devolva ou troque. Depois disso, conte as falhas por tipo e compare com a política de pixels do fabricante."
+    ],
+    "tables": [
+      {
+        "title": "Como cada tipo de falha aparece nas cores do teste",
+        "head": [
+          "Falha",
+          "No preto",
+          "No branco",
+          "No vermelho, verde e azul",
+          "Tem recuperação?"
+        ],
+        "rows": [
+          [
+            "Pixel morto",
+            "Invisível",
+            "Ponto escuro",
+            "Ponto escuro nas três",
+            "Não"
+          ],
+          [
+            "Subpixel preso",
+            "Ponto colorido",
+            "Ponto do tom oposto",
+            "Invisível na própria cor",
+            "Às vezes"
+          ],
+          [
+            "Pixel brilhante (hot pixel)",
+            "Ponto branco",
+            "Invisível",
+            "Ponto claro nas três",
+            "Raramente"
+          ],
+          [
+            "Poeira na superfície",
+            "Difícil de ver",
+            "Cisco de contorno suave",
+            "Cisco escuro",
+            "Sai com o pano"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Políticas de garantia para pixels mortos: como funcionam as contagens e quando é melhor devolver"
+  },
+  "color-test": {
+    "heading": "O que cada cor revela",
+    "howToHeading": "Como percorrer as cores",
+    "faqHeading": "Perguntas sobre o teste de cores",
+    "terms": [
+      {
+        "name": "Preto",
+        "text": "Pixels presos acesos e luz de fundo vazando pelas bordas."
+      },
+      {
+        "name": "Branco",
+        "text": "Pixels apagados, poeira e manchas de tom ou brilho irregular."
+      },
+      {
+        "name": "Vermelho, verde, azul",
+        "text": "Cada um acende um único subpixel. Um ponto escuro que aparece em apenas um deles é um único subpixel morto, a falha que as políticas de garantia mais toleram."
+      },
+      {
+        "name": "Ciano, magenta, amarelo",
+        "text": "Cada um acende dois subpixels. Um subpixel preso aceso aparece aqui como um ponto da cor errada, embora suma na própria cor primária."
+      },
+      {
+        "name": "Cinza",
+        "text": "Brilho e tom irregulares são mais fáceis de ver em um tom médio, assim como uma imagem retida em um OLED."
+      }
+    ],
+    "pass": [
+      "Cada cor é plana e uniforme na tela inteira, com o mesmo tom nos cantos e no centro."
+    ],
+    "fail": [
+      "Um ponto que destoa do campo em uma ou mais cores: anote em quais, porque é isso que diz se ele está morto ou preso.",
+      "Uma linha fina que atravessa toda a altura ou a largura em todas as cores: falha de conexão, não defeito de pixel.",
+      "Uma região com tom diferente do resto, principalmente no branco e no cinza."
+    ],
+    "next": [
+      "Anote em quais cores o ponto ou a mancha aparece.",
+      "No caso de um ponto, faça o Teste de Pixel Morto, que também tem o Reparador de pixel preso.",
+      "No caso de uma área com tom diferente, desligue todos os modos noturnos e filtros de cor e olhe de novo no branco e no cinza.",
+      "Um tom que continua em uma só parte da tela vem do painel. Fotografe-o no branco e procure a loja dentro do prazo de devolução."
+    ],
+    "guideLabel": "Por que parte da minha tela está descolorida ou com outro tom?"
+  },
+  "black-screen": {
+    "heading": "Como uma tela preta deve ficar",
+    "howToHeading": "Como usar a tela preta",
+    "faqHeading": "Perguntas sobre a tela preta",
+    "pass": [
+      "Em um OLED: completamente escura, como se a tela estivesse desligada, porque os pixels pretos ficam apagados.",
+      "Em um LCD: um cinza uniforme e muito escuro. O LCD bloqueia uma luz de fundo que está sempre acesa, então nunca chega ao preto de verdade.",
+      "Um brilho suave nos cantos que muda ou some conforme você mexe a cabeça é IPS glow, característica dos painéis IPS e não um defeito."
+    ],
+    "fail": [
+      "Faixas ou manchas ao longo de uma borda que ficam paradas quando você mexe a cabeça: vazamento de luz (backlight bleed). Ele importa se você o vê no uso normal, como em cenas escuras ou nas barras pretas de um filme.",
+      "Um ponto brilhante de qualquer cor: um pixel preso ou brilhante. Confirme no Teste de Pixel Morto.",
+      "Em um OLED, qualquer área que não esteja totalmente preta. O OLED não tem luz de fundo para vazar, então isso aponta para falta de uniformidade ou desgaste do painel, não para vazamento."
+    ],
+    "note": "Antes, dê dois ou três minutos para os olhos se acostumarem ao escuro: o brilho parece pior nos primeiros trinta segundos. O brilho máximo facilita achar falhas, mas avalie se elas importam no brilho que você realmente usa. Confie mais nos seus olhos do que em uma foto de celular, porque a exposição longa da câmera transforma uma névoa discreta em algo dramático.",
+    "next": [
+      "Se há um brilho nas bordas ou nos cantos, faça o Teste de Vazamento de Luz e incline-se para cada lado para distinguir vazamento de luz de IPS glow.",
+      "Se há um ponto aceso, faça o Teste de Pixel Morto e experimente o Reparador de pixel preso.",
+      "Se a tela inteira parece cinza em vez de preta, confira a faixa RGB com o Teste de Nível de Preto."
+    ],
+    "guideLabel": "Vazamento de luz x IPS glow: como diferenciar"
+  },
+  "white-screen": {
+    "heading": "O que procurar no branco",
+    "howToHeading": "Como usar a tela branca",
+    "faqHeading": "Perguntas sobre a tela branca",
+    "pass": [
+      "Um branco uniforme de ponta a ponta, sem pontos escuros.",
+      "Um tom quente ou frio por igual na tela inteira é temperatura de cor, não defeito. Desligue a Luz noturna, o Night Shift ou o True Tone e olhe de novo.",
+      "Cantos um pouco mais escuros que o centro: alguma queda de brilho é normal em todo LCD."
+    ],
+    "fail": [
+      "Um ponto escuro que não sai com o pano: um pixel morto ou poeira presa entre as camadas do painel.",
+      "Uma mancha nitidamente mais escura, com borda visível, ou manchas em linha na tela de um notebook, que costumam ser marcas de pressão.",
+      "Manchas de tom diferente em parte da tela, em vez de um tom único e uniforme.",
+      "Em um OLED, o contorno discreto de uma barra de tarefas, um logo ou um teclado: retenção de imagem ou burn-in. Confira no cinza, no Teste de Burn-in."
+    ],
+    "note": "O branco só mostra pixels apagados. Um pixel preso aceso desaparece nele, então uma checagem completa de pixels também precisa do preto e das cores primárias, que o Teste de Pixel Morto percorre.",
+    "next": [
+      "Passe um pano de microfibra seco na tela e olhe de novo.",
+      "Um ponto escuro que continua lá: passe pelas cores do Teste de Pixel Morto para ver se é um pixel ou poeira presa.",
+      "Uma mancha mais escura: confira no cinza com o Teste de Uniformidade de Brilho.",
+      "Em um OLED, o contorno de uma barra de tarefas ou de um logo: confira com o Teste de Burn-in."
+    ],
+    "guideLabel": "Por que minha tela tem um ponto ou uma mancha escura?"
+  },
+  "backlight-bleed-test": {
+    "heading": "Vazamento, glow ou normal? Como ler o campo preto",
+    "howToHeading": "Como preparar a checagem de vazamento",
+    "faqHeading": "Perguntas sobre vazamento de luz",
+    "pass": [
+      "Um brilho que muda quando você se inclina uns 30 cm para um lado ou para o outro é IPS glow. Ele é inerente aos painéis IPS, e as garantias quase nunca o cobrem.",
+      "Uma névoa discreta que só dá para achar em um ambiente totalmente escuro. Se você não a vê assistindo a um filme com as luzes acesas, ignore."
+    ],
+    "fail": [
+      "Faixas, manchas ou um formato de facho de lanterna saindo de uma borda, iguais em qualquer posição da sua cabeça: vazamento de luz (backlight bleed).",
+      "Uma faixa clara visível no uso do dia a dia: cenas escuras de jogos, uma página preta, as barras acima e abaixo de um filme.",
+      "Manchas nubladas no meio da tela, e não nas bordas: clouding. Confirme no cinza com o Teste de Uniformidade de Brilho."
+    ],
+    "threshold": "Não existe um limite padrão para o vazamento de luz, e as políticas dos fabricantes sobre ele são vagas. Por isso, aqui o prazo de devolução da loja importa mais do que a garantia: decida dentro dele.",
+    "note": "O brilho máximo facilita achar o vazamento, mas exagera tudo, então avalie de novo no brilho que você usa no dia a dia. O vazamento às vezes diminui nas primeiras semanas, conforme a moldura se acomoda. Não pressione o painel nem afrouxe os parafusos da moldura para tentar corrigir. Telas OLED não têm vazamento nem glow.",
+    "next": [
+      "Incline-se uns 30 cm para cada lado. Um brilho que muda com a sua posição é IPS glow, não vazamento, e não é defeito.",
+      "Reduza o brilho para o nível que você costuma usar, acenda as luzes do ambiente e olhe de novo.",
+      "Reproduza uma cena escura de um filme ou jogo que você conhece. Se não der para ver o vazamento ali, ele não vai afetar você.",
+      "Se ele aparece no uso normal, fotografe com a exposição travada e procure a loja enquanto o prazo de devolução está aberto. A cobertura da garantia para vazamento de luz é incerta, então não espere."
+    ],
+    "tables": [
+      {
+        "title": "Vazamento de luz e IPS glow comparados",
+        "head": [
+          "",
+          "Vazamento de luz",
+          "IPS glow"
+        ],
+        "rows": [
+          [
+            "Muda quando você mexe a cabeça",
+            "Não",
+            "Sim"
+          ],
+          [
+            "Formato",
+            "Riscos, manchas, feixe de lanterna saindo de uma borda",
+            "Brilho difuso e amplo a partir de um canto"
+          ],
+          [
+            "Cor",
+            "Em geral branca ou quente",
+            "Prateada, azulada ou âmbar"
+          ],
+          [
+            "Painéis afetados",
+            "Qualquer LCD; pior nos iluminados pela borda",
+            "Especificamente IPS"
+          ],
+          [
+            "É defeito?",
+            "Às vezes, se for grave",
+            "Não, é inerente à tecnologia"
+          ],
+          [
+            "Garantia",
+            "Aceito de vez em quando",
+            "Quase nunca"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Vazamento de luz x IPS glow: o teste de um segundo e o que é normal"
+  },
+  "greyscale-test": {
+    "heading": "Suave ou com faixas? Como ler o gradiente",
+    "howToHeading": "Como ver o gradiente e a rampa",
+    "faqHeading": "Perguntas sobre escala de cinza e banding",
+    "pass": [
+      "O gradiente suave vai do preto ao branco sem barras visíveis nem saltos bruscos.",
+      "Na rampa de 32 degraus, cada bloco é um cinza distinto e neutro, inclusive os mais escuros."
+    ],
+    "fail": [
+      "Barras nítidas no gradiente suave: banding, vindo de algum ponto da sua cadeia de exibição.",
+      "Degraus escuros que se fundem com o preto, ou degraus claros que se fundem com o branco.",
+      "Um tom esverdeado, azulado ou magenta em parte da rampa. Isso é balanço de branco ou uma configuração de cor, não banding."
+    ],
+    "note": "Afaste-se da tela, porque o banding é muito mais fácil de ver à distância. Se o gradiente suave mostra barras, confira se a saída de vídeo está em RGB completo e com cor de pelo menos 8 bits antes de culpar o painel. O banding que sobrar é comum em painéis de 6 bits + FRC.",
+    "next": [
+      "Configure a saída de vídeo para RGB completo e cor de pelo menos 8 bits.",
+      "Desligue os modos noturnos e os perfis de cor personalizados e coloque a tela no modo de imagem padrão.",
+      "Se os degraus escuros continuam se fundindo, faça o Teste de Nível de Preto para descobrir onde os detalhes nas sombras se perdem.",
+      "O banding que sobrar depois de tudo isso é o limite do próprio painel."
+    ],
+    "guideLabel": "O que é color banding e como reduzi-lo?"
+  },
+  "color-gradient-test": {
+    "heading": "Como é um gradiente limpo",
+    "howToHeading": "Como percorrer os gradientes",
+    "faqHeading": "Perguntas sobre gradientes de cores",
+    "pass": [
+      "Todo gradiente se funde suavemente de ponta a ponta, sem barras, saltos ou manchas.",
+      "O espectro passa por igual pelo amarelo, verde, ciano, azul e magenta.",
+      "O verde parece a mais clara das três rampas de cor. É assim que o olho funciona, não é defeito."
+    ],
+    "fail": [
+      "Faixas largas e posterizadas em todos os gradientes: muitas vezes um painel de 6 bits ou uma saída configurada com baixa profundidade de cor.",
+      "Banding ou desvio de cor em apenas uma das rampas de vermelho, verde e azul: é a calibração daquele canal, e não o painel como um todo.",
+      "Um matiz engolindo um trecho largo do espectro."
+    ],
+    "note": "Estes gradientes usam cores sRGB padrão, então mostram banding e transições irregulares, não a amplitude da gama de cores da sua tela. As rampas de branco e de cinza isolam o banding de brilho nas sombras sem a cor atrapalhar.",
+    "next": [
+      "Desligue os modos noturnos, os filtros de cor e os perfis de cor personalizados e recarregue a página.",
+      "Se só uma das rampas (vermelha, verde ou azul) tem banding, restaure para o padrão a predefinição de cor e os ajustes de ganho RGB do monitor.",
+      "Compare com o Teste de Escala de Cinza. Banding nos dois aponta para as configurações de saída ou para o painel, não para as cores."
+    ],
+    "guideLabel": "O que é color banding e como reduzi-lo?"
+  },
+  "brightness-uniformity-test": {
+    "heading": "Uniforme o bastante? Como ler o campo cinza",
+    "howToHeading": "Como checar a uniformidade de brilho",
+    "faqHeading": "Perguntas sobre uniformidade",
+    "pass": [
+      "O cinza parece um tom só, do centro a cada canto. Bons monitores ficam dentro de cerca de 10% de variação de brilho ao longo do painel.",
+      "Cantos um pouco mais escuros que o centro: alguma queda de brilho é normal em todo LCD.",
+      "Em Cinza em movimento, as faixas deslizam pela tela e nada fica para trás."
+    ],
+    "fail": [
+      "Uma mancha nitidamente mais escura ou mais clara, com borda visível.",
+      "Manchas nubladas no meio da tela: clouding, muitas vezes causado por pressão sobre o painel.",
+      "Em Cinza em movimento, manchas ou listras verticais que ficam paradas enquanto as faixas passam por elas: o efeito de tela suja (dirty screen effect)."
+    ],
+    "note": "Compare o centro com um canto de cada vez. Seus olhos se adaptam a mudanças graduais ao longo de um campo e escondem diferenças reais, por isso uma foto com exposição uniforme pode mostrar mais do que uma olhada rápida. Em uma TV, avalie do lugar onde você realmente se senta.",
+    "next": [
+      "Limpe a tela e confira de novo, já que marcas de sujeira parecem manchas discretas no cinza.",
+      "Olhe a mesma área em conteúdo normal: um gramado de futebol, uma cena de neve, um documento em branco.",
+      "Se uma mancha ou faixa for visível ali, fotografe o campo cinza e procure a loja dentro do prazo de devolução."
+    ],
+    "tables": [
+      {
+        "title": "É normal ou vale uma devolução?",
+        "head": [
+          "O que você vê",
+          "Costuma ser normal",
+          "Insista na devolução quando"
+        ],
+        "rows": [
+          [
+            "Brilho tênue nos cantos de um LCD em ambiente escuro",
+            "Sim, principalmente em IPS",
+            "Aparece no uso normal, não só em um campo de teste"
+          ],
+          [
+            "Banding vertical leve em um campo cinza escuro",
+            "Comum em painéis VA e OLED grandes",
+            "Dá para ver em uma tomada panorâmica de um campo de futebol"
+          ],
+          [
+            "Uma mancha escura que não se move com o conteúdo",
+            "Não",
+            "Sempre"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Como testar pixels mortos e uniformidade em uma TV nova"
+  },
+  "refresh-rate-test": {
+    "heading": "A leitura está certa para a sua tela?",
+    "howToHeading": "Como medir a taxa de atualização",
+    "faqHeading": "Perguntas sobre taxa de atualização",
+    "pass": [
+      "Uma leitura a cerca de 1 Hz do valor nominal do painel. Muitas telas rodam uma fração fora do nominal, como 59,94 Hz em vez de 60.",
+      "Um número estável e uma caixa que se move sem engasgos."
+    ],
+    "fail": [
+      "60 Hz em uma tela de 120, 144 ou 240 Hz. É problema de configuração ou de cabo, não de painel: selecione a taxa máxima nas configurações de vídeo e confira o cabo e a porta.",
+      "Uma leitura que cai ou fica oscilando. Feche outras abas e aplicativos e meça de novo antes de culpar a tela."
+    ],
+    "note": "Notebooks e celulares podem reduzir a taxa de atualização para economizar energia, então repita o teste na tomada ou com a economia de bateria desligada. Se você fez overclock em um monitor, o número certo aqui não prova que ele está exibindo todos os quadros: quem verifica isso é o Teste de Frame Skipping.",
+    "next": [
+      "Abra as configurações de vídeo e selecione a taxa de atualização mais alta oferecida para esta tela.",
+      "Se a taxa esperada não estiver na lista, troque o cabo ou a porta: use DisplayPort, ou um cabo e uma porta HDMI certificados para essa taxa na sua resolução.",
+      "Procure no menu do próprio monitor uma configuração que libere a taxa máxima, como uma opção de overclock, de versão do DisplayPort ou de modo HDMI.",
+      "Em um notebook ou celular, ligue na tomada, desative a economia de bateria e meça de novo."
+    ],
+    "tables": [
+      {
+        "title": "Tempo de quadro nas taxas de atualização mais comuns",
+        "head": [
+          "Taxa de atualização",
+          "Tempo por quadro"
+        ],
+        "rows": [
+          [
+            "60 Hz",
+            "16,67 ms"
+          ],
+          [
+            "75 Hz",
+            "13,33 ms"
+          ],
+          [
+            "120 Hz",
+            "8,33 ms"
+          ],
+          [
+            "144 Hz",
+            "6,94 ms"
+          ],
+          [
+            "165 Hz",
+            "6,06 ms"
+          ],
+          [
+            "240 Hz",
+            "4,17 ms"
+          ],
+          [
+            "360 Hz",
+            "2,78 ms"
+          ]
+        ]
+      },
+      {
+        "title": "O que a conexão costuma exigir",
+        "head": [
+          "O que você quer exibir",
+          "Costuma exigir"
+        ],
+        "rows": [
+          [
+            "1080p a 144 Hz",
+            "DisplayPort ou HDMI 2.0"
+          ],
+          [
+            "1440p a 144 Hz",
+            "DisplayPort 1.2 ou superior, ou HDMI 2.0"
+          ],
+          [
+            "4K a 120 Hz ou mais",
+            "HDMI 2.1, ou DisplayPort 1.4 com DSC"
+          ]
+        ],
+        "note": "O cabo, a porta do computador e a porta da tela precisam todos ser compatíveis com a taxa."
+      }
+    ],
+    "guideLabel": "Como ativar a taxa de atualização máxima do monitor no Windows e no Mac"
+  },
+  "ghosting-test": {
+    "heading": "Rastro, borda clara ou desfoque? O que as caixas mostram",
+    "howToHeading": "Como fazer o teste de ghosting",
+    "faqHeading": "Perguntas sobre ghosting e overdrive",
+    "pass": [
+      "Um desfoque suave e uniforme nas bordas em movimento. Toda tela comum faz isso, porque cada quadro fica parado enquanto seus olhos continuam se movendo, e o efeito diminui em taxas de atualização mais altas.",
+      "Nenhuma imagem residual separada atrás das caixas na velocidade Média."
+    ],
+    "fail": [
+      "Um borrão nítido ou uma imagem residual atrás de cada caixa: ghosting, causado por pixels que mudam devagar demais. Em painéis VA, costuma ser pior em cenas escuras.",
+      "Uma borda clara atrás de cada caixa: overshoot, de um overdrive alto demais. Baixe um nível na configuração de overdrive do monitor."
+    ],
+    "note": "O overdrive é uma troca: aumentá-lo encurta o rastro até o ponto em que vira overshoot. Compare os níveis de overdrive do monitor na velocidade Média e depois use a Rápida para deixar visíveis as pequenas diferenças entre eles.",
+    "next": [
+      "Encontre a configuração de overdrive no menu do monitor. Ela pode se chamar Response Time, Overdrive, TraceFree ou AMA.",
+      "Experimente cada nível na velocidade Média e fique com o que tiver o rastro mais curto e nenhuma borda clara.",
+      "Confira se o monitor está na taxa de atualização máxima, porque o overdrive é ajustado para ela.",
+      "Se em um painel VA os rastros escuros continuam em todos os níveis, esse é o limite do painel, não um defeito que dê para corrigir com ajustes."
+    ],
+    "tables": [
+      {
+        "title": "Comportamento típico em movimento por tipo de painel",
+        "head": [
+          "Painel",
+          "O que esperar"
+        ],
+        "rows": [
+          [
+            "TN",
+            "Transições mais rápidas; cores e ângulos de visão mais fracos"
+          ],
+          [
+            "IPS",
+            "Rápido o bastante para a maioria dos jogos; algum rastro nas transições escuras"
+          ],
+          [
+            "VA",
+            "Contraste forte, visivelmente lento de um tom escuro a outro: o clássico rastro preto (black smear)"
+          ],
+          [
+            "OLED",
+            "Transições quase instantâneas; o borrão que resta vem de cada quadro ficar retido na tela"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "O que é ghosting e como resolver?"
+  },
+  "blooming-test": {
+    "heading": "Quanto halo é normal?",
+    "howToHeading": "Como fazer o teste de blooming",
+    "faqHeading": "Perguntas sobre blooming e local dimming",
+    "pass": [
+      "Em um OLED: nenhum halo. Cada pixel produz a própria luz, então não há zona de luz de fundo para vazar.",
+      "Em um Mini-LED ou outro LCD com local dimming: um brilho suave em volta do ponto, que fica perto dele. Esse é o tamanho de uma zona de escurecimento, não um defeito.",
+      "Em um LCD sem local dimming: nenhum halo que acompanhe o ponto, só o nível de preto uniforme de sempre do painel."
+    ],
+    "fail": [
+      "Um halo largo o bastante para ser notado em cenas escuras normais, como legendas ou estrelas iluminando um bloco grande da imagem.",
+      "Blocos que acendem e apagam visivelmente conforme o ponto se move, ou que ficam atrasados em relação a ele."
+    ],
+    "note": "O blooming é um limite da luz de fundo, então dá para ajustá-lo, mas não eliminá-lo. Um nível mais baixo de local dimming encolhe os halos e clareia os pretos; um mais alto aprofunda os pretos e gera mais blooming. As varreduras de zonas mostram quantas zonas você tem: quanto mais vezes o halo salta enquanto o quadrado cruza a tela, mais fina é a luz de fundo.",
+    "next": [
+      "Baixe um nível na configuração de local dimming e passe o ponto móvel de novo.",
+      "Coloque um pouco de luz atrás ou ao lado da tela. Os halos ficam bem menos visíveis quando o ambiente não está totalmente escuro.",
+      "Para trabalho no desktop, experimente desligar o local dimming, e mantenha-o ligado para filmes e jogos.",
+      "Se as zonas ficam visivelmente atrasadas em relação ao ponto ou acendem e apagam em blocos, leve o caso à loja dentro do prazo de devolução."
+    ],
+    "guideLabel": "Mini-LED x OLED: qual é melhor para você?"
+  },
+  "burn-in-test": {
+    "heading": "Retenção ou burn-in? O que os campos mostram",
+    "howToHeading": "Como procurar burn-in em um OLED",
+    "faqHeading": "Perguntas sobre burn-in",
+    "pass": [
+      "Todos os campos são uniformes, sem nenhuma forma que você reconheça.",
+      "Um contorno que diminuiu ou sumiu depois de uma ou duas horas de vídeo variado em tela cheia é retenção de imagem temporária, não burn-in.",
+      "Manchas aleatórias, sem borda reconhecível, têm mais cara de uniformidade do painel do que de burn-in."
+    ],
+    "fail": [
+      "Uma forma que você reconhece, como uma barra de tarefas na parte de baixo, o logo de um canal ou o HUD de um jogo, que continua ali depois de conteúdo variado. Isso é burn-in, e é permanente.",
+      "Uma mancha quente ou amarelada onde ficava conteúdo estático. O emissor azul é o que se desgasta mais rápido, então as áreas desgastadas muitas vezes parecem tingidas, e não apenas mais escuras."
+    ],
+    "threshold": "A cobertura de burn-in varia conforme a marca. Alguns fabricantes já o incluem na garantia por um período limitado, então leia essa cláusula antes de tirar conclusões.",
+    "note": "Verifique em um ambiente escuro, bem de frente, com o brilho dinâmico e os modos de otimização de imagem desligados, porque eles podem esconder exatamente a diferença que você procura. O cinza é o que mais mostra o desgaste, e o branco e cada campo de cor mostram quantidades diferentes, então passe por todos.",
+    "next": [
+      "Anote onde está o contorno e reproduza vídeo variado em tela cheia por uma ou duas horas.",
+      "Olhe o campo cinza de novo. Se o contorno diminuiu, era retenção temporária e não é preciso fazer nada.",
+      "Se continua igual, rode uma vez o ciclo de atualização de pixels ou de compensação do painel, pelo menu, e confira de novo.",
+      "Ainda está lá? Fotografe o campo cinza, leia a cláusula de burn-in da sua garantia e entre em contato com o fabricante."
+    ],
+    "tables": [
+      {
+        "title": "Retenção de imagem e burn-in comparados",
+        "head": [
+          "",
+          "Retenção de imagem",
+          "Burn-in"
+        ],
+        "rows": [
+          [
+            "Depois de uma ou duas horas de vídeo variado",
+            "Atenuada ou sumiu",
+            "Igual"
+          ],
+          [
+            "Causa",
+            "Um efeito residual temporário de uma imagem estática",
+            "Desgaste desigual dos pixels"
+          ],
+          [
+            "Permanente",
+            "Não",
+            "Sim"
+          ],
+          [
+            "Garantia",
+            "Não é defeito",
+            "Varia conforme a marca; leia a cláusula"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Burn-in em OLED: causas, prevenção e como verificar"
+  },
+  "contrast-test": {
+    "heading": "Como é um bom contraste",
+    "howToHeading": "Como usar os padrões xadrez",
+    "faqHeading": "Perguntas sobre contraste",
+    "pass": [
+      "Os quadrados pretos continuam bem pretos ao lado dos brancos claros.",
+      "As bordas entre os quadrados são nítidas em todas as densidades, até 32 × 32."
+    ],
+    "fail": [
+      "Quadrados pretos que parecem cinzentos ou lavados: contraste baixo ou nível de preto elevado.",
+      "Bordas borradas ou coloridas entre os quadrados. Isso aponta para o redimensionamento ou a configuração de nitidez, não para o contraste."
+    ],
+    "note": "O tipo de painel define o teto. O OLED mantém os quadrados pretos totalmente escuros porque os pixels se apagam. Entre os LCDs, os painéis VA costumam atingir de 2.500:1 a 5.000:1 e os IPS, cerca de 1.000:1, então os pretos do IPS parecem visivelmente mais cinzentos em um ambiente escuro. Esta é uma checagem visual: uma taxa de contraste real exige um medidor de luz.",
+    "next": [
+      "Se o preto parece cinza, confira primeiro a faixa RGB com o Teste de Nível de Preto.",
+      "Desligue o contraste dinâmico e qualquer modo eco ou de luz ambiente e olhe de novo em um ambiente à meia-luz.",
+      "Se o preto continua cinza em um painel IPS em ambiente escuro, esse é o limite do tipo de painel, e nenhuma configuração vai mudar isso."
+    ],
+    "tables": [
+      {
+        "title": "Os tipos de painel em resumo",
+        "head": [
+          "Painel",
+          "Contraste",
+          "Ângulos de visão",
+          "Movimento",
+          "Risco de burn-in"
+        ],
+        "rows": [
+          [
+            "TN",
+            "O mais baixo",
+            "Ruins",
+            "Rápido",
+            "Nenhum"
+          ],
+          [
+            "IPS",
+            "Baixo a médio",
+            "Excelentes",
+            "Rápido (nos atuais)",
+            "Nenhum"
+          ],
+          [
+            "VA",
+            "Alto",
+            "Médios",
+            "Lento nos tons escuros",
+            "Nenhum"
+          ],
+          [
+            "OLED",
+            "Praticamente infinito",
+            "Excelentes",
+            "O mais rápido",
+            "Real, mas administrável"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Taxa de contraste explicada: o que os números realmente significam"
+  }
+}

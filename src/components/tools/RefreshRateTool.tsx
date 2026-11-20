@@ -4,11 +4,13 @@ import FullscreenStage from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
 import { useRefreshReading } from "./useRefreshRate";
+import { useT } from "@/i18n/ui";
 
 /** `detailed` adds frame time and the closest standard rate (full-screen only — the
  *  inline preview is too small for the extra line under the Start button). */
 function RefreshReadout({ detailed }: { detailed: boolean }) {
   const reading = useRefreshReading();
+  const t = useT();
 
   const draw = ({ ctx, width, height, t }: DrawArgs) => {
     ctx.fillStyle = "#0a0a0a";
@@ -29,11 +31,11 @@ function RefreshReadout({ detailed }: { detailed: boolean }) {
         </div>
         {detailed && reading && (
           <p className="mt-3 px-4 text-center text-base tabular-nums text-white/80">
-            {reading.frameMs.toFixed(2)} ms per frame
-            {reading.nearest !== null && ` · closest standard rate ${reading.nearest} Hz`}
+            {t("{ms} ms per frame", { ms: reading.frameMs.toFixed(2) })}
+            {reading.nearest !== null && ` · ${t("closest standard rate {hz} Hz", { hz: reading.nearest })}`}
           </p>
         )}
-        <p className="mt-2 text-sm text-white/60">Measured from animation frames</p>
+        <p className="mt-2 text-sm text-white/60">{t("Measured from animation frames")}</p>
       </div>
     </div>
   );

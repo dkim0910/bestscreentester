@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ToolDef } from "@/lib/tools";
+import type { Lang } from "@/i18n/config";
+import { href } from "@/i18n";
 
 /**
  * Container for a listing of ToolCards. They are hairline-divided rows, not gapped
@@ -11,11 +13,20 @@ export const TOOL_GRID = "grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3";
 /**
  * One test in a listing: a thumbnail of the pattern it displays, its name and summary.
  * `compact` is the small version for narrow columns (the tool page sidebar).
+ * Pass the tool already localized, with `lang` so the link stays in that language.
  */
-export default function ToolCard({ tool, compact = false }: { tool: ToolDef; compact?: boolean }) {
+export default function ToolCard({
+  tool,
+  compact = false,
+  lang = "en",
+}: {
+  tool: ToolDef;
+  compact?: boolean;
+  lang?: Lang;
+}) {
   return (
     <Link
-      href={`/${tool.slug}`}
+      href={href(lang, `/${tool.slug}`)}
       className={`group grid items-center border-b border-border ${
         compact
           ? "grid-cols-[4.5rem_minmax(0,1fr)] gap-3.5 py-3.5"

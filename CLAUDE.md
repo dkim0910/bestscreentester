@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # BestScreenTester
 
-A suite of **28** free, browser-based screen tests plus **44** guides. **Fully static — no
+A suite of **30** free, browser-based screen tests and tools plus **44** guides. **Fully static — no
 database, no accounts, no backend services.** The display tests run 100% client-side (Fullscreen
 API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts` — the
 `category` field there is what actually drives the nav/homepage grouping, so trust it over any
@@ -18,18 +18,19 @@ summary (including this one):
 - **`color`** (8) — color-test, black-screen, white-screen, greyscale-test, color-gradient-test,
   gamma-test, wide-color-gamut-test, hdr-test
 - **`motion`** (4) — refresh-rate-test, ghosting-test, screen-tearing-test, frame-skipping-test
-- **`fun`** (4) — fake-broken-screen, screensaver, boot-screen-simulator, screen-info
+- **`fun`** (6) — fake-broken-screen, screensaver, boot-screen-simulator, screen-info,
+  screen-size-calculator, screen-test-checklist
 
 Note the non-obvious ones: `blooming-test`, `contrast-test`, `black-level-test`, and
 `viewing-angle-test` are **panel**, not motion/color; `black-screen` and `white-screen` are
-**color**, not panel; `touch-screen-test` and `pwm-flicker-test` are **panel**; `screen-info` is
-**fun** ("Fun & Utilities").
+**color**, not panel; `touch-screen-test` and `pwm-flicker-test` are **panel**; `screen-info`,
+`screen-size-calculator` and `screen-test-checklist` are **fun** ("Fun & Utilities").
 
 **Novelty pages are noindexed.** `fake-broken-screen`, `boot-screen-simulator`, `screensaver`
 (`noindex: true` in `tools.ts`) and the `harmless-screen-pranks` guide (`noindex: true` in
 `guides.ts`) get a `noindex, follow` robots meta via `pageMetadata({ noindex })`, are left out of
 the sitemap and the homepage grid, and appear only on `/tools` under "Just for fun". Use
-`INDEXED_TOOLS` (25) for public counts and listings, `TOOLS` (28) for routing. This was done for
+`INDEXED_TOOLS` (27) for public counts and listings, `TOOLS` (30) for routing. This was done for
 the AdSense "low value content" review.
 
 **Merged guides forward to their keeper.** A guide with `mergedInto` (always with `noindex`) keeps
@@ -37,13 +38,26 @@ its URL but renders only a meta-refresh and a link to the target, with the targe
 GitHub Pages can't send a 301. `what-is-ips-glow` and `backlight-bleed-vs-ips-glow` were folded
 into `what-is-backlight-bleed` this way; link to the keeper, never to a merged slug.
 
-**No ad script on noindexed pages:** `AdSenseScript` (client) skips the paths the layout passes in.
+**No ad script on noindexed pages or translated pages:** `AdSenseScript` (client) skips the paths
+the layout passes in, and `SiteShell` renders it only for English until the machine translations
+have been reviewed.
 The `google-adsense-account` meta tag still ships everywhere.
 
 **Tool pages carry a per-test "reading your results" section** from `src/lib/toolResults.ts`
 (`TOOL_RESULTS`, keyed by slug): normal vs fault, thresholds, panel/device notes, test-specific
-headings, and one deep guide. A tool with `guide` set shows that single link and drops the generic
-"Related guides" grid. Its thresholds must match the guide it links. All 25 indexed tools have one. No own photos exist anywhere on the site yet.
+headings, and one deep guide. `NEXT_STEPS` in the same file adds an ordered "Found a problem? What
+to do next" list to the tests where a result leads to a decision, and `TABLES` adds reference tables
+(panel comparisons, cable needs, lookup values). Where a guide carries the same table, the rows
+are that guide's rows: change both together. The Dead Pixel Test page also renders
+`PixelVerdict`, a small form that turns what the visitor found into advice; it gives no
+pass/fail number on purpose. A tool with `guide` set shows that single link and drops the generic
+"Related guides" grid. Its thresholds must match the guide it links. All 27 indexed tools have one. No own photos exist anywhere on the site yet.
+
+**Seven languages.** English lives at the root; Spanish, German, French, Portuguese (Brazil),
+Japanese and Korean live under `/es/`, `/de/`, `/fr/`, `/pt/`, `/ja/`, `/ko/` with the same slugs
+(`/es/dead-pixel-test/`). Only the homepage, `/tools` and the 27 indexed tests are translated:
+guides, legal pages and the novelty pages are English-only, and a translated page links to the
+English URL for those, tagged "(in English)". See "Translations" under Architecture.
 
 **Homepage order:** hero, `HomeAnswers` (four written "defect or normal?" sections), the tool grid,
 then `HomeSections`. `/blog` is grouped by problem via `GUIDE_TOPICS` in `guides.ts`; a new guide
@@ -81,7 +95,8 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
 
 - **Tool registry — `src/lib/tools.ts` is the single source of truth** for tools (slug, copy,
   how-to, FAQ, category). It drives nav, homepage, per-tool pages, sitemap, and JSON-LD. Add or
-  change a tool here first, then wire its UI in `ToolRunner`. Each tool's `updatedAt` is its
+  change a tool here first, then wire its UI in `ToolRunner`. Extra FAQ entries per tool live in
+  `TOOL_FAQ_MORE` (same file) and are appended to each tool's `faq`. Each tool's `updatedAt` is its
   sitemap lastmod: set it to today whenever that tool's copy, tips or test component changes
   (not for shared template edits). The homepage and static pages use `PAGE_UPDATED` in
   `seo.ts`; /tools and /blog use `SITE_UPDATED`.
@@ -102,7 +117,9 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     (solid colors + the stuck-pixel fixer frame), `RefreshRateTool`, `GhostingTool`, `BloomingTool`
     (dot + zone sweeps), `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`,
     `TouchTool` (uses `tapNavigation={false}` — press-and-hold shows the controls), `ScreenInfoTool`
-    (no stage, an info panel), `FrameSkipTool`, `WideGamutTool`, `PwmTool`, `HdrTool`. The measured
+    (no stage, an info panel), `ScreenCalcTool` (no stage, the size/PPI calculator), `ChecklistTool`
+    (no stage; per-device test lists with ticks kept in `localStorage` under `bst_checklist`; the
+    page passes it the localized test names through `ToolRunner`'s `tools` prop), `FrameSkipTool`, `WideGamutTool`, `PwmTool`, `HdrTool`. The measured
     refresh rate is the shared `useRefreshRate` hook. The HDR test image
     (`public/hdr/pq-brightness-steps.avif`, BT.2020/PQ) comes from
     `scripts/generate-hdr-test-image.mjs` (needs ffmpeg + libsvtav1); it patches the AVIF `colr`
@@ -127,8 +144,43 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   - **Model selectable options (colors, speeds, patterns) as stage "frames"** (`frameCount` +
     `frameLabel`), so ←/→ keys, tap zones, and the overlay arrows all navigate them for free. A
     tool with `frameCount={1}` has dead arrows — that was the ghosting-speed bug.
-- **Per-tool page — `src/app/[tool]/page.tsx`** with `dynamicParams = false` +
-  `generateStaticParams` from `TOOLS` → every tool is statically generated.
+- **Routes are thin; pages live in `src/components/pages/`** (`HomePage`, `ToolsPage`, `ToolPage`),
+  each taking a `lang`. `src/app/(en)/` holds the English routes and `src/app/(intl)/<lang>/` one
+  folder per other language (`layout.tsx`, `page.tsx`, `tools/page.tsx`, `[tool]/page.tsx`, each a
+  few lines). **There is one root layout per language** (all render `SiteShell`) because
+  `<html lang>` must be right in the static HTML and a single root layout can't see the language.
+  Consequences: there is no `src/app/layout.tsx`; the 404 is `src/app/global-not-found.tsx`
+  (`experimental.globalNotFound`); and moving between languages is a full page load, so those
+  links are plain `<a>`. The language folders are static names, not a `[lang]` segment, because a
+  second dynamic segment at the root would collide with `[tool]`.
+- **Per-tool page — `toolRoute(lang)` in `ToolPage.tsx`** with `dynamicParams = false`:
+  English generates all 30 `TOOLS`, the other languages the 27 `INDEXED_TOOLS`.
+- **Translations — `src/i18n/`.** English is the source: `tools.ts`, `toolResults.ts`,
+  `en/site.json` (nav, footer, page templates, all homepage copy) and `en/client.json` (strings
+  inside the interactive tests). Each language has seven JSON files of the same shape:
+  `site.json`, `client.json`, `tools-1..3.json` (name, title, tagline, description, keywords,
+  howTo, faq, tips per slug) and `results-1..2.json`. `src/i18n/index.ts` merges them over the
+  English registry (`getSite`, `getTools`, `localizeTool`, `getResultsFor`, `getTipsFor`, `href`);
+  anything missing falls back to English.
+  - **After editing English text, run `npm run i18n:check`.** It reports every translation that is
+    now missing, has the wrong number of list items or lost a `{placeholder}`. It is not in CI: an
+    untranslated addition falls back to English rather than breaking the build.
+    `node scripts/i18n-source.mjs <dir>` writes the English text in the translators' file shape.
+  - **Client strings are keyed by their English text:** `const t = useT()` then `t("Exit")`
+    (`src/i18n/ui.tsx`). English needs no dictionary. A new string must be added to
+    `en/client.json` and every language's `client.json`. Canvas draw helpers get the same function
+    as `tr` in `DrawArgs`. Links inside client components use `useLocalHref()`.
+  - Server components build links with `href(lang, path)`, which returns the English path for
+    pages that aren't translated. `ToolCard` takes an already-localized tool plus `lang`.
+  - `HomeSections.tsx` keeps only ids, links and tones; its arrays pair **by position** with the
+    `items` arrays under `home` in `site.json`.
+  - hreflang: `pageMetadata({ lang })` emits `alternates.languages` (every language plus
+    `x-default`) for translated paths, and `sitemap.ts` lists each language URL with the same
+    alternates. Translated pages' lastmod is never older than `I18N_UPDATED` (`i18n/config.ts`).
+  - The translations are machine-made and have not been reviewed by native speakers.
+  - Adding a language: add it to `LOCALES` (+ the name/locale maps) in `i18n/config.ts`, to
+    `HTML_LANG` in `SiteShell.tsx` and to `BUNDLES` in `i18n/index.ts`, copy a folder under
+    `src/app/(intl)/`, and add the seven JSON files.
 - **Guides/blog — `src/lib/guides.ts` (the `GUIDES` array) is the single source of truth.** Bodies
   are MDX and link to the tools they discuss (e.g. `[Dead Pixel Test](/dead-pixel-test)`).
   - `getGuidesForTool(slug)` powers the "Related guides" section on each tool page by matching the
@@ -156,10 +208,10 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   flag were removed) — this is a deliberate call that trades GDPR/PECR consent for full traffic
   visibility; if you reintroduce a gate, wrap the scripts in `Analytics.tsx` on the stored choice.
   Keep `/privacy` in sync with whatever trackers actually load.
-- **Third-party tags:** Google AdSense (`<meta name="google-adsense-account">` via layout
-  `metadata.other`, the `adsbygoogle.js` script, and `public/ads.txt`) loads site-wide. The AdSense
+- **Third-party tags:** Google AdSense (`<meta name="google-adsense-account">` via `siteMetadata()` in
+  `SiteShell.tsx`, the `adsbygoogle.js` script, and `public/ads.txt`) loads site-wide. The AdSense
   publisher ID (`ca-pub-7400069037778721`) and GA4 ID (`G-FC5ELM4BX8`) are hard-wired defaults in
-  `layout.tsx` / `Analytics.tsx` (IDs aren't secret); `NEXT_PUBLIC_GA_ID` only overrides GA if set.
+  `SiteShell.tsx` / `Analytics.tsx` (IDs aren't secret); `NEXT_PUBLIC_GA_ID` only overrides GA if set.
 
 ## Conventions
 

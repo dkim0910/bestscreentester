@@ -2,8 +2,10 @@
 
 import FullscreenStage from "./FullscreenStage";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 export interface ColorFrame {
+  /** English name; translated where it is shown. */
   name: string;
   css: string;
 }
@@ -27,13 +29,14 @@ interface ColorCyclerProps {
 }
 
 export default function ColorCycler({ tool, colors = SOLID_COLORS, keepAwake = true }: ColorCyclerProps) {
+  const t = useT();
   return (
     <FullscreenStage
       tool={tool}
       frameCount={colors.length}
       keepAwake={keepAwake}
       previewScrim={false}
-      frameLabel={(i) => colors[i]?.name ?? ""}
+      frameLabel={(i) => t(colors[i]?.name ?? "")}
       renderFrame={(i) => (
         <div
           className="h-full w-full"

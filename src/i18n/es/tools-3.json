@@ -1,0 +1,447 @@
+{
+  "screen-info": {
+    "name": "Info de pantalla",
+    "title": "Resolución de pantalla e información del monitor",
+    "tagline": "Consulta la resolución, la escala, la frecuencia de actualización, la gama de colores y la compatibilidad con HDR de tu pantalla.",
+    "description": "¿Cuál es mi resolución de pantalla? Consulta la resolución, la escala, la relación de aspecto, los Hz, la gama de colores y el HDR, leídos en vivo.",
+    "keywords": [
+      "cuál es mi resolución de pantalla",
+      "saber resolución de pantalla",
+      "información de pantalla",
+      "tamaño de mi pantalla",
+      "device pixel ratio",
+      "test resolución de pantalla"
+    ],
+    "howTo": [
+      "Abre la página: todos los valores se leen en vivo desde tu navegador, sin tener que iniciar nada.",
+      "Compara la resolución en píxeles y la escala de pantalla con las especificaciones de tu pantalla.",
+      "Dale un segundo a la frecuencia de actualización medida para que se estabilice.",
+      "Usa Copiar todo para pegar los datos en una solicitud de soporte o en un mensaje de foro."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué no muestra la resolución exacta de mi pantalla?",
+        "a": "Los navegadores indican los tamaños tras aplicar la escala de pantalla, así que la resolución en píxeles que ves aquí es el tamaño escalado multiplicado por el factor de escala. Con una escala poco habitual o con zoom en el navegador puede desviarse unos píxeles. La configuración de pantalla de tu sistema operativo muestra la resolución nativa real."
+      },
+      {
+        "q": "¿Por qué dice color de 24 bits en un monitor de 10 bits?",
+        "a": "El navegador indica lo que le pasa el sistema operativo: normalmente 24 bits (8 bits por canal), y 30 bits en algunas configuraciones de 10 bits, como las pantallas XDR de Apple. Muchos monitores de 10 bits siguen mostrando 24 porque el ordenador está enviando color de 8 bits, así que las filas de gama de colores y HDR suelen decir más."
+      },
+      {
+        "q": "¿Algo de esto se envía a algún sitio?",
+        "a": "No. Todo se lee y se muestra en tu navegador, y nada sale de la página a menos que lo copies tú."
+      },
+      {
+        "q": "¿Cómo averiguo el tamaño de mi pantalla en pulgadas?",
+        "a": "Un navegador no puede decírtelo. Sabe cuántos píxeles tiene la pantalla, no lo grandes que son. Busca las especificaciones del modelo, o mide la imagen visible en diagonal de esquina a esquina."
+      },
+      {
+        "q": "Tengo dos monitores. ¿A cuál corresponden estos valores?",
+        "a": "A aquel en el que está esta ventana del navegador. Mueve la ventana a la otra pantalla y recarga la página para leer esa."
+      }
+    ],
+    "tips": [
+      "En un portátil con monitor externo, arrastra primero esta ventana a la pantalla que quieres comprobar.",
+      "El zoom del navegador cambia el valor de escala: pulsa Ctrl/Cmd + 0 antes de leerlo."
+    ]
+  },
+  "overscan-test": {
+    "name": "Test de overscan",
+    "title": "Test de overscan y relación de aspecto",
+    "tagline": "Marcas en los bordes, círculos y una cuadrícula para detectar recortes, estiramientos y distorsión.",
+    "description": "Test de overscan y relación de aspecto gratis para televisores y proyectores. Detecta bordes recortados, imagen estirada y distorsión geométrica.",
+    "keywords": [
+      "test overscan",
+      "test relación de aspecto",
+      "overscan tv",
+      "patrón de prueba proyector",
+      "test geometría pantalla",
+      "ajustar imagen a pantalla tv"
+    ],
+    "howTo": [
+      "Abre la página en el dispositivo conectado al televisor o al proyector y haz clic en Iniciar.",
+      "Borde de overscan: el marco de color más exterior que ves entero en todo el contorno indica cuánto se está recortando; 0% significa que nada.",
+      "Relación de aspecto (→): los círculos deben verse perfectamente redondos y el cuadrado, cuadrado.",
+      "Cuadrícula de geometría (→): las líneas deberían ser rectas y estar espaciadas de forma uniforme. Úsala para alinear un proyector.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué es el overscan?",
+        "a": "Muchos televisores siguen ampliando la imagen un pequeño porcentaje y recortando los bordes, una costumbre heredada de las emisiones analógicas. Corta barras de tareas y menús y resta nitidez a la imagen. Busca un ajuste de tamaño de imagen llamado Just Scan, Screen Fit, Fit to Screen, 1:1 u Overscan Off."
+      },
+      {
+        "q": "Los círculos se ven ovalados. ¿Qué pasa?",
+        "a": "La imagen se está estirando. Pon el tamaño de imagen del televisor o del proyector en 16:9 o en su modo nativo/Original, y comprueba que la resolución de salida de tu ordenador coincide con la relación de aspecto de la pantalla."
+      },
+      {
+        "q": "El escritorio de mi PC sale cortado en el televisor. ¿Lo corrijo en el televisor o en el PC?",
+        "a": "Primero en el televisor. Cambiar su tamaño de imagen a un modo 1:1 o Just Scan muestra cada píxel tal como se envía. El control de underscan del controlador gráfico también recupera los bordes, pero lo hace encogiendo y remuestreando la imagen, lo que emborrona el texto."
+      },
+      {
+        "q": "¿Los monitores de ordenador hacen overscan?",
+        "a": "Rara vez. Puede ocurrir por HDMI, cuando el monitor o la tarjeta gráfica tratan la señal como un formato de televisión. Si en un monitor faltan los marcos exteriores, busca una opción de overscan o de escalado en el menú del monitor y en el controlador gráfico."
+      },
+      {
+        "q": "¿Cuánto overscan es normal?",
+        "a": "En un televisor que aplica overscan se recorta un pequeño porcentaje de cada borde. Para un ordenador o una consola, lo correcto es nada: cada píxel enviado debería mostrarse. Si el marco del 0% no se ve entero, hay un ajuste que cambiar."
+      },
+      {
+        "q": "¿Por qué la imagen es más pequeña que la pantalla, con bordes negros?",
+        "a": "Eso es underscan, el problema contrario. Un control de escalado del controlador gráfico está encogiendo la imagen, o la resolución de salida no coincide con la de la pantalla. Pon el escalado del controlador en 0% o desactívalo, y selecciona la resolución nativa de la pantalla."
+      },
+      {
+        "q": "¿El overscan hace que la imagen sea menos nítida?",
+        "a": "Sí. Una imagen con overscan se amplía antes de mostrarse, así que ya no hay una correspondencia de píxel a píxel y el texto pequeño se ve blando. Un modo de imagen 1:1 corrige a la vez el recorte y la falta de nitidez."
+      }
+    ],
+    "tips": [
+      "Cada entrada del televisor puede tener su propio ajuste de tamaño de imagen, así que prueba la entrada que usas de verdad.",
+      "En un proyector, ajusta la corrección trapezoidal y el desplazamiento de lente con la cuadrícula de geometría antes de enfocar."
+    ]
+  },
+  "sharpness-test": {
+    "name": "Test de nitidez",
+    "title": "Test de nitidez y claridad de texto",
+    "tagline": "Líneas a nivel de píxel, tableros de ajedrez y texto para delatar el desenfoque por escalado y el exceso de nitidez.",
+    "description": "Test de nitidez y claridad de texto gratis. Líneas de 1 píxel y texto pequeño revelan el desenfoque por resolución no nativa, escalado o exceso de nitidez.",
+    "keywords": [
+      "test de nitidez",
+      "test claridad de texto",
+      "nitidez monitor",
+      "test resolución nativa",
+      "test submuestreo de croma",
+      "texto borroso monitor"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y mira cada patrón a pantalla completa a tu distancia habitual.",
+      "Las líneas de 1 píxel y los tableros de ajedrez deberían verse nítidos y con rayas uniformes. Una masa gris o un muaré ondulado significa que la imagen se está escalando.",
+      "Claridad de texto (→): el texto pequeño debería verse nítido, y el texto rojo o amarillo no debería emborronarse.",
+      "Halos de nitidez (→): baja el ajuste de Nitidez de la pantalla hasta que desaparezcan los contornos alrededor de las líneas y los anillos.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué las líneas finas se ven grises y borrosas?",
+        "a": "Algo entre la página y el panel está remuestreando la imagen: una resolución no nativa, una escala de pantalla que no es un número entero, el zoom del navegador o el escalado del propio televisor. Pon la salida en la resolución nativa de la pantalla y repite el test."
+      },
+      {
+        "q": "¿Por qué el texto rojo se ve emborronado en mi televisor?",
+        "a": "Muchos televisores y algunas conexiones HDMI transportan el color a resolución reducida (submuestreo de croma, 4:2:2 o 4:2:0). El texto de color se emborrona mientras que el texto en blanco y negro sigue nítido. Usa el modo PC o Juego del televisor, o configura la salida en RGB / 4:4:4."
+      },
+      {
+        "q": "¿En qué valor debe estar el ajuste de Nitidez?",
+        "a": "En el valor en el que no se añade nada ni se desenfoca nada. En algunos televisores es 0 y en otros es la mitad de la escala, así que el número en sí dice poco. Usa el patrón Halos de nitidez: baja el ajuste hasta que desaparezcan los contornos, y para antes de que las líneas empiecen a suavizarse."
+      },
+      {
+        "q": "¿Por qué el texto tiene bordes de colores en mi OLED o en mi televisor?",
+        "a": "Los sistemas operativos suavizan el texto dando por hecho que cada píxel es una franja roja, verde y azul, en ese orden. Muchos paneles OLED y algunos televisores disponen sus subpíxeles de otra forma, así que el suavizado cae en los equivocados y se ve como bordes de colores. Una escala de pantalla más alta hace que se note menos."
+      },
+      {
+        "q": "¿Por qué mi monitor se ve borroso a una resolución más baja?",
+        "a": "Un LCD o un OLED tiene una cuadrícula fija de píxeles. Cualquier otra resolución hay que estirarla sobre esa cuadrícula, y casi todos los estirados reparten cada píxel de origen entre varios píxeles de la pantalla. La excepción es un múltiplo exacto, como 1080p en una pantalla 4K, que puede seguir viéndose nítido si se usa el escalado por enteros."
+      },
+      {
+        "q": "¿Una mayor densidad de píxeles hace el texto más nítido?",
+        "a": "Sí. Más píxeles por pulgada significa más píxeles en cada letra, así que las curvas y los trazos finos se dibujan con más precisión. Una pantalla densa necesita la escala de pantalla para mantener el texto a un tamaño legible. La Calculadora de tamaño de pantalla calcula la densidad de cualquier pantalla."
+      },
+      {
+        "q": "¿Por qué el texto se ve borroso solo en algunas aplicaciones?",
+        "a": "Las aplicaciones antiguas de Windows no tienen en cuenta la escala de pantalla. Por encima del 100%, Windows las dibuja a tamaño normal y amplía el resultado como una imagen, lo que emborrona el texto. En las Propiedades de la aplicación, la pestaña Compatibilidad tiene un ajuste de PPP altos que permite que la aplicación se escale por sí misma."
+      }
+    ],
+    "tips": [
+      "Comprueba primero a tu distancia de visión habitual y después de cerca.",
+      "Una escala de pantalla del 100%, el 150% o el 200% conserva el detalle fino más limpio que los valores intermedios."
+    ]
+  },
+  "frame-skipping-test": {
+    "name": "Test de salto de fotogramas",
+    "title": "Test de salto de fotogramas",
+    "tagline": "Una celda por fotograma: fotografíala para pillar una pantalla que descarta fotogramas.",
+    "description": "Test de salto de fotogramas gratis. Se enciende una celda por actualización: una foto con obturación lenta muestra una serie continua o huecos.",
+    "keywords": [
+      "test salto de fotogramas",
+      "test overclock monitor",
+      "test frame skipping",
+      "overclock hz monitor",
+      "frame skip"
+    ],
+    "howTo": [
+      "Cierra otras aplicaciones y pestañas y haz clic en Iniciar.",
+      "Fotografía la pantalla con una obturación lenta, de entre 1/15 y 1/30 s, usando el modo Pro o manual de tu móvil.",
+      "En la foto, las celdas encendidas deberían formar una serie continua. Un hueco significa que se ha saltado un fotograma.",
+      "Usa la cuadrícula de 120 celdas (→) en pantallas de más de 144 Hz para que la serie no dé la vuelta.",
+      "Haz varias fotos antes de sacar conclusiones y pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué un monitor saltaría fotogramas?",
+        "a": "Normalmente porque su frecuencia de actualización se ha subido con overclock o mediante una resolución personalizada. La pantalla acepta la señal más rápida pero descarta fotogramas sin avisar para seguir el ritmo, así que no se nota más fluida que antes."
+      },
+      {
+        "q": "¿El navegador también puede causar huecos?",
+        "a": "Sí: si el ordenador está ocupado, el navegador también puede perder un fotograma. Cierra otras aplicaciones, repite la foto varias veces y preocúpate solo por los huecos que siguen apareciendo."
+      },
+      {
+        "q": "La cámara de mi móvil no tiene modo manual. ¿Qué hago?",
+        "a": "Baja la luz de la habitación. Con poca luz, la mayoría de las cámaras de móvil eligen solas una obturación más lenta, que es lo que necesita este test. Sujeta el móvil con firmeza o apóyalo en algo, y haz varias fotos."
+      },
+      {
+        "q": "El test muestra fotogramas saltados. ¿Y ahora?",
+        "a": "Baja la frecuencia de actualización paso a paso hasta que la serie de celdas sea continua, y usa esa frecuencia. Un monitor que salta fotogramas con overclock no está averiado. Simplemente no puede mostrar más fotogramas que su máximo nominal."
+      },
+      {
+        "q": "¿El salto de fotogramas es lo mismo que los tirones en los juegos?",
+        "a": "No. Los tirones (stutter) se producen cuando el ordenador entrega los fotogramas de forma irregular. El salto de fotogramas ocurre cuando la pantalla acepta una señal y luego no muestra algunos de los fotogramas. Este test dibuja una celda por actualización, así que aísla la parte del problema que corresponde a la pantalla."
+      },
+      {
+        "q": "¿Necesito este test si no le he hecho overclock a mi monitor?",
+        "a": "Normalmente no. Los monitores no se saltan fotogramas con sus ajustes nominales. Hazlo después de configurar una resolución personalizada o una frecuencia de actualización con overclock, o cuando un adaptador o una base de conexión anuncie una frecuencia con la que la pantalla no se vendía."
+      },
+      {
+        "q": "¿Por qué tiene que ser una foto? ¿No puedo simplemente mirar?",
+        "a": "Cada celda se enciende durante una sola actualización, que dura menos de 7 ms a 144 Hz. El ojo no puede notar que falta una celda a esa velocidad. Una obturación lenta registra todas las celdas que se han encendido mientras estaba abierta, así que una celda saltada aparece como un hueco."
+      }
+    ],
+    "tips": [
+      "Elige una obturación lo bastante larga para captar 6–10 fotogramas: unos 1/15 s a 144 Hz, 1/30 s a 240 Hz.",
+      "Repite el test después de cambiar la frecuencia de actualización o el overclock: el salto de fotogramas suele aparecer solo a la frecuencia más alta."
+    ]
+  },
+  "wide-color-gamut-test": {
+    "name": "Test de gama de colores amplia",
+    "title": "Test de gama de colores amplia (P3)",
+    "tagline": "Logotipos ocultos en colores P3 que solo una pantalla de gama amplia puede mostrar.",
+    "description": "Test de gama de colores amplia gratis. Comprueba si tu pantalla y tu navegador muestran colores Display P3 más allá de sRGB con logotipos ocultos.",
+    "keywords": [
+      "test gama de colores amplia",
+      "test p3",
+      "test display p3",
+      "test dci-p3",
+      "test gama de colores",
+      "srgb vs p3"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar y mira cada color a pantalla completa.",
+      "En una pantalla de gama amplia verás un logotipo dentro de cada color: un anillo más intenso alrededor de un cuadrado.",
+      "En una pantalla sRGB estándar el logotipo es invisible, porque los dos colores se recortan al mismo tono.",
+      "Consulta los indicadores de encima del test para ver qué indica tu navegador y pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "No veo el logotipo. ¿Mi pantalla está averiada?",
+        "a": "En absoluto. La mayoría de los monitores de oficina y muchos portátiles son sRGB, que es lo correcto para la web. El logotipo solo aparece cuando la pantalla, el sistema operativo y el navegador manejan todos el color de gama amplia."
+      },
+      {
+        "q": "¿En qué colores se ve mejor?",
+        "a": "En los rojos y los verdes: es donde Display P3 se extiende más allá de sRGB. El azul muestra la diferencia más pequeña, así que un logotipo tenue sobre azul es normal."
+      },
+      {
+        "q": "¿Es mejor una pantalla de gama amplia?",
+        "a": "Para vídeo HDR y fotos creadas en Display P3, sí: puede mostrar rojos y verdes más saturados. Para el contenido web corriente no hay diferencia, y sin gestión de color puede hacer que todo se vea sobresaturado, por lo que muchos monitores de gama amplia incluyen un modo sRGB."
+      },
+      {
+        "q": "¿Qué dispositivos tienen pantallas de gama amplia?",
+        "a": "Los iPhone, iPad y Mac recientes, la mayoría de los móviles con pantalla OLED y muchos monitores vendidos para juegos o trabajo creativo. Los monitores de oficina típicos y los portátiles económicos solo cubren sRGB."
+      },
+      {
+        "q": "¿Por qué los colores se ven sobresaturados en mi monitor de gama amplia?",
+        "a": "La mayor parte del contenido está hecha para sRGB. Un panel de gama amplia que lo muestra sin gestión de color estira esos colores hasta sus propios primarios, más intensos, así que los tonos de piel se enrojecen y los verdes parecen fluorescentes. Usa el modo sRGB del monitor para el día a día, o aplicaciones con gestión de color."
+      },
+      {
+        "q": "¿Qué diferencia hay entre Display P3 y DCI-P3?",
+        "a": "Comparten los mismos primarios rojo, verde y azul. DCI-P3 es la versión de cine, con un punto blanco verdoso y una gamma de 2.6 para salas oscuras. Display P3 es la versión que usan las pantallas y los móviles, con el punto blanco estándar D65 y la curva de tonos de sRGB."
+      },
+      {
+        "q": "¿Importa el navegador?",
+        "a": "Sí. El navegador tiene que entender los colores de gama amplia y pasárselos a la gestión de color del sistema operativo. Las versiones actuales de los principales navegadores lo hacen, y las antiguas lo recortan todo a sRGB. Los indicadores de encima del test muestran lo que indica el tuyo."
+      }
+    ],
+    "tips": [
+      "Muchos monitores de gama amplia tienen un modo sRGB que limita los colores: desactívalo para este test.",
+      "Míralo en una habitación con poca luz; la diferencia es sutil con mucha luz."
+    ]
+  },
+  "pwm-flicker-test": {
+    "name": "Test de parpadeo PWM",
+    "title": "Test de parpadeo PWM",
+    "tagline": "Campos brillantes y una línea rápida en movimiento para las pruebas de parpadeo del lápiz y de la cámara.",
+    "description": "Test de parpadeo PWM gratis. Campos brillantes para las pruebas del lápiz y de la cámara, y una línea rápida que se divide en copias en las pantallas con PWM.",
+    "keywords": [
+      "test pwm",
+      "test parpadeo pwm",
+      "test parpadeo pantalla",
+      "pwm pantalla móvil",
+      "pantalla sin parpadeo"
+    ],
+    "howTo": [
+      "Pon la pantalla en el brillo que usas normalmente: el PWM suele aparecer con poco brillo.",
+      "En el patrón Blanco, agita un lápiz rápidamente delante de la pantalla: varias copias nítidas indican PWM; un desenfoque continuo indica que no hay parpadeo.",
+      "O apunta la cámara del móvil a la pantalla: unas bandas oscuras que la recorren sugieren PWM.",
+      "En Línea rápida en movimiento (→), sigue la línea con la vista: una fila de líneas separadas en lugar de un trazo continuo indica PWM.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Esta página puede detectar el PWM por sí sola?",
+        "a": "No. Una página web no puede ver tu retroiluminación, así que el resultado sale de lo que tú observas; estos patrones solo hacen que los efectos sean fáciles de ver. Una cámara a cámara lenta o un sensor de luz barato dan una respuesta definitiva."
+      },
+      {
+        "q": "¿Por qué solo aparece con poco brillo?",
+        "a": "Muchas pantallas se atenúan apagando la retroiluminación durante una parte de cada ciclo. Con mucho brillo los periodos de apagado son cortos o no existen, así que el parpadeo aparece al bajar el brillo."
+      },
+      {
+        "q": "¿El parpadeo PWM es malo para la salud?",
+        "a": "Depende de la persona. A algunas personas las pantallas con PWM les provocan dolor de cabeza, fatiga visual o cansancio, sobre todo con poco brillo, y muchas no notan nada. Si una pantalla concreta te molesta y otra en la misma habitación no, vale la pena comprobar el PWM."
+      },
+      {
+        "q": "¿Los móviles OLED usan PWM?",
+        "a": "La mayoría sí, al menos en los niveles de brillo más bajos. Algunos ofrecen un ajuste que lo reduce, a menudo llamado DC dimming, antiparpadeo o reducción de parpadeo. También ayuda mantener el brillo más alto y bajar en su lugar la luz de la habitación."
+      }
+    ],
+    "tips": [
+      "Repítelo con varios niveles de brillo: muchas pantallas no parpadean por encima de la mitad del brillo, más o menos.",
+      "Una pantalla que solo te molesta de noche es una clara sospechosa de PWM."
+    ]
+  },
+  "hdr-test": {
+    "name": "Test de HDR",
+    "title": "Test de HDR: ¿tu pantalla muestra HDR?",
+    "tagline": "Una imagen HDR real con escalones de brillo de hasta 1600 nits, más detección de HDR.",
+    "description": "Test de HDR gratis. Comprueba si tu pantalla y tu navegador muestran HDR con una imagen HDR real de escalones de brillo de 100 a 1600 nits.",
+    "keywords": [
+      "test hdr",
+      "saber si mi pantalla es hdr",
+      "test brillo hdr",
+      "test hdr monitor",
+      "test brillo máximo",
+      "comprobar hdr"
+    ],
+    "howTo": [
+      "Activa primero el HDR: en Windows, Configuración > Sistema > Pantalla > Usar HDR.",
+      "Consulta los indicadores de encima del test: el navegador debería indicar una pantalla HDR.",
+      "Haz clic en Iniciar. En un equipo con HDR en funcionamiento, los parches siguen ganando brillo por encima de 203 nits (blanco SDR) hasta el máximo de tu pantalla.",
+      "Si todos los parches a partir de 203 nits se ven del mismo blanco, la imagen se está mostrando en SDR.",
+      "Pulsa Esc para salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué todos los parches brillantes se ven iguales?",
+        "a": "La imagen se está mostrando en SDR: el HDR está desactivado en tu sistema operativo, el navegador no puede mostrar imágenes HDR o la pantalla no es HDR. En ese caso, todos los parches por encima de 203 nits se recortan al mismo blanco."
+      },
+      {
+        "q": "¿Dónde dejan de ganar brillo los parches?",
+        "a": "Aproximadamente en el brillo máximo de tu pantalla. Un monitor DisplayHDR 400 de gama de entrada se queda en torno a 400 nits, así que los parches de 600, 1000 y 1600 se ven iguales; un buen Mini-LED u OLED los mantiene separados hasta más arriba."
+      },
+      {
+        "q": "¿Qué navegadores muestran imágenes HDR?",
+        "a": "La compatibilidad todavía varía según el navegador y el sistema operativo; los navegadores basados en Chromium, como Chrome y Edge, son ahora mismo los más consistentes. Si los indicadores dicen que el HDR está disponible pero los parches se ven planos, prueba con otro navegador."
+      },
+      {
+        "q": "¿Cómo activo el HDR en un Mac o en un móvil?",
+        "a": "En un Mac con una pantalla HDR externa, abre Ajustes del Sistema > Pantallas y activa Alto rango dinámico. Las pantallas XDR integradas de los MacBook Pro muestran HDR automáticamente, igual que los móviles con pantalla HDR, así que ahí no hay nada que activar."
+      },
+      {
+        "q": "¿Por qué todo se ve lavado con el HDR activado en Windows?",
+        "a": "Con el HDR activado, Windows tiene que adaptar el contenido SDR normal a la señal HDR, y a menudo queda apagado y gris. Sube el control de brillo del contenido SDR en la configuración de HDR y ejecuta la aplicación Calibración HDR de Windows. Mucha gente activa el HDR solo para juegos y películas."
+      }
+    ],
+    "tips": [
+      "Activa el HDR en tu sistema operativo antes de abrir el test.",
+      "Si los parches de 1000 y 1600 nits se ven idénticos, has encontrado el techo de brillo de tu pantalla."
+    ]
+  },
+  "screen-size-calculator": {
+    "name": "Calculadora de tamaño de pantalla",
+    "title": "Calculadora de tamaño de pantalla y PPI",
+    "tagline": "Calcula la densidad de píxeles, el ancho y el alto físicos y la relación de aspecto a partir del tamaño y la resolución de una pantalla.",
+    "description": "Calculadora gratis de tamaño de pantalla y PPI. Introduce diagonal y resolución y obtén densidad de píxeles, ancho, alto, relación de aspecto y tamaño de píxel.",
+    "keywords": [
+      "calculadora ppi",
+      "calculadora tamaño de pantalla",
+      "calculadora densidad de píxeles",
+      "calculadora relación de aspecto",
+      "calcular tamaño de monitor",
+      "calculadora dpi"
+    ],
+    "howTo": [
+      "Introduce la diagonal de la pantalla en pulgadas, tal como aparece en sus especificaciones.",
+      "Introduce su resolución en píxeles. Los campos empiezan con la resolución que tu navegador indica para esta pantalla.",
+      "Lee la densidad de píxeles (PPI), el ancho y el alto físicos y la relación de aspecto.",
+      "Cambia los números para comparar otra pantalla, por ejemplo un monitor de 27 pulgadas a 1440p con uno de 32 pulgadas 4K."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué es el PPI?",
+        "a": "Píxeles por pulgada: cuántos píxeles caben a lo largo de una pulgada de pantalla. Es la resolución repartida sobre el tamaño físico, y determina lo nítidos que se ven el texto y los detalles finos. Dos pantallas con la misma resolución pero distinto tamaño tienen un PPI distinto."
+      },
+      {
+        "q": "¿Qué PPI debería tener un monitor?",
+        "a": "A una distancia normal de escritorio, el rango habitual es de unos 90 a 110 PPI: una pantalla de 24 pulgadas a 1080p ronda los 92 y una de 27 pulgadas a 1440p, los 109. En torno a 135–165 PPI, como un 4K de 27 o 32 pulgadas, la imagen se ve muy nítida, pero normalmente hace falta usar la escala de pantalla. Por debajo de unos 90, el texto empieza a verse blando."
+      },
+      {
+        "q": "¿PPI y DPI son lo mismo?",
+        "a": "En pantallas, los dos se usan con el mismo sentido. En rigor, el PPI cuenta los píxeles de una pantalla y el DPI, los puntos de tinta de una impresora, pero los sistemas operativos y los ajustes de los ratones dicen DPI para las dos cosas."
+      },
+      {
+        "q": "¿Por qué no basta la diagonal para comparar dos pantallas?",
+        "a": "Porque la forma importa. Un ultrapanorámico de 34 pulgadas es más ancho que una pantalla 16:9 de 32 pulgadas, pero menos alto, y tiene menos superficie de la que sugiere su diagonal. Compara el ancho y el alto que da la calculadora, no la diagonal."
+      },
+      {
+        "q": "¿Puede esta página medir el tamaño de mi pantalla?",
+        "a": "No. Un navegador sabe cuántos píxeles tiene una pantalla, pero no cuánto miden, así que la diagonal tienes que ponerla tú. Usa el tamaño de las especificaciones o mide la imagen visible de esquina a esquina."
+      }
+    ],
+    "tips": [
+      "Mide solo la imagen visible, sin el marco que la rodea.",
+      "Una pantalla 4K no es automáticamente más nítida que una de 1440p: un 4K de 43 pulgadas tiene menos densidad que un 1440p de 27 pulgadas."
+    ]
+  },
+  "screen-test-checklist": {
+    "name": "Lista de comprobación de pantalla",
+    "title": "Lista de comprobación para probar tu pantalla",
+    "tagline": "Los tests que conviene hacer en un monitor, portátil, móvil o televisor, en orden y con tu progreso guardado.",
+    "description": "Lista de comprobación gratis para un monitor, portátil, móvil o televisor nuevo o usado. Haz los tests adecuados en el orden correcto y márcalos uno a uno.",
+    "keywords": [
+      "lista de comprobación de pantalla",
+      "checklist monitor nuevo",
+      "probar monitor nuevo",
+      "comprobar pantalla móvil de segunda mano",
+      "probar televisor nuevo",
+      "test pantalla portátil"
+    ],
+    "howTo": [
+      "Elige el dispositivo que vas a probar: monitor, portátil, móvil o tableta, o televisor.",
+      "Empieza por los tests marcados como Esencial. Detectan los fallos por los que una tienda acepta la devolución de una pantalla.",
+      "Abre cada test, hazlo y vuelve para marcarlo. Tus marcas se guardan solo en este navegador.",
+      "Termina los tests esenciales mientras todavía puedas devolver el dispositivo. Los demás pueden esperar."
+    ],
+    "faq": [
+      {
+        "q": "¿Qué tests importan más en una pantalla nueva?",
+        "a": "Los que detectan defectos físicos: píxeles muertos y atascados, fugas de luz y brillo desigual. En un móvil, añade el test táctil y, si es OLED, el test de quemado. Esos son los fallos por los que puedes devolver un dispositivo, y están marcados como Esencial."
+      },
+      {
+        "q": "¿Cuánto se tarda en completar la lista?",
+        "a": "Los tests esenciales llevan unos diez minutos. La lista completa de un dispositivo se acerca más a la media hora, sobre todo porque los tests a oscuras requieren que la vista se adapte."
+      },
+      {
+        "q": "¿Por qué importa el orden?",
+        "a": "Los plazos de devolución son cortos. Si haces primero los tests de defectos físicos y te quedas sin tiempo, ya habrás comprobado lo que cubre una devolución. Los problemas de configuración, como una frecuencia de actualización incorrecta, se pueden corregir en cualquier momento."
+      },
+      {
+        "q": "¿Mi progreso se guarda en algún sitio?",
+        "a": "Solo en este navegador y en este dispositivo. No se envía nada a ningún servidor, y al borrar los datos de sitios del navegador se borran las marcas."
+      },
+      {
+        "q": "¿Qué hago si un test encuentra un problema?",
+        "a": "La página de cada test tiene una sección sobre cómo leer el resultado y qué hacer después. En general: fotografía el fallo, anota la fecha y contacta con la tienda mientras el plazo de devolución siga abierto."
+      }
+    ],
+    "tips": [
+      "Guarda la caja y el tique hasta haber marcado todos los tests esenciales.",
+      "Haz seguidos los tests a oscuras, después de dar a tus ojos un par de minutos para adaptarse."
+    ]
+  }
+}

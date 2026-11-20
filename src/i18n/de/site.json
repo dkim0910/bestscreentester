@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "siteTagline": "Kostenlose Online-Bildschirmtests für Pixelfehler, Farben, Hintergrundbeleuchtung und Bewegtbild.",
+    "defaultTitle": "Kostenlose Online-Bildschirmtests",
+    "homeTitle": "Kostenloser Online-Bildschirmtest",
+    "homeDescription": "{n} kostenlose Bildschirm- und Monitortests direkt im Browser: Pixelfehler, Backlight Bleeding, Bildwiederholrate, Farben, Ghosting und mehr. Ohne Anmeldung.",
+    "homeKeywords": ["bildschirm test", "monitor test", "pixelfehler test", "display test", "bildschirmtest online"],
+    "toolsTitle": "Alle Bildschirmtests",
+    "toolsDescription": "Alle {n} kostenlosen Online-Bildschirmtests im Überblick: Pixelfehler, Farben, Backlight Bleeding, Bildwiederholrate, Ghosting, Blooming und mehr."
+  },
+  "nav": {
+    "tools": "Tests",
+    "guides": "Ratgeber",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "start": "Test starten",
+    "language": "Sprache"
+  },
+  "footer": {
+    "blurb": "Kostenlose Bildschirmtests im Browser. Ohne Installation, ohne Anmeldung.",
+    "popular": "Beliebte Tests",
+    "explore": "Entdecken",
+    "allTools": "Alle Tests",
+    "guides": "Ratgeber & Artikel",
+    "company": "Über die Seite",
+    "about": "Über uns",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "donate": "Spenden",
+    "contact": "Kontakt",
+    "languages": "Sprachen",
+    "copyright": "Alle Tests laufen lokal in deinem Browser."
+  },
+  "categories": {
+    "panel": "Panel & Hintergrundbeleuchtung",
+    "color": "Farbe & Kalibrierung",
+    "motion": "Bewegung & Timing",
+    "fun": "Werkzeuge"
+  },
+  "common": {
+    "home": "Startseite",
+    "tools": "Tests",
+    "testCountOne": "{n} Test",
+    "testCountMany": "{n} Tests",
+    "inEnglish": "auf Englisch",
+    "logoAlt": "Logo von {site}"
+  },
+  "toolPage": {
+    "howTo": "So funktioniert’s",
+    "normal": "Normal",
+    "fault": "Ein Defekt",
+    "threshold": "Wo die Grenze liegt.",
+    "next": "Problem gefunden? So geht es weiter",
+    "guide": "Ratgeber: {label}",
+    "readGuide": "Ratgeber lesen",
+    "relatedGuides": "Passende Ratgeber",
+    "relatedGuidesIntro": "Erfahre mehr darüber, was dieser Test zeigt und was du mit dem Ergebnis anfängst.",
+    "faq": "FAQ",
+    "tips": "Tipps",
+    "relatedTests": "Verwandte Tests"
+  },
+  "toolsPage": {
+    "eyebrow": "{n} Tests",
+    "title": "Alle Bildschirmtests",
+    "intro": "{n} kostenlose Bildschirmtests im Browser. Wähle unten eine Kategorie.",
+    "funTitle": "Nur zum Spaß",
+    "funIntro": "Keine Bildschirmtests: Vollbild-Streiche und ein Bildschirmschoner."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "{n} kostenlose Display-Tests",
+      "title": "Kostenloser Online-Bildschirmtest & Monitortest",
+      "intro": "{n} kostenlose Display-Tests, die direkt im Browser laufen: Pixelfehler, Backlight Bleeding, Bildwiederholrate, PWM-Flimmern, HDR und mehr. Keine Installation, kein Konto.",
+      "primary": "Pixelfehler-Test starten",
+      "secondary": "Alle {n} Tests ansehen"
+    },
+    "allTests": {
+      "eyebrow": "Alle Tests",
+      "title": "{n} Tests, sortiert nach dem, was sie prüfen",
+      "link": "Zur vollständigen Liste"
+    },
+    "answers": {
+      "eyebrow": "Vom Symptom ausgehen",
+      "title": "Defekt oder normal?",
+      "subtitle": "Die vier Fragen, mit denen die meisten hierherkommen – jeweils mit dem Test, der sie beantwortet.",
+      "runTest": "{name} starten",
+      "guide": "Ratgeber: {name}",
+      "readFull": "Die ganze Antwort lesen",
+      "items": [
+        {
+          "title": "Ein Punkt, der nicht verschwindet",
+          "summary": "Bleibt er auf jeder Farbe dunkel, auch auf Weiß, ist es ein totes Pixel – das kommt nicht zurück. Zeigt er dauerhaft eine Farbe, hängt das Pixel, und hängende Pixel erholen sich manchmal.",
+          "body": [
+            "Schalte die Vollfarben durch und beobachte den Punkt. Bleibt er auf jeder Farbe dunkel, auch auf Weiß, ist es ein totes Pixel, und das kommt nicht zurück. Zeigt er dauerhaft eine Farbe oder leuchtet er auf Schwarz, hängt das Pixel (Stuck Pixel), und hängende Pixel erholen sich manchmal: Das letzte Testbild im Pixelfehler-Test lässt genau dafür Farben über der Stelle blinken. Wisch den Bildschirm ab, bevor du urteilst – Staub sieht genauso aus, bis er sich bewegt.",
+            "Ob sich eine Rückgabe lohnt, hängt weniger vom Punkt ab als vom Kalender. Hersteller tolerieren eine kleine Zahl von Fehlern pro Panel, bewerten helle Pixel strenger als dunkle und tauschen oft bei einer Häufung, während sie verstreute Punkte ablehnen. Eine komplette Zeile oder Spalte ist ein Kontaktfehler und fast immer ein Garantiefall. Innerhalb der Rückgabefrist des Händlers spielen all diese Zahlen für dich keine Rolle – deshalb solltest du am ersten Tag testen."
+          ],
+          "test": "Pixelfehler-Test",
+          "guide": "Pixelfehler und Garantie"
+        },
+        {
+          "title": "Leuchten auf schwarzem Bild",
+          "summary": "Ein Schimmer, der wandert und schwächer wird, wenn du dich bewegst, ist IPS-Glow – eine Eigenheit des Paneltyps. Streifen am Rand, die an Ort und Stelle bleiben, sind Backlight Bleeding.",
+          "body": [
+            "Fast jedes LCD zeigt auf Schwarz etwas Licht, weil es Schwarz erzeugt, indem es eine Hintergrundbeleuchtung abschirmt, die nie ausgeht. Zeig in einem dunklen Raum ein schwarzes Bild an und lehn dich etwa 30 cm nach links und rechts. Ein Schimmer, der dabei wandert und schwächer wird, ist IPS-Glow: eine Eigenheit des Paneltyps, kein Defekt und fast nie von der Garantie gedeckt. Streifen oder Flecken am Rand, die genau dort bleiben, wo sie sind, sind Backlight Bleeding.",
+            "Eine brauchbare Faustregel: Siehst du es nicht, während du bei eingeschaltetem Licht einen Film schaust, ignorier es. Ein heller Streifen, der im Alltag auffällt – in dunklen Spielszenen oder in den Balken um einen Film –, ist ein Grund zu handeln. Beurteile es mit eigenen Augen und bei der Helligkeit, die du wirklich nutzt. Handykameras belichten im Dunkeln lange und lassen einen schwachen Schleier dramatisch aussehen. Ein OLED sollte keins von beidem zeigen."
+          ],
+          "test": "Backlight-Bleeding-Test",
+          "guide": "Backlight Bleeding und IPS-Glow"
+        },
+        {
+          "title": "Ein Geisterbild auf dem OLED",
+          "summary": "Lass ein bis zwei Stunden abwechslungsreiches Video im Vollbild laufen und schau dann noch einmal hin. Image Retention verblasst. Burn-in ist genau dort, wo es vorher war.",
+          "body": [
+            "Der schwache Umriss einer Taskleiste, eines Senderlogos oder eines Spiele-HUDs auf grauem Bild ist eins von zwei Dingen, und die Zeit verrät, welches. Lass ein bis zwei Stunden abwechslungsreiches Video im Vollbild laufen und sieh dir dann dieselbe graue Fläche noch einmal an. Image Retention ist dann verblasst oder verschwunden. Burn-in ist genau dort, wo es vorher war, weil die Pixel an dieser Stelle abgenutzt sind und nicht bloß hängen.",
+            "Achte auf eine Form, die du wiedererkennst. Zufällige Flecken ohne klare Kante sind eher eine gewöhnliche Ungleichmäßigkeit des Panels. Burn-in lässt sich nicht entfernen, nur bremsen: Helligkeit senken, statische Elemente ausblenden und das Panel seinen Kompensationszyklus durchlaufen lassen. Manche Hersteller decken Burn-in inzwischen für begrenzte Zeit über die Garantie ab – lies die Klausel, bevor du das eine oder das andere annimmst."
+          ],
+          "test": "Burn-in-Test",
+          "guide": "OLED-Burn-in: So prüfst du es"
+        },
+        {
+          "title": "Ein schneller Monitor, der sich nicht schnell anfühlt",
+          "summary": "Ein 144-Hz-Monitor, der 60 Hz anzeigt, ist fast nie defekt. Die Rate ist nicht ausgewählt, das Kabel schafft sie nicht, oder ein Energiesparmodus hat sie gesenkt.",
+          "body": [
+            "Miss nach, bevor du dem Panel die Schuld gibst. Ein 144-Hz-Monitor, der 60 Hz anzeigt, ist fast nie defekt: Die höhere Rate ist in den Anzeigeeinstellungen nicht ausgewählt, das Kabel oder der Anschluss schafft sie bei dieser Auflösung nicht, oder ein Energiesparmodus hat sie gesenkt. Ein Messwert, der bis etwa 1 Hz von der Angabe abweicht, ist normal, denn viele Displays laufen einen Bruchteil neben ihrer Nennrate.",
+            "Stimmt die Zahl und Bewegungen sehen trotzdem falsch aus, schau dir die Spur hinter einem bewegten Objekt an. Eine verschmierte Spur ist Ghosting durch träge Pixel; ein heller Saum ist Overshoot durch zu hoch eingestelltes Overdrive, und eine Stufe weniger behebt das meist. Eine weiche, gleichmäßige Unschärfe ohne Nachbild ist kein Fehler. Sie entsteht bei jedem Display, das jedes Bild stillstehend hält."
+          ],
+          "test": "Bildwiederholraten-Test",
+          "guide": "Volle Bildwiederholrate aktivieren"
+        }
+      ]
+    },
+    "inFull": {
+      "eyebrow": "Im Detail",
+      "title": "Defekt oder Eigenheit? So unterscheidest du es",
+      "subtitle": "Die meisten Bildschirme haben kleine Eigenheiten. So beantwortest du jede der vier Fragen mit einem Test."
+    },
+    "verdicts": {
+      "eyebrow": "Kurzübersicht",
+      "title": "Normal oder ein Fall für die Rückgabe?",
+      "subtitle": "Dieselben Urteile auf einen Blick, für die Fehler, nach denen am häufigsten gefragt wird.",
+      "colSee": "Was du siehst",
+      "colUsually": "Was es meist ist",
+      "colNext": "Was zu tun ist",
+      "items": [
+        {
+          "see": "Ein dunkles (totes) Pixel",
+          "tag": "Oft toleriert",
+          "usually": "Liegt oft innerhalb der Toleranz des Herstellers",
+          "next": "Sieh in der Pixelfehler-Richtlinie nach. Innerhalb der Rückgabefrist kannst du das Gerät meist einfach zurückschicken.",
+          "guide": "Pixelfehler-Richtlinien"
+        },
+        {
+          "see": "Ein helles oder hängendes Pixel",
+          "tag": "Strenger",
+          "usually": "Wird strenger bewertet als ein dunkles",
+          "next": "Probier den Stuck-Pixel-Fixer im Pixelfehler-Test aus und sieh dann in der Richtlinie nach.",
+          "guide": "Hängendes Pixel reparieren"
+        },
+        {
+          "see": "Mehrere Fehler dicht beieinander",
+          "tag": "Oft Garantiefall",
+          "usually": "Häufungen werden oft anerkannt, verstreute Fehler nicht",
+          "next": "Fotografiere sie auf einer Vollfarbe und zähl sie nach Art getrennt.",
+          "guide": ""
+        },
+        {
+          "see": "Eine ganze Zeile oder Spalte leuchtet oder bleibt dunkel",
+          "tag": "Defekt",
+          "usually": "Ein Kontaktfehler, kein Pixelfehler",
+          "next": "Das ist fast immer ein Garantiefall. Wende dich an den Support.",
+          "guide": ""
+        },
+        {
+          "see": "Schwaches Leuchten in den Ecken auf schwarzem Bild",
+          "tag": "Normal",
+          "usually": "Normal bei fast jedem LCD",
+          "next": "Eine Rückgabe lohnt sich nur, wenn es ungleichmäßig oder im Alltag sichtbar ist.",
+          "guide": "Backlight Bleeding"
+        },
+        {
+          "see": "Ein Schimmer, der wandert, wenn du den Kopf bewegst",
+          "tag": "Normal",
+          "usually": "IPS-Glow, eine Eigenheit des Paneltyps",
+          "next": "Kein Defekt. Mehr Sitzabstand oder etwas Raumlicht schwächt ihn ab.",
+          "guide": "Bleeding oder IPS-Glow?"
+        },
+        {
+          "see": "Ecken etwas dunkler als die Mitte",
+          "tag": "Normal",
+          "usually": "Ein leichter Helligkeitsabfall ist bei jedem LCD normal",
+          "next": "Ein klar abgegrenzter Fleck mit sichtbarer Kante ist es nicht – der ist ein Grund für die Rückgabe.",
+          "guide": ""
+        },
+        {
+          "see": "Flecken auf dem Laptop-Display, oft in einer Reihe",
+          "tag": "Defekt",
+          "usually": "Druckstellen, ein mechanischer Schaden",
+          "next": "Ein Grund für die Rückgabe, besonders bei einem neuen Laptop.",
+          "guide": ""
+        },
+        {
+          "see": "Ein Umriss auf dem OLED, der nach wechselnden Inhalten verblasst",
+          "tag": "Vorübergehend",
+          "usually": "Vorübergehende Image Retention",
+          "next": "Lass eine Weile abwechslungsreiches Video im Vollbild laufen und prüf es noch einmal.",
+          "guide": ""
+        },
+        {
+          "see": "Ein Umriss auf dem OLED, der nie verblasst",
+          "tag": "Dauerhaft",
+          "usually": "Burn-in, und das bleibt",
+          "next": "Prüf, ob deine Garantie Burn-in abdeckt; manche tun das inzwischen.",
+          "guide": ""
+        },
+        {
+          "see": "60 Hz auf einem 144-Hz-Monitor",
+          "tag": "Einstellung",
+          "usually": "Ein Einstellungs- oder Kabelproblem, kein defektes Panel",
+          "next": "Wähle in den Anzeigeeinstellungen die volle Rate, prüf das Kabel und teste dann noch einmal.",
+          "guide": ""
+        }
+      ]
+    },
+    "newer": {
+      "eyebrow": "Neuere Bildschirme",
+      "title": "Tests für neuere Bildschirme",
+      "subtitle": "HDR-, Mini-LED-, OLED- und High-Refresh-Panels haben Schwächen, die eine Vollfarbe nicht zeigen kann.",
+      "items": [
+        {
+          "name": "HDR-Test",
+          "body": "Ein echtes HDR-Bild mit Helligkeitsstufen bis 1.600 Nits. So siehst du, ab wo dein Bildschirm nicht mehr heller wird."
+        },
+        {
+          "name": "PWM-Flimmer-Test",
+          "body": "Entlarve eine flimmernde Hintergrundbeleuchtung mit dem Bleistift-Test – oder mit einer schnellen Linie, die auf PWM-gedimmten Bildschirmen in Kopien zerfällt."
+        },
+        {
+          "name": "Wide-Color-Gamut-Test (P3)",
+          "body": "In Display-P3-Farben versteckte Logos erscheinen nur, wenn Bildschirm und Browser beide über sRGB hinausgehen."
+        },
+        {
+          "name": "Frame-Skipping-Test",
+          "body": "Pro Frame leuchtet eine Zelle. Fotografiere das Ganze und finde heraus, ob ein übertakteter Monitor heimlich Frames auslässt."
+        },
+        {
+          "name": "Blooming-Zonendurchläufe",
+          "body": "Zähl, wie oft der Halo springt, während ein Quadrat über den Bildschirm wandert – so schätzt du die Dimming-Zonen eines Mini-LED-Displays."
+        },
+        {
+          "name": "Wanderndes Grau",
+          "body": "Wandernde graue Bänder, die den Dirty-Screen-Effekt sichtbar machen, den große Fernseher bei Kameraschwenks zeigen."
+        }
+      ]
+    },
+    "guides": {
+      "eyebrow": "Ratgeber",
+      "title": "Diese Ratgeber zuerst lesen",
+      "subtitle": "Was ein Ergebnis bedeutet – und Schritt-für-Schritt-Anleitungen für Laptops, Handys, Fernseher und Monitore.",
+      "all": "Alle Ratgeber",
+      "items": [
+        {
+          "name": "Backlight Bleeding oder IPS-Glow?",
+          "body": "Ein Ein-Sekunden-Test, der beides trennt, eine Vergleichstabelle und alles, was weder das eine noch das andere ist: Clouding, Blooming und ein angehobener Schwarzwert."
+        },
+        {
+          "name": "OLED-Burn-in",
+          "body": "Was ein OLED abnutzt, wie du es auf Grau prüfst, wie du es von verblassender Image Retention unterscheidest und welche Gewohnheiten es bremsen."
+        },
+        {
+          "name": "Laptops",
+          "body": "Ein Pixel-Check in 60 Sekunden – plus alles, was auf einem Laptop wie tote Pixel aussieht, aber keine sind, etwa Leuchten in den Ecken und Druckstellen vom Deckel."
+        },
+        {
+          "name": "Gebrauchte Handys",
+          "body": "Was du prüfen solltest, bevor du Geld übergibst: eingebrannte Bilder auf dem OLED, Bereiche, die nicht auf Berührung reagieren, ein Austausch-Display und Flimmern."
+        },
+        {
+          "name": "Fernseher",
+          "body": "Bring über den TV-Browser oder dein Handy ein Testbild auf den Schirm und beurteile Pixel und Ausleuchtung von dort, wo du wirklich sitzt."
+        },
+        {
+          "name": "Monitore, im Laden und zu Hause",
+          "body": "Was du vor dem Bezahlen prüfen kannst, was am ersten Tag laufen sollte und welche Warnzeichen eine Rückgabe wert sind – das Kabel eingeschlossen."
+        }
+      ]
+    },
+    "prep": {
+      "eyebrow": "Vorbereitung",
+      "title": "Bevor du testest",
+      "subtitle": "Eine Minute Vorbereitung macht jedes Ergebnis verlässlicher.",
+      "items": [
+        {
+          "title": "Aufwärmen lassen",
+          "body": "Bei einem kalten Panel schwanken Helligkeit und Farbe anfangs leicht. Gib ihm vor dem Testen etwa fünf Minuten, vor dem Kalibrieren 20–30 Minuten."
+        },
+        {
+          "title": "Filter ausschalten",
+          "body": "Nachtmodus, Night Shift, True Tone, dynamischer Kontrast und Augenschonmodi verändern alle, was du siehst. Schalte sie für Farb- und Graustufen-Checks aus."
+        },
+        {
+          "title": "Licht dimmen",
+          "body": "Tests für Bleeding, Blooming und Schwarzwert brauchen einen wirklich dunklen Raum. Alles andere klappt am besten bei gedämpftem Licht, ohne Spiegelungen auf dem Glas."
+        },
+        {
+          "title": "Native Auflösung verwenden",
+          "body": "Eine skalierte Auflösung macht feine Details weicher und kann ein einzelnes defektes Pixel in seine Nachbarn verwischen. Stell dein System auf die native Auflösung des Panels."
+        },
+        {
+          "title": "Den ganzen Bildschirm füllen",
+          "body": "Browserleisten und die Taskleiste verdecken die Ränder – genau dort verstecken sich Bleeding und tote Pixel gern. Jeder Test hat eine Starten-Schaltfläche für den Vollbildmodus."
+        },
+        {
+          "title": "Fotografiere, was du findest",
+          "body": "Fixiere die Belichtung deiner Handykamera, fotografiere im dunklen Raum und notiere das Datum. Dieses Foto ist dein Beleg für eine Rückgabe oder einen Garantiefall."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Fragen",
+      "items": [
+        {
+          "q": "Ist {site} kostenlos?",
+          "a": "Ja. Jeder Test ist kostenlos, ohne Konto und ohne Download. Die Seite finanziert sich über Werbung und Spenden."
+        },
+        {
+          "q": "Wird etwas hochgeladen, wenn ich einen Test starte?",
+          "a": "Nein. Dein Browser zeichnet die Testbilder auf deinem eigenen Gerät, und nichts über deinen Bildschirm wird irgendwohin gesendet. Wie die meisten Websites nutzt die Seite Analyse-Tools und Werbung; die Datenschutzseite listet auf, was diese erfassen."
+        },
+        {
+          "q": "Funktionieren die Tests auf Handys und Tablets?",
+          "a": "Ja, in jedem modernen mobilen Browser. Safari auf dem iPhone lässt Websites nicht in den echten Vollbildmodus, dort füllt ein Test stattdessen das Browserfenster. Der Touchscreen-Test ist speziell für Handys und Tablets gebaut."
+        },
+        {
+          "q": "Kann ein Test im Browser genau sein?",
+          "a": "Bei Fehlern, die du sehen kannst, ja: Eine Vollfarbe im Vollbild zeigt ein totes Pixel oder Backlight Bleeding genauso deutlich wie spezielle Software. Messwerte wie Delta E, Helligkeit in Nits oder das Kontrastverhältnis brauchen ein Colorimeter; diese Tests zeigen, wie solche Probleme aussehen, nicht die Zahlen dazu."
+        },
+        {
+          "q": "Wie viele tote Pixel sind akzeptabel?",
+          "a": "Das hängt von der Pixelfehler-Richtlinie des Herstellers ab. Ein dunkles Pixel liegt oft innerhalb der Toleranz, helle Pixel und Häufungen werden strenger behandelt. Innerhalb der Rückgabefrist des Händlers musst du meist gar nicht über Zahlen diskutieren."
+        },
+        {
+          "q": "Welchen Test sollte ich auf einem neuen Bildschirm zuerst machen?",
+          "a": "Den Pixelfehler-Test. Prüf danach Bleeding auf Schwarz, die Ausleuchtung auf Grau und Banding in den Verläufen, und schließ bei einem Monitor oder Fernseher mit der Bildwiederholrate ab. Die Checkliste für neue Geräte in unseren Ratgebern führt durch die komplette Reihenfolge."
+        }
+      ]
+    },
+    "who": {
+      "title": "Wer hinter {site} steht",
+      "body": "{site} wird von {operator} entwickelt und gepflegt, einem unabhängigen Entwickler, der allein arbeitet. Jeder Ratgeber zeigt, wann er zuletzt aktualisiert wurde, und viele verlinken die Normen und Herstellerdokumente, auf die sie sich stützen.",
+      "browse": "Alle {n} Tests ansehen",
+      "about": "Über die Seite",
+      "feedback": "Feedback senden"
+    }
+  }
+}

@@ -3,11 +3,13 @@
 import FullscreenStage from "./FullscreenStage";
 import PatternCanvas, { type DrawArgs } from "./PatternCanvas";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 const LABELS = ["Moving dot", "Zone sweep ↔", "Zone sweep ↕"];
 const SWEEP_SECONDS = 24; // one slow pass across the screen
 
 export default function BloomingTool({ tool }: { tool: ToolDef }) {
+  const t = useT();
   const draw = ({ ctx, width, height, t, pointer, frame }: DrawArgs) => {
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, width, height);
@@ -39,7 +41,7 @@ export default function BloomingTool({ tool }: { tool: ToolDef }) {
     <FullscreenStage
       tool={tool}
       frameCount={LABELS.length}
-      frameLabel={(i) => LABELS[i]}
+      frameLabel={(i) => t(LABELS[i])}
       renderFrame={(i) => <PatternCanvas frame={i} draw={draw} animate trackPointer={i === 0} />}
     />
   );

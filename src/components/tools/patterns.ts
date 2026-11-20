@@ -156,7 +156,7 @@ export function viewingAngle({ ctx, width, height }: DrawArgs) {
 }
 
 // ----- Gamma (1px stripes ≈ 50% vs reference grey patches) -----
-export function gamma({ ctx, width, height }: DrawArgs) {
+export function gamma({ ctx, width, height, tr }: DrawArgs) {
   // The stripes must alternate on *physical* pixels to average exactly 50% light. Drawn
   // in CSS pixels they land on half-pixels at 125%/150% scaling and blend into grey
   // rows, which shifts the average and makes the wrong patch match. So draw them in
@@ -187,7 +187,8 @@ export function gamma({ ctx, width, height }: DrawArgs) {
     ctx.fillStyle = `rgb(${p.v},${p.v},${p.v})`;
     ctx.fillRect(x, y, w, h);
     ctx.fillStyle = "#ff2d6f";
-    ctx.fillText(`γ ${p.g}`, i * pw + pw / 2, y + h + 28);
+    // Looked up whole ("γ 2.2") so a language with a decimal comma can show "γ 2,2".
+    ctx.fillText(tr(`γ ${p.g}`), i * pw + pw / 2, y + h + 28);
   });
 }
 
@@ -206,7 +207,7 @@ function inDevicePixels(ctx: CanvasRenderingContext2D, fn: (W: number, H: number
 // ----- Overscan, aspect ratio and geometry (TVs, projectors) -----
 export const OVERSCAN_LABELS = ["Overscan border", "Aspect ratio", "Geometry grid"];
 
-export function overscan({ ctx, width, height, frame }: DrawArgs) {
+export function overscan({ ctx, width, height, frame, tr }: DrawArgs) {
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, width, height);
   const md = Math.min(width, height);
@@ -253,7 +254,7 @@ export function overscan({ ctx, width, height, frame }: DrawArgs) {
     ctx.textBaseline = "middle";
     ctx.fillStyle = "rgba(255,255,255,0.75)";
     ctx.font = `600 ${Math.max(14, md * 0.035)}px system-ui, sans-serif`;
-    ctx.fillText("The outermost frame you can see all the way round = your overscan", width / 2, height / 2);
+    ctx.fillText(tr("The outermost frame you can see all the way round = your overscan"), width / 2, height / 2);
     return;
   }
 
@@ -293,7 +294,7 @@ export function overscan({ ctx, width, height, frame }: DrawArgs) {
     ctx.textBaseline = "middle";
     ctx.font = `600 ${Math.max(13, md * 0.028)}px system-ui, sans-serif`;
     // Above the circle: the bottom of the screen belongs to the control bar.
-    ctx.fillText("Circles must be perfectly round, squares square", cx, Math.max(md * 0.04, cy - r - md * 0.045));
+    ctx.fillText(tr("Circles must be perfectly round, squares square"), cx, Math.max(md * 0.04, cy - r - md * 0.045));
     return;
   }
 
@@ -328,7 +329,7 @@ function label(ctx: CanvasRenderingContext2D, text: string, x: number, y: number
   ctx.fillText(text, x, y);
 }
 
-export function sharpness({ ctx, width, height, frame }: DrawArgs) {
+export function sharpness({ ctx, width, height, frame, tr }: DrawArgs) {
   const md = Math.min(width, height);
   const fs = Math.max(12, md * 0.028);
 
@@ -375,10 +376,10 @@ export function sharpness({ ctx, width, height, frame }: DrawArgs) {
       frame === 0
         ? ["1px vertical lines", "1px horizontal lines", "2px vertical lines", "2px horizontal lines"]
         : ["1px checkerboard", "2px checkerboard", "3px checkerboard", "Diagonal hatch"];
-    label(ctx, names[0], width / 4, height / 4, fs);
-    label(ctx, names[1], (width * 3) / 4, height / 4, fs);
-    label(ctx, names[2], width / 4, (height * 3) / 4, fs);
-    label(ctx, names[3], (width * 3) / 4, (height * 3) / 4, fs);
+    label(ctx, tr(names[0]), width / 4, height / 4, fs);
+    label(ctx, tr(names[1]), (width * 3) / 4, height / 4, fs);
+    label(ctx, tr(names[2]), width / 4, (height * 3) / 4, fs);
+    label(ctx, tr(names[3]), (width * 3) / 4, (height * 3) / 4, fs);
     return;
   }
 
@@ -402,7 +403,7 @@ export function sharpness({ ctx, width, height, frame }: DrawArgs) {
       ctx.textBaseline = "top";
       let y = i * ph + 8;
       ctx.font = "600 12px system-ui, sans-serif";
-      ctx.fillText(name, 12, y);
+      ctx.fillText(tr(name), 12, y);
       y += 18;
       for (const sz of sizes) {
         if (y + sz > (i + 1) * ph - 4) break;
@@ -440,5 +441,5 @@ export function sharpness({ ctx, width, height, frame }: DrawArgs) {
   ctx.font = `600 ${fs * 1.4}px system-ui, sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText("Look for light or dark outlines along every edge", cx + width * 0.12, height * 0.9);
+  ctx.fillText(tr("Look for light or dark outlines along every edge"), cx + width * 0.12, height * 0.9);
 }

@@ -1,0 +1,570 @@
+{
+  "black-level-test": {
+    "heading": "Welche Stufen solltest du sehen können?",
+    "howToHeading": "Deine Untergrenze für Schattendetails finden",
+    "faqHeading": "Fragen zum Schwarzwert",
+    "pass": [
+      "In einem dunklen Raum kannst du die Stufen etwa ab Wert 2 bis 4 unterscheiden.",
+      "Jede sichtbare Stufe ist etwas heller als die davor, und alle bleiben neutral grau."
+    ],
+    "fail": [
+      "Die niedrigsten Stufen sehen alle aus wie Schwarz: Die Schattendetails saufen ab. Die üblichen Ursachen sind eine Schwarzwert- oder Helligkeitseinstellung oder ein falsch zugeordneter begrenzter RGB-Bereich.",
+      "Jede Stufe ist klar sichtbar, aber reines Schwarz wirkt grau: Der Schwarzwert ist angehoben, und das kostet Kontrast."
+    ],
+    "note": "Teste bei der Helligkeit, die du wirklich nutzt. Bei einem Monitor steuert der Helligkeitsregler vor allem die Hintergrundbeleuchtung – ihn hochzudrehen macht jede Stufe leichter sichtbar, hebt aber zugleich das Schwarz an. Bei einem Fernseher regelt die Einstellung namens „Helligkeit“ oft den Schwarzwert selbst, und die ist dann die richtige Stellschraube. Beurteile die Stufen in der Mitte: Leuchten zu den Ecken hin ist IPS-Glow oder Bleeding, kein Problem mit Schattendetails.",
+    "next": [
+      "Sind die niedrigsten Stufen alle schwarz, prüf zuerst den RGB-Bereich: Stell Grafikausgabe und Display auf denselben Bereich.",
+      "Setz Schwarzwert, Gamma und jede Schatten- oder „Black Equalizer“-Einstellung des Monitors auf Standard zurück.",
+      "Schalte den dynamischen Kontrast aus und wiederhol den Test dann in einem abgedunkelten Raum bei deiner üblichen Helligkeit."
+    ],
+    "tables": [
+      {
+        "title": "Voller und begrenzter RGB-Bereich",
+        "head": [
+          "Bereich",
+          "Schwarz",
+          "Weiß",
+          "Genutzt von"
+        ],
+        "rows": [
+          [
+            "Voll",
+            "0",
+            "255",
+            "Computer und Monitore"
+          ],
+          [
+            "Begrenzt",
+            "16",
+            "235",
+            "TVs, Blu-ray und Streaming"
+          ]
+        ],
+        "note": "Ein begrenztes Signal auf einem Display mit vollem Bereich ergibt graues Schwarz. Ein volles Signal auf einem Display mit begrenztem Bereich lässt die dunkelsten Stufen in Schwarz absaufen."
+      }
+    ],
+    "guideLabel": "Warum wirkt Schwarz grau? Voller vs. begrenzter RGB-Bereich"
+  },
+  "viewing-angle-test": {
+    "heading": "Wie viel Veränderung ist für dein Panel normal?",
+    "howToHeading": "Den Blickwinkel prüfen",
+    "faqHeading": "Fragen zum Blickwinkel",
+    "terms": [
+      {
+        "name": "IPS und OLED",
+        "text": "Halten Farbe und Helligkeit gut, wenn du dich aus der Achse bewegst. Kaum sichtbare Veränderung ist das erwartete Ergebnis."
+      },
+      {
+        "name": "VA",
+        "text": "Zeigt eine Kontrast- und Gamma-Verschiebung, bei der die dunklen Graustufen verblassen, und etwas Aufhellung in den Ecken."
+      },
+      {
+        "name": "TN",
+        "text": "Kippt stark, vor allem wenn du dich nach oben und unten bewegst. Dunkle Stufen verschmelzen, und Farben ändern ihren Ton."
+      }
+    ],
+    "pass": [
+      "Das Ergebnis passt zu dem, was dein Paneltyp normalerweise macht.",
+      "Von deinem üblichen Platz aus sehen die Ecken genauso aus wie die Mitte."
+    ],
+    "fail": [
+      "Ein IPS- oder OLED-Bildschirm, der so stark kippt, wie es ein TN-Panel tun würde.",
+      "Ecken, die selbst bei mittiger Sitzposition dunkler oder ausgewaschen wirken, auf einem Bildschirm, der weder besonders groß ist noch besonders nah steht."
+    ],
+    "note": "Bei einem großen Bildschirm oder einem, der nah vor dir steht, siehst du die Ecken ohnehin schon schräg, TN- und VA-Panels können also selbst vom mittleren Platz aus dunklere Ecken zeigen. Ein Curved-Monitor hält die Ränder näher an der Frontalsicht und verringert den Effekt. Der Blickwinkel ist eine Eigenschaft des Panels, nichts, was eine Einstellung beheben kann.",
+    "next": [
+      "Setz dich gerade vor den Bildschirm, die Augen auf Höhe des oberen Drittels, und neig ihn, bis oben und unten gleich hell aussehen.",
+      "Mach den Test bei einem TV von jedem Platz aus, auf dem wirklich jemand sitzt.",
+      "Verändert sich ein Bildschirm, der als IPS oder OLED verkauft wurde, stark, prüf den Paneltyp in den technischen Daten und sprich es beim Händler an."
+    ],
+    "guideLabel": "IPS vs. VA vs. TN vs. OLED: Welches Panel solltest du nehmen?"
+  },
+  "gamma-test": {
+    "heading": "Welches Feld ist verschwunden? So liest du dein Gamma ab",
+    "howToHeading": "Das Gamma-Testbild lesen",
+    "faqHeading": "Fragen zu Gamma",
+    "terms": [
+      {
+        "name": "Das 2,2-Feld verschwindet",
+        "text": "Dein Display liegt im Ziel. 2,2 ist der sRGB-Standard, und sowohl Windows als auch macOS peilen ihn an."
+      },
+      {
+        "name": "Ein niedrigeres Feld verschwindet (1,8, 2,0)",
+        "text": "Das Gamma ist zu niedrig. Das Bild wirkt flau, die Mitteltöne sind zu hell."
+      },
+      {
+        "name": "Ein höheres Feld verschwindet (2,4)",
+        "text": "Das Gamma ist zu hoch. Die Schatten saufen ab, und das Bild wirkt schwer."
+      }
+    ],
+    "note": "Geh so weit zurück, bis die Streifen zu einem einheitlichen Grau verschwimmen, bevor du vergleichst. Der Test liest das Gamma nur rund um das mittlere Grau ab. Er kann weder die gesamte Kurve von Schwarz bis Weiß messen noch sie korrigieren: Ein Colorimeter kann beides. Liegt dein Wert daneben, probier zuerst das Gamma-Preset des Monitors.",
+    "next": [
+      "Setz den Browser-Zoom mit Strg/Cmd + 0 zurück, wähl die native Auflösung und lad die Seite neu.",
+      "Geh die Gamma-Voreinstellungen des Monitors durch und bleib bei der, bei der das 2,2-Feld verschmilzt.",
+      "Passt keine Voreinstellung, nutz das Kalibrierungswerkzeug des Betriebssystems für den Bildschirm.",
+      "Mach den Test nach jeder Änderung noch einmal."
+    ],
+    "guideLabel": "Gamma erklärt: Warum deine Schatten falsch aussehen"
+  },
+  "screen-tearing-test": {
+    "heading": "Riss, Ruckeln oder sauber? So liest du die Balken",
+    "howToHeading": "So läuft der Tearing-Test",
+    "faqHeading": "Fragen zu Screen Tearing",
+    "pass": [
+      "Die Balken bleiben in der Bewegung von einem Bildschirmrand zum anderen ganz.",
+      "Die Bewegung ist gleichmäßig, ohne Ruckler."
+    ],
+    "fail": [
+      "Eine Linie, an der die Balken versetzt sind, sodass obere und untere Hälfte nicht zusammenpassen: ein Riss.",
+      "Ruckelige Bewegung ohne sichtbaren Bruch. Frames werden ausgelassen oder wiederholt, und das ist ein anderes Problem: Nimm den Frame-Skipping-Test."
+    ],
+    "note": "Ein sauberes Ergebnis ist hier üblich und beweist nicht, dass deine Spiele kein Tearing zeigen. Browser zeichnen meist synchron zum Display, während Spiele reißen, wenn sie Frames mit ausgeschaltetem V-Sync senden. Siehst du auf dieser Seite doch Risse, prüf, ob die Hardwarebeschleunigung in deinem Browser aktiv ist und das Display mit seiner vollen Bildwiederholrate läuft.",
+    "next": [
+      "Schalte Adaptive Sync (G-Sync, FreeSync oder VRR) im Menü des Monitors und im Grafiktreiber ein.",
+      "Hat dein Bildschirm kein Adaptive Sync, schalte V-Sync im Spiel ein oder begrenze dessen Bildrate knapp unter der Bildwiederholrate.",
+      "Prüf die Verbindung: Adaptive Sync braucht DisplayPort am PC oder HDMI 2.1 an Konsole oder Fernseher."
+    ],
+    "tables": [
+      {
+        "title": "Wege, Tearing abzustellen",
+        "head": [
+          "Methode",
+          "Tearing",
+          "Zusätzliche Verzögerung",
+          "Voraussetzung"
+        ],
+        "rows": [
+          [
+            "Sync aus",
+            "Ja",
+            "Keine",
+            "Nichts"
+          ],
+          [
+            "V-Sync",
+            "Keines",
+            "Etwas",
+            "Nichts"
+          ],
+          [
+            "Adaptive Sync (G-Sync, FreeSync, VRR)",
+            "Keines innerhalb des Bereichs",
+            "Sehr wenig",
+            "Kompatibler Bildschirm und Grafikkarte, über DisplayPort oder HDMI 2.1"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Screen Tearing, V-Sync, G-Sync und FreeSync erklärt"
+  },
+  "touch-screen-test": {
+    "heading": "Tote Zone oder nur verfehlt? So liest du das Raster",
+    "howToHeading": "Die Touch-Schicht testen",
+    "faqHeading": "Fragen zum Touchscreen",
+    "pass": [
+      "Jede Zelle wird grün, auch die an den Rändern und in den Ecken.",
+      "Linien unter „Freies Zeichnen“ sind durchgehend und folgen deinem Finger.",
+      "Der Berührungszähler erreicht auf einem Handy oder Tablet mindestens fünf."
+    ],
+    "fail": [
+      "Dieselben Zellen bleiben jedes Mal dunkel, egal wie langsam du darüberfährst. Eine einzelne hartnäckige Zelle bei einem Durchgang hast du meist nur verfehlt.",
+      "Eine Lücke an derselben Stelle in jeder Linie, die du hindurchziehst.",
+      "Linien, die springen, oder Markierungen, wo du gar nicht berührst: Geisterberührungen (Ghost Touches).",
+      "Ein Zähler, der nie über ein oder zwei Finger hinauskommt."
+    ],
+    "note": "Eine dicke, gesprungene oder sich ablösende Schutzfolie kann all das verursachen. Nimm Hülle und Folie ab und teste noch einmal, bevor du dem Bildschirm die Schuld gibst. Touch-Fehler beginnen meist an den Rändern und in den Ecken, fahr dort also langsam.",
+    "next": [
+      "Nimm Hülle und Schutzfolie ab, reinige und trockne das Glas und geh das Raster noch einmal durch.",
+      "Zieh das Ladegerät ab, starte das Gerät neu und teste dann noch einmal.",
+      "Installiere ausstehende Systemupdates.",
+      "Fällt derselbe Bereich immer noch aus, ist die Touch-Schicht defekt. Wende dich an den Hersteller oder eine Reparaturwerkstatt und sag dazu, ob das Gerät schon einmal heruntergefallen ist oder der Bildschirm getauscht wurde."
+    ],
+    "guideLabel": "So testest du das Display eines gebrauchten Handys vor dem Kauf"
+  },
+  "screen-info": {
+    "heading": "Was dir jeder Wert sagt",
+    "howToHeading": "Deine Display-Daten lesen",
+    "faqHeading": "Fragen zur Bildschirm-Info",
+    "terms": [
+      {
+        "name": "Bildschirmauflösung (Pixel)",
+        "text": "Die Pixelzahl des Panels, geschätzt aus der Größe, die der Browser meldet, multipliziert mit dem Skalierungsfaktor. Vergleich sie mit den technischen Daten des Bildschirms: Eine niedrigere Zahl bedeutet meist, dass eine nicht native Auflösung ausgewählt ist, und das macht feine Details weicher."
+      },
+      {
+        "name": "Anzeigeskalierung",
+        "text": "Wie stark das System alles vergrößert, auch Device Pixel Ratio genannt. Bei 100 % entspricht ein Layout-Pixel einem Bildschirmpixel; bei 200 % sind es zwei in jeder Richtung. Browser-Zoom verändert diesen Wert, setz den Zoom also zurück, bevor du ihn abliest."
+      },
+      {
+        "name": "Bildschirmgröße in CSS-Pixeln",
+        "text": "Die Größe, an der Websites nach der Skalierung ihr Layout ausrichten. Sie erklärt, warum sich ein 4K-Laptop bei 200 % wie ein Bildschirm mit 1920 × 1080 und schärferem Text verhält."
+      },
+      {
+        "name": "Bildwiederholrate",
+        "text": "Live gemessen. Zeigt sie auf einem schnelleren Bildschirm 60 an, ist die volle Rate in deinen Anzeigeeinstellungen nicht ausgewählt, oder das Kabel schafft sie nicht."
+      },
+      {
+        "name": "Farbtiefe",
+        "text": "Bits pro Pixel laut Browser: 24 bedeutet 8 Bit pro Kanal, 30 bedeutet 10. Viele 10-Bit-Monitore zeigen trotzdem 24, weil der Computer 8-Bit-Farbe sendet."
+      },
+      {
+        "name": "Farbraum",
+        "text": "Der größte Farbraum, den der Bildschirm laut Browser abdeckt: sRGB ist der Standard, Display P3 und Rec. 2020 sind erweiterte Farbräume. Der Wide-Color-Gamut-Test zeigt, ob diese zusätzlichen Farben wirklich bei deinen Augen ankommen."
+      },
+      {
+        "name": "HDR",
+        "text": "Ob der Browser auf diesem Bildschirm gerade HDR darstellen kann. „Nein“ bei einem HDR-Monitor bedeutet meist, dass HDR im Betriebssystem ausgeschaltet ist."
+      },
+      {
+        "name": "Nutzbare Bildschirmfläche und Browserfenster",
+        "text": "Der Bildschirm abzüglich Taskleiste, Dock oder Menüleiste, und der Teil davon, den diese Seite gerade füllt."
+      }
+    ],
+    "note": "Diese Werte kommen aus deinem Browser, nicht vom Panel selbst. Sie beschreiben also, wie der Bildschirm im Moment angesteuert wird. Das macht sie nützlich, um eine falsche Einstellung zu entdecken, und weniger nützlich als Beweis dafür, was die Hardware kann.",
+    "next": [
+      "Auflösung niedriger als in den technischen Daten: Wähl in deinen Anzeigeeinstellungen die native Auflösung.",
+      "Die Bildwiederholrate zeigt 60 auf einem schnelleren Bildschirm: Folg den Schritten auf der Seite zum Bildwiederholraten-Test.",
+      "HDR zeigt „Nein“ auf einem HDR-Bildschirm: Schalte HDR im Betriebssystem ein und lad die Seite neu.",
+      "sRGB auf einem Wide-Gamut-Monitor: Such im Menü des Monitors nach einem sRGB-Modus und schalte ihn aus."
+    ],
+    "tables": [
+      {
+        "title": "Gängige Bildschirmauflösungen",
+        "head": [
+          "Name",
+          "Pixel",
+          "Seitenverhältnis"
+        ],
+        "rows": [
+          [
+            "HD (720p)",
+            "1280 × 720",
+            "16:9"
+          ],
+          [
+            "Full HD (1080p)",
+            "1920 × 1080",
+            "16:9"
+          ],
+          [
+            "WUXGA",
+            "1920 × 1200",
+            "16:10"
+          ],
+          [
+            "QHD (1440p)",
+            "2560 × 1440",
+            "16:9"
+          ],
+          [
+            "Ultrawide QHD",
+            "3440 × 1440",
+            "21:9"
+          ],
+          [
+            "4K UHD",
+            "3840 × 2160",
+            "16:9"
+          ],
+          [
+            "5K",
+            "5120 × 2880",
+            "16:9"
+          ],
+          [
+            "8K UHD",
+            "7680 × 4320",
+            "16:9"
+          ]
+        ]
+      }
+    ]
+  },
+  "overscan-test": {
+    "heading": "Ist dein Bild abgeschnitten oder gestreckt?",
+    "howToHeading": "Prüfen, ob das Bild passt",
+    "faqHeading": "Fragen zu Overscan",
+    "pass": [
+      "Overscan-Rahmen: Du siehst den äußersten Rahmen, mit 0 % markiert, rundum vollständig.",
+      "Seitenverhältnis: Die Kreise sind perfekt rund, und das Quadrat ist quadratisch.",
+      "Geometrie-Raster: Die Linien sind von Rand zu Rand gerade und haben gleichmäßige Abstände."
+    ],
+    "fail": [
+      "Die äußeren Rahmen sind abgeschnitten. Der äußerste, den du noch rundum vollständig siehst, zeigt, wie viel abgeschnitten wird.",
+      "Kreise, die oval aussehen: Das Bild wird gestreckt.",
+      "Rasterlinien, die sich wölben oder zusammenlaufen – bei einem Beamer heißt das, dass Trapezkorrektur oder Objektivposition nachgestellt werden müssen."
+    ],
+    "note": "Overscan ist eine Einstellung, kein Defekt. Such nach einer Bildformat-Option namens Just Scan, Screen Fit, „An Bildschirm anpassen“, 1:1 oder „Overscan aus“. Jeder TV-Eingang kann seine eigene Bildformat-Einstellung haben, teste also den Eingang, den du wirklich nutzt.",
+    "next": [
+      "Stell am TV das Bildformat auf einen 1:1-Modus wie Just Scan oder Screen Fit.",
+      "Wenn du am TV Eingänge benennen kannst, stell diesen auf PC.",
+      "Nur wenn der TV keine solche Option hat, nimm den Skalierungsregler im Grafiktreiber.",
+      "Mach den Test noch einmal und prüf, ob der 0-%-Rahmen rundum sichtbar ist."
+    ]
+  },
+  "sharpness-test": {
+    "heading": "Scharf, skaliert oder überschärft?",
+    "howToHeading": "Die Schärfe-Testbilder lesen",
+    "faqHeading": "Fragen zu Schärfe und Text",
+    "pass": [
+      "1-Pixel-Linien und Schachbretter sehen scharf und gleichmäßig gestreift aus.",
+      "Kleiner Text ist scharf, auch der rote und gelbe.",
+      "Kein heller Saum um die Linien und Ringe auf dem Halo-Testbild."
+    ],
+    "fail": [
+      "Feine Linien, die zu grauem Matsch oder welligem Moiré werden: Das Bild wird umgerechnet – durch eine nicht native Auflösung, eine nicht ganzzahlige Anzeigeskalierung, Browser-Zoom oder die Skalierung des Fernsehers.",
+      "Roter oder gelber Text, der verschmiert, während schwarz-weißer Text scharf bleibt: Chroma Subsampling. Nutze den PC- oder Spielemodus des Fernsehers oder stell die Ausgabe auf RGB oder 4:4:4.",
+      "Weiße Säume um Kanten: Die Schärfe-Einstellung ist zu hoch. Dreh sie herunter, bis sie verschwinden."
+    ],
+    "note": "Prüf zuerst aus deinem üblichen Sitzabstand, dann aus der Nähe. Eine Anzeigeskalierung von 100 %, 150 % oder 200 % hält feine Details sauberer als Zwischenwerte.",
+    "next": [
+      "Wähl die native Auflösung des Bildschirms.",
+      "Stell die Anzeigeskalierung auf 100 %, 150 % oder 200 % und setz den Browser-Zoom zurück.",
+      "Stell bei einem TV den Eingang auf PC- oder Spielemodus und die Ausgabe auf RGB oder 4:4:4.",
+      "Senk die Schärfe-Einstellung, bis die Säume auf dem Testbild „Schärfungs-Halos“ verschwinden."
+    ]
+  },
+  "frame-skipping-test": {
+    "heading": "Das Foto lesen: ausgelassene Frames oder nicht?",
+    "howToHeading": "Den Test fotografieren",
+    "faqHeading": "Fragen zu Frame Skipping",
+    "pass": [
+      "Auf dem Foto bilden die leuchtenden Zellen eine lückenlose Reihe.",
+      "Dasselbe Ergebnis auf mehreren Fotos."
+    ],
+    "fail": [
+      "Eine Lücke in der Reihe, die auf Foto um Foto wieder auftaucht: Das Display lässt Frames aus.",
+      "Lücken, die nur bei der höchsten Bildwiederholrate oder nach einer Übertaktung auftreten und bei der Standardrate verschwinden."
+    ],
+    "note": "Eine Lücke auf einem Foto beweist nichts, denn bei einem ausgelasteten Computer kann auch der Browser einen Frame verpassen. Schließ andere Apps und mach mehrere Aufnahmen. Wähle eine Belichtungszeit, die 6 bis 10 Frames einfängt: etwa 1/15 s bei 144 Hz, 1/30 s bei 240 Hz.",
+    "next": [
+      "Schließ andere Apps und mach noch ein paar Fotos, um sicherzugehen, dass die Lücke jedes Mal da ist.",
+      "Senk die Bildwiederholrate um eine Stufe und teste erneut, bis die Zellen eine lückenlose Reihe bilden.",
+      "Entfern jede benutzerdefinierte Auflösung oder Übertaktung und nimm die höchste Rate, die den Test besteht."
+    ],
+    "tables": [
+      {
+        "title": "Die passende Belichtungszeit",
+        "head": [
+          "Bildwiederholrate",
+          "Belichtungszeit",
+          "Leuchtende Zellen pro Foto"
+        ],
+        "rows": [
+          [
+            "60 Hz",
+            "1/8 s",
+            "etwa 7"
+          ],
+          [
+            "120 Hz",
+            "1/15 s",
+            "etwa 8"
+          ],
+          [
+            "144 Hz",
+            "1/15 s",
+            "etwa 10"
+          ],
+          [
+            "165 Hz",
+            "1/20 s",
+            "etwa 8"
+          ],
+          [
+            "240 Hz",
+            "1/30 s",
+            "etwa 8"
+          ],
+          [
+            "360 Hz",
+            "1/50 s",
+            "etwa 7"
+          ]
+        ]
+      }
+    ]
+  },
+  "wide-color-gamut-test": {
+    "heading": "Logo oder kein Logo? Was das bedeutet",
+    "howToHeading": "Die versteckten Logos suchen",
+    "faqHeading": "Fragen zum erweiterten Farbraum",
+    "terms": [
+      {
+        "name": "Du siehst die Logos",
+        "text": "Bildschirm, Betriebssystem und Browser verarbeiten alle Farben jenseits von sRGB."
+      },
+      {
+        "name": "Du siehst sie nur auf Rot und Grün",
+        "text": "Normal. Display P3 reicht bei Rot und Grün am weitesten über sRGB hinaus und bei Blau am wenigsten, ein schwaches oder fehlendes Logo auf Blau ist also zu erwarten."
+      },
+      {
+        "name": "Du siehst keine Logos",
+        "text": "Der Bildschirm ist ein sRGB-Gerät, oder irgendetwas in der Kette begrenzt die Farben. Beides ist kein Defekt: sRGB ist fürs Web farbtreu."
+      }
+    ],
+    "note": "Bevor du entscheidest, dass der Bildschirm nur sRGB kann, sieh dir die Statusanzeigen über dem Test an, um zu erfahren, was der Browser meldet, und such im Menü des Monitors nach einem sRGB-Modus. Viele Wide-Gamut-Monitore haben einen, und er begrenzt die Farben absichtlich. Bei hellem Licht ist der Unterschied nur schwach, sieh es dir also in einem abgedunkelten Raum an.",
+    "next": [
+      "Sieh dir die Statusanzeigen über dem Test an, um zu erfahren, was der Browser meldet.",
+      "Schalte den sRGB-Modus des Monitors aus, falls er einen hat, und lad die Seite neu.",
+      "Probier einen anderen Browser.",
+      "Ist der Bildschirm ein sRGB-Bildschirm, gibt es nichts zu beheben: sRGB ist der richtige Zielfarbraum für Webinhalte."
+    ],
+    "tables": [
+      {
+        "title": "Die drei Farbräume, die dir in technischen Daten begegnen",
+        "head": [
+          "Farbraum",
+          "Wofür er grob gedacht ist",
+          "Sinnvoller Zielwert"
+        ],
+        "rows": [
+          [
+            "sRGB",
+            "Web, Office, SDR-Spiele, die meisten Fotos",
+            "99–100 % Abdeckung"
+          ],
+          [
+            "DCI-P3",
+            "HDR-Filme und -Serien, Handy-Displays",
+            "über 90 % Abdeckung"
+          ],
+          [
+            "Adobe RGB",
+            "Fotobearbeitung für den Druck",
+            "über 95 % Abdeckung"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Farbraum erklärt: sRGB vs. DCI-P3 vs. Adobe RGB"
+  },
+  "pwm-flicker-test": {
+    "heading": "PWM oder flimmerfrei? So liest du die drei Checks",
+    "howToHeading": "Drei Wege, PWM zu prüfen",
+    "faqHeading": "Fragen zu PWM-Flimmern",
+    "pass": [
+      "Bleistift: eine gleichmäßige Unschärfe, wenn er vor der weißen Fläche vorbeizieht.",
+      "Bewegte Linie: ein einzelner durchgehender Streifen, wenn du ihr mit den Augen folgst.",
+      "Kamera: keine dunklen Streifen über dem Bildschirm.",
+      "Dasselbe Ergebnis, wenn du den Test bei niedriger Helligkeit wiederholst."
+    ],
+    "fail": [
+      "Bleistift: mehrere scharfe Kopien des Bleistifts statt einer Unschärfe.",
+      "Bewegte Linie: eine Reihe einzelner Linien.",
+      "Kamera: dunkle Streifen, die über das Bild wandern.",
+      "Eins davon tritt erst auf, wenn du die Helligkeit herunterdrehst. Auch das ist PWM: Viele Bildschirme sind oberhalb von etwa halber Helligkeit flimmerfrei und schalten darunter auf PWM um."
+    ],
+    "note": "Eine Webseite kann deine Hintergrundbeleuchtung nicht sehen, das Urteil ist also das, was du beobachtest. Eine Zeitlupenkamera oder ein Lichtsensor liefert eine eindeutige Antwort. Ein Bildschirm, der dich nur nachts stört, wenn die Helligkeit niedrig ist, ist ein heißer Kandidat.",
+    "next": [
+      "Finde die Helligkeitsstufe, bei der die Kopien oder Streifen auftauchen, und halt den Bildschirm darüber.",
+      "Senk abends das Raumlicht statt der Bildschirmhelligkeit.",
+      "Such in den Anzeigeeinstellungen nach DC dimming, Anti-Flicker oder Flimmerreduzierung und schalte die Option ein.",
+      "Stört dich der Bildschirm weiterhin und läuft die Rückgabefrist noch, tausch ihn gegen ein Modell, das als flimmerfrei verkauft wird."
+    ],
+    "tables": [
+      {
+        "title": "Welche Bildschirme meist PWM nutzen",
+        "head": [
+          "Displaytyp",
+          "Typisches Verhalten"
+        ],
+        "rows": [
+          [
+            "OLED-Handys",
+            "Sehr häufig PWM, auch bei Flaggschiffen; oft am stärksten bei niedriger Helligkeit"
+          ],
+          [
+            "Günstige LED-Monitore und Laptops",
+            "Gemischt: viele nutzen PWM, manche mit niedriger Frequenz"
+          ],
+          [
+            "Als flimmerfrei beworbene Monitore",
+            "DC dimming oder hochfrequentes PWM; meist unproblematisch"
+          ],
+          [
+            "Ältere LCDs mit CCFL-Hintergrundbeleuchtung",
+            "Oft ruhiger als billiges LED-Dimmen, aber ohne Garantie"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Was ist PWM-Flimmern, und wie testest du es?"
+  },
+  "hdr-test": {
+    "heading": "Ab wo werden die Felder nicht mehr heller?",
+    "howToHeading": "Prüfen, ob HDR wirklich aktiv ist",
+    "faqHeading": "Fragen zu HDR",
+    "terms": [
+      {
+        "name": "Jedes Feld ab 203 Nits sieht gleich aus",
+        "text": "Das Bild wird in SDR dargestellt. HDR ist im Betriebssystem ausgeschaltet, der Browser kann keine HDR-Bilder anzeigen, oder der Bildschirm beherrscht kein HDR."
+      },
+      {
+        "name": "Sie unterscheiden sich bis etwa 400 und verschmelzen dann",
+        "text": "HDR funktioniert, und du hast die Obergrenze des Bildschirms gefunden. Ein Einsteiger-Monitor mit DisplayHDR 400 ist ungefähr dort am Ende."
+      },
+      {
+        "name": "Die Felder mit 600, 1.000 und 1.600 bleiben unterscheidbar",
+        "text": "Ein helles HDR-Display. Ein gutes Mini-LED- oder OLED-Display hält die oberen Felder weiter auseinander."
+      }
+    ],
+    "note": "Schalte HDR in deinem Betriebssystem ein, bevor du den Test öffnest, und sieh dir die Statusanzeigen darüber an. Melden sie, dass HDR verfügbar ist, die Felder sehen aber flach aus, probier einen anderen Browser: Die Unterstützung ist noch uneinheitlich, und Chromium-basierte Browser sind derzeit am verlässlichsten.",
+    "next": [
+      "Schalte HDR im Betriebssystem ein und bei einem Monitor oder Fernseher auch in dessen Menü für den Eingang, den du nutzt.",
+      "Prüf das Kabel: HDR braucht HDMI 2.0 oder neuer oder DisplayPort.",
+      "Lade diese Seite neu und sieh dir die Statusanzeigen über dem Test an. Melden sie weiterhin SDR, probier einen Chromium-basierten Browser.",
+      "Unterscheiden sich die Felder nur bis etwa 400 Nits, funktioniert HDR, und das ist die Grenze deines Bildschirms."
+    ],
+    "guideLabel": "HDR erklärt: Was ein Display wirklich HDR-fähig macht"
+  },
+  "screen-size-calculator": {
+    "heading": "Was die Zahlen bedeuten",
+    "howToHeading": "So nutzt du den Rechner",
+    "faqHeading": "Fragen zu Bildschirmgröße und PPI",
+    "terms": [
+      {
+        "name": "Pixeldichte (PPI)",
+        "text": "Die Diagonale in Pixeln geteilt durch die Diagonale in Zoll. Höher heißt schärfer bei gleichem Betrachtungsabstand."
+      },
+      {
+        "name": "Breite und Höhe",
+        "text": "Die tatsächliche Größe des Bildes, berechnet aus der Diagonale und der Form des Pixelrasters. Damit prüfst du, ob ein Bildschirm auf deinen Schreibtisch oder an deine Wand passt."
+      },
+      {
+        "name": "Seitenverhältnis",
+        "text": "Die Form des Bildschirms: seine Breite im Verhältnis zur Höhe. 16:9 ist der Standard bei Monitoren und TVs, 16:10 und 3:2 sind bei Laptops verbreitet, und 21:9 ist Ultrawide."
+      },
+      {
+        "name": "Pixelabstand",
+        "text": "Der Abstand von der Mitte eines Pixels zur Mitte des nächsten, in Millimetern (Pixel Pitch). Das ist der PPI-Wert, andersherum ausgedrückt, und die Angabe, die in den technischen Daten von Monitoren meist steht."
+      },
+      {
+        "name": "Pixel insgesamt",
+        "text": "Breite mal Höhe, in Megapixeln. So viel muss die Grafikkarte berechnen, der Wert ist also für die Leistung in Spielen wichtiger als für die Schärfe."
+      }
+    ],
+    "note": "Das Ergebnis geht von quadratischen Pixeln aus, die jeder aktuelle Monitor, Laptop, Fernseher und jedes Handy hat. Die Pixeldichte ist nur die halbe Schärfe: Derselbe PPI-Wert wirkt aus größerer Entfernung schärfer, weshalb ein TV mit viel weniger auskommt als ein Handy.",
+    "guideLabel": "PPI und Pixeldichte: Wie scharf ist scharf genug?"
+  },
+  "screen-test-checklist": {
+    "heading": "Was die drei Stufen bedeuten",
+    "howToHeading": "So arbeitest du die Checkliste ab",
+    "faqHeading": "Fragen zur Checkliste",
+    "terms": [
+      {
+        "name": "Pflicht",
+        "text": "Findet echte Defekte, die eine Rückgabe rechtfertigen: Pixelfehler, Bleeding, ungleichmäßige Helligkeit, tote Touch-Stellen, Burn-in. Mach diese Tests am ersten Tag."
+      },
+      {
+        "name": "Lohnt sich",
+        "text": "Findet Probleme, die meist an einer Einstellung oder einem Kabel liegen, etwa die falsche Bildwiederholrate, Banding oder weicher Text. Es lohnt sich, sie zu beheben, und sie hängen nicht an der Rückgabefrist."
+      },
+      {
+        "name": "Optional",
+        "text": "Hängt davon ab, wie du den Bildschirm nutzt: HDR, erweiterter Farbraum, Flimmerempfindlichkeit, Blickwinkel."
+      }
+    ],
+    "note": "Auch ein Bildschirm, der jeden Test besteht, kann Eigenheiten haben, die für seinen Paneltyp normal sind, etwa IPS-Glow oder etwas Blooming. Jede Testseite sagt dir, welche Ergebnisse normal und welche Fehler sind.",
+    "guideLabel": "Die komplette Bildschirmtest-Checkliste für ein neues Gerät"
+  }
+}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import FullscreenStage from "./FullscreenStage";
 import { SOLID_COLORS } from "./ColorCycler";
 import type { ToolDef } from "@/lib/tools";
+import { useT } from "@/i18n/ui";
 
 const FIXER_LABEL = "Stuck-pixel fixer";
 const FIXER_COLORS = ["#ff0000", "#00ff00", "#0000ff", "#ffffff", "#000000"];
@@ -26,6 +27,7 @@ function PixelFixer() {
   );
   const dragged = useRef(false);
   // Box centre as a fraction of the stage, so it stays put across resizes.
+  const t = useT();
   const [pos, setPos] = useState({ x: 0.5, y: 0.5 });
   const [flashing, setFlashing] = useState(false);
 
@@ -73,19 +75,20 @@ function PixelFixer() {
     <div ref={rootRef} className="relative h-full w-full bg-black">
       <p className="pointer-events-none absolute inset-x-0 top-[6%] mx-auto max-w-md px-4 text-center text-sm text-white/70">
         {flashing ? (
-          "Leave it over the pixel for 10–30 minutes. Tap the box to stop."
+          t("Leave it over the pixel for 10–30 minutes. Tap the box to stop.")
         ) : (
           <>
-            <span className="font-semibold text-[#ffd23d]">⚠ Flashes rapidly</span> — not for
-            anyone sensitive to flashing light. Drag the box over the stuck pixel, then tap it
-            to start.
+            <span className="font-semibold text-[#ffd23d]">⚠ {t("Flashes rapidly")}</span> —{" "}
+            {t(
+              "not for anyone sensitive to flashing light. Drag the box over the stuck pixel, then tap it to start.",
+            )}
           </>
         )}
       </p>
       <button
         ref={boxRef}
         type="button"
-        aria-label={flashing ? "Stop flashing" : "Start flashing"}
+        aria-label={flashing ? t("Stop flashing") : t("Start flashing")}
         aria-pressed={flashing}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -113,13 +116,14 @@ function PixelFixer() {
 }
 
 export default function DeadPixelTool({ tool }: { tool: ToolDef }) {
+  const t = useT();
   const frameCount = SOLID_COLORS.length + 1;
   return (
     <FullscreenStage
       tool={tool}
       frameCount={frameCount}
       previewScrim={false}
-      frameLabel={(i) => SOLID_COLORS[i]?.name ?? FIXER_LABEL}
+      frameLabel={(i) => t(SOLID_COLORS[i]?.name ?? FIXER_LABEL)}
       renderFrame={(i, active) =>
         i < SOLID_COLORS.length ? (
           <div className="h-full w-full" style={{ backgroundColor: SOLID_COLORS[i].css }} />

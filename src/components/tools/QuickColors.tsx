@@ -4,21 +4,24 @@ import { useRef } from "react";
 import Link from "next/link";
 import FullscreenStage, { type StageHandle } from "./FullscreenStage";
 import { SOLID_COLORS } from "./ColorCycler";
-import { TOOL_MAP } from "@/lib/tools";
+import type { ToolDef } from "@/lib/tools";
+import { useLocalHref, useT } from "@/i18n/ui";
 
-export default function QuickColors() {
+/** `tool` is the Color Test, passed from the server page so the registry stays out of the client bundle. */
+export default function QuickColors({ tool }: { tool: ToolDef }) {
   const ref = useRef<StageHandle>(null);
-  const tool = TOOL_MAP["color-test"];
+  const t = useT();
+  const localHref = useLocalHref();
 
   return (
     <section className="flex flex-col gap-4 md:flex-row md:items-center md:gap-7">
       <div className="flex-none md:w-60">
-        <h2 className="text-[15px] font-semibold">Quick full-screen colors</h2>
+        <h2 className="text-[15px] font-semibold">{t("Quick full-screen colors")}</h2>
         <p className="text-[13px] text-foreground/55">
-          Tap a color to fill your screen. ← / → to switch, Esc to exit.
+          {t("Tap a color to fill your screen. ← / → to switch, Esc to exit.")}
         </p>
-        <Link href="/color-test" className="mt-1 inline-block text-[13px] text-accent-soft hover:underline">
-          Open color test →
+        <Link href={localHref("/color-test")} className="mt-1 inline-block text-[13px] text-accent-soft hover:underline">
+          {t("Open color test")} →
         </Link>
       </div>
 
@@ -28,8 +31,8 @@ export default function QuickColors() {
             key={c.name}
             type="button"
             onClick={() => ref.current?.start(i)}
-            aria-label={`Show ${c.name} full screen`}
-            title={c.name}
+            aria-label={t("Show {name} full screen", { name: t(c.name) })}
+            title={t(c.name)}
             className="h-11 rounded-md border border-border-strong transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent-soft"
             style={{ backgroundColor: c.css }}
           />
@@ -42,7 +45,7 @@ export default function QuickColors() {
         hideLauncher
         tool={tool}
         frameCount={SOLID_COLORS.length}
-        frameLabel={(i) => SOLID_COLORS[i]?.name ?? ""}
+        frameLabel={(i) => t(SOLID_COLORS[i]?.name ?? "")}
         renderFrame={(i) => (
           <div className="h-full w-full" style={{ backgroundColor: SOLID_COLORS[i]?.css ?? "#000" }} />
         )}

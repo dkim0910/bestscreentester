@@ -1,0 +1,455 @@
+{
+  "dead-pixel-test": {
+    "name": "Test de pixels morts",
+    "title": "Test de pixels morts",
+    "tagline": "Des couleurs unies en plein écran pour repérer les pixels morts, bloqués et lumineux.",
+    "description": "Test de pixels morts gratuit en ligne. Des couleurs unies en plein écran pour repérer pixels morts, bloqués ou lumineux sur moniteur, portable, téléphone ou TV.",
+    "keywords": [
+      "test pixel mort",
+      "pixel bloqué",
+      "pixel lumineux",
+      "détecter pixel mort",
+      "test écran"
+    ],
+    "howTo": [
+      "Réglez la luminosité de l'écran au maximum et nettoyez la dalle.",
+      "Cliquez sur Démarrer pour passer en plein écran, puis utilisez ← / → ou touchez les côtés pour changer de couleur.",
+      "Parcourez lentement toute la dalle du regard sur chaque couleur unie.",
+      "Un point qui reste noir sur toutes les couleurs est un pixel mort ; un point figé sur une seule couleur est un pixel bloqué.",
+      "Vous avez trouvé un pixel bloqué ? Allez à la dernière vue, Réparateur de pixels bloqués, faites glisser le cadre dessus et touchez-le pour lancer le clignotement. Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Quelle est la différence entre un pixel mort et un pixel bloqué ?",
+        "a": "Un pixel mort reste noir sur toutes les couleurs parce qu'il n'est plus alimenté. Un pixel bloqué (stuck pixel) reste allumé en permanence dans une couleur (rouge, vert ou bleu) et peut parfois être ranimé par un clignotement rapide de couleurs."
+      },
+      {
+        "q": "Peut-on réparer un pixel bloqué ?",
+        "a": "Parfois. Faire alterner rapidement des couleurs sur la zone, ou la masser délicatement, peut le débloquer. Les pixels morts, eux, ne se réparent généralement pas par logiciel."
+      },
+      {
+        "q": "Le test fonctionne-t-il sur les téléphones et les téléviseurs ?",
+        "a": "Oui. Il fonctionne dans tout navigateur récent sur téléphone, tablette, ordinateur portable, moniteur et Smart TV."
+      },
+      {
+        "q": "Combien de pixels morts sont acceptables sur un écran neuf ?",
+        "a": "Il n'existe pas de chiffre universel. Chaque fabricant publie sa propre politique de pixels, et la plupart tolèrent quelques défauts avant de considérer une dalle comme défectueuse, les pixels lumineux étant comptés plus sévèrement que les pixels sombres. Cela ne vaut que pour la garantie. Pendant le délai de retour du vendeur, vous pouvez renvoyer un écran pour un seul pixel mort."
+      },
+      {
+        "q": "Les pixels morts se propagent-ils ?",
+        "a": "Un pixel mort isolé ne contamine pas ses voisins. Si de nouveaux pixels morts continuent d'apparaître, ou si une zone sombre s'étend, la cause est ailleurs : une pression ou un choc, un liquide, ou une connexion défaillante avec la dalle. Cela justifie une demande de garantie quel que soit le nombre de pixels."
+      },
+      {
+        "q": "Le réparateur de pixels bloqués est-il sans danger ?",
+        "a": "Il se contente d'afficher des couleurs qui changent rapidement dans un petit cadre : il ne peut donc pas abîmer la dalle. En revanche, il clignote vite : ne le regardez pas, et ne l'utilisez pas du tout si vous êtes sensible aux lumières clignotantes. Faites glisser le cadre sur le pixel, lancez-le et détournez le regard."
+      },
+      {
+        "q": "Comment vérifier les pixels morts d'un téléphone ou d'un portable ?",
+        "a": "De la même façon, mais de plus près. Les pixels d'un téléphone ou d'un portable haute résolution sont minuscules : tenez l'écran plus près que d'habitude et parcourez-le par bandes. Sur iPhone, Safari ne peut pas passer en véritable plein écran, la couleur remplit donc la fenêtre du navigateur ; faites défiler pour masquer la barre d'adresse et vérifiez séparément les bords haut et bas."
+      }
+    ],
+    "tips": [
+      "Nettoyez d'abord l'écran — une poussière ressemble à s'y méprendre à un pixel mort.",
+      "Regardez chaque couleur à environ 30 cm pour qu'un pixel défaillant isolé ressorte vraiment.",
+      "Vous avez trouvé un pixel bloqué (et non mort) ? Utilisez la vue Réparateur de pixels bloqués et laissez son cadre clignotant sur le pixel pendant 10 à 20 minutes pour tenter de le ranimer."
+    ]
+  },
+  "color-test": {
+    "name": "Test des couleurs",
+    "title": "Test des couleurs de l'écran",
+    "tagline": "Neuf couleurs unies en plein écran pour repérer sous-pixels bloqués, dominantes et zones irrégulières.",
+    "description": "Test des couleurs gratuit en plein écran. Affichez noir, blanc, rouge, vert, bleu, cyan, magenta, jaune et gris pour vérifier l'uniformité et les pixels.",
+    "keywords": [
+      "test couleur écran",
+      "écran couleur unie",
+      "test rgb écran",
+      "couleur plein écran"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer pour passer en plein écran.",
+      "Utilisez ← / → ou touchez la gauche ou la droite de l'écran pour changer de couleur.",
+      "Cherchez une dominante, des taches ou des points qui tranchent sur l'aplat de couleur.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi tester chaque couleur unie séparément ?",
+        "a": "Le rouge, le vert et le bleu purs isolent chaque sous-pixel : les sous-pixels défectueux et les défauts d'uniformité des couleurs sautent alors aux yeux."
+      },
+      {
+        "q": "Pourquoi un point apparaît-il sur certaines couleurs et pas sur d'autres ?",
+        "a": "Parce que chaque couleur allume un ensemble différent de sous-pixels. Un sous-pixel rouge bloqué en position allumée est invisible sur le rouge, le blanc et le jaune, et évident sur le noir, le vert et le bleu. Notez sur quelles couleurs il apparaît : c'est ce qui permet de distinguer un pixel mort d'un pixel bloqué."
+      },
+      {
+        "q": "Que signifie une dominante irrégulière sur le blanc ou le gris ?",
+        "a": "Si tout l'écran tire vers le chaud ou le froid, il s'agit du réglage de température de couleur, ou d'un mode nuit resté activé. Si une seule zone est teintée, par exemple un bord jaunâtre ou un coin rosé, c'est que la dalle ou son rétroéclairage est irrégulier à cet endroit, et aucun réglage n'y changera rien."
+      },
+      {
+        "q": "Faut-il tester à la luminosité maximale ?",
+        "a": "Utilisez la luminosité maximale pour trouver les défauts, car les points et les taches discrets se voient mieux. Regardez ensuite à nouveau à votre luminosité habituelle pour décider si un défaut compte en pratique."
+      },
+      {
+        "q": "Quelle différence avec le Test de pixels morts ?",
+        "a": "Les deux affichent les mêmes couleurs unies. Le Test de pixels morts y ajoute la vue Réparateur de pixels bloqués et des conseils sur les défauts de pixels. Utilisez cette page pour chercher une dominante ou des zones irrégulières, ou simplement pour afficher une couleur en plein écran."
+      },
+      {
+        "q": "Pourquoi le rouge paraît-il orange, ou les couleurs délavées ?",
+        "a": "Vérifiez d'abord le mode d'image. Les modes éco et lecture réduisent la saturation, un mode nuit tire tout vers l'orange, et un mode sRGB sur un moniteur à gamut étendu atténue volontairement les couleurs. Si les couleurs restent ternes dans tous les modes, la dalle a un gamut étroit."
+      }
+    ],
+    "tips": [
+      "Le rouge, le vert et le bleu purs sont les meilleurs pour repérer un sous-pixel défectueux.",
+      "Notez sur quelles couleurs un point apparaît. Cette liste permet de distinguer un pixel mort d'un pixel bloqué, et c'est ce que demande un dossier de garantie.",
+      "Une légère dominante générale sur le blanc signifie en général que la température de couleur ou la balance des blancs est déréglée."
+    ]
+  },
+  "black-screen": {
+    "name": "Écran noir",
+    "title": "Écran noir",
+    "tagline": "Un noir pur en plein écran pour vérifier les fuites de lumière, l'IPS glow et les noirs OLED.",
+    "description": "Écran noir pur gratuit, en plein écran. Vérifiez fuites de lumière et IPS glow sur un LCD, les noirs d'un OLED, et repérez les pixels bloqués lumineux.",
+    "keywords": [
+      "écran noir",
+      "fond noir",
+      "écran noir plein écran",
+      "noir oled"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer pour afficher un noir pur en plein écran.",
+      "Dans une pièce sombre, cherchez des bords ou des zones qui luisent (fuites de lumière / IPS glow).",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "À quoi sert un écran noir ?",
+        "a": "À vérifier les fuites de lumière et l'IPS glow d'un LCD, à confirmer qu'un OLED affiche un vrai noir, et à trouver les pixels bloqués en position allumée, qui ne se voient que sur du noir."
+      },
+      {
+        "q": "Pourquoi les bords luisent-ils sur un écran noir ?",
+        "a": "Sur un LCD, ce sont des fuites de lumière (backlight bleed) ou de l'IPS glow : la lumière du rétroéclairage s'échappe par les bords, ou transparaît sous forme de voile quand on regarde de biais. Un peu, c'est normal sur presque tous les LCD. Un OLED doit rester totalement noir, parce que ses pixels s'éteignent."
+      },
+      {
+        "q": "Un LCD doit-il paraître complètement noir ?",
+        "a": "Non. Un LCD produit le noir en bloquant un rétroéclairage qui reste allumé : un peu de lumière passe toujours, et l'écran paraît gris très foncé dans une pièce sombre. L'important est que ce gris soit régulier. Un noir uniformément relevé vient d'un réglage de contraste ou de plage RGB, pas d'une fuite."
+      },
+      {
+        "q": "Un écran noir économise-t-il de l'énergie ?",
+        "a": "Sur un OLED, oui : les pixels noirs sont éteints et ne consomment presque rien. Sur un LCD, presque pas, car le rétroéclairage reste allumé derrière l'image noire. Pour économiser de l'énergie sur un LCD, baissez la luminosité ou laissez l'écran se mettre en veille."
+      },
+      {
+        "q": "L'écran est-il éteint, ou affiche-t-il du noir ?",
+        "a": "Il est allumé et affiche une image noire. Sur un LCD dans une pièce sombre, on le voit à la faible lueur grise du rétroéclairage. Sur un OLED, il n'y a rien à voir, et c'est pourquoi la page maintient l'écran actif : vous êtes ainsi certain qu'il ne s'est pas simplement mis en veille."
+      }
+    ],
+    "tips": [
+      "Éteignez la lumière : les fuites sont invisibles dans une pièce éclairée. La luminosité maximale aide à les trouver ; votre luminosité habituelle vous dit si elles comptent.",
+      "Laissez à vos yeux deux ou trois minutes pour s'adapter avant de juger les coins. La lueur paraît toujours pire pendant les trente premières secondes.",
+      "Penchez-vous d'une trentaine de centimètres de chaque côté : une lueur qui bouge avec vous est de l'IPS glow, une lueur qui reste en place est une fuite de lumière."
+    ]
+  },
+  "white-screen": {
+    "name": "Écran blanc",
+    "title": "Écran blanc",
+    "tagline": "Un blanc pur en plein écran pour repérer pixels morts sombres, poussières et luminosité irrégulière.",
+    "description": "Écran blanc pur gratuit, en plein écran. Repérez pixels morts sombres et poussières, vérifiez l'uniformité de la luminosité et cherchez les zones teintées.",
+    "keywords": [
+      "écran blanc",
+      "fond blanc",
+      "écran blanc plein écran",
+      "test écran blanc"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer pour afficher un blanc pur en plein écran.",
+      "Cherchez des points sombres (pixels morts), des traces ou des poussières.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "À quoi sert un écran blanc ?",
+        "a": "À trouver les pixels morts sombres et les poussières, à vérifier que la luminosité est régulière du centre jusqu'aux coins, et à repérer les zones d'une teinte différente."
+      },
+      {
+        "q": "L'écran restera-t-il allumé pendant que je l'inspecte ?",
+        "a": "Oui, dans les navigateurs qui prennent en charge l'API Screen Wake Lock, ce qui inclut les versions actuelles de Chrome, Edge, Safari et Firefox. La page demande à votre appareil de garder l'écran actif jusqu'à ce que vous quittiez. Si le navigateur ne la prend pas en charge, votre délai de mise en veille habituel s'applique."
+      },
+      {
+        "q": "Pourquoi le blanc paraît-il légèrement jaune ou bleu ?",
+        "a": "Le blanc dépend de la température de couleur de l'écran. Éclairage nocturne, Night Shift, True Tone et les préréglages chauds de « confort visuel » le teintent volontairement : désactivez-les avant de tester. Sans eux, une dominante chaude ou froide régulière est un écart de calibrage, pas un défaut ; ce qu'il faut chercher, ce sont des zones de teinte différente sur l'écran."
+      },
+      {
+        "q": "Puis-je utiliser l'écran blanc comme source de lumière ?",
+        "a": "Oui. À pleine luminosité, un écran blanc donne une lumière douce et régulière pour un appel vidéo, pour lire dans le noir ou pour décalquer un dessin sur du papier. Plus l'écran est grand, plus la lumière est douce."
+      },
+      {
+        "q": "Un écran blanc à pleine luminosité abîme-t-il mon écran ?",
+        "a": "Pas lors d'un test court. Le blanc intégral est l'image la plus exigeante pour un écran : il chauffe et consomme le plus, et un OLED peut baisser lui-même sa luminosité au bout d'un moment pour protéger la dalle. Évitez de laisser une image fixe pendant des heures sur un OLED."
+      }
+    ],
+    "tips": [
+      "Essuyez d'abord l'écran, puis regardez à nouveau : tout ce qui a bougé était en surface.",
+      "Les points sombres qui ne partent pas au chiffon sont en général des poussières entre les couches ou des pixels morts, pas de la saleté."
+    ]
+  },
+  "backlight-bleed-test": {
+    "name": "Fuites de lumière",
+    "title": "Test de fuites de lumière",
+    "tagline": "Révélez les fuites de rétroéclairage (backlight bleed) et l'IPS glow d'un LCD dans une pièce sombre.",
+    "description": "Test de fuites de lumière (backlight bleed) gratuit. Un noir pur révèle les fuites de rétroéclairage et l'IPS glow sur les bords et dans les coins.",
+    "keywords": [
+      "test fuite de lumière écran",
+      "ips glow",
+      "backlight bleeding",
+      "fuite de rétroéclairage"
+    ],
+    "howTo": [
+      "Éteignez la lumière de la pièce. Commencez à la luminosité maximale pour trouver les fuites, puis jugez-les à nouveau à votre luminosité habituelle.",
+      "Cliquez sur Démarrer pour afficher un noir en plein écran.",
+      "Inspectez les bords et les coins à la recherche de zones nuageuses ou qui luisent.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Un peu de fuite de lumière, est-ce normal ?",
+        "a": "Oui. Presque toutes les dalles LCD/LED présentent de légères fuites. Ce n'est un problème que si elles sont irrégulières, gênantes en usage normal ou excessives dans les coins."
+      },
+      {
+        "q": "Quelle est la différence entre fuite de lumière et IPS glow ?",
+        "a": "La fuite de lumière (backlight bleed) est de la lumière qui s'échappe par les bords de la dalle et se voit de face. L'IPS glow est un effet d'angle de vision qui se déplace quand vous bougez la tête."
+      },
+      {
+        "q": "Les fuites de lumière s'aggravent-elles avec le temps ?",
+        "a": "En général non. Elles ont tendance à rester stables, et sur un écran neuf elles s'atténuent parfois au cours des premières semaines, le temps que le châssis se mette en place. Une fuite qui apparaît soudainement ou qui ne cesse de grandir indique une pression sur la dalle, de la chaleur ou un choc."
+      },
+      {
+        "q": "Peut-on corriger une fuite de lumière ?",
+        "a": "Il n'existe pas de solution fiable à faire soi-même. Appuyer sur la dalle ou desserrer le cadre peut l'endommager et faire sauter la garantie. Une luminosité plus basse et un peu de lumière dans la pièce rendent les fuites beaucoup moins visibles. Si elles vous gênent en usage normal, renvoyez l'écran tant que c'est encore possible."
+      },
+      {
+        "q": "Pourquoi les fuites paraissent-elles bien pires sur ma photo ?",
+        "a": "Dans le noir, l'appareil photo d'un téléphone utilise une pose longue et amplifie le signal, ce qui transforme un voile discret en nuages lumineux. Servez-vous des photos pour noter où se trouvent les fuites, exposition verrouillée, et fiez-vous à vos yeux pour leur intensité."
+      }
+    ],
+    "tips": [
+      "Photographiez l'écran noir avec votre téléphone pour comparer des dalles objectivement.",
+      "Un peu de fuite et d'IPS glow, c'est normal — seul un clouding irrégulier et gênant est un défaut qui justifie de renvoyer une dalle.",
+      "Regardez à nouveau avec l'éclairage habituel de la pièce et à votre luminosité normale. Ce sont les conditions dans lesquelles vous vivrez avec l'écran."
+    ]
+  },
+  "greyscale-test": {
+    "name": "Niveaux de gris",
+    "title": "Test des niveaux de gris et du banding",
+    "tagline": "Un dégradé continu et une échelle de 32 paliers pour révéler le banding.",
+    "description": "Test gratuit des niveaux de gris et du banding. Un dégradé continu du noir au blanc et une échelle de 32 paliers révèlent le banding et les gris teintés.",
+    "keywords": [
+      "test niveaux de gris",
+      "test dégradé écran",
+      "color banding",
+      "test gamma écran"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer pour afficher le dégradé en plein écran.",
+      "Utilisez ← / → pour passer du dégradé continu à l'échelle de 32 paliers.",
+      "Cherchez des bandes visibles ou des sauts brusques là où la transition devrait être continue.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Qu'est-ce qui provoque le banding ?",
+        "a": "Le banding (des bandes visibles dans les dégradés) apparaît quand une dalle ne peut pas restituer assez de nuances distinctes — c'est courant sur les dalles 6 bits + FRC, ou à cause d'une compression agressive et d'une sortie réglée sur une faible profondeur de couleur."
+      },
+      {
+        "q": "Quelle est la différence entre les deux vues ?",
+        "a": "Le dégradé continu va du noir au blanc sans paliers : les bandes que vous y voyez viennent donc de votre chaîne d'affichage. L'échelle par paliers découpe la même plage en 32 blocs égaux : chacun doit apparaître comme un gris distinct et neutre, y compris les plus sombres."
+      },
+      {
+        "q": "Pourquoi certaines parties de l'échelle paraissent-elles teintées ?",
+        "a": "Une échelle neutre doit rester grise d'un bout à l'autre. Une dominante verte, bleue ou magenta sur une partie de l'échelle renvoie à la balance des blancs ou aux réglages de couleur de l'écran, pas au banding. Essayer un autre préréglage de couleur ou calibrer l'écran règle en général le problème."
+      },
+      {
+        "q": "Le banding vient-il de mon écran ou de la vidéo que je regardais ?",
+        "a": "Cette page dessine son dégradé à la volée, sans compression : les bandes que vous voyez ici viennent donc de votre écran ou de ses réglages. Si ce dégradé est lisse mais qu'un film ou un flux vidéo montre des bandes dans les ciels et les ombres, c'est la compression de la vidéo qui est en cause, pas l'écran."
+      },
+      {
+        "q": "Pourquoi le banding se voit-il surtout dans les zones sombres ?",
+        "a": "L'œil est plus sensible aux petits écarts de luminosité dans les tons sombres, et beaucoup de dalles gèrent moins précisément les toutes dernières nuances au-dessus du noir. C'est pourquoi les ciels nocturnes et les ombres sont les premiers à montrer des bandes."
+      },
+      {
+        "q": "Combien de paliers dois-je pouvoir compter ?",
+        "a": "Les 32. Si les deux ou trois plus sombres se fondent dans le noir, les détails dans les ombres sont bouchés. Si les quelques plus clairs se fondent dans le blanc, les hautes lumières sont écrêtées, en général parce que le réglage Contraste est trop élevé."
+      },
+      {
+        "q": "Un mode d'image ou le HDR changent-ils le résultat ?",
+        "a": "Oui. Les modes vif, dynamique et jeu remodèlent la courbe tonale, et le contraste dynamique la modifie d'un instant à l'autre. Testez en mode standard ou sRGB. Quand le HDR est activé dans Windows, le contenu ordinaire est converti et peut présenter du banding là où il n'y en avait pas."
+      },
+      {
+        "q": "Le banding justifie-t-il de renvoyer un moniteur ?",
+        "a": "Un léger banding dans un dégradé en plein écran est courant, surtout sur les dalles 6 bits + FRC, et ce n'est pas un défaut. Des barres nettes dans du contenu ordinaire, une fois les réglages mis hors de cause, sur une dalle vendue comme 8 bits ou 10 bits, méritent d'être signalées au vendeur pendant le délai de retour."
+      }
+    ],
+    "tips": [
+      "Éloignez-vous de l'écran — le banding se voit bien mieux à distance.",
+      "Si le dégradé continu montre des barres distinctes, essayez de régler la sortie de votre carte graphique sur RGB complet et sur une profondeur de couleur de 8 bits ou plus."
+    ]
+  },
+  "color-gradient-test": {
+    "name": "Dégradés de couleurs",
+    "title": "Test des dégradés de couleurs",
+    "tagline": "Un spectre et des dégradés RGB continus pour juger les transitions de couleurs et le banding.",
+    "description": "Test gratuit des dégradés de couleurs. Affichez des dégradés continus rouge, vert, bleu et spectre complet pour vérifier transitions, banding et postérisation.",
+    "keywords": [
+      "test dégradé couleur",
+      "test banding écran",
+      "dégradé rgb",
+      "dégradé spectre couleurs",
+      "transition de couleurs"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer pour afficher le dégradé en plein écran.",
+      "Utilisez ← / → pour faire défiler les dégradés spectre, rouge, vert, bleu, blanc, gris et noir.",
+      "Vérifiez que les transitions sont continues et que les couleurs paraissent saturées et régulières.",
+      "Les dégradés blanc et gris sont ceux où le banding de luminance dans les ombres se repère le mieux.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Ce test peut-il évaluer mon gamut de couleurs ?",
+        "a": "Non. Ces dégradés utilisent des couleurs sRGB standard, que tout écran sait afficher : ils révèlent donc le banding et les transitions irrégulières, pas le gamut. Pour savoir si votre écran affiche des couleurs au-delà du sRGB, utilisez le Test de gamut étendu (P3)."
+      },
+      {
+        "q": "À quoi ressemble un bon résultat ?",
+        "a": "Chaque dégradé se fond de façon continue d'un bout à l'autre, sans barres visibles, sauts brusques ni taches. Le spectre doit traverser régulièrement le jaune, le vert, le cyan, le bleu et le magenta, sans qu'une teinte n'occupe une trop large bande."
+      },
+      {
+        "q": "Pourquoi regarder le rouge, le vert et le bleu séparément ?",
+        "a": "Chaque canal est piloté indépendamment : un banding ou une dérive de couleur qui n'apparaît que dans un seul dégradé renvoie donc au calibrage de ce canal plutôt qu'à la dalle dans son ensemble. Un certain écart de luminosité est normal : le vert paraît toujours le plus lumineux à l'œil."
+      },
+      {
+        "q": "Pourquoi du banding est-il apparu après l'activation du mode nuit ou un changement de profil de couleur ?",
+        "a": "Les modes nuit, les profils de couleur et les réglages RGB manuels fonctionnent tous en remappant les valeurs envoyées à l'écran. En couleur 8 bits standard, il reste alors moins de paliers distincts par canal, et des bandes apparaissent dans des dégradés qui étaient lisses auparavant. Désactivez-les et vérifiez à nouveau."
+      },
+      {
+        "q": "Que signifient 8 bits, 10 bits et 6 bits + FRC ?",
+        "a": "Ces chiffres indiquent combien de niveaux de luminosité compte chaque canal de couleur. Le 8 bits en donne 256, le 10 bits 1 024. Une dalle 6 bits n'a que 64 niveaux réels et recourt au FRC, une alternance rapide entre deux nuances voisines, pour imiter les niveaux intermédiaires."
+      },
+      {
+        "q": "Un moniteur 10 bits supprime-t-il le banding ?",
+        "a": "Seulement si le contenu, l'application, la sortie graphique et le câble transportent tous une couleur 10 bits. L'essentiel du contenu de bureau est en 8 bits, et il doit quand même paraître continu sur une bonne dalle 8 bits. Le banding que vous voyez ici vient plus souvent d'un réglage que d'une profondeur de couleur insuffisante."
+      },
+      {
+        "q": "Je vois un grain fin qui scintille dans les dégradés sombres. Est-ce un défaut ?",
+        "a": "Non. C'est du tramage (dithering) ou du FRC : la dalle alterne entre deux nuances pour en produire une qu'elle ne peut pas afficher directement. C'est normal sur beaucoup d'écrans, et cela disparaît en général à une distance de vision normale."
+      }
+    ],
+    "tips": [
+      "Utilisez les dégradés blanc et gris pour isoler le banding de luminance sans être distrait par la couleur.",
+      "De larges bandes postérisées viennent souvent d'une dalle 6 bits ou d'une compression vidéo agressive plutôt que de votre carte graphique."
+    ]
+  },
+  "brightness-uniformity-test": {
+    "name": "Uniformité de luminosité",
+    "title": "Test d'uniformité de la luminosité",
+    "tagline": "Un aplat gris à 50 %, une grille 9 zones et un gris défilant pour repérer un rétroéclairage irrégulier.",
+    "description": "Test d'uniformité de luminosité gratuit : gris à 50 %, grille 9 zones et gris défilant révèlent rétroéclairage inégal, clouding et dirty screen effect.",
+    "keywords": [
+      "uniformité luminosité écran",
+      "clouding écran",
+      "test uniformité écran",
+      "écran gris"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer et affichez l'aplat gris en plein écran.",
+      "Utilisez ← / → pour passer à la grille 9 zones et au gris défilant.",
+      "Comparez la luminosité du centre à celle de chaque coin.",
+      "Sur Gris défilant, suivez des yeux les bandes qui dérivent : les taches ou les rayures qui restent en place sont le dirty screen effect de la dalle.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Quel écart est acceptable ?",
+        "a": "Les bons moniteurs restent dans une variation de luminosité d'environ 10 % sur toute la dalle. Des écarts plus importants se traduisent par des coins visiblement plus sombres ou des zones plus claires."
+      },
+      {
+        "q": "Qu'est-ce que le dirty screen effect ?",
+        "a": "Des taches et de légères bandes verticales sur les grandes dalles (l'« effet d'écran sale », ou DSE), surtout visibles quand la caméra balaie une surface uniforme comme un terrain de sport. La vue Gris défilant reproduit cette situation : les bandes dérivent, et toute tache qui reste fixe appartient à la dalle."
+      },
+      {
+        "q": "Peut-on corriger une luminosité irrégulière ?",
+        "a": "Pas avec un réglage ordinaire, car elle vient du rétroéclairage et des couches de la dalle. Certains moniteurs proposent un mode de compensation d'uniformité qui égalise l'image au prix d'un peu de luminosité et de contraste. Si une tache est gênante en usage normal, renvoyez l'écran pendant le délai de retour."
+      },
+      {
+        "q": "Pourquoi tester sur du gris plutôt que sur du blanc ?",
+        "a": "Les écarts de luminosité se voient le mieux sur un ton moyen. Sur un blanc intégral, l'écran est au maximum et vos yeux s'y adaptent, ce qui masque des coins plus sombres et des taches pourtant évidents sur du gris."
+      },
+      {
+        "q": "Les écrans OLED ont-ils des problèmes d'uniformité ?",
+        "a": "Ils n'ont pas de rétroéclairage : ils ne présentent donc ni clouding ni fuites de lumière. Ils peuvent tout de même montrer de légères bandes verticales ou une petite différence de teinte sur un gris très sombre, ainsi que des zones usées après un long usage. De légères bandes sur un aplat gris sombre sont courantes sur les grandes dalles OLED et VA."
+      },
+      {
+        "q": "Pourquoi les coins de l'écran de mon portable sont-ils plus sombres ?",
+        "a": "La plupart des écrans de portables sont éclairés par un seul bord, et une fine couche guide de lumière répartit cet éclairage sur la dalle. Une certaine baisse de luminosité vers les coins les plus éloignés est normale. Une tache sombre aux bords nets, c'est autre chose : elle évoque des dégâts dus à une pression."
+      },
+      {
+        "q": "Comment photographier fidèlement une luminosité inégale ?",
+        "a": "Reculez, placez-vous bien en face et verrouillez l'exposition sur le centre de l'écran. Désactivez le mode nuit de l'appareil photo, qui exagère les petites différences. Servez-vous de la photo comme d'une trace, et jugez la gravité à l'œil nu."
+      }
+    ],
+    "tips": [
+      "Comparez le centre à chaque coin, un à la fois, plutôt que de balayer tout l'aplat du regard.",
+      "Prenez une photo avec une exposition homogène — vos yeux s'adaptent automatiquement et masquent des écarts bien réels."
+    ]
+  },
+  "refresh-rate-test": {
+    "name": "Fréquence de rafraîchissement",
+    "title": "Test de fréquence de rafraîchissement",
+    "tagline": "Mesurez votre fréquence de rafraîchissement réelle et observez un repère en mouvement.",
+    "description": "Test de fréquence de rafraîchissement gratuit. Mesurez la fréquence réelle de votre écran en Hz et observez un objet mobile pour vérifier la fluidité.",
+    "keywords": [
+      "test fréquence de rafraîchissement",
+      "test hz écran",
+      "test fps écran",
+      "test 144hz",
+      "taux de rafraîchissement écran"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer — la fréquence de rafraîchissement mesurée s'affiche en une ou deux secondes.",
+      "Observez le carré en mouvement pour vérifier que le déplacement est fluide.",
+      "Comparez la mesure à la fréquence annoncée pour votre dalle ; la ligne du dessous indique la durée d'une image et la fréquence standard la plus proche.",
+      "Appuyez sur Échap pour quitter."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi la mesure ne correspond-elle pas exactement à la fréquence annoncée de mon moniteur ?",
+        "a": "Beaucoup d'écrans tournent à une fraction de hertz de leur fréquence nominale, par exemple 59,94 Hz au lieu de 60, et le chronométrage du navigateur ajoute un peu de bruit. Une mesure à environ 1 Hz de la valeur annoncée est normale. Un écart important signifie en général qu'une fréquence plus basse est sélectionnée dans les réglages d'affichage du système."
+      },
+      {
+        "q": "Pourquoi le test affiche-t-il 60 Hz sur mon moniteur 144 Hz ?",
+        "a": "Parce que la dalle est pilotée à 60 Hz. Les causes habituelles : la fréquence est restée à 60 dans les réglages d'affichage de Windows ou de macOS, le câble ou le port ne peut pas transporter la fréquence supérieure à votre résolution (utilisez du DisplayPort ou un câble HDMI haut débit), ou un mode d'économie d'énergie l'a abaissée sur un portable ou un téléphone. Corrigez cela, puis relancez le test."
+      },
+      {
+        "q": "Que signifient la durée d'une image et la fréquence standard la plus proche ?",
+        "a": "La durée d'une image est le temps que dure chaque rafraîchissement : 1000 ms divisées par la fréquence, soit 16,67 ms à 60 Hz et 6,94 ms à 144 Hz. La fréquence standard la plus proche indique le réglage courant auquel correspond votre mesure, ce qui aide quand celle-ci tombe à une fraction de hertz près."
+      },
+      {
+        "q": "Comment changer ma fréquence de rafraîchissement ?",
+        "a": "Sous Windows, allez dans Paramètres > Système > Écran > Affichage avancé et choisissez une fréquence d'actualisation. Sur Mac, ouvrez Réglages Système > Moniteurs et utilisez le menu Taux de rafraîchissement. Avec plusieurs moniteurs, la fréquence se règle séparément pour chaque écran."
+      },
+      {
+        "q": "La fréquence de rafraîchissement est-elle la même chose que la fréquence d'images ?",
+        "a": "Non. La fréquence de rafraîchissement (Hz) est le nombre de fois par seconde où l'écran se redessine. La fréquence d'images (fps) est le nombre de nouvelles images que produit l'ordinateur ou le jeu. Vous ne profitez d'un écran 144 Hz que si la source fournit elle aussi près de 144 images par seconde."
+      },
+      {
+        "q": "Pourquoi mon téléphone 120 Hz affiche-t-il 60 Hz ?",
+        "a": "Les téléphones font varier leur fréquence de rafraîchissement pour économiser la batterie, et un mode économie d'énergie la bloque en général à 60 Hz. Certains navigateurs mobiles limitent aussi les pages web à 60 mises à jour par seconde, quelles que soient les capacités de la dalle. Une mesure de 60 Hz sur un téléphone ne prouve donc pas qu'il y a un problème."
+      },
+      {
+        "q": "Quel écran est mesuré quand j'ai deux moniteurs ?",
+        "a": "Celui sur lequel se trouve la fenêtre du navigateur. Faites glisser la fenêtre sur l'autre moniteur et la mesure suit après un instant. Quand les moniteurs tournent à des fréquences différentes, certains navigateurs se calent sur l'un d'eux : testez donc chaque moniteur avec la fenêtre entièrement dessus."
+      }
+    ],
+    "tips": [
+      "Fermez les autres onglets et applications ; la charge en arrière-plan peut faire descendre la mesure sous la fréquence annoncée de votre dalle.",
+      "Si vous avez acheté un moniteur à haute fréquence, assurez-vous que cette fréquence est bien sélectionnée dans les réglages d'affichage du système.",
+      "Sur un portable ou un téléphone, testez sur secteur ou avec l'économiseur de batterie désactivé : l'économie d'énergie peut abaisser la fréquence de rafraîchissement."
+    ]
+  }
+}

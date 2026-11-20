@@ -1,0 +1,447 @@
+{
+  "screen-info": {
+    "name": "Bildschirm-Info",
+    "title": "Bildschirmauflösung & Display-Infos anzeigen",
+    "tagline": "Sieh dir Auflösung, Skalierung, Bildwiederholrate, Farbraum und HDR-Unterstützung deines Bildschirms an.",
+    "description": "Welche Auflösung hat mein Bildschirm? Auflösung, Skalierung, Seitenverhältnis, Bildwiederholrate, Farbraum und HDR-Unterstützung – live im Browser ausgelesen.",
+    "keywords": [
+      "welche auflösung hat mein bildschirm",
+      "bildschirmauflösung herausfinden",
+      "display info",
+      "meine bildschirmgröße",
+      "device pixel ratio",
+      "bildschirmauflösung test"
+    ],
+    "howTo": [
+      "Öffne die Seite – jeder Wert wird live aus deinem Browser ausgelesen, du musst nichts starten.",
+      "Vergleich die Pixelauflösung und die Anzeigeskalierung mit den technischen Daten deines Bildschirms.",
+      "Gib der gemessenen Bildwiederholrate eine Sekunde, um sich einzupendeln.",
+      "Mit „Alles kopieren“ fügst du die Angaben in ein Support-Ticket oder einen Forenbeitrag ein."
+    ],
+    "faq": [
+      {
+        "q": "Warum wird nicht die exakte Auflösung meines Bildschirms angezeigt?",
+        "a": "Browser melden Größen nach der Anzeigeskalierung. Die Pixelauflösung hier ist also die skalierte Größe multipliziert mit dem Skalierungsfaktor. Bei ungewöhnlicher Skalierung oder Browser-Zoom kann sie um ein paar Pixel danebenliegen. Die Anzeigeeinstellungen deines Betriebssystems zeigen die tatsächliche native Auflösung."
+      },
+      {
+        "q": "Warum steht dort 24 Bit Farbe bei einem 10-Bit-Monitor?",
+        "a": "Der Browser meldet, was ihm das Betriebssystem übergibt: meist 24 Bit (8 Bit pro Kanal) und 30 Bit bei manchen 10-Bit-Setups wie Apples XDR-Displays. Viele 10-Bit-Monitore zeigen trotzdem 24, weil der Computer 8-Bit-Farbe sendet – die Zeilen zu Farbraum und HDR sind deshalb oft aussagekräftiger."
+      },
+      {
+        "q": "Wird irgendetwas davon irgendwohin gesendet?",
+        "a": "Nein. Alles wird in deinem Browser ausgelesen und angezeigt, und nichts verlässt die Seite, solange du es nicht selbst kopierst."
+      },
+      {
+        "q": "Wie finde ich die Größe meines Bildschirms in Zoll heraus?",
+        "a": "Ein Browser kann dir das nicht sagen. Er weiß, wie viele Pixel der Bildschirm hat, nicht, wie groß sie sind. Schau in die technischen Daten des Modells oder miss das sichtbare Bild diagonal von Ecke zu Ecke."
+      },
+      {
+        "q": "Ich habe zwei Monitore. Für welchen gelten diese Werte?",
+        "a": "Für den, auf dem dieses Browserfenster liegt. Zieh das Fenster auf den anderen Bildschirm und lade die Seite neu, um dessen Werte auszulesen."
+      }
+    ],
+    "tips": [
+      "Zieh dieses Fenster bei einem Laptop mit externem Monitor zuerst auf den Bildschirm, den du prüfen willst.",
+      "Browser-Zoom verändert den Skalierungswert – drück Strg/Cmd + 0, bevor du ihn abliest."
+    ]
+  },
+  "overscan-test": {
+    "name": "Overscan-Test",
+    "title": "Overscan- & Seitenverhältnis-Test",
+    "tagline": "Randmarkierungen, Kreise und ein Raster, um Beschnitt, Streckung und Verzerrung aufzudecken.",
+    "description": "Kostenloser Overscan- und Seitenverhältnis-Test für TV und Beamer: Prüf im Vollbild, ob Ränder abgeschnitten sind oder das Bild gestreckt oder verzerrt ist.",
+    "keywords": [
+      "overscan test",
+      "seitenverhältnis test",
+      "tv bild abgeschnitten",
+      "beamer testbild",
+      "geometrie testbild",
+      "bildschirm anpassen test"
+    ],
+    "howTo": [
+      "Öffne die Seite auf dem Gerät, das am Fernseher oder Beamer hängt, und klick dann auf „Starten“.",
+      "Overscan-Rahmen: Der äußerste farbige Rahmen, den du rundum vollständig siehst, zeigt, wie viel abgeschnitten wird – 0 % heißt: nichts.",
+      "Seitenverhältnis (→): Die Kreise müssen perfekt rund aussehen und das Quadrat quadratisch.",
+      "Geometrie-Raster (→): Die Linien sollten gerade sein und gleichmäßige Abstände haben. Damit richtest du einen Beamer aus.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Was ist Overscan?",
+        "a": "Viele Fernseher vergrößern das Bild immer noch um ein paar Prozent und schneiden die Ränder ab – ein Überbleibsel aus der Zeit des analogen Fernsehens. Das schneidet Taskleisten und Menüs ab und macht das Bild weicher. Such nach einer Bildformat-Einstellung namens Just Scan, Screen Fit, „An Bildschirm anpassen“, 1:1 oder „Overscan aus“."
+      },
+      {
+        "q": "Die Kreise sehen oval aus – was stimmt da nicht?",
+        "a": "Das Bild wird gestreckt. Stell das Bildformat am Fernseher oder Beamer auf 16:9 oder auf den nativen bzw. Original-Modus, und prüf, ob die Ausgabeauflösung deines Computers zum Seitenverhältnis des Bildschirms passt."
+      },
+      {
+        "q": "Mein PC-Desktop ist auf dem Fernseher abgeschnitten. Sollte ich das am Fernseher oder am PC beheben?",
+        "a": "Zuerst am Fernseher. Stellst du sein Bildformat auf einen 1:1- oder Just-Scan-Modus, zeigt er jedes Pixel so, wie es ankommt. Der Underscan-Regler im Grafiktreiber holt die Ränder zwar auch zurück, aber er verkleinert das Bild und rechnet es neu, und das macht Text unscharf."
+      },
+      {
+        "q": "Haben Computermonitore Overscan?",
+        "a": "Selten. Über HDMI kann es passieren, wenn der Monitor oder die Grafikkarte das Signal als TV-Format behandelt. Fehlen auf einem Monitor die äußeren Rahmen, such im Menü des Monitors und im Grafiktreiber nach einer Overscan- oder Skalierungsoption."
+      },
+      {
+        "q": "Wie viel Overscan ist normal?",
+        "a": "Bei einem TV mit Overscan werden an jedem Rand ein paar Prozent abgeschnitten. Für einen Computer oder eine Konsole ist der richtige Wert null: Jedes gesendete Pixel sollte angezeigt werden. Ist der 0-%-Rahmen nicht vollständig sichtbar, gibt es eine Einstellung, die du ändern musst."
+      },
+      {
+        "q": "Warum ist das Bild kleiner als der Bildschirm und hat schwarze Ränder?",
+        "a": "Das ist Underscan, das umgekehrte Problem. Ein Skalierungsregler im Grafiktreiber verkleinert das Bild, oder die Ausgabeauflösung passt nicht zum Bildschirm. Stell die Skalierung im Treiber auf 0 % oder aus und wähl die native Auflösung des Bildschirms."
+      },
+      {
+        "q": "Macht Overscan das Bild unschärfer?",
+        "a": "Ja. Ein Bild mit Overscan wird vergrößert, bevor es angezeigt wird. Ein Pixel landet also nicht mehr genau auf einem Pixel, und kleiner Text wird weich. Ein 1:1-Bildformat behebt den Beschnitt und die Unschärfe auf einmal."
+      }
+    ],
+    "tips": [
+      "Jeder TV-Eingang kann seine eigene Bildformat-Einstellung haben, teste also den Eingang, den du wirklich nutzt.",
+      "Stell bei einem Beamer Trapezkorrektur (Keystone) und Lens Shift mit dem Geometrie-Raster ein, bevor du scharfstellst."
+    ]
+  },
+  "sharpness-test": {
+    "name": "Schärfe-Test",
+    "title": "Schärfe- & Schriftbild-Test",
+    "tagline": "Linien auf Pixelebene, Schachbretter und Text, um Skalierungsunschärfe und Überschärfung aufzudecken.",
+    "description": "Kostenloser Schärfe- und Schriftbild-Test: Pixelgenaue Linien und kleiner Text zeigen Unschärfe durch nicht native Auflösung, Skalierung und Überschärfung.",
+    "keywords": [
+      "schärfe test monitor",
+      "text unscharf monitor test",
+      "bildschirm schärfe testen",
+      "native auflösung test",
+      "chroma subsampling test",
+      "pixelgenau test"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und sieh dir jedes Testbild im Vollbild aus deinem üblichen Abstand an.",
+      "1-Pixel-Linien und Schachbretter sollten scharf und gleichmäßig gestreift aussehen. Grauer Matsch oder welliges Moiré bedeutet, dass das Bild skaliert wird.",
+      "Schriftbild (→): Kleiner Text sollte scharf sein, und roter oder gelber Text darf nicht verschmieren.",
+      "Schärfungs-Halos (→): Dreh die Schärfe-Einstellung des Bildschirms herunter, bis die Säume um Linien und Ringe verschwinden.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Warum sehen die feinen Linien grau und unscharf aus?",
+        "a": "Irgendetwas zwischen der Seite und dem Panel rechnet das Bild um: eine nicht native Auflösung, eine nicht ganzzahlige Anzeigeskalierung, Browser-Zoom oder die Skalierung des Fernsehers. Stell die Ausgabe auf die native Auflösung des Bildschirms und teste noch einmal."
+      },
+      {
+        "q": "Warum sieht roter Text auf meinem Fernseher verschmiert aus?",
+        "a": "Viele Fernseher und manche HDMI-Verbindungen übertragen Farbe mit reduzierter Auflösung (Farbunterabtastung bzw. Chroma Subsampling, 4:2:2 oder 4:2:0). Farbiger Text verschmiert, während schwarz-weißer Text scharf bleibt. Nutze den PC- oder Spielemodus des Fernsehers oder stell die Ausgabe auf RGB / 4:4:4."
+      },
+      {
+        "q": "Wie sollte die Schärfe eingestellt sein?",
+        "a": "Auf den Wert, bei dem nichts hinzugefügt und nichts weichgezeichnet wird. Bei manchen Fernsehern ist das 0, bei anderen die Mitte der Skala – die Zahl selbst sagt also wenig. Nutze das Testbild „Schärfungs-Halos“: Senk die Einstellung, bis die Säume verschwinden, und hör auf, bevor die Linien weich werden."
+      },
+      {
+        "q": "Warum hat Text auf meinem OLED oder Fernseher Farbsäume?",
+        "a": "Betriebssysteme glätten Text in der Annahme, dass jedes Pixel aus einem roten, grünen und blauen Streifen in genau dieser Reihenfolge besteht. Viele OLED-Panels und manche Fernseher ordnen ihre Subpixel anders an, die Glättung trifft dann die falschen und zeigt sich als farbige Kanten. Eine höhere Anzeigeskalierung macht das weniger auffällig."
+      },
+      {
+        "q": "Warum ist mein Monitor bei niedrigerer Auflösung unscharf?",
+        "a": "Ein LCD oder OLED hat ein festes Pixelraster. Jede andere Auflösung muss auf dieses Raster gestreckt werden, und dabei verschmiert meist jedes Quellpixel über mehrere Bildschirmpixel. Die Ausnahme ist ein ganzzahliges Vielfaches, etwa 1080p auf einem 4K-Bildschirm: Das kann scharf bleiben, wenn Integer-Skalierung verwendet wird."
+      },
+      {
+        "q": "Macht eine höhere Pixeldichte Text schärfer?",
+        "a": "Ja. Mehr Pixel pro Zoll heißt mehr Pixel in jedem Buchstaben, Rundungen und dünne Striche werden also genauer gezeichnet. Ein Bildschirm mit hoher Pixeldichte braucht eine Anzeigeskalierung, damit Text lesbar groß bleibt. Der Bildschirmgrößen-Rechner berechnet die Pixeldichte für jeden Bildschirm."
+      },
+      {
+        "q": "Warum ist Text nur in manchen Apps unscharf?",
+        "a": "Ältere Windows-Apps kennen die Anzeigeskalierung nicht. Über 100 % zeichnet Windows sie in normaler Größe und vergrößert das Ergebnis wie ein Bild, wodurch der Text unscharf wird. In den Eigenschaften der App gibt es auf dem Tab „Kompatibilität“ eine Einstellung für hohe DPI-Werte, mit der die App sich selbst skaliert."
+      }
+    ],
+    "tips": [
+      "Prüf zuerst aus deinem üblichen Sitzabstand, dann aus der Nähe.",
+      "Eine Anzeigeskalierung von 100 %, 150 % oder 200 % hält feine Details sauberer als Zwischenwerte."
+    ]
+  },
+  "frame-skipping-test": {
+    "name": "Frame-Skipping-Test",
+    "title": "Frame-Skipping-Test",
+    "tagline": "Eine Zelle pro Frame – fotografiere das Bild und überführe einen Bildschirm, der Frames auslässt.",
+    "description": "Kostenloser Frame-Skipping-Test: Pro Bildaufbau leuchtet eine Zelle. Ein lang belichtetes Foto zeigt eine lückenlose Reihe – oder Lücken, wo Frames fehlen.",
+    "keywords": [
+      "frame skipping test",
+      "monitor übertakten test",
+      "frameskip test",
+      "bildwiederholrate übertakten",
+      "frame skip"
+    ],
+    "howTo": [
+      "Schließ andere Apps und Tabs und klick dann auf „Starten“.",
+      "Fotografiere den Bildschirm mit langer Belichtungszeit – etwa 1/15 bis 1/30 s, im Pro- oder manuellen Modus deines Handys.",
+      "Auf dem Foto sollten die leuchtenden Zellen eine lückenlose Reihe bilden. Eine Lücke bedeutet, dass ein Frame ausgelassen wurde.",
+      "Nutze bei Bildschirmen über 144 Hz das Raster mit 120 Zellen (→), damit die Reihe nicht umbricht.",
+      "Mach ein paar Fotos, bevor du Schlüsse ziehst, und beende den Test dann mit Esc."
+    ],
+    "faq": [
+      {
+        "q": "Warum sollte ein Monitor Frames auslassen?",
+        "a": "Meist, weil seine Bildwiederholrate übertaktet oder über eine benutzerdefinierte Auflösung eingestellt wurde. Der Bildschirm nimmt das schnellere Signal an, lässt aber heimlich Frames aus, um mitzuhalten – flüssiger als vorher fühlt er sich also nicht an."
+      },
+      {
+        "q": "Kann auch der Browser Lücken verursachen?",
+        "a": "Ja – ist der Computer ausgelastet, kann auch der Browser einen Frame verpassen. Schließ andere Apps, wiederhol das Foto ein paar Mal und mach dir nur über Lücken Gedanken, die immer wieder auftauchen."
+      },
+      {
+        "q": "Meine Handykamera hat keinen manuellen Modus. Was kann ich tun?",
+        "a": "Dunkle den Raum ab. Bei wenig Licht wählen die meisten Handykameras von selbst eine längere Belichtungszeit, und genau die braucht dieser Test. Halt das Handy ruhig oder stütz es irgendwo ab und mach mehrere Fotos."
+      },
+      {
+        "q": "Der Test zeigt ausgelassene Frames. Und jetzt?",
+        "a": "Senk die Bildwiederholrate Schritt für Schritt, bis die Reihe der Zellen lückenlos ist, und bleib bei dieser Rate. Ein Monitor, der bei einer übertakteten Einstellung Frames auslässt, ist nicht defekt. Er kann schlicht nicht mehr Bilder anzeigen als sein angegebenes Maximum."
+      },
+      {
+        "q": "Ist Frame Skipping dasselbe wie Ruckeln in Spielen?",
+        "a": "Nein. Ruckeln entsteht, wenn der Computer die Frames ungleichmäßig liefert. Beim Frame Skipping nimmt das Display ein Signal an und zeigt dann einige der Frames nicht. Dieser Test zeichnet eine Zelle pro Bildaufbau und isoliert so den Anteil des Displays am Problem."
+      },
+      {
+        "q": "Brauche ich diesen Test, wenn ich meinen Monitor nicht übertaktet habe?",
+        "a": "Meistens nicht. Monitore lassen bei den Einstellungen, für die sie ausgelegt sind, keine Frames aus. Mach den Test, nachdem du eine benutzerdefinierte Auflösung oder eine übertaktete Bildwiederholrate eingestellt hast, oder wenn ein Adapter oder Dock eine Rate anbietet, mit der der Bildschirm nicht verkauft wurde."
+      },
+      {
+        "q": "Warum muss es ein Foto sein? Kann ich nicht einfach zuschauen?",
+        "a": "Jede Zelle leuchtet nur für einen einzigen Bildaufbau, bei 144 Hz also weniger als 7 ms. Bei diesem Tempo kann dein Auge eine fehlende Zelle nicht bemerken. Eine lange Belichtungszeit hält jede Zelle fest, die währenddessen geleuchtet hat, und eine ausgelassene zeigt sich als Lücke."
+      }
+    ],
+    "tips": [
+      "Wähle eine Belichtungszeit, die 6–10 Frames einfängt: etwa 1/15 s bei 144 Hz, 1/30 s bei 240 Hz.",
+      "Teste erneut, nachdem du die Bildwiederholrate oder Übertaktungseinstellungen geändert hast – Frame Skipping tritt oft nur bei der höchsten Rate auf."
+    ]
+  },
+  "wide-color-gamut-test": {
+    "name": "Wide-Color-Gamut-Test",
+    "title": "Wide-Color-Gamut-Test (P3)",
+    "tagline": "Versteckte Logos in P3-Farben, die nur ein Wide-Gamut-Bildschirm zeigen kann.",
+    "description": "Kostenloser Wide-Color-Gamut-Test: Prüf, ob Bildschirm und Browser Display-P3-Farben jenseits von sRGB zeigen – versteckte Logos verraten es.",
+    "keywords": [
+      "wide color gamut test",
+      "p3 test",
+      "display p3 test",
+      "dci-p3 test",
+      "farbraum test monitor",
+      "srgb vs p3"
+    ],
+    "howTo": [
+      "Klick auf „Starten“ und sieh dir jede Farbe im Vollbild an.",
+      "Auf einem Wide-Gamut-Bildschirm siehst du in jeder Farbe ein Logo – einen kräftigeren Ring um ein Quadrat.",
+      "Auf einem normalen sRGB-Bildschirm ist das Logo unsichtbar, weil beide Farben auf denselben Farbton begrenzt werden.",
+      "Sieh dir die Statusanzeigen über dem Test an, um zu erfahren, was dein Browser meldet, und beende den Test dann mit Esc."
+    ],
+    "faq": [
+      {
+        "q": "Ich sehe das Logo nicht – ist mein Bildschirm defekt?",
+        "a": "Überhaupt nicht. Die meisten Büromonitore und viele Laptops sind sRGB-Geräte, und das ist fürs Web farbtreu. Das Logo erscheint nur, wenn Bildschirm, Betriebssystem und Browser alle mit erweitertem Farbraum umgehen können."
+      },
+      {
+        "q": "Bei welchen Farben sieht man es am besten?",
+        "a": "Bei Rot und Grün: Dort reicht Display P3 am weitesten über sRGB hinaus. Blau zeigt den kleinsten Unterschied, ein schwaches Logo auf Blau ist also normal."
+      },
+      {
+        "q": "Ist ein Wide-Gamut-Bildschirm besser?",
+        "a": "Für HDR-Video und Fotos, die in Display P3 erstellt wurden, ja: Er kann gesättigtere Rot- und Grüntöne zeigen. Für gewöhnliche Webinhalte macht es keinen Unterschied, und ohne Farbmanagement kann alles übersättigt wirken – deshalb haben viele Wide-Gamut-Monitore einen sRGB-Modus."
+      },
+      {
+        "q": "Welche Geräte haben Wide-Gamut-Bildschirme?",
+        "a": "Neuere iPhones, iPads und Macs, die meisten Handys mit OLED-Bildschirm und viele Monitore, die für Gaming oder kreative Arbeit verkauft werden. Typische Büromonitore und günstige Laptops decken nur sRGB ab."
+      },
+      {
+        "q": "Warum wirken Farben auf meinem Wide-Gamut-Monitor übersättigt?",
+        "a": "Die meisten Inhalte sind für sRGB gemacht. Ein Wide-Gamut-Panel, das sie ohne Farbmanagement anzeigt, streckt diese Farben auf seine eigenen, kräftigeren Grundfarben: Hauttöne werden rot, Grüntöne leuchten. Nutz für den Alltag den sRGB-Modus des Monitors oder Apps mit Farbmanagement."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Display P3 und DCI-P3?",
+        "a": "Beide haben dieselben Grundfarben für Rot, Grün und Blau. DCI-P3 ist die Kinovariante, mit grünlichem Weißpunkt und einem Gamma von 2,6 für dunkle Kinosäle. Display P3 ist die Variante für Bildschirme und Handys, mit dem üblichen Weißpunkt D65 und der sRGB-Tonwertkurve."
+      },
+      {
+        "q": "Spielt der Browser eine Rolle?",
+        "a": "Ja. Der Browser muss Wide-Gamut-Farben verstehen und an das Farbmanagement des Betriebssystems weiterreichen. Aktuelle Versionen der großen Browser tun das, ältere beschneiden alles auf sRGB. Die Statusanzeigen über dem Test zeigen, was dein Browser meldet."
+      }
+    ],
+    "tips": [
+      "Viele Wide-Gamut-Monitore haben einen sRGB-Modus, der die Farben begrenzt – schalte ihn für diesen Test aus.",
+      "Sieh es dir in einem abgedunkelten Raum an; bei hellem Licht ist der Unterschied nur schwach."
+    ]
+  },
+  "pwm-flicker-test": {
+    "name": "PWM-Flimmer-Test",
+    "title": "PWM-Flimmer-Test",
+    "tagline": "Helle Flächen und eine schnelle Linie für den Bleistift- und den Kamera-Flimmertest.",
+    "description": "Kostenloser PWM-Flimmer-Test: Helle Flächen für Bleistift- und Kameratest, dazu eine schnelle Linie, die auf PWM-gedimmten Bildschirmen in Kopien zerfällt.",
+    "keywords": [
+      "pwm test",
+      "pwm flimmern test",
+      "bildschirm flimmern test",
+      "pwm dimming test",
+      "flicker free test"
+    ],
+    "howTo": [
+      "Stell den Bildschirm auf deine übliche Helligkeit – PWM tritt meist bei niedriger Helligkeit auf.",
+      "Wedel auf dem Testbild „Weiß“ schnell mit einem Bleistift vor dem Bildschirm: Mehrere scharfe Kopien bedeuten PWM, eine gleichmäßige Unschärfe bedeutet flimmerfrei.",
+      "Oder richte deine Handykamera auf den Bildschirm: Dunkle Streifen, die darüber wandern, deuten auf PWM hin.",
+      "Folge auf dem Testbild „Schnelle Linie“ (→) der Linie mit den Augen: Eine Reihe einzelner Linien statt eines durchgehenden Streifens bedeutet PWM.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Kann diese Seite PWM von selbst erkennen?",
+        "a": "Nein. Eine Webseite kann deine Hintergrundbeleuchtung nicht sehen, das Ergebnis beruht also auf dem, was du beobachtest – diese Testbilder machen die Effekte nur leicht erkennbar. Eine Zeitlupenkamera oder ein günstiger Lichtsensor liefert eine eindeutige Antwort."
+      },
+      {
+        "q": "Warum zeigt es sich nur bei niedriger Helligkeit?",
+        "a": "Viele Bildschirme dimmen, indem sie die Hintergrundbeleuchtung für einen Teil jedes Zyklus abschalten. Bei hoher Helligkeit sind die Dunkelphasen kurz oder fehlen ganz, das Flimmern tritt also erst auf, wenn du die Helligkeit herunterdrehst."
+      },
+      {
+        "q": "Ist PWM-Flimmern schädlich?",
+        "a": "Das hängt vom Menschen ab. Manche bekommen von Bildschirmen mit PWM Kopfschmerzen, überanstrengte Augen oder werden müde, vor allem bei niedriger Helligkeit, und viele merken gar nichts. Stört dich ein bestimmter Bildschirm und ein anderer im selben Raum nicht, lohnt es sich, PWM zu prüfen."
+      },
+      {
+        "q": "Nutzen OLED-Handys PWM?",
+        "a": "Die meisten, zumindest bei niedrigeren Helligkeitsstufen. Manche bieten eine Einstellung, die es verringert, oft DC dimming, Anti-Flicker oder Flimmerreduzierung genannt. Es hilft auch, die Helligkeit höher zu lassen und stattdessen das Raumlicht zu senken."
+      }
+    ],
+    "tips": [
+      "Wiederhol den Test bei mehreren Helligkeitsstufen – viele Bildschirme sind oberhalb von etwa halber Helligkeit flimmerfrei.",
+      "Ein Bildschirm, der dich nur nachts stört, ist ein heißer PWM-Kandidat."
+    ]
+  },
+  "hdr-test": {
+    "name": "HDR-Test",
+    "title": "HDR-Test: Zeigt dein Bildschirm HDR?",
+    "tagline": "Ein echtes HDR-Bild mit Helligkeitsstufen bis 1.600 Nits, dazu HDR-Erkennung.",
+    "description": "Kostenloser HDR-Test: Ein echtes HDR-Bild mit Helligkeitsstufen von 100 bis 1.600 Nits zeigt, ob Bildschirm und Browser HDR darstellen – samt Funktionscheck.",
+    "keywords": [
+      "hdr test",
+      "kann mein bildschirm hdr",
+      "hdr helligkeit test",
+      "hdr monitor test",
+      "spitzenhelligkeit test",
+      "hdr prüfen"
+    ],
+    "howTo": [
+      "Schalte zuerst HDR ein – unter Windows über Einstellungen > System > Anzeige > HDR verwenden.",
+      "Sieh dir die Statusanzeigen über dem Test an: Der Browser sollte ein HDR-Display melden.",
+      "Klick auf „Starten“. Funktioniert HDR, werden die Felder über 203 Nits (SDR-Weiß) hinaus immer heller, bis zur Spitzenhelligkeit deines Bildschirms.",
+      "Sieht jedes Feld ab 203 Nits gleich weiß aus, wird das Bild in SDR dargestellt.",
+      "Mit Esc beendest du den Test."
+    ],
+    "faq": [
+      {
+        "q": "Warum sehen alle hellen Felder gleich aus?",
+        "a": "Das Bild wird in SDR dargestellt: HDR ist im Betriebssystem ausgeschaltet, der Browser kann keine HDR-Bilder anzeigen, oder der Bildschirm beherrscht kein HDR. Jedes Feld über 203 Nits wird dann auf dasselbe Weiß begrenzt."
+      },
+      {
+        "q": "Ab wo werden die Felder nicht mehr heller?",
+        "a": "Ungefähr bei der Spitzenhelligkeit deines Bildschirms. Ein Einsteiger-Monitor mit DisplayHDR 400 ist bei rund 400 Nits am Ende, die Felder mit 600, 1.000 und 1.600 sehen dann gleich aus; ein gutes Mini-LED- oder OLED-Display hält sie weiter auseinander."
+      },
+      {
+        "q": "Welche Browser zeigen HDR-Bilder?",
+        "a": "Die Unterstützung hängt noch immer von Browser und Betriebssystem ab; Chromium-basierte Browser wie Chrome und Edge sind derzeit am verlässlichsten. Melden die Statusanzeigen, dass HDR verfügbar ist, die Felder sehen aber flach aus, probier einen anderen Browser."
+      },
+      {
+        "q": "Wie schalte ich HDR auf einem Mac oder Handy ein?",
+        "a": "Auf einem Mac mit externem HDR-Display öffnest du Systemeinstellungen > Displays und schaltest „Hochkontrastbild“ ein. Die eingebauten XDR-Displays des MacBook Pro zeigen HDR automatisch, ebenso Handys mit HDR-Bildschirm – dort gibt es nichts einzuschalten."
+      },
+      {
+        "q": "Warum sieht alles ausgewaschen aus, wenn HDR in Windows aktiv ist?",
+        "a": "Bei aktivem HDR muss Windows gewöhnliche SDR-Inhalte in das HDR-Signal umrechnen, und das Ergebnis wirkt oft matt und grau. Zieh in den HDR-Einstellungen den Regler für die Helligkeit von SDR-Inhalten hoch und führ die App „Windows HDR Calibration“ aus. Viele schalten HDR nur für Spiele und Filme ein."
+      }
+    ],
+    "tips": [
+      "Schalte HDR in deinem Betriebssystem ein, bevor du den Test öffnest.",
+      "Sehen die Felder mit 1.000 und 1.600 Nits identisch aus, hast du die Helligkeitsgrenze deines Bildschirms gefunden."
+    ]
+  },
+  "screen-size-calculator": {
+    "name": "Bildschirmgrößen-Rechner",
+    "title": "Bildschirmgrößen- & PPI-Rechner",
+    "tagline": "Berechne Pixeldichte, tatsächliche Breite und Höhe und das Seitenverhältnis aus Größe und Auflösung eines Bildschirms.",
+    "description": "Kostenloser Bildschirmgrößen- und PPI-Rechner: Gib Diagonale und Auflösung ein und erhalte Pixeldichte, Breite und Höhe, Seitenverhältnis und Pixelabstand.",
+    "keywords": [
+      "ppi rechner",
+      "bildschirmgröße berechnen",
+      "pixeldichte berechnen",
+      "seitenverhältnis rechner",
+      "monitor größe rechner",
+      "dpi rechner"
+    ],
+    "howTo": [
+      "Gib die Bildschirmdiagonale in Zoll ein, so wie sie in den technischen Daten steht.",
+      "Gib die Auflösung in Pixeln ein. Die Felder sind mit der Auflösung vorbelegt, die dein Browser für diesen Bildschirm meldet.",
+      "Lies die Pixeldichte (PPI), die tatsächliche Breite und Höhe und das Seitenverhältnis ab.",
+      "Ändere die Zahlen, um einen anderen Bildschirm zu vergleichen, zum Beispiel einen 27-Zoll-Monitor mit 1440p und einen 32-Zoll-Monitor mit 4K."
+    ],
+    "faq": [
+      {
+        "q": "Was ist PPI?",
+        "a": "Pixel pro Zoll (pixels per inch): wie viele Pixel auf einen Zoll des Bildschirms passen. Der Wert ist die Auflösung, verteilt auf die tatsächliche Größe, und er entscheidet, wie scharf Text und feine Details aussehen. Zwei Bildschirme mit gleicher Auflösung, aber unterschiedlicher Größe haben unterschiedliche PPI-Werte."
+      },
+      {
+        "q": "Wie viel PPI sollte ein Monitor haben?",
+        "a": "Bei normalem Sitzabstand am Schreibtisch sind etwa 90 bis 110 PPI üblich: Ein 24-Zoll-Bildschirm mit 1080p kommt auf rund 92, ein 27-Zöller mit 1440p auf rund 109. Etwa 135 bis 165 PPI, wie bei 4K auf 27 oder 32 Zoll, wirken sehr scharf, brauchen aber meist eine Anzeigeskalierung. Unter etwa 90 sieht Text allmählich weich aus."
+      },
+      {
+        "q": "Ist PPI dasselbe wie DPI?",
+        "a": "Bei Bildschirmen wird beides gleichbedeutend verwendet. Streng genommen zählt PPI die Pixel eines Displays und DPI die Farbpunkte eines Druckers, aber Betriebssysteme und Mauseinstellungen sagen zu beidem DPI."
+      },
+      {
+        "q": "Warum reicht die Diagonale nicht, um zwei Bildschirme zu vergleichen?",
+        "a": "Weil es auf die Form ankommt. Ein 34-Zoll-Ultrawide ist breiter als ein 32-Zoll-Bildschirm im Format 16:9, aber nicht so hoch, und hat weniger Fläche, als die Diagonale vermuten lässt. Vergleich die Breite und Höhe, die der Rechner ausgibt, nicht die Diagonale."
+      },
+      {
+        "q": "Kann diese Seite messen, wie groß mein Bildschirm ist?",
+        "a": "Nein. Ein Browser weiß, wie viele Pixel ein Bildschirm hat, aber nicht, wie groß sie sind. Die Diagonale musst deshalb du angeben. Nimm die Größe aus den technischen Daten oder miss das sichtbare Bild von Ecke zu Ecke."
+      }
+    ],
+    "tips": [
+      "Miss nur das sichtbare Bild, ohne den Rahmen drumherum.",
+      "Ein 4K-Bildschirm ist nicht automatisch schärfer als einer mit 1440p: 4K auf 43 Zoll hat eine geringere Pixeldichte als 1440p auf 27 Zoll."
+    ]
+  },
+  "screen-test-checklist": {
+    "name": "Test-Checkliste",
+    "title": "Bildschirmtest-Checkliste",
+    "tagline": "Die Tests für Monitor, Laptop, Handy oder TV in der richtigen Reihenfolge – dein Fortschritt wird gespeichert.",
+    "description": "Kostenlose Bildschirmtest-Checkliste für neue oder gebrauchte Monitore, Laptops, Handys und TVs: die richtigen Tests in der richtigen Reihenfolge zum Abhaken.",
+    "keywords": [
+      "bildschirm test checkliste",
+      "neuer monitor checkliste",
+      "neuen monitor testen",
+      "gebrauchtes handy display prüfen",
+      "neuen fernseher testen",
+      "laptop bildschirm test"
+    ],
+    "howTo": [
+      "Wähl das Gerät aus, das du testest: Monitor, Laptop, Handy oder Tablet, oder Fernseher.",
+      "Fang mit den Tests an, die als „Pflicht“ markiert sind. Sie finden die Fehler, wegen denen ein Händler einen Bildschirm zurücknimmt.",
+      "Öffne jeden Test, führ ihn durch, komm dann zurück und hak ihn ab. Deine Haken werden nur in diesem Browser gespeichert.",
+      "Schließ die Pflicht-Tests ab, solange du das Gerät noch zurückgeben kannst. Die anderen können warten."
+    ],
+    "faq": [
+      {
+        "q": "Welche Tests sind bei einem neuen Bildschirm am wichtigsten?",
+        "a": "Die, die echte Defekte finden: tote und hängende Pixel, Backlight Bleeding und ungleichmäßige Helligkeit. Bei einem Handy kommen der Touch-Test und, bei einem OLED, der Burn-in-Test dazu. Das sind die Fehler, wegen denen du ein Gerät zurückschicken kannst, und sie sind als „Pflicht“ markiert."
+      },
+      {
+        "q": "Wie lange dauert die Checkliste?",
+        "a": "Die Pflicht-Tests dauern etwa zehn Minuten. Die vollständige Liste für ein Gerät braucht eher eine halbe Stunde, vor allem weil sich deine Augen für die Tests im dunklen Raum erst anpassen müssen."
+      },
+      {
+        "q": "Warum ist die Reihenfolge wichtig?",
+        "a": "Rückgabefristen sind kurz. Wenn du die Tests auf echte Defekte zuerst machst und dir dann die Zeit ausgeht, hast du schon alles geprüft, was eine Rückgabe abdeckt. Einstellungsprobleme wie eine falsche Bildwiederholrate lassen sich jederzeit beheben."
+      },
+      {
+        "q": "Wird mein Fortschritt irgendwo gespeichert?",
+        "a": "Nur in diesem Browser, auf diesem Gerät. Nichts wird an einen Server gesendet, und wenn du die Websitedaten des Browsers löschst, sind auch die Haken weg."
+      },
+      {
+        "q": "Was mache ich, wenn ein Test ein Problem findet?",
+        "a": "Jede Testseite hat einen Abschnitt dazu, wie du das Ergebnis liest und was du als Nächstes tust. Grundsätzlich gilt: Fotografiere den Fehler, notiere das Datum und melde dich beim Händler, solange die Rückgabefrist noch läuft."
+      }
+    ],
+    "tips": [
+      "Heb Karton und Kassenbon auf, bis jeder Pflicht-Test abgehakt ist.",
+      "Mach die Tests im dunklen Raum am Stück, nachdem sich deine Augen ein paar Minuten angepasst haben."
+    ]
+  }
+}

@@ -1,0 +1,570 @@
+{
+  "black-level-test": {
+    "heading": "¿Qué escalones deberías poder ver?",
+    "howToHeading": "Cómo encontrar tu límite en sombras",
+    "faqHeading": "Preguntas sobre el nivel de negro",
+    "pass": [
+      "En una habitación a oscuras distingues los escalones a partir del valor 2 a 4, aproximadamente.",
+      "Cada escalón visible es un poco más claro que el anterior, y todos siguen siendo de un gris neutro."
+    ],
+    "fail": [
+      "Los escalones más bajos se ven todos idénticos al negro: el detalle en sombras se está perdiendo. Las causas habituales son un ajuste de nivel de negro o de brillo, o un rango RGB Limitado que no coincide.",
+      "Todos los escalones se ven con claridad pero el negro puro se ve gris: el nivel de negro está elevado, lo que resta contraste."
+    ],
+    "note": "Haz el test con el brillo que usas de verdad. En un monitor, el control de brillo actúa sobre todo sobre la retroiluminación, así que subirlo hace más visible cada escalón y a la vez eleva el negro. En un televisor, el ajuste llamado Brillo suele controlar el propio nivel de negro, y ese es el que hay que tocar. Juzga los escalones desde el centro: el resplandor hacia las esquinas es IPS glow o fugas de luz, no un problema de detalle en sombras.",
+    "next": [
+      "Si los escalones más bajos son todos negros, revisa primero el rango RGB: pon la salida gráfica y la pantalla en el mismo rango.",
+      "Restablece a los valores por defecto el nivel de negro, la gamma y cualquier ajuste de sombras o «ecualizador de negros» del monitor.",
+      "Desactiva el contraste dinámico y repite el test en una habitación con poca luz y con tu brillo habitual."
+    ],
+    "tables": [
+      {
+        "title": "Rango RGB Completo y Limitado",
+        "head": [
+          "Rango",
+          "Negro",
+          "Blanco",
+          "Lo usan"
+        ],
+        "rows": [
+          [
+            "Completo",
+            "0",
+            "255",
+            "Ordenadores y monitores"
+          ],
+          [
+            "Limitado",
+            "16",
+            "235",
+            "Televisores, Blu-ray y streaming"
+          ]
+        ],
+        "note": "Una señal Limitada en una pantalla en rango Completo da negros grises. Una señal Completa en una pantalla en rango Limitado funde en negro los escalones más oscuros."
+      }
+    ],
+    "guideLabel": "¿Por qué los negros se ven grises? Rango RGB completo frente a limitado"
+  },
+  "viewing-angle-test": {
+    "heading": "¿Cuánto cambio es normal en tu panel?",
+    "howToHeading": "Cómo comprobar el ángulo de visión",
+    "faqHeading": "Preguntas sobre los ángulos de visión",
+    "terms": [
+      {
+        "name": "IPS y OLED",
+        "text": "Mantienen bien el color y el brillo cuando te mueves fuera del eje. El resultado esperado es que apenas se note cambio."
+      },
+      {
+        "name": "VA",
+        "text": "Muestra un cambio de contraste y de gamma, con los escalones de gris oscuro lavándose, y algo de resplandor en las esquinas."
+      },
+      {
+        "name": "TN",
+        "text": "Cambia mucho, sobre todo cuando te mueves arriba y abajo. Los escalones oscuros se funden y los colores cambian de tono."
+      }
+    ],
+    "pass": [
+      "El resultado coincide con lo que hace normalmente tu tipo de panel.",
+      "Desde tu asiento habitual, las esquinas se ven igual que el centro."
+    ],
+    "fail": [
+      "Una pantalla IPS u OLED que cambia tanto como lo haría un panel TN.",
+      "Esquinas que se ven más oscuras o lavadas incluso sentado en el centro, en una pantalla que no es especialmente grande ni está muy cerca."
+    ],
+    "note": "En una pantalla grande, o cercana, las esquinas ya se ven en ángulo, así que los paneles TN y VA pueden mostrar esquinas más oscuras desde el asiento central. Un monitor curvo mantiene los bordes más de frente y lo reduce. El ángulo de visión es una característica del panel, no algo que un ajuste pueda corregir.",
+    "next": [
+      "Colócate justo de frente a la pantalla, con los ojos a la altura de su tercio superior, e inclínala hasta que la parte de arriba y la de abajo se vean igual de brillantes.",
+      "En un televisor, haz el test desde todos los asientos que se usan de verdad.",
+      "Si una pantalla vendida como IPS u OLED cambia mucho, comprueba el tipo de panel en las especificaciones y plantéaselo al vendedor."
+    ],
+    "guideLabel": "IPS, VA, TN u OLED: ¿qué panel te conviene?"
+  },
+  "gamma-test": {
+    "heading": "¿Qué parche ha desaparecido? Cómo leer tu gamma",
+    "howToHeading": "Cómo leer el patrón de gamma",
+    "faqHeading": "Preguntas sobre la gamma",
+    "terms": [
+      {
+        "name": "Se funde el parche 2.2",
+        "text": "Tu pantalla está en el objetivo. 2.2 es el estándar sRGB, y tanto Windows como macOS apuntan a él."
+      },
+      {
+        "name": "Se funde un parche más bajo (1.8, 2.0)",
+        "text": "La gamma es demasiado baja. La imagen se ve lavada, con los tonos medios demasiado claros."
+      },
+      {
+        "name": "Se funde un parche más alto (2.4)",
+        "text": "La gamma es demasiado alta. Las sombras se empastan y la imagen se ve pesada."
+      }
+    ],
+    "note": "Aléjate hasta que las rayas se fundan en un gris liso antes de comparar. El test solo lee la gamma en torno al gris medio. No puede medir toda la curva de negro a blanco ni corregirla: un colorímetro hace ambas cosas. Si tu lectura se desvía, prueba primero con el modo de gamma del monitor.",
+    "next": [
+      "Restablece el zoom del navegador con Ctrl/Cmd + 0, selecciona la resolución nativa y vuelve a cargar la página.",
+      "Recorre los preajustes de gamma del monitor y quédate con aquel en el que se funde el parche 2.2.",
+      "Si ningún preajuste es correcto, usa la herramienta de calibración de pantalla del sistema operativo.",
+      "Repite el test después de cada cambio."
+    ],
+    "guideLabel": "La gamma, explicada: por qué tus sombras se ven mal"
+  },
+  "screen-tearing-test": {
+    "heading": "¿Corte, tirones o limpio? Cómo leer las barras",
+    "howToHeading": "Cómo hacer el test de tearing",
+    "faqHeading": "Preguntas sobre el tearing",
+    "pass": [
+      "Las barras se mantienen enteras de un borde de la pantalla al otro mientras se mueven.",
+      "El movimiento es uniforme, sin tirones."
+    ],
+    "fail": [
+      "Una línea donde las barras quedan desfasadas, de modo que la mitad superior y la inferior no coinciden: tearing.",
+      "Movimiento a tirones sin ningún corte visible. Se están saltando o repitiendo fotogramas, que es un problema distinto: usa el Test de salto de fotogramas."
+    ],
+    "note": "Un resultado limpio aquí es habitual y no demuestra que tus juegos no vayan a tener tearing. Los navegadores suelen dibujar sincronizados con la pantalla, mientras que los juegos producen tearing cuando envían fotogramas con V-Sync desactivado. Si ves cortes en esta página, comprueba que la aceleración por hardware está activada en tu navegador y que la pantalla funciona a su frecuencia de actualización nominal.",
+    "next": [
+      "Activa la sincronización adaptativa (G-Sync, FreeSync o VRR) en el menú del monitor y en el controlador gráfico.",
+      "Si tu pantalla no tiene sincronización adaptativa, activa V-Sync en el juego, o limita sus fotogramas por segundo justo por debajo de la frecuencia de actualización.",
+      "Revisa la conexión: la sincronización adaptativa necesita DisplayPort en un PC, o HDMI 2.1 en una consola o un televisor."
+    ],
+    "tables": [
+      {
+        "title": "Formas de evitar el tearing",
+        "head": [
+          "Método",
+          "Tearing",
+          "Retardo añadido",
+          "Requiere"
+        ],
+        "rows": [
+          [
+            "Sincronización desactivada",
+            "Sí",
+            "Ninguno",
+            "Nada"
+          ],
+          [
+            "V-Sync",
+            "No",
+            "Algo",
+            "Nada"
+          ],
+          [
+            "Sincronización adaptativa (G-Sync, FreeSync, VRR)",
+            "No, dentro de su rango",
+            "Muy poco",
+            "Una pantalla y una tarjeta gráfica compatibles, por DisplayPort o HDMI 2.1"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "Tearing, V-Sync, G-Sync y FreeSync, explicados"
+  },
+  "touch-screen-test": {
+    "heading": "¿Zona muerta o punto que te has saltado? Cómo leer la cuadrícula",
+    "howToHeading": "Cómo probar la capa táctil",
+    "faqHeading": "Preguntas sobre la pantalla táctil",
+    "pass": [
+      "Todas las celdas se ponen verdes, incluidas las de los bordes y las esquinas.",
+      "Las líneas en Dibujo libre son continuas y siguen tu dedo.",
+      "El contador de toques llega al menos a cinco en un móvil o una tableta."
+    ],
+    "fail": [
+      "Las mismas celdas siguen oscuras todas las veces, por muy despacio que pases el dedo. Una celda rebelde en una sola pasada suele ser simplemente un punto que te has saltado.",
+      "Un hueco en el mismo sitio en todas las líneas que trazas por ahí.",
+      "Líneas que saltan, o marcas que aparecen donde no estás tocando: toques fantasma.",
+      "Un contador que nunca pasa de uno o dos dedos."
+    ],
+    "note": "Un protector de pantalla grueso, agrietado o que se despega puede causar todo esto. Quita la funda y el protector y repite el test antes de culpar a la pantalla. Los fallos táctiles suelen empezar en los bordes y las esquinas, así que ve despacio ahí.",
+    "next": [
+      "Quita la funda y el protector de pantalla, limpia y seca el cristal, y vuelve a pasar la cuadrícula.",
+      "Desenchufa el cargador, reinicia el dispositivo y haz el test otra vez.",
+      "Instala cualquier actualización del sistema pendiente.",
+      "Si la misma zona sigue fallando, la capa táctil está averiada. Contacta con el fabricante o con un servicio técnico, e indica si la pantalla ha sufrido caídas o se ha sustituido antes."
+    ],
+    "guideLabel": "Cómo probar la pantalla de un móvil de segunda mano antes de comprarlo"
+  },
+  "screen-info": {
+    "heading": "Qué te dice cada valor",
+    "howToHeading": "Cómo leer los datos de tu pantalla",
+    "faqHeading": "Preguntas sobre Info de pantalla",
+    "terms": [
+      {
+        "name": "Resolución de pantalla (píxeles)",
+        "text": "El número de píxeles del panel, estimado como el tamaño que indica el navegador multiplicado por el factor de escala. Compáralo con las especificaciones de la pantalla: una cifra más baja suele significar que hay seleccionada una resolución no nativa, lo que suaviza el detalle fino."
+      },
+      {
+        "name": "Escala de pantalla",
+        "text": "Cuánto amplía todo el sistema, también llamada relación de píxeles del dispositivo (device pixel ratio). Al 100%, un píxel de maquetación es un píxel de pantalla; al 200%, son dos en cada dirección. El zoom del navegador cambia este valor, así que restablécelo antes de leerlo."
+      },
+      {
+        "name": "Tamaño de pantalla en píxeles CSS",
+        "text": "El tamaño con el que se maquetan las webs tras aplicar la escala. Explica por qué un portátil 4K al 200% se comporta como una pantalla de 1920 × 1080 con texto más nítido."
+      },
+      {
+        "name": "Frecuencia de actualización",
+        "text": "Medida en vivo. Si marca 60 en una pantalla más rápida, la frecuencia completa no está seleccionada en la configuración de pantalla, o el cable no la soporta."
+      },
+      {
+        "name": "Profundidad de color",
+        "text": "Bits por píxel que indica el navegador: 24 significa 8 bits por canal; 30 significa 10. Muchos monitores de 10 bits siguen mostrando 24 porque el ordenador está enviando color de 8 bits."
+      },
+      {
+        "name": "Gama de colores",
+        "text": "El espacio de color más amplio que, según el navegador, cubre la pantalla: sRGB es el estándar; Display P3 y Rec. 2020 son de gama amplia. El Test de gama de colores amplia muestra si esos colores adicionales llegan de verdad a tus ojos."
+      },
+      {
+        "name": "HDR",
+        "text": "Si el navegador puede mostrar HDR en esta pantalla ahora mismo. Un «No» en un monitor HDR suele significar que el HDR está desactivado en el sistema operativo."
+      },
+      {
+        "name": "Área útil de pantalla y ventana del navegador",
+        "text": "La pantalla menos la barra de tareas, el Dock o la barra de menús, y la parte de ella que ocupa esta página en este momento."
+      }
+    ],
+    "note": "Estos valores vienen de tu navegador, no del propio panel, así que describen cómo se está usando la pantalla en este momento. Eso los hace útiles para detectar un ajuste incorrecto, y menos útiles como prueba de lo que puede hacer el hardware.",
+    "next": [
+      "Resolución inferior a la de las especificaciones: selecciona la resolución nativa en los ajustes de pantalla.",
+      "La frecuencia de actualización marca 60 en una pantalla más rápida: sigue los pasos de la página del Test de frecuencia de actualización.",
+      "HDR indica No en una pantalla HDR: activa el HDR en el sistema operativo y vuelve a cargar la página.",
+      "sRGB en un monitor de gama amplia: busca un modo sRGB en el menú del monitor y desactívalo."
+    ],
+    "tables": [
+      {
+        "title": "Resoluciones de pantalla habituales",
+        "head": [
+          "Nombre",
+          "Píxeles",
+          "Relación de aspecto"
+        ],
+        "rows": [
+          [
+            "HD (720p)",
+            "1280 × 720",
+            "16:9"
+          ],
+          [
+            "Full HD (1080p)",
+            "1920 × 1080",
+            "16:9"
+          ],
+          [
+            "WUXGA",
+            "1920 × 1200",
+            "16:10"
+          ],
+          [
+            "QHD (1440p)",
+            "2560 × 1440",
+            "16:9"
+          ],
+          [
+            "QHD ultrapanorámico",
+            "3440 × 1440",
+            "21:9"
+          ],
+          [
+            "4K UHD",
+            "3840 × 2160",
+            "16:9"
+          ],
+          [
+            "5K",
+            "5120 × 2880",
+            "16:9"
+          ],
+          [
+            "8K UHD",
+            "7680 × 4320",
+            "16:9"
+          ]
+        ]
+      }
+    ]
+  },
+  "overscan-test": {
+    "heading": "¿Tu imagen está recortada o estirada?",
+    "howToHeading": "Cómo comprobar el encaje de la imagen",
+    "faqHeading": "Preguntas sobre el overscan",
+    "pass": [
+      "Borde de overscan: ves entero, en todo el contorno, el marco más exterior, marcado como 0%.",
+      "Relación de aspecto: los círculos son perfectamente redondos y el cuadrado es cuadrado.",
+      "Cuadrícula de geometría: las líneas son rectas y están espaciadas de forma uniforme de borde a borde."
+    ],
+    "fail": [
+      "Los marcos exteriores quedan cortados. El más exterior que todavía ves entero en todo el contorno indica cuánto se está recortando.",
+      "Círculos que se ven ovalados: la imagen se está estirando.",
+      "Líneas de la cuadrícula que se curvan o convergen, lo que en un proyector significa que hay que ajustar la corrección trapezoidal o la posición de la lente."
+    ],
+    "note": "El overscan es un ajuste, no un defecto. Busca una opción de tamaño de imagen llamada Just Scan, Screen Fit, Fit to Screen, 1:1 u Overscan Off. Cada entrada del televisor puede tener su propio ajuste de tamaño de imagen, así que prueba la entrada que usas de verdad.",
+    "next": [
+      "En el televisor, pon el tamaño de imagen en un modo 1:1, como Just Scan o Screen Fit.",
+      "Si el televisor permite etiquetar las entradas, etiqueta esta como PC.",
+      "Solo si el televisor no tiene esa opción, usa el control de escalado del controlador gráfico.",
+      "Repite el test y confirma que el marco del 0% se ve entero en todo el contorno."
+    ]
+  },
+  "sharpness-test": {
+    "heading": "¿Nítida, escalada o con exceso de nitidez?",
+    "howToHeading": "Cómo leer los patrones de nitidez",
+    "faqHeading": "Preguntas sobre nitidez y texto",
+    "pass": [
+      "Las líneas de 1 píxel y los tableros de ajedrez se ven nítidos y con rayas uniformes.",
+      "El texto pequeño es nítido, incluido el texto rojo y el amarillo.",
+      "Ningún contorno brillante alrededor de las líneas y los anillos en el patrón de halos."
+    ],
+    "fail": [
+      "Líneas finas que se convierten en una masa gris o en un muaré ondulado: la imagen se está remuestreando por una resolución no nativa, una escala de pantalla fraccionaria, el zoom del navegador o el escalado del propio televisor.",
+      "Texto rojo o amarillo que se emborrona mientras el texto en blanco y negro sigue nítido: submuestreo de croma. Usa el modo PC o Juego del televisor, o configura la salida en RGB o 4:4:4.",
+      "Contornos blancos alrededor de los bordes: el ajuste de Nitidez está demasiado alto. Bájalo hasta que desaparezcan."
+    ],
+    "note": "Comprueba primero a tu distancia de visión habitual y después de cerca. Una escala de pantalla del 100%, el 150% o el 200% conserva el detalle fino más limpio que los valores intermedios.",
+    "next": [
+      "Selecciona la resolución nativa de la pantalla.",
+      "Pon la escala de pantalla en el 100%, el 150% o el 200% y restablece el zoom del navegador.",
+      "En un televisor, cambia la entrada al modo PC o Juego y configura la salida en RGB o 4:4:4.",
+      "Baja el ajuste de Nitidez hasta que desaparezcan los contornos del patrón de halos."
+    ]
+  },
+  "frame-skipping-test": {
+    "heading": "Cómo leer la foto: ¿hay fotogramas saltados o no?",
+    "howToHeading": "Cómo fotografiar el test",
+    "faqHeading": "Preguntas sobre el salto de fotogramas",
+    "pass": [
+      "En la foto, las celdas encendidas forman una serie continua.",
+      "El mismo resultado en varias fotos."
+    ],
+    "fail": [
+      "Un hueco en la serie que sigue apareciendo foto tras foto: la pantalla está descartando fotogramas.",
+      "Huecos que aparecen solo a la frecuencia de actualización más alta o tras un overclock, y que desaparecen a la frecuencia estándar."
+    ],
+    "note": "Un hueco en una foto no demuestra nada, porque un ordenador ocupado también puede hacer que el navegador pierda un fotograma. Cierra otras aplicaciones y haz varias fotos. Elige una obturación lo bastante larga para captar de 6 a 10 fotogramas: unos 1/15 s a 144 Hz, 1/30 s a 240 Hz.",
+    "next": [
+      "Cierra otras aplicaciones y haz varias fotos más para confirmar que el hueco aparece siempre.",
+      "Baja un paso la frecuencia de actualización y repite el test, hasta que la serie de celdas sea continua.",
+      "Quita cualquier resolución personalizada u overclock y usa la frecuencia más alta que supere el test."
+    ],
+    "tables": [
+      {
+        "title": "Qué velocidad de obturación usar",
+        "head": [
+          "Frecuencia de actualización",
+          "Obturación",
+          "Celdas encendidas en una foto"
+        ],
+        "rows": [
+          [
+            "60 Hz",
+            "1/8 s",
+            "unas 7"
+          ],
+          [
+            "120 Hz",
+            "1/15 s",
+            "unas 8"
+          ],
+          [
+            "144 Hz",
+            "1/15 s",
+            "unas 10"
+          ],
+          [
+            "165 Hz",
+            "1/20 s",
+            "unas 8"
+          ],
+          [
+            "240 Hz",
+            "1/30 s",
+            "unas 8"
+          ],
+          [
+            "360 Hz",
+            "1/50 s",
+            "unas 7"
+          ]
+        ]
+      }
+    ]
+  },
+  "wide-color-gamut-test": {
+    "heading": "¿Logotipo o no? Qué significa",
+    "howToHeading": "Cómo buscar los logotipos ocultos",
+    "faqHeading": "Preguntas sobre la gama de colores amplia",
+    "terms": [
+      {
+        "name": "Ves los logotipos",
+        "text": "Tu pantalla, tu sistema operativo y tu navegador manejan todos colores más allá de sRGB."
+      },
+      {
+        "name": "Los ves solo en rojo y verde",
+        "text": "Normal. Display P3 se extiende más allá de sRGB sobre todo en los rojos y los verdes, y menos en el azul, así que un logotipo tenue o ausente sobre azul es lo esperado."
+      },
+      {
+        "name": "No ves ningún logotipo",
+        "text": "La pantalla es sRGB, o algo en la cadena está limitando los colores. Ninguna de las dos cosas es un defecto: sRGB es lo correcto para la web."
+      }
+    ],
+    "note": "Antes de concluir que la pantalla es solo sRGB, consulta los indicadores de encima del test para ver qué indica el navegador, y busca un modo sRGB en el menú del monitor. Muchos monitores de gama amplia tienen uno, y limita los colores a propósito. La diferencia es sutil con mucha luz, así que míralo en una habitación con poca luz.",
+    "next": [
+      "Consulta los indicadores de encima del test para ver qué indica el navegador.",
+      "Desactiva el modo sRGB del monitor, si lo tiene, y vuelve a cargar la página.",
+      "Prueba con otro navegador.",
+      "Si la pantalla es sRGB, no hay nada que corregir: sRGB es el objetivo correcto para el contenido web."
+    ],
+    "tables": [
+      {
+        "title": "Los tres espacios de color que verás en las especificaciones",
+        "head": [
+          "Espacio",
+          "Para qué sirve, a grandes rasgos",
+          "Objetivo razonable"
+        ],
+        "rows": [
+          [
+            "sRGB",
+            "Web, ofimática, juegos SDR, la mayoría de las fotos",
+            "Cobertura del 99–100%"
+          ],
+          [
+            "DCI-P3",
+            "Cine y televisión en HDR, pantallas de móvil",
+            "Cobertura del 90% o más"
+          ],
+          [
+            "Adobe RGB",
+            "Edición de fotos destinadas a imprenta",
+            "Cobertura del 95% o más"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "La gama de colores, explicada: sRGB, DCI-P3 y Adobe RGB"
+  },
+  "pwm-flicker-test": {
+    "heading": "¿PWM o sin parpadeo? Cómo leer las tres pruebas",
+    "howToHeading": "Tres formas de comprobar el PWM",
+    "faqHeading": "Preguntas sobre el parpadeo PWM",
+    "pass": [
+      "Lápiz: un desenfoque continuo cuando pasa por delante del campo blanco.",
+      "Línea en movimiento: un único trazo continuo cuando la sigues con la vista.",
+      "Cámara: ninguna banda oscura en la pantalla.",
+      "El mismo resultado cuando lo repites con poco brillo."
+    ],
+    "fail": [
+      "Lápiz: varias copias nítidas del lápiz en lugar de un desenfoque.",
+      "Línea en movimiento: una fila de líneas separadas.",
+      "Cámara: bandas oscuras que recorren la imagen.",
+      "Cualquiera de ellos, aunque aparezca solo al bajar el brillo. Sigue siendo PWM: muchas pantallas no parpadean por encima de la mitad del brillo, más o menos, y pasan a PWM por debajo."
+    ],
+    "note": "Una página web no puede ver tu retroiluminación, así que el veredicto es lo que tú observas. Una cámara a cámara lenta o un sensor de luz dan una respuesta definitiva. Una pantalla que solo te molesta de noche, cuando el brillo está bajo, es una clara sospechosa.",
+    "next": [
+      "Encuentra el nivel de brillo en el que aparecen las copias o las bandas y mantén la pantalla por encima de él.",
+      "Por la noche, baja la iluminación de la habitación en lugar del brillo de la pantalla.",
+      "Busca en los ajustes de pantalla DC dimming, antiparpadeo o reducción de parpadeo y actívalo.",
+      "Si la pantalla sigue molestándote y estás dentro del plazo de devolución, cámbiala por un modelo que se venda como sin parpadeo (flicker-free)."
+    ],
+    "tables": [
+      {
+        "title": "Qué pantallas suelen usar PWM",
+        "head": [
+          "Tipo de pantalla",
+          "Comportamiento típico"
+        ],
+        "rows": [
+          [
+            "Móviles OLED",
+            "PWM muy habitual, también en gamas altas; a menudo peor con el brillo bajo"
+          ],
+          [
+            "Monitores y portátiles LED económicos",
+            "Variado: muchos usan PWM, algunos a baja frecuencia"
+          ],
+          [
+            "Monitores marcados como flicker-free (sin parpadeo)",
+            "DC dimming o PWM de alta frecuencia; normalmente sin problemas"
+          ],
+          [
+            "LCD antiguos con retroiluminación CCFL",
+            "A menudo más estables que la atenuación LED barata, pero sin garantías"
+          ]
+        ]
+      }
+    ],
+    "guideLabel": "¿Qué es el parpadeo PWM y cómo se comprueba?"
+  },
+  "hdr-test": {
+    "heading": "¿Dónde dejan de ganar brillo los parches?",
+    "howToHeading": "Cómo comprobar que el HDR está realmente activado",
+    "faqHeading": "Preguntas sobre el HDR",
+    "terms": [
+      {
+        "name": "Todos los parches a partir de 203 nits se ven iguales",
+        "text": "La imagen se está mostrando en SDR. El HDR está desactivado en el sistema operativo, el navegador no puede mostrar imágenes HDR o la pantalla no es HDR."
+      },
+      {
+        "name": "Se distinguen hasta unos 400 y luego se funden",
+        "text": "El HDR funciona y has encontrado el techo de la pantalla. Un monitor DisplayHDR 400 de gama de entrada se queda por ahí."
+      },
+      {
+        "name": "Los parches de 600, 1000 y 1600 siguen distinguiéndose",
+        "text": "Una pantalla HDR brillante. Un buen Mini-LED u OLED mantiene separados los parches superiores hasta más arriba."
+      }
+    ],
+    "note": "Activa el HDR en tu sistema operativo antes de abrir el test y consulta los indicadores de encima. Si dicen que el HDR está disponible pero los parches se ven planos, prueba con otro navegador: la compatibilidad todavía varía, y los navegadores basados en Chromium son ahora mismo los más consistentes.",
+    "next": [
+      "Activa el HDR en el sistema operativo y, en un monitor o un televisor, en su propio menú para la entrada que usas.",
+      "Revisa el cable: el HDR necesita HDMI 2.0 o posterior, o DisplayPort.",
+      "Recarga esta página y mira los indicadores de encima del test. Si siguen indicando SDR, prueba con un navegador basado en Chromium.",
+      "Si los parches solo se distinguen hasta unos 400 nits, el HDR funciona y ese es el límite de tu pantalla."
+    ],
+    "guideLabel": "El HDR, explicado: qué hace que una pantalla sea HDR de verdad"
+  },
+  "screen-size-calculator": {
+    "heading": "Qué significan las cifras",
+    "howToHeading": "Cómo usar la calculadora",
+    "faqHeading": "Preguntas sobre el tamaño de pantalla y el PPI",
+    "terms": [
+      {
+        "name": "Densidad de píxeles (PPI)",
+        "text": "La diagonal en píxeles dividida entre la diagonal en pulgadas. Cuanto más alta, más nitidez a la misma distancia de visión."
+      },
+      {
+        "name": "Ancho y alto",
+        "text": "El tamaño físico de la imagen, calculado a partir de la diagonal y de la forma de la cuadrícula de píxeles. Úsalos para comprobar que una pantalla cabe en tu escritorio o en tu pared."
+      },
+      {
+        "name": "Relación de aspecto",
+        "text": "La forma de la pantalla: su ancho en comparación con su alto. 16:9 es el estándar en monitores y televisores, 16:10 y 3:2 son habituales en portátiles y 21:9 es ultrapanorámico."
+      },
+      {
+        "name": "Tamaño de píxel",
+        "text": "La distancia entre el centro de un píxel y el del siguiente, en milímetros (pixel pitch). Es el PPI expresado a la inversa, y es la cifra que suelen dar las especificaciones de los monitores."
+      },
+      {
+        "name": "Píxeles totales",
+        "text": "El ancho multiplicado por el alto, en megapíxeles. Es lo que tiene que dibujar la tarjeta gráfica, así que importa más para el rendimiento en juegos que para la nitidez."
+      }
+    ],
+    "note": "El resultado da por hecho que los píxeles son cuadrados, como en todos los monitores, portátiles, móviles y televisores actuales. La densidad es solo la mitad de la nitidez: el mismo PPI se ve más nítido desde más lejos, y por eso un televisor necesita mucho menos que un móvil.",
+    "guideLabel": "PPI y densidad de píxeles: ¿cuánta nitidez es suficiente?"
+  },
+  "screen-test-checklist": {
+    "heading": "Qué significan los tres niveles",
+    "howToHeading": "Cómo recorrer la lista",
+    "faqHeading": "Preguntas sobre la lista de comprobación",
+    "terms": [
+      {
+        "name": "Esencial",
+        "text": "Detecta defectos físicos que justifican una devolución: fallos de píxel, fugas de luz, brillo desigual, zonas táctiles muertas, quemado. Haz estos tests el primer día."
+      },
+      {
+        "name": "Recomendable",
+        "text": "Detecta problemas que suelen deberse a un ajuste o a un cable, como una frecuencia de actualización incorrecta, banding o texto blando. Merece la pena corregirlos, y no dependen del plazo de devolución."
+      },
+      {
+        "name": "Opcional",
+        "text": "Depende de cómo uses la pantalla: HDR, gama de colores amplia, sensibilidad al parpadeo, ángulos de visión."
+      }
+    ],
+    "note": "Una pantalla que supera todos los tests puede tener igualmente particularidades normales en su tipo de panel, como el IPS glow o un poco de blooming. La página de cada test indica qué resultados son normales y cuáles son fallos.",
+    "guideLabel": "La lista de comprobación completa para probar la pantalla de un dispositivo nuevo"
+  }
+}
