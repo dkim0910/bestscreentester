@@ -15,7 +15,7 @@
       "Haz clic en Iniciar y observa cómo los recuadros cruzan la pantalla.",
       "Usa ← / → para cambiar la velocidad.",
       "Busca una estela tenue (ghosting) o un borde brillante (overshoot) detrás de cada recuadro.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -62,7 +62,7 @@
       "Mueve el cursor o el dedo para arrastrar el punto brillante por el campo negro.",
       "Fíjate en si aparece un halo luminoso (blooming) alrededor del objeto brillante.",
       "Usa → para los barridos de zonas: cuenta cuántas veces salta el halo mientras el cuadrado cruza la pantalla; ese es aproximadamente el número de zonas de atenuación a lo ancho (o a lo alto).",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -120,7 +120,7 @@
       "Recorre el blanco, el gris y cada campo RGB con ← / →.",
       "Busca contornos tenues de logotipos, barras o HUD que no deberían estar ahí; el gris es donde mejor se ven.",
       "Usa el patrón de tablero de ajedrez para ayudar a igualar la retención a corto plazo.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -166,7 +166,7 @@
       "Haz clic en Iniciar y mira el tablero de ajedrez a pantalla completa.",
       "Usa ← / → para cambiar la densidad de la cuadrícula (de 4×4 a 32×32).",
       "Los cuadrados negros deberían seguir siendo de un negro profundo y los blancos, brillantes, con bordes nítidos entre ellos.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -223,7 +223,7 @@
       "Deja la habitación en penumbra, pon el brillo en tu nivel habitual y haz clic en Iniciar.",
       "Cada banda vertical es ligeramente más clara que el negro puro (el número es su valor).",
       "Anota la banda más baja que todavía distingues del negro puro: ese es tu límite de detalle en sombras.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -267,7 +267,7 @@
       "Haz clic en Iniciar y siéntate primero centrado para fijar una referencia.",
       "Mueve la cabeza a izquierda y derecha, arriba y abajo, y aléjate.",
       "Observa cuánto se lavan los escalones de gris y cuánto cambian los colores: cuanto menos cambio, mejor.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -311,7 +311,7 @@
       "Haz clic en Iniciar y aléjate un poco (las rayas deberían fundirse en un gris liso).",
       "Compara cada parche etiquetado (γ 1.8–2.4) con el fondo de rayas.",
       "El parche que más desaparece entre las rayas es la gamma de tu pantalla; lo ideal es 2.2.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -369,7 +369,7 @@
       "Usa ← / → para alternar entre barras verticales (revelan cortes horizontales) y barras horizontales (revelan cortes verticales).",
       "Una imagen limpia significa que no hay tearing; un corte donde las barras no coinciden es tearing.",
       "Activa y desactiva V-Sync o la sincronización adaptativa (G-Sync/FreeSync) y compara.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {

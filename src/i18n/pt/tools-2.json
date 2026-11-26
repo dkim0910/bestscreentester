@@ -15,7 +15,7 @@
       "Clique em Iniciar e observe as caixas cruzando a tela.",
       "Use ← / → para mudar a velocidade.",
       "Procure um rastro discreto (ghosting) ou uma borda clara (overshoot) atrás de cada caixa.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -62,7 +62,7 @@
       "Mova o cursor / o dedo para arrastar o ponto claro pelo campo preto.",
       "Observe se há um halo brilhante (blooming) em volta do objeto claro.",
       "Use → para as varreduras de zonas: conte quantas vezes o halo salta enquanto o quadrado cruza a tela — é mais ou menos o número de zonas de escurecimento na horizontal (ou na vertical).",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -120,7 +120,7 @@
       "Passe pelo branco, pelo cinza e por cada campo RGB com ← / →.",
       "Procure contornos discretos de logos, barras ou HUDs que não deveriam estar ali — o cinza é o que melhor os mostra.",
       "Use o quadro Xadrez para ajudar a dissipar a retenção de curto prazo.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -166,7 +166,7 @@
       "Clique em Iniciar e veja o xadrez em tela cheia.",
       "Use ← / → para mudar a densidade da grade (de 4×4 até 32×32).",
       "Os quadrados pretos devem continuar bem pretos e os brancos, claros, com bordas nítidas entre eles.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -223,7 +223,7 @@
       "Escureça o ambiente, deixe o brilho no nível que você costuma usar e clique em Iniciar.",
       "Cada faixa vertical é um pouco mais clara do que o preto puro (o número é o valor dela).",
       "Anote a faixa mais baixa que você ainda distingue do preto puro — esse é o seu limite de sombras.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -267,7 +267,7 @@
       "Clique em Iniciar e sente-se primeiro bem de frente, para ter uma referência.",
       "Mexa a cabeça para a esquerda/direita e para cima/baixo, e afaste-se.",
       "Observe quanto os degraus de cinza ficam lavados e as cores mudam — quanto menos variação, melhor.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -311,7 +311,7 @@
       "Clique em Iniciar e afaste-se um pouco (as listras devem se fundir em um cinza sólido).",
       "Compare cada bloco identificado (γ 1,8–2,4) com o fundo listrado.",
       "O bloco que mais desaparece nas listras é a gama da sua tela — o alvo é 2,2.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -369,7 +369,7 @@
       "Use ← / → para alternar entre barras verticais (revelam rasgos horizontais) e barras horizontais (revelam rasgos verticais).",
       "Uma imagem limpa significa que não há tearing; uma quebra em que as barras se desalinham é um rasgo.",
       "Ligue e desligue o V-Sync ou a sincronização adaptativa (G-Sync/FreeSync) e compare.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {

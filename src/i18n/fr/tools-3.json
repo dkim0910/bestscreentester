@@ -63,7 +63,7 @@
       "Bordure d'overscan : le cadre coloré le plus extérieur que vous voyez sur tout son pourtour indique la part d'image rognée — 0 % signifie que rien ne l'est.",
       "Format d'image (→) : les cercles doivent paraître parfaitement ronds et le carré bien carré.",
       "Grille de géométrie (→) : les lignes doivent être droites et régulièrement espacées. Servez-vous-en pour aligner un vidéoprojecteur.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -118,7 +118,7 @@
       "Les lignes de 1 pixel et les damiers doivent paraître nets et régulièrement rayés. Une bouillie grise ou un moiré ondulé signifie que l'image est mise à l'échelle.",
       "Lisibilité du texte (→) : le petit texte doit être net, et le texte rouge ou jaune ne doit pas baver.",
       "Halos d'accentuation (→) : baissez le réglage Netteté de l'écran jusqu'à ce que les liserés autour des lignes et des anneaux disparaissent.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -280,7 +280,7 @@
       "Sur la vue Blanc, agitez rapidement un crayon devant l'écran : plusieurs copies nettes trahissent du PWM, un flou continu indique un écran sans scintillement.",
       "Ou pointez l'appareil photo de votre téléphone vers l'écran : des bandes sombres qui défilent suggèrent du PWM.",
       "Sur Ligne rapide (→), suivez la ligne des yeux : une rangée de lignes séparées au lieu d'une traînée continue signifie du PWM.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -323,7 +323,7 @@
       "Regardez les pastilles au-dessus du test : le navigateur doit détecter un écran HDR.",
       "Cliquez sur Démarrer. Avec une configuration HDR fonctionnelle, les pavés continuent de gagner en luminosité au-delà de 203 nits (le blanc SDR), jusqu'au pic de votre écran.",
       "Si tous les pavés à partir de 203 nits affichent le même blanc, l'image est affichée en SDR.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {

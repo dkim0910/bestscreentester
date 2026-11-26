@@ -18,7 +18,12 @@ export default function QuickColors({ tool }: { tool: ToolDef }) {
       <div className="flex-none md:w-60">
         <h2 className="text-[15px] font-semibold">{t("Quick full-screen colors")}</h2>
         <p className="text-[13px] text-foreground/55">
-          {t("Tap a color to fill your screen. ← / → to switch, Esc to exit.")}
+          <span className="pointer-coarse:hidden">
+            {t("Tap a color to fill your screen. ← / → to switch, Esc to exit.")}
+          </span>
+          <span className="hidden pointer-coarse:inline">
+            {t("Tap a color to fill your screen. Tap the sides to switch, the middle for Exit.")}
+          </span>
         </p>
         <Link href={localHref("/color-test")} className="mt-1 inline-block text-[13px] text-accent-soft hover:underline">
           {t("Open color test")} →

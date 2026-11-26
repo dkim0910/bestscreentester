@@ -110,7 +110,11 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     is an effect on `active && keepAwake`, so `keepAwake` may change mid-session (screensaver
     toggle). `renderFrame(index, active)` gets `active` so a frame can tell preview from full-screen.
     The low-level fullscreen + Wake Lock calls (with vendor-prefix/iOS fallbacks) live in
-    `src/lib/fullscreen.ts`.
+    `src/lib/fullscreen.ts`. An iPhone has no Fullscreen API, so there the active stage is just a
+    `fixed inset-0` layer: never size it with `h-screen` (100vh is taller than the visible area
+    while Safari's toolbar shows, which hides the controls and Exit). The launcher hint has a
+    keyboard and a touch wording, swapped in CSS with `pointer-coarse:` because it is in the
+    static HTML; change both together.
   - `ColorCycler`, `PatternCanvas`, `CanvasStage` build on the stage. `patterns.ts` holds canvas
     draw helpers (greyscale, color gradient, gray field, burn-in, contrast, black level, viewing
     angle, gamma, overscan, sharpness). Bespoke tools have their own components: `DeadPixelTool`

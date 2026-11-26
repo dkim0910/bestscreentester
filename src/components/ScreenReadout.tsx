@@ -68,11 +68,13 @@ export default function ScreenReadout() {
           <span key={c} className="flex-1" style={{ backgroundColor: c }} />
         ))}
       </div>
-      <dl className="grid grid-cols-3 divide-x divide-border">
+      {/* Rows on a phone (label left, value right), three columns from sm up: a third of a
+          phone's width is too narrow for "Refresh rate", let alone its translations. */}
+      <dl className="grid divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         {cells.map((c) => (
-          <div key={c.label} className="min-w-0 px-3 py-4 sm:px-4">
-            <dt className="eyebrow truncate">{c.label}</dt>
-            <dd className="mt-1.5 truncate font-mono text-sm tabular-nums sm:text-[17px]">{c.value}</dd>
+          <div key={c.label} className="flex min-w-0 items-baseline justify-between gap-4 px-4 py-3 sm:block sm:py-4">
+            <dt className="eyebrow shrink-0 sm:truncate">{c.label}</dt>
+            <dd className="truncate font-mono text-sm tabular-nums sm:mt-1.5 sm:text-[17px]">{c.value}</dd>
           </div>
         ))}
       </dl>

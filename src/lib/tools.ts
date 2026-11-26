@@ -85,13 +85,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free full-screen color test. Show pure black, white, red, green, blue, cyan, magenta, yellow and gray to check uniformity and find pixel defects.",
     category: "color",
     icon: "🎨",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["color test", "solid color screen", "rgb test", "full screen color"],
     howTo: [
       "Click Start to go full-screen.",
       "Use ← / → or tap left/right to switch colors.",
       "Look for tint, blotches, or dots that differ from the solid field.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -113,12 +113,12 @@ const BASE_TOOLS: ToolDef[] = [
       "Free pure black screen, full-screen. Check for backlight bleed and IPS glow on an LCD, confirm true blacks on an OLED, and spot stuck bright pixels.",
     category: "color",
     icon: "⬛",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["black screen", "pure black", "black screen full screen", "oled black"],
     howTo: [
       "Click Start for a full-screen pure black field.",
       "In a dark room, look for glowing edges or patches (backlight bleed / IPS glow).",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -144,12 +144,12 @@ const BASE_TOOLS: ToolDef[] = [
       "Free pure white screen, full-screen. Spot dark dead pixels and trapped dust, check brightness uniformity, and look for tinted patches.",
     category: "color",
     icon: "⬜",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["white screen", "pure white", "white screen full screen", "white screen test"],
     howTo: [
       "Click Start for a full-screen pure white field.",
       "Look for dark dots (dead pixels) and smudges or dust.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -175,13 +175,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free backlight bleed test. Display pure black to reveal LCD light leakage and IPS glow around the edges and corners of your screen.",
     category: "panel",
     icon: "💡",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["backlight bleed test", "ips glow", "light leakage", "lcd bleed"],
     howTo: [
       "Turn off the room lights. Start at maximum brightness to find any bleed, then judge it again at the brightness you normally use.",
       "Click Start for a full-screen black field.",
       "Inspect the edges and corners for cloudy or glowing patches.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -203,13 +203,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free greyscale and banding test. View a smooth black-to-white gradient and a 32-step ramp to detect banding, posterization, and tinted greys.",
     category: "color",
     icon: "🌫️",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["greyscale test", "gradient test", "color banding", "gamma test"],
     howTo: [
       "Click Start to view the gradient full-screen.",
       "Use ← / → to switch between the smooth gradient and the 32-step ramp.",
       "Look for visible bands or abrupt jumps instead of a smooth transition.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -235,14 +235,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free color gradient test. View smooth red, green, blue and full-spectrum gradients to check color transitions, banding, and posterization.",
     category: "color",
     icon: "🌈",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["color gradient test", "color banding test", "rgb gradient", "spectrum gradient", "color transition"],
     howTo: [
       "Click Start to view the gradient full-screen.",
       "Use ← / → to cycle through spectrum, red, green, blue, white, gray, and black gradients.",
       "Check that transitions are smooth and colors look saturated and even.",
       "The white and gray ramps make luminance banding in the shadows easiest to spot.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -268,14 +268,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free brightness uniformity test: a 50% gray field, a 9-zone grid and a panning gray to reveal uneven backlighting, clouding and the dirty screen effect.",
     category: "panel",
     icon: "🔲",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["brightness uniformity", "screen clouding", "uniformity test", "gray screen"],
     howTo: [
       "Click Start and view the gray field full-screen.",
       "Use ← / → to switch to the 9-zone grid and the panning gray.",
       "Compare the brightness of the center against each corner.",
       "On Panning gray, follow the drifting bands with your eyes: smudges or stripes that stay put are the panel's dirty screen effect.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -297,13 +297,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free refresh rate test. Measure your display's actual refresh rate in Hz using the browser and watch a moving object to confirm smoothness.",
     category: "motion",
     icon: "⏱️",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["refresh rate test", "hz test", "fps test", "144hz test", "monitor hz"],
     howTo: [
       "Click Start — the measured refresh rate appears within a second or two.",
       "Watch the moving box to confirm motion looks smooth.",
       "Compare the reading to your panel's rated Hz; the line under it gives the frame time and the closest standard rate.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -329,13 +329,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free ghosting and response time test. Watch moving boxes at adjustable speeds to reveal motion blur, ghosting trails, and overshoot.",
     category: "motion",
     icon: "👻",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["ghosting test", "response time test", "motion blur", "overdrive test", "ufo test"],
     howTo: [
       "Click Start and watch the boxes move across the screen.",
       "Use ← / → to change the speed.",
       "Look for a faint trail (ghosting) or a bright fringe (overshoot) behind each box.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -361,14 +361,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free blooming test for Mini-LED and local-dimming displays. Move a bright object on a black field to reveal halo and blooming around highlights.",
     category: "panel",
     icon: "🌟",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["blooming test", "mini-led test", "local dimming", "halo test", "fald"],
     howTo: [
       "Dim the room and click Start.",
       "Move your cursor / finger to drag the bright dot around the black field.",
       "Watch for a glowing halo (bloom) around the bright object.",
       "Use → for the zone sweeps: count how often the halo jumps as the square crosses the screen — that's roughly the number of dimming zones across (or down).",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -514,14 +514,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free OLED/AMOLED burn-in test. Cycle solid white, grey, RGB and a checkerboard full-screen to reveal retained images, ghosting, and uneven pixel aging.",
     category: "panel",
     icon: "🔥",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["burn-in test", "oled burn in", "image retention", "amoled", "ghost image"],
     howTo: [
       "Set brightness high and click Start.",
       "Step through white, grey, and each RGB field with ← / →.",
       "Look for faint outlines of logos, bars, or HUDs that shouldn't be there — grey shows them best.",
       "Use the checkerboard frame to help even out short-term retention.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -543,13 +543,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free contrast test. View black-and-white checkerboards at increasing density to evaluate contrast, black/white level separation, and panel sharpness.",
     category: "panel",
     icon: "◧",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["contrast test", "checkerboard", "black white level", "contrast ratio"],
     howTo: [
       "Click Start and view the checkerboard full-screen.",
       "Use ← / → to change the grid density (4×4 up to 32×32).",
       "Black squares should stay deep black and white squares bright, with crisp edges between them.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -575,13 +575,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free black level test. Compare near-black grey steps to judge shadow detail, black depth, and IPS glow — see which dark levels your screen still shows.",
     category: "panel",
     icon: "▰",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["black level test", "shadow detail", "near black", "black depth", "ips glow"],
     howTo: [
       "Dim the room and set brightness to your normal level, then click Start.",
       "Each vertical band is slightly brighter than pure black (the number is its value).",
       "Note the lowest band you can still tell apart from pure black — that's your shadow floor.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -607,13 +607,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free viewing angle test. Show grey steps and color bars, then move your head to see how much brightness and color shift off-axis on TN and VA panels.",
     category: "panel",
     icon: "◑",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["viewing angle test", "color shift", "off axis", "tn va ips angle"],
     howTo: [
       "Click Start and sit centered first to set a reference.",
       "Move your head left/right and up/down, and step back.",
       "Watch how much the grey steps wash out and the colors shift — less shift is better.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -639,13 +639,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free gamma test. A 1-pixel stripe pattern (≈50% grey) sits beside reference patches for gamma 1.8–2.4. The patch that blends in reveals your display's gamma.",
     category: "color",
     icon: "◐",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["gamma test", "gamma 2.2", "gamma calibration", "grayscale gamma"],
     howTo: [
       "Click Start and step back a little (the stripes should blur into solid grey).",
       "Compare each labelled patch (γ 1.8–2.4) against the striped background.",
       "The patch that most disappears into the stripes is your display's gamma — aim for 2.2.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -671,14 +671,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free screen tearing test. Fast-scrolling bars reveal horizontal tears when frame rate and refresh rate aren't synced — check V-Sync, G-Sync and FreeSync.",
     category: "motion",
     icon: "⇿",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["screen tearing test", "vsync", "g-sync", "freesync", "vrr test"],
     howTo: [
       "Click Start and watch the moving bars.",
       "Use ← / → to switch between vertical bars (reveals horizontal tears) and horizontal bars (reveals vertical tears).",
       "A clean image means no tearing; a break where the bars misalign is a tear.",
       "Toggle V-Sync or adaptive sync (G-Sync/FreeSync) and compare.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -769,14 +769,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free overscan and aspect ratio test for TVs and projectors. Check for cropped edges, stretched pictures and geometry distortion with full-screen patterns.",
     category: "panel",
     icon: "📐",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["overscan test", "aspect ratio test", "tv overscan", "projector test pattern", "geometry test", "screen fit test"],
     howTo: [
       "Open the page on the device connected to the TV or projector, then click Start.",
       "Overscan border: the outermost colored frame you can see all the way round is how much is being cropped — 0% means nothing is.",
       "Aspect ratio (→): the circles must look perfectly round and the square square.",
       "Geometry grid (→): lines should be straight and evenly spaced. Use it to line up a projector.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -798,14 +798,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free sharpness and text clarity test. Pixel-perfect lines and small text reveal blur from non-native resolution, display scaling and TV oversharpening.",
     category: "panel",
     icon: "🔎",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["sharpness test", "text clarity test", "monitor sharpness", "native resolution test", "chroma subsampling test", "pixel perfect test"],
     howTo: [
       "Click Start and view each pattern full-screen at your normal distance.",
       "1-pixel lines and checkerboards should look crisp and evenly striped. Grey mush or wavy moiré means the image is being scaled.",
       "Text clarity (→): small text should be sharp, and red or yellow text shouldn't smear.",
       "Sharpening halos (→): turn the screen's Sharpness setting down until the outlines around the lines and rings disappear.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -884,14 +884,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free PWM flicker test. Bright fields for the pencil and camera tests, plus a fast-moving line that turns into a row of copies on a PWM-dimmed screen.",
     category: "panel",
     icon: "〰️",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["pwm test", "pwm flicker test", "screen flicker test", "pwm dimming test", "flicker free test"],
     howTo: [
       "Set the screen to the brightness you normally use — PWM usually appears at low brightness.",
       "On the White field, wave a pencil quickly in front of the screen: several crisp copies mean PWM, a smooth blur means flicker-free.",
       "Or point your phone camera at the screen: dark bands rolling across it suggest PWM.",
       "On the Fast moving line (→), follow the line with your eyes: a row of separate lines instead of one smooth streak means PWM.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -913,14 +913,14 @@ const BASE_TOOLS: ToolDef[] = [
       "Free HDR test. Check whether your screen and browser display HDR with a real HDR image of brightness steps from 100 to 1,600 nits, plus capability checks.",
     category: "color",
     icon: "☀️",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["hdr test", "is my screen hdr", "hdr brightness test", "hdr monitor test", "peak brightness test", "hdr check"],
     howTo: [
       "Turn HDR on first — on Windows, Settings > System > Display > Use HDR.",
       "Check the chips above the test: the browser should report an HDR display.",
       "Click Start. On a working HDR setup, the patches keep getting brighter past 203 nits (SDR white) up to your screen's peak.",
       "If every patch from 203 nits up looks the same white, the image is being shown in SDR.",
-      "Press Esc to exit.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
@@ -946,7 +946,7 @@ const BASE_TOOLS: ToolDef[] = [
       "Free screen size and PPI calculator. Enter a diagonal and a resolution to get pixel density, physical width and height, aspect ratio and pixel pitch.",
     category: "fun",
     icon: "📏",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-26",
     keywords: ["ppi calculator", "screen size calculator", "pixel density calculator", "aspect ratio calculator", "monitor size calculator", "dpi calculator"],
     howTo: [
       "Enter the screen's diagonal size in inches, as printed in its specifications.",

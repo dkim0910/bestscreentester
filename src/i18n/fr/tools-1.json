@@ -69,7 +69,7 @@
       "Cliquez sur Démarrer pour passer en plein écran.",
       "Utilisez ← / → ou touchez la gauche ou la droite de l'écran pour changer de couleur.",
       "Cherchez une dominante, des taches ou des points qui tranchent sur l'aplat de couleur.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -117,7 +117,7 @@
     "howTo": [
       "Cliquez sur Démarrer pour afficher un noir pur en plein écran.",
       "Dans une pièce sombre, cherchez des bords ou des zones qui luisent (fuites de lumière / IPS glow).",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -161,7 +161,7 @@
     "howTo": [
       "Cliquez sur Démarrer pour afficher un blanc pur en plein écran.",
       "Cherchez des points sombres (pixels morts), des traces ou des poussières.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -205,7 +205,7 @@
       "Éteignez la lumière de la pièce. Commencez à la luminosité maximale pour trouver les fuites, puis jugez-les à nouveau à votre luminosité habituelle.",
       "Cliquez sur Démarrer pour afficher un noir en plein écran.",
       "Inspectez les bords et les coins à la recherche de zones nuageuses ou qui luisent.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -250,7 +250,7 @@
       "Cliquez sur Démarrer pour afficher le dégradé en plein écran.",
       "Utilisez ← / → pour passer du dégradé continu à l'échelle de 32 paliers.",
       "Cherchez des bandes visibles ou des sauts brusques là où la transition devrait être continue.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -308,7 +308,7 @@
       "Utilisez ← / → pour faire défiler les dégradés spectre, rouge, vert, bleu, blanc, gris et noir.",
       "Vérifiez que les transitions sont continues et que les couleurs paraissent saturées et régulières.",
       "Les dégradés blanc et gris sont ceux où le banding de luminance dans les ombres se repère le mieux.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -361,7 +361,7 @@
       "Utilisez ← / → pour passer à la grille 9 zones et au gris défilant.",
       "Comparez la luminosité du centre à celle de chaque coin.",
       "Sur Gris défilant, suivez des yeux les bandes qui dérivent : les taches ou les rayures qui restent en place sont le dirty screen effect de la dalle.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -414,7 +414,7 @@
       "Cliquez sur Démarrer — la fréquence de rafraîchissement mesurée s'affiche en une ou deux secondes.",
       "Observez le carré en mouvement pour vérifier que le déplacement est fluide.",
       "Comparez la mesure à la fréquence annoncée pour votre dalle ; la ligne du dessous indique la durée d'une image et la fréquence standard la plus proche.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
