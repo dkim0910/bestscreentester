@@ -69,7 +69,7 @@
       "Clique em Iniciar para entrar em tela cheia.",
       "Use ← / → ou toque à esquerda/direita para trocar de cor.",
       "Procure tons indesejados, manchas ou pontos que destoem do campo sólido.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -117,7 +117,7 @@
     "howTo": [
       "Clique em Iniciar para abrir um campo preto puro em tela cheia.",
       "Em um ambiente escuro, procure bordas ou manchas brilhando (vazamento de luz / IPS glow).",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -161,7 +161,7 @@
     "howTo": [
       "Clique em Iniciar para abrir um campo branco puro em tela cheia.",
       "Procure pontos escuros (pixels mortos), manchas e poeira.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -205,7 +205,7 @@
       "Apague as luzes do ambiente. Comece no brilho máximo para achar qualquer vazamento e depois avalie de novo no brilho que você costuma usar.",
       "Clique em Iniciar para abrir um campo preto em tela cheia.",
       "Examine as bordas e os cantos em busca de manchas nubladas ou brilhantes.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -250,7 +250,7 @@
       "Clique em Iniciar para ver o gradiente em tela cheia.",
       "Use ← / → para alternar entre o gradiente suave e a rampa de 32 degraus.",
       "Procure faixas visíveis ou saltos bruscos no lugar de uma transição suave.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -308,7 +308,7 @@
       "Use ← / → para passar pelos gradientes de espectro, vermelho, verde, azul, branco, cinza e preto.",
       "Confira se as transições são suaves e se as cores parecem saturadas e uniformes.",
       "As rampas de branco e de cinza são as que mais facilitam ver banding de luminância nas sombras.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -361,7 +361,7 @@
       "Use ← / → para passar à grade de 9 zonas e ao cinza em movimento.",
       "Compare o brilho do centro com o de cada canto.",
       "Em Cinza em movimento, acompanhe as faixas deslizantes com os olhos: manchas ou listras que ficam paradas são o efeito de tela suja (dirty screen effect) do painel.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -414,7 +414,7 @@
       "Clique em Iniciar — a taxa de atualização medida aparece em um ou dois segundos.",
       "Observe a caixa em movimento para confirmar que o movimento está fluido.",
       "Compare a leitura com os Hz nominais do painel; a linha logo abaixo mostra o tempo de quadro e a taxa padrão mais próxima.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {

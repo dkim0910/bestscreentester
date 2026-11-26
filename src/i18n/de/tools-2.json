@@ -15,7 +15,7 @@
       "Klick auf „Starten“ und beobachte, wie die Quadrate über den Bildschirm wandern.",
       "Mit ← / → änderst du das Tempo.",
       "Achte auf eine schwache Spur (Ghosting) oder einen hellen Saum (Overshoot) hinter jedem Quadrat.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -62,7 +62,7 @@
       "Beweg den Mauszeiger oder deinen Finger, um den hellen Punkt über die schwarze Fläche zu ziehen.",
       "Achte auf einen leuchtenden Halo (Blooming) um das helle Objekt.",
       "Mit → kommst du zu den Zonendurchläufen: Zähl, wie oft der Halo springt, während das Quadrat über den Bildschirm wandert – das entspricht ungefähr der Zahl der Dimming-Zonen in der Breite (oder Höhe).",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -120,7 +120,7 @@
       "Schalte mit ← / → durch Weiß, Grau und die einzelnen RGB-Flächen.",
       "Achte auf schwache Umrisse von Logos, Leisten oder HUDs, die dort nicht hingehören – auf Grau sieht man sie am besten.",
       "Das Schachbrett-Testbild hilft, kurzzeitige Image Retention auszugleichen.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -166,7 +166,7 @@
       "Klick auf „Starten“ und sieh dir das Schachbrett im Vollbild an.",
       "Mit ← / → änderst du die Rasterdichte (4×4 bis 32×32).",
       "Schwarze Felder sollten tiefschwarz bleiben und weiße hell, mit scharfen Kanten dazwischen.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -223,7 +223,7 @@
       "Dunkle den Raum ab, stell die Helligkeit auf dein übliches Niveau und klick dann auf „Starten“.",
       "Jeder vertikale Streifen ist etwas heller als reines Schwarz (die Zahl ist sein Wert).",
       "Merk dir den niedrigsten Streifen, den du noch von reinem Schwarz unterscheiden kannst – das ist deine Untergrenze für Schattendetails.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -267,7 +267,7 @@
       "Klick auf „Starten“ und setz dich zuerst mittig hin, um eine Referenz zu haben.",
       "Beweg den Kopf nach links/rechts und oben/unten und geh einen Schritt zurück.",
       "Beobachte, wie stark die Graustufen verblassen und die Farben kippen – je weniger, desto besser.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -311,7 +311,7 @@
       "Klick auf „Starten“ und geh etwas zurück (die Streifen sollten zu einem einheitlichen Grau verschwimmen).",
       "Vergleich jedes beschriftete Feld (γ 1,8–2,4) mit dem gestreiften Hintergrund.",
       "Das Feld, das am stärksten in den Streifen verschwindet, entspricht dem Gamma deines Displays – das Ziel ist 2,2.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -369,7 +369,7 @@
       "Mit ← / → wechselst du zwischen vertikalen Balken (zeigen horizontale Risse) und horizontalen Balken (zeigen vertikale Risse).",
       "Ein sauberes Bild bedeutet kein Tearing; ein Bruch, an dem die Balken versetzt sind, ist ein Riss.",
       "Schalte V-Sync oder Adaptive Sync (G-Sync/FreeSync) ein und aus und vergleich.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {

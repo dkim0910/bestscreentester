@@ -69,7 +69,7 @@
       "Haz clic en Iniciar para pasar a pantalla completa.",
       "Usa ← / → o toca a la izquierda o a la derecha para cambiar de color.",
       "Busca tintes, manchas o puntos que se distingan del campo liso.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -117,7 +117,7 @@
     "howTo": [
       "Haz clic en Iniciar para ver un campo negro puro a pantalla completa.",
       "En una habitación a oscuras, busca bordes o manchas que brillen (fugas de luz / IPS glow).",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -161,7 +161,7 @@
     "howTo": [
       "Haz clic en Iniciar para ver un campo blanco puro a pantalla completa.",
       "Busca puntos oscuros (píxeles muertos), manchas o polvo.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -205,7 +205,7 @@
       "Apaga las luces de la habitación. Empieza con el brillo al máximo para encontrar cualquier fuga y luego júzgala de nuevo con el brillo que usas normalmente.",
       "Haz clic en Iniciar para ver un campo negro a pantalla completa.",
       "Revisa los bordes y las esquinas en busca de manchas turbias o brillantes.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -250,7 +250,7 @@
       "Haz clic en Iniciar para ver el degradado a pantalla completa.",
       "Usa ← / → para alternar entre el degradado suave y la rampa de 32 escalones.",
       "Busca bandas visibles o saltos bruscos en lugar de una transición suave.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -308,7 +308,7 @@
       "Usa ← / → para recorrer los degradados de espectro, rojo, verde, azul, blanco, gris y negro.",
       "Comprueba que las transiciones son suaves y que los colores se ven saturados y uniformes.",
       "Las rampas de blanco y de gris son las que mejor muestran el banding de luminancia en las sombras.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -361,7 +361,7 @@
       "Usa ← / → para pasar a la cuadrícula de 9 zonas y al gris en movimiento.",
       "Compara el brillo del centro con el de cada esquina.",
       "En Gris en movimiento, sigue con la vista las bandas que se desplazan: las manchas o rayas que no se mueven son el efecto de pantalla sucia del panel.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -414,7 +414,7 @@
       "Haz clic en Iniciar: la frecuencia de actualización medida aparece en uno o dos segundos.",
       "Observa el recuadro en movimiento para confirmar que se ve fluido.",
       "Compara la lectura con los Hz nominales de tu panel; la línea de debajo indica el tiempo de fotograma y la frecuencia estándar más cercana.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {

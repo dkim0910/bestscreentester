@@ -63,7 +63,7 @@
       "Overscan-Rahmen: Der äußerste farbige Rahmen, den du rundum vollständig siehst, zeigt, wie viel abgeschnitten wird – 0 % heißt: nichts.",
       "Seitenverhältnis (→): Die Kreise müssen perfekt rund aussehen und das Quadrat quadratisch.",
       "Geometrie-Raster (→): Die Linien sollten gerade sein und gleichmäßige Abstände haben. Damit richtest du einen Beamer aus.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -118,7 +118,7 @@
       "1-Pixel-Linien und Schachbretter sollten scharf und gleichmäßig gestreift aussehen. Grauer Matsch oder welliges Moiré bedeutet, dass das Bild skaliert wird.",
       "Schriftbild (→): Kleiner Text sollte scharf sein, und roter oder gelber Text darf nicht verschmieren.",
       "Schärfungs-Halos (→): Dreh die Schärfe-Einstellung des Bildschirms herunter, bis die Säume um Linien und Ringe verschwinden.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -280,7 +280,7 @@
       "Wedel auf dem Testbild „Weiß“ schnell mit einem Bleistift vor dem Bildschirm: Mehrere scharfe Kopien bedeuten PWM, eine gleichmäßige Unschärfe bedeutet flimmerfrei.",
       "Oder richte deine Handykamera auf den Bildschirm: Dunkle Streifen, die darüber wandern, deuten auf PWM hin.",
       "Folge auf dem Testbild „Schnelle Linie“ (→) der Linie mit den Augen: Eine Reihe einzelner Linien statt eines durchgehenden Streifens bedeutet PWM.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
@@ -323,7 +323,7 @@
       "Sieh dir die Statusanzeigen über dem Test an: Der Browser sollte ein HDR-Display melden.",
       "Klick auf „Starten“. Funktioniert HDR, werden die Felder über 203 Nits (SDR-Weiß) hinaus immer heller, bis zur Spitzenhelligkeit deines Bildschirms.",
       "Sieht jedes Feld ab 203 Nits gleich weiß aus, wird das Bild in SDR dargestellt.",
-      "Mit Esc beendest du den Test."
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {

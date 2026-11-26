@@ -63,7 +63,7 @@
       "Borda de overscan: a moldura colorida mais externa que você vê inteira, em toda a volta, indica quanto está sendo cortado — 0% significa que nada está.",
       "Proporção de tela (→): os círculos devem parecer perfeitamente redondos e o quadrado, quadrado.",
       "Grade de geometria (→): as linhas devem ser retas e ter espaçamento uniforme. Use-a para alinhar um projetor.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -118,7 +118,7 @@
       "As linhas de 1 pixel e os padrões xadrez devem parecer nítidos e uniformemente listrados. Uma massa cinza ou um moiré ondulado indicam que a imagem está sendo redimensionada.",
       "Clareza de texto (→): o texto pequeno deve estar nítido, e o texto vermelho ou amarelo não deve borrar.",
       "Halos de nitidez (→): reduza a configuração de Nitidez da tela até os contornos em volta das linhas e dos anéis desaparecerem.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -280,7 +280,7 @@
       "No campo Branco, agite um lápis rapidamente na frente da tela: várias cópias nítidas indicam PWM; um borrão contínuo indica tela sem cintilação.",
       "Ou aponte a câmera do celular para a tela: faixas escuras rolando por ela sugerem PWM.",
       "Em Linha em movimento rápido (→), acompanhe a linha com os olhos: uma fileira de linhas separadas no lugar de um risco contínuo indica PWM.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
@@ -323,7 +323,7 @@
       "Confira os indicadores acima do teste: o navegador deve informar uma tela HDR.",
       "Clique em Iniciar. Com o HDR funcionando, os blocos continuam ficando mais claros além de 203 nits (o branco SDR), até o pico da sua tela.",
       "Se todos os blocos a partir de 203 nits têm o mesmo branco, a imagem está sendo exibida em SDR.",
-      "Pressione Esc para sair."
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {

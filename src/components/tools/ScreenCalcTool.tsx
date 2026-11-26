@@ -57,6 +57,13 @@ export default function ScreenCalcTool({ tool }: { tool: ToolDef }) {
       setWidth(String(Math.max(w, h)));
       setHeight(String(Math.min(w, h)));
     }
+    // The diagonal can't be read, but a touch-first device is not a 27-inch monitor:
+    // start from a typical phone or tablet size so the first result is in the right range.
+    const short = Math.min(window.screen.width, window.screen.height);
+    if (short > 0 && window.matchMedia("(pointer: coarse)").matches) {
+      if (short < 500) setDiagonal("6.1");
+      else if (short < 1100) setDiagonal("11");
+    }
   }, []);
 
   const d = Number(diagonal);

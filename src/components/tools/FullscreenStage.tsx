@@ -238,11 +238,23 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       : frameCount > 1
       ? t("← / → or tap the sides to switch · Esc to exit")
       : t("Tap for controls · Esc to exit");
+  // A phone has no Esc key: on touch-first devices the hint names the taps instead. The
+  // two are swapped in CSS (`pointer-coarse`) because the hint is in the static HTML.
+  const touchHint = tapToExit
+    ? null
+    : !tapNavigation
+      ? t("Press and hold for controls and Exit")
+      : frameCount > 1
+        ? t("Tap the sides to switch · tap the middle for Exit")
+        : t("Tap for controls and Exit");
 
   const labelFor = (i: number) => (frameLabel ? frameLabel(i) : `${i + 1} / ${frameCount}`);
   // Up to eight labelled frames fit as tabs under the preview on anything wider than a phone.
   const showTabs = Boolean(frameLabel) && frameCount > 1 && frameCount <= 8;
 
+  // The active stage is sized by `fixed inset-0` alone. Don't add h-screen: an iPhone has
+  // no Fullscreen API, and there 100vh is taller than the visible area while Safari's
+  // toolbar shows, which put the controls (and Exit) underneath it.
   return (
     <div
       ref={stageRef}
@@ -251,7 +263,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       {...holdHandlers}
       className={
         active
-          ? `fixed inset-0 z-50 h-screen w-screen select-none bg-black ${
+          ? `fixed inset-0 z-50 select-none bg-black ${
               overlay ? "cursor-default" : "cursor-none"
             }`
           : hideLauncher
@@ -304,11 +316,18 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
           )}
           {/* Without the scrim the hint can sit on white, so it gets its own backing. */}
           <span
-            className={`pointer-events-none relative text-sm ${
-              previewScrim ? "text-white/70" : "rounded-md bg-black/70 px-3 py-1 text-white/80"
+            className={`pointer-events-none relative text-center text-sm ${
+              previewScrim ? "px-3 text-white/70" : "mx-3 rounded-md bg-black/70 px-3 py-1 text-white/80"
             }`}
           >
-            {hint}
+            {touchHint ? (
+              <>
+                <span className="pointer-coarse:hidden">{hint}</span>
+                <span className="hidden pointer-coarse:inline">{touchHint}</span>
+              </>
+            ) : (
+              hint
+            )}
           </span>
           {/* Frame tabs along the bottom edge: every pattern visible and one click away.
               Only with a handful of frames and room for them; otherwise the ← → picker. */}
@@ -349,7 +368,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
           onPointerDown={showOverlay}
           onPointerMove={showOverlay}
         >
-          <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm text-white shadow-lg backdrop-blur">
+          <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-2 rounded-3xl bg-black/70 px-4 py-2 text-sm text-white shadow-lg backdrop-blur">
             {frameCount > 1 && (
               <>
                 <button onClick={prev} className="rounded-full px-3 py-1 hover:bg-white/15" aria-label={t("Previous")}>

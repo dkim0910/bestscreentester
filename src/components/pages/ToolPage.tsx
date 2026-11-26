@@ -129,7 +129,7 @@ function ToolPage({ lang, slug }: { lang: Lang; slug: string }) {
       <header className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <div className="eyebrow">{tool.noindex ? site.toolsPage.funTitle : site.categories[tool.category]}</div>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-[2.5rem] sm:leading-tight">{tool.title}</h1>
+          <h1 className="mt-2 text-[clamp(1.625rem,8.5vw,1.875rem)] leading-[1.2] font-bold tracking-tight wrap-break-word sm:text-[2.5rem] sm:leading-tight">{tool.title}</h1>
           <p className="mt-2 text-lg text-foreground/65">{tool.tagline}</p>
         </div>
         {deepGuide && results?.guide && (

@@ -15,7 +15,7 @@
       "Cliquez sur Démarrer et observez les carrés qui traversent l'écran.",
       "Utilisez ← / → pour changer la vitesse.",
       "Cherchez une légère traînée (ghosting) ou un liseré clair (overshoot) derrière chaque carré.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -62,7 +62,7 @@
       "Déplacez le curseur ou votre doigt pour promener le point lumineux sur le fond noir.",
       "Guettez un halo lumineux (blooming) autour de l'objet.",
       "Appuyez sur → pour les balayages des zones : comptez les sauts du halo pendant que le carré traverse l'écran — c'est à peu près le nombre de zones de gradation en largeur (ou en hauteur).",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -120,7 +120,7 @@
       "Passez en revue le blanc, le gris et chaque aplat RGB avec ← / →.",
       "Cherchez de légers contours de logos, de barres ou de HUD qui n'ont rien à faire là — c'est le gris qui les montre le mieux.",
       "Utilisez la vue Damier pour aider à résorber une rémanence de courte durée.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -166,7 +166,7 @@
       "Cliquez sur Démarrer et affichez le damier en plein écran.",
       "Utilisez ← / → pour changer la densité de la grille (de 4×4 à 32×32).",
       "Les cases noires doivent rester d'un noir profond et les cases blanches lumineuses, avec des bords nets entre elles.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -223,7 +223,7 @@
       "Assombrissez la pièce et réglez la luminosité à votre niveau habituel, puis cliquez sur Démarrer.",
       "Chaque bande verticale est légèrement plus claire que le noir pur (le chiffre indique sa valeur).",
       "Notez la bande la plus basse que vous distinguez encore du noir pur — c'est votre seuil dans les ombres.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -267,7 +267,7 @@
       "Cliquez sur Démarrer et placez-vous d'abord bien en face pour prendre un repère.",
       "Déplacez la tête à gauche et à droite, en haut et en bas, puis reculez.",
       "Observez à quel point les paliers de gris se délavent et les couleurs dérivent — moins ça bouge, mieux c'est.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -311,7 +311,7 @@
       "Cliquez sur Démarrer et reculez un peu (les rayures doivent se fondre en un gris uni).",
       "Comparez chaque pavé étiqueté (γ 1,8–2,4) au fond rayé.",
       "Le pavé qui disparaît le mieux dans les rayures correspond au gamma de votre écran — visez 2,2.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
@@ -369,7 +369,7 @@
       "Utilisez ← / → pour passer des barres verticales (qui révèlent les déchirures horizontales) aux barres horizontales (qui révèlent les déchirures verticales).",
       "Une image propre signifie qu'il n'y a pas de tearing ; une cassure où les barres se décalent est une déchirure.",
       "Activez puis désactivez le V-Sync ou la synchronisation adaptative (G-Sync/FreeSync) et comparez.",
-      "Appuyez sur Échap pour quitter."
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {

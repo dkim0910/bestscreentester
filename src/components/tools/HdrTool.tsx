@@ -93,9 +93,21 @@ export default function HdrTool({ tool }: { tool: ToolDef }) {
                   style={{ left: `${patchCenter(i)}%`, top: "69.2%" }}
                 >
                   {t("{n} nits", { n: p.nits })}
-                  {p.note && <span className="block text-white/50">{t(p.note)}</span>}
                 </span>
               ))}
+              {/* Notes sit above their patch, outside the image: the gap under the patches
+                  only has room for one line of text, so a second line ran into the ramp. */}
+              {PATCHES.map((p, i) =>
+                p.note ? (
+                  <span
+                    key={p.nits}
+                    className="absolute -translate-x-1/2 -translate-y-full whitespace-nowrap text-[clamp(9px,1.3vw,14px)] text-white/50"
+                    style={{ left: `${patchCenter(i)}%`, top: "5%" }}
+                  >
+                    {t(p.note)}
+                  </span>
+                ) : null,
+              )}
               <span
                 className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[clamp(9px,1.3vw,14px)] text-white/60"
                 style={{ top: "94.5%" }}

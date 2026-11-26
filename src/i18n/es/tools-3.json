@@ -63,7 +63,7 @@
       "Borde de overscan: el marco de color más exterior que ves entero en todo el contorno indica cuánto se está recortando; 0% significa que nada.",
       "Relación de aspecto (→): los círculos deben verse perfectamente redondos y el cuadrado, cuadrado.",
       "Cuadrícula de geometría (→): las líneas deberían ser rectas y estar espaciadas de forma uniforme. Úsala para alinear un proyector.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -118,7 +118,7 @@
       "Las líneas de 1 píxel y los tableros de ajedrez deberían verse nítidos y con rayas uniformes. Una masa gris o un muaré ondulado significa que la imagen se está escalando.",
       "Claridad de texto (→): el texto pequeño debería verse nítido, y el texto rojo o amarillo no debería emborronarse.",
       "Halos de nitidez (→): baja el ajuste de Nitidez de la pantalla hasta que desaparezcan los contornos alrededor de las líneas y los anillos.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -280,7 +280,7 @@
       "En el patrón Blanco, agita un lápiz rápidamente delante de la pantalla: varias copias nítidas indican PWM; un desenfoque continuo indica que no hay parpadeo.",
       "O apunta la cámara del móvil a la pantalla: unas bandas oscuras que la recorren sugieren PWM.",
       "En Línea rápida en movimiento (→), sigue la línea con la vista: una fila de líneas separadas en lugar de un trazo continuo indica PWM.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
@@ -323,7 +323,7 @@
       "Consulta los indicadores de encima del test: el navegador debería indicar una pantalla HDR.",
       "Haz clic en Iniciar. En un equipo con HDR en funcionamiento, los parches siguen ganando brillo por encima de 203 nits (blanco SDR) hasta el máximo de tu pantalla.",
       "Si todos los parches a partir de 203 nits se ven del mismo blanco, la imagen se está mostrando en SDR.",
-      "Pulsa Esc para salir."
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {

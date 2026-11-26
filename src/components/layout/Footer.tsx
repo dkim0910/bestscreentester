@@ -6,11 +6,11 @@ import { getSite, getTools, href } from "@/i18n";
 function Column({ title, links }: { title: string; links: { name: string; href: string }[] }) {
   return (
     <div>
-      <h3 className="eyebrow mb-3">{title}</h3>
-      <ul className="space-y-2 text-sm text-foreground/65">
+      <h3 className="eyebrow mb-2">{title}</h3>
+      <ul className="text-sm text-foreground/65">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="transition-colors hover:text-foreground">
+            <Link href={l.href} className="inline-block py-1 transition-colors hover:text-foreground">
               {l.name}
             </Link>
           </li>
@@ -65,19 +65,19 @@ export default function Footer({ lang }: { lang: Lang }) {
         />
       </div>
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-4 py-4 text-xs text-foreground/50">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-2 px-4 py-3 text-xs text-foreground/50">
           <span>
             © {year} {SITE_NAME}. {t.copyright}
           </span>
           {/* Every language's homepage, as plain links (separate root layouts: full page loads). */}
-          <nav aria-label={t.languages} className="flex flex-wrap gap-x-4 gap-y-1">
+          <nav aria-label={t.languages} className="flex flex-wrap gap-x-4">
             {LANGS.map((l) => (
               <a
                 key={l}
                 href={l === "en" ? "/" : `/${l}/`}
                 hrefLang={l}
                 lang={l}
-                className={`transition-colors hover:text-foreground ${l === lang ? "text-foreground/80" : ""}`}
+                className={`py-1 transition-colors hover:text-foreground ${l === lang ? "text-foreground/80" : ""}`}
               >
                 {LANG_NAMES[l]}
               </a>
