@@ -11,6 +11,7 @@ import {
 import { enterFullscreen, exitFullscreen, WakeLock } from "@/lib/fullscreen";
 import type { ToolDef } from "@/lib/tools";
 import { useT } from "@/i18n/ui";
+import { LookForPanel, useLookFor } from "./LookFor";
 
 export interface StageApi {
   index: number;
@@ -57,6 +58,11 @@ interface FullscreenStageProps {
    * solid-color frames, where the dimming misrepresents the color (white looked grey).
    */
   previewScrim?: boolean;
+  /**
+   * A setup reminder ("lights off, brightness up") shown under the Start button and
+   * for the first few seconds of the test, then faded out (`.stage-notice`).
+   */
+  notice?: string;
 }
 
 const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function FullscreenStage(
@@ -72,10 +78,13 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
     tapToExit = false,
     tapNavigation = true,
     previewScrim = true,
+    notice,
   },
   ref,
 ) {
   const t = useT();
+  const lookFor = useLookFor();
+  const [tipsOpen, setTipsOpen] = useState(false);
   const launchLabel = startLabel ?? t("Start full-screen test");
   const stageRef = useRef<HTMLDivElement>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -106,6 +115,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
 
   const stop = useCallback(() => {
     setActive(false);
+    setTipsOpen(false);
     void exitFullscreen();
   }, []);
 
@@ -124,7 +134,10 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
   // Sync with browser fullscreen exit (Esc / system gesture).
   useEffect(() => {
     function onChange() {
-      if (!document.fullscreenElement && active) setActive(false);
+      if (!document.fullscreenElement && active) {
+        setActive(false);
+        setTipsOpen(false);
+      }
     }
     document.addEventListener("fullscreenchange", onChange);
     return () => document.removeEventListener("fullscreenchange", onChange);
@@ -264,7 +277,7 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
       className={
         active
           ? `fixed inset-0 z-50 select-none bg-black ${
-              overlay ? "cursor-default" : "cursor-none"
+              overlay || tipsOpen ? "cursor-default" : "cursor-none"
             }`
           : hideLauncher
             ? "pointer-events-none fixed inset-0 -z-10 bg-black opacity-0"
@@ -329,6 +342,11 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
               hint
             )}
           </span>
+          {notice && (
+            <span className="pointer-events-none relative mx-3 max-w-md rounded-md bg-black/70 px-3 py-1 text-center text-sm text-white/80">
+              {notice}
+            </span>
+          )}
           {/* Frame tabs along the bottom edge: every pattern visible and one click away.
               Only with a handful of frames and room for them; otherwise the ← → picker. */}
           {showTabs && (
@@ -355,6 +373,14 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
           )}
         </div>
       )}
+
+      {active && notice && (
+        <p className="stage-notice pointer-events-none absolute inset-x-0 top-1/2 mx-auto max-w-md -translate-y-1/2 px-6 text-center text-lg text-white/80">
+          {notice}
+        </p>
+      )}
+
+      {active && tipsOpen && lookFor && <LookForPanel text={lookFor} onClose={() => setTipsOpen(false)} />}
 
       {/* Control overlay (only when active). Pointer activity inside it keeps it up, so
           it can't time out under a finger dragging a slider (touch fires no mousemove). */}
@@ -384,6 +410,15 @@ const FullscreenStage = forwardRef<StageHandle, FullscreenStageProps>(function F
               </>
             )}
             {controls?.(api)}
+            {lookFor && (
+              <button
+                onClick={() => setTipsOpen((o) => !o)}
+                aria-expanded={tipsOpen}
+                className={`rounded-full px-3 py-1 font-medium ${tipsOpen ? "bg-white text-black" : "hover:bg-white/15"}`}
+              >
+                {t("What to look for")}
+              </button>
+            )}
             <button
               onClick={stop}
               className="rounded-full bg-white/15 px-3 py-1 font-medium hover:bg-white/25"

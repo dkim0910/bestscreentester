@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # BestScreenTester
 
-A suite of **30** free, browser-based screen tests and tools plus **44** guides. **Fully static — no
+A suite of **31** free, browser-based screen tests and tools plus **50** guides. **Fully static — no
 database, no accounts, no backend services.** The display tests run 100% client-side (Fullscreen
 API, Wake Lock, Canvas). The full, authoritative tool list lives in `src/lib/tools.ts` — the
 `category` field there is what actually drives the nav/homepage grouping, so trust it over any
@@ -17,7 +17,8 @@ summary (including this one):
   touch-screen-test, overscan-test, sharpness-test, pwm-flicker-test
 - **`color`** (8) — color-test, black-screen, white-screen, greyscale-test, color-gradient-test,
   gamma-test, wide-color-gamut-test, hdr-test
-- **`motion`** (4) — refresh-rate-test, ghosting-test, screen-tearing-test, frame-skipping-test
+- **`motion`** (5) — refresh-rate-test, ghosting-test, frame-rate-comparison, screen-tearing-test,
+  frame-skipping-test
 - **`fun`** (6) — fake-broken-screen, screensaver, boot-screen-simulator, screen-info,
   screen-size-calculator, screen-test-checklist
 
@@ -28,10 +29,13 @@ Note the non-obvious ones: `blooming-test`, `contrast-test`, `black-level-test`,
 
 **Novelty pages are noindexed.** `fake-broken-screen`, `boot-screen-simulator`, `screensaver`
 (`noindex: true` in `tools.ts`) and the `harmless-screen-pranks` guide (`noindex: true` in
-`guides.ts`) get a `noindex, follow` robots meta via `pageMetadata({ noindex })`, are left out of
-the sitemap and the homepage grid, and appear only on `/tools` under "Just for fun". Use
-`INDEXED_TOOLS` (27) for public counts and listings, `TOOLS` (30) for routing. This was done for
-the AdSense "low value content" review.
+`guides.ts`) get a `noindex, follow` robots meta via `pageMetadata({ noindex })` and are left out of
+the sitemap. The three tools are also left out of the homepage grid and appear only on the English
+`/tools` under "Just for fun"; the guide is still listed on `/blog` (the hub does not filter
+`noindex`) but is skipped by the guide pages' "Related guides". Use
+`INDEXED_TOOLS` (28) for public counts and listings, `TOOLS` (31) for routing. This was done for
+the AdSense "low value content" review. Two more guides (`what-causes-dead-pixels`,
+`how-to-clean-your-monitor-safely`) carry `noindex` for low search impressions and behave the same.
 
 **Merged guides forward to their keeper.** A guide with `mergedInto` (always with `noindex`) keeps
 its URL but renders only a meta-refresh and a link to the target, with the target as canonical —
@@ -51,16 +55,21 @@ to do next" list to the tests where a result leads to a decision, and `TABLES` a
 are that guide's rows: change both together. The Dead Pixel Test page also renders
 `PixelVerdict`, a small form that turns what the visitor found into advice; it gives no
 pass/fail number on purpose. A tool with `guide` set shows that single link and drops the generic
-"Related guides" grid. Its thresholds must match the guide it links. All 27 indexed tools have one. No own photos exist anywhere on the site yet.
+"Related guides" grid. Its thresholds must match the guide it links. All 28 indexed tools have a
+results section; 27 of them set `guide`. The same pass/fail (or `terms`) text also rides into the
+full-screen test as the **"What to look for"** panel: `ToolPage` passes it to `ToolRunner` as
+`lookFor`, which provides `LookForContext`, and `FullscreenStage` adds the toggle to its overlay
+for any test that has it. No own photos exist anywhere on the site yet.
 
 **Seven languages.** English lives at the root; Spanish, German, French, Portuguese (Brazil),
 Japanese and Korean live under `/es/`, `/de/`, `/fr/`, `/pt/`, `/ja/`, `/ko/` with the same slugs
-(`/es/dead-pixel-test/`). Only the homepage, `/tools` and the 27 indexed tests are translated:
+(`/es/dead-pixel-test/`). Only the homepage, `/tools` and the 28 indexed tests are translated:
 guides, legal pages and the novelty pages are English-only, and a translated page links to the
 English URL for those, tagged "(in English)". See "Translations" under Architecture.
 
-**Homepage order:** hero, `HomeAnswers` (four written "defect or normal?" sections), the tool grid,
-then `HomeSections`. `/blog` is grouped by problem via `GUIDE_TOPICS` in `guides.ts`; a new guide
+**Homepage order:** hero (with the live `ScreenReadout`), `QuickColors`, `HomeAnswers` (the four
+"defect or normal?" questions as cards), the tool grid, `HomeAnswersInFull` (the same four written
+out), then `HomeSections`. `/blog` is grouped by problem via `GUIDE_TOPICS` in `guides.ts`; a new guide
 must be added to a topic or it lands in "More guides".
 
 ## Stack
@@ -78,8 +87,9 @@ must be added to a topic or it lands in "More guides".
 
 ```bash
 npm run dev     # dev server :3000
-npm run build   # static export -> ./out (typechecks, but does NOT run ESLint in Next 16)
+npm run build   # static export -> ./out, then postbuild writes out/sw.js (typechecks, but does NOT run ESLint in Next 16)
 npm run lint    # ESLint — run this too; CI does
+npm run i18n:check   # translations vs the English source (not in CI; needs Node 22.18+)
 npx serve out   # preview the built export
 ```
 
@@ -109,6 +119,9 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     pranks: `FakeScreenTool`, `BootScreenTool`), so keep "tap to exit" copy to those. The wake lock
     is an effect on `active && keepAwake`, so `keepAwake` may change mid-session (screensaver
     toggle). `renderFrame(index, active)` gets `active` so a frame can tell preview from full-screen.
+    `notice` shows a setup reminder under Start and for the first seconds of the test, then fades
+    it out (`.stage-notice` in globals.css) so it doesn't light the screen being judged (the
+    backlight bleed test uses it).
     The low-level fullscreen + Wake Lock calls (with vendor-prefix/iOS fallbacks) live in
     `src/lib/fullscreen.ts`. An iPhone has no Fullscreen API, so there the active stage is just a
     `fixed inset-0` layer: never size it with `h-screen` (100vh is taller than the visible area
@@ -122,9 +135,20 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     (dot + zone sweeps), `ScreenTearingTool`, `FakeScreenTool`, `BootScreenTool`, `ScreensaverTool`,
     `TouchTool` (uses `tapNavigation={false}` — press-and-hold shows the controls), `ScreenInfoTool`
     (no stage, an info panel), `ScreenCalcTool` (no stage, the size/PPI calculator), `ChecklistTool`
-    (no stage; per-device test lists with ticks kept in `localStorage` under `bst_checklist`; the
-    page passes it the localized test names through `ToolRunner`'s `tools` prop), `FrameSkipTool`, `WideGamutTool`, `PwmTool`, `HdrTool`. The measured
-    refresh rate is the shared `useRefreshRate` hook. The HDR test image
+    (no stage; per-device test lists, each test marked Pass or Fail, kept in `localStorage` under
+    `bst_checklist` as `{ [device]: { results, name, updated } }` and written from an effect on the
+    committed state; the old array-of-ticks format is dropped on load. "Copy report" gives plain
+    text, "Share link" puts the results in the URL fragment (`#d=…&n=…&on=…&r=slug:p,slug:f`), and
+    opening such a link shows a read-only `SharedReport` above the visitor's own list. The page
+    passes it the localized test names through `ToolRunner`'s `tools` prop), `FrameSkipTool`,
+    `FrameRateTool` (the Frame Rate Comparison: a pixel-art car in three lanes redrawn every 1st,
+    2nd and 4th refresh, counted in refreshes rather than wall time, drawn in device pixels with no
+    smoothing; the sprite is also copied into `generate-og-images.mjs`), `WideGamutTool`,
+    `PwmTool`, `HdrTool`. The measured refresh rate is the shared `useRefreshRate` hook;
+    `RefreshRateTool` adds its own frame-time graph and dropped-frame count (gaps over 1.5× the
+    median interval). `ScreenTearingTool`'s VRR flicker frames hold frames for 1–4 refreshes by not
+    drawing (no canvas change → no new frame sent), so with VRR engaged the refresh rate swings.
+    `TouchTool`'s Multi-touch frame shows each pointer as a numbered marker with coordinates. The HDR test image
     (`public/hdr/pq-brightness-steps.avif`, BT.2020/PQ) comes from
     `scripts/generate-hdr-test-image.mjs` (needs ffmpeg + libsvtav1); it patches the AVIF `colr`
     box because ffmpeg's muxer leaves primaries/transfer "unspecified". The prank's
@@ -143,8 +167,13 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     frame-by-frame for testing; `ScreensaverTool`'s `PipesView` falls back to the old 2D
     `usePipes` drawer when WebGL is unavailable.
     `ToolRunner` maps each slug → its component (with a solid-color cycler fallback).
+  - The Color Gradient test's "8-bit vs 10-bit" frame needs a half-float canvas: `CanvasStage`
+    `colorTypeFor` → `PatternCanvas` `colorType: "float16"` (keyed, because a canvas keeps the type
+    it was created with). It draws flat strips, not a gradient, so browser dithering can't hide the
+    steps, and says on screen when the browser only gave an 8-bit canvas.
   - Gamma stripes must sit on physical pixels: `gamma()` draws in backing-store pixels and runs
-    with `nativeResolution` (uncapped DPR). Other canvases cap DPR at 2.
+    with `nativeResolution` (uncapped DPR). So do `overscan` and `sharpness`. Other canvases cap
+    DPR at 2.
   - **Model selectable options (colors, speeds, patterns) as stage "frames"** (`frameCount` +
     `frameLabel`), so ←/→ keys, tap zones, and the overlay arrows all navigate them for free. A
     tool with `frameCount={1}` has dead arrows — that was the ghosting-speed bug.
@@ -158,7 +187,7 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   links are plain `<a>`. The language folders are static names, not a `[lang]` segment, because a
   second dynamic segment at the root would collide with `[tool]`.
 - **Per-tool page — `toolRoute(lang)` in `ToolPage.tsx`** with `dynamicParams = false`:
-  English generates all 30 `TOOLS`, the other languages the 27 `INDEXED_TOOLS`.
+  English generates all 31 `TOOLS`, the other languages the 28 `INDEXED_TOOLS`.
 - **Translations — `src/i18n/`.** English is the source: `tools.ts`, `toolResults.ts`,
   `en/site.json` (nav, footer, page templates, all homepage copy) and `en/client.json` (strings
   inside the interactive tests). Each language has seven JSON files of the same shape:
@@ -194,16 +223,32 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   - Blog routes (`/blog`, `/blog/[slug]`) read from `GUIDES` and are fully static.
 - **SEO is the product's growth engine.** Tool pages and guides must stay static. Helpers in
   `src/lib/seo.ts` (`pageMetadata`, `faqJsonLd`, `howToJsonLd`, `articleJsonLd`), plus
-  `sitemap.ts` / `robots.ts` (both `export const dynamic = "force-static"`). OG image is a single
-  static `public/og.png` (generated with `sharp`) — no runtime image generation under static export.
-- **Feedback** is a `mailto:` contact page (`src/app/feedback/page.tsx`), address from
+  `sitemap.ts` / `robots.ts` (both `export const dynamic = "force-static"`). OG images are static
+  files — no runtime image generation under static export: one per tool and per guide in
+  `public/og/{tools,guides}/<slug>.png`, with `public/og.png` as the fallback for every other page.
+  `scripts/generate-og-images.mjs` (uses `sharp`) writes them and the `public/previews/<slug>.png`
+  thumbnails `ToolCard` shows; re-run it after adding a tool or guide, and bump the tool/guide
+  counts it asserts near the top (31 tools, 50 guides) or it throws.
+- **PWA / offline.** `src/app/manifest.ts` (force-static) → `/manifest.webmanifest`, linked on every
+  page by Next; icons in `public/icons/` from `scripts/generate-pwa-icons.mjs` (paints out the
+  sparkle mark in `public/logo.png`'s corner). The service worker is **generated**:
+  `scripts/sw-template.js` → `out/sw.js` by `scripts/generate-sw.mjs`, run as npm's `postbuild`,
+  so **a bare `next build` produces no sw.js; always `npm run build`**. It precaches every
+  `/_next/static` file, the public images, `/offline.html`, and the homepage, `/tools` and test
+  pages of one language: `ServiceWorker.tsx` (inside `UiProvider`, production only) registers
+  `/sw.js?lang=<code>`, and a visit in another language adds that language's pages. Pages are
+  network-first, `/_next/static` cache-first; guides are cached only once opened. The cache name
+  is a hash of the precached files plus the worker code, and older caches are deleted on
+  activate. `InstallButton` (footer) appears only where the browser fires `beforeinstallprompt`.
+  Offline use is disclosed in `/privacy`.
+- **Feedback** is a `mailto:` contact page (`src/app/(en)/feedback/page.tsx`), address from
   `NEXT_PUBLIC_CONTACT_EMAIL` (centralized as `CONTACT_EMAIL` in `src/lib/seo.ts`). No form/storage.
-- **Static info pages:** `/about`, `/privacy`, `/terms` (`src/app/{about,privacy,terms}/page.tsx`),
+- **Static info pages:** `/about`, `/privacy`, `/terms` (`src/app/(en)/{about,privacy,terms}/page.tsx`),
   linked from the footer's "Company" column and the sitemap. Terms shows `LEGAL_UPDATED` and Privacy shows
-  `PRIVACY_UPDATED` (both in `seo.ts`). `/donate` (`src/app/donate/page.tsx`) is a static support page (Ko-fi / Buy Me a
+  `PRIVACY_UPDATED` (both in `seo.ts`). `/donate` (`src/app/(en)/donate/page.tsx`) is a static support page (Ko-fi / Buy Me a
   Coffee / Patreon links) — keep the donation + advertising sections of `/privacy` and `/terms` in
   sync with whichever platforms and ad networks actually load. `/tools` lists all tools; `/blog`
-  lists all guides.
+  lists all guides except the merged ones.
 - **Analytics:** `src/components/Analytics.tsx` loads **Google Analytics (GA4)** via `next/script`
   (`afterInteractive`) for **every visitor** — there is no cookie/consent banner. It renders only
   when a GA4 ID is present (`NEXT_PUBLIC_GA_ID`, else the hard-wired default). Because it's a client
@@ -212,8 +257,9 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
   flag were removed) — this is a deliberate call that trades GDPR/PECR consent for full traffic
   visibility; if you reintroduce a gate, wrap the scripts in `Analytics.tsx` on the stored choice.
   Keep `/privacy` in sync with whatever trackers actually load.
-- **Third-party tags:** Google AdSense (`<meta name="google-adsense-account">` via `siteMetadata()` in
-  `SiteShell.tsx`, the `adsbygoogle.js` script, and `public/ads.txt`) loads site-wide. The AdSense
+- **Third-party tags:** Google AdSense: the `<meta name="google-adsense-account">` tag (via
+  `siteMetadata()` in `SiteShell.tsx`) and `public/ads.txt` are site-wide; the `adsbygoogle.js`
+  script loads on English pages only, minus the noindexed ones (see the top of this file). The AdSense
   publisher ID (`ca-pub-7400069037778721`) and GA4 ID (`G-FC5ELM4BX8`) are hard-wired defaults in
   `SiteShell.tsx` / `Analytics.tsx` (IDs aren't secret); `NEXT_PUBLIC_GA_ID` only overrides GA if set.
 
@@ -251,7 +297,9 @@ still have lint errors — always run `npm run lint` before pushing (CI runs bot
     once) this is legitimate — use a scoped `// eslint-disable-next-line react-hooks/set-state-in-effect`
     with a justifying comment rather than reworking it.
 - CI (`.github/workflows/ci.yml`): install → lint → build (static export), then on `main`
-  upload `./out` and deploy to GitHub Pages (`upload-pages-artifact` + `deploy-pages`).
+  upload `./out` and deploy to GitHub Pages (`upload-pages-artifact` + `deploy-pages`), then ping
+  IndexNow (`scripts/indexnow.mjs`, never fails the deploy) with the sitemap URLs whose lastmod is
+  within the last 7 days.
 
 
  ## TODO:

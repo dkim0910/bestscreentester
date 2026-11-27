@@ -20,25 +20,25 @@ export const OPERATOR_BRAND = "Nelera";
 export const LEGAL_UPDATED = "July 29, 2026";
 // The Privacy Policy carries its own date: it changes whenever the trackers or ad
 // disclosures do, and bumping Terms along with it would misdate a page that didn't change.
-export const PRIVACY_UPDATED = "November 19, 2026";
+export const PRIVACY_UPDATED = "November 27, 2026";
 
 // Freshness date for the listing pages (/tools, /blog), which change whenever a tool
 // or guide is added. Sitemap `lastmod` is derived from these dates rather than from
 // build time: Bing discounts sitemaps whose lastmod is always "now", and the IndexNow
 // ping submits whatever is dated within the last week, so each must be a stable value
 // that only moves when its own page does. Tools carry their own `updatedAt` (tools.ts).
-export const SITE_UPDATED = "2026-11-21";
+export const SITE_UPDATED = "2026-11-27";
 
 // Last change to each static page's visible content (meta-description-only edits don't
 // count). The homepage is here too: its long-form copy changes independently of the
 // tool and guide lists. Privacy must match PRIVACY_UPDATED and Terms LEGAL_UPDATED, the
 // dates those pages display.
 export const PAGE_UPDATED = {
-  home: "2026-11-21",
+  home: "2026-11-27",
   about: "2026-11-19",
   donate: "2026-11-19",
   feedback: "2026-11-19",
-  privacy: "2026-11-19",
+  privacy: "2026-11-27",
   terms: "2026-07-29",
 } as const;
 

@@ -294,8 +294,8 @@
   "color-gradient-test": {
     "name": "Dégradés de couleurs",
     "title": "Test des dégradés de couleurs",
-    "tagline": "Un spectre et des dégradés RGB continus pour juger les transitions de couleurs et le banding.",
-    "description": "Test gratuit des dégradés de couleurs. Affichez des dégradés continus rouge, vert, bleu et spectre complet pour vérifier transitions, banding et postérisation.",
+    "tagline": "Un spectre et des dégradés RGB continus, plus une rampe 8 bits vs 10 bits, pour juger les transitions de couleurs et le banding.",
+    "description": "Test gratuit des dégradés de couleurs. Dégradés rouge, vert, bleu et spectre, plus une rampe 8 bits vs 10 bits, révèlent transitions, banding et postérisation.",
     "keywords": [
       "test dégradé couleur",
       "test banding écran",
@@ -305,9 +305,10 @@
     ],
     "howTo": [
       "Cliquez sur Démarrer pour afficher le dégradé en plein écran.",
-      "Utilisez ← / → pour faire défiler les dégradés spectre, rouge, vert, bleu, blanc, gris et noir.",
+      "Utilisez ← / → pour faire défiler les dégradés spectre, rouge, vert, bleu, blanc, gris et noir, puis la rampe 8 bits vs 10 bits.",
       "Vérifiez que les transitions sont continues et que les couleurs paraissent saturées et régulières.",
       "Les dégradés blanc et gris sont ceux où le banding de luminance dans les ombres se repère le mieux.",
+      "Sur 8 bits vs 10 bits, la moitié haute présente des bandes exprès. Si la moitié basse paraît plus continue, plus de 256 niveaux par couleur parviennent à votre écran.",
       "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
@@ -338,6 +339,10 @@
       {
         "q": "Je vois un grain fin qui scintille dans les dégradés sombres. Est-ce un défaut ?",
         "a": "Non. C'est du tramage (dithering) ou du FRC : la dalle alterne entre deux nuances pour en produire une qu'elle ne peut pas afficher directement. C'est normal sur beaucoup d'écrans, et cela disparaît en général à une distance de vision normale."
+      },
+      {
+        "q": "Un navigateur peut-il afficher un dégradé 10 bits ?",
+        "a": "Parfois. La mire 8 bits vs 10 bits dessine sa moitié basse sur un canvas haute précision quand le navigateur en dispose, et l'indique à l'écran dans le cas contraire. Ensuite, le système d'exploitation, le pilote graphique et la dalle peuvent chacun conserver les niveaux supplémentaires, les tramer (dithering) ou les arrondir. Une moitié basse plus continue signifie que plus de 8 bits, ou du tramage, parviennent à l'écran ; deux moitiés identiques signifient qu'un maillon de la chaîne s'arrête à 8 bits."
       }
     ],
     "tips": [
@@ -348,8 +353,8 @@
   "brightness-uniformity-test": {
     "name": "Uniformité de luminosité",
     "title": "Test d'uniformité de la luminosité",
-    "tagline": "Un aplat gris à 50 %, une grille 9 zones et un gris défilant pour repérer un rétroéclairage irrégulier.",
-    "description": "Test d'uniformité de luminosité gratuit : gris à 50 %, grille 9 zones et gris défilant révèlent rétroéclairage inégal, clouding et dirty screen effect.",
+    "tagline": "Des aplats gris de 5 % à 50 %, une grille 9 zones et un gris défilant pour repérer un rétroéclairage irrégulier et le banding.",
+    "description": "Test d'uniformité de luminosité gratuit : gris de 5 % à 50 %, grille 9 zones et gris défilant révèlent clouding, banding OLED et dirty screen effect.",
     "keywords": [
       "uniformité luminosité écran",
       "clouding écran",
@@ -358,15 +363,16 @@
     ],
     "howTo": [
       "Cliquez sur Démarrer et affichez l'aplat gris en plein écran.",
-      "Utilisez ← / → pour passer à la grille 9 zones et au gris défilant.",
+      "Utilisez ← / → pour passer à la grille 9 zones, au gris défilant et aux gris sombres.",
       "Comparez la luminosité du centre à celle de chaque coin.",
       "Sur Gris défilant, suivez des yeux les bandes qui dérivent : les taches ou les rayures qui restent en place sont le dirty screen effect de la dalle.",
+      "Les gris de 5 % à 20 % montrent ce qu'un gris moyen cache : bandes verticales et taches teintées sur un OLED, clouding sur un LCD. Regardez-les dans une pièce sombre.",
       "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
         "q": "Quel écart est acceptable ?",
-        "a": "Les bons moniteurs restent dans une variation de luminosité d'environ 10 % sur toute la dalle. Des écarts plus importants se traduisent par des coins visiblement plus sombres ou des zones plus claires."
+        "a": "Il n'existe pas de norme unique. Sur un bon moniteur, l'essentiel de l'écran reste à environ 10 % de la luminosité du centre, et les coins descendent souvent plus bas : des tests ont jugé bonnes dans l'ensemble des dalles dont un coin était environ 30 % plus sombre. Ce qui compte, c'est un écart que vous remarquez en usage normal, comme des coins nettement plus sombres ou une zone plus claire."
       },
       {
         "q": "Qu'est-ce que le dirty screen effect ?",
@@ -382,7 +388,7 @@
       },
       {
         "q": "Les écrans OLED ont-ils des problèmes d'uniformité ?",
-        "a": "Ils n'ont pas de rétroéclairage : ils ne présentent donc ni clouding ni fuites de lumière. Ils peuvent tout de même montrer de légères bandes verticales ou une petite différence de teinte sur un gris très sombre, ainsi que des zones usées après un long usage. De légères bandes sur un aplat gris sombre sont courantes sur les grandes dalles OLED et VA."
+        "a": "Ils n'ont pas de rétroéclairage : ils ne présentent donc ni clouding ni fuites de lumière. Ils peuvent tout de même montrer de légères bandes verticales ou une petite différence de teinte sur un gris très sombre, ainsi que des zones usées après un long usage. De légères bandes sur un aplat gris sombre sont courantes sur les grands téléviseurs OLED."
       },
       {
         "q": "Pourquoi les coins de l'écran de mon portable sont-ils plus sombres ?",
@@ -391,18 +397,22 @@
       {
         "q": "Comment photographier fidèlement une luminosité inégale ?",
         "a": "Reculez, placez-vous bien en face et verrouillez l'exposition sur le centre de l'écran. Désactivez le mode nuit de l'appareil photo, qui exagère les petites différences. Servez-vous de la photo comme d'une trace, et jugez la gravité à l'œil nu."
+      },
+      {
+        "q": "Pourquoi tester aussi sur du gris sombre, et pas seulement sur du gris à 50 % ?",
+        "a": "Les défauts à peine visibles sur un gris moyen ressortent près du noir. Un OLED peut montrer des bandes verticales ou une teinte rosée à 5–10 % de gris, et un LCD révèle le clouding sous forme de taches où le rétroéclairage est plus lumineux. Un peu d'irrégularité à 5 % de gris est normal sur toutes les dalles : cela ne compte que si vous la remarquez dans les scènes sombres, à la luminosité que vous utilisez."
       }
     ],
     "tips": [
       "Comparez le centre à chaque coin, un à la fois, plutôt que de balayer tout l'aplat du regard.",
-      "Prenez une photo avec une exposition homogène — vos yeux s'adaptent automatiquement et masquent des écarts bien réels."
+      "Si vous prenez une photo, verrouillez l'exposition : vos yeux s'adaptent aux variations lentes et en masquent une partie, mais un téléphone en automatique exagère les bandes légères, alors confirmez à l'œil."
     ]
   },
   "refresh-rate-test": {
     "name": "Fréquence de rafraîchissement",
     "title": "Test de fréquence de rafraîchissement",
-    "tagline": "Mesurez votre fréquence de rafraîchissement réelle et observez un repère en mouvement.",
-    "description": "Test de fréquence de rafraîchissement gratuit. Mesurez la fréquence réelle de votre écran en Hz et observez un objet mobile pour vérifier la fluidité.",
+    "tagline": "Mesurez votre fréquence de rafraîchissement réelle et repérez les images perdues.",
+    "description": "Test de fréquence de rafraîchissement gratuit. Mesurez la fréquence réelle de votre écran en Hz, suivez les durées d'image et comptez les images perdues.",
     "keywords": [
       "test fréquence de rafraîchissement",
       "test hz écran",
@@ -414,6 +424,7 @@
       "Cliquez sur Démarrer — la fréquence de rafraîchissement mesurée s'affiche en une ou deux secondes.",
       "Observez le carré en mouvement pour vérifier que le déplacement est fluide.",
       "Comparez la mesure à la fréquence annoncée pour votre dalle ; la ligne du dessous indique la durée d'une image et la fréquence standard la plus proche.",
+      "Observez le graphique des durées d'image : chaque barre rouge est un rafraîchissement manqué par le navigateur, et le compteur les additionne. Réinitialiser remet le compte à zéro.",
       "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
@@ -444,6 +455,10 @@
       {
         "q": "Quel écran est mesuré quand j'ai deux moniteurs ?",
         "a": "Celui sur lequel se trouve la fenêtre du navigateur. Faites glisser la fenêtre sur l'autre moniteur et la mesure suit après un instant. Quand les moniteurs tournent à des fréquences différentes, certains navigateurs se calent sur l'un d'eux : testez donc chaque moniteur avec la fenêtre entièrement dessus."
+      },
+      {
+        "q": "Qu'est-ce qui compte comme une image perdue ici ?",
+        "a": "Un rafraîchissement que le navigateur n'a pas dessiné à temps, mesuré d'après le minutage des images d'animation. Des images se perdent quand le navigateur, la carte graphique ou une tâche en arrière-plan n'arrive pas à suivre, et c'est aussi ce qui fait saccader les jeux. Le test ne voit pas les images que le moniteur saute lui-même : c'est le Test de saut d'images qui le vérifie."
       }
     ],
     "tips": [

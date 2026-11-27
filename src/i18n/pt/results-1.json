@@ -255,7 +255,7 @@
       "Banding ou desvio de cor em apenas uma das rampas de vermelho, verde e azul: é a calibração daquele canal, e não o painel como um todo.",
       "Um matiz engolindo um trecho largo do espectro."
     ],
-    "note": "Estes gradientes usam cores sRGB padrão, então mostram banding e transições irregulares, não a amplitude da gama de cores da sua tela. As rampas de branco e de cinza isolam o banding de brilho nas sombras sem a cor atrapalhar.",
+    "note": "Estes gradientes usam cores sRGB padrão, então mostram banding e transições irregulares, não a amplitude da gama de cores da sua tela. As rampas de branco e de cinza isolam o banding de brilho nas sombras sem a cor atrapalhar. Em 8 bits x 10 bits, faixas na metade de cima são esperadas. Duas metades idênticas indicam uma etapa de 8 bits em algum ponto entre o navegador e o painel, o que é normal na maioria das configurações; uma metade de baixo mais suave significa que mais de 8 bits, ou dithering, estão passando.",
     "next": [
       "Desligue os modos noturnos, os filtros de cor e os perfis de cor personalizados e recarregue a página.",
       "Se só uma das rampas (vermelha, verde ou azul) tem banding, restaure para o padrão a predefinição de cor e os ajustes de ganho RGB do monitor.",
@@ -268,14 +268,16 @@
     "howToHeading": "Como checar a uniformidade de brilho",
     "faqHeading": "Perguntas sobre uniformidade",
     "pass": [
-      "O cinza parece um tom só, do centro a cada canto. Bons monitores ficam dentro de cerca de 10% de variação de brilho ao longo do painel.",
+      "O cinza parece um tom só, do centro a cada canto. Em um bom monitor, a maior parte da tela fica dentro de cerca de 10% do brilho do centro; os cantos muitas vezes caem mais.",
       "Cantos um pouco mais escuros que o centro: alguma queda de brilho é normal em todo LCD.",
-      "Em Cinza em movimento, as faixas deslizam pela tela e nada fica para trás."
+      "Em Cinza em movimento, as faixas deslizam pela tela e nada fica para trás.",
+      "Nos cinzas de 5–20%, um campo uniforme, talvez um pouco mais escuro perto das bordas."
     ],
     "fail": [
       "Uma mancha nitidamente mais escura ou mais clara, com borda visível.",
       "Manchas nubladas no meio da tela: clouding, muitas vezes causado por pressão sobre o painel.",
-      "Em Cinza em movimento, manchas ou listras verticais que ficam paradas enquanto as faixas passam por elas: o efeito de tela suja (dirty screen effect)."
+      "Em Cinza em movimento, manchas ou listras verticais que ficam paradas enquanto as faixas passam por elas: o efeito de tela suja (dirty screen effect).",
+      "Nos cinzas escuros, faixas verticais, uma mancha com outro tom (muitas vezes rosada em um OLED) ou manchas nubladas que não aparecem no campo 50%. Avalie no brilho que você usa: elas importam se aparecem em cenas escuras."
     ],
     "note": "Compare o centro com um canto de cada vez. Seus olhos se adaptam a mudanças graduais ao longo de um campo e escondem diferenças reais, por isso uma foto com exposição uniforme pode mostrar mais do que uma olhada rápida. Em uma TV, avalie do lugar onde você realmente se senta.",
     "next": [
@@ -299,7 +301,7 @@
           ],
           [
             "Banding vertical leve em um campo cinza escuro",
-            "Comum em painéis VA e OLED grandes",
+            "Comum em TVs grandes, principalmente OLED",
             "Dá para ver em uma tomada panorâmica de um campo de futebol"
           ],
           [
@@ -310,7 +312,7 @@
         ]
       }
     ],
-    "guideLabel": "Como testar pixels mortos e uniformidade em uma TV nova"
+    "guideLabel": "Uniformidade da tela e o efeito de tela suja"
   },
   "refresh-rate-test": {
     "heading": "A leitura está certa para a sua tela?",
@@ -318,11 +320,13 @@
     "faqHeading": "Perguntas sobre taxa de atualização",
     "pass": [
       "Uma leitura a cerca de 1 Hz do valor nominal do painel. Muitas telas rodam uma fração fora do nominal, como 59,94 Hz em vez de 60.",
-      "Um número estável e uma caixa que se move sem engasgos."
+      "Um número estável e uma caixa que se move sem engasgos.",
+      "Nenhum quadro perdido, ou alguns enquanto a página se estabiliza."
     ],
     "fail": [
       "60 Hz em uma tela de 120, 144 ou 240 Hz. É problema de configuração ou de cabo, não de painel: selecione a taxa máxima nas configurações de vídeo e confira o cabo e a porta.",
-      "Uma leitura que cai ou fica oscilando. Feche outras abas e aplicativos e meça de novo antes de culpar a tela."
+      "Uma leitura que cai ou fica oscilando. Feche outras abas e aplicativos e meça de novo antes de culpar a tela.",
+      "Quadros perdidos que continuam aparecendo. Feche outras abas e aplicativos, ligue o notebook na tomada e confira se a aceleração de hardware está ativada nas configurações do navegador."
     ],
     "note": "Notebooks e celulares podem reduzir a taxa de atualização para economizar energia, então repita o teste na tomada ou com a economia de bateria desligada. Se você fez overclock em um monitor, o número certo aqui não prova que ele está exibindo todos os quadros: quem verifica isso é o Teste de Frame Skipping.",
     "next": [
@@ -525,11 +529,13 @@
     "faqHeading": "Perguntas sobre contraste",
     "pass": [
       "Os quadrados pretos continuam bem pretos ao lado dos brancos claros.",
-      "As bordas entre os quadrados são nítidas em todas as densidades, até 32 × 32."
+      "As bordas entre os quadrados são nítidas em todas as densidades, até 32 × 32.",
+      "Pretos esmagados: as caixas aparecem a partir de cerca de 2–3%. Brancos estourados: elas se destacam do branco até cerca de 97–98%."
     ],
     "fail": [
       "Quadrados pretos que parecem cinzentos ou lavados: contraste baixo ou nível de preto elevado.",
-      "Bordas borradas ou coloridas entre os quadrados. Isso aponta para o redimensionamento ou a configuração de nitidez, não para o contraste."
+      "Bordas borradas ou coloridas entre os quadrados. Isso aponta para o redimensionamento ou a configuração de nitidez, não para o contraste.",
+      "As caixas mais baixas se fundem ao preto, ou as mais altas ao branco: detalhes nas sombras ou nos realces estão se perdendo, em geral pela configuração de brilho ou de contraste, ou por um descompasso com a faixa RGB limitada."
     ],
     "note": "O tipo de painel define o teto. O OLED mantém os quadrados pretos totalmente escuros porque os pixels se apagam. Entre os LCDs, os painéis VA costumam atingir de 2.500:1 a 5.000:1 e os IPS, cerca de 1.000:1, então os pretos do IPS parecem visivelmente mais cinzentos em um ambiente escuro. Esta é uma checagem visual: uma taxa de contraste real exige um medidor de luz.",
     "next": [

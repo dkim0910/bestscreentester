@@ -18,11 +18,14 @@ import PwmTool from "./PwmTool";
 import HdrTool from "./HdrTool";
 import ChecklistTool from "./ChecklistTool";
 import ScreenCalcTool from "./ScreenCalcTool";
+import FrameRateTool from "./FrameRateTool";
+import { LookForContext, type LookForText } from "./LookFor";
 import {
   smoothGreyscale,
   steppedGreyscale,
   colorGradient,
   COLOR_GRADIENT_LABELS,
+  BIT_DEPTH_FRAME,
   grayField,
   UNIFORMITY_LABELS,
   overscan,
@@ -43,7 +46,27 @@ import type { ToolDef } from "@/lib/tools";
 /** The indexed tests in the page's language, for tools that list other tests. */
 export type ToolSummary = Pick<ToolDef, "slug" | "name" | "tagline">;
 
-export default function ToolRunner({ tool, tools = [] }: { tool: ToolDef; tools?: ToolSummary[] }) {
+/**
+ * `lookFor` is the page's normal-vs-fault text, offered inside the full-screen test
+ * behind the "What to look for" button.
+ */
+export default function ToolRunner({
+  tool,
+  tools = [],
+  lookFor = null,
+}: {
+  tool: ToolDef;
+  tools?: ToolSummary[];
+  lookFor?: LookForText | null;
+}) {
+  return (
+    <LookForContext.Provider value={lookFor}>
+      <Tool tool={tool} tools={tools} />
+    </LookForContext.Provider>
+  );
+}
+
+function Tool({ tool, tools }: { tool: ToolDef; tools: ToolSummary[] }) {
   switch (tool.slug) {
     case "dead-pixel-test":
       return <DeadPixelTool tool={tool} />;
@@ -65,6 +88,7 @@ export default function ToolRunner({ tool, tools = [] }: { tool: ToolDef; tools?
             { name: "Black", css: "#000000" },
             { name: "Near-black", css: "#050505" },
           ]}
+          notice="Room lights off and brightness at maximum. Give your eyes a minute to adjust."
         />
       );
 
@@ -78,7 +102,14 @@ export default function ToolRunner({ tool, tools = [] }: { tool: ToolDef; tools?
       );
 
     case "color-gradient-test":
-      return <CanvasStage tool={tool} labels={COLOR_GRADIENT_LABELS} draw={colorGradient} />;
+      return (
+        <CanvasStage
+          tool={tool}
+          labels={COLOR_GRADIENT_LABELS}
+          draw={colorGradient}
+          colorTypeFor={(frame) => (frame === BIT_DEPTH_FRAME ? "float16" : undefined)}
+        />
+      );
 
     case "brightness-uniformity-test":
       // Animated only for the panning DSE frame; the other frames are static fills.
@@ -137,6 +168,9 @@ export default function ToolRunner({ tool, tools = [] }: { tool: ToolDef; tools?
 
     case "frame-skipping-test":
       return <FrameSkipTool tool={tool} />;
+
+    case "frame-rate-comparison":
+      return <FrameRateTool tool={tool} />;
 
     case "wide-color-gamut-test":
       return <WideGamutTool tool={tool} />;

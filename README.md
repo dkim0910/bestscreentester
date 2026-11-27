@@ -1,14 +1,15 @@
 # BestScreenTester
 
-**20** free, browser-based screen tests — dead pixels, color, backlight bleed, refresh rate,
+**30** free, browser-based screen tests and tools — dead pixels, color, backlight bleed, refresh rate,
 ghosting, blooming, plus fun tools (fake broken screen, boot screen simulator, screensaver) — and
-**37** guides.
+**44** guides. The tests are published in seven languages (English, Spanish, German, French,
+Portuguese, Japanese, Korean); guides are English-only.
 
 **Fully static. No database, no accounts, no backend.** Every screen test runs 100% in your
 browser (Fullscreen API, Wake Lock, Canvas), and all content is prerendered at build time.
 
-The site is ad-supported: Google AdSense and Google Analytics (GA4) load for every visitor, with
-no consent banner. See `/privacy` for what that means and CLAUDE.md for why.
+The site is ad-supported: Google Analytics (GA4) loads for every visitor and the Google AdSense
+script on the English pages (not the translated or noindexed ones), with no consent banner. See `/privacy` for what that means and CLAUDE.md for why.
 
 ## Stack
 
@@ -43,12 +44,15 @@ npm run build && npx serve out
 - `src/lib/guides.ts` — all blog/guide content (the `GUIDES` array). Add or edit guides here.
 - `src/components/pages/ToolPage.tsx` (routed from `src/app/(en)/[tool]/` and `src/app/(intl)/<lang>/[tool]/`) — statically generated page per tool, with how-to, FAQ, related
   tools, and related guides.
-- `src/app/blog/` — guide index and individual guide pages (static).
+- `src/app/(en)/blog/` — guide index and individual guide pages (static).
+- `src/i18n/` — translations: English is the source, with one folder of JSON per other language
+  (`es`, `de`, `fr`, `pt`, `ja`, `ko`), served under `/<lang>/`. See CLAUDE.md.
 - `src/lib/seo.ts` — shared metadata/JSON-LD helpers plus `SITE_NAME`, `CONTACT_EMAIL`, and
-  `LEGAL_UPDATED` (the "last updated" date shown on the legal pages).
+  `LEGAL_UPDATED` / `PRIVACY_UPDATED` (the "last updated" dates shown on Terms and Privacy).
 - Standalone pages: `/tools`, `/blog`, `/about`, `/privacy`, `/terms`, `/donate` (Ko-fi, Buy Me a
   Coffee, Patreon), `/feedback` (a `mailto:` link — there is no form or storage).
-- `public/og.png` — static OpenGraph image; `public/CNAME` + `public/.nojekyll` for GitHub Pages;
+- `public/og.png` — default static OpenGraph image (tools and guides have their own under
+  `public/og/`, from `scripts/generate-og-images.mjs`); `public/CNAME` + `public/.nojekyll` for GitHub Pages;
   `public/ads.txt` for AdSense.
 
 ## Adding content
@@ -66,6 +70,7 @@ npm run build && npx serve out
 | `npm run dev` | Start the dev server on :3000 |
 | `npm run build` | Static export → `./out` (typechecks, but does **not** run ESLint) |
 | `npm run lint` | ESLint — run it separately; CI does |
+| `npm run i18n:check` | Compare every translation with the English source (not in CI) |
 | ~~`npm start`~~ | **Doesn't work.** `next start` errors on `output: "export"` — use `npx serve out` |
 
 `next build` no longer runs ESLint in Next 16, so a green build can still have lint errors. Always

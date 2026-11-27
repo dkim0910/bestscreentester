@@ -24,6 +24,13 @@ interface PatternCanvasProps {
    * at a capped ratio a 3x phone stretches the canvas 1.5x and blurs them.
    */
   nativeResolution?: boolean;
+  /**
+   * Ask for a half-float backing store ("float16") so colors between the 256 8-bit
+   * levels survive. Browsers without it silently give an 8-bit canvas; read
+   * `ctx.getContextAttributes().colorType` to see which one you got. Fixed for the life
+   * of the canvas element, so give the PatternCanvas a different key when it changes.
+   */
+  colorType?: "float16";
 }
 
 export default function PatternCanvas({
@@ -32,6 +39,7 @@ export default function PatternCanvas({
   animate = true,
   trackPointer = false,
   nativeResolution = false,
+  colorType,
 }: PatternCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
@@ -49,7 +57,8 @@ export default function PatternCanvas({
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    // `colorType` is newer than TypeScript's DOM types, hence the cast.
+    const ctx = canvas.getContext("2d", (colorType ? { colorType } : {}) as CanvasRenderingContext2DSettings);
     if (!ctx) return;
 
     if (!startRef.current) startRef.current = performance.now();
@@ -107,7 +116,7 @@ export default function PatternCanvas({
       if (raf) cancelAnimationFrame(raf);
       if (trackPointer) window.removeEventListener("pointermove", onPointer);
     };
-  }, [animate, frame, trackPointer, nativeResolution]);
+  }, [animate, frame, trackPointer, nativeResolution, colorType]);
 
   return <canvas ref={canvasRef} className="h-full w-full" />;
 }

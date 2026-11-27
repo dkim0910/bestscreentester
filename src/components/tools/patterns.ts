@@ -20,7 +20,8 @@ export function steppedGreyscale({ ctx, width, height }: DrawArgs, steps = 32) {
 
 const HUE_STOPS = ["#ff0000", "#ffff00", "#00ff00", "#00ffff", "#0000ff", "#ff00ff", "#ff0000"];
 
-export function colorGradient({ ctx, width, height, frame }: DrawArgs) {
+export function colorGradient(args: DrawArgs) {
+  const { ctx, width, height, frame } = args;
   const g = ctx.createLinearGradient(0, 0, width, 0);
   if (frame === 0) {
     HUE_STOPS.forEach((c, i) => g.addColorStop(i / (HUE_STOPS.length - 1), c));
@@ -36,20 +37,88 @@ export function colorGradient({ ctx, width, height, frame }: DrawArgs) {
     // Gray: narrow mid-gray band to expose banding in the shadows-to-midtones.
     g.addColorStop(0, "#202020");
     g.addColorStop(1, "#d0d0d0");
-  } else {
+  } else if (frame === 6) {
     // Black: white → black ramp, ending in pure black.
     g.addColorStop(0, "#ffffff");
     g.addColorStop(1, "#000000");
+  } else {
+    bitDepth(args);
+    return;
   }
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, width, height);
 }
 
-export const COLOR_GRADIENT_LABELS = ["Spectrum", "Red", "Green", "Blue", "White", "Gray", "Black"];
+export const COLOR_GRADIENT_LABELS = ["Spectrum", "Red", "Green", "Blue", "White", "Gray", "Black", "8-bit vs 10-bit"];
+/** The bit-depth frame needs a half-float canvas to hold its in-between levels. */
+export const BIT_DEPTH_FRAME = 7;
 
-export const UNIFORMITY_LABELS = ["Gray field", "9-zone grid", "Panning gray (DSE)"];
+const COLOR_FN = typeof CSS !== "undefined" && CSS.supports?.("color", "color(srgb 0 0 0)");
+
+/**
+ * 8-bit vs 10-bit: the same narrow grey range (25% to 50%) drawn twice, as flat strips.
+ * The top half uses the 65 levels an 8-bit signal has in that range, so it bands by
+ * design. The bottom half uses the 257 levels a 10-bit signal has. Solid strips rather
+ * than a canvas gradient, because a browser may dither a gradient and hide the steps.
+ *
+ * In-between levels only survive on a half-float canvas (`colorType: "float16"`); on an
+ * ordinary 8-bit canvas they round back to the same 65 levels, and the frame says so.
+ * Past the canvas, the OS, graphics driver and panel each either keep the extra levels,
+ * dither them, or round them away, so a smoother bottom half means one of the first two.
+ */
+function bitDepth({ ctx, width, height, tr }: DrawArgs) {
+  const attrs = ctx.getContextAttributes?.() as { colorType?: string } | undefined;
+  const float = attrs?.colorType === "float16" && COLOR_FN;
+  const half = height / 2;
+  const ramp = (levels: number, y: number) => {
+    const from = Math.round(0.25 * (levels - 1));
+    const to = Math.round(0.5 * (levels - 1));
+    const n = to - from + 1;
+    const w = width / n;
+    for (let i = 0; i < n; i++) {
+      const v = (from + i) / (levels - 1);
+      ctx.fillStyle = COLOR_FN ? `color(srgb ${v} ${v} ${v})` : `rgb(${Math.round(v * 255)},${Math.round(v * 255)},${Math.round(v * 255)})`;
+      // Whole CSS pixels so neighbouring strips never blend into an extra level.
+      const x0 = Math.round(i * w);
+      ctx.fillRect(x0, y, Math.round((i + 1) * w) - x0, half);
+    }
+  };
+  ramp(256, 0);
+  ramp(1024, half);
+  const fs = Math.max(12, Math.min(width, height) * 0.026);
+  label(ctx, tr("8-bit: 65 levels"), width / 2, half * 0.22, fs);
+  label(ctx, tr("10-bit: 257 levels"), width / 2, half + half * 0.22, fs);
+  label(
+    ctx,
+    float
+      ? tr("This browser draws in high precision: the lower half can be smoother")
+      : tr("This browser draws in 8 bits, so both halves look the same here"),
+    width / 2,
+    half + half * 0.5,
+    fs * 0.85,
+  );
+}
+
+export const UNIFORMITY_LABELS = [
+  "Gray field",
+  "9-zone grid",
+  "Panning gray (DSE)",
+  "5% gray",
+  "10% gray",
+  "15% gray",
+  "20% gray",
+];
+// Signal levels of the dark frames (5–20% of 255). Dark grays are where OLED banding,
+// tinted patches and LCD clouding show: a 50% field is too bright to reveal them.
+const DARK_GRAYS = [13, 26, 38, 51];
 
 export function grayField({ ctx, width, height, frame, t }: DrawArgs) {
+  if (frame >= 3) {
+    const v = DARK_GRAYS[frame - 3] ?? DARK_GRAYS[0];
+    ctx.fillStyle = `rgb(${v},${v},${v})`;
+    ctx.fillRect(0, 0, width, height);
+    return;
+  }
   if (frame === 2) {
     // Dirty screen effect: blotches and vertical bands are stuck to the panel, so they
     // only become obvious when the eye follows something moving across them — as when a
@@ -111,8 +180,42 @@ export function burnIn({ ctx, width, height, frame }: DrawArgs) {
 }
 
 // ----- Contrast (checkerboard at increasing density) -----
-export const CONTRAST_LABELS = ["4 × 4", "8 × 8", "16 × 16", "32 × 32"];
+export const CONTRAST_LABELS = ["4 × 4", "8 × 8", "16 × 16", "32 × 32", "Black crush 1–10%", "White clipping 90–99%"];
+
+/**
+ * Ten boxes a percent apart on a pure black or pure white field: 1–10% on black finds
+ * where shadows merge into black (crush), 90–99% on white where highlights merge into
+ * white (clipping). Percent of the 0–255 signal.
+ */
+function levelBoxes(ctx: CanvasRenderingContext2D, width: number, height: number, white: boolean) {
+  const bg = white ? 255 : 0;
+  ctx.fillStyle = `rgb(${bg},${bg},${bg})`;
+  ctx.fillRect(0, 0, width, height);
+  const pcts = white ? [90, 91, 92, 93, 94, 95, 96, 97, 98, 99] : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const s = Math.min(width / 6.5, height / 3.4);
+  const gap = s * 0.25;
+  const x0 = (width - (5 * s + 4 * gap)) / 2;
+  const y0 = (height - (2 * s + gap + s * 0.4)) / 2;
+  const fs = Math.max(11, s * 0.16);
+  ctx.font = `600 ${fs}px system-ui, sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "top";
+  pcts.forEach((p, i) => {
+    const v = Math.round((p / 100) * 255);
+    const x = x0 + (i % 5) * (s + gap);
+    const y = y0 + Math.floor(i / 5) * (s + gap + s * 0.2);
+    ctx.fillStyle = `rgb(${v},${v},${v})`;
+    ctx.fillRect(Math.round(x), Math.round(y), Math.round(s), Math.round(s));
+    ctx.fillStyle = white ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.45)";
+    ctx.fillText(`${p}%`, x + s / 2, y + s + fs * 0.35);
+  });
+}
+
 export function contrast({ ctx, width, height, frame }: DrawArgs) {
+  if (frame >= 4) {
+    levelBoxes(ctx, width, height, frame === 5);
+    return;
+  }
   const cols = [4, 8, 16, 32][frame] ?? 8;
   const size = width / cols;
   const rows = Math.ceil(height / size);
@@ -205,9 +308,52 @@ function inDevicePixels(ctx: CanvasRenderingContext2D, fn: (W: number, H: number
 }
 
 // ----- Overscan, aspect ratio and geometry (TVs, projectors) -----
-export const OVERSCAN_LABELS = ["Overscan border", "Aspect ratio", "Geometry grid"];
+export const OVERSCAN_LABELS = ["Overscan border", "Aspect ratio", "Geometry grid", "Edge lines"];
+
+/**
+ * Edge lines for phones and tablets: a line on the outermost pixels of every edge, then
+ * more at 4, 8, 16 and 32 CSS px in. Where rounded corners or a notch cut the lines is
+ * where the display stops, and a screen protector's edge can be read against them.
+ */
+function edgeLines(ctx: CanvasRenderingContext2D, width: number, height: number, tr: DrawArgs["tr"]) {
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, width, height);
+  const insets = [0, 4, 8, 16, 32];
+  const colors = ["#ffffff", "#ef4444", "#f59e0b", "#22c55e", "#3b82f6"];
+  inDevicePixels(ctx, (W, H, k) => {
+    const lw = Math.max(1, Math.round(k)); // one CSS pixel, on whole device pixels
+    insets.forEach((inset, i) => {
+      const o = Math.round(inset * k);
+      ctx.fillStyle = colors[i];
+      ctx.fillRect(o, o, W - o * 2, lw);
+      ctx.fillRect(o, H - o - lw, W - o * 2, lw);
+      ctx.fillRect(o, o, lw, H - o * 2);
+      ctx.fillRect(W - o - lw, o, lw, H - o * 2);
+    });
+  });
+  const md = Math.min(width, height);
+  const fs = Math.max(11, md * 0.03);
+  ctx.font = `600 ${fs}px system-ui, sans-serif`;
+  ctx.textBaseline = "middle";
+  ctx.textAlign = "left";
+  insets.forEach((inset, i) => {
+    ctx.fillStyle = colors[i];
+    ctx.fillText(`${inset} px`, 40, height * 0.3 + i * fs * 1.6);
+  });
+  ctx.textAlign = "center";
+  ctx.fillStyle = "rgba(255,255,255,0.75)";
+  const lines = [
+    tr("Each line should run along the whole edge."),
+    tr("Rounded corners and a notch cut them off: that is where the display ends."),
+  ];
+  lines.forEach((line, i) => ctx.fillText(line, width / 2, height / 2 + (i - 0.5) * fs * 1.6, width - 80));
+}
 
 export function overscan({ ctx, width, height, frame, tr }: DrawArgs) {
+  if (frame === 3) {
+    edgeLines(ctx, width, height, tr);
+    return;
+  }
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, width, height);
   const md = Math.min(width, height);
@@ -316,7 +462,7 @@ export function overscan({ ctx, width, height, frame, tr }: DrawArgs) {
 }
 
 // ----- Sharpness & text clarity -----
-export const SHARPNESS_LABELS = ["1-pixel lines", "Fine checkerboard", "Text clarity", "Sharpening halos"];
+export const SHARPNESS_LABELS = ["1-pixel lines", "Fine checkerboard", "Text clarity", "Subpixel fringing", "Sharpening halos"];
 
 function label(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, size: number) {
   ctx.font = `600 ${size}px system-ui, sans-serif`;
@@ -327,6 +473,64 @@ function label(ctx: CanvasRenderingContext2D, text: string, x: number, y: number
   ctx.fillRect(x - w / 2, y - size * 0.8, w, size * 1.6);
   ctx.fillStyle = "#fff";
   ctx.fillText(text, x, y);
+}
+
+/**
+ * Subpixel fringing: white-on-black and black-on-white 1px lines and small text, side
+ * by side. Every panel builds a pixel from colored subpixels, and their layout shows as
+ * colored edges up close: QD-OLED's triangle puts green and magenta along horizontal
+ * edges, WOLED's extra white subpixel fringes vertical ones, and text smoothing tuned
+ * for RGB stripes fringes on a BGR panel.
+ */
+function fringing(ctx: CanvasRenderingContext2D, width: number, height: number, tr: DrawArgs["tr"]) {
+  const hw = Math.floor(width / 2);
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, hw, height);
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(hw, 0, width - hw, height);
+
+  // Lines on whole device pixels: 1px horizontal, 1px vertical and a 1px diagonal per half.
+  inDevicePixels(ctx, (W, H, k) => {
+    const half = Math.floor(W / 2);
+    const lw = Math.max(1, Math.round(k));
+    [0, half].forEach((x0, side) => {
+      ctx.fillStyle = side === 0 ? "#fff" : "#000";
+      const bw = Math.round(half * 0.26);
+      const bh = Math.round(H * 0.22);
+      const gap = Math.round(half * 0.06);
+      const bx = x0 + Math.round((half - (bw * 3 + gap * 2)) / 2);
+      const by = Math.round(H * 0.12);
+      for (let y = 0; y < bh; y += lw * 4) ctx.fillRect(bx, by + y, bw, lw);
+      for (let x = 0; x < bw; x += lw * 4) ctx.fillRect(bx + bw + gap + x, by, lw, bh);
+      const dx = bx + (bw + gap) * 2;
+      for (let i = 0; i < 3; i++) {
+        for (let y = 0; y < bh; y += lw) ctx.fillRect(dx + Math.round((y * (bw - lw * 12)) / bh) + i * lw * 6, by + y, lw, lw);
+      }
+    });
+  });
+
+  const sample = "Fringe test 0123456789 aeiou WMQ";
+  const sizes = [10, 11, 12, 13, 14, 16, 20, 24, 32];
+  [0, hw].forEach((x0, side) => {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(x0, 0, side === 0 ? hw : width - hw, height);
+    ctx.clip();
+    ctx.fillStyle = side === 0 ? "#fff" : "#000";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    ctx.font = "600 13px system-ui, sans-serif";
+    ctx.fillText(tr(side === 0 ? "White on black" : "Black on white"), x0 + 16, height * 0.04);
+    let y = height * 0.45;
+    for (const sz of sizes) {
+      if (y + sz > height - 8) break;
+      ctx.font = `${sz}px system-ui, sans-serif`;
+      ctx.fillText(`${sz}px  ${sample}`, x0 + 16, y);
+      y += sz + 6;
+    }
+    ctx.restore();
+  });
+  label(ctx, tr("Look closely for colored edges along the lines and letters"), width / 2, height * 0.39, Math.max(12, Math.min(width, height) * 0.024));
 }
 
 export function sharpness({ ctx, width, height, frame, tr }: DrawArgs) {
@@ -412,6 +616,11 @@ export function sharpness({ ctx, width, height, frame, tr }: DrawArgs) {
         y += sz + 4;
       }
     });
+    return;
+  }
+
+  if (frame === 3) {
+    fringing(ctx, width, height, tr);
     return;
   }
 

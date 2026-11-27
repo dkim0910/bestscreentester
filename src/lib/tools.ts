@@ -175,7 +175,7 @@ const BASE_TOOLS: ToolDef[] = [
       "Free backlight bleed test. Display pure black to reveal LCD light leakage and IPS glow around the edges and corners of your screen.",
     category: "panel",
     icon: "💡",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-27",
     keywords: ["backlight bleed test", "ips glow", "light leakage", "lcd bleed"],
     howTo: [
       "Turn off the room lights. Start at maximum brightness to find any bleed, then judge it again at the brightness you normally use.",
@@ -230,18 +230,19 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "color-gradient-test",
     name: "Color Gradient",
     title: "Color Gradient Test",
-    tagline: "Smooth spectrum and RGB gradients to judge color transitions and banding.",
+    tagline: "Smooth spectrum and RGB gradients, plus an 8-bit vs 10-bit ramp, to judge color transitions and banding.",
     description:
-      "Free color gradient test. View smooth red, green, blue and full-spectrum gradients to check color transitions, banding, and posterization.",
+      "Free color gradient test. Smooth red, green, blue and spectrum gradients, plus an 8-bit vs 10-bit ramp, to check transitions, banding and posterization.",
     category: "color",
     icon: "🌈",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-27",
     keywords: ["color gradient test", "color banding test", "rgb gradient", "spectrum gradient", "color transition"],
     howTo: [
       "Click Start to view the gradient full-screen.",
-      "Use ← / → to cycle through spectrum, red, green, blue, white, gray, and black gradients.",
+      "Use ← / → to cycle through spectrum, red, green, blue, white, gray, and black gradients, then the 8-bit vs 10-bit ramp.",
       "Check that transitions are smooth and colors look saturated and even.",
       "The white and gray ramps make luminance banding in the shadows easiest to spot.",
+      "On 8-bit vs 10-bit, the top half bands on purpose. If the bottom half looks smoother, more than 256 levels per color are reaching your screen.",
       "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
@@ -263,24 +264,25 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "brightness-uniformity-test",
     name: "Brightness Uniformity",
     title: "Brightness Uniformity Test",
-    tagline: "A 50% gray field, a 9-zone grid and a panning gray to spot uneven backlighting.",
+    tagline: "Gray fields from 5% to 50%, a 9-zone grid and a panning gray to spot uneven backlighting and banding.",
     description:
-      "Free brightness uniformity test: a 50% gray field, a 9-zone grid and a panning gray to reveal uneven backlighting, clouding and the dirty screen effect.",
+      "Free brightness uniformity test: gray fields from 5% to 50%, a 9-zone grid and a panning gray reveal clouding, OLED banding and the dirty screen effect.",
     category: "panel",
     icon: "🔲",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-28",
     keywords: ["brightness uniformity", "screen clouding", "uniformity test", "gray screen"],
     howTo: [
       "Click Start and view the gray field full-screen.",
-      "Use ← / → to switch to the 9-zone grid and the panning gray.",
+      "Use ← / → to switch to the 9-zone grid, the panning gray and the dark grays.",
       "Compare the brightness of the center against each corner.",
       "On Panning gray, follow the drifting bands with your eyes: smudges or stripes that stay put are the panel's dirty screen effect.",
+      "The 5% to 20% grays show what a mid gray hides: vertical bands and tinted patches on an OLED, clouding on an LCD. Look at them in a dark room.",
       "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
         q: "How much variation is acceptable?",
-        a: "Good monitors stay within roughly 10% brightness variation across the panel. Larger differences show as visibly darker corners or brighter hotspots.",
+        a: "There is no single standard. On a good monitor most of the screen stays within about 10% of the center's brightness, and corners often fall further: reviewers have rated panels with a corner around 30% darker as good overall. What matters is a difference you notice in normal use, such as clearly darker corners or a brighter hotspot.",
       },
       {
         q: "What is the dirty screen effect?",
@@ -292,17 +294,18 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "refresh-rate-test",
     name: "Refresh Rate",
     title: "Refresh Rate Test",
-    tagline: "Measure your real refresh rate and watch a moving reference.",
+    tagline: "Measure your real refresh rate and catch dropped frames.",
     description:
-      "Free refresh rate test. Measure your display's actual refresh rate in Hz using the browser and watch a moving object to confirm smoothness.",
+      "Free refresh rate test. Measure your display's actual refresh rate in Hz, watch a frame-time graph and count dropped frames, right in the browser.",
     category: "motion",
     icon: "⏱️",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-27",
     keywords: ["refresh rate test", "hz test", "fps test", "144hz test", "monitor hz"],
     howTo: [
       "Click Start — the measured refresh rate appears within a second or two.",
       "Watch the moving box to confirm motion looks smooth.",
       "Compare the reading to your panel's rated Hz; the line under it gives the frame time and the closest standard rate.",
+      "Watch the frame-time graph: each red bar is a refresh the browser missed, and the counter adds them up. Reset starts the count again.",
       "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
@@ -349,6 +352,39 @@ const BASE_TOOLS: ToolDef[] = [
       {
         q: "Is the trail ghosting or motion blur?",
         a: "Some blur is unavoidable on any normal display: each frame is held still while your eyes keep moving, so higher refresh rates blur less. Ghosting is different, a distinct afterimage or smear left by slow pixel transitions, and on VA panels it is usually worst in dark scenes.",
+      },
+    ],
+  },
+  {
+    slug: "frame-rate-comparison",
+    name: "Frame Rate Comparison",
+    title: "Frame Rate Comparison Test",
+    tagline: "The same moving car at full, half and quarter frame rate, side by side.",
+    description:
+      "Free frame rate comparison test. Watch the same car at 30, 60, 120 fps or more, side by side, to see what your refresh rate does for motion clarity.",
+    category: "motion",
+    icon: "🏎️",
+    updatedAt: "2026-11-27",
+    keywords: ["frame rate comparison", "fps comparison test", "30 vs 60 fps", "60 vs 120 fps", "60 vs 144 fps", "motion clarity test"],
+    howTo: [
+      "Click Start. The three lanes show the same car at the same speed: the top lane redraws it every refresh, the next every second refresh, the bottom every fourth.",
+      "Each lane is labelled with its frame rate, worked out from your measured refresh rate.",
+      "Follow a car with your eyes. The lower the frame rate, the bigger its jumps and the blurrier it looks.",
+      "Use ← / → to change the speed, and the Dark, Gray and Light buttons to change the background.",
+      "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
+    ],
+    faq: [
+      {
+        q: "Why does the top lane look blurry too?",
+        a: "Because every normal display holds each frame still while your eyes keep moving. The blur is about as wide as the distance the car moves in one frame: at 960 pixels per second, 16 pixels at 60 Hz and 7 at 144 Hz. Higher refresh rates and backlight strobing shrink it.",
+      },
+      {
+        q: "Why does my 144 Hz monitor show 60 fps in the top lane?",
+        a: "Because it is running at 60 Hz. The labels come from the refresh rate the browser measures, so the top lane always shows your real maximum. Select the full rate in your display settings and check the cable; the Refresh Rate Test walks through it.",
+      },
+      {
+        q: "Is this the same as the Ghosting Test?",
+        a: "No. The Ghosting Test uses plain boxes to show trails from slow pixels; this test compares frame rates. On the Light background it also shows ghosting around a detailed shape: a faint trail behind the car is ghosting, and a bright or oddly colored outline is overshoot from overdrive.",
       },
     ],
   },
@@ -538,17 +574,18 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "contrast-test",
     name: "Contrast Test",
     title: "Contrast Test",
-    tagline: "Black-and-white checkerboards to judge black/white separation.",
+    tagline: "Checkerboards plus black crush and white clipping boxes to judge contrast at both ends.",
     description:
-      "Free contrast test. View black-and-white checkerboards at increasing density to evaluate contrast, black/white level separation, and panel sharpness.",
+      "Free contrast test. Black-and-white checkerboards plus 1–10% near-black and 90–99% near-white boxes reveal crushed shadows, clipped highlights and low contrast.",
     category: "panel",
     icon: "◧",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-27",
     keywords: ["contrast test", "checkerboard", "black white level", "contrast ratio"],
     howTo: [
       "Click Start and view the checkerboard full-screen.",
       "Use ← / → to change the grid density (4×4 up to 32×32).",
       "Black squares should stay deep black and white squares bright, with crisp edges between them.",
+      "Black crush (→): in a dim room you should see the boxes from about 2–3% upward. White clipping (→): the boxes should stand out from the white up to about 97–98%.",
       "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
@@ -666,18 +703,19 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "screen-tearing-test",
     name: "Screen Tearing Test",
     title: "Screen Tearing Test",
-    tagline: "Fast scrolling bars that reveal tearing without V-Sync/VRR.",
+    tagline: "Fast scrolling bars that reveal tearing, and dark grays that reveal VRR flicker.",
     description:
-      "Free screen tearing test. Fast-scrolling bars reveal horizontal tears when frame rate and refresh rate aren't synced — check V-Sync, G-Sync and FreeSync.",
+      "Free screen tearing and VRR flicker test. Scrolling bars show tears without V-Sync; a changing frame rate on dark grays shows G-Sync and FreeSync flicker.",
     category: "motion",
     icon: "⇿",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-28",
     keywords: ["screen tearing test", "vsync", "g-sync", "freesync", "vrr test"],
     howTo: [
       "Click Start and watch the moving bars.",
       "Use ← / → to switch between vertical bars (reveals horizontal tears) and horizontal bars (reveals vertical tears).",
       "A clean image means no tearing; a break where the bars misalign is a tear.",
       "Toggle V-Sync or adaptive sync (G-Sync/FreeSync) and compare.",
+      "VRR flicker (→): dark grays at a frame rate that keeps changing. Turn on your monitor's refresh rate readout: if the number jumps around, VRR is active and any shimmer in the grays is VRR flicker.",
       "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
@@ -699,18 +737,18 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "touch-screen-test",
     name: "Touch Screen Test",
     title: "Touch Screen Test",
-    tagline: "Touch every cell or draw freely to find dead zones and multi-touch limits.",
+    tagline: "Touch every cell, draw freely or track up to ten fingers to find dead zones and multi-touch limits.",
     description:
-      "Free touch screen test for phones, tablets and touch laptops. Fill a grid or draw freely to find dead zones, ghost touches and multi-touch limits.",
+      "Free touch screen test for phones, tablets and touch laptops. Fill a grid, draw, or track ten fingers with coordinates to find dead zones and ghost touches.",
     category: "panel",
     icon: "👆",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-28",
     keywords: ["touch screen test", "touchscreen test", "dead zone test", "multi touch test", "digitizer test", "phone touch test"],
     howTo: [
       "Click Start and hold the device the way you normally would.",
       "Drag a finger slowly over every cell of the grid — each one turns green as it registers.",
       "Cells that stay dark after you've covered them are dead zones. In Free draw (→), breaks or jumps in your lines show dead spots and ghost touches.",
-      "Put several fingers down at once to see how many touches the screen tracks.",
+      "In Multi-touch (→), put several fingers down: each gets a numbered marker with its coordinates, and the counter shows the most tracked at once.",
       "Press and hold anywhere for the controls (Reset, Exit), or press Esc.",
     ],
     faq: [
@@ -764,18 +802,19 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "overscan-test",
     name: "Overscan Test",
     title: "Overscan & Aspect Ratio Test",
-    tagline: "Edge markers, circles and a grid to catch cropping, stretching and distortion.",
+    tagline: "Edge markers, circles, a grid and edge lines to catch cropping, stretching and distortion.",
     description:
-      "Free overscan and aspect ratio test for TVs and projectors. Check for cropped edges, stretched pictures and geometry distortion with full-screen patterns.",
+      "Free overscan and aspect ratio test for TVs, projectors and phones. Check for cropped edges, stretched pictures and distortion with full-screen patterns.",
     category: "panel",
     icon: "📐",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-28",
     keywords: ["overscan test", "aspect ratio test", "tv overscan", "projector test pattern", "geometry test", "screen fit test"],
     howTo: [
       "Open the page on the device connected to the TV or projector, then click Start.",
-      "Overscan border: the outermost colored frame you can see all the way round is how much is being cropped — 0% means nothing is.",
+      "Overscan border: if the 0% frame shows all the way round, nothing is cropped. If not, the crop lies between the outermost frame you can see all the way round and the next one out.",
       "Aspect ratio (→): the circles must look perfectly round and the square square.",
       "Geometry grid (→): lines should be straight and evenly spaced. Use it to line up a projector.",
+      "Edge lines (→), for phones and tablets: lines 0 to 32 px in from each edge. Rounded corners and a notch cut them off; use them to see whether a screen protector's edge sits over the picture, and evenly on every side.",
       "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
@@ -793,24 +832,25 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "sharpness-test",
     name: "Sharpness Test",
     title: "Sharpness & Text Clarity Test",
-    tagline: "Pixel-level lines, checkerboards and text to expose scaling blur and oversharpening.",
+    tagline: "Pixel-level lines, checkerboards and text to expose scaling blur, subpixel fringing and oversharpening.",
     description:
-      "Free sharpness and text clarity test. Pixel-perfect lines and small text reveal blur from non-native resolution, display scaling and TV oversharpening.",
+      "Free sharpness and text clarity test. Pixel-perfect lines and small text reveal scaling blur, subpixel color fringing on OLEDs and TV oversharpening.",
     category: "panel",
     icon: "🔎",
-    updatedAt: "2026-11-26",
+    updatedAt: "2026-11-28",
     keywords: ["sharpness test", "text clarity test", "monitor sharpness", "native resolution test", "chroma subsampling test", "pixel perfect test"],
     howTo: [
       "Click Start and view each pattern full-screen at your normal distance.",
       "1-pixel lines and checkerboards should look crisp and evenly striped. Grey mush or wavy moiré means the image is being scaled.",
       "Text clarity (→): small text should be sharp, and red or yellow text shouldn't smear.",
+      "Subpixel fringing (→): look closely at the lines and letters. Green and magenta edges on a QD-OLED, or colored edges on other OLEDs, come from the panel's subpixel layout.",
       "Sharpening halos (→): turn the screen's Sharpness setting down until the outlines around the lines and rings disappear.",
       "Press Esc to exit. On a phone, tap the middle of the screen, then Exit.",
     ],
     faq: [
       {
         q: "Why do the fine lines look grey and blurry?",
-        a: "Something between the page and the panel is resampling the image: a non-native resolution, display scaling that isn't a whole number, browser zoom, or the TV's own scaling. Set your output to the screen's native resolution and test again.",
+        a: "Something between the page and the panel is resampling the image: a non-native resolution, a scaled resolution on a Mac, browser zoom, or the TV's own scaling. Set your output to the screen's native resolution and test again.",
       },
       {
         q: "Why does red text look smeared on my TV?",
@@ -827,13 +867,13 @@ const BASE_TOOLS: ToolDef[] = [
       "Free frame skipping test. One cell lights per refresh, so a photo with a slow shutter shows an unbroken run — or gaps where your monitor drops frames.",
     category: "motion",
     icon: "🎞️",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-28",
     keywords: ["frame skipping test", "monitor overclock test", "dropped frames test", "refresh rate overclock", "frame skip"],
     howTo: [
       "Close other apps and tabs, then click Start.",
-      "Photograph the screen with a slow shutter — around 1/15 to 1/30 s, using your phone's Pro or manual mode.",
+      "Photograph the screen with a slow shutter, 1/10 s or longer, using your phone's Pro or manual mode.",
       "In the photo, the lit cells should form one unbroken run. A gap means a frame was skipped.",
-      "Use the 120-cell grid (→) on screens above 144Hz so the run doesn't wrap around.",
+      "Use the 120-cell grid (→) on screens above 144Hz, so a long exposure still fits on the grid without wrapping around.",
       "Take a few photos before drawing conclusions, then press Esc to exit.",
     ],
     faq: [
@@ -843,7 +883,7 @@ const BASE_TOOLS: ToolDef[] = [
       },
       {
         q: "Can the browser cause gaps too?",
-        a: "Yes — if the computer is busy, the browser can miss a frame as well. Close other apps, repeat the photo a few times, and only worry about gaps that keep appearing.",
+        a: "Not usually. A busy computer makes the browser miss refreshes, but a missed refresh leaves the previous cell lit for twice as long, so it photographs brighter rather than as a gap. Gaps from the computer side can appear when the browser runs at a different rate from the screen, so check that the Hz readout matches the rate you set, repeat the photo a few times, and only worry about gaps that keep appearing.",
       },
     ],
   },
@@ -981,18 +1021,19 @@ const BASE_TOOLS: ToolDef[] = [
     slug: "screen-test-checklist",
     name: "Screen Test Checklist",
     title: "Screen Test Checklist",
-    tagline: "The tests to run on a monitor, laptop, phone or TV, in order, with your progress saved.",
+    tagline: "The tests to run on a monitor, laptop, phone or TV, in order, marked pass or fail, with a report you can share.",
     description:
-      "Free screen test checklist for a new or used monitor, laptop, phone or TV. Run the right tests in the right order and tick each one off as you go.",
+      "Free screen test checklist for a new or used monitor, laptop, phone or TV. Run the right tests in order, mark each pass or fail, and share the report.",
     category: "fun",
     icon: "✅",
-    updatedAt: "2026-11-20",
+    updatedAt: "2026-11-27",
     keywords: ["screen test checklist", "new monitor checklist", "test new monitor", "used phone screen check", "new tv test", "laptop screen test"],
     howTo: [
       "Pick the device you are testing: monitor, laptop, phone or tablet, or TV.",
       "Start with the tests marked Essential. They find the faults a retailer will take a screen back for.",
-      "Open each test, run it, then come back and tick it off. Your ticks are saved in this browser only.",
+      "Open each test, run it, then come back and mark it Pass or Fail. Your results are saved in this browser only.",
       "Finish the essential tests while you can still return the device. The others can wait.",
+      "Buying or selling a used screen? Add the device's name, then copy the report or share a link with the results built in.",
     ],
     faq: [
       {
@@ -1009,11 +1050,15 @@ const BASE_TOOLS: ToolDef[] = [
       },
       {
         q: "Is my progress stored anywhere?",
-        a: "Only in this browser, on this device. Nothing is sent to a server, and clearing the browser's site data clears the ticks.",
+        a: "Only in this browser, on this device. Nothing is sent to a server, and clearing the browser's site data clears the results. A share link carries the results inside the link itself, so whoever opens it sees them; nothing is uploaded.",
       },
       {
         q: "What should I do when a test finds a problem?",
         a: "Each test page has a section on reading the result and what to do next. In general: photograph the fault, note the date, and contact the retailer while the return window is still open.",
+      },
+      {
+        q: "Can I trust a report someone sent me?",
+        a: "Treat it as the seller's word. A shared report shows what the sender marked; it can't prove the tests were run, or run on that screen. If you are buying, run the essential tests on the screen yourself before you pay.",
       },
     ],
   },
@@ -1133,6 +1178,10 @@ const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
       q: "I see a fine grain shimmering in the dark gradients. Is that a fault?",
       a: "No. That is dithering or FRC: the panel is alternating between two shades to produce one it cannot show directly. It is normal on many screens and usually disappears at a normal viewing distance.",
     },
+    {
+      q: "Can a browser show a 10-bit gradient?",
+      a: "Sometimes. The 8-bit vs 10-bit frame draws its lower half on a high-precision canvas where the browser has one, and says on screen when it doesn't. After that, the operating system, graphics driver and panel each either keep the extra levels, dither them or round them away. A smoother lower half means more than 8 bits, or dithering, reaches the screen; two identical halves mean an 8-bit step somewhere in between.",
+    },
   ],
   "brightness-uniformity-test": [
     {
@@ -1145,7 +1194,7 @@ const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
     },
     {
       q: "Do OLED screens have uniformity problems?",
-      a: "They have no backlight, so they do not cloud or bleed. They can still show faint vertical bands or a slight tint difference on very dark gray, and worn areas after long use. Light banding on a dark gray field is common on large OLED and VA panels.",
+      a: "They have no backlight, so they do not cloud or bleed. They can still show faint vertical bands or a slight tint difference on very dark gray, and worn areas after long use. Light banding on a dark gray field is common on large OLED TVs.",
     },
     {
       q: "Why are the corners of my laptop screen darker?",
@@ -1154,6 +1203,10 @@ const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
     {
       q: "How do I photograph uneven brightness fairly?",
       a: "Stand back, shoot from straight in front and lock the exposure on the middle of the screen. Turn off the camera's night mode, which exaggerates small differences. Use the photo as a record, and judge severity with your eyes.",
+    },
+    {
+      q: "Why test on dark gray as well as 50% gray?",
+      a: "Faults that are faint at mid gray stand out near black. An OLED can show vertical bands or a pinkish tint at 5–10% gray, and an LCD shows clouding as patches of brighter backlight. A little unevenness at 5% gray is normal on every panel: it only matters if you notice it in dark scenes at the brightness you use.",
     },
   ],
   "refresh-rate-test": [
@@ -1172,6 +1225,10 @@ const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
     {
       q: "Which screen does it measure when I have two monitors?",
       a: "The one the browser window is on. Drag the window to the other monitor and the reading follows after a moment. With monitors running at different rates, some browsers tie themselves to one of them, so test each monitor with the window fully on it.",
+    },
+    {
+      q: "What counts as a dropped frame here?",
+      a: "A refresh the browser didn't draw in time, measured from animation-frame timing. Drops show when the browser, the graphics card or a background task can't keep up, which is also what makes games stutter. The test can't see frames the monitor itself skips: the Frame Skipping Test checks that.",
     },
   ],
   "ghosting-test": [
@@ -1287,11 +1344,15 @@ const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
   "screen-tearing-test": [
     {
       q: "How do I check that G-Sync or FreeSync is actually on?",
-      a: "It has to be switched on in two places: the monitor's own menu and the graphics driver's control panel. It also needs the right connection, DisplayPort on a PC, or HDMI 2.1 on a console or TV, where it is usually listed as VRR.",
+      a: "It has to be switched on in two places: the monitor's own menu and the graphics driver's control panel. It also needs a connection that carries it. On a PC, DisplayPort is the safe choice. Over HDMI it needs HDMI VRR, a feature of HDMI 2.1, or, with an AMD card or an Xbox, a monitor that supports FreeSync over HDMI. TVs usually list HDMI VRR simply as VRR.",
     },
     {
       q: "Does a higher refresh rate reduce tearing?",
       a: "It makes tears harder to see, not rarer. At 144 Hz each torn frame is on screen for under 7 ms instead of nearly 17 ms at 60 Hz, and the offset at the tear is smaller. Only V-Sync or adaptive sync removes tearing completely.",
+    },
+    {
+      q: "What is VRR flicker?",
+      a: "A brightness flicker in dark scenes that appears with G-Sync or FreeSync when the frame rate swings, most of all on OLED and VA panels, whose brightness at a given gray shifts slightly with the refresh rate. Keeping the frame rate steady, for example with a cap a few fps below the maximum, reduces it. It is a known trait of these panels rather than a defect.",
     },
   ],
   "touch-screen-test": [
@@ -1343,7 +1404,7 @@ const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
     },
     {
       q: "Why does text have colored fringes on my OLED or TV?",
-      a: "Operating systems smooth text on the assumption that every pixel is a red, green and blue stripe in that order. Many OLED panels and some TVs arrange their sub-pixels differently, so the smoothing lands on the wrong ones and shows as colored edges. Higher display scaling makes it less noticeable.",
+      a: "Windows' ClearType smooths text on the assumption that each pixel is a row of red, green and blue stripes. Many OLED panels are built differently: a WOLED adds a white subpixel, and a QD-OLED puts green above red and blue, which fringes along the tops and bottoms of letters whatever the smoothing does. Larger text and higher display scaling make it less noticeable.",
     },
     {
       q: "Why is my monitor blurry at a lower resolution?",
@@ -1373,7 +1434,7 @@ const TOOL_FAQ_MORE: Record<string, ToolFaq[]> = {
     },
     {
       q: "Do I need this test if I haven't overclocked my monitor?",
-      a: "Usually not. Monitors do not skip frames at their rated settings. Run it after setting a custom resolution or an overclocked refresh rate, or when an adapter or dock claims a rate the screen was not sold with.",
+      a: "Usually not. Monitors rarely skip frames at their rated settings. Run it after setting a custom resolution or an overclocked refresh rate, or when an adapter or dock claims a rate the screen was not sold with.",
     },
     {
       q: "Why does it have to be a photo? Can't I just watch?",
@@ -1466,7 +1527,7 @@ export const TOOL_TIPS: Record<string, string[]> = {
   ],
   "brightness-uniformity-test": [
     "Compare the center against each corner one at a time rather than scanning the whole field.",
-    "Take a photo and even out exposure — your eyes auto-adjust and hide real differences.",
+    "If you take a photo, lock the exposure: your eyes adjust to slow changes and hide some, but a phone on auto exaggerates faint bands, so confirm by eye.",
   ],
   "refresh-rate-test": [
     "Close other tabs and apps; background load can drag the measured rate below your panel's rating.",
@@ -1515,13 +1576,19 @@ export const TOOL_TIPS: Record<string, string[]> = {
   "screen-tearing-test": [
     "Use the vertical-bars frame for horizontal tears and the horizontal-bars frame for vertical tears.",
     "Toggle V-Sync or adaptive sync (G-Sync/FreeSync) and watch the tear line appear or vanish.",
+    "For VRR flicker, look at the darkest band from straight on in a dim room: that is where it shows first.",
+  ],
+  "frame-rate-comparison": [
+    "Sit at your normal distance and follow the car with your eyes rather than staring at one spot.",
+    "On a 60 Hz screen the bottom lane runs at 15 fps: that is what a badly stuttering game looks like.",
+    "If the top lane hitches, close other tabs: the browser is missing refreshes. The Refresh Rate Test counts them.",
   ],
   "screensaver": [
     "Turn on 'Keep awake' in the controls if you want the display to stay on instead of sleeping.",
     "The DVD logo's corner-hit is rare by design — that's the moment everyone waits for.",
   ],
   "touch-screen-test": [
-    "Go slowly along the edges and into the corners — touch faults usually start there.",
+    "Drag slowly along the edges and into the corners rather than swiping in from them: with Android gesture navigation, a swipe in from the side means Back.",
     "Test with the case and screen protector off if anything looks wrong.",
   ],
   "screen-info": [
@@ -1530,14 +1597,14 @@ export const TOOL_TIPS: Record<string, string[]> = {
   ],
   "overscan-test": [
     "Each TV input can have its own picture-size setting, so test the input you actually use.",
-    "On a projector, set keystone and lens shift with the geometry grid before focusing.",
+    "On a projector, use lens shift first and keystone only for what's left, checking with the geometry grid, then focus.",
   ],
   "sharpness-test": [
     "Check at your normal viewing distance first, then up close.",
-    "Display scaling of 100%, 150% or 200% keeps fine detail cleaner than in-between values.",
+    "On a Mac, the scaled size at exactly half the panel's resolution keeps fine detail sharpest; other sizes resample the whole screen.",
   ],
   "frame-skipping-test": [
-    "Pick a shutter long enough to catch 6–10 frames: about 1/15 s at 144Hz, 1/30 s at 240Hz.",
+    "Use a shutter of 1/10 s or longer. For skips that come only now and then, slow it until 30 to 50 cells light up.",
     "Re-test after changing refresh rate or overclock settings — skipping often appears only at the highest rate.",
   ],
   "wide-color-gamut-test": [
@@ -1557,7 +1624,7 @@ export const TOOL_TIPS: Record<string, string[]> = {
     "A 4K screen is not automatically sharper than a 1440p one: a 43-inch 4K is less dense than a 27-inch 1440p.",
   ],
   "screen-test-checklist": [
-    "Keep the box and receipt until every essential test is ticked.",
+    "Keep the box and receipt until every essential test has a result.",
     "Do the dark-room tests together, after giving your eyes a couple of minutes to adjust.",
   ],
 };

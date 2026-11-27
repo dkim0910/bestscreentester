@@ -187,3 +187,19 @@ a {
     width: 100%;
   }
 }
+
+/* ----- Test stage ----- */
+/* A setup reminder shown as a test starts, then faded to nothing so it doesn't light
+   the screen it is about (the backlight bleed test is judged on pure black). */
+@keyframes stage-notice {
+  0%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.stage-notice {
+  animation: stage-notice 6s ease-in forwards;
+}

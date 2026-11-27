@@ -255,7 +255,7 @@
       "Banding o un cambio de color en solo una de las rampas de rojo, verde y azul: la calibración de ese canal, no el panel en su conjunto.",
       "Un tono que se come un tramo ancho del espectro."
     ],
-    "note": "Estos degradados usan colores sRGB estándar, así que muestran el banding y las transiciones irregulares, no lo amplia que es la gama de tu pantalla. Las rampas de blanco y de gris aíslan el banding de brillo en las sombras sin que el color estorbe.",
+    "note": "Estos degradados usan colores sRGB estándar, así que muestran el banding y las transiciones irregulares, no lo amplia que es la gama de tu pantalla. Las rampas de blanco y de gris aíslan el banding de brillo en las sombras sin que el color estorbe. En 8 bits frente a 10 bits, es normal que haya bandas en la mitad superior. Dos mitades idénticas indican una etapa de 8 bits en algún punto entre el navegador y el panel, algo normal en la mayoría de los equipos; una mitad inferior más suave significa que pasan más de 8 bits, o dithering.",
     "next": [
       "Desactiva los modos nocturnos, los filtros de color y los perfiles de color personalizados, y vuelve a cargar la página.",
       "Si solo muestra banding una de las rampas (roja, verde o azul), restablece a sus valores por defecto el preajuste de color y los ajustes de ganancia RGB del monitor.",
@@ -268,14 +268,16 @@
     "howToHeading": "Cómo comprobar la uniformidad de brillo",
     "faqHeading": "Preguntas sobre la uniformidad",
     "pass": [
-      "El gris se ve de un solo tono desde el centro hasta cada esquina. Los buenos monitores se mantienen en torno a un 10% de variación de brillo en todo el panel.",
+      "El gris se ve de un solo tono desde el centro hasta cada esquina. En un buen monitor, la mayor parte de la pantalla se mantiene dentro de un 10% del brillo del centro; las esquinas suelen quedar más abajo.",
       "Esquinas un poco más oscuras que el centro: cierta caída de brillo es normal en todos los LCD.",
-      "En Gris en movimiento, las bandas se desplazan por la pantalla y no queda nada atrás."
+      "En Gris en movimiento, las bandas se desplazan por la pantalla y no queda nada atrás.",
+      "En los grises del 5–20%, un campo uniforme, quizá algo más oscuro hacia los bordes."
     ],
     "fail": [
       "Una mancha definida, más oscura o más clara, con un borde visible.",
       "Manchas irregulares en el centro de la pantalla: clouding, a menudo por presión sobre el panel.",
-      "En Gris en movimiento, manchas o rayas verticales que se quedan quietas mientras las bandas pasan por delante: el efecto de pantalla sucia."
+      "En Gris en movimiento, manchas o rayas verticales que se quedan quietas mientras las bandas pasan por delante: el efecto de pantalla sucia.",
+      "En los grises oscuros, bandas verticales, una mancha teñida (a menudo rosa en un OLED) o manchas nubosas que no se ven en el campo al 50%. Júzgalas con el brillo que usas: importan si se notan en escenas oscuras."
     ],
     "note": "Compara el centro con una esquina cada vez. Tus ojos se adaptan a los cambios graduales en un campo y ocultan diferencias reales, y por eso una foto con una exposición uniforme puede mostrar más que un vistazo. En un televisor, júzgalo desde donde te sientas de verdad.",
     "next": [
@@ -299,7 +301,7 @@
           ],
           [
             "Banding vertical leve sobre un campo gris oscuro",
-            "Habitual en paneles VA y OLED grandes",
+            "Habitual en televisores grandes, sobre todo OLED",
             "Lo ves en un plano en movimiento de un campo de fútbol"
           ],
           [
@@ -310,7 +312,7 @@
         ]
       }
     ],
-    "guideLabel": "Cómo comprobar los píxeles muertos y la uniformidad de un televisor nuevo"
+    "guideLabel": "Uniformidad de pantalla y el efecto de pantalla sucia"
   },
   "refresh-rate-test": {
     "heading": "¿La lectura es la correcta para tu pantalla?",
@@ -318,11 +320,13 @@
     "faqHeading": "Preguntas sobre la frecuencia de actualización",
     "pass": [
       "Una lectura a menos de 1 Hz del valor nominal del panel. Muchas pantallas funcionan una fracción por debajo o por encima del nominal, como 59,94 Hz para 60.",
-      "Una cifra estable y un recuadro que se mueve sin tirones."
+      "Una cifra estable y un recuadro que se mueve sin tirones.",
+      "Ningún fotograma perdido, o unos pocos mientras la página se estabiliza."
     ],
     "fail": [
       "60 Hz en una pantalla de 120, 144 o 240 Hz. Es un problema de ajuste o de cable, no un panel averiado: selecciona la frecuencia completa en la configuración de pantalla y revisa el cable y el puerto.",
-      "Una lectura que cae o va dando saltos. Cierra otras pestañas y aplicaciones y vuelve a medir antes de culpar a la pantalla."
+      "Una lectura que cae o va dando saltos. Cierra otras pestañas y aplicaciones y vuelve a medir antes de culpar a la pantalla.",
+      "Fotogramas perdidos que no dejan de aparecer. Cierra otras pestañas y aplicaciones, enchufa el portátil y comprueba que la aceleración por hardware está activada en la configuración del navegador."
     ],
     "note": "Los portátiles y los móviles pueden bajar la frecuencia de actualización para ahorrar energía, así que repite el test enchufado o con el ahorro de batería desactivado. Si le has hecho overclock a un monitor, que aquí coincida la cifra no demuestra que esté mostrando todos los fotogramas: eso lo comprueba el Test de salto de fotogramas.",
     "next": [
@@ -525,11 +529,13 @@
     "faqHeading": "Preguntas sobre el contraste",
     "pass": [
       "Los cuadrados negros siguen siendo de un negro profundo justo al lado de los blancos brillantes.",
-      "Los bordes entre cuadrados son nítidos en todas las densidades, hasta 32 × 32."
+      "Los bordes entre cuadrados son nítidos en todas las densidades, hasta 32 × 32.",
+      "Negros empastados: los recuadros se ven a partir del 2–3% aproximadamente. Blancos recortados: se distinguen del blanco hasta el 97–98% aproximadamente."
     ],
     "fail": [
       "Cuadrados negros que se ven grises o lavados: poco contraste, o un nivel de negro elevado.",
-      "Bordes borrosos o con color entre los cuadrados. Eso apunta al escalado o al ajuste de nitidez, no al contraste."
+      "Bordes borrosos o con color entre los cuadrados. Eso apunta al escalado o al ajuste de nitidez, no al contraste.",
+      "Los recuadros más bajos se funden con el negro, o los más altos con el blanco: se está perdiendo detalle en las sombras o en las luces altas, normalmente por el ajuste de brillo o de contraste, o por un desajuste con el rango RGB limitado."
     ],
     "note": "El tipo de panel marca el techo. Un OLED mantiene los cuadrados negros totalmente oscuros porque los píxeles se apagan. Entre los LCD, los paneles VA suelen alcanzar de 2500:1 a 5000:1 y los IPS en torno a 1000:1, así que los negros de un IPS se ven claramente más grises en una habitación a oscuras. Esto es una comprobación visual: una relación de contraste real requiere un medidor de luz.",
     "next": [

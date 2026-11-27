@@ -48,8 +48,8 @@
   "overscan-test": {
     "name": "Teste de Overscan",
     "title": "Teste de Overscan e Proporção de Tela",
-    "tagline": "Marcadores de borda, círculos e uma grade para flagrar cortes, esticamento e distorção.",
-    "description": "Teste de overscan e proporção de tela grátis para TVs e projetores. Verifique bordas cortadas, imagem esticada e distorção geométrica com padrões em tela cheia.",
+    "tagline": "Marcadores de borda, círculos, uma grade e linhas de borda para flagrar cortes, esticamento e distorção.",
+    "description": "Teste de overscan e proporção de tela grátis para TVs, projetores e celulares. Verifique bordas cortadas, imagem esticada e distorção com padrões em tela cheia.",
     "keywords": [
       "teste de overscan",
       "teste de proporção de tela",
@@ -60,9 +60,10 @@
     ],
     "howTo": [
       "Abra a página no aparelho conectado à TV ou ao projetor e clique em Iniciar.",
-      "Borda de overscan: a moldura colorida mais externa que você vê inteira, em toda a volta, indica quanto está sendo cortado — 0% significa que nada está.",
+      "Borda de overscan: se a moldura de 0% aparece inteira, em toda a volta, nada está sendo cortado. Se não, o corte fica entre a moldura mais externa que você vê inteira, em toda a volta, e a próxima para fora.",
       "Proporção de tela (→): os círculos devem parecer perfeitamente redondos e o quadrado, quadrado.",
       "Grade de geometria (→): as linhas devem ser retas e ter espaçamento uniforme. Use-a para alinhar um projetor.",
+      "Linhas de borda (→), para celulares e tablets: linhas posicionadas de 0 a 32 px para dentro de cada borda. Os cantos arredondados e o notch as cortam; use-as para ver se a borda de uma película fica sobre a imagem, e se fica por igual em todos os lados.",
       "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
@@ -97,14 +98,14 @@
     ],
     "tips": [
       "Cada entrada da TV pode ter a própria configuração de tamanho da imagem, então teste a entrada que você realmente usa.",
-      "Em um projetor, ajuste o keystone (correção trapezoidal) e o lens shift com a grade de geometria antes de focar."
+      "Em um projetor, use primeiro o lens shift e deixe o keystone (correção trapezoidal) só para o que sobrar, conferindo com a grade de geometria; depois foque."
     ]
   },
   "sharpness-test": {
     "name": "Teste de Nitidez",
     "title": "Teste de Nitidez e Clareza de Texto",
-    "tagline": "Linhas de 1 pixel, padrões xadrez e texto para expor o borrão do redimensionamento e o excesso de nitidez.",
-    "description": "Teste de nitidez e clareza de texto grátis. Linhas de 1 pixel e texto pequeno revelam o borrão de resolução não nativa, da escala e do excesso de nitidez da TV.",
+    "tagline": "Linhas de 1 pixel, padrões xadrez e texto para expor o borrão do redimensionamento, as franjas de cor de subpixel e o excesso de nitidez.",
+    "description": "Teste de nitidez e texto grátis. Linhas de 1 pixel e texto pequeno revelam o borrão da escala, franjas de cor de subpixel em OLEDs e o excesso de nitidez da TV.",
     "keywords": [
       "teste de nitidez",
       "teste de clareza de texto",
@@ -117,13 +118,14 @@
       "Clique em Iniciar e veja cada padrão em tela cheia, à sua distância normal.",
       "As linhas de 1 pixel e os padrões xadrez devem parecer nítidos e uniformemente listrados. Uma massa cinza ou um moiré ondulado indicam que a imagem está sendo redimensionada.",
       "Clareza de texto (→): o texto pequeno deve estar nítido, e o texto vermelho ou amarelo não deve borrar.",
+      "Franjas de cor de subpixel (→): olhe de perto as linhas e as letras. Bordas verdes e magenta em um QD-OLED, ou bordas coloridas em outros OLEDs, vêm do arranjo de subpixels do painel.",
       "Halos de nitidez (→): reduza a configuração de Nitidez da tela até os contornos em volta das linhas e dos anéis desaparecerem.",
       "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
         "q": "Por que as linhas finas parecem cinzentas e borradas?",
-        "a": "Algo entre a página e o painel está reamostrando a imagem: uma resolução não nativa, uma escala de tela que não é um número inteiro, o zoom do navegador ou o redimensionamento da própria TV. Ajuste a saída para a resolução nativa da tela e teste de novo."
+        "a": "Algo entre a página e o painel está reamostrando a imagem: uma resolução não nativa, uma resolução escalonada no Mac, o zoom do navegador ou o redimensionamento da própria TV. Ajuste a saída para a resolução nativa da tela e teste de novo."
       },
       {
         "q": "Por que o texto vermelho parece borrado na minha TV?",
@@ -135,7 +137,7 @@
       },
       {
         "q": "Por que o texto tem franjas coloridas no meu OLED ou na minha TV?",
-        "a": "Os sistemas operacionais suavizam o texto supondo que cada pixel é formado por faixas de vermelho, verde e azul, nessa ordem. Muitos painéis OLED e algumas TVs organizam os subpixels de outro jeito, então a suavização cai nos subpixels errados e aparece como bordas coloridas. Uma escala de tela maior deixa o efeito menos perceptível."
+        "a": "O ClearType, a suavização de texto do Windows, supõe que cada pixel é uma fileira de faixas vermelha, verde e azul. Muitos painéis OLED são construídos de outro jeito: um WOLED acrescenta um subpixel branco, e um QD-OLED coloca o verde acima do vermelho e do azul, o que cria franjas no alto e na base das letras, faça a suavização o que fizer. Um texto maior e uma escala de tela mais alta deixam o efeito menos perceptível."
       },
       {
         "q": "Por que meu monitor fica borrado em uma resolução menor?",
@@ -152,7 +154,7 @@
     ],
     "tips": [
       "Confira primeiro à sua distância normal de uso e depois de perto.",
-      "Escalas de 100%, 150% ou 200% mantêm os detalhes finos mais limpos do que valores intermediários."
+      "No Mac, o tamanho escalonado que é exatamente metade da resolução do painel mantém os detalhes finos mais nítidos; os outros tamanhos reamostram a tela inteira."
     ]
   },
   "frame-skipping-test": {
@@ -169,9 +171,9 @@
     ],
     "howTo": [
       "Feche outros aplicativos e abas e clique em Iniciar.",
-      "Fotografe a tela com obturador lento — algo entre 1/15 e 1/30 s, usando o modo Pro ou manual do celular.",
+      "Fotografe a tela com obturador lento — 1/10 s ou mais, usando o modo Pro ou manual do celular.",
       "Na foto, as células acesas devem formar uma sequência contínua. Uma falha indica que um quadro foi pulado.",
-      "Use a grade de 120 células (→) em telas acima de 144 Hz, para a sequência não dar a volta.",
+      "Use a grade de 120 células (→) em telas acima de 144 Hz, para que uma exposição longa caiba na grade sem dar a volta.",
       "Tire algumas fotos antes de tirar conclusões e pressione Esc para sair."
     ],
     "faq": [
@@ -181,7 +183,7 @@
       },
       {
         "q": "O navegador também pode causar falhas?",
-        "a": "Sim — se o computador estiver ocupado, o navegador também pode perder um quadro. Feche outros aplicativos, repita a foto algumas vezes e só se preocupe com falhas que continuam aparecendo."
+        "a": "Normalmente não. Um computador ocupado faz o navegador perder atualizações, mas uma atualização perdida deixa a célula anterior acesa pelo dobro do tempo, então ela sai mais clara na foto em vez de virar uma falha. Falhas causadas pelo computador podem aparecer quando o navegador roda numa taxa diferente da tela, então confira se a leitura de Hz bate com a taxa que você configurou, repita a foto algumas vezes e só se preocupe com falhas que continuam aparecendo."
       },
       {
         "q": "A câmera do meu celular não tem modo manual. O que posso fazer?",
@@ -197,7 +199,7 @@
       },
       {
         "q": "Preciso deste teste se não fiz overclock no monitor?",
-        "a": "Em geral, não. Monitores não pulam quadros nas configurações de fábrica. Faça o teste depois de definir uma resolução personalizada ou uma taxa de atualização com overclock, ou quando um adaptador ou dock anuncia uma taxa com a qual a tela não foi vendida."
+        "a": "Em geral, não. Monitores raramente pulam quadros nas configurações de fábrica. Faça o teste depois de definir uma resolução personalizada ou uma taxa de atualização com overclock, ou quando um adaptador ou dock anuncia uma taxa com a qual a tela não foi vendida."
       },
       {
         "q": "Por que precisa ser uma foto? Não dá para só olhar?",
@@ -205,7 +207,7 @@
       }
     ],
     "tips": [
-      "Escolha um obturador longo o bastante para captar de 6 a 10 quadros: cerca de 1/15 s a 144 Hz e 1/30 s a 240 Hz.",
+      "Use um obturador de 1/10 s ou mais. Para pulos que só acontecem de vez em quando, alongue-o até acenderem de 30 a 50 células.",
       "Refaça o teste depois de mudar a taxa de atualização ou o overclock — muitas vezes os quadros pulados só aparecem na taxa mais alta."
     ]
   },
@@ -401,8 +403,8 @@
   "screen-test-checklist": {
     "name": "Checklist de Teste de Tela",
     "title": "Checklist de Teste de Tela",
-    "tagline": "Os testes a fazer em um monitor, notebook, celular ou TV, na ordem certa e com o seu progresso salvo.",
-    "description": "Checklist grátis de teste de tela para monitor, notebook, celular ou TV, novo ou usado. Faça os testes certos na ordem certa e marque cada um ao concluir.",
+    "tagline": "Os testes a fazer em um monitor, notebook, celular ou TV, na ordem certa, marcados como aprovados ou reprovados, com um relatório que você pode compartilhar.",
+    "description": "Checklist grátis para monitor, notebook, celular ou TV, novo ou usado. Faça os testes certos na ordem, marque cada um como aprovado ou reprovado e compartilhe.",
     "keywords": [
       "checklist de teste de tela",
       "checklist monitor novo",
@@ -414,8 +416,9 @@
     "howTo": [
       "Escolha o aparelho que você está testando: monitor, notebook, celular ou tablet, ou TV.",
       "Comece pelos testes marcados como Essencial. Eles encontram os defeitos pelos quais a loja aceita a tela de volta.",
-      "Abra cada teste, faça-o, depois volte e marque como concluído. Suas marcações ficam salvas apenas neste navegador.",
-      "Termine os testes essenciais enquanto ainda dá para devolver o aparelho. Os outros podem esperar."
+      "Abra cada teste, faça-o, depois volte e marque Aprovado ou Reprovado. Seus resultados ficam salvos apenas neste navegador.",
+      "Termine os testes essenciais enquanto ainda dá para devolver o aparelho. Os outros podem esperar.",
+      "Vai comprar ou vender uma tela usada? Informe o nome do aparelho e depois copie o relatório ou compartilhe um link com os resultados embutidos."
     ],
     "faq": [
       {
@@ -432,16 +435,60 @@
       },
       {
         "q": "Meu progresso fica guardado em algum lugar?",
-        "a": "Só neste navegador, neste aparelho. Nada é enviado a um servidor, e limpar os dados do site no navegador apaga as marcações."
+        "a": "Só neste navegador, neste aparelho. Nada é enviado a um servidor, e limpar os dados do site no navegador apaga os resultados. Um link de compartilhamento leva os resultados dentro do próprio link, então quem abrir o link vê os resultados; nada é enviado para nenhum servidor."
       },
       {
         "q": "O que fazer quando um teste encontra um problema?",
         "a": "A página de cada teste tem uma seção sobre como ler o resultado e o que fazer em seguida. Em geral: fotografe a falha, anote a data e procure a loja enquanto o prazo de devolução ainda está valendo."
+      },
+      {
+        "q": "Posso confiar em um relatório que alguém me enviou?",
+        "a": "Trate-o como a palavra do vendedor. Um relatório compartilhado mostra o que quem enviou marcou; ele não prova que os testes foram feitos, nem que foram feitos naquela tela. Se você vai comprar, faça os testes essenciais na tela você mesmo antes de pagar."
       }
     ],
     "tips": [
-      "Guarde a caixa e a nota fiscal até marcar todos os testes essenciais.",
+      "Guarde a caixa e a nota fiscal até que todos os testes essenciais tenham resultado.",
       "Faça os testes de ambiente escuro de uma vez, depois de dar uns dois minutos para os olhos se adaptarem."
+    ]
+  },
+  "frame-rate-comparison": {
+    "name": "Comparação de Taxa de Quadros",
+    "title": "Teste de Comparação de Taxa de Quadros (fps)",
+    "tagline": "O mesmo carro em movimento na taxa de quadros completa, na metade e em um quarto, lado a lado.",
+    "description": "Teste de comparação de taxa de quadros grátis. Veja o mesmo carro a 30, 60, 120 fps ou mais, lado a lado, e o que a sua taxa de atualização faz pelo movimento.",
+    "keywords": [
+      "comparação de fps",
+      "teste de comparação de fps",
+      "30 vs 60 fps",
+      "60 vs 120 fps",
+      "60 vs 144 fps",
+      "teste de nitidez de movimento"
+    ],
+    "howTo": [
+      "Clique em Iniciar. As três faixas mostram o mesmo carro na mesma velocidade: a faixa de cima o redesenha a cada atualização, a seguinte a cada duas atualizações e a de baixo a cada quatro.",
+      "Cada faixa mostra a sua taxa de quadros, calculada a partir da taxa de atualização medida.",
+      "Acompanhe um carro com os olhos. Quanto menor a taxa de quadros, maiores os saltos e mais borrado ele parece.",
+      "Use ← / → para mudar a velocidade e os botões Escuro, Cinza e Claro para mudar o fundo.",
+      "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
+    ],
+    "faq": [
+      {
+        "q": "Por que a faixa de cima também parece borrada?",
+        "a": "Porque toda tela comum mantém cada quadro parado enquanto seus olhos continuam se movendo. O borrão tem mais ou menos a largura do deslocamento do carro em um quadro: a 960 pixels por segundo, 16 pixels a 60 Hz e 7 a 144 Hz. Taxas de atualização mais altas e o modo estroboscópico da luz de fundo o reduzem."
+      },
+      {
+        "q": "Por que meu monitor de 144 Hz mostra 60 fps na faixa de cima?",
+        "a": "Porque ele está rodando a 60 Hz. Os rótulos vêm da taxa de atualização que o navegador mede, então a faixa de cima sempre mostra o seu máximo real. Selecione a taxa máxima nas configurações de vídeo e confira o cabo; o Teste de Taxa de Atualização mostra o passo a passo."
+      },
+      {
+        "q": "É o mesmo que o Teste de Ghosting?",
+        "a": "Não. O Teste de Ghosting usa caixas simples para mostrar rastros de pixels lentos; este teste compara taxas de quadros. No fundo Claro, ele também mostra o ghosting em volta de uma forma detalhada: um rastro fraco atrás do carro é ghosting, e um contorno claro ou de cor estranha é overshoot do overdrive."
+      }
+    ],
+    "tips": [
+      "Sente-se à sua distância normal e acompanhe o carro com os olhos em vez de fixar o olhar em um ponto.",
+      "Em uma tela de 60 Hz, a faixa de baixo roda a 15 fps: é assim que fica um jogo engasgando muito.",
+      "Se a faixa de cima engasgar, feche outras abas: o navegador está perdendo atualizações. O Teste de Taxa de Atualização as conta."
     ]
   }
 }

@@ -8,7 +8,7 @@ import { useRefreshRate } from "./useRefreshRate";
 import { useT } from "@/i18n/ui";
 
 // Two grid sizes: one cycle every 60 frames suits 60–144Hz; 120 cells suits faster
-// panels, so a 1/15 s exposure doesn't wrap around the grid.
+// panels, so a long exposure (1/4 s at 240Hz is 60 frames) doesn't wrap around the grid.
 const GRIDS = [
   { cols: 10, rows: 6 },
   { cols: 15, rows: 8 },

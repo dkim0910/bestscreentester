@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Analytics from "@/components/Analytics";
 import AdSenseScript from "@/components/AdSenseScript";
+import ServiceWorker from "@/components/ServiceWorker";
 import { NOVELTY_TOOLS } from "@/lib/tools";
 import { GUIDES } from "@/lib/guides";
 import { SITE_NAME, siteUrl, siteJsonLd } from "@/lib/seo";
@@ -42,6 +43,8 @@ export function siteMetadata(lang: Lang): Metadata {
     },
     description: text.siteTagline,
     applicationName: SITE_NAME,
+    // Installed to an iPhone's home screen, open like an app (the manifest covers the rest).
+    appleWebApp: { capable: true, title: SITE_NAME, statusBarStyle: "black" },
     // Favicons come from the file convention: src/app/icon.png (96px — it loads on every
     // page, so keep it small) + src/app/apple-icon.png.
     robots: { index: true, follow: true },
@@ -82,6 +85,7 @@ export default function SiteShell({ lang, children }: { lang: Lang; children: Re
           <Header lang={lang} />
           <main className="flex-1">{children}</main>
           <Footer lang={lang} />
+          <ServiceWorker />
         </UiProvider>
         <Analytics />
         {/* English only for now: the translations are machine-made and unreviewed, so no

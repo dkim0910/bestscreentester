@@ -112,17 +112,19 @@
     "faqHeading": "Questions sur le tearing",
     "pass": [
       "Les barres restent entières d'un bord à l'autre de l'écran pendant leur déplacement.",
-      "Le mouvement est régulier, sans à-coups."
+      "Le mouvement est régulier, sans à-coups.",
+      "Sur les mires Scintillement VRR, les gris restent stables pendant que la fréquence d'images change."
     ],
     "fail": [
       "Une ligne où les barres sont décalées, si bien que les moitiés haute et basse ne s'alignent plus : une déchirure.",
-      "Un mouvement saccadé sans cassure visible. Des images sont sautées ou répétées, ce qui est un autre problème : utilisez le Test de saut d'images."
+      "Un mouvement saccadé sans cassure visible. Des images sont sautées ou répétées, ce qui est un autre problème : utilisez le Test de saut d'images.",
+      "Sur les mires Scintillement VRR, les gris pulsent ou frémissent pendant que l'affichage de la fréquence de rafraîchissement de votre moniteur saute avec la fréquence d'images : c'est le scintillement VRR."
     ],
-    "note": "Un résultat propre ici est courant et ne prouve pas que vos jeux seront épargnés par le tearing. Les navigateurs dessinent en général en synchronisation avec l'écran, alors que les jeux produisent des déchirures quand ils envoient des images avec le V-Sync désactivé. Si vous voyez bel et bien des déchirures sur cette page, vérifiez que l'accélération matérielle est activée dans votre navigateur et que l'écran tourne à sa fréquence de rafraîchissement nominale.",
+    "note": "Un résultat propre ici est courant et ne prouve pas que vos jeux seront épargnés par le tearing. Les navigateurs dessinent en général en synchronisation avec l'écran, alors que les jeux produisent des déchirures quand ils envoient des images avec le V-Sync désactivé. Si vous voyez bel et bien des déchirures sur cette page, vérifiez que l'accélération matérielle est activée dans votre navigateur et que l'écran tourne à sa fréquence de rafraîchissement nominale. Les mires Scintillement VRR ne testent le VRR que si le navigateur l'active, ce que toutes les configurations ne font pas : si l'affichage de la fréquence du moniteur reste à son maximum, le VRR n'est pas actif et ces mires ne peuvent pas montrer de scintillement VRR.",
     "next": [
       "Activez la synchronisation adaptative (G-Sync, FreeSync ou VRR) dans le menu du moniteur et dans le pilote graphique.",
       "Si votre écran n'a pas de synchronisation adaptative, activez le V-Sync dans le jeu, ou plafonnez sa fréquence d'images juste sous la fréquence de rafraîchissement.",
-      "Vérifiez la connexion : la synchronisation adaptative exige du DisplayPort sur un PC, ou du HDMI 2.1 sur une console ou un téléviseur."
+      "Vérifiez la connexion : sur un PC, utilisez le DisplayPort si l'écran en a un. En HDMI, la synchronisation adaptative exige le HDMI VRR (qui fait partie du HDMI 2.1) ou le FreeSync en HDMI avec une carte AMD ou une Xbox."
     ],
     "tables": [
       {
@@ -150,7 +152,7 @@
             "Synchronisation adaptative (G-Sync, FreeSync, VRR)",
             "Aucun dans sa plage de fonctionnement",
             "Très faible",
-            "Un écran et une carte graphique compatibles, en DisplayPort ou HDMI 2.1"
+            "Un écran et une carte graphique compatibles, en DisplayPort, ou en HDMI avec HDMI VRR ou FreeSync"
           ]
         ]
       }
@@ -170,7 +172,8 @@
       "Les mêmes cellules restent sombres à chaque fois, aussi lentement que vous passiez dessus. Une cellule récalcitrante sur un seul passage est en général un simple endroit manqué.",
       "Un trou au même endroit dans chaque trait que vous tracez à travers.",
       "Des traits qui sautent, ou des marques qui apparaissent là où vous ne touchez pas : des touches fantômes.",
-      "Un compteur qui ne dépasse jamais un ou deux doigts."
+      "Un compteur qui ne dépasse jamais un ou deux doigts.",
+      "Dans Multi-touch, un repère qui s'écarte brusquement de son doigt, ou qui disparaît alors que le doigt est toujours posé."
     ],
     "note": "Une protection d'écran épaisse, fissurée ou qui se décolle peut provoquer tout cela. Retirez la coque et la protection et refaites le test avant d'accuser l'écran. Les défauts tactiles commencent en général sur les bords et dans les coins : passez-y lentement.",
     "next": [
@@ -179,7 +182,7 @@
       "Installez toute mise à jour système en attente.",
       "Si la même zone échoue toujours, la couche tactile est défectueuse. Contactez le fabricant ou un réparateur, et précisez si l'écran est déjà tombé ou a déjà été remplacé."
     ],
-    "guideLabel": "Comment tester l'écran d'un téléphone d'occasion avant d'acheter"
+    "guideLabel": "Écran tactile qui ne répond pas ou touches fantômes ? Solutions"
   },
   "screen-info": {
     "heading": "Ce que vous apprend chaque valeur",
@@ -286,20 +289,23 @@
     "pass": [
       "Bordure d'overscan : vous voyez le cadre le plus extérieur, marqué 0 %, sur tout son pourtour.",
       "Format d'image : les cercles sont parfaitement ronds et le carré est bien carré.",
-      "Grille de géométrie : les lignes sont droites et régulièrement espacées d'un bord à l'autre."
+      "Grille de géométrie : les lignes sont droites et régulièrement espacées d'un bord à l'autre.",
+      "Lignes de bord : chaque ligne court sur toute la longueur de son bord, sauf là où les coins arrondis ou une encoche la coupent."
     ],
     "fail": [
-      "Les cadres extérieurs sont coupés. Le plus extérieur que vous voyez encore sur tout son pourtour indique la part d'image rognée.",
+      "Les cadres extérieurs sont coupés. La part rognée se situe entre le cadre le plus extérieur que vous voyez encore sur tout son pourtour et le suivant vers l'extérieur.",
       "Des cercles qui paraissent ovales : l'image est étirée.",
-      "Des lignes de grille qui se courbent ou convergent : sur un vidéoprojecteur, cela signifie que la correction de trapèze ou la position de l'objectif doit être ajustée."
+      "Des lignes de grille qui se courbent ou convergent : sur un vidéoprojecteur, cela signifie que la correction de trapèze ou la position de l'objectif doit être ajustée.",
+      "Lignes de bord : la ligne la plus extérieure manque sur tout un bord, l'image y est donc coupée."
     ],
-    "note": "L'overscan est un réglage, pas un défaut. Cherchez une option de taille d'image nommée Just Scan, Screen Fit, Fit to Screen, 1:1 ou Overscan Off. Chaque entrée du téléviseur peut avoir son propre réglage de taille d'image : testez donc l'entrée que vous utilisez vraiment.",
+    "note": "L'overscan est un réglage, pas un défaut. Cherchez une option de taille d'image nommée Just Scan, Screen Fit, Fit to Screen, Full Pixel, 1:1 ou Overscan Off. Chaque entrée du téléviseur peut avoir son propre réglage de taille d'image : testez donc l'entrée que vous utilisez vraiment. Sur un iPhone, Safari ne peut pas passer en plein écran : les lignes de bord marquent alors le bord de la fenêtre du navigateur, et non celui de l'écran.",
     "next": [
       "Sur le téléviseur, réglez la taille d'image sur un mode 1:1 comme Just Scan ou Screen Fit.",
       "Si le téléviseur permet de nommer les entrées, attribuez à celle-ci le libellé PC.",
       "Uniquement si le téléviseur n'a aucune option de ce type, utilisez le réglage de mise à l'échelle du pilote graphique.",
       "Refaites le test et vérifiez que le cadre 0 % est visible sur tout son pourtour."
-    ]
+    ],
+    "guideLabel": "Qu'est-ce que l'overscan ? Pourquoi votre téléviseur coupe les bords"
   },
   "sharpness-test": {
     "heading": "Net, mis à l'échelle ou trop accentué ?",
@@ -311,17 +317,18 @@
       "Aucun liseré clair autour des lignes et des anneaux sur la mire des halos."
     ],
     "fail": [
-      "Des lignes fines qui virent à la bouillie grise ou au moiré ondulé : l'image est rééchantillonnée par une résolution non native, une mise à l'échelle fractionnaire, le zoom du navigateur ou la mise à l'échelle propre au téléviseur.",
+      "Des lignes fines qui virent à la bouillie grise ou au moiré ondulé : l'image est rééchantillonnée par une résolution non native, une résolution mise à l'échelle sur un Mac, le zoom du navigateur ou la mise à l'échelle propre au téléviseur.",
       "Du texte rouge ou jaune qui bave alors que le texte noir et blanc reste net : un sous-échantillonnage de la chrominance. Utilisez le mode PC ou Jeu du téléviseur, ou réglez la sortie sur RGB ou 4:4:4.",
       "Des liserés blancs autour des contours : le réglage Netteté est trop élevé. Baissez-le jusqu'à ce qu'ils disparaissent."
     ],
-    "note": "Vérifiez d'abord à votre distance de vision habituelle, puis de près. Une mise à l'échelle de 100 %, 150 % ou 200 % préserve mieux les détails fins que les valeurs intermédiaires.",
+    "note": "Vérifiez d'abord à votre distance de vision habituelle, puis de près. Sur un Mac, la taille mise à l'échelle qui vaut exactement la moitié de la résolution de la dalle garde les détails fins les plus nets. Les franges de sous-pixels sont un trait de la dalle, pas un défaut : un QD-OLED à disposition triangulaire montre du vert et du magenta en haut et en bas des lettres, et un WOLED des bords colorés sur leurs côtés, plus ou moins selon les modèles. Les dalles OLED plus récentes, dont les sous-pixels sont côte à côte, l'évitent en grande partie. Si cela vous gêne à votre distance habituelle, un texte plus grand ou une mise à l'échelle le masque. Sur un LCD, des bords colorés sur le texte signifient en général que le lissage du texte ne correspond pas à la dalle : sous Windows, lancez le ClearType Text Tuner.",
     "next": [
       "Sélectionnez la résolution native de l'écran.",
-      "Réglez la mise à l'échelle sur 100 %, 150 % ou 200 % et réinitialisez le zoom du navigateur.",
+      "Réinitialisez le zoom du navigateur et, sur un Mac, choisissez la taille mise à l'échelle qui vaut exactement la moitié de la résolution de la dalle.",
       "Sur un téléviseur, passez l'entrée en mode PC ou Jeu et réglez la sortie sur RGB ou 4:4:4.",
       "Baissez le réglage Netteté jusqu'à ce que les liserés disparaissent sur la mire des halos."
-    ]
+    ],
+    "guideLabel": "Pourquoi le texte est-il flou sur mon écran ou mon téléviseur ?"
   },
   "frame-skipping-test": {
     "heading": "Lire la photo : des images sautées, ou non ?",
@@ -335,7 +342,7 @@
       "Un trou dans la suite qui revient photo après photo : l'écran saute des images.",
       "Des trous qui n'apparaissent qu'à la fréquence de rafraîchissement la plus élevée ou après un overclocking, et qui disparaissent à la fréquence standard."
     ],
-    "note": "Un trou sur une seule photo ne prouve rien, car un ordinateur occupé peut aussi faire manquer une image au navigateur. Fermez les autres applications et prenez plusieurs clichés. Choisissez une vitesse d'obturation assez lente pour capter 6 à 10 images : environ 1/15 s à 144 Hz, 1/30 s à 240 Hz.",
+    "note": "Un trou sur une seule photo ne prouve pas grand-chose : prenez plusieurs clichés et vérifiez que l'affichage des Hz correspond à la fréquence réglée. Un rafraîchissement manqué par le navigateur apparaît comme une cellule plus claire, pas comme un trou. Choisissez une vitesse d'obturation de 1/10 s ou plus ; pour des sauts qui ne surviennent que de temps en temps, allongez-la jusqu'à ce que 30 à 50 cellules s'allument, moins que la grille n'en contient.",
     "next": [
       "Fermez les autres applications et prenez plusieurs autres photos pour vérifier que le trou est toujours là.",
       "Baissez la fréquence de rafraîchissement d'un cran et refaites le test, jusqu'à ce que la série de cellules soit ininterrompue.",
@@ -352,37 +359,38 @@
         "rows": [
           [
             "60 Hz",
-            "1/8 s",
-            "environ 7"
+            "1/4 s",
+            "environ 15"
           ],
           [
             "120 Hz",
-            "1/15 s",
-            "environ 8"
+            "1/8 s",
+            "environ 15"
           ],
           [
             "144 Hz",
-            "1/15 s",
-            "environ 10"
+            "1/8 s",
+            "environ 18"
           ],
           [
             "165 Hz",
-            "1/20 s",
-            "environ 8"
+            "1/8 s",
+            "environ 21"
           ],
           [
             "240 Hz",
-            "1/30 s",
-            "environ 8"
+            "1/10 s",
+            "environ 24"
           ],
           [
             "360 Hz",
-            "1/50 s",
-            "environ 7"
+            "1/10 s",
+            "environ 36"
           ]
         ]
       }
-    ]
+    ],
+    "guideLabel": "Qu'est-ce que le saut d'images et comment le tester ?"
   },
   "wide-color-gamut-test": {
     "heading": "Logo ou pas de logo ? Ce que cela signifie",
@@ -566,5 +574,22 @@
     ],
     "note": "Un écran qui réussit tous les tests peut quand même avoir des particularités normales pour son type de dalle, comme de l'IPS glow ou un peu de blooming. Chaque page de test précise quels résultats sont normaux et lesquels sont des défauts.",
     "guideLabel": "La checklist complète pour tester l'écran d'un appareil neuf"
+  },
+  "frame-rate-comparison": {
+    "heading": "Ce que montrent les trois voies",
+    "howToHeading": "Comparer les fréquences d'images",
+    "faqHeading": "Questions sur la fréquence d'images",
+    "pass": [
+      "La voie du haut avance par pas réguliers, sans accroc.",
+      "Chaque voie, en descendant, paraît plus saccadée et plus floue que celle du dessus. Cet écart, c'est ce qu'apporte une fréquence d'images plus élevée.",
+      "Un peu de flou dans la voie du haut aussi, moins aux fréquences de rafraîchissement élevées."
+    ],
+    "fail": [
+      "Des accrocs ou des saccades dans la voie du haut : le navigateur manque des rafraîchissements. Fermez les autres onglets et applications ; le Test de fréquence de rafraîchissement compte les images perdues.",
+      "Une voie du haut étiquetée 60 fps sur un écran à haute fréquence : l'écran fonctionne à 60 Hz. Sélectionnez la fréquence maximale dans vos réglages d'affichage.",
+      "Sur le fond Clair, une traînée derrière la voiture ou un contour clair autour : du ghosting ou de l'overshoot. Essayez les réglages d'overdrive du moniteur et comparez."
+    ],
+    "note": "Les voies utilisent votre fréquence de rafraîchissement mesurée : un écran 144 Hz affiche donc 144, 72 et 36 fps, et un écran 60 Hz 60, 30 et 15. Sur un écran ordinaire, le flou de mouvement dépend du temps pendant lequel chaque image reste affichée : divisez-le par deux et le flou diminue de moitié, d'où la différence si facile à voir entre 60 et 120 Hz.",
+    "guideLabel": "La fréquence de rafraîchissement expliquée : 60, 120, 144 ou 240 Hz"
   }
 }

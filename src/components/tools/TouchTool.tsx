@@ -5,7 +5,7 @@ import FullscreenStage from "./FullscreenStage";
 import type { ToolDef } from "@/lib/tools";
 import { useT } from "@/i18n/ui";
 
-const LABELS = ["Touch grid", "Free draw"];
+const LABELS = ["Touch grid", "Free draw", "Multi-touch"];
 const CELL = 44; // CSS px — roughly a fingertip, the standard minimum touch target
 const TRAIL_COLORS = ["#22c55e", "#3b82f6", "#f59e0b", "#ec4899", "#a855f7", "#14b8a6", "#ef4444", "#eab308", "#06b6d4", "#f97316"];
 
@@ -204,6 +204,94 @@ function FreeDraw() {
   );
 }
 
+// ---------- Frame 2: every finger as a numbered marker with its coordinates ----------
+
+interface Touch {
+  n: number; // order it landed in, 1-based, reused once a finger lifts
+  x: number;
+  y: number;
+}
+
+function MultiTouch() {
+  const t = useT();
+  const [touches, setTouches] = useState<Map<number, Touch>>(() => new Map());
+  const pointers = usePointerCount();
+
+  const pos = (e: React.PointerEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    return { x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top) };
+  };
+
+  return (
+    <div
+      className="relative h-full w-full touch-none overflow-hidden bg-black"
+      onPointerDown={(e) => {
+        pointers.down(e.pointerId);
+        const p = pos(e);
+        setTouches((prev) => {
+          const used = new Set([...prev.values()].map((v) => v.n));
+          let n = 1;
+          while (used.has(n)) n++;
+          return new Map(prev).set(e.pointerId, { n, ...p });
+        });
+      }}
+      onPointerMove={(e) => {
+        if (e.pointerType === "mouse" && !(e.buttons & 1)) return;
+        const p = pos(e);
+        setTouches((prev) => {
+          const cur = prev.get(e.pointerId);
+          return cur ? new Map(prev).set(e.pointerId, { ...cur, ...p }) : prev;
+        });
+      }}
+      onPointerUp={(e) => {
+        pointers.up(e.pointerId);
+        setTouches((prev) => {
+          const next = new Map(prev);
+          next.delete(e.pointerId);
+          return next;
+        });
+      }}
+      onPointerCancel={(e) => {
+        pointers.up(e.pointerId);
+        setTouches((prev) => {
+          const next = new Map(prev);
+          next.delete(e.pointerId);
+          return next;
+        });
+      }}
+    >
+      {touches.size === 0 && (
+        <p className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 px-6 text-center text-lg text-white/50">
+          {t("Put up to ten fingers on the screen")}
+        </p>
+      )}
+      {[...touches.values()].map((p) => {
+        const color = TRAIL_COLORS[(p.n - 1) % TRAIL_COLORS.length];
+        return (
+          <div key={p.n} className="pointer-events-none">
+            {/* Crosshair lines show how far each touch is from the edges. */}
+            <div className="absolute inset-x-0 h-px opacity-50" style={{ top: p.y, backgroundColor: color }} />
+            <div className="absolute inset-y-0 w-px opacity-50" style={{ left: p.x, backgroundColor: color }} />
+            <div
+              className="absolute flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 text-xl font-bold text-white"
+              style={{ left: p.x, top: p.y, borderColor: color, backgroundColor: `${color}33` }}
+            >
+              {p.n}
+            </div>
+            <div
+              className="absolute -translate-x-1/2 rounded bg-black/75 px-1.5 py-0.5 text-xs font-medium tabular-nums text-white"
+              style={{ left: p.x, top: Math.max(0, p.y - 64) }}
+            >
+              {p.x}, {p.y}
+            </div>
+          </div>
+        );
+      })}
+      <Status text={t("{now} touching (max {max})", { now: pointers.now, max: pointers.max })} />
+    </div>
+  );
+}
+
 export default function TouchTool({ tool }: { tool: ToolDef }) {
   // Bumping the key remounts the frames, which clears them.
   const [round, setRound] = useState(0);
@@ -220,7 +308,15 @@ export default function TouchTool({ tool }: { tool: ToolDef }) {
           {t("Reset")}
         </button>
       )}
-      renderFrame={(i) => (i === 0 ? <TouchGrid key={`g${round}`} /> : <FreeDraw key={`d${round}`} />)}
+      renderFrame={(i) =>
+        i === 0 ? (
+          <TouchGrid key={`g${round}`} />
+        ) : i === 1 ? (
+          <FreeDraw key={`d${round}`} />
+        ) : (
+          <MultiTouch key={`m${round}`} />
+        )
+      }
     />
   );
 }

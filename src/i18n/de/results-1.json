@@ -255,7 +255,7 @@
       "Banding oder eine Farbverschiebung in nur einem der Verläufe für Rot, Grün und Blau: die Kalibrierung dieses Kanals, nicht das Panel insgesamt.",
       "Ein Farbton, der einen breiten Abschnitt des Spektrums verschluckt."
     ],
-    "note": "Diese Verläufe nutzen Standard-sRGB-Farben. Sie zeigen also Banding und ungleichmäßige Übergänge, nicht, wie groß der Farbraum deines Bildschirms ist. Die Weiß- und Grauverläufe isolieren Helligkeits-Banding in den Schatten, ohne dass Farbe ablenkt.",
+    "note": "Diese Verläufe nutzen Standard-sRGB-Farben. Sie zeigen also Banding und ungleichmäßige Übergänge, nicht, wie groß der Farbraum deines Bildschirms ist. Die Weiß- und Grauverläufe isolieren Helligkeits-Banding in den Schatten, ohne dass Farbe ablenkt. Bei „8 Bit vs. 10 Bit“ sind Stufen in der oberen Hälfte zu erwarten. Zwei identische Hälften bedeuten, dass irgendwo zwischen Browser und Panel ein Glied nur 8 Bit überträgt, was bei den meisten Setups normal ist; eine stufenlosere untere Hälfte bedeutet, dass mehr als 8 Bit oder Dithering durchkommen.",
     "next": [
       "Schalte Nachtmodi, Farbfilter und eigene Farbprofile aus und lad die Seite neu.",
       "Zeigt nur einer der Verläufe in Rot, Grün oder Blau Banding, setz die Farbvoreinstellung und die RGB-Gain-Regler des Monitors auf Standard zurück.",
@@ -268,14 +268,16 @@
     "howToHeading": "Die Ausleuchtung prüfen",
     "faqHeading": "Fragen zur Ausleuchtung",
     "pass": [
-      "Das Grau sieht von der Mitte bis in jede Ecke wie ein einziger Ton aus. Gute Monitore bleiben über das Panel hinweg bei rund 10 % Helligkeitsabweichung.",
+      "Das Grau sieht von der Mitte bis in jede Ecke wie ein einziger Ton aus. Bei einem guten Monitor bleibt der Großteil des Bildschirms innerhalb von etwa 10 % der Helligkeit in der Mitte; die Ecken fallen oft weiter ab.",
       "Ecken etwas dunkler als die Mitte: Ein leichter Helligkeitsabfall ist bei jedem LCD normal.",
-      "Bei „Wanderndes Grau“ ziehen die Bänder über den Bildschirm, und nichts bleibt zurück."
+      "Bei „Wanderndes Grau“ ziehen die Bänder über den Bildschirm, und nichts bleibt zurück.",
+      "Auf den Grautönen von 5–20 % eine gleichmäßige Fläche, vielleicht zu den Rändern hin etwas dunkler."
     ],
     "fail": [
       "Ein klar abgegrenzter dunklerer oder hellerer Fleck mit sichtbarer Kante.",
       "Wolkige Flecken in der Bildschirmmitte: Clouding, oft durch Druck auf das Panel.",
-      "Bei „Wanderndes Grau“ Schlieren oder vertikale Streifen, die an Ort und Stelle bleiben, während die Bänder an ihnen vorbeiziehen: der Dirty-Screen-Effekt."
+      "Bei „Wanderndes Grau“ Schlieren oder vertikale Streifen, die an Ort und Stelle bleiben, während die Bänder an ihnen vorbeiziehen: der Dirty-Screen-Effekt.",
+      "Auf den dunklen Grautönen vertikale Streifen, ein verfärbter Fleck (auf einem OLED oft rosa) oder wolkige Flecken, die auf der 50-%-Fläche nicht zu sehen sind. Beurteile sie bei der Helligkeit, die du nutzt: Sie zählen, wenn sie in dunklen Szenen auffallen."
     ],
     "note": "Vergleich die Mitte immer nur mit einer Ecke auf einmal. Deine Augen passen sich an langsame Veränderungen über eine Fläche an und verdecken echte Unterschiede – deshalb kann ein gleichmäßig belichtetes Foto mehr zeigen als ein kurzer Blick. Beurteile es bei einem Fernseher von dort, wo du wirklich sitzt.",
     "next": [
@@ -299,7 +301,7 @@
           ],
           [
             "Leichte vertikale Streifen auf einer dunkelgrauen Fläche",
-            "Verbreitet bei großen VA- und OLED-Panels",
+            "Verbreitet bei großen Fernsehern, vor allem OLED",
             "du sie bei einem Kameraschwenk über einen Fußballrasen siehst"
           ],
           [
@@ -310,7 +312,7 @@
         ]
       }
     ],
-    "guideLabel": "So testest du einen neuen Fernseher auf tote Pixel und Ausleuchtung"
+    "guideLabel": "Bildschirmgleichmäßigkeit und der Dirty-Screen-Effekt"
   },
   "refresh-rate-test": {
     "heading": "Stimmt der Messwert für deinen Bildschirm?",
@@ -318,11 +320,13 @@
     "faqHeading": "Fragen zur Bildwiederholrate",
     "pass": [
       "Ein Messwert, der höchstens etwa 1 Hz von der Angabe des Panels abweicht. Viele Displays laufen einen Bruchteil neben dem Nennwert, etwa mit 59,94 Hz statt 60.",
-      "Eine stabile Zahl und ein Quadrat, das sich ohne Ruckeln bewegt."
+      "Eine stabile Zahl und ein Quadrat, das sich ohne Ruckeln bewegt.",
+      "Keine ausgelassenen Frames, oder ein paar, während sich die Seite einpendelt."
     ],
     "fail": [
       "60 Hz auf einem Bildschirm mit 120, 144 oder 240 Hz. Das ist ein Einstellungs- oder Kabelproblem, kein defektes Panel: Wähle in den Anzeigeeinstellungen die volle Rate und prüf Kabel und Anschluss.",
-      "Ein Messwert, der absackt oder hin und her springt. Schließ andere Tabs und Apps und miss noch einmal, bevor du dem Display die Schuld gibst."
+      "Ein Messwert, der absackt oder hin und her springt. Schließ andere Tabs und Apps und miss noch einmal, bevor du dem Display die Schuld gibst.",
+      "Ausgelassene Frames, die immer wieder auftreten. Schließ andere Tabs und Apps, häng einen Laptop ans Netzteil und prüf, ob die Hardwarebeschleunigung in den Browsereinstellungen eingeschaltet ist."
     ],
     "note": "Laptops und Handys können die Bildwiederholrate senken, um Strom zu sparen – wiederhol den Test also am Netzteil oder mit ausgeschaltetem Energiesparmodus. Hast du einen Monitor übertaktet, beweist eine passende Zahl hier nicht, dass er jeden Frame zeigt: Das prüft der Frame-Skipping-Test.",
     "next": [
@@ -525,11 +529,13 @@
     "faqHeading": "Fragen zum Kontrast",
     "pass": [
       "Schwarze Felder bleiben direkt neben hellen weißen tiefschwarz.",
-      "Die Grenzen zwischen den Feldern sind bei jeder Dichte scharf, bis 32 × 32."
+      "Die Grenzen zwischen den Feldern sind bei jeder Dichte scharf, bis 32 × 32.",
+      "Abgesoffenes Schwarz: Die Felder sind ab etwa 2–3 % sichtbar. Ausgefressenes Weiß: Sie heben sich bis etwa 97–98 % vom Weiß ab."
     ],
     "fail": [
       "Schwarze Felder, die grau oder ausgewaschen wirken: geringer Kontrast oder ein angehobener Schwarzwert.",
-      "Unscharfe oder farbige Kanten zwischen den Feldern. Das deutet auf Skalierung oder die Schärfe-Einstellung hin, nicht auf den Kontrast."
+      "Unscharfe oder farbige Kanten zwischen den Feldern. Das deutet auf Skalierung oder die Schärfe-Einstellung hin, nicht auf den Kontrast.",
+      "Die untersten Felder verschmelzen mit dem Schwarz oder die obersten mit dem Weiß: Schatten- oder Lichterdetails gehen verloren, meist durch die Helligkeits- oder Kontrasteinstellung oder einen falsch zugeordneten begrenzten RGB-Bereich."
     ],
     "note": "Der Paneltyp gibt die Obergrenze vor. OLED hält schwarze Felder komplett dunkel, weil sich die Pixel abschalten. Unter den LCDs erreichen VA-Panels typischerweise 2.500:1 bis 5.000:1 und IPS rund 1.000:1, IPS-Schwarz wirkt im dunklen Raum also merklich grauer. Das hier ist eine Sichtprüfung: Für ein echtes Kontrastverhältnis brauchst du ein Lichtmessgerät.",
     "next": [

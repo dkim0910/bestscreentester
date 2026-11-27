@@ -20,7 +20,17 @@ const tools = [...toolsSrc.matchAll(/\n    slug: "([^"]+)",\n    name: "([^"]+)"
   .map((m) => ({ slug: m[1], title: m[3], label: CAT[m[4]] }));
 const guides = [...guidesSrc.matchAll(/\n    slug: "([^"]+)",\n    title: "([^"]+)",/g)]
   .map((m) => ({ slug: m[1], title: m[2], label: "Guide" }));
-if (tools.length !== 30 || guides.length !== 44) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
+if (tools.length !== 31 || guides.length !== 50) throw new Error(`parse: ${tools.length} tools, ${guides.length} guides`);
+
+// The Frame Rate Comparison car (src/components/tools/FrameRateTool.tsx), wheels merged in.
+const CAR = [
+  "...........KKKKKKKKKKKK.........", "..........KBBBBBBKBBBBBK........", ".........KBWBBBBBKBBBBBBK.......",
+  "........KBWBBBBBBKBBBBBBBK......", ".......KbbbbbbbbbKbbbbbbbbK.....", "..KKKKKKKKKKKKKKKKKKKKKKKKKKKK..",
+  ".KRRRRRRRRRRRRRRRKRRRRRRRRRRRRK.", "KORRRRRRRRRRrrRRKRRRRRRrrRRRRYYK", "KRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRK",
+  "KRRRRRKKKKRRRRRRKRRRRRKKKKRRRRRK", "KrrrrKKGGKKrrrrrKrrrrKKGGKKrrrrK", ".KKKKKGggGKKKKKKKKKKKKGggGKKKKK.",
+  ".....KGggGK..........KGggGK.....", ".....KKGGKK..........KKGGKK.....", "......KKKK............KKKK......",
+];
+const CAR_PAL = { K: "#14161c", R: "#e63946", r: "#a4161a", W: "#ffffff", B: "#9bd4ff", b: "#4a90c2", Y: "#ffd23d", O: "#ff8c42", G: "#c3c9d2", g: "#5b6270" };
 
 // ---------- screen motifs ----------
 // Each draws inside the screen viewport x,y,w,h and returns SVG.
@@ -57,6 +67,18 @@ const M = {
     return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#111318"/>${bars}
       <line x1="${x + w * 0.12}" y1="${y + h * 0.84}" x2="${x + w * 0.88}" y2="${y + h * 0.84}" stroke="${ACCENT}" stroke-width="3"/>
       <path d="M ${x + w * 0.88} ${y + h * 0.84} l -12 -7 v 14 z" fill="${ACCENT}"/>`;
+  },
+  lanes: (x, y, w, h) => { // Frame Rate Comparison: the car in three lanes, steps widening
+    const laneH = h / 3, px = Math.max(2, Math.floor((laneH * 0.55) / CAR.length));
+    const car = (cx, cy, op) => CAR.map((row, r) => [...row].map((c, k) => c === "." ? "" :
+      `<rect x="${cx + k * px}" y="${cy + r * px}" width="${px}" height="${px}" fill="${CAR_PAL[c]}" opacity="${op}"/>`).join("")).join("");
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#15171c"/>` + [1, 2, 4].map((every, i) => {
+      const ly = y + laneH * i, cy = ly + (laneH - CAR.length * px) / 2, cw = CAR[0].length * px;
+      const head = x + w * 0.66;
+      const trail = [1, 2].map((n) => car(head - n * every * cw * 0.55, cy, 0.25 / n)).join("");
+      return (i ? `<rect x="${x}" y="${ly}" width="${w}" height="2" fill="#2a2e38"/>` : "") + trail + car(head, cy, 1) +
+        `<text x="${x + 14}" y="${ly + 24}" font-family="${FONT}" font-size="16" font-weight="700" fill="rgba(255,255,255,0.7)">${[120, 60, 30][i]} fps</text>`;
+    }).join("");
   },
   ghost: (x, y, w, h) => [0.18, 0.36, 0.54].map((f, i) =>
     `<rect x="${x + w * f}" y="${y + h * 0.3}" width="${w * 0.16}" height="${h * 0.4}" rx="6" fill="rgba(214,51,108,${0.18 + i * 0.35})"/>`)
@@ -177,6 +199,7 @@ const TOOL_MOTIF = {
   "dead-pixel-test": "pixels", "color-test": "rgb", "black-screen": "black", "white-screen": "white",
   "backlight-bleed-test": "bleed", "greyscale-test": "greysteps", "color-gradient-test": "gradient",
   "brightness-uniformity-test": "uniformity", "refresh-rate-test": "refresh", "ghosting-test": "ghost",
+  "frame-rate-comparison": "lanes",
   "blooming-test": "bloom", "fake-broken-screen": "crack", "screensaver": "dvd", "boot-screen-simulator": "boot",
   "burn-in-test": "burnin", "contrast-test": "contrast", "black-level-test": "blacklevel",
   "viewing-angle-test": "angle", "gamma-test": "gamma", "screen-tearing-test": "tear",
@@ -185,6 +208,7 @@ const TOOL_MOTIF = {
   "screen-size-calculator": "ruler", "screen-test-checklist": "checklist",
 };
 const GUIDE_RULES = [
+  [/touch-screen/, "touch"], [/screen-uniformity/, "uniformity"], [/overscan/, "overscan"], [/text-look-blurry/, "sharp"], [/frame-skipping/, "frameskip"], [/vrr-flicker/, "tear"],
   [/lines-on-my-screen/, "rgb"], [/graphics-card/, "twoscreens"], [/rgb-range/, "blacklevel"],
   [/contrast-ratio/, "contrast"], [/cracked-screen|pranks/, "crack"], [/screensaver/, "dvd"],
   [/checklist|before-buying|test-a-tv|test-a-laptop|used-phone/, "checklist"],

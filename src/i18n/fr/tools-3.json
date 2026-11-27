@@ -48,8 +48,8 @@
   "overscan-test": {
     "name": "Test d'overscan",
     "title": "Test d'overscan et de format d'image",
-    "tagline": "Des repères de bord, des cercles et une grille pour détecter recadrage, étirement et déformation.",
-    "description": "Test gratuit d'overscan et de format d'image pour TV et vidéoprojecteurs. Vérifiez bords rognés, image étirée et déformations avec des mires plein écran.",
+    "tagline": "Des repères de bord, des cercles, une grille et des lignes de bord pour détecter recadrage, étirement et déformation.",
+    "description": "Test gratuit d'overscan et de format d'image pour TV, vidéoprojecteurs et téléphones. Vérifiez bords rognés, image étirée et déformations en plein écran.",
     "keywords": [
       "test overscan",
       "test format d'image",
@@ -60,9 +60,10 @@
     ],
     "howTo": [
       "Ouvrez la page sur l'appareil relié au téléviseur ou au vidéoprojecteur, puis cliquez sur Démarrer.",
-      "Bordure d'overscan : le cadre coloré le plus extérieur que vous voyez sur tout son pourtour indique la part d'image rognée — 0 % signifie que rien ne l'est.",
+      "Bordure d'overscan : si le cadre 0 % est visible sur tout son pourtour, rien n'est rogné. Sinon, la part rognée se situe entre le cadre le plus extérieur que vous voyez sur tout son pourtour et le suivant vers l'extérieur.",
       "Format d'image (→) : les cercles doivent paraître parfaitement ronds et le carré bien carré.",
       "Grille de géométrie (→) : les lignes doivent être droites et régulièrement espacées. Servez-vous-en pour aligner un vidéoprojecteur.",
+      "Lignes de bord (→), pour téléphones et tablettes : des lignes de 0 à 32 px en retrait de chaque bord. Les coins arrondis et une encoche éventuelle les coupent ; servez-vous-en pour voir si le bord d'une protection d'écran empiète sur l'image, et s'il est régulier de chaque côté.",
       "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
@@ -97,14 +98,14 @@
     ],
     "tips": [
       "Chaque entrée du téléviseur peut avoir son propre réglage de taille d'image : testez donc l'entrée que vous utilisez vraiment.",
-      "Sur un vidéoprojecteur, réglez la correction de trapèze et le lens shift avec la grille de géométrie avant de faire la mise au point."
+      "Sur un vidéoprojecteur, utilisez d'abord le lens shift et gardez la correction de trapèze pour le reste, en vérifiant avec la grille de géométrie, puis faites la mise au point."
     ]
   },
   "sharpness-test": {
     "name": "Test de netteté",
     "title": "Test de netteté et de lisibilité du texte",
-    "tagline": "Des lignes au pixel près, des damiers et du texte pour débusquer le flou de mise à l'échelle et l'excès d'accentuation.",
-    "description": "Test de netteté et de lisibilité du texte gratuit. Lignes au pixel près et petit texte révèlent le flou dû à la résolution, à l'échelle ou à l'accentuation.",
+    "tagline": "Des lignes au pixel près, des damiers et du texte pour débusquer le flou de mise à l'échelle, les franges de sous-pixels et l'excès d'accentuation.",
+    "description": "Test de netteté et de lisibilité du texte gratuit. Lignes au pixel près et petit texte révèlent flou d'échelle, franges des OLED et excès d'accentuation des TV.",
     "keywords": [
       "test netteté écran",
       "test lisibilité texte écran",
@@ -117,13 +118,14 @@
       "Cliquez sur Démarrer et regardez chaque mire en plein écran à votre distance habituelle.",
       "Les lignes de 1 pixel et les damiers doivent paraître nets et régulièrement rayés. Une bouillie grise ou un moiré ondulé signifie que l'image est mise à l'échelle.",
       "Lisibilité du texte (→) : le petit texte doit être net, et le texte rouge ou jaune ne doit pas baver.",
+      "Franges de sous-pixels (→) : regardez de près les lignes et les lettres. Des bords verts et magenta sur un QD-OLED, ou des bords colorés sur les autres OLED, viennent de la disposition des sous-pixels de la dalle.",
       "Halos d'accentuation (→) : baissez le réglage Netteté de l'écran jusqu'à ce que les liserés autour des lignes et des anneaux disparaissent.",
       "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
       {
         "q": "Pourquoi les lignes fines paraissent-elles grises et floues ?",
-        "a": "Quelque chose, entre la page et la dalle, rééchantillonne l'image : une résolution non native, une mise à l'échelle qui n'est pas un nombre entier, le zoom du navigateur ou la mise à l'échelle propre au téléviseur. Réglez votre sortie sur la résolution native de l'écran et refaites le test."
+        "a": "Quelque chose, entre la page et la dalle, rééchantillonne l'image : une résolution non native, une résolution mise à l'échelle sur un Mac, le zoom du navigateur ou la mise à l'échelle propre au téléviseur. Réglez votre sortie sur la résolution native de l'écran et refaites le test."
       },
       {
         "q": "Pourquoi le texte rouge bave-t-il sur mon téléviseur ?",
@@ -135,7 +137,7 @@
       },
       {
         "q": "Pourquoi le texte a-t-il des franges colorées sur mon OLED ou mon téléviseur ?",
-        "a": "Les systèmes d'exploitation lissent le texte en supposant que chaque pixel est fait d'une bande rouge, d'une verte et d'une bleue, dans cet ordre. Beaucoup de dalles OLED et certains téléviseurs disposent leurs sous-pixels autrement : le lissage tombe alors sur les mauvais et se traduit par des bords colorés. Une mise à l'échelle plus élevée le rend moins visible."
+        "a": "ClearType, le lissage du texte de Windows, suppose que chaque pixel est une rangée de bandes rouge, verte et bleue. Beaucoup de dalles OLED sont construites autrement : un WOLED ajoute un sous-pixel blanc, et un QD-OLED place le vert au-dessus du rouge et du bleu, ce qui crée des franges en haut et en bas des lettres, quel que soit le lissage. Un texte plus grand et une mise à l'échelle plus élevée le rendent moins visible."
       },
       {
         "q": "Pourquoi mon moniteur est-il flou à une résolution inférieure ?",
@@ -152,7 +154,7 @@
     ],
     "tips": [
       "Vérifiez d'abord à votre distance de vision habituelle, puis de près.",
-      "Une mise à l'échelle de 100 %, 150 % ou 200 % préserve mieux les détails fins que les valeurs intermédiaires."
+      "Sur un Mac, la taille mise à l'échelle qui vaut exactement la moitié de la résolution de la dalle garde les détails fins les plus nets ; les autres tailles rééchantillonnent tout l'écran."
     ]
   },
   "frame-skipping-test": {
@@ -169,9 +171,9 @@
     ],
     "howTo": [
       "Fermez les autres applications et onglets, puis cliquez sur Démarrer.",
-      "Photographiez l'écran avec une vitesse d'obturation lente — environ 1/15 à 1/30 s, avec le mode Pro ou manuel de votre téléphone.",
+      "Photographiez l'écran avec une vitesse d'obturation lente — 1/10 s ou plus, avec le mode Pro ou manuel de votre téléphone.",
       "Sur la photo, les cellules allumées doivent former une suite ininterrompue. Un trou signifie qu'une image a été sautée.",
-      "Utilisez la grille de 120 cellules (→) sur les écrans au-delà de 144 Hz pour que la suite ne revienne pas au début.",
+      "Utilisez la grille de 120 cellules (→) sur les écrans au-delà de 144 Hz, pour qu'une longue exposition tienne dans la grille sans revenir au début.",
       "Prenez plusieurs photos avant de conclure, puis appuyez sur Échap pour quitter."
     ],
     "faq": [
@@ -181,7 +183,7 @@
       },
       {
         "q": "Le navigateur peut-il lui aussi provoquer des trous ?",
-        "a": "Oui — si l'ordinateur est occupé, le navigateur peut lui aussi manquer une image. Fermez les autres applications, refaites la photo plusieurs fois, et ne vous inquiétez que des trous qui reviennent sans cesse."
+        "a": "En général, non. Un ordinateur occupé fait manquer des rafraîchissements au navigateur, mais un rafraîchissement manqué laisse la cellule précédente allumée deux fois plus longtemps : elle ressort plus claire sur la photo au lieu de laisser un trou. Des trous côté ordinateur peuvent apparaître si le navigateur tourne à une autre fréquence que l'écran : vérifiez que l'affichage des Hz correspond à la fréquence réglée, refaites la photo plusieurs fois, et ne vous inquiétez que des trous qui reviennent sans cesse."
       },
       {
         "q": "L'appareil photo de mon téléphone n'a pas de mode manuel. Que faire ?",
@@ -197,7 +199,7 @@
       },
       {
         "q": "Ai-je besoin de ce test si je n'ai pas overclocké mon moniteur ?",
-        "a": "En général, non. Les moniteurs ne sautent pas d'images à leurs réglages nominaux. Faites-le après avoir défini une résolution personnalisée ou une fréquence de rafraîchissement overclockée, ou quand un adaptateur ou une station d'accueil annonce une fréquence avec laquelle l'écran n'a pas été vendu."
+        "a": "En général, non. Les moniteurs sautent rarement des images à leurs réglages nominaux. Faites-le après avoir défini une résolution personnalisée ou une fréquence de rafraîchissement overclockée, ou quand un adaptateur ou une station d'accueil annonce une fréquence avec laquelle l'écran n'a pas été vendu."
       },
       {
         "q": "Pourquoi faut-il une photo ? Ne puis-je pas simplement regarder ?",
@@ -205,7 +207,7 @@
       }
     ],
     "tips": [
-      "Choisissez une vitesse d'obturation assez lente pour capter 6 à 10 images : environ 1/15 s à 144 Hz, 1/30 s à 240 Hz.",
+      "Choisissez une vitesse d'obturation de 1/10 s ou plus. Pour des sauts qui ne surviennent que de temps en temps, allongez-la jusqu'à ce que 30 à 50 cellules s'allument.",
       "Refaites le test après avoir changé la fréquence de rafraîchissement ou les réglages d'overclocking — le saut d'images n'apparaît souvent qu'à la fréquence la plus élevée."
     ]
   },
@@ -401,8 +403,8 @@
   "screen-test-checklist": {
     "name": "Checklist de test d'écran",
     "title": "Checklist de test d'écran",
-    "tagline": "Les tests à faire sur un moniteur, un portable, un téléphone ou un téléviseur, dans l'ordre, avec votre progression enregistrée.",
-    "description": "Checklist gratuite pour tester un écran neuf ou d'occasion : moniteur, portable, téléphone ou TV. Les bons tests, dans le bon ordre, à cocher un par un.",
+    "tagline": "Les tests à faire sur un moniteur, un portable, un téléphone ou un téléviseur, dans l'ordre, marqués réussis ou échoués, avec un rapport à partager.",
+    "description": "Checklist gratuite pour écran neuf ou d'occasion : moniteur, portable, téléphone ou TV. Les bons tests dans l'ordre, réussis ou non, et un rapport à partager.",
     "keywords": [
       "checklist test écran",
       "checklist nouveau moniteur",
@@ -414,8 +416,9 @@
     "howTo": [
       "Choisissez l'appareil que vous testez : moniteur, ordinateur portable, téléphone ou tablette, ou téléviseur.",
       "Commencez par les tests marqués Essentiel. Ils détectent les défauts pour lesquels un vendeur reprend un écran.",
-      "Ouvrez chaque test, faites-le, puis revenez le cocher. Vos coches sont enregistrées uniquement dans ce navigateur.",
-      "Terminez les tests essentiels tant que vous pouvez encore renvoyer l'appareil. Les autres peuvent attendre."
+      "Ouvrez chaque test, faites-le, puis revenez le marquer Réussi ou Échoué. Vos résultats sont enregistrés uniquement dans ce navigateur.",
+      "Terminez les tests essentiels tant que vous pouvez encore renvoyer l'appareil. Les autres peuvent attendre.",
+      "Vous achetez ou vendez un écran d'occasion ? Ajoutez le nom de l'appareil, puis copiez le rapport ou partagez un lien qui contient les résultats."
     ],
     "faq": [
       {
@@ -432,16 +435,60 @@
       },
       {
         "q": "Ma progression est-elle enregistrée quelque part ?",
-        "a": "Uniquement dans ce navigateur, sur cet appareil. Rien n'est envoyé à un serveur, et effacer les données de site du navigateur efface les coches."
+        "a": "Uniquement dans ce navigateur, sur cet appareil. Rien n'est envoyé à un serveur, et effacer les données de site du navigateur efface les résultats. Un lien de partage contient les résultats dans le lien lui-même : quiconque l'ouvre les voit ; rien n'est mis en ligne."
       },
       {
         "q": "Que faire quand un test révèle un problème ?",
         "a": "Chaque page de test comporte une section qui explique comment lire le résultat et quoi faire ensuite. En règle générale : photographiez le défaut, notez la date et contactez le vendeur tant que le délai de retour court encore."
+      },
+      {
+        "q": "Puis-je me fier à un rapport qu'on m'a envoyé ?",
+        "a": "Considérez-le comme la parole du vendeur. Un rapport partagé montre ce que l'expéditeur a marqué ; il ne peut pas prouver que les tests ont été faits, ni qu'ils l'ont été sur cet écran. Si vous achetez, faites vous-même les tests essentiels sur l'écran avant de payer."
       }
     ],
     "tips": [
-      "Gardez le carton et la facture jusqu'à ce que tous les tests essentiels soient cochés.",
+      "Gardez le carton et la facture jusqu'à ce que chaque test essentiel ait un résultat.",
       "Regroupez les tests en pièce sombre, après avoir laissé à vos yeux une ou deux minutes pour s'habituer."
+    ]
+  },
+  "frame-rate-comparison": {
+    "name": "Comparaison de fréquences d'images",
+    "title": "Test de comparaison des fréquences d'images (fps)",
+    "tagline": "La même voiture en mouvement à pleine fréquence d'images, à la moitié et au quart, côte à côte.",
+    "description": "Test gratuit de comparaison des fps : la même voiture à 30, 60, 120 fps ou plus, côte à côte, pour voir l'effet de votre fréquence sur la netteté en mouvement.",
+    "keywords": [
+      "comparaison fps",
+      "test comparaison fréquence d'images",
+      "30 vs 60 fps",
+      "60 vs 120 fps",
+      "60 vs 144 fps",
+      "test netteté en mouvement"
+    ],
+    "howTo": [
+      "Cliquez sur Démarrer. Les trois voies montrent la même voiture à la même vitesse : la voie du haut la redessine à chaque rafraîchissement, la suivante un rafraîchissement sur deux, celle du bas un sur quatre.",
+      "Chaque voie est étiquetée avec sa fréquence d'images, calculée à partir de votre fréquence de rafraîchissement mesurée.",
+      "Suivez une voiture des yeux. Plus la fréquence d'images est basse, plus ses sauts sont grands et plus elle paraît floue.",
+      "Utilisez ← / → pour changer la vitesse, et les boutons Sombre, Gris et Clair pour changer le fond.",
+      "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi la voie du haut paraît-elle floue, elle aussi ?",
+        "a": "Parce que tout écran ordinaire maintient chaque image immobile pendant que vos yeux continuent de bouger. Le flou est à peu près aussi large que la distance parcourue par la voiture en une image : à 960 pixels par seconde, 16 pixels à 60 Hz et 7 à 144 Hz. Des fréquences de rafraîchissement plus élevées et le strobing du rétroéclairage le réduisent."
+      },
+      {
+        "q": "Pourquoi mon moniteur 144 Hz affiche-t-il 60 fps dans la voie du haut ?",
+        "a": "Parce qu'il fonctionne à 60 Hz. Les étiquettes viennent de la fréquence de rafraîchissement mesurée par le navigateur : la voie du haut montre donc toujours votre maximum réel. Sélectionnez la fréquence maximale dans vos réglages d'affichage et vérifiez le câble ; le Test de fréquence de rafraîchissement vous guide pas à pas."
+      },
+      {
+        "q": "Est-ce la même chose que le Test de ghosting ?",
+        "a": "Non. Le Test de ghosting utilise de simples carrés pour montrer les traînées des pixels lents ; ce test-ci compare des fréquences d'images. Sur le fond Clair, il montre aussi le ghosting autour d'une forme détaillée : une légère traînée derrière la voiture est du ghosting, et un contour clair ou bizarrement coloré est de l'overshoot dû à l'overdrive."
+      }
+    ],
+    "tips": [
+      "Asseyez-vous à votre distance habituelle et suivez la voiture des yeux plutôt que de fixer un point.",
+      "Sur un écran 60 Hz, la voie du bas tourne à 15 fps : voilà à quoi ressemble un jeu qui saccade fortement.",
+      "Si la voie du haut accroche, fermez les autres onglets : le navigateur manque des rafraîchissements. Le Test de fréquence de rafraîchissement les compte."
     ]
   }
 }

@@ -154,8 +154,8 @@
   "contrast-test": {
     "name": "Test de contraste",
     "title": "Test de contraste",
-    "tagline": "Tableros de ajedrez en blanco y negro para juzgar la separación entre negro y blanco.",
-    "description": "Test de contraste gratis. Tableros de ajedrez en blanco y negro de densidad creciente para evaluar el contraste, la separación negro/blanco y la nitidez.",
+    "tagline": "Tableros de ajedrez y recuadros de negros empastados y blancos recortados para juzgar el contraste en ambos extremos.",
+    "description": "Test de contraste gratis: tableros de ajedrez y recuadros casi negros (1–10%) y casi blancos (90–99%) para ver negros empastados y blancos recortados.",
     "keywords": [
       "test de contraste",
       "tablero de ajedrez",
@@ -166,6 +166,7 @@
       "Haz clic en Iniciar y mira el tablero de ajedrez a pantalla completa.",
       "Usa ← / → para cambiar la densidad de la cuadrícula (de 4×4 a 32×32).",
       "Los cuadrados negros deberían seguir siendo de un negro profundo y los blancos, brillantes, con bordes nítidos entre ellos.",
+      "Negros empastados (→): en una habitación con poca luz deberías ver los recuadros a partir del 2–3% aproximadamente. Blancos recortados (→): los recuadros deberían distinguirse del blanco hasta el 97–98% aproximadamente.",
       "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
@@ -355,8 +356,8 @@
   "screen-tearing-test": {
     "name": "Test de tearing",
     "title": "Test de tearing (screen tearing)",
-    "tagline": "Barras de desplazamiento rápido que sacan a la vista el tearing sin V-Sync/VRR.",
-    "description": "Test de tearing gratis. Unas barras en desplazamiento rápido revelan cortes cuando fps y Hz no están sincronizados: revisa V-Sync, G-Sync y FreeSync.",
+    "tagline": "Barras de desplazamiento rápido que sacan a la vista el tearing, y grises oscuros que revelan el parpadeo VRR.",
+    "description": "Test de tearing y parpadeo VRR gratis. Barras en movimiento muestran cortes sin V-Sync; grises oscuros a fps variables, el parpadeo de G-Sync y FreeSync.",
     "keywords": [
       "test tearing",
       "vsync",
@@ -369,6 +370,7 @@
       "Usa ← / → para alternar entre barras verticales (revelan cortes horizontales) y barras horizontales (revelan cortes verticales).",
       "Una imagen limpia significa que no hay tearing; un corte donde las barras no coinciden es tearing.",
       "Activa y desactiva V-Sync o la sincronización adaptativa (G-Sync/FreeSync) y compara.",
+      "Parpadeo VRR (→): grises oscuros con una tasa de fotogramas que cambia sin parar. Activa en el monitor el indicador de frecuencia de actualización: si la cifra va dando saltos, el VRR está activo y cualquier vibración en los grises es parpadeo VRR.",
       "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
@@ -386,23 +388,28 @@
       },
       {
         "q": "¿Cómo compruebo que G-Sync o FreeSync están realmente activados?",
-        "a": "Hay que activarlo en dos sitios: en el menú del propio monitor y en el panel de control del controlador gráfico. También necesita la conexión adecuada: DisplayPort en un PC, o HDMI 2.1 en una consola o un televisor, donde suele aparecer como VRR."
+        "a": "Hay que activarlo en dos sitios: en el menú del propio monitor y en el panel de control del controlador gráfico. También necesita una conexión que lo transmita. En un PC, DisplayPort es la opción segura. Por HDMI necesita HDMI VRR, una función de HDMI 2.1, o bien, con una tarjeta AMD o una Xbox, un monitor compatible con FreeSync por HDMI. Los televisores suelen llamar a HDMI VRR simplemente VRR."
       },
       {
         "q": "¿Una frecuencia de actualización más alta reduce el tearing?",
         "a": "Hace que los cortes se vean menos, no que sean menos frecuentes. A 144 Hz cada fotograma cortado está en pantalla menos de 7 ms, frente a casi 17 ms a 60 Hz, y el desfase en el corte es menor. Solo V-Sync o la sincronización adaptativa eliminan el tearing por completo."
+      },
+      {
+        "q": "¿Qué es el parpadeo VRR?",
+        "a": "Un parpadeo de brillo en escenas oscuras que aparece con G-Sync o FreeSync cuando la tasa de fotogramas oscila, sobre todo en paneles OLED y VA, cuyo brillo para un mismo gris cambia ligeramente con la frecuencia de actualización. Mantener estable la tasa de fotogramas, por ejemplo con un límite unos pocos fps por debajo del máximo, lo reduce. Es una característica conocida de estos paneles, no un defecto."
       }
     ],
     "tips": [
       "Usa el patrón de barras verticales para los cortes horizontales y el de barras horizontales para los cortes verticales.",
-      "Activa y desactiva V-Sync o la sincronización adaptativa (G-Sync/FreeSync) y observa cómo aparece o desaparece la línea de corte."
+      "Activa y desactiva V-Sync o la sincronización adaptativa (G-Sync/FreeSync) y observa cómo aparece o desaparece la línea de corte.",
+      "Para el parpadeo VRR, mira la banda más oscura de frente en una habitación con poca luz: es donde aparece primero."
     ]
   },
   "touch-screen-test": {
     "name": "Test de pantalla táctil",
     "title": "Test de pantalla táctil",
-    "tagline": "Toca todas las celdas o dibuja libremente para encontrar zonas muertas y los límites del multitáctil.",
-    "description": "Test de pantalla táctil gratis para móviles, tabletas y portátiles. Rellena una cuadrícula o dibuja para hallar zonas muertas y toques fantasma.",
+    "tagline": "Toca todas las celdas, dibuja libremente o sigue hasta diez dedos para encontrar zonas muertas y los límites del multitáctil.",
+    "description": "Test de pantalla táctil gratis para móviles, tabletas y portátiles. Rellena una cuadrícula, dibuja o sigue diez dedos con coordenadas para hallar zonas muertas.",
     "keywords": [
       "test pantalla táctil",
       "probar táctil móvil",
@@ -415,7 +422,7 @@
       "Haz clic en Iniciar y sujeta el dispositivo como lo haces normalmente.",
       "Arrastra un dedo despacio por todas las celdas de la cuadrícula: cada una se pone verde cuando registra el toque.",
       "Las celdas que siguen oscuras después de pasar por ellas son zonas muertas. En Dibujo libre (→), los cortes o saltos en tus líneas delatan puntos muertos y toques fantasma.",
-      "Apoya varios dedos a la vez para ver cuántos toques sigue la pantalla.",
+      "En Multitáctil (→), apoya varios dedos: cada uno recibe un marcador numerado con sus coordenadas, y el contador muestra el máximo de dedos detectados a la vez.",
       "Mantén pulsado en cualquier sitio para ver los controles (Reiniciar, Salir), o pulsa Esc."
     ],
     "faq": [
@@ -441,7 +448,7 @@
       }
     ],
     "tips": [
-      "Ve despacio por los bordes y hasta las esquinas: los fallos táctiles suelen empezar ahí.",
+      "Recorre despacio los bordes y las esquinas arrastrando el dedo, sin deslizarlo desde fuera: con la navegación por gestos de Android, deslizar desde un lateral significa Atrás.",
       "Si algo no se ve bien, haz el test sin funda y sin protector de pantalla."
     ]
   }

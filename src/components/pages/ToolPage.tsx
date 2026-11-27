@@ -10,7 +10,7 @@ import ToolCard from "@/components/ToolCard";
 import { fmt, type Lang } from "@/i18n/config";
 import { getSite, getResultsFor, getTipsFor, getTools, href, localizeTool } from "@/i18n";
 
-// A test page in any language. Routes: src/app/(en)/[tool]/page.tsx (all 28 tools) and
+// A test page in any language. Routes: src/app/(en)/[tool]/page.tsx (all 30 tools) and
 // src/app/(intl)/<lang>/[tool]/page.tsx (the indexed tests only: the novelty pages are
 // not translated). `toolRoute(lang)` returns what such a route file re-exports.
 
@@ -140,13 +140,20 @@ function ToolPage({ lang, slug }: { lang: Lang; slug: string }) {
         )}
       </header>
 
-      {/* Only the checklist lists other tests; it gets their names in this page's language. */}
+      {/* Only the checklist lists other tests; it gets their names in this page's language.
+          The results text below also rides along into the full-screen test as its
+          "What to look for" panel. */}
       <ToolRunner
         tool={tool}
         tools={
           tool.slug === "screen-test-checklist"
             ? getTools(lang).map((x) => ({ slug: x.slug, name: x.name, tagline: x.tagline }))
             : undefined
+        }
+        lookFor={
+          results && (results.pass || results.fail || results.terms)
+            ? { normal: t.normal, fault: t.fault, pass: results.pass, fail: results.fail, terms: results.terms }
+            : null
         }
       />
 
