@@ -154,8 +154,8 @@
   "contrast-test": {
     "name": "Kontrast-Test",
     "title": "Kontrast-Test",
-    "tagline": "Schwarz-weiße Schachbretter, um die Trennung von Schwarz und Weiß zu beurteilen.",
-    "description": "Kostenloser Kontrast-Test: Schwarz-weiße Schachbretter in zunehmender Dichte zeigen, wie gut dein Bildschirm Kontrast, Schwarz- und Weißpegel und Schärfe hält.",
+    "tagline": "Schachbretter plus Felder für abgesoffenes Schwarz und ausgefressenes Weiß, um den Kontrast an beiden Enden zu beurteilen.",
+    "description": "Kostenloser Kontrast-Test: Schachbretter plus Felder mit 1–10 % und 90–99 % zeigen abgesoffene Schatten, ausgefressene Lichter und schwachen Kontrast.",
     "keywords": [
       "kontrast test",
       "schachbrett testbild",
@@ -166,6 +166,7 @@
       "Klick auf „Starten“ und sieh dir das Schachbrett im Vollbild an.",
       "Mit ← / → änderst du die Rasterdichte (4×4 bis 32×32).",
       "Schwarze Felder sollten tiefschwarz bleiben und weiße hell, mit scharfen Kanten dazwischen.",
+      "Abgesoffenes Schwarz (→): In einem abgedunkelten Raum solltest du die Felder ab etwa 2–3 % sehen. Ausgefressenes Weiß (→): Die Felder sollten sich bis etwa 97–98 % vom Weiß abheben.",
       "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
@@ -355,8 +356,8 @@
   "screen-tearing-test": {
     "name": "Tearing-Test",
     "title": "Screen-Tearing-Test",
-    "tagline": "Schnell laufende Balken, die Tearing ohne V-Sync/VRR sichtbar machen.",
-    "description": "Kostenloser Screen-Tearing-Test: Schnelle Balken zeigen Bildrisse, wenn Bildrate und Bildwiederholrate nicht synchron sind – prüf V-Sync, G-Sync und FreeSync.",
+    "tagline": "Schnell laufende Balken, die Tearing sichtbar machen, und dunkle Grautöne, die VRR-Flackern zeigen.",
+    "description": "Kostenloser Tearing- und VRR-Flacker-Test: Laufende Balken zeigen Risse ohne V-Sync, schwankende Bildraten auf dunklem Grau G-Sync- und FreeSync-Flackern.",
     "keywords": [
       "screen tearing test",
       "vsync test",
@@ -369,6 +370,7 @@
       "Mit ← / → wechselst du zwischen vertikalen Balken (zeigen horizontale Risse) und horizontalen Balken (zeigen vertikale Risse).",
       "Ein sauberes Bild bedeutet kein Tearing; ein Bruch, an dem die Balken versetzt sind, ist ein Riss.",
       "Schalte V-Sync oder Adaptive Sync (G-Sync/FreeSync) ein und aus und vergleich.",
+      "VRR-Flackern (→): dunkle Grautöne bei einer ständig wechselnden Bildrate. Schalte die Bildwiederholraten-Anzeige deines Monitors ein: Springt die Zahl hin und her, ist VRR aktiv, und jedes Flirren in den Grautönen ist VRR-Flackern.",
       "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
@@ -386,23 +388,28 @@
       },
       {
         "q": "Wie prüfe ich, ob G-Sync oder FreeSync wirklich aktiv ist?",
-        "a": "Es muss an zwei Stellen eingeschaltet sein: im Menü des Monitors und in der Systemsteuerung des Grafiktreibers. Außerdem braucht es die richtige Verbindung – DisplayPort am PC oder HDMI 2.1 an Konsole oder Fernseher, wo es meist als VRR geführt wird."
+        "a": "Es muss an zwei Stellen eingeschaltet sein: im Menü des Monitors und in der Systemsteuerung des Grafiktreibers. Außerdem braucht es eine Verbindung, die es überträgt. Am PC ist DisplayPort die sichere Wahl. Über HDMI braucht es HDMI VRR, eine Funktion von HDMI 2.1, oder – mit einer AMD-Grafikkarte oder einer Xbox – einen Monitor, der FreeSync über HDMI unterstützt. Fernseher führen HDMI VRR meist einfach als VRR."
       },
       {
         "q": "Verringert eine höhere Bildwiederholrate das Tearing?",
         "a": "Sie macht Risse schwerer sichtbar, nicht seltener. Bei 144 Hz ist jedes gerissene Bild weniger als 7 ms zu sehen statt knapp 17 ms bei 60 Hz, und der Versatz am Riss ist kleiner. Nur V-Sync oder Adaptive Sync beseitigt Tearing vollständig."
+      },
+      {
+        "q": "Was ist VRR-Flackern?",
+        "a": "Ein Helligkeitsflackern in dunklen Szenen, das mit G-Sync oder FreeSync auftritt, wenn die Bildrate schwankt. Am stärksten betrifft es OLED- und VA-Panels, deren Helligkeit bei einem bestimmten Grau leicht mit der Bildwiederholrate schwankt. Eine gleichmäßige Bildrate, etwa durch ein Limit ein paar fps unter dem Maximum, verringert es. Es ist eine bekannte Eigenschaft dieser Panels und kein Defekt."
       }
     ],
     "tips": [
       "Nimm das Testbild mit vertikalen Balken für horizontale Risse und das mit horizontalen Balken für vertikale Risse.",
-      "Schalte V-Sync oder Adaptive Sync (G-Sync/FreeSync) um und beobachte, wie die Risslinie erscheint oder verschwindet."
+      "Schalte V-Sync oder Adaptive Sync (G-Sync/FreeSync) um und beobachte, wie die Risslinie erscheint oder verschwindet.",
+      "Für VRR-Flackern schau in einem abgedunkelten Raum direkt von vorn auf das dunkelste Band: Dort zeigt es sich zuerst."
     ]
   },
   "touch-screen-test": {
     "name": "Touchscreen-Test",
     "title": "Touchscreen-Test",
-    "tagline": "Berühr jede Zelle oder zeichne frei, um tote Zonen und Multi-Touch-Grenzen zu finden.",
-    "description": "Kostenloser Touchscreen-Test für Handy, Tablet und Laptop: Füll ein Raster oder zeichne frei und finde tote Zonen, Geisterberührungen und Multi-Touch-Grenzen.",
+    "tagline": "Berühr jede Zelle, zeichne frei oder verfolge bis zu zehn Finger, um tote Zonen und Multi-Touch-Grenzen zu finden.",
+    "description": "Kostenloser Touchscreen-Test für Handy, Tablet und Laptop: Raster, freies Zeichnen und zehn Finger mit Koordinaten zeigen tote Zonen und Geisterberührungen.",
     "keywords": [
       "touchscreen test",
       "touch test handy",
@@ -415,7 +422,7 @@
       "Klick auf „Starten“ und halt das Gerät so, wie du es sonst auch hältst.",
       "Zieh einen Finger langsam über jede Zelle des Rasters – jede wird grün, sobald sie die Berührung erkennt.",
       "Zellen, die dunkel bleiben, obwohl du darübergefahren bist, sind tote Zonen. Unter „Freies Zeichnen“ (→) zeigen Lücken oder Sprünge in deinen Linien tote Stellen und Geisterberührungen.",
-      "Leg mehrere Finger gleichzeitig auf, um zu sehen, wie viele Berührungen der Bildschirm verfolgt.",
+      "Unter „Multi-Touch“ (→) legst du mehrere Finger auf: Jeder bekommt eine nummerierte Markierung mit seinen Koordinaten, und der Zähler zeigt, wie viele maximal gleichzeitig erkannt wurden.",
       "Halt irgendwo gedrückt, um die Steuerung (Zurücksetzen, Beenden) einzublenden, oder drück Esc."
     ],
     "faq": [
@@ -441,7 +448,7 @@
       }
     ],
     "tips": [
-      "Fahr langsam an den Rändern entlang und bis in die Ecken – Touch-Fehler beginnen meist dort.",
+      "Fahr langsam an den Rändern entlang und bis in die Ecken, statt von außen hereinzuwischen: Bei der Gestensteuerung von Android bedeutet ein Wischen vom Rand „Zurück“.",
       "Teste ohne Hülle und Schutzfolie, wenn dir etwas seltsam vorkommt."
     ]
   }

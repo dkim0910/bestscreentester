@@ -41,6 +41,11 @@ export function useT(): Translate {
   );
 }
 
+/** The page's language. */
+export function useLang(): Lang {
+  return useContext(UiContext).lang;
+}
+
 /** Build a link to `path` in the page's language (English for untranslated pages). */
 export function useLocalHref(): (path: string) => string {
   const { lang, slugs } = useContext(UiContext);

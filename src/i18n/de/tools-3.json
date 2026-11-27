@@ -48,8 +48,8 @@
   "overscan-test": {
     "name": "Overscan-Test",
     "title": "Overscan- & Seitenverhältnis-Test",
-    "tagline": "Randmarkierungen, Kreise und ein Raster, um Beschnitt, Streckung und Verzerrung aufzudecken.",
-    "description": "Kostenloser Overscan- und Seitenverhältnis-Test für TV und Beamer: Prüf im Vollbild, ob Ränder abgeschnitten sind oder das Bild gestreckt oder verzerrt ist.",
+    "tagline": "Randmarkierungen, Kreise, ein Raster und Randlinien, um Beschnitt, Streckung und Verzerrung aufzudecken.",
+    "description": "Kostenloser Overscan- und Seitenverhältnis-Test für TV, Beamer und Handy: Prüf im Vollbild, ob Ränder fehlen oder das Bild gestreckt oder verzerrt ist.",
     "keywords": [
       "overscan test",
       "seitenverhältnis test",
@@ -60,9 +60,10 @@
     ],
     "howTo": [
       "Öffne die Seite auf dem Gerät, das am Fernseher oder Beamer hängt, und klick dann auf „Starten“.",
-      "Overscan-Rahmen: Der äußerste farbige Rahmen, den du rundum vollständig siehst, zeigt, wie viel abgeschnitten wird – 0 % heißt: nichts.",
+      "Overscan-Rahmen: Ist der 0-%-Rahmen rundum vollständig zu sehen, wird nichts abgeschnitten. Sonst liegt der Beschnitt zwischen dem äußersten Rahmen, den du rundum vollständig siehst, und dem nächsten weiter außen.",
       "Seitenverhältnis (→): Die Kreise müssen perfekt rund aussehen und das Quadrat quadratisch.",
       "Geometrie-Raster (→): Die Linien sollten gerade sein und gleichmäßige Abstände haben. Damit richtest du einen Beamer aus.",
+      "Randlinien (→), für Handys und Tablets: Linien 0 bis 32 px vom jeweiligen Rand entfernt. Abgerundete Ecken und eine Notch schneiden sie ab. Damit siehst du, ob der Rand einer Schutzfolie über dem Bild liegt und ob er an allen Seiten gleichmäßig sitzt.",
       "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
@@ -97,14 +98,14 @@
     ],
     "tips": [
       "Jeder TV-Eingang kann seine eigene Bildformat-Einstellung haben, teste also den Eingang, den du wirklich nutzt.",
-      "Stell bei einem Beamer Trapezkorrektur (Keystone) und Lens Shift mit dem Geometrie-Raster ein, bevor du scharfstellst."
+      "Nutz bei einem Beamer zuerst Lens Shift und die Trapezkorrektur (Keystone) nur für den Rest, kontrolliert mit dem Geometrie-Raster; stell danach scharf."
     ]
   },
   "sharpness-test": {
     "name": "Schärfe-Test",
     "title": "Schärfe- & Schriftbild-Test",
-    "tagline": "Linien auf Pixelebene, Schachbretter und Text, um Skalierungsunschärfe und Überschärfung aufzudecken.",
-    "description": "Kostenloser Schärfe- und Schriftbild-Test: Pixelgenaue Linien und kleiner Text zeigen Unschärfe durch nicht native Auflösung, Skalierung und Überschärfung.",
+    "tagline": "Linien auf Pixelebene, Schachbretter und Text, um Skalierungsunschärfe, Subpixel-Farbsäume und Überschärfung aufzudecken.",
+    "description": "Kostenloser Schärfe- und Schriftbild-Test: Pixelgenaue Linien und kleiner Text zeigen Skalierungsunschärfe, Subpixel-Farbsäume auf OLEDs und Überschärfung.",
     "keywords": [
       "schärfe test monitor",
       "text unscharf monitor test",
@@ -117,13 +118,14 @@
       "Klick auf „Starten“ und sieh dir jedes Testbild im Vollbild aus deinem üblichen Abstand an.",
       "1-Pixel-Linien und Schachbretter sollten scharf und gleichmäßig gestreift aussehen. Grauer Matsch oder welliges Moiré bedeutet, dass das Bild skaliert wird.",
       "Schriftbild (→): Kleiner Text sollte scharf sein, und roter oder gelber Text darf nicht verschmieren.",
+      "Subpixel-Farbsäume (→): Sieh dir die Linien und Buchstaben aus der Nähe an. Grüne und magentafarbene Kanten auf einem QD-OLED oder farbige Kanten auf anderen OLEDs kommen von der Subpixel-Anordnung des Panels.",
       "Schärfungs-Halos (→): Dreh die Schärfe-Einstellung des Bildschirms herunter, bis die Säume um Linien und Ringe verschwinden.",
       "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
         "q": "Warum sehen die feinen Linien grau und unscharf aus?",
-        "a": "Irgendetwas zwischen der Seite und dem Panel rechnet das Bild um: eine nicht native Auflösung, eine nicht ganzzahlige Anzeigeskalierung, Browser-Zoom oder die Skalierung des Fernsehers. Stell die Ausgabe auf die native Auflösung des Bildschirms und teste noch einmal."
+        "a": "Irgendetwas zwischen der Seite und dem Panel rechnet das Bild um: eine nicht native Auflösung, eine skalierte Auflösung auf einem Mac, Browser-Zoom oder die Skalierung des Fernsehers. Stell die Ausgabe auf die native Auflösung des Bildschirms und teste noch einmal."
       },
       {
         "q": "Warum sieht roter Text auf meinem Fernseher verschmiert aus?",
@@ -135,7 +137,7 @@
       },
       {
         "q": "Warum hat Text auf meinem OLED oder Fernseher Farbsäume?",
-        "a": "Betriebssysteme glätten Text in der Annahme, dass jedes Pixel aus einem roten, grünen und blauen Streifen in genau dieser Reihenfolge besteht. Viele OLED-Panels und manche Fernseher ordnen ihre Subpixel anders an, die Glättung trifft dann die falschen und zeigt sich als farbige Kanten. Eine höhere Anzeigeskalierung macht das weniger auffällig."
+        "a": "ClearType, die Textglättung von Windows, geht davon aus, dass jedes Pixel aus einer Reihe roter, grüner und blauer Streifen besteht. Viele OLED-Panels sind anders aufgebaut: Ein WOLED hat zusätzlich ein weißes Subpixel, und ein QD-OLED setzt Grün über Rot und Blau, was oben und unten an Buchstaben Farbsäume erzeugt, egal was die Glättung macht. Größere Schrift und eine höhere Anzeigeskalierung machen das weniger auffällig."
       },
       {
         "q": "Warum ist mein Monitor bei niedrigerer Auflösung unscharf?",
@@ -152,7 +154,7 @@
     ],
     "tips": [
       "Prüf zuerst aus deinem üblichen Sitzabstand, dann aus der Nähe.",
-      "Eine Anzeigeskalierung von 100 %, 150 % oder 200 % hält feine Details sauberer als Zwischenwerte."
+      "Auf einem Mac bleiben feine Details bei der skalierten Größe am schärfsten, die genau der halben Auflösung des Panels entspricht; andere Größen rechnen den ganzen Bildschirm um."
     ]
   },
   "frame-skipping-test": {
@@ -169,9 +171,9 @@
     ],
     "howTo": [
       "Schließ andere Apps und Tabs und klick dann auf „Starten“.",
-      "Fotografiere den Bildschirm mit langer Belichtungszeit – etwa 1/15 bis 1/30 s, im Pro- oder manuellen Modus deines Handys.",
+      "Fotografiere den Bildschirm mit langer Belichtungszeit – 1/10 s oder länger, im Pro- oder manuellen Modus deines Handys.",
       "Auf dem Foto sollten die leuchtenden Zellen eine lückenlose Reihe bilden. Eine Lücke bedeutet, dass ein Frame ausgelassen wurde.",
-      "Nutze bei Bildschirmen über 144 Hz das Raster mit 120 Zellen (→), damit die Reihe nicht umbricht.",
+      "Nutze bei Bildschirmen über 144 Hz das Raster mit 120 Zellen (→), damit auch eine lange Belichtung ins Raster passt, ohne umzubrechen.",
       "Mach ein paar Fotos, bevor du Schlüsse ziehst, und beende den Test dann mit Esc."
     ],
     "faq": [
@@ -181,7 +183,7 @@
       },
       {
         "q": "Kann auch der Browser Lücken verursachen?",
-        "a": "Ja – ist der Computer ausgelastet, kann auch der Browser einen Frame verpassen. Schließ andere Apps, wiederhol das Foto ein paar Mal und mach dir nur über Lücken Gedanken, die immer wieder auftauchen."
+        "a": "Meist nicht. Ein ausgelasteter Computer lässt den Browser zwar Bildwechsel verpassen, aber dann bleibt die vorige Zelle doppelt so lange an und erscheint auf dem Foto heller statt als Lücke. Lücken von der Computerseite kann es geben, wenn der Browser mit einer anderen Rate läuft als der Bildschirm. Prüf also, ob die Hz-Anzeige zu der eingestellten Rate passt, wiederhol das Foto ein paar Mal und mach dir nur über Lücken Gedanken, die immer wieder auftauchen."
       },
       {
         "q": "Meine Handykamera hat keinen manuellen Modus. Was kann ich tun?",
@@ -197,7 +199,7 @@
       },
       {
         "q": "Brauche ich diesen Test, wenn ich meinen Monitor nicht übertaktet habe?",
-        "a": "Meistens nicht. Monitore lassen bei den Einstellungen, für die sie ausgelegt sind, keine Frames aus. Mach den Test, nachdem du eine benutzerdefinierte Auflösung oder eine übertaktete Bildwiederholrate eingestellt hast, oder wenn ein Adapter oder Dock eine Rate anbietet, mit der der Bildschirm nicht verkauft wurde."
+        "a": "Meistens nicht. Monitore lassen bei den Einstellungen, für die sie ausgelegt sind, nur selten Frames aus. Mach den Test, nachdem du eine benutzerdefinierte Auflösung oder eine übertaktete Bildwiederholrate eingestellt hast, oder wenn ein Adapter oder Dock eine Rate anbietet, mit der der Bildschirm nicht verkauft wurde."
       },
       {
         "q": "Warum muss es ein Foto sein? Kann ich nicht einfach zuschauen?",
@@ -205,7 +207,7 @@
       }
     ],
     "tips": [
-      "Wähle eine Belichtungszeit, die 6–10 Frames einfängt: etwa 1/15 s bei 144 Hz, 1/30 s bei 240 Hz.",
+      "Wähle eine Belichtungszeit von 1/10 s oder länger. Bei Aussetzern, die nur ab und zu auftreten, verlängere sie, bis 30 bis 50 Zellen leuchten.",
       "Teste erneut, nachdem du die Bildwiederholrate oder Übertaktungseinstellungen geändert hast – Frame Skipping tritt oft nur bei der höchsten Rate auf."
     ]
   },
@@ -401,8 +403,8 @@
   "screen-test-checklist": {
     "name": "Test-Checkliste",
     "title": "Bildschirmtest-Checkliste",
-    "tagline": "Die Tests für Monitor, Laptop, Handy oder TV in der richtigen Reihenfolge – dein Fortschritt wird gespeichert.",
-    "description": "Kostenlose Bildschirmtest-Checkliste für neue oder gebrauchte Monitore, Laptops, Handys und TVs: die richtigen Tests in der richtigen Reihenfolge zum Abhaken.",
+    "tagline": "Die Tests für Monitor, Laptop, Handy oder TV in der richtigen Reihenfolge, als bestanden oder nicht bestanden markiert, mit einem Bericht zum Teilen.",
+    "description": "Kostenlose Bildschirmtest-Checkliste für neue oder gebrauchte Monitore, Laptops, Handys und TVs: Tests der Reihe nach, mit Ergebnis und teilbarem Bericht.",
     "keywords": [
       "bildschirm test checkliste",
       "neuer monitor checkliste",
@@ -414,8 +416,9 @@
     "howTo": [
       "Wähl das Gerät aus, das du testest: Monitor, Laptop, Handy oder Tablet, oder Fernseher.",
       "Fang mit den Tests an, die als „Pflicht“ markiert sind. Sie finden die Fehler, wegen denen ein Händler einen Bildschirm zurücknimmt.",
-      "Öffne jeden Test, führ ihn durch, komm dann zurück und hak ihn ab. Deine Haken werden nur in diesem Browser gespeichert.",
-      "Schließ die Pflicht-Tests ab, solange du das Gerät noch zurückgeben kannst. Die anderen können warten."
+      "Öffne jeden Test, führ ihn durch, komm dann zurück und markier ihn als „Bestanden“ oder „Nicht bestanden“. Deine Ergebnisse werden nur in diesem Browser gespeichert.",
+      "Schließ die Pflicht-Tests ab, solange du das Gerät noch zurückgeben kannst. Die anderen können warten.",
+      "Du kaufst oder verkaufst einen gebrauchten Bildschirm? Trag den Namen des Geräts ein und kopier dann den Bericht oder teil einen Link, in dem die Ergebnisse stecken."
     ],
     "faq": [
       {
@@ -432,16 +435,60 @@
       },
       {
         "q": "Wird mein Fortschritt irgendwo gespeichert?",
-        "a": "Nur in diesem Browser, auf diesem Gerät. Nichts wird an einen Server gesendet, und wenn du die Websitedaten des Browsers löschst, sind auch die Haken weg."
+        "a": "Nur in diesem Browser, auf diesem Gerät. Nichts wird an einen Server gesendet, und wenn du die Websitedaten des Browsers löschst, sind auch die Ergebnisse weg. Ein geteilter Link trägt die Ergebnisse im Link selbst, sodass jeder sie sieht, der ihn öffnet; nichts wird hochgeladen."
       },
       {
         "q": "Was mache ich, wenn ein Test ein Problem findet?",
         "a": "Jede Testseite hat einen Abschnitt dazu, wie du das Ergebnis liest und was du als Nächstes tust. Grundsätzlich gilt: Fotografiere den Fehler, notiere das Datum und melde dich beim Händler, solange die Rückgabefrist noch läuft."
+      },
+      {
+        "q": "Kann ich einem Bericht trauen, den mir jemand geschickt hat?",
+        "a": "Nimm ihn als Aussage des Verkäufers. Ein geteilter Bericht zeigt, was der Absender markiert hat; er kann nicht beweisen, dass die Tests durchgeführt wurden, und auch nicht, dass es an diesem Bildschirm war. Wenn du kaufen willst, mach die Pflicht-Tests selbst an dem Bildschirm, bevor du bezahlst."
       }
     ],
     "tips": [
-      "Heb Karton und Kassenbon auf, bis jeder Pflicht-Test abgehakt ist.",
+      "Heb Karton und Kassenbon auf, bis jeder Pflicht-Test ein Ergebnis hat.",
       "Mach die Tests im dunklen Raum am Stück, nachdem sich deine Augen ein paar Minuten angepasst haben."
+    ]
+  },
+  "frame-rate-comparison": {
+    "name": "Bildraten-Vergleich",
+    "title": "Bildraten-Vergleichstest (fps-Vergleich)",
+    "tagline": "Dasselbe fahrende Auto mit voller, halber und viertel Bildrate, nebeneinander.",
+    "description": "Kostenloser Bildraten-Vergleich: dasselbe Auto mit 30, 60, 120 fps oder mehr nebeneinander. Sieh, was deine Bildwiederholrate für die Bewegungsschärfe bringt.",
+    "keywords": [
+      "bildraten vergleich",
+      "fps vergleich test",
+      "30 vs 60 fps",
+      "60 vs 120 fps",
+      "60 vs 144 fps",
+      "bewegungsschärfe test"
+    ],
+    "howTo": [
+      "Klick auf „Starten“. Die drei Spuren zeigen dasselbe Auto mit derselben Geschwindigkeit: Die obere Spur zeichnet es bei jedem Bildaufbau neu, die nächste bei jedem zweiten, die untere bei jedem vierten.",
+      "Jede Spur ist mit ihrer Bildrate beschriftet, berechnet aus deiner gemessenen Bildwiederholrate.",
+      "Folge einem Auto mit den Augen. Je niedriger die Bildrate, desto größer seine Sprünge und desto unschärfer wirkt es.",
+      "Mit ← / → änderst du das Tempo, mit den Schaltflächen „Dunkel“, „Grau“ und „Hell“ den Hintergrund.",
+      "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
+    ],
+    "faq": [
+      {
+        "q": "Warum wirkt auch die obere Spur unscharf?",
+        "a": "Weil jedes normale Display jeden Frame stillstehend zeigt, während sich deine Augen weiterbewegen. Die Unschärfe ist etwa so breit wie die Strecke, die das Auto in einem Frame zurücklegt: bei 960 Pixeln pro Sekunde 16 Pixel bei 60 Hz und 7 bei 144 Hz. Höhere Bildwiederholraten und Backlight-Strobing verringern sie."
+      },
+      {
+        "q": "Warum zeigt mein 144-Hz-Monitor in der oberen Spur 60 fps?",
+        "a": "Weil er mit 60 Hz läuft. Die Beschriftungen kommen von der Bildwiederholrate, die der Browser misst, die obere Spur zeigt also immer dein tatsächliches Maximum. Wähl in den Anzeigeeinstellungen die volle Rate und prüf das Kabel; der Bildwiederholraten-Test führt dich durch die Schritte."
+      },
+      {
+        "q": "Ist das dasselbe wie der Ghosting-Test?",
+        "a": "Nein. Der Ghosting-Test zeigt mit einfachen Quadraten Schlieren durch langsame Pixel; dieser Test vergleicht Bildraten. Auf dem Hintergrund „Hell“ zeigt er außerdem Ghosting an einer detailreichen Form: Eine schwache Schliere hinter dem Auto ist Ghosting, ein heller oder seltsam gefärbter Umriss ist Overshoot durch Overdrive."
+      }
+    ],
+    "tips": [
+      "Sitz in deinem üblichen Abstand und folge dem Auto mit den Augen, statt auf eine Stelle zu starren.",
+      "Auf einem 60-Hz-Bildschirm läuft die untere Spur mit 15 fps: So sieht ein stark ruckelndes Spiel aus.",
+      "Hakt die obere Spur, schließ andere Tabs: Der Browser verpasst Bildaufbauten. Der Bildwiederholraten-Test zählt sie."
     ]
   }
 }

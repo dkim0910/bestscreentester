@@ -154,8 +154,8 @@
   "contrast-test": {
     "name": "Teste de Contraste",
     "title": "Teste de Contraste",
-    "tagline": "Padrões xadrez em preto e branco para avaliar a separação entre preto e branco.",
-    "description": "Teste de contraste grátis. Veja padrões xadrez em preto e branco cada vez mais densos para avaliar o contraste, a separação entre preto e branco e a nitidez.",
+    "tagline": "Padrões xadrez e caixas de pretos esmagados e brancos estourados para avaliar o contraste nas duas pontas.",
+    "description": "Teste de contraste grátis. Padrões xadrez e caixas quase pretas (1–10%) e quase brancas (90–99%) revelam pretos esmagados, brancos estourados e contraste fraco.",
     "keywords": [
       "teste de contraste",
       "padrão xadrez",
@@ -166,6 +166,7 @@
       "Clique em Iniciar e veja o xadrez em tela cheia.",
       "Use ← / → para mudar a densidade da grade (de 4×4 até 32×32).",
       "Os quadrados pretos devem continuar bem pretos e os brancos, claros, com bordas nítidas entre eles.",
+      "Pretos esmagados (→): em um ambiente com pouca luz, você deve ver as caixas a partir de cerca de 2–3%. Brancos estourados (→): as caixas devem se destacar do branco até cerca de 97–98%.",
       "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
@@ -355,8 +356,8 @@
   "screen-tearing-test": {
     "name": "Teste de Screen Tearing",
     "title": "Teste de Screen Tearing",
-    "tagline": "Barras em rolagem rápida que revelam o tearing sem V-Sync/VRR.",
-    "description": "Teste de screen tearing grátis. Barras rápidas revelam rasgos quando quadros e taxa de atualização saem de sincronia. Confira V-Sync, G-Sync e FreeSync.",
+    "tagline": "Barras em rolagem rápida que revelam o tearing e cinzas escuros que revelam a cintilação VRR.",
+    "description": "Teste de tearing e cintilação VRR grátis. Barras em rolagem mostram rasgos sem V-Sync; cinzas escuros com fps variável, a cintilação de G-Sync e FreeSync.",
     "keywords": [
       "teste de screen tearing",
       "vsync",
@@ -369,6 +370,7 @@
       "Use ← / → para alternar entre barras verticais (revelam rasgos horizontais) e barras horizontais (revelam rasgos verticais).",
       "Uma imagem limpa significa que não há tearing; uma quebra em que as barras se desalinham é um rasgo.",
       "Ligue e desligue o V-Sync ou a sincronização adaptativa (G-Sync/FreeSync) e compare.",
+      "Cintilação VRR (→): cinzas escuros com uma taxa de quadros que não para de mudar. Ative o indicador de taxa de atualização do monitor: se o número ficar pulando, o VRR está ativo e qualquer tremulação nos cinzas é cintilação VRR.",
       "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
@@ -386,23 +388,28 @@
       },
       {
         "q": "Como confirmo que o G-Sync ou o FreeSync está mesmo ligado?",
-        "a": "Ele precisa estar ativado em dois lugares: no menu do próprio monitor e no painel de controle do driver de vídeo. Também exige a conexão certa: DisplayPort no PC, ou HDMI 2.1 em um console ou TV, onde geralmente aparece como VRR."
+        "a": "Ele precisa estar ativado em dois lugares: no menu do próprio monitor e no painel de controle do driver de vídeo. Também exige uma conexão que o transmita. No PC, DisplayPort é a escolha segura. Via HDMI, ele precisa de HDMI VRR, um recurso do HDMI 2.1, ou, com uma placa AMD ou um Xbox, de um monitor compatível com FreeSync via HDMI. As TVs costumam chamar o HDMI VRR simplesmente de VRR."
       },
       {
         "q": "Uma taxa de atualização mais alta reduz o tearing?",
         "a": "Ela deixa os rasgos mais difíceis de ver, não mais raros. A 144 Hz, cada quadro rasgado fica na tela por menos de 7 ms, contra quase 17 ms a 60 Hz, e o deslocamento no rasgo é menor. Só o V-Sync ou a sincronização adaptativa elimina o tearing por completo."
+      },
+      {
+        "q": "O que é cintilação VRR?",
+        "a": "Uma cintilação de brilho em cenas escuras que aparece com G-Sync ou FreeSync quando a taxa de quadros oscila, principalmente em painéis OLED e VA, cujo brilho em um mesmo cinza muda um pouco com a taxa de atualização. Manter a taxa de quadros estável, por exemplo com um limite alguns fps abaixo do máximo, reduz o problema. É uma característica conhecida desses painéis, não um defeito."
       }
     ],
     "tips": [
       "Use o quadro de barras verticais para rasgos horizontais e o de barras horizontais para rasgos verticais.",
-      "Ligue e desligue o V-Sync ou a sincronização adaptativa (G-Sync/FreeSync) e veja a linha do rasgo aparecer ou sumir."
+      "Ligue e desligue o V-Sync ou a sincronização adaptativa (G-Sync/FreeSync) e veja a linha do rasgo aparecer ou sumir.",
+      "Para a cintilação VRR, olhe de frente para a faixa mais escura em um ambiente com pouca luz: é ali que ela aparece primeiro."
     ]
   },
   "touch-screen-test": {
     "name": "Teste de Touch Screen",
     "title": "Teste de Touch Screen",
-    "tagline": "Toque em todas as células ou desenhe à vontade para achar zonas mortas e limites de multitoque.",
-    "description": "Teste de touch screen grátis para celulares, tablets e notebooks com tela de toque. Preencha uma grade ou desenhe para achar zonas mortas e toques fantasmas.",
+    "tagline": "Toque em todas as células, desenhe à vontade ou acompanhe até dez dedos para achar zonas mortas e limites de multitoque.",
+    "description": "Teste de touch screen grátis para celulares, tablets e notebooks. Preencha uma grade, desenhe ou acompanhe dez dedos com coordenadas para achar zonas mortas.",
     "keywords": [
       "teste de touch screen",
       "teste de tela touch",
@@ -415,7 +422,7 @@
       "Clique em Iniciar e segure o aparelho do jeito que você costuma segurar.",
       "Arraste um dedo devagar por todas as células da grade — cada uma fica verde ao registrar o toque.",
       "As células que continuam escuras depois que você passou por elas são zonas mortas. Em Desenho livre (→), falhas ou saltos nas linhas mostram pontos mortos e toques fantasmas.",
-      "Encoste vários dedos ao mesmo tempo para ver quantos toques a tela acompanha.",
+      "Em Multitoque (→), encoste vários dedos: cada um ganha um marcador numerado com suas coordenadas, e o contador mostra o máximo de dedos detectados ao mesmo tempo.",
       "Toque e segure em qualquer lugar para ver os controles (Reiniciar, Sair), ou pressione Esc."
     ],
     "faq": [
@@ -441,7 +448,7 @@
       }
     ],
     "tips": [
-      "Vá devagar pelas bordas e pelos cantos — é ali que as falhas de toque costumam começar.",
+      "Arraste devagar pelas bordas e pelos cantos em vez de deslizar de fora para dentro: na navegação por gestos do Android, deslizar a partir da lateral significa Voltar.",
       "Se algo parecer errado, teste sem a capinha e sem a película."
     ]
   }

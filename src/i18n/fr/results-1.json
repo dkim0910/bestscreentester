@@ -255,7 +255,7 @@
       "Du banding ou une dérive de couleur dans un seul des dégradés rouge, vert et bleu : le calibrage de ce canal, plutôt que la dalle dans son ensemble.",
       "Une teinte qui occupe une trop large portion du spectre."
     ],
-    "note": "Ces dégradés utilisent des couleurs sRGB standard : ils montrent donc le banding et les transitions irrégulières, pas l'étendue du gamut de votre écran. Les dégradés blanc et gris isolent le banding de luminosité dans les ombres, sans que la couleur vienne gêner.",
+    "note": "Ces dégradés utilisent des couleurs sRGB standard : ils montrent donc le banding et les transitions irrégulières, pas l'étendue du gamut de votre écran. Les dégradés blanc et gris isolent le banding de luminosité dans les ombres, sans que la couleur vienne gêner. Sur 8 bits vs 10 bits, des bandes dans la moitié haute sont normales. Deux moitiés identiques signifient qu'un maillon entre le navigateur et la dalle s'arrête à 8 bits, ce qui est normal sur la plupart des configurations ; une moitié basse plus continue signifie que plus de 8 bits, ou du tramage, passent.",
     "next": [
       "Désactivez les modes nuit, les filtres de couleur et les profils de couleur personnalisés, puis rechargez la page.",
       "Si une seule des rampes rouge, verte ou bleue présente du banding, remettez le préréglage de couleur et les gains RGB du moniteur à leurs valeurs par défaut.",
@@ -268,14 +268,16 @@
     "howToHeading": "Vérifier l'uniformité de la luminosité",
     "faqHeading": "Questions sur l'uniformité",
     "pass": [
-      "Le gris paraît d'une seule nuance du centre jusqu'à chaque coin. Les bons moniteurs restent dans une variation de luminosité d'environ 10 % sur toute la dalle.",
+      "Le gris paraît d'une seule nuance du centre jusqu'à chaque coin. Sur un bon moniteur, l'essentiel de l'écran reste à environ 10 % de la luminosité du centre ; les coins descendent souvent plus bas.",
       "Des coins un peu plus sombres que le centre : un léger assombrissement est normal sur tous les LCD.",
-      "Sur Gris défilant, les bandes traversent l'écran et rien ne reste en arrière."
+      "Sur Gris défilant, les bandes traversent l'écran et rien ne reste en arrière.",
+      "Sur les gris de 5 à 20 %, un aplat uniforme, peut-être un peu plus sombre vers les bords."
     ],
     "fail": [
       "Une tache nettement plus sombre ou plus claire, aux contours visibles.",
       "Des taches marbrées au milieu de l'écran : du clouding, souvent dû à une pression sur la dalle.",
-      "Sur Gris défilant, des taches ou des rayures verticales qui restent en place pendant que les bandes passent devant : le dirty screen effect."
+      "Sur Gris défilant, des taches ou des rayures verticales qui restent en place pendant que les bandes passent devant : le dirty screen effect.",
+      "Sur les gris sombres, des bandes verticales, une tache teintée (souvent rose sur un OLED) ou des marbrures invisibles sur l'aplat à 50 %. Jugez-les à la luminosité que vous utilisez : elles comptent si elles se voient dans les scènes sombres."
     ],
     "note": "Comparez le centre à un seul coin à la fois. Vos yeux s'adaptent aux variations lentes sur un aplat et masquent des écarts bien réels : c'est pourquoi une photo à l'exposition homogène peut en montrer plus qu'un coup d'œil. Sur un téléviseur, jugez depuis votre place habituelle.",
     "next": [
@@ -299,7 +301,7 @@
           ],
           [
             "Légères bandes verticales sur un aplat gris sombre",
-            "Courant sur les grandes dalles VA et OLED",
+            "Courant sur les grands téléviseurs, surtout OLED",
             "Vous les voyez dans un travelling sur un terrain de football"
           ],
           [
@@ -310,7 +312,7 @@
         ]
       }
     ],
-    "guideLabel": "Comment tester les pixels morts et l'uniformité d'un téléviseur neuf"
+    "guideLabel": "Uniformité de l'écran et effet d'écran sale"
   },
   "refresh-rate-test": {
     "heading": "La mesure est-elle correcte pour votre écran ?",
@@ -318,11 +320,13 @@
     "faqHeading": "Questions sur la fréquence de rafraîchissement",
     "pass": [
       "Une mesure à environ 1 Hz de la fréquence annoncée de la dalle. Beaucoup d'écrans tournent à une fraction de hertz de la valeur nominale, par exemple 59,94 Hz pour 60.",
-      "Un chiffre stable, et un carré qui se déplace sans à-coups."
+      "Un chiffre stable, et un carré qui se déplace sans à-coups.",
+      "Aucune image perdue, ou quelques-unes le temps que la page se stabilise."
     ],
     "fail": [
       "60 Hz sur un écran 120, 144 ou 240 Hz. C'est un problème de réglage ou de câble, pas une dalle défectueuse : sélectionnez la fréquence maximale dans vos réglages d'affichage et vérifiez le câble et le port.",
-      "Une mesure qui fléchit ou qui saute. Fermez les autres onglets et applications et mesurez à nouveau avant d'accuser l'écran."
+      "Une mesure qui fléchit ou qui saute. Fermez les autres onglets et applications et mesurez à nouveau avant d'accuser l'écran.",
+      "Des images perdues à répétition. Fermez les autres onglets et applications, branchez le portable sur secteur et vérifiez que l'accélération matérielle est activée dans les réglages du navigateur."
     ],
     "note": "Les portables et les téléphones peuvent abaisser la fréquence de rafraîchissement pour économiser l'énergie : refaites donc le test sur secteur ou avec l'économiseur de batterie désactivé. Si vous avez overclocké un moniteur, un chiffre conforme ici ne prouve pas qu'il affiche chaque image : c'est le Test de saut d'images qui le vérifie.",
     "next": [
@@ -525,11 +529,13 @@
     "faqHeading": "Questions sur le contraste",
     "pass": [
       "Les cases noires restent d'un noir profond juste à côté des cases blanches lumineuses.",
-      "Les limites entre les cases sont nettes à toutes les densités, jusqu'à 32 × 32."
+      "Les limites entre les cases sont nettes à toutes les densités, jusqu'à 32 × 32.",
+      "Noirs bouchés : les cases sont visibles à partir d'environ 2–3 %. Blancs écrêtés : elles se détachent du blanc jusqu'à environ 97–98 %."
     ],
     "fail": [
       "Des cases noires qui paraissent grises ou délavées : un contraste faible, ou un niveau de noir relevé.",
-      "Des bords flous ou colorés entre les cases. Cela renvoie à la mise à l'échelle ou au réglage de netteté, pas au contraste."
+      "Des bords flous ou colorés entre les cases. Cela renvoie à la mise à l'échelle ou au réglage de netteté, pas au contraste.",
+      "Les cases les plus basses se fondent dans le noir, ou les plus hautes dans le blanc : des détails sont perdus dans les ombres ou les hautes lumières, en général à cause du réglage de luminosité ou de contraste, ou d'une plage RGB Limitée mal assortie."
     ],
     "note": "Le type de dalle fixe le plafond. L'OLED garde les cases noires totalement sombres parce que les pixels s'éteignent. Parmi les LCD, les dalles VA atteignent typiquement 2 500:1 à 5 000:1 et les IPS environ 1 000:1 : les noirs d'une IPS paraissent donc nettement plus gris dans une pièce sombre. Ceci est un contrôle visuel : un véritable taux de contraste exige un luxmètre ou une sonde.",
     "next": [

@@ -14,6 +14,8 @@ interface CanvasStageProps {
   trackPointer?: boolean;
   keepAwake?: boolean;
   nativeResolution?: boolean;
+  /** Frames that need a half-float canvas (see PatternCanvas `colorType`). */
+  colorTypeFor?: (frame: number) => "float16" | undefined;
 }
 
 /** Wraps a PatternCanvas in the FullscreenStage for static multi-frame patterns. */
@@ -25,6 +27,7 @@ export default function CanvasStage({
   trackPointer = false,
   keepAwake = true,
   nativeResolution = false,
+  colorTypeFor,
 }: CanvasStageProps) {
   const t = useT();
   return (
@@ -33,15 +36,21 @@ export default function CanvasStage({
       frameCount={labels.length}
       frameLabel={(i) => t(labels[i] ?? "")}
       keepAwake={keepAwake}
-      renderFrame={(i) => (
-        <PatternCanvas
-          frame={i}
-          draw={draw}
-          animate={animate}
-          trackPointer={trackPointer}
-          nativeResolution={nativeResolution}
-        />
-      )}
+      renderFrame={(i) => {
+        const colorType = colorTypeFor?.(i);
+        return (
+          <PatternCanvas
+            // A canvas keeps the color type it was created with, so a change needs a new one.
+            key={colorType ?? "unorm8"}
+            colorType={colorType}
+            frame={i}
+            draw={draw}
+            animate={animate}
+            trackPointer={trackPointer}
+            nativeResolution={nativeResolution}
+          />
+        );
+      }}
     />
   );
 }

@@ -112,17 +112,19 @@
     "faqHeading": "Fragen zu Screen Tearing",
     "pass": [
       "Die Balken bleiben in der Bewegung von einem Bildschirmrand zum anderen ganz.",
-      "Die Bewegung ist gleichmäßig, ohne Ruckler."
+      "Die Bewegung ist gleichmäßig, ohne Ruckler.",
+      "Auf den Testbildern für VRR-Flackern bleiben die Grautöne ruhig, während sich die Bildrate ändert."
     ],
     "fail": [
       "Eine Linie, an der die Balken versetzt sind, sodass obere und untere Hälfte nicht zusammenpassen: ein Riss.",
-      "Ruckelige Bewegung ohne sichtbaren Bruch. Frames werden ausgelassen oder wiederholt, und das ist ein anderes Problem: Nimm den Frame-Skipping-Test."
+      "Ruckelige Bewegung ohne sichtbaren Bruch. Frames werden ausgelassen oder wiederholt, und das ist ein anderes Problem: Nimm den Frame-Skipping-Test.",
+      "Auf den Testbildern für VRR-Flackern pulsieren oder flirren die Grautöne, während die Bildwiederholraten-Anzeige deines Monitors mit der Bildrate springt: VRR-Flackern."
     ],
-    "note": "Ein sauberes Ergebnis ist hier üblich und beweist nicht, dass deine Spiele kein Tearing zeigen. Browser zeichnen meist synchron zum Display, während Spiele reißen, wenn sie Frames mit ausgeschaltetem V-Sync senden. Siehst du auf dieser Seite doch Risse, prüf, ob die Hardwarebeschleunigung in deinem Browser aktiv ist und das Display mit seiner vollen Bildwiederholrate läuft.",
+    "note": "Ein sauberes Ergebnis ist hier üblich und beweist nicht, dass deine Spiele kein Tearing zeigen. Browser zeichnen meist synchron zum Display, während Spiele reißen, wenn sie Frames mit ausgeschaltetem V-Sync senden. Siehst du auf dieser Seite doch Risse, prüf, ob die Hardwarebeschleunigung in deinem Browser aktiv ist und das Display mit seiner vollen Bildwiederholrate läuft. Die Testbilder für VRR-Flackern testen VRR nur, wenn der Browser es aktiviert, und das tut nicht jedes Setup: Bleibt die Bildwiederholraten-Anzeige des Monitors auf dem Maximum, ist VRR nicht aktiv, und diese Testbilder können kein VRR-Flackern zeigen.",
     "next": [
       "Schalte Adaptive Sync (G-Sync, FreeSync oder VRR) im Menü des Monitors und im Grafiktreiber ein.",
       "Hat dein Bildschirm kein Adaptive Sync, schalte V-Sync im Spiel ein oder begrenze dessen Bildrate knapp unter der Bildwiederholrate.",
-      "Prüf die Verbindung: Adaptive Sync braucht DisplayPort am PC oder HDMI 2.1 an Konsole oder Fernseher."
+      "Prüf die Verbindung: Nutz am PC DisplayPort, wenn der Bildschirm es hat. Über HDMI braucht Adaptive Sync HDMI VRR (Teil von HDMI 2.1) oder FreeSync über HDMI mit einer AMD-Grafikkarte oder einer Xbox."
     ],
     "tables": [
       {
@@ -150,7 +152,7 @@
             "Adaptive Sync (G-Sync, FreeSync, VRR)",
             "Keines innerhalb des Bereichs",
             "Sehr wenig",
-            "Kompatibler Bildschirm und Grafikkarte, über DisplayPort oder HDMI 2.1"
+            "Kompatibler Bildschirm und Grafikkarte, über DisplayPort oder über HDMI mit HDMI VRR oder FreeSync"
           ]
         ]
       }
@@ -170,7 +172,8 @@
       "Dieselben Zellen bleiben jedes Mal dunkel, egal wie langsam du darüberfährst. Eine einzelne hartnäckige Zelle bei einem Durchgang hast du meist nur verfehlt.",
       "Eine Lücke an derselben Stelle in jeder Linie, die du hindurchziehst.",
       "Linien, die springen, oder Markierungen, wo du gar nicht berührst: Geisterberührungen (Ghost Touches).",
-      "Ein Zähler, der nie über ein oder zwei Finger hinauskommt."
+      "Ein Zähler, der nie über ein oder zwei Finger hinauskommt.",
+      "Bei „Multi-Touch“ eine Markierung, die von ihrem Finger wegspringt oder verschwindet, während der Finger noch aufliegt."
     ],
     "note": "Eine dicke, gesprungene oder sich ablösende Schutzfolie kann all das verursachen. Nimm Hülle und Folie ab und teste noch einmal, bevor du dem Bildschirm die Schuld gibst. Touch-Fehler beginnen meist an den Rändern und in den Ecken, fahr dort also langsam.",
     "next": [
@@ -179,7 +182,7 @@
       "Installiere ausstehende Systemupdates.",
       "Fällt derselbe Bereich immer noch aus, ist die Touch-Schicht defekt. Wende dich an den Hersteller oder eine Reparaturwerkstatt und sag dazu, ob das Gerät schon einmal heruntergefallen ist oder der Bildschirm getauscht wurde."
     ],
-    "guideLabel": "So testest du das Display eines gebrauchten Handys vor dem Kauf"
+    "guideLabel": "Touchscreen reagiert nicht oder hat Geisterberührungen? Lösungen"
   },
   "screen-info": {
     "heading": "Was dir jeder Wert sagt",
@@ -286,20 +289,23 @@
     "pass": [
       "Overscan-Rahmen: Du siehst den äußersten Rahmen, mit 0 % markiert, rundum vollständig.",
       "Seitenverhältnis: Die Kreise sind perfekt rund, und das Quadrat ist quadratisch.",
-      "Geometrie-Raster: Die Linien sind von Rand zu Rand gerade und haben gleichmäßige Abstände."
+      "Geometrie-Raster: Die Linien sind von Rand zu Rand gerade und haben gleichmäßige Abstände.",
+      "Randlinien: Jede Linie läuft über die ganze Länge ihres Rands, außer wo abgerundete Ecken oder eine Notch sie abschneiden."
     ],
     "fail": [
-      "Die äußeren Rahmen sind abgeschnitten. Der äußerste, den du noch rundum vollständig siehst, zeigt, wie viel abgeschnitten wird.",
+      "Die äußeren Rahmen sind abgeschnitten. Der Beschnitt liegt zwischen dem äußersten Rahmen, den du noch rundum vollständig siehst, und dem nächsten weiter außen.",
       "Kreise, die oval aussehen: Das Bild wird gestreckt.",
-      "Rasterlinien, die sich wölben oder zusammenlaufen – bei einem Beamer heißt das, dass Trapezkorrektur oder Objektivposition nachgestellt werden müssen."
+      "Rasterlinien, die sich wölben oder zusammenlaufen – bei einem Beamer heißt das, dass Trapezkorrektur oder Objektivposition nachgestellt werden müssen.",
+      "Randlinien: Die äußerste Linie fehlt entlang eines ganzen Rands, das Bild ist dort also abgeschnitten."
     ],
-    "note": "Overscan ist eine Einstellung, kein Defekt. Such nach einer Bildformat-Option namens Just Scan, Screen Fit, „An Bildschirm anpassen“, 1:1 oder „Overscan aus“. Jeder TV-Eingang kann seine eigene Bildformat-Einstellung haben, teste also den Eingang, den du wirklich nutzt.",
+    "note": "Overscan ist eine Einstellung, kein Defekt. Such nach einer Bildformat-Option namens Just Scan, Screen Fit, „An Bildschirm anpassen“, Full Pixel, 1:1 oder „Overscan aus“. Jeder TV-Eingang kann seine eigene Bildformat-Einstellung haben, teste also den Eingang, den du wirklich nutzt. Auf einem iPhone kann Safari nicht in den Vollbildmodus wechseln, die Randlinien markieren dort also den Rand des Browserfensters, nicht den des Bildschirms.",
     "next": [
       "Stell am TV das Bildformat auf einen 1:1-Modus wie Just Scan oder Screen Fit.",
       "Wenn du am TV Eingänge benennen kannst, stell diesen auf PC.",
       "Nur wenn der TV keine solche Option hat, nimm den Skalierungsregler im Grafiktreiber.",
       "Mach den Test noch einmal und prüf, ob der 0-%-Rahmen rundum sichtbar ist."
-    ]
+    ],
+    "guideLabel": "Was ist Overscan? Warum dein Fernseher die Ränder abschneidet"
   },
   "sharpness-test": {
     "heading": "Scharf, skaliert oder überschärft?",
@@ -311,17 +317,18 @@
       "Kein heller Saum um die Linien und Ringe auf dem Halo-Testbild."
     ],
     "fail": [
-      "Feine Linien, die zu grauem Matsch oder welligem Moiré werden: Das Bild wird umgerechnet – durch eine nicht native Auflösung, eine nicht ganzzahlige Anzeigeskalierung, Browser-Zoom oder die Skalierung des Fernsehers.",
+      "Feine Linien, die zu grauem Matsch oder welligem Moiré werden: Das Bild wird umgerechnet – durch eine nicht native Auflösung, eine skalierte Auflösung auf einem Mac, Browser-Zoom oder die Skalierung des Fernsehers.",
       "Roter oder gelber Text, der verschmiert, während schwarz-weißer Text scharf bleibt: Chroma Subsampling. Nutze den PC- oder Spielemodus des Fernsehers oder stell die Ausgabe auf RGB oder 4:4:4.",
       "Weiße Säume um Kanten: Die Schärfe-Einstellung ist zu hoch. Dreh sie herunter, bis sie verschwinden."
     ],
-    "note": "Prüf zuerst aus deinem üblichen Sitzabstand, dann aus der Nähe. Eine Anzeigeskalierung von 100 %, 150 % oder 200 % hält feine Details sauberer als Zwischenwerte.",
+    "note": "Prüf zuerst aus deinem üblichen Sitzabstand, dann aus der Nähe. Auf einem Mac bleiben feine Details bei der skalierten Größe am schärfsten, die genau der halben Auflösung des Panels entspricht. Subpixel-Farbsäume sind eine Eigenschaft des Panels, kein Fehler: Ein QD-OLED mit Dreiecksanordnung zeigt Grün und Magenta oben und unten an Buchstaben, ein WOLED farbige Säume an den Seiten, je nach Modell mehr oder weniger. Neuere OLED-Panels, deren Subpixel nebeneinander liegen, vermeiden das weitgehend. Stört es dich aus deinem üblichen Abstand, verbergen größere Schrift oder eine höhere Anzeigeskalierung es. Auf einem LCD bedeuten farbige Kanten an Text meist, dass die Textglättung nicht zum Panel passt: Unter Windows startest du dann den ClearType Text Tuner.",
     "next": [
       "Wähl die native Auflösung des Bildschirms.",
-      "Stell die Anzeigeskalierung auf 100 %, 150 % oder 200 % und setz den Browser-Zoom zurück.",
+      "Setz den Browser-Zoom zurück und wähl auf einem Mac die skalierte Größe, die genau der halben Auflösung des Panels entspricht.",
       "Stell bei einem TV den Eingang auf PC- oder Spielemodus und die Ausgabe auf RGB oder 4:4:4.",
       "Senk die Schärfe-Einstellung, bis die Säume auf dem Testbild „Schärfungs-Halos“ verschwinden."
-    ]
+    ],
+    "guideLabel": "Warum wirkt Text auf meinem Monitor oder Fernseher unscharf?"
   },
   "frame-skipping-test": {
     "heading": "Das Foto lesen: ausgelassene Frames oder nicht?",
@@ -335,7 +342,7 @@
       "Eine Lücke in der Reihe, die auf Foto um Foto wieder auftaucht: Das Display lässt Frames aus.",
       "Lücken, die nur bei der höchsten Bildwiederholrate oder nach einer Übertaktung auftreten und bei der Standardrate verschwinden."
     ],
-    "note": "Eine Lücke auf einem Foto beweist nichts, denn bei einem ausgelasteten Computer kann auch der Browser einen Frame verpassen. Schließ andere Apps und mach mehrere Aufnahmen. Wähle eine Belichtungszeit, die 6 bis 10 Frames einfängt: etwa 1/15 s bei 144 Hz, 1/30 s bei 240 Hz.",
+    "note": "Eine Lücke auf einem Foto beweist wenig: Mach mehrere Aufnahmen und prüf, ob die Hz-Anzeige zu der eingestellten Rate passt. Ein Bildwechsel, den der Browser verpasst, zeigt sich als hellere Zelle, nicht als Lücke. Wähle eine Belichtungszeit von 1/10 s oder länger; bei Aussetzern, die nur ab und zu auftreten, verlängere sie, bis 30 bis 50 Zellen leuchten – weniger, als ins Raster passen.",
     "next": [
       "Schließ andere Apps und mach noch ein paar Fotos, um sicherzugehen, dass die Lücke jedes Mal da ist.",
       "Senk die Bildwiederholrate um eine Stufe und teste erneut, bis die Zellen eine lückenlose Reihe bilden.",
@@ -352,37 +359,38 @@
         "rows": [
           [
             "60 Hz",
-            "1/8 s",
-            "etwa 7"
+            "1/4 s",
+            "etwa 15"
           ],
           [
             "120 Hz",
-            "1/15 s",
-            "etwa 8"
+            "1/8 s",
+            "etwa 15"
           ],
           [
             "144 Hz",
-            "1/15 s",
-            "etwa 10"
+            "1/8 s",
+            "etwa 18"
           ],
           [
             "165 Hz",
-            "1/20 s",
-            "etwa 8"
+            "1/8 s",
+            "etwa 21"
           ],
           [
             "240 Hz",
-            "1/30 s",
-            "etwa 8"
+            "1/10 s",
+            "etwa 24"
           ],
           [
             "360 Hz",
-            "1/50 s",
-            "etwa 7"
+            "1/10 s",
+            "etwa 36"
           ]
         ]
       }
-    ]
+    ],
+    "guideLabel": "Was ist Frame Skipping und wie testest du es?"
   },
   "wide-color-gamut-test": {
     "heading": "Logo oder kein Logo? Was das bedeutet",
@@ -566,5 +574,22 @@
     ],
     "note": "Auch ein Bildschirm, der jeden Test besteht, kann Eigenheiten haben, die für seinen Paneltyp normal sind, etwa IPS-Glow oder etwas Blooming. Jede Testseite sagt dir, welche Ergebnisse normal und welche Fehler sind.",
     "guideLabel": "Die komplette Bildschirmtest-Checkliste für ein neues Gerät"
+  },
+  "frame-rate-comparison": {
+    "heading": "Was die drei Spuren zeigen",
+    "howToHeading": "Bildraten vergleichen",
+    "faqHeading": "Fragen zur Bildrate",
+    "pass": [
+      "Die obere Spur bewegt sich in gleichmäßigen Schritten, ohne Hänger.",
+      "Jede Spur weiter unten wirkt ruckeliger und unschärfer als die darüber. Dieser Unterschied ist das, was eine höhere Bildrate bringt.",
+      "Etwas Unschärfe auch in der oberen Spur, weniger bei höheren Bildwiederholraten."
+    ],
+    "fail": [
+      "Hänger oder Ruckler in der oberen Spur: Der Browser verpasst Bildaufbauten. Schließ andere Tabs und Apps; der Bildwiederholraten-Test zählt ausgelassene Frames.",
+      "Eine obere Spur mit der Beschriftung 60 fps auf einem Bildschirm mit hoher Bildwiederholrate: Das Display läuft mit 60 Hz. Wähl in den Anzeigeeinstellungen die volle Rate.",
+      "Auf dem Hintergrund „Hell“ eine Schliere hinter dem Auto oder ein heller Umriss darum: Ghosting oder Overshoot. Probier die Overdrive-Einstellungen des Monitors aus und vergleich."
+    ],
+    "note": "Die Spuren nutzen deine gemessene Bildwiederholrate: Ein 144-Hz-Bildschirm zeigt also 144, 72 und 36 fps, ein 60-Hz-Bildschirm 60, 30 und 15. Auf einem normalen Display hängt die Bewegungsunschärfe davon ab, wie lange jeder Frame stehen bleibt: Halbiert sich diese Zeit, halbiert sich die Unschärfe – deshalb ist der Sprung von 60 auf 120 Hz so leicht zu sehen.",
+    "guideLabel": "Bildwiederholrate erklärt: 60 vs. 120 vs. 144 vs. 240 Hz"
   }
 }

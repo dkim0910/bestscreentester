@@ -112,17 +112,19 @@
     "faqHeading": "Preguntas sobre el tearing",
     "pass": [
       "Las barras se mantienen enteras de un borde de la pantalla al otro mientras se mueven.",
-      "El movimiento es uniforme, sin tirones."
+      "El movimiento es uniforme, sin tirones.",
+      "En los patrones de Parpadeo VRR, los grises se mantienen estables mientras cambia la tasa de fotogramas."
     ],
     "fail": [
       "Una línea donde las barras quedan desfasadas, de modo que la mitad superior y la inferior no coinciden: tearing.",
-      "Movimiento a tirones sin ningún corte visible. Se están saltando o repitiendo fotogramas, que es un problema distinto: usa el Test de salto de fotogramas."
+      "Movimiento a tirones sin ningún corte visible. Se están saltando o repitiendo fotogramas, que es un problema distinto: usa el Test de salto de fotogramas.",
+      "En los patrones de Parpadeo VRR, los grises laten o vibran mientras el indicador de frecuencia de actualización del monitor salta con la tasa de fotogramas: parpadeo VRR."
     ],
-    "note": "Un resultado limpio aquí es habitual y no demuestra que tus juegos no vayan a tener tearing. Los navegadores suelen dibujar sincronizados con la pantalla, mientras que los juegos producen tearing cuando envían fotogramas con V-Sync desactivado. Si ves cortes en esta página, comprueba que la aceleración por hardware está activada en tu navegador y que la pantalla funciona a su frecuencia de actualización nominal.",
+    "note": "Un resultado limpio aquí es habitual y no demuestra que tus juegos no vayan a tener tearing. Los navegadores suelen dibujar sincronizados con la pantalla, mientras que los juegos producen tearing cuando envían fotogramas con V-Sync desactivado. Si ves cortes en esta página, comprueba que la aceleración por hardware está activada en tu navegador y que la pantalla funciona a su frecuencia de actualización nominal. Los patrones de Parpadeo VRR solo prueban el VRR si el navegador lo activa, y no todos los equipos lo hacen: si el indicador de frecuencia de actualización del monitor se queda en su máximo, el VRR no está activo y estos patrones no pueden mostrar parpadeo VRR.",
     "next": [
       "Activa la sincronización adaptativa (G-Sync, FreeSync o VRR) en el menú del monitor y en el controlador gráfico.",
       "Si tu pantalla no tiene sincronización adaptativa, activa V-Sync en el juego, o limita sus fotogramas por segundo justo por debajo de la frecuencia de actualización.",
-      "Revisa la conexión: la sincronización adaptativa necesita DisplayPort en un PC, o HDMI 2.1 en una consola o un televisor."
+      "Revisa la conexión: en un PC, usa DisplayPort si la pantalla lo tiene. Por HDMI, la sincronización adaptativa necesita HDMI VRR (parte de HDMI 2.1) o FreeSync por HDMI con una tarjeta AMD o una Xbox."
     ],
     "tables": [
       {
@@ -150,7 +152,7 @@
             "Sincronización adaptativa (G-Sync, FreeSync, VRR)",
             "No, dentro de su rango",
             "Muy poco",
-            "Una pantalla y una tarjeta gráfica compatibles, por DisplayPort o HDMI 2.1"
+            "Una pantalla y una tarjeta gráfica compatibles, por DisplayPort, o por HDMI con HDMI VRR o FreeSync"
           ]
         ]
       }
@@ -170,7 +172,8 @@
       "Las mismas celdas siguen oscuras todas las veces, por muy despacio que pases el dedo. Una celda rebelde en una sola pasada suele ser simplemente un punto que te has saltado.",
       "Un hueco en el mismo sitio en todas las líneas que trazas por ahí.",
       "Líneas que saltan, o marcas que aparecen donde no estás tocando: toques fantasma.",
-      "Un contador que nunca pasa de uno o dos dedos."
+      "Un contador que nunca pasa de uno o dos dedos.",
+      "En Multitáctil, un marcador que se aleja de golpe de su dedo, o que desaparece mientras el dedo sigue apoyado."
     ],
     "note": "Un protector de pantalla grueso, agrietado o que se despega puede causar todo esto. Quita la funda y el protector y repite el test antes de culpar a la pantalla. Los fallos táctiles suelen empezar en los bordes y las esquinas, así que ve despacio ahí.",
     "next": [
@@ -179,7 +182,7 @@
       "Instala cualquier actualización del sistema pendiente.",
       "Si la misma zona sigue fallando, la capa táctil está averiada. Contacta con el fabricante o con un servicio técnico, e indica si la pantalla ha sufrido caídas o se ha sustituido antes."
     ],
-    "guideLabel": "Cómo probar la pantalla de un móvil de segunda mano antes de comprarlo"
+    "guideLabel": "¿La pantalla táctil no funciona o hace toques fantasma? Soluciones"
   },
   "screen-info": {
     "heading": "Qué te dice cada valor",
@@ -286,20 +289,23 @@
     "pass": [
       "Borde de overscan: ves entero, en todo el contorno, el marco más exterior, marcado como 0%.",
       "Relación de aspecto: los círculos son perfectamente redondos y el cuadrado es cuadrado.",
-      "Cuadrícula de geometría: las líneas son rectas y están espaciadas de forma uniforme de borde a borde."
+      "Cuadrícula de geometría: las líneas son rectas y están espaciadas de forma uniforme de borde a borde.",
+      "Líneas de borde: cada línea recorre todo su borde, salvo donde la cortan las esquinas redondeadas o el notch."
     ],
     "fail": [
-      "Los marcos exteriores quedan cortados. El más exterior que todavía ves entero en todo el contorno indica cuánto se está recortando.",
+      "Los marcos exteriores quedan cortados. El recorte está entre el marco más exterior que todavía ves entero en todo el contorno y el siguiente hacia fuera.",
       "Círculos que se ven ovalados: la imagen se está estirando.",
-      "Líneas de la cuadrícula que se curvan o convergen, lo que en un proyector significa que hay que ajustar la corrección trapezoidal o la posición de la lente."
+      "Líneas de la cuadrícula que se curvan o convergen, lo que en un proyector significa que hay que ajustar la corrección trapezoidal o la posición de la lente.",
+      "Líneas de borde: falta la línea más exterior a lo largo de todo un borde, así que la imagen está cortada por ahí."
     ],
-    "note": "El overscan es un ajuste, no un defecto. Busca una opción de tamaño de imagen llamada Just Scan, Screen Fit, Fit to Screen, 1:1 u Overscan Off. Cada entrada del televisor puede tener su propio ajuste de tamaño de imagen, así que prueba la entrada que usas de verdad.",
+    "note": "El overscan es un ajuste, no un defecto. Busca una opción de tamaño de imagen llamada Just Scan, Screen Fit, Fit to Screen, Full Pixel, 1:1 u Overscan Off. Cada entrada del televisor puede tener su propio ajuste de tamaño de imagen, así que prueba la entrada que usas de verdad. En un iPhone, Safari no puede pasar a pantalla completa, así que las líneas de borde marcan el borde de la ventana del navegador y no el de la pantalla.",
     "next": [
       "En el televisor, pon el tamaño de imagen en un modo 1:1, como Just Scan o Screen Fit.",
       "Si el televisor permite etiquetar las entradas, etiqueta esta como PC.",
       "Solo si el televisor no tiene esa opción, usa el control de escalado del controlador gráfico.",
       "Repite el test y confirma que el marco del 0% se ve entero en todo el contorno."
-    ]
+    ],
+    "guideLabel": "Qué es el overscan y por qué tu televisor recorta los bordes"
   },
   "sharpness-test": {
     "heading": "¿Nítida, escalada o con exceso de nitidez?",
@@ -311,17 +317,18 @@
       "Ningún contorno brillante alrededor de las líneas y los anillos en el patrón de halos."
     ],
     "fail": [
-      "Líneas finas que se convierten en una masa gris o en un muaré ondulado: la imagen se está remuestreando por una resolución no nativa, una escala de pantalla fraccionaria, el zoom del navegador o el escalado del propio televisor.",
+      "Líneas finas que se convierten en una masa gris o en un muaré ondulado: la imagen se está remuestreando por una resolución no nativa, una resolución escalada en un Mac, el zoom del navegador o el escalado del propio televisor.",
       "Texto rojo o amarillo que se emborrona mientras el texto en blanco y negro sigue nítido: submuestreo de croma. Usa el modo PC o Juego del televisor, o configura la salida en RGB o 4:4:4.",
       "Contornos blancos alrededor de los bordes: el ajuste de Nitidez está demasiado alto. Bájalo hasta que desaparezcan."
     ],
-    "note": "Comprueba primero a tu distancia de visión habitual y después de cerca. Una escala de pantalla del 100%, el 150% o el 200% conserva el detalle fino más limpio que los valores intermedios.",
+    "note": "Comprueba primero a tu distancia de visión habitual y después de cerca. En un Mac, el tamaño escalado que es exactamente la mitad de la resolución del panel conserva el detalle fino más nítido. Las franjas de color de subpíxel son una característica del panel, no un fallo: un QD-OLED con disposición triangular muestra verde y magenta en la parte superior e inferior de las letras, y un WOLED, bordes de color en los lados, más en unos modelos que en otros. Los paneles OLED más nuevos, que colocan los subpíxeles uno al lado del otro, lo evitan en gran parte. Si te molestan a tu distancia habitual, un texto más grande o la escala de pantalla las ocultan. En un LCD, los bordes de color en el texto suelen indicar que el suavizado de texto no coincide con el panel: en Windows, ejecuta el ClearType Text Tuner.",
     "next": [
       "Selecciona la resolución nativa de la pantalla.",
-      "Pon la escala de pantalla en el 100%, el 150% o el 200% y restablece el zoom del navegador.",
+      "Restablece el zoom del navegador y, en un Mac, elige el tamaño escalado que es exactamente la mitad de la resolución del panel.",
       "En un televisor, cambia la entrada al modo PC o Juego y configura la salida en RGB o 4:4:4.",
       "Baja el ajuste de Nitidez hasta que desaparezcan los contornos del patrón de halos."
-    ]
+    ],
+    "guideLabel": "¿Por qué el texto se ve borroso en mi monitor o televisor?"
   },
   "frame-skipping-test": {
     "heading": "Cómo leer la foto: ¿hay fotogramas saltados o no?",
@@ -335,7 +342,7 @@
       "Un hueco en la serie que sigue apareciendo foto tras foto: la pantalla está descartando fotogramas.",
       "Huecos que aparecen solo a la frecuencia de actualización más alta o tras un overclock, y que desaparecen a la frecuencia estándar."
     ],
-    "note": "Un hueco en una foto no demuestra nada, porque un ordenador ocupado también puede hacer que el navegador pierda un fotograma. Cierra otras aplicaciones y haz varias fotos. Elige una obturación lo bastante larga para captar de 6 a 10 fotogramas: unos 1/15 s a 144 Hz, 1/30 s a 240 Hz.",
+    "note": "Un hueco en una foto demuestra poco: haz varias fotos y comprueba que la lectura de Hz coincide con la frecuencia que configuraste. Un refresco que pierde el navegador se ve como una celda más brillante, no como un hueco. Usa una obturación de 1/10 s o más; para saltos que solo aparecen de vez en cuando, alárgala hasta que se enciendan entre 30 y 50 celdas, menos de las que caben en la cuadrícula.",
     "next": [
       "Cierra otras aplicaciones y haz varias fotos más para confirmar que el hueco aparece siempre.",
       "Baja un paso la frecuencia de actualización y repite el test, hasta que la serie de celdas sea continua.",
@@ -352,37 +359,38 @@
         "rows": [
           [
             "60 Hz",
-            "1/8 s",
-            "unas 7"
+            "1/4 s",
+            "unas 15"
           ],
           [
             "120 Hz",
-            "1/15 s",
-            "unas 8"
+            "1/8 s",
+            "unas 15"
           ],
           [
             "144 Hz",
-            "1/15 s",
-            "unas 10"
+            "1/8 s",
+            "unas 18"
           ],
           [
             "165 Hz",
-            "1/20 s",
-            "unas 8"
+            "1/8 s",
+            "unas 21"
           ],
           [
             "240 Hz",
-            "1/30 s",
-            "unas 8"
+            "1/10 s",
+            "unas 24"
           ],
           [
             "360 Hz",
-            "1/50 s",
-            "unas 7"
+            "1/10 s",
+            "unas 36"
           ]
         ]
       }
-    ]
+    ],
+    "guideLabel": "Qué es el salto de fotogramas y cómo comprobarlo"
   },
   "wide-color-gamut-test": {
     "heading": "¿Logotipo o no? Qué significa",
@@ -566,5 +574,22 @@
     ],
     "note": "Una pantalla que supera todos los tests puede tener igualmente particularidades normales en su tipo de panel, como el IPS glow o un poco de blooming. La página de cada test indica qué resultados son normales y cuáles son fallos.",
     "guideLabel": "La lista de comprobación completa para probar la pantalla de un dispositivo nuevo"
+  },
+  "frame-rate-comparison": {
+    "heading": "Qué muestran los tres carriles",
+    "howToHeading": "Cómo comparar tasas de fotogramas",
+    "faqHeading": "Preguntas sobre la tasa de fotogramas",
+    "pass": [
+      "El carril superior avanza a pasos regulares, sin tirones.",
+      "Cada carril, de arriba abajo, se ve más entrecortado y borroso que el anterior. Esa diferencia es lo que aporta una tasa de fotogramas más alta.",
+      "También algo de desenfoque en el carril superior, menos cuanto más alta es la frecuencia de actualización."
+    ],
+    "fail": [
+      "Saltos o tirones en el carril superior: el navegador se está saltando actualizaciones. Cierra otras pestañas y aplicaciones; el Test de frecuencia de actualización cuenta los fotogramas perdidos.",
+      "Un carril superior marcado como 60 fps en una pantalla de alta frecuencia: la pantalla está funcionando a 60 Hz. Selecciona la frecuencia completa en la configuración de pantalla.",
+      "Con el fondo Claro, una estela detrás del coche o un contorno brillante a su alrededor: ghosting u overshoot. Prueba los ajustes de overdrive del monitor y compara."
+    ],
+    "note": "Los carriles usan la frecuencia de actualización medida, así que una pantalla de 144 Hz muestra 144, 72 y 36 fps, y una de 60 Hz, 60, 30 y 15. En una pantalla normal, el desenfoque de movimiento depende de cuánto tiempo permanece cada fotograma en pantalla: si se reduce a la mitad, el desenfoque también, y por eso el salto de 60 a 120 Hz se nota tanto.",
+    "guideLabel": "La frecuencia de actualización, explicada: 60 frente a 120, 144 y 240 Hz"
   }
 }

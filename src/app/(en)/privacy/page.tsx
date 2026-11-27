@@ -31,6 +31,15 @@ export default function PrivacyPage() {
             never sent to us.
           </li>
           <li>
+            <strong>Stored on your device:</strong> the Screen Test Checklist keeps your pass and
+            fail marks, and the device name you type, in your browser&apos;s local storage. To make
+            the tests work offline, your browser also keeps a copy of the site&apos;s pages and files
+            (a service worker cache). Neither is sent to us, and clearing the site&apos;s data in
+            your browser removes both. If you share a checklist report, the results travel inside
+            the link itself, after the <code>#</code>, rather than being stored anywhere; like any
+            page address, a visit to that link may show up in our analytics.
+          </li>
+          <li>
             <strong>No accounts:</strong> there is no sign-up or login, so we don&apos;t hold names,
             emails, or passwords.
           </li>

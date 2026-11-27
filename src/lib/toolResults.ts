@@ -187,10 +187,12 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
     pass: [
       "A reading within about 1 Hz of the panel's rating. Many displays run a fraction off nominal, such as 59.94 Hz for 60.",
       "A steady number, and a box that moves without stutter.",
+      "No dropped frames, or a few while the page settles.",
     ],
     fail: [
       "60 Hz on a 120, 144 or 240 Hz screen. This is a setting or cable problem, not a faulty panel: select the full rate in your display settings and check the cable and port.",
       "A reading that sags or jumps around. Close other tabs and apps and measure again before blaming the display.",
+      "Dropped frames that keep coming. Close other tabs and apps, plug a laptop in, and check that hardware acceleration is on in the browser's settings.",
     ],
     note:
       "Laptops and phones can lower the refresh rate to save power, so repeat the test plugged in or with battery saver off. If you have overclocked a monitor, a matching number here doesn't prove it is showing every frame: the Frame Skipping Test checks that.",
@@ -216,6 +218,27 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
     guide: {
       slug: "what-is-ghosting-and-how-to-fix-it",
       label: "What is ghosting, and how do you fix it?",
+    },
+  },
+  "frame-rate-comparison": {
+    heading: "What the three lanes show",
+    howToHeading: "Comparing frame rates",
+    faqHeading: "Frame rate questions",
+    pass: [
+      "The top lane moves in even steps, with no hitches.",
+      "Each lane down looks choppier and blurrier than the one above it. That gap is what a higher frame rate buys.",
+      "Some blur in the top lane too, less at higher refresh rates.",
+    ],
+    fail: [
+      "Hitches or stutters in the top lane: the browser is missing refreshes. Close other tabs and apps; the Refresh Rate Test counts dropped frames.",
+      "A top lane labelled 60 fps on a high-refresh screen: the display is running at 60 Hz. Select the full rate in your display settings.",
+      "On the Light background, a trail behind the car or a bright outline around it: ghosting or overshoot. Try the monitor's overdrive settings and compare.",
+    ],
+    note:
+      "The lanes use your measured refresh rate, so a 144 Hz screen shows 144, 72 and 36 fps, and a 60 Hz screen 60, 30 and 15. On a normal display, motion blur is set by how long each frame stays on screen: halve that and the blur halves, which is why the jump from 60 to 120 Hz is so easy to see.",
+    guide: {
+      slug: "refresh-rate-explained-60-vs-120-vs-144-vs-240",
+      label: "Refresh rate explained: 60 vs 120 vs 144 vs 240 Hz",
     },
   },
   "pwm-flicker-test": {
@@ -255,13 +278,11 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
       "A gap in the same place in every line you draw through it.",
       "Lines that jump, or marks appearing where you aren't touching: ghost touches.",
       "A counter that never goes above one or two fingers.",
+      "In Multi-touch, a marker that jumps away from its finger, or vanishes while the finger is still down.",
     ],
     note:
       "A thick, cracked or lifting screen protector can cause all of these. Take the case and protector off and test again before you blame the screen. Touch faults usually start at the edges and corners, so go slowly there.",
-    guide: {
-      slug: "how-to-test-a-used-phone-screen-before-buying",
-      label: "How to test a used phone screen before buying",
-    },
+    guide: { slug: "why-is-my-touch-screen-not-working", label: "Touch screen not working or ghost touching? Fixes" },
   },
   "screen-info": {
     heading: "What each value tells you",
@@ -309,21 +330,20 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
     howToHeading: "Checking brightness uniformity",
     faqHeading: "Uniformity questions",
     pass: [
-      "The gray looks like one shade from the center to each corner. Good monitors stay within roughly 10% brightness variation across the panel.",
+      "The gray looks like one shade from the center to each corner. On a good monitor most of the screen stays within about 10% of the center's brightness; corners often fall further.",
       "Corners a little darker than the center: some falloff is normal on every LCD.",
       "On Panning gray, the bands drift across the screen and nothing stays behind.",
+      "On the 5–20% grays, an even field, perhaps a little darker toward the edges.",
     ],
     fail: [
       "A distinct darker or brighter patch with a visible edge.",
       "Mottled patches in the middle of the screen: clouding, often from pressure on the panel.",
       "On Panning gray, smudges or vertical stripes that stay put while the bands move past them: the dirty screen effect.",
+      "On the dark grays, vertical bands, a tinted patch (often pink on an OLED) or cloudy blotches you can't see on the 50% field. Judge them at the brightness you use: they matter if they show in dark scenes.",
     ],
     note:
       "Compare the center against one corner at a time. Your eyes adapt to slow changes across a field and hide real differences, which is why a photo with even exposure can show more than a glance does. On a TV, judge it from where you actually sit.",
-    guide: {
-      slug: "how-to-test-a-tv-for-defects",
-      label: "How to test a new TV for dead pixels and uniformity",
-    },
+    guide: { slug: "what-is-screen-uniformity", label: "Screen uniformity and the dirty screen effect" },
   },
   "blooming-test": {
     heading: "How much halo is normal?",
@@ -349,10 +369,12 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
     pass: [
       "Black squares stay deep black right next to bright white ones.",
       "The borders between squares are crisp at every density, up to 32 × 32.",
+      "Black crush: the boxes are visible from about 2–3% upward. White clipping: they stand apart from the white up to about 97–98%.",
     ],
     fail: [
       "Black squares that look gray or washed out: low contrast, or a raised black level.",
       "Fuzzy or colored edges between squares. That points to scaling or the sharpness setting, not to contrast.",
+      "The lowest boxes merge into black, or the highest into white: shadow or highlight detail is being lost, usually to the brightness or contrast setting, or a Limited RGB range mismatch.",
     ],
     note:
       "Panel type sets the ceiling. OLED keeps black squares fully dark because the pixels switch off. Among LCDs, VA panels typically reach 2,500:1 to 5,000:1 and IPS around 1,000:1, so IPS blacks look noticeably grayer in a dark room. This is a visual check: an actual contrast ratio needs a light meter.",
@@ -430,7 +452,7 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
       "One hue swallowing a wide stretch of the spectrum.",
     ],
     note:
-      "These gradients use standard sRGB colors, so they show banding and uneven transitions, not how wide your screen's gamut is. The white and gray ramps isolate brightness banding in the shadows without color getting in the way.",
+      "These gradients use standard sRGB colors, so they show banding and uneven transitions, not how wide your screen's gamut is. The white and gray ramps isolate brightness banding in the shadows without color getting in the way. On 8-bit vs 10-bit, bands in the top half are expected. Two identical halves mean an 8-bit step somewhere between the browser and the panel, which is normal on most setups; a smoother lower half means more than 8 bits, or dithering, gets through.",
     guide: {
       slug: "what-is-color-banding-and-how-to-reduce-it",
       label: "What is color banding, and how do you reduce it?",
@@ -456,13 +478,15 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
     pass: [
       "The bars stay whole from one edge of the screen to the other as they move.",
       "Motion is even, with no jerks.",
+      "On the VRR flicker frames, the grays stay steady while the frame rate changes.",
     ],
     fail: [
       "A line where the bars are offset, so the top and bottom halves don't line up: a tear.",
       "Jerky motion with no visible break. Frames are being skipped or repeated, which is a different problem: use the Frame Skipping Test.",
+      "On the VRR flicker frames, the grays pulse or shimmer while your monitor's refresh rate readout jumps with the frame rate: VRR flicker.",
     ],
     note:
-      "A clean result here is common and doesn't prove your games won't tear. Browsers usually draw in sync with the display, while games tear when they send frames with V-Sync off. If you do see tears on this page, check that hardware acceleration is on in your browser and that the display is running at its rated refresh rate.",
+      "A clean result here is common and doesn't prove your games won't tear. Browsers usually draw in sync with the display, while games tear when they send frames with V-Sync off. If you do see tears on this page, check that hardware acceleration is on in your browser and that the display is running at its rated refresh rate. The VRR flicker frames only test VRR if the browser engages it, which not every setup does: if the monitor's refresh rate readout stays at its maximum, VRR isn't active and these frames can't show VRR flicker.",
     guide: {
       slug: "screen-tearing-vsync-gsync-freesync",
       label: "Screen tearing, V-Sync, G-Sync and FreeSync explained",
@@ -476,14 +500,17 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
       "Overscan border: you can see the outermost frame, marked 0%, all the way round.",
       "Aspect ratio: the circles are perfectly round and the square is square.",
       "Geometry grid: lines are straight and evenly spaced from edge to edge.",
+      "Edge lines: every line runs the whole length of its edge, apart from where rounded corners or a notch cut it.",
     ],
     fail: [
-      "The outer frames are cut off. The outermost one you can still see all the way round is how much is being cropped.",
+      "The outer frames are cut off. The crop lies between the outermost frame you can still see all the way round and the next one out.",
       "Circles that look oval: the picture is being stretched.",
       "Grid lines that bow or converge, which on a projector means keystone or lens position needs adjusting.",
+      "Edge lines: the outermost line is missing along a whole edge, so the picture is cut off there.",
     ],
     note:
-      "Overscan is a setting, not a defect. Look for a picture-size option called Just Scan, Screen Fit, Fit to Screen, 1:1 or Overscan Off. Each TV input can have its own picture-size setting, so test the input you actually use.",
+      "Overscan is a setting, not a defect. Look for a picture-size option called Just Scan, Screen Fit, Fit to Screen, Full Pixel, 1:1 or Overscan Off. Each TV input can have its own picture-size setting, so test the input you actually use. On an iPhone, Safari can't go full-screen, so the edge lines mark the edge of the browser window rather than the screen.",
+    guide: { slug: "what-is-overscan", label: "What is overscan? Why your TV cuts off the edges" },
   },
   "sharpness-test": {
     heading: "Crisp, scaled or oversharpened?",
@@ -495,12 +522,13 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
       "No bright outline around the lines and rings on the halo pattern.",
     ],
     fail: [
-      "Fine lines that turn into gray mush or wavy moiré: the image is being resampled by a non-native resolution, fractional display scaling, browser zoom or the TV's own scaling.",
+      "Fine lines that turn into gray mush or wavy moiré: the image is being resampled by a non-native resolution, a scaled resolution on a Mac, browser zoom or the TV's own scaling.",
       "Red or yellow text that smears while black-and-white text stays sharp: chroma subsampling. Use the TV's PC or Game mode, or set the output to RGB or 4:4:4.",
       "White outlines around edges: the Sharpness setting is too high. Turn it down until they disappear.",
     ],
     note:
-      "Check at your normal viewing distance first, then up close. Display scaling of 100%, 150% or 200% keeps fine detail cleaner than in-between values.",
+      "Check at your normal viewing distance first, then up close. On a Mac, the scaled size at exactly half the panel's resolution keeps fine detail sharpest. Subpixel fringing is a trait of the panel, not a fault: a QD-OLED with the triangle layout shows green and magenta along the tops and bottoms of letters and a WOLED colored edges on their sides, more on some models than others. Newer OLED panels that line their subpixels up side by side largely avoid it. If it bothers you at your normal distance, larger text or display scaling hides it. On an LCD, colored edges on text usually mean text smoothing doesn't match the panel: on Windows, run the ClearType Text Tuner.",
+    guide: { slug: "why-does-text-look-blurry", label: "Why does text look blurry on my monitor or TV?" },
   },
   "frame-skipping-test": {
     heading: "Reading the photo: skipped frames or not?",
@@ -515,7 +543,8 @@ export const TOOL_RESULTS: Record<string, ToolResults> = {
       "Gaps that appear only at the highest refresh rate or after an overclock, and vanish at the standard rate.",
     ],
     note:
-      "One gap in one photo proves nothing, because a busy computer can make the browser miss a frame too. Close other apps and take several shots. Pick a shutter long enough to catch 6 to 10 frames: about 1/15 s at 144 Hz, 1/30 s at 240 Hz.",
+      "One gap in one photo proves little: take several shots, and check that the Hz readout matches the rate you set. A refresh the browser misses shows as one brighter cell, not a gap. Use a shutter of 1/10 s or longer; for skips that come only now and then, slow it until 30 to 50 cells light up, fewer than the grid holds.",
+    guide: { slug: "what-is-frame-skipping", label: "What is frame skipping and how do you test for it?" },
   },
   "wide-color-gamut-test": {
     heading: "Logo or no logo? What it means",
@@ -636,7 +665,7 @@ const NEXT_STEPS: Record<string, string[]> = {
   "screen-tearing-test": [
     "Turn on adaptive sync (G-Sync, FreeSync or VRR) in the monitor's menu and in the graphics driver.",
     "If your screen has no adaptive sync, turn on V-Sync in the game, or cap its frame rate just below the refresh rate.",
-    "Check the connection: adaptive sync needs DisplayPort on a PC, or HDMI 2.1 on a console or TV.",
+    "Check the connection: on a PC, use DisplayPort if the screen has it. Over HDMI, adaptive sync needs HDMI VRR (part of HDMI 2.1), or FreeSync over HDMI with an AMD card or an Xbox.",
   ],
   "hdr-test": [
     "Switch HDR on in the operating system and, on a monitor or TV, in its own menu for the input you use.",
@@ -708,7 +737,7 @@ const NEXT_STEPS: Record<string, string[]> = {
   ],
   "sharpness-test": [
     "Select the screen's native resolution.",
-    "Set display scaling to 100%, 150% or 200% and reset browser zoom.",
+    "Reset browser zoom, and on a Mac choose the scaled size at exactly half the panel's resolution.",
     "On a TV, switch the input to PC or Game mode and set the output to RGB or 4:4:4.",
     "Lower the Sharpness setting until the outlines on the halo pattern disappear.",
   ],
@@ -832,7 +861,7 @@ const TABLES: Record<string, ToolTable[]> = {
       head: ["What you see", "Usually normal", "Push for a return when"],
       rows: [
         ["Faint corner glow on an LCD in a dark room", "Yes, especially on IPS", "It is visible during normal viewing, not only on a test field"],
-        ["Light vertical banding on a dark gray field", "Common on large VA and OLED panels", "You can see it in a panning shot of a football pitch"],
+        ["Light vertical banding on a dark gray field", "Common on large TVs, especially OLED", "You can see it in a panning shot of a football pitch"],
         ["A dark patch that does not move with the content", "No", "Always"],
       ],
     },
@@ -858,12 +887,12 @@ const TABLES: Record<string, ToolTable[]> = {
       title: "Shutter speed to use",
       head: ["Refresh rate", "Shutter", "Cells lit in one photo"],
       rows: [
-        ["60 Hz", "1/8 s", "about 7"],
-        ["120 Hz", "1/15 s", "about 8"],
-        ["144 Hz", "1/15 s", "about 10"],
-        ["165 Hz", "1/20 s", "about 8"],
-        ["240 Hz", "1/30 s", "about 8"],
-        ["360 Hz", "1/50 s", "about 7"],
+        ["60 Hz", "1/4 s", "about 15"],
+        ["120 Hz", "1/8 s", "about 15"],
+        ["144 Hz", "1/8 s", "about 18"],
+        ["165 Hz", "1/8 s", "about 21"],
+        ["240 Hz", "1/10 s", "about 24"],
+        ["360 Hz", "1/10 s", "about 36"],
       ],
     },
   ],
@@ -885,7 +914,7 @@ const TABLES: Record<string, ToolTable[]> = {
       rows: [
         ["Sync off", "Yes", "None", "Nothing"],
         ["V-Sync", "None", "Some", "Nothing"],
-        ["Adaptive sync (G-Sync, FreeSync, VRR)", "None inside its range", "Very little", "A compatible screen and graphics card, over DisplayPort or HDMI 2.1"],
+        ["Adaptive sync (G-Sync, FreeSync, VRR)", "None inside its range", "Very little", "A compatible screen and graphics card, over DisplayPort, or over HDMI with HDMI VRR or FreeSync"],
       ],
     },
   ],

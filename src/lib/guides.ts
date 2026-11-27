@@ -37,7 +37,7 @@ export const GUIDES: Guide[] = [
       "A 10-minute routine to inspect any new laptop, monitor, phone, or TV for dead pixels, bleed and tint before the return window closes.",
     tags: ["checklist", "guide", "new device"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-08-27",
+    updatedAt: "2026-11-28",
     body: `Unboxed something new? Spend ten minutes now so you don't regret it later. Run these tests in order, in a dimly lit room, with brightness at maximum, and give the panel five minutes to warm up first — LCD backlights shift slightly in their first few minutes.
 
 ## Before you start
@@ -45,6 +45,7 @@ export const GUIDES: Guide[] = [
 - Set the display to its native resolution. A non-native resolution blurs everything and hides small faults.
 - Turn off Night Light, Night Shift, and any blue-light filter — they add a warm tint that will wreck the color checks.
 - Keep the box, packaging and receipt until you've finished. Return windows are short and vary by retailer and country; a pixel-policy warranty claim usually stays open much longer than the return window does.
+- Open the [Screen Test Checklist](/screen-test-checklist) in another tab and pick your device. It lists the tests in order, records a Pass or Fail for each, and turns your results into a report you can copy or share.
 
 ## 1. Dead and stuck pixels
 Open the [Dead Pixel Test](/dead-pixel-test) and step through every solid color. Watch for any dot that's the wrong color. A dot that stays black is **dead**; a dot locked on one color is **stuck**.
@@ -91,6 +92,7 @@ If you find something, photograph it now: shoot the black-screen flaws in a dark
       "What to check in the store and at home so you don't keep a monitor with dead pixels, bleed, or the wrong refresh rate.",
     tags: ["monitor", "buying guide", "guide"],
     publishedAt: "2026-06-21",
+    updatedAt: "2026-11-28",
     body: `A monitor is a multi-year purchase. Five minutes of testing protects it.
 
 The window that actually matters is the retailer's return period, not the manufacturer's warranty. A return inside 14 or 30 days is usually no-questions-asked; a warranty claim three months later has to clear a defect threshold you probably won't meet. So test hard, test early, and keep the box until you're sure.
@@ -112,6 +114,8 @@ Run these in order, in a dim room, with the monitor warmed up for 20-30 minutes.
 3. **Uniformity** — [Brightness Uniformity Test](/brightness-uniformity-test).
 4. **Refresh rate** — [Refresh Rate Test](/refresh-rate-test); make sure Windows/macOS is actually set to the panel's max Hz.
 5. **Motion** — [Ghosting Test](/ghosting-test) to judge response time and overdrive.
+
+The [Screen Test Checklist](/screen-test-checklist) has the monitor tests in order, records a Pass or Fail for each, and turns your results into a report you can copy or share.
 
 For the pixel pass, work through white, black, red, green and blue full-screen. A pixel that's dark on white but invisible on black is a dead pixel. A pixel that stays one color on every field is a stuck sub-pixel — often fixable, and worth trying before you box anything up. [Dead vs Stuck vs Hot Pixels](/blog/dead-vs-stuck-vs-hot-pixels) covers the distinction, and the attempts that sometimes revive a stuck one.
 
@@ -151,7 +155,7 @@ Photograph anything questionable now, on a solid color, with the room dark and y
       "Use your TV's browser or a phone to run solid-color and gray tests that reveal panel defects and dirty-screen effect.",
     tags: ["tv", "guide", "uniformity"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-28",
     body: `TVs are big, so defects are easy to miss — and easy to spot once you know what to display.
 
 Do this in the first week. A retailer's return policy is almost always more forgiving than a manufacturer's pixel policy, so the cheapest moment to reject a bad panel is before the return window closes. Check what that window actually is on your receipt before you start.
@@ -162,7 +166,7 @@ Three things will lie to you if you skip them.
 
 - **Picture mode.** Switch to **Filmmaker**, **Movie**, or **Cinema**. Showroom modes like **Vivid** and **Dynamic** crush shadow detail and oversaturate everything, which hides some faults and invents others.
 - **Auto-dimming.** Turn off the ambient light sensor, eco mode, and any energy-saving brightness limiter. Otherwise the screen changes under you mid-test and you will chase a fault that is really just the sensor working.
-- **Picture size.** Set it to **Just Scan**, **Screen Fit** or **1:1**, so the TV isn't cropping and rescaling the edges. The [Overscan Test](/overscan-test) shows at a glance whether it still is.
+- **Picture size.** Set it to **Just Scan**, **Screen Fit** or **1:1**, so the TV isn't cropping and rescaling the edges. The [Overscan Test](/overscan-test) shows at a glance whether it still is. If you can't find the setting, [What Is Overscan? Why Your TV Cuts Off the Edges](/blog/what-is-overscan) lists what each brand calls it.
 - **The room.** Kill the lights. Backlight and black-level problems are close to invisible with a lamp on, and uniformity problems disappear entirely in daylight.
 
 Let the set run 20–30 minutes before judging uniformity. Panels shift slightly as they warm up.
@@ -178,7 +182,7 @@ What matters is a genuinely full-screen field with no menu bar, no overlay, and 
 ## The tests
 
 1. **Pixels** — full-screen red, green, blue, white, and black via the [Color Test](/color-test). Get within arm's reach and sweep the panel in overlapping strips; a 65-inch screen is far too big to judge in one glance. A **dead pixel** stays black on every field. A **stuck pixel** stays lit in one color and jumps out on the opposite field, so a stuck red dot is easiest to find on green or blue. The [Dead Pixel Test](/dead-pixel-test) cycles the fields for you, and [Dead vs Stuck vs Hot Pixels](/blog/dead-vs-stuck-vs-hot-pixels) covers telling them apart.
-2. **Dirty screen effect (DSE)** — a 5% gray or [Brightness Uniformity](/brightness-uniformity-test) field shows vertical bands and blotches that ruin panning shots in sports; its Panning gray frame recreates a camera pan, which is when DSE is most obvious. This is the most useful TV test and the one almost nobody runs. Look for vertical stripes, a darker middle, and cloudy smudges. Check a mid-gray field too: some sets look filthy at 5% and clean at 50%, others the reverse.
+2. **Dirty screen effect (DSE)** — a 5% gray or [Brightness Uniformity](/brightness-uniformity-test) field shows vertical bands and blotches that ruin panning shots in sports; its Panning gray frame recreates a camera pan, which is when DSE is most obvious. This is the most useful TV test and the one almost nobody runs. Look for vertical stripes, a darker middle, and cloudy smudges. Check a mid-gray field too: some sets look filthy at 5% and clean at 50%, others the reverse. [Screen Uniformity and the Dirty Screen Effect](/blog/what-is-screen-uniformity) explains each pattern and which ones are worth a return.
 3. **Backlight and blooming** — on LED and Mini-LED sets, the [Blooming Test](/blooming-test) reveals halos around bright objects on black. Every backlit panel does this to some degree; the question is how big the halo is and whether it visibly lags behind the object as it moves. A halo that trails the object is the local dimming algorithm reacting late, and it will show up on white subtitles over a dark scene.
 4. **OLED black** — on OLED, a [Black Screen](/black-screen) should look truly off, with no glow. Faint vertical banding on a very dark gray is a common OLED trait rather than a fault; judge it on real content before you call it a defect.
 5. **Burn-in and image retention** — mandatory on anything used, refurbished, or ex-display. Run the [Burn-in Test](/burn-in-test) and look for a ghosted news ticker, channel logo, or menu bar in the gray fields. [OLED Burn-In: Causes, Prevention, and How to Check](/blog/oled-burn-in-and-how-to-check-for-it) explains what is temporary retention and what is permanent.
@@ -187,8 +191,8 @@ What matters is a genuinely full-screen field with no menu bar, no overlay, and 
 
 | What you see | Usually normal | Push for a return when |
 | --- | --- | --- |
-| Faint corner glow on an LCD in a dark room | Yes, especially on IPS | It is visible during normal viewing, not just on a black test field |
-| Light vertical banding on a 5% gray field | Common on large VA and OLED panels | You can see it in a panning shot of a football pitch |
+| Faint corner glow on an LCD in a dark room | Yes, especially on IPS | It is visible during normal viewing, not only on a test field |
+| Light vertical banding on a dark gray field | Common on large TVs, especially OLED | You can see it in a panning shot of a football pitch |
 | Halo around bright objects on black | Yes on any backlit LED set | The halo is larger than the object, or clearly lags it |
 | One dim or stuck subpixel | Often within the maker's policy | It is near the center, or there is more than one |
 | A dark patch that does not move with content | No | Always — see [Why Does My Screen Have a Dark Spot or Patch?](/blog/why-does-my-screen-have-a-dark-spot) |
@@ -903,7 +907,7 @@ Set it once for daytime, save a warmer preset for the evening, and stop fiddling
       "What Hz actually means, where the jump from 60 to 144 is most noticeable, and how to confirm your screen runs at the rate you paid for.",
     tags: ["refresh rate", "gaming", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-28",
     body: `Refresh rate is how many times per second your display updates, measured in hertz (Hz). Higher = smoother motion. It is also the single spec most likely to be sitting at the wrong value on a screen you already own.
 
 ## What each tier feels like
@@ -913,6 +917,8 @@ Set it once for daytime, save a warmer preset for the evening, and stop fiddling
 - **240Hz+** — 4.2ms per frame. Smaller but real gains for competitive gaming; diminishing returns.
 
 The jump from 60 to 120 roughly halves how long each frame sits still in front of your eyes, and that halving is what you perceive as clarity. Going from 120 to 240 halves it again — a real improvement, but you're chasing a much smaller absolute change, which is why the second upgrade feels far less dramatic than the first.
+
+To see the difference on your own screen, the [Frame Rate Comparison](/frame-rate-comparison) runs the same moving car at your full refresh rate, half of it and a quarter of it, side by side.
 
 Where you'll notice it most, in order: dragging a window or scrolling a text page, fast camera movement in a first-person game, tracking a moving target, and the mouse cursor itself. Where you'll notice it least: film and most scripted TV, which are mastered at 24fps and won't look different regardless of your panel.
 
@@ -1100,7 +1106,7 @@ Fast response = clearer motion. Low input lag = more responsive feel. For compet
       "Why a frame splits across your screen mid-motion, and which sync technology — V-Sync, G-Sync or FreeSync — fixes it without adding input lag.",
     tags: ["screen tearing", "vsync", "gaming"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-28",
     body: `Tearing is a horizontal split where the top and bottom of the image are from different frames. It's most visible when you pan the camera sideways: a straight vertical edge — a doorframe, a lamppost, a wall — appears broken and offset partway down the screen.
 
 ## Why it happens
@@ -1121,7 +1127,7 @@ It's worst when frame rate and refresh rate are mismatched, and it happens both 
 4. Stay within the monitor's variable-refresh **range** (for example 48 to 144Hz). Below the range, behavior falls back — many displays use [low framerate compensation](https://www.amd.com/en/products/graphics/technologies/freesync.html), which repeats frames to keep the panel inside its range. Many people enable V-Sync in the driver too, only to catch frames above the range, and then cap the frame rate a few frames below the maximum so V-Sync never actually engages.
 5. Check the game is running in fullscreen or borderless with the OS compositor cooperating. Windows handles VRR in windowed mode on modern versions, but some titles still only get it exclusively fullscreen.
 
-If enabling it produces flicker on dark loading screens or in menus, that's a known behavior on some panels when the frame rate swings wildly — a frame cap usually settles it.
+If enabling it produces flicker on dark loading screens or in menus, that's a known behavior on some panels when the frame rate swings wildly — a frame cap usually settles it. [What Is VRR Flicker and How Do You Fix It?](/blog/what-is-vrr-flicker) explains why OLED and VA panels do this and how to check yours.
 
 ## Tearing that isn't a game
 Tearing while scrolling a web page or dragging a window points somewhere else: a stale or wrong-refresh display mode, a browser with hardware acceleration disabled, or on a laptop a mismatch between the integrated and discrete GPU. Start by confirming the OS is actually driving the panel at its rated rate — see [How to Enable Your Monitor's Full Refresh Rate (Windows & Mac)](/blog/how-to-enable-full-refresh-rate-windows-mac) if it isn't obvious in display settings.
@@ -1139,13 +1145,101 @@ These get mixed up constantly, and the fixes have nothing in common:
 Watch a tear appear and vanish as you toggle sync with the [Screen Tearing Test](/screen-tearing-test). Confirm your true refresh with the [Refresh Rate Test](/refresh-rate-test) and check trailing with the [Ghosting Test](/ghosting-test) once sync is on — turning on adaptive sync changes the effective refresh rate constantly, and some panels overshoot on their overdrive setting when it does.`,
   },
   {
+    slug: "what-is-vrr-flicker",
+    title: "What Is VRR Flicker and How Do You Fix It?",
+    excerpt:
+      "Dark scenes pulse or flash with G-Sync or FreeSync on? That's VRR flicker. Why OLED and VA screens show it, how to check yours, and how to calm it down.",
+    tags: ["vrr", "flicker", "g-sync", "freesync", "oled"],
+    publishedAt: "2026-11-28",
+    body: `VRR flicker is a brightness flicker that appears when variable refresh rate is on and the frame rate keeps changing. Dark parts of the picture pulse or flash: a night sky that seems to breathe, a black loading screen that blinks, a dim menu that strobes while the game stutters. Turn G-Sync, FreeSync or HDMI VRR off and it stops.
+
+It isn't a fault in the usual sense. Most OLED and VA screens do it to some degree, the fixes are mostly about the frame rate, and the [Screen Tearing Test](/screen-tearing-test) can trigger it on purpose.
+
+## Why the brightness moves
+
+With VRR, the screen refreshes when each new frame arrives instead of on a fixed clock, so the refresh rate follows the frame rate: 97 fps means 97 Hz. [Screen Tearing, V-Sync, G-Sync, and FreeSync Explained](/blog/screen-tearing-vsync-gsync-freesync) covers why that's useful. The side effect is that each frame no longer stays on screen for the same time: about 7 ms at 144 Hz, about 21 ms at 48 Hz.
+
+At every refresh the display sets each pixel to its level, and the pixel holds it until the next one. Panels are tuned for one hold time. LG Display has described its OLED TV panels this way: gamma tuned for 120 Hz, with a fixed charging time for the subpixels. Hold a frame longer than that and the pixel drifts, so the same gray comes out slightly brighter or darker.
+
+At a steady frame rate the error never changes and you never see it. When the frame rate jumps, the brightness jumps with it. On most panels a bigger swing means a bigger flash.
+
+Dark shades show it most, because a step or two is a large share of a dark gray and your eyes catch small changes more easily in dim light. In reviewers' measurements of OLED monitors under big frame-rate drops, a near-black gray jumped by 8 to 11 steps out of 255, while brighter shades moved far less. In effect it is a [gamma](/blog/gamma-explained) shift that won't sit still.
+
+### Which screens do it
+
+- **OLED:** nearly all of them, in dark scenes. RTINGS found it on all six OLED monitors in its first round of tests, and TFTCentral calls it an inherent challenge of the technology.
+- **VA:** as a group, the worst in RTINGS's measurements, and often not only in shadows. Some VA monitors pulse across the whole screen.
+- **IPS and TN:** very little. RTINGS measured IPS panels moving by one or two steps, mostly around mid-gray.
+
+A VESA AdaptiveSync certification doesn't rule it out: that certification checks flicker on a mid-gray screen, where OLEDs behave well. For the wider trade-offs, see [IPS vs VA vs TN vs OLED: Which Panel Should You Get?](/blog/ips-vs-va-vs-tn-vs-oled).
+
+## When it shows up
+
+Anything that makes the frame rate jump:
+
+- **Loading screens and menus.** Often dark and static, with a frame rate that lurches while the game loads behind them. Judge a screen in gameplay, not here.
+- **Stutter.** A hitch while a game compiles shaders or streams in assets is one very long frame, which shows as a single blink.
+- **Swings between scenes.** Turning from a quiet corridor to a busy street can halve the frame rate in a second.
+- **Falling below the VRR range.** Every VRR screen has a range, say 60 to 144 Hz. Below the bottom, many displays and drivers show each frame two or more times to stay inside it, which AMD calls [low framerate compensation](https://www.amd.com/en/products/graphics/technologies/freesync.html): 40 fps is shown at 80 Hz. A game hovering around 60 fps can then flip between roughly 60 and 120 Hz, exactly the kind of jump that flickers. Without that compensation, VRR just switches off below the range.
+
+## How to check your screen
+
+The VRR flicker frames of the [Screen Tearing Test](/screen-tearing-test) recreate these conditions. They show four bands of dark gray (5%, 10%, 15% and 20%) with a small marker moving across the middle. **VRR flicker: swings** alternates half a second at your full refresh rate with half a second at a third of it; **VRR flicker: random** holds each frame for one to four refreshes. With VRR engaged, the refresh rate follows.
+
+1. Dim the room, keep your normal brightness, and sit straight in front of the screen.
+2. Turn on your monitor's refresh rate readout, if its menu has one.
+3. Open the test, click Start, and press → twice for the swings frame, once more for random.
+4. Watch the darkest band. If the readout jumps in step with the fps figure in the top-left corner, VRR is engaged, and any pulsing in the grays is VRR flicker.
+5. Turn VRR off and run it again. The grays should hold steady. If they still shimmer, look elsewhere, starting with [PWM dimming](/blog/what-is-pwm-flicker) and the [PWM Flicker Test](/pwm-flicker-test).
+
+### If the readout doesn't move
+
+A web page can only make VRR swing if the browser runs inside VRR, and a browser in full screen is still a window to the graphics driver. On NVIDIA cards, set G-SYNC to [windowed and full screen mode](https://www.nvidia.com/content/Control-Panel-Help/vLatest/en-us/mergedProjects/Display/To_use_variable_refresh_rates.htm); with full screen only, a browser usually stays at the desktop's fixed rate. Not every browser and driver passes VRR through even then, so trust the readout. If it stays pinned at your maximum, the page can't show the flicker; a dark loading screen in one of your games is the next best test.
+
+## How to reduce it
+
+Roughly in order of effort:
+
+### 1. Cap the frame rate just under your refresh rate
+
+Set a limit a few fps under the maximum, for example 141 on a 144 Hz screen, in the game or in the driver. NVIDIA calls it Max Frame Rate (in Manage 3D settings); AMD calls it Frame Rate Target Control, and its cap also applies to loading screens and menus, where frame rates race up and crash down. Confirm your true maximum first with the [Refresh Rate Test](/refresh-rate-test).
+
+### 2. Make the frame rate steadier
+
+A cap only helps if the game can hold it. If it can't, lower the heaviest settings, turn on an upscaler (DLSS, FSR or XeSS), or set the cap to a rate the game sustains in its busiest scenes. Steady matters more than high. On some OLEDs shadows sit slightly lighter at lower refresh rates, so a much lower cap can lift dark grays a little: the same effect held still, and far less distracting.
+
+### 3. Stay clear of the bottom of the VRR range
+
+Look up your screen's VRR range in its specifications. If a game keeps dipping toward the bottom, lower a setting or two to lift it clear of the point where low framerate compensation switches on and off.
+
+### 4. Check the screen's own settings
+
+A few screens have an option aimed at this; most have none:
+
+- **Some ASUS ROG OLED monitors:** OLED Anti-Flicker narrows the VRR range so the refresh rate can't swing as far. The 2.0 version also adjusts brightness to match the refresh rate.
+- **Samsung Odyssey monitors:** some have VRR Control. RTINGS found it works largely by switching variable refresh off, trading flicker for micro-stutter.
+- **LG TVs:** Fine Tune Dark Areas, in the Game Optimizer menu on recent models, adjusts near-black brightness in VRR games. It helps with raised blacks but doesn't stop the flicker.
+
+Firmware updates sometimes retune VRR behavior, so install them.
+
+### 5. Turn VRR off for the games that bother you
+
+In the NVIDIA Control Panel, Manage 3D settings has a per-program Monitor Technology option that can be set to fixed refresh for one game. AMD Software has a FreeSync switch in each game's profile. On a PS5, VRR is under Screen and Video, then Video Output. Without VRR you're back to tearing or V-Sync lag, which on a high-refresh screen is often the smaller problem.
+
+## Defect or normal?
+
+Within the conditions above, VRR flicker is a known trait of OLED and VA panels, not a fault in your unit. Treat it as a fault only if the flicker stays with VRR switched off; [Why Is My Screen Flickering? Causes and Fixes](/blog/why-is-my-screen-flickering) walks through the other causes.
+
+If you're buying and sensitive to flicker, an IPS panel avoids most of it. If you want OLED blacks anyway, plan on a frame cap from day one.`,
+  },
+  {
     slug: "how-to-enable-full-refresh-rate-windows-mac",
     title: "How to Enable Your Monitor's Full Refresh Rate (Windows & Mac)",
     excerpt:
       "Bought a 144Hz monitor but it still feels like 60? It probably is. Here's the two-minute fix in Windows and macOS, plus the cable to check.",
     tags: ["refresh rate", "windows", "macos"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-28",
     tested: {
       devices: ["lg", "mbp", "iphone17", "s22u", "iphoneXs", "ipadMini"],
       date: "2026-11-19",
@@ -1173,7 +1267,7 @@ On some external monitors the available rates depend on which resolution you've 
 ## Confirm it worked
 Open the [Refresh Rate Test](/refresh-rate-test). It should read close to your panel's rating (a 144Hz panel typically measures approximately 143-144).
 
-If you reached that rate with a custom resolution or an overclock, also run the [Frame Skipping Test](/frame-skipping-test): an overclocked screen can report the higher rate while quietly dropping frames.
+If you reached that rate with a custom resolution or an overclock, also run the [Frame Skipping Test](/frame-skipping-test): an overclocked screen can report the higher rate while quietly dropping frames. [What Is Frame Skipping and How Do You Test for It?](/blog/what-is-frame-skipping) explains why nothing on the computer shows the problem, and how to back the overclock off.
 
 A small shortfall is normal. Browsers measure frame delivery, so a reading a fraction under the rated number just means the timing isn't perfectly exact. A reading of 60 when you asked for 144, or 120 when you asked for 240, is a real problem. If the number bounces around wildly, close background apps and video playback and try again — screen recording software and hardware-accelerated video can both pin the measurement down.
 
@@ -1210,6 +1304,82 @@ A correct refresh rate changes what your other tests mean. Motion clarity is now
 Wondering whether the jump was worth it at all, or whether the next step up would be? [Refresh Rate Explained: 60 vs 120 vs 144 vs 240Hz](/blog/refresh-rate-explained-60-vs-120-vs-144-vs-240) covers what each tier actually buys you.
 
 Set the rate, verify it in the test, then check your games and video players separately — some apps carry their own refresh setting and will happily run at 60 on a 144Hz desktop.`,
+  },
+  {
+    slug: "what-is-frame-skipping",
+    title: "What Is Frame Skipping and How Do You Test for It?",
+    excerpt:
+      "Your screen says 75 Hz but motion still stutters? It may be skipping frames. Why overclocked screens drop frames, and how to catch it in a slow-shutter photo.",
+    tags: ["frame skipping", "refresh rate", "overclocking", "gaming"],
+    publishedAt: "2026-11-28",
+    body: `Frame skipping is when a display accepts a refresh rate but doesn't show every frame it's sent. You set 75 Hz, Windows says 75 Hz, and the [Refresh Rate Test](/refresh-rate-test) measures 75 Hz, while the panel shows only some of those frames and throws the rest away.
+
+It almost always follows an overclock or a custom resolution that pushes a screen past its rated refresh rate. The new rate looks set. Motion just doesn't get smoother.
+
+## Why nothing reports a lower number
+
+Every number you can check describes the signal, not the picture. The graphics card sends frames at the rate you chose, the browser times its animation to that signal, and the monitor's menu often reports it. When the panel then shows only the frames it has time for, nothing travels back to the computer to say so.
+
+That leaves motion as the only symptom. A panel that can really manage only 60 Hz, fed 75 Hz, has to drop 15 frames a second, one in five. A moving object advances in even steps, then makes one step twice as big, and the pattern repeats. That uneven step is the stutter, and it can make an overclocked screen feel rougher than at its standard rate.
+
+## What causes it
+
+**Monitor overclocks.** A monitor's top refresh rate depends on its scaler, controller board and other electronics, not just the panel. The input side can often lock on to a faster signal than the screen can be driven at, and the monitor drops the frames it can't show. Two units of the same model can overclock differently.
+
+**Custom resolutions.** This is how most overclocks are made. NVIDIA Control Panel has Create Custom Resolution (under Display, Change resolution, Customize). AMD Software has a Custom Resolutions section in its Display settings. On Windows there is also ToastyX's [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) (CRU), which adds modes by overriding the list of modes the monitor reports about itself. Both drivers check a new mode before keeping it, but that check happens on the computer's side of the cable, so it can't see skipped frames either.
+
+**Laptop panels.** A built-in screen can be given a faster custom mode the same way. Some panels go blank or glitch; others accept the rate and quietly skip.
+
+**TVs.** Some TVs accept a 120 Hz signal from a computer while the panel shows only the frames it can manage, which can mean 60. Whether it happens can depend on the resolution you send.
+
+**A fault at the rated rate.** Uncommon. A screen that skips at its standard advertised rate, with no custom mode set, has a defect: see what to do about it below.
+
+## How to check for it
+
+At 144 Hz a frame lasts under 7 ms, too brief to notice one going missing, so the check uses a camera. The [Frame Skipping Test](/frame-skipping-test) lights one numbered cell per refresh, in order, on a grid of 60 or 120 cells; the rest stay dark gray. A photo with a slow shutter records every cell that lit while the shutter was open.
+
+- **No skipping:** the lit cells form one unbroken run. The run may continue from the end of one row onto the start of the next.
+- **Skipping:** a dark cell inside the run. That's a refresh the screen never showed.
+
+The cells at either end of the run can look fainter, because the shutter opened or closed partway through that refresh. That's normal.
+
+1. Set the refresh rate you want to check, close other apps and tabs, and start the test. The Hz readout in the top-right corner should match the rate you set.
+2. Put your phone in Pro or manual mode and pick a shutter speed from the table below. No manual mode? Dim the room: in low light most phones choose a slower shutter by themselves.
+3. Hold the phone steady, or rest it on something, and take several photos.
+4. Above 144 Hz, press → for the 120-cell grid.
+
+| Refresh rate | Shutter | Cells lit in one photo |
+| --- | --- | --- |
+| 60 Hz | 1/4 s | about 15 |
+| 120 Hz | 1/8 s | about 15 |
+| 144 Hz | 1/8 s | about 18 |
+| 165 Hz | 1/8 s | about 21 |
+| 240 Hz | 1/10 s | about 24 |
+| 360 Hz | 1/10 s | about 36 |
+
+A run of 15 to 35 cells catches a screen that drops frames often, like the one-in-five example above. A skip that comes only once every few dozen refreshes can fall outside it. If your photos look clean but motion still feels off, take more photos, or slow the shutter and lower the ISO to match: at 1/4 s a 240 Hz screen lights 60 cells, which still fits on the 120-cell grid.
+
+## Is it the display or the computer?
+
+A busy computer can make the browser miss refreshes too, and that stutters as well. In the photo it usually looks different: the test lights the next cell only when the browser draws a new frame, so a missed refresh leaves one cell up for twice as long, and that cell can come out brighter than its neighbours instead of leaving a gap. Two checks tell the computer's drops from the display's.
+
+First, run the [Refresh Rate Test](/refresh-rate-test) full screen and watch its frame-time graph. It counts any gap longer than 1.5 times the normal frame interval as a dropped frame: a refresh the browser missed. A display skip doesn't register there, because the computer delivered every frame on time and the monitor discarded some afterwards. A full-rate reading with no dropped frames, plus gaps in your photos, points at the display. If the count keeps climbing, close apps and background tasks and photograph again.
+
+Second, look at the pattern. A display that skips keeps doing it photo after photo, often at even spacing, and usually stops when you go back to the standard rate. A computer hiccup is random: a gap in one photo, none in the next. One gap in one photo proves nothing.
+
+If the test's Hz readout doesn't match the rate you set, the screen isn't running at that rate at all. [How to Enable Your Monitor's Full Refresh Rate (Windows & Mac)](/blog/how-to-enable-full-refresh-rate-windows-mac) covers that.
+
+## What to do about it
+
+**Back the overclock off.** Lower the refresh rate one step at a time and photograph the [Frame Skipping Test](/frame-skipping-test) again after each change. Keep the highest rate that passes every photo. A monitor that skips at an overclocked rate isn't faulty: it was never rated for that speed.
+
+**Try a different timing standard.** Custom resolution tools let you pick a timing standard, which sets the blanking: the unused time around each line and frame of the signal. NVIDIA calls the reduced version CVT reduced blank, AMD lists CVT-RB, and CRU offers CVT-RB, the newer CVT-RB2 and an Exact reduced option. Reduced blanking lowers the pixel clock, and a different timing can sometimes buy a little headroom. It can't make a panel faster than it is.
+
+**Check the cable and port.** Bandwidth limits usually look different from skipping: the mode is missing from the list, the screen goes black, or the picture drops out now and then. Reduced blanking can squeeze a mode into a cable that's close to its limit, but if you need it, a cable and port rated for the mode are the cleaner fix. While testing, connect straight to the graphics card rather than through a dock.
+
+**Return a screen that skips at its rated rate.** If it skips at its standard advertised rate with no custom resolution in place, and the Refresh Rate Test shows no dropped frames, that's a defect: keep the photos and use the return window. Factory overclock modes are a grayer area, since makers generally treat them as an "up to" figure, but a skip there is still worth raising with the seller.
+
+**Know the risk.** Refresh rates past a screen's rating aren't guaranteed by its maker. [Corsair warns](https://www.corsair.com/us/en/explorer/gamer/monitors/how-to-overclock-a-monitor/) that running a monitor outside its specification can shorten its life, and an overclock may void the warranty. If you can't easily replace the screen, stay at its rated rate.`,
   },
   {
     slug: "motion-blur-reduction-bfi-ulmb",
@@ -1337,7 +1507,7 @@ Run these in the order that matches the return window, not the order above: unif
       "Light on a black screen is either backlight bleed or IPS glow. How to tell them apart in one second, what's normal, how to reduce it, and when to return the screen.",
     tags: ["backlight bleed", "ips glow", "lcd", "panel"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-28",
     tested: {
       devices: ["lg", "ipadMini", "mbp", "iphone17", "iphoneXs", "s22u"],
       date: "2026-11-19",
@@ -1420,7 +1590,7 @@ Don't press on the panel, loosen the bezel screws or dismantle the housing. It v
 - **A raised black level** — the whole screen looks dark grey rather than black, evenly. That's contrast, not leakage. Check it with the [Black Level Test](/black-level-test) and the [Contrast Test](/contrast-test), and turn off any "black equalizer" or shadow-boost setting in the monitor menu first.
 - **A dark patch instead of a bright one** — see [why does my screen have a dark spot](/blog/why-does-my-screen-have-a-dark-spot).
 
-OLED displays have neither bleed nor glow, because each pixel makes its own light and switches fully off for black. If a black screen on an OLED shows patchy brightness, you're looking at something else, usually panel non-uniformity or early [burn-in](/blog/oled-burn-in-and-how-to-check-for-it).
+OLED displays have neither bleed nor glow, because each pixel makes its own light and switches fully off for black. If a black screen on an OLED shows patchy brightness, you're looking at something else, usually [panel non-uniformity](/blog/what-is-screen-uniformity) or early [burn-in](/blog/oled-burn-in-and-how-to-check-for-it).
 
 ## When to return it
 Judge it against three questions: does it show during ordinary content, is it in more than one area, and would you notice it if nobody had told you to look?
@@ -1431,6 +1601,85 @@ Timing matters more than argument. Manufacturer warranties often treat mild blee
 Before you replace anything, spend a week with bias lighting behind the screen and brightness set for the room. That fixes the complaint for most people.
 
 If it doesn't, the answer is a different panel type. **VA** has higher contrast and no IPS glow, with its own quirk: a gamma shift when viewed off-center. **OLED** has perfect blacks and neither problem, and trades them for a burn-in risk. **Mini-LED** suppresses bleed by dimming the backlight in zones, and introduces blooming around bright objects instead. The full comparison is in [IPS vs VA vs TN vs OLED](/blog/ips-vs-va-vs-tn-vs-oled).`,
+  },
+  {
+    slug: "what-is-screen-uniformity",
+    title: "Screen Uniformity and the Dirty Screen Effect",
+    excerpt:
+      "Dark corners, smudges that show when the picture pans, bands on dark gray: what an uneven screen looks like, what's normal, and how to test it properly.",
+    tags: ["uniformity", "dirty screen effect", "oled", "tv"],
+    publishedAt: "2026-11-28",
+    body: `Put a flat gray on any screen and it is rarely one shade from edge to edge: the corners are darker, a patch in the middle looks dirty, or one side leans pink. Screen uniformity is how close a panel gets to a perfectly even field. Every screen has some unevenness. What matters is whether yours shows it in what you watch.
+
+## What uneven looks like
+
+### Dirty screen effect
+The dirty screen effect (DSE) is smudgy patches or faint vertical bands across the middle of the screen. On a still image you may never notice them. When a camera pans across a football pitch or an ice rink, the picture moves while the smudges stay put, and the screen suddenly looks as if it needs a wipe.
+
+It is mainly a large-TV problem, on LCD and OLED alike: RTINGS, which measures DSE separately, notes that monitors rarely have it, partly because a smaller panel is easier to light evenly. On an LCD the cause is uneven backlight, often from slight pressure on the panel; on an OLED, imperfections in the panel itself.
+
+### Vignetting
+Darker corners or edges that fade gradually toward the frame. It is strongest on edge-lit LCDs, where light enters from the sides and has to be spread across the panel. Full-array and Mini-LED backlights usually do better. A gentle falloff is normal on almost every LCD.
+
+### Clouding
+Brighter, irregular blotches on a dark image, on LCDs only: the backlight showing through unevenly. Backlight bleed is the same leak at the edges, and the two often appear together; [What Is Backlight Bleed and Is It Normal?](/blog/what-is-backlight-bleed) covers it. OLED has neither.
+
+### Tint shifts
+A patch or one side looks slightly pinker, greener, warmer or cooler than the rest. On an OLED, reviewers have seen a pink cast down the sides on dark gray, turning up seemingly at random between units. Some OLED TVs also turn faintly green or pink when you look from the side; that is viewing angle, and it goes away straight on. A cast over the whole screen is a setting, not the panel: see [Why Is Part of My Screen Discolored or Tinted?](/blog/why-is-part-of-my-screen-discolored)
+
+### Near-black banding on OLED
+Vertical stripes, occasionally horizontal ones, of slightly different brightness that only show on very dark gray. RTINGS measures them on a 5% gray image, calls them especially common on OLED TVs, and notes they vary from unit to unit. TFTCentral, investigating them on some OLED monitor panels, found they are usually there from new rather than caused by wear. This is not [color banding](/blog/what-is-color-banding-and-how-to-reduce-it), where a gradient breaks into steps: panel banding shows on a flat field.
+
+## OLED compensation cycles
+OLED TVs have a maintenance routine that measures the pixels and evens them out:
+
+- **LG: Pixel Cleaning** (Pixel Refresher on older models). LG says the TV runs a short cycle when switched off after every four hours of cumulative viewing, and an hour-long one after every 2,000 hours, provided it stays plugged in. Run it by hand only if you notice a problem or the TV asks.
+- **Sony: Panel refresh.** About an hour. Sony says to run it manually only when image retention is particularly noticeable, and no more than once a year, because it may affect the usable life of the panel.
+- **Samsung: Pixel Refresh**, under Panel Care. The TV switches off for more than an hour, and Samsung says to use it when you see image retention.
+
+Whether a cycle clears banding is hit and miss. LG lists faint lines among what Pixel Cleaning can fix, and TFTCentral found a refresh helps in some cases without usually removing the bands; RTINGS says nothing can be done about vertical banding. So use a new TV normally for a couple of weeks, plugged in: some owners report bands fading in that time. If they remain, run one manual cycle, but don't run them repeatedly. A logo-shaped patch after long use is wear: see [OLED Burn-In: Causes, Prevention, and How to Check](/blog/oled-burn-in-and-how-to-check-for-it).
+
+## How to test it properly
+1. **Let it warm up** for about half an hour. EIZO quotes around 30 minutes for brightness to even out across its medical monitors.
+2. **Use your normal brightness and picture mode**, with auto-brightness off. TFTCentral points out that default brightness is almost always too high for a fair check.
+3. **Dim the room** and clean the glass: a smear looks exactly like a faint patch.
+4. **Look straight on, from where you sit.** Close to a big screen you see the edges at an angle, and VA and IPS panels shift off-axis, which can pass for vignetting. The [Viewing Angle Test](/viewing-angle-test) shows how much; [IPS vs VA vs TN vs OLED](/blog/ips-vs-va-vs-tn-vs-oled) explains why.
+
+Then run the [Brightness Uniformity Test](/brightness-uniformity-test) full screen and step through its frames:
+
+- **Gray field**, a 50% gray. RTINGS uses this level because it stands in for any color: uneven here means uneven on other flat colors too.
+- **9-zone grid**, the same gray in numbered zones. Compare the center with one corner at a time.
+- **Panning gray (DSE)** drifts faint vertical bands across a gray field, like a camera pan. Follow them with your eyes: anything that stays put belongs to the panel.
+- **5%, 10%, 15% and 20% gray**, where OLED banding, tinted patches and LCD clouding show. Start at 20% and step down.
+
+### Why your phone exaggerates it
+A photo with locked exposure can show a gentle falloff your eyes adapt to. More often it runs the other way: a phone sets its own exposure and brightens a dark field, so faint bands come out bold. TFTCentral warns that the camera often exaggerates what you see. RTINGS photographs every TV with identical fixed settings; a phone on auto does not. Use a photo as a record, shot straight on with exposure locked, and judge with your eyes.
+
+## What's normal and what isn't
+There is no universal standard. TCO Certified, a common monitor certification, only requires the brightest of nine points on white to be at most 1.5 times the darkest, and TFTCentral has rated a monitor "pretty good overall" with one corner about 30% darker than the center. It is also a panel lottery: RTINGS notes two TVs of the same model can differ, so a review describes the reviewer's unit, not yours.
+
+| What you see | What it usually is | Where to look |
+| --- | --- | --- |
+| Darker corners or edges, fading gradually | Vignetting | Gray field, 9-zone grid |
+| Smudges or stripes in the middle that stay put | Dirty screen effect | Panning gray |
+| Brighter blotches on a dark field, LCD only | Clouding | 5–10% gray, [Black Screen](/black-screen) |
+| Thin vertical lines on dark gray, mostly OLED | Near-black banding | 5–20% gray |
+| One side or patch slightly pink or green | Tint shift | 10–20% gray |
+| A dark patch with a sharp edge | Damage, not uniformity | Any frame |
+
+Usually normal: gentle corner falloff, faint unevenness at 5% gray, and light banding you only find on a test field. Worth acting on:
+
+- DSE or banding you can see in a panning shot of a football pitch, or in dark scenes at your normal brightness.
+- A patch with a distinct edge, or a tint that stays in one part of the screen.
+- A dark patch that does not move with the content, always: see [Why Does My Screen Have a Dark Spot or Patch?](/blog/why-does-my-screen-have-a-dark-spot)
+
+## What settings can help
+Some professional monitors correct it. Dell calls it **Uniformity Compensation** on the UltraSharp models that have it, adjusting each area of the screen relative to the center. Some BenQ PD and SW models have a **Uniformity** setting, and some ASUS ProArt monitors apply uniformity compensation through their calibration. The cost is brightness, and usually contrast: Tom's Hardware measured maximum brightness falling by about a fifth on one monitor and almost half on another.
+
+TVs have no equivalent. RTINGS says no TV setting improves gray uniformity, and nothing fixes DSE. Lowering the backlight makes LCD clouding fainter. Don't press on or massage the panel, which can damage it further.
+
+## When to use the return window
+Manufacturers tend to treat uneven gray as within tolerance, as LG Display did with near-black banding on its OLED monitor panels, so the retailer's return window is the simpler route. Run the [Brightness Uniformity Test](/brightness-uniformity-test) in the first few days with the rest of the [Screen Test Checklist](/screen-test-checklist), confirm what you find on real content, and photograph it with the date. [How to Test a New TV for Dead Pixels and Uniformity](/blog/how-to-test-a-tv-for-defects) covers the full TV routine. If you exchange, test the replacement straight away: a different unit can be better, worse, or just different.`,
   },
   {
     slug: "what-is-ips-glow",
@@ -1615,7 +1864,7 @@ If you're flicker-sensitive, prioritize flicker-free certification when buying �
       "Resolution alone doesn't tell you how sharp a screen looks — pixel density and viewing distance do. Here's how to work out what you need.",
     tags: ["ppi", "resolution", "guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-28",
     body: `Two screens can share a resolution yet look very different. **Pixel density (PPI)** — pixels per inch — is what determines sharpness.
 
 ## Resolution vs density
@@ -1650,7 +1899,7 @@ If a monitor feels too coarse, moving it 10 cm further back does more for percei
 
 High-PPI screens make UI tiny, so you apply **scaling** (e.g. 150%). How well that works depends on the operating system.
 
-**Windows** offers scaling in 25% steps — 100%, 125%, 150%, and so on, with the exact options shown depending on the display. Integer scaling (100% and 200%) is pixel-perfect. Non-integer scaling can soften text slightly on some apps — specifically older apps that aren't DPI-aware, which get bitmap-stretched by the system and end up visibly blurry while modern apps stay crisp. Signing out and back in after a scaling change fixes a surprising number of stragglers.
+**Windows** offers scaling in 25% steps — 100%, 125%, 150%, and so on, with the exact options shown depending on the display. Modern apps draw themselves at whatever scale you pick, so they stay crisp at 125% or 175% just as at 200%. Older apps that aren't DPI-aware are the exception: the system bitmap-stretches them at every setting above 100%, 200% included, and they end up visibly blurry. Signing out and back in after a scaling change fixes a surprising number of stragglers.
 
 **macOS** renders at double resolution internally and scales down to whatever "looks like" size you pick. Only the exact-half option (for example 1920x1080 on a 4K panel) is a true 2x render; the intermediate options resample and cost a little sharpness and GPU load. macOS also no longer uses subpixel text antialiasing, which is why a low-density external monitor around 90 PPI often looks noticeably softer on a Mac than the same monitor on Windows. If you're pairing a Mac with an external display, aim high on density — the setup details are in [Setting Up an External Monitor Right](/blog/laptop-external-monitor-mac-windows).
 
@@ -1667,6 +1916,8 @@ Sharpness problems often aren't density problems:
 - **Fringed color on text edges** is a subpixel rendering mismatch — common when a panel uses a non-standard subpixel layout.
 - **Soft text on one app only** is that app, not the panel.
 
+For each of these causes and how to fix it, see [Why Does Text Look Blurry on My Monitor or TV?](/blog/why-does-text-look-blurry).
+
 ## Check clarity
 
 After setting resolution and scaling, view a [White Screen](/white-screen) with black text or fine patterns to judge real-world sharpness — and confirm no scaling blur.
@@ -1674,6 +1925,94 @@ After setting resolution and scaling, view a [White Screen](/white-screen) with 
 A quick two-minute routine: open the [White Screen](/white-screen), put a text-heavy page or document over half of it, and compare the edges of the letters against a screenshot of the same text at 100% zoom. Crisp black-to-white transitions mean you're at native resolution with clean scaling; grey halos or colored fringes mean something in the chain is resampling. Then run the [Color Gradient Test](/color-gradient-test) — a smooth gradient with no visible steps confirms the signal path is intact at full bit depth, which is worth knowing before you blame the panel for anything.
 
 If you're still choosing a screen, work backwards: fix your seating distance first, then pick the size that fits your desk, and only then pick the resolution that lands you in the 90–160 PPI band. [How to Test a Monitor Before (and Right After) Buying](/blog/how-to-test-a-monitor-before-buying) covers everything else worth checking on day one.`,
+  },
+  {
+    slug: "why-does-text-look-blurry",
+    title: "Why Does Text Look Blurry on My Monitor or TV?",
+    excerpt:
+      "Soft, fuzzy or color-fringed text almost always has a fixable cause: resolution, scaling, a TV's color signal, sharpening or the panel's subpixel layout.",
+    tags: ["text clarity", "sharpness", "scaling", "oled"],
+    publishedAt: "2026-11-28",
+    body: `Blurry text is rarely a faulty screen. It almost always comes from the wrong resolution, scaling, a TV cutting back the color signal, oversharpening, subpixels that don't match how text is smoothed, or too few pixels for the screen's size. Each looks a little different, which is how you tell them apart.
+
+## Start with the test
+
+Open the [Sharpness Test](/sharpness-test) full-screen and look from your normal distance, then up close:
+
+- **1-pixel lines** and **Fine checkerboard** are drawn on the screen's physical pixels and should look evenly striped. Grey mush or wavy moiré means something is resampling the picture.
+- **Text clarity** shows 9 to 18 px text in black on white, white on black, red on black and yellow on blue.
+- **Subpixel fringing** sets 1-pixel lines and text in white on black beside black on white, so colored edges stand out.
+- **Sharpening halos** draws thin lines and rings on mid-grey, where added outlines are easy to see.
+
+| What you see | Likely cause | Fix |
+| --- | --- | --- |
+| Everything soft, fine lines turn grey | Non-native resolution or TV overscan | Native resolution; the TV's 1:1 picture size |
+| Some Windows apps blurry, others sharp | Older apps stretched by display scaling | Sign out and in; per-app high DPI setting |
+| Whole screen slightly soft on a Mac | A scaled resolution | The size at exactly half the native resolution |
+| Colored text smears, black text is fine | Chroma subsampling (4:2:2 or 4:2:0) | PC mode on the TV; RGB or 4:4:4 output |
+| Light or dark outlines along every edge | Sharpness set too high | Lower it until the outlines go |
+| Colored edges on otherwise sharp text | Text smoothing or OLED subpixel layout | ClearType Text Tuner, scaling, distance |
+| Crisp but coarse, pixels visible | Low pixel density | More scaling, more distance, a denser screen |
+
+## Non-native resolution
+
+An LCD or OLED panel has a fixed grid of pixels. Any other resolution has to be spread across that grid, which smears each pixel into its neighbours, and no text setting can undo it.
+
+[Screen Info](/screen-info) shows the resolution and scaling factor your browser reports. On Windows, the native mode is marked Recommended under Settings → System → Display → Display resolution; on a Mac, look in System Settings → Displays. The exception is an exact multiple, such as 1080p on a 4K screen: with the graphics driver's integer scaling on (NVIDIA, AMD and Intel all offer it), each pixel becomes a 2×2 block, blocky but not blurred.
+
+Many TVs also enlarge the picture slightly and crop the edges, which softens it the same way. The [Overscan Test](/overscan-test) shows it, and a 1:1 picture size such as Just Scan or Screen Fit turns it off. More in [what overscan is](/blog/what-is-overscan).
+
+## Display scaling and browser zoom
+
+**Windows** asks each app to draw itself at the chosen percentage. Modern apps do, and are as sharp at 125% or 175% as at 150%. Older apps that can't are drawn at 100% and stretched by Windows, so they blur at every setting above 100%, 200% included ([Microsoft explains the modes](https://learn.microsoft.com/en-us/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows)). Some read the scale only when you sign in, so sign out and back in after changing it. For one stubborn program, right-click it → Properties → Compatibility → Change high DPI settings, tick the override and try System (Enhanced), which [draws text in many older apps much more sharply](https://blogs.windows.com/windowsdeveloper/2017/05/19/improving-high-dpi-experience-gdi-based-desktop-apps/). There's nothing special about 150%: only 100% and 200% are whole-pixel steps.
+
+**macOS** draws a scaled mode at twice the size you pick, then shrinks it to fit the panel ([Mac apps render at 1x or 2x only](https://developer.apple.com/library/archive/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html)). At exactly half the panel's resolution, such as 1920 × 1080 on a 4K monitor, nothing is shrunk. Any other size resamples the whole screen, which shows more the lower the panel's density. [Setting Up an External Monitor Right](/blog/laptop-external-monitor-mac-windows) covers choosing a scale.
+
+**Browser zoom** is gentler than it sounds: the browser redraws text at the new size, so text stays crisp, while images get stretched. Reset it before judging a test pattern with Ctrl+0, or Cmd+0 on a Mac.
+
+## Smeared colored text on a TV
+
+Video saves bandwidth by sending color at lower resolution than brightness. 4:4:4 keeps every pixel's color, 4:2:2 shares each color sample between two neighbouring pixels, and 4:2:0 across a block of four. Films hide it; computer text doesn't. Black and white text stays sharp because brightness is untouched, while red, blue or yellow text bleeds into its background. In the [Sharpness Test](/sharpness-test), watch the red-on-black and yellow-on-blue bands of the Text clarity frame.
+
+TVs usually give full color only in a PC or game setting:
+
+- **LG:** open the inputs list, choose Edit, and set the icon of the HDMI input you use to PC ([LG's steps](https://www.lg.com/uk/support/product-support/troubleshoot/help-library/cs-CT00008333-20154509119838/)).
+- **Samsung:** from Source, highlight the input, press Up, choose Edit and set its name or icon to PC. Some models also need Game Mode on.
+- **Sony:** use the Game or Graphics picture mode and set that input's HDMI signal format to Enhanced format.
+
+Menus vary by model and year. The computer must send full color too: RGB or YCbCr 4:4:4 (NVIDIA: Change resolution → Output color format; AMD: Pixel Format). If 4:4:4 is greyed out or keeps reverting, the link is short of bandwidth: drop the refresh rate or bit depth a step, or use a higher-rated cable and port. Check that the color range matches while you're there; [Full vs Limited RGB Range](/blog/full-vs-limited-rgb-range) explains why.
+
+## Halos from oversharpening
+
+A Sharpness control adds no detail. It exaggerates the contrast at every edge, drawing a light or dark outline alongside it, so text looks crunchy and thin lines look doubled. TVs are the usual source, and some add more edge enhancement under other names, such as Sony's Reality Creation. The neutral value depends on the brand: 0 on many TVs, mid-scale on others. On the Sharpening halos frame, lower the setting until the outlines disappear, and stop before the lines start to soften.
+
+## Colored fringes from text smoothing
+
+Windows' ClearType sharpens text by lighting each pixel's red, green and blue stripes separately, so it has to know their order. Most monitors run red-green-blue, a few blue-green-red (BGR), and ClearType handles only those two stripe layouts. Get the order wrong and letters pick up red and blue fringes on their sides.
+
+Search Windows for **Adjust ClearType text** to open the ClearType Text Tuner. The first page turns ClearType on or off (off means grayscale smoothing). Then pick the clearest sample each time: the [first pair sets the stripe order](https://learn.microsoft.com/en-us/archive/blogs/fontblog/you-can-tune-a-font-but-you-cant-tuna-fish), the rest set contrast and letter weight. Some programs draw text their own way and ignore it.
+
+**macOS** has smoothed text in grayscale by default since Mojave (2018). A Mac adds no colored fringes of its own, but text on a low-density monitor looks softer than on Windows. If you see color on a Mac, suspect the signal or the panel.
+
+## OLED subpixel layouts
+
+Most OLED monitors so far haven't used an RGB stripe, and that causes fringes no setting fully removes.
+
+- **QD-OLED** (Samsung Display) has used a triangle: green on top, red and blue below. Black text on white gets a magenta tinge along the tops of letters and green along the bottoms, and the colors swap for white text on black. There's some fringing on the sides too, but top and bottom is the giveaway.
+- **WOLED** (LG Display) puts four subpixels side by side, one of them an unfiltered white. The older order is red-white-blue-green (RWBG); newer panels use red-green-white-blue (RGWB), which fringes less. Either way, the color shows on the left and right edges of letters.
+
+What helps:
+
+- **Density.** The fringe is one subpixel wide, so it shrinks with the pixels. On 27- and 32-inch 4K panels, most people don't find it a problem.
+- **Bigger text and distance.** Higher scaling makes letters larger while the fringe stays the same width, and from your normal seat it matters less than up close.
+- **Grayscale on a WOLED.** Turning ClearType off removes the colored shadow it adds, though some find text thinner. ClearType only works sideways, along the vertical stripes it expects, so on a QD-OLED it neither causes nor fixes the top-and-bottom fringes.
+- **MacType**, an unofficial open-source program, replaces Windows' text rendering. Some OLED owners say it helps; it doesn't remove every fringe, and its documentation lists conflicts with some antivirus software.
+
+Fringing is how these panels are built, not a fault, so another unit of the same model looks the same. Newer panels change the layout: LG Display began [mass-producing a 27-inch 4K RGB-stripe OLED](https://lgcorp.com/media/release/30203) in May 2026, and Samsung Display's V-Stripe QD-OLED lines its subpixels up side by side, which removes the top-and-bottom fringes. If text matters to you, look for a close-up of the subpixels in reviews, and see [IPS vs VA vs TN vs OLED](/blog/ips-vs-va-vs-tn-vs-oled) for the other trade-offs.
+
+## When it's just pixel density
+
+If the test's lines are crisp, colored text is clean and there are no halos, the screen is doing what it can. Text that still looks coarse is a density limit: a 27-inch 1080p monitor has about 82 pixels per inch, where pixels start to show in text at desk distance. Raise the scaling, sit a little further back, or plan for a denser screen. The [Screen Size Calculator](/screen-size-calculator) works out any screen's density, and [PPI and Pixel Density](/blog/ppi-and-pixel-density-explained) explains how much you need at each distance.`,
   },
   {
     slug: "hdr-explained",
@@ -1976,7 +2315,7 @@ Clean often enough that dust never builds into a film — a dry microfiber pass 
       "Buying secondhand? Run these quick checks for dead pixels, OLED burn-in, touch dead zones and tint before you hand over any money.",
     tags: ["phone", "used", "buying guide"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-11-19",
+    updatedAt: "2026-11-28",
     tested: {
       devices: ["iphoneXs", "s22u", "iphone17"],
       date: "2026-11-19",
@@ -1991,6 +2330,7 @@ Clean often enough that dust never builds into a film — a dry microfiber pass 
 - Ask the seller to turn **auto-brightness off** and brightness to maximum, and to disable night mode, blue light filters, and any color-tone setting.
 - Clean the glass. Fingerprints look like every fault on this list.
 - Take five minutes. A seller who won't give you five minutes with the screen is telling you something.
+- Open the [Screen Test Checklist](/screen-test-checklist) on your own phone and pick Phone or tablet: it lists the checks in order and records a Pass or Fail for each as you go.
 
 ## Bring up test patterns
 
@@ -2025,9 +2365,11 @@ Then check a mid-grey for **blotchiness** — uneven, cloudy patches often mean 
 
 ## 4. Touch dead zones
 
-Open the [Touch Screen Test](/touch-screen-test) and drag a finger over **every** cell of its grid; any cell that won't turn green is a dead touch zone. No signal? A notes or drawing app works too — draw a tight zigzag so the line covers the full surface. Either way, go right along the edges: edge dead zones are the most common and the easiest to miss.
+Open the [Touch Screen Test](/touch-screen-test) and drag a finger over **every** cell of its grid; any cell that won't turn green is a dead touch zone. No signal? A notes or drawing app works too — draw a tight zigzag so the line covers the full surface. Either way, go right along the edges: edge dead zones are the easiest to miss.
 
-Test multi-touch too: the touch test counts how many fingers the screen tracks at once, and its Free draw mode shows each finger's line. Hold one finger still and drag a second — erratic jumping means a digitizer fault. Try typing a full sentence on the keyboard; a key that needs a second press is a touch problem, not a software one.
+Test multi-touch too: the touch test's Multi-touch frame numbers each finger, shows where the screen thinks it is and counts how many it tracks at once, and Free draw gives each finger its own colored line. Hold one finger still and drag a second — erratic jumping means a digitizer fault. Try typing a full sentence on the keyboard; a key that keeps needing a second press in the same spot points to the touch layer rather than the keyboard app.
+
+If a zone fails or the screen taps by itself, [Touch Screen Not Working or Ghost Touching? Fixes](/blog/why-is-my-touch-screen-not-working) shows how to rule out the protector, the charger and settings before you blame the panel.
 
 ## 5. Cracks and pressure spots
 
@@ -2052,7 +2394,7 @@ If more than one of these checks fails, walk away — a phone with a good screen
       "Resolution, refresh rate, scaling, and color-range settings people miss when plugging in a second screen — on both macOS and Windows.",
     tags: ["monitor", "windows", "macos"],
     publishedAt: "2026-06-21",
-    updatedAt: "2026-10-01",
+    updatedAt: "2026-11-28",
     body: `Plugging in an external monitor "just works" — but rarely at its best. Five settings make the difference.
 
 ## 1. Native resolution
@@ -2068,7 +2410,7 @@ Windows hides this under Settings → System → Display → Advanced display. m
 ## 3. Scaling
 High-PPI panels make UI tiny. Pick comfortable scaling (Windows: Display → Scale; macOS: Displays → Scaled). Integer scaling (e.g. 200%) is sharpest.
 
-Windows and macOS handle this differently, which is why the same monitor can look great on one and mediocre on the other. Windows scales each application, and older apps that don't support it end up blurry. macOS renders at a multiple of the target and downsamples, so non-integer scales stay sharp but cost a little GPU work. The practical consequence: 4K at 27 inches suits macOS well at 200%, while Windows users often prefer 1440p at 27 inches and no scaling at all. [PPI and pixel density](/blog/ppi-and-pixel-density-explained) explains where the comfortable range sits.
+Windows and macOS handle this differently, which is why the same monitor can look great on one and mediocre on the other. Windows scales each application, and older apps that don't support it end up blurry. macOS draws a scaled mode at twice the size and shrinks it to fit, so non-integer scales look fairly sharp on a dense screen but a touch softer than the exact 2x size, and cost a little GPU work. [Why Does Text Look Blurry on My Monitor or TV?](/blog/why-does-text-look-blurry) goes through the other causes of soft text. The practical consequence: 4K at 27 inches suits macOS well at 200%, while Windows users often prefer 1440p at 27 inches and no scaling at all. [PPI and pixel density](/blog/ppi-and-pixel-density-explained) explains where the comfortable range sits.
 
 ## 4. RGB range
 Over HDMI, GPUs sometimes default to **Limited** range, crushing blacks and whites. Set the GPU to **Full** RGB and the monitor to match. Verify with the [Greyscale Test](/greyscale-test) — you should see distinct steps at both the dark and bright ends.
@@ -2092,6 +2434,99 @@ If the monitor has an sRGB picture mode in its own menu, use that rather than a 
 If you will game, also enable the monitor's adaptive-sync setting in its own menu and then in the GPU control panel — it is off by default on many models. [Screen tearing, V-Sync, G-Sync, and FreeSync explained](/blog/screen-tearing-vsync-gsync-freesync) covers which mode to pick.
 
 Do the five settings in order, top to bottom, before judging the picture — most complaints about a new external monitor disappear somewhere in that list.`,
+  },
+  {
+    slug: "what-is-overscan",
+    title: "What Is Overscan? Why Your TV Cuts Off the Edges",
+    excerpt:
+      "TVs often enlarge the picture and crop its edges, hiding taskbars and game HUDs and softening text. Here's why, and how to turn overscan off on each brand.",
+    tags: ["overscan", "tv", "aspect ratio", "troubleshooting"],
+    publishedAt: "2026-11-28",
+    body: `You connect a laptop to the TV and the taskbar has vanished off the bottom. Or a game's health bar sits half off the edge, and desktop text looks oddly soft for a 4K set. Both come from **overscan**: the TV enlarges the incoming picture by a few percent and crops whatever spills past the edges.
+
+It is a setting, not a fault, and one menu change usually turns it off.
+
+## Why TVs crop the picture
+
+The habit comes from tube televisions. Where a CRT's picture edges landed varied from set to set and shifted with mains voltage and even brightness, so TVs drew the picture slightly larger than the glass, and broadcasters kept titles inside a "safe area" away from the edges.
+
+A flat panel has a fixed grid of pixels, and a digital signal can map onto it one to one. Many TVs enlarge the picture anyway, to hide stray artifacts at the edges of some broadcasts, and plenty ship with it switched on.
+
+## What it does to a PC or console picture
+
+- **The edges.** The Windows taskbar, the macOS menu bar, window close buttons, notifications, and the corners of a game's HUD where the minimap or ammo count usually sits.
+- **Sharpness.** To crop, the TV has to rescale. Take a 1920-pixel-wide picture with 2.5% trimmed from each side: the TV spreads the middle 1,824 columns across all 1,920 of its own. Source pixels no longer line up with screen pixels, so one-pixel lines blur and small text goes soft. Video hides this well; a desktop doesn't. The [Sharpness Test](/sharpness-test) makes it easy to see.
+
+## Check it with the Overscan Test
+
+Open the [Overscan Test](/overscan-test) on the computer or console that feeds the TV, on the input you actually use, and click Start. It has four frames:
+
+- **Overscan border.** Nested colored frames from 0% to 5% in from the edges, in 1% steps, with white arrows whose tips should touch the four corners. The crop lies between the outermost frame you can see all the way round and the next one out. If the 0% frame is visible on every side, nothing is.
+- **Aspect ratio.** A large circle with a square inside it, plus a small circle in each corner. All of them should be perfectly round.
+- **Geometry grid.** Straight, evenly spaced lines forming square cells. Mostly for projectors.
+- **Edge lines.** Lines 0, 4, 8, 16 and 32 pixels in from each edge, for phones and tablets.
+
+## How to turn it off on the TV
+
+Every brand names the setting differently. What you want is the option that shows the signal pixel for pixel:
+
+| Brand | Setting | Where to find it |
+| --- | --- | --- |
+| Samsung | Fit to Screen: On | Settings → All Settings → Picture → Picture Size Settings (inside Expert Settings on some models) |
+| LG | Just Scan: On | Settings → All Settings → Picture → Aspect Ratio (Aspect Ratio Settings on 2020 and older models) |
+| Sony | Auto display area off, then Display area: Full pixel or +1 | Settings → Display & Sound (Display on older models), in the screen options |
+| TCL and Hisense (Google TV) | Overscan: Off | Settings → Display & Sound → Screen |
+| Roku TV (TCL, Hisense and others) | Picture size | Star button → Picture settings → Customize picture |
+| Vizio | Picture Size and Position, with Aspect Ratio on Normal | Menu → Picture → Input Picture Settings, and Menu → Picture → Aspect Ratio |
+
+Menu names shift between model years. If yours differ, look in the picture size or aspect ratio menu for an option that mentions fit, scan, pixel or overscan. LG offers Just Scan only for 720p signals and above, Samsung's Fit to Screen depends on the Picture Size you choose and the incoming signal, and streaming apps often lock the picture size.
+
+On a Roku TV, Roku recommends Auto, and TCL lists Normal, Direct, Stretch and Zoom as the alternatives. If Auto still crops your computer, try each with the Overscan Test on screen and keep the one showing the 0% frame and round circles. Vizio's manuals name no overscan switch, so adjust Picture Size and Position for that input until the 0% frame shows.
+
+While you're there, check the RGB range too: see [Why Do Blacks Look Grey? Full vs Limited RGB Range](/blog/full-vs-limited-rgb-range).
+
+### Each input keeps its own setting
+
+Fixing HDMI 1 does nothing for HDMI 2. Roku TVs save picture settings per input, Vizio keeps picture size in per-input settings, and TCL and Hisense Google TVs ask whether picture settings apply to all inputs or only the current one. Set it on the input you use, and test again if you move the cable to another port.
+
+## Why not fix it in the graphics driver?
+
+Graphics drivers and consoles have their own control for this:
+
+- **NVIDIA:** NVIDIA Control Panel → Adjust desktop size and position → Size tab → Enable desktop resizing → Resize.
+- **AMD:** AMD Software: Adrenalin Edition, Display settings → HDMI Scaling, which starts at 0%.
+- **Intel:** Intel Graphics Command Center → Display → General → Scale → Custom, then two sliders. External displays only.
+- **Mac:** System Settings → Displays → Underscan, which appears only for some TVs.
+- **Consoles:** on a PS5, Settings → Screen and Video → Screen → Adjust Display Area. On an Xbox, look under TV & display options → Video fidelity & overscan.
+
+Each one shrinks the picture so the TV's enlargement pushes it back out to the edges. That stacks two rescales, neither one to one, so text ends up softer than with overscan alone. NVIDIA's own help says to [turn overscan off with the display's controls first](https://www.nvidia.com/content/Control-Panel-Help/vLatest/en-us/mergedProjects/nvdsp/Resizing_your_desktop_reference.htm) and to resize only when the display has no such control, and AMD's support article sends you to the TV's Just Scan or Auto picture size if its slider falls short.
+
+Use the slider only when the TV has no fit-to-screen option, and adjust it with the [Overscan Test](/overscan-test) on screen until the 0% frame just reaches every edge.
+
+A picture smaller than the screen, with a black border, is underscan: usually a driver slider left on, or an output resolution that doesn't match the screen. Set the slider back to 0% or off, and check the resolution with [Screen Info](/screen-info).
+
+## Stretched pictures and oval circles
+
+If the circles look oval, the picture is being stretched rather than cropped. Usually it's one of two things:
+
+- **A stretch mode on the TV.** Modes called Wide, Stretch, Full or Panoramic stretch the picture to fill the screen. Some stretch the sides more than the middle (Vizio describes its Panoramic mode this way), which is what the corner circles are there to catch. For a computer or console, choose 16:9, Original or Normal.
+- **A resolution with a different shape.** A 4:3 or 5:4 resolution sent to a 16:9 TV gets stretched sideways. Set the computer to the screen's native resolution.
+
+Black bars beside old 4:3 shows are correct; filling the screen with them means distorting the picture.
+
+## Projectors: lens shift before keystone
+
+On a projector the usual problem is geometry rather than cropping. Unless the projector sits square to the screen, the picture comes out as a trapezoid. **Lens shift** moves the lens itself, so every pixel stays in use, and Epson describes it as having no loss of resolution. **Keystone correction** reshapes the image digitally, and Epson's manuals note that it reduces the number of pixels in the image.
+
+So position the projector and use lens shift first, and leave keystone for whatever is left over. The geometry grid shows when you're done: straight lines, and cells the same size from edge to edge. Then check the overscan border for cropped edges.
+
+## Phones, laptops and rounded corners
+
+Phones don't overscan, but their screens aren't plain rectangles. Rounded corners and a notch, punch-hole camera or Dynamic Island take bites out of the display, and some Mac laptops have a camera housing cut into the top of the screen. Apple and Google both tell app developers to keep important content clear of these areas.
+
+The edge lines show where the display really ends. Rounded corners and a notch cutting the lines is normal. The outermost line missing along a whole straight edge is not: something covers that edge, often a case lip or an off-center screen protector, and the inner lines show whether a protector's border is even. On an iPhone, Safari can't go full screen, so the lines mark the edge of the browser window rather than the screen.
+
+Buying secondhand? [How to Test a Used Phone Screen Before Buying](/blog/how-to-test-a-used-phone-screen-before-buying) covers the rest. On a new TV, fix the picture size before judging the panel with [How to Test a New TV for Dead Pixels and Uniformity](/blog/how-to-test-a-tv-for-defects).`,
   },
   {
     slug: "backlight-bleed-vs-ips-glow",
@@ -2176,6 +2611,7 @@ And if the lines vanished the moment you tapped the screen, someone may simply h
       "Visible flicker usually comes from a cable, the refresh rate, adaptive sync, a driver or a failing backlight. Here's how to work out which one you have.",
     tags: ["flicker", "troubleshooting", "refresh rate"],
     publishedAt: "2026-10-01",
+    updatedAt: "2026-11-28",
     body: `A flickering screen is hard to ignore and easy to misdiagnose. The fixes for a loose cable, a sync setting, a misbehaving app and a dying backlight have nothing in common, so it pays to narrow the cause down before changing anything.
 
 This guide is about flicker you can **see**: blinking, brightness pumping, black flashes, shimmering. If your screen looks steady but gives you headaches at low brightness, that's a different problem — see [What Is PWM Flicker and How Do You Test for It?](/blog/what-is-pwm-flicker).
@@ -2199,7 +2635,7 @@ The most common cause by far. A cable that is loose, damaged, too long, or rated
 Overclocked or custom refresh rates, a laptop switching rates to save power, or two monitors running at different rates can all cause flicker on some systems. Set the screen to its native rate following [How to Enable Your Monitor's Full Refresh Rate](/blog/how-to-enable-full-refresh-rate-windows-mac), then check that the [Refresh Rate Test](/refresh-rate-test) shows a steady reading that matches.
 
 ### Adaptive sync (G-Sync, FreeSync, VRR)
-Variable refresh keeps motion smooth, but many panels flicker in brightness when the frame rate swings wildly — most noticeably on loading screens, menus and dark scenes, and especially on VA and OLED panels. Capping your frame rate a few frames below the maximum usually calms it. Turning variable refresh off for a quick test tells you whether it's the culprit; [Screen Tearing, V-Sync, G-Sync, and FreeSync Explained](/blog/screen-tearing-vsync-gsync-freesync) covers the trade-offs.
+Variable refresh keeps motion smooth, but many panels flicker in brightness when the frame rate swings wildly — most noticeably on loading screens, menus and dark scenes, and especially on VA and OLED panels. Capping your frame rate a few frames below the maximum usually calms it. Turning variable refresh off for a quick test tells you whether it's the culprit; [Screen Tearing, V-Sync, G-Sync, and FreeSync Explained](/blog/screen-tearing-vsync-gsync-freesync) covers the trade-offs. For why it happens and the full list of fixes, see [What Is VRR Flicker and How Do You Fix It?](/blog/what-is-vrr-flicker).
 
 ### Software and drivers
 On Windows, there's a useful trick: open Task Manager and watch it. If Task Manager flickers along with everything else, suspect the graphics driver — update it, or roll it back if the trouble started after an update. If Task Manager stays steady while other windows flicker, an app is to blame. Browser hardware acceleration, screen-recording overlays and some security software are frequent offenders.
@@ -2421,6 +2857,7 @@ You can't get a number without a light meter, but you can compare screens and se
       "A cracked screen can mean a cover-glass repair or a full display replacement. These quick checks tell you which one before you pay for the fix.",
     tags: ["phone", "troubleshooting", "lcd"],
     publishedAt: "2026-10-01",
+    updatedAt: "2026-11-28",
     body: `A cracked screen always looks like bad news, but the damage can sit in two different layers. On top is the cover glass, which protects everything and carries your touch. Underneath is the display panel that makes the picture. Which one is broken decides whether you're looking at a small repair, a big one, or a new device.
 
 ## How screens are built
@@ -2457,6 +2894,8 @@ LCD and OLED break differently. Damaged LCDs tend to show black ink blots and pa
 4. Run the [Dead Pixel Test](/dead-pixel-test) and look closely around the impact point, where small clusters of dead pixels are common.
 5. Test touch with the [Touch Screen Test](/touch-screen-test): every cell of its grid should turn green under your finger, including along the edges and in the corners.
 
+If touch is the only thing wrong, [Touch Screen Not Working or Ghost Touching? Fixes](/blog/why-is-my-touch-screen-not-working) covers the causes that aren't damage.
+
 ## Act quickly
 
 - **Cracks spread.** Temperature changes, pressure in a pocket and every tap make them longer.
@@ -2474,6 +2913,98 @@ For monitors and TVs, a cracked panel usually means a new screen. When you buy o
 ## Not sure it's real?
 
 If the cracks vanished when someone tapped the screen, you may have been on the receiving end of the [Fake Broken Screen](/fake-broken-screen) prank. It draws a realistic crack in a browser tab and changes nothing on the device.`,
+  },
+  {
+    slug: "why-is-my-touch-screen-not-working",
+    title: "Touch Screen Not Working or Ghost Touching? Fixes",
+    excerpt:
+      "Dead zones, missed taps and ghost touches often come from a protector, a charger, water, a setting or an app. Here's how to tell those from a faulty screen.",
+    tags: ["touch screen", "ghost touch", "troubleshooting", "phone"],
+    publishedAt: "2026-11-28",
+    body: `A touch screen can fail in several ways. It taps things on its own (ghost or phantom touches), a strip or corner ignores you, taps land late or not at all, swipes break off halfway, or a pinch loses a finger. Many have a cause that costs nothing to fix, so rule those out before paying for a new screen.
+
+The touch layer, often called the digitizer, sits under the glass and reports where your fingers are. Most phones, tablets and touch laptops sense touch capacitively, picking up the small electrical change a fingertip makes. Electrical noise, water or a gap between finger and glass can confuse it, and damage can silence part of it.
+
+## Start with the free fixes
+
+Apple, Google and Samsung give much the same first steps:
+
+- **Clean and dry the glass.** Apple's [troubleshooting page](https://support.apple.com/en-us/102567) asks for a screen free of debris and water. Samsung adds humidity and gloves.
+- **Take off the case and screen protector**, then test again. Google warns that a protector may not stick back on.
+- **Unplug the charger and any accessories.** If that helps, Apple suggests trying a different outlet, cable or charger.
+- **Restart**, then install pending system and app updates.
+
+On an iPhone, that's Apple's whole routine. If the fault survives it, Apple's next step is service.
+
+## Find out where it fails
+
+Open the [Touch Screen Test](/touch-screen-test) and press Start. Pick one of its three frames with the arrows; press and hold anywhere to bring back the controls.
+
+- **Touch grid** fills the screen with cells about a fingertip wide. Each turns green once it registers, and a counter tracks them. Cells that stay dark after several slow passes are a dead zone.
+- **Free draw** gives each finger its own colored line. A break or a straight jump in the same place on every stroke is a dead spot. A line that suddenly changes color means the screen lost your finger and picked it up again as a new touch.
+- **Multi-touch** puts a numbered marker with coordinates under each finger and counts how many are down, and the most at once.
+
+Drag along the edges rather than swiping in from them: on Android with gesture navigation, a swipe in from a side edge means Back and one up from the bottom means Home. To catch ghost touches, leave the grid alone for a minute, once on the charger and once off it. A cell that turns green by itself, or a counter showing a touch with nothing on the glass, is a touch you didn't make.
+
+### Hardware or software?
+
+A spot that fails every time, in every app and after a restart, is hardware; Google's [touch screen help](https://support.google.com/android/answer/7666942) says to contact the manufacturer when that happens. Trouble in one app only points to the app. Ghost touches only while charging point to the charger. Anything that started after a drop, a spill or a screen repair is almost always hardware.
+
+On Android, safe mode tells you whether a downloaded app is to blame. On a Pixel, open the power menu, touch and hold Power off or Restart, and tap OK; on a Galaxy, touch and hold Power off and tap Safe mode. If touch works there, remove recent apps one at a time.
+
+| Symptom | Likely cause | What to try |
+| --- | --- | --- |
+| Taps you didn't make, only while charging | Noise from the charger or cable | Another charger, cable and outlet |
+| Taps you didn't make, unplugged and dry | Damaged touch layer, replacement screen, nearby interference | Test without the protector, then repair |
+| One patch never responds | Protector, drop damage, failing touch layer | Test bare; same spot every time means repair |
+| Edges respond poorly | Case rim or protector edge | Test without the case |
+| Taps ignored unless you hold longer | Accessibility setting or screen reader | Check the settings below |
+| Touches land beside your finger (Windows) | Calibration | Calibrate, or Reset |
+
+## The usual causes
+
+### Screen protectors and cases
+
+A protector adds distance between finger and sensor. A thick, cracked or partly unstuck one can leave areas that stop registering. Both Samsung and Google have a setting for it: on a Galaxy, turn on **Settings → Display → Touch sensitivity**; on a Pixel 8a or earlier, it's Screen protector mode under **Settings → Display & touch → Touch sensitivity**. Google notes that a case can block edge swipes.
+
+### Chargers and electrical noise
+
+A poorly designed charger can couple electrical noise into the sensor while your finger is on the glass, and the controller reads it as touches that aren't there, or loses real ones. Cheap aftermarket chargers are the usual suspects. Samsung advises replacing a damaged charger and not using the touchscreen while the phone charges. For phantom touches on a Surface, Microsoft suggests moving away from nearby electronic equipment.
+
+### Settings that change what a tap does
+
+- **iPhone:** in **Settings → Accessibility → Touch → Touch Accommodations**, Hold Duration ignores touches shorter than the time you set, and Ignore Repeat treats several touches as one.
+- **Galaxy:** Samsung suggests resetting the touch and hold delay, tap duration and ignore repeated touches options in **Settings → Accessibility → Interaction and dexterity**, and turning off the Magnification shortcut.
+- **Screen readers:** with VoiceOver or TalkBack on, a single tap selects and a double tap activates, which feels just like a screen that ignores you.
+
+### A damaged or replacement screen
+
+After a drop, dead zones or phantom taps mean the damage goes deeper than the cover glass, even if the picture looks fine. Replacement screens cause trouble too: Apple says a [non-genuine iPhone display](https://support.apple.com/en-us/103256) can ignore parts of the screen, miss touches, register them in the wrong place, or pick up accidental edge and palm touches. [How to Test a Used Phone Screen Before Buying](/blog/how-to-test-a-used-phone-screen-before-buying) shows where an iPhone lists a replaced display.
+
+## Built-in tools
+
+### Android
+
+Developer options include **Show taps**, a circle under each finger, and **Pointer location**, crosshairs with a coordinate bar and a trail of each movement. Both stay on across apps, so they catch a ghost touch where it happens. To unlock them, tap Build number seven times (on a Pixel in **Settings → About phone**, on a Galaxy in **Settings → About phone → Software information**). Switch them off afterwards: Google lists that as a touch troubleshooting step. Galaxy owners also have a touch screen check in the Samsung Members app.
+
+### Windows touch laptops
+
+- **Reset the touch device.** Right-click Start, open Device Manager, expand Human Interface Devices, right-click **HID-compliant touch screen** and choose Disable device, then Enable device. If that fails, uninstall it and use Action → Scan for hardware changes.
+- **Dead after sleep?** In the same device's Properties, clear "Allow the computer to turn off this device to save power" on the Power Management tab, if there is one.
+- **Touches land beside your finger?** Search Start for "Calibrate the screen for pen or touch input". Setup tells Windows which display takes touch, Calibrate has you tap crosshairs, and Reset undoes a bad calibration. It can't fix a dead zone or ghost touches.
+- **On a Surface**, shut down, then hold volume up and press power to open UEFI. If touch fails there, before Windows loads, it's a service job.
+
+## How many fingers should it track?
+
+Microsoft's [touch display guidelines](https://learn.microsoft.com/en-us/windows-hardware/design/component-guidelines/display-touch) set a minimum of five simultaneous contacts for Windows touch screens. Right-click Start, choose System and read the Pen and touch line to see how many touch points yours reports.
+
+On any device, the Multi-touch frame of the [Touch Screen Test](/touch-screen-test) is the practical check. Put fingers down one at a time. A counter that never gets past one or two means multi-touch isn't working. A marker that jumps to another finger, or vanishes while the finger is still down, points to the touch layer.
+
+## When it's a repair job
+
+If the same zone still fails with the protector off, the glass clean and dry, the charger unplugged and apps ruled out, the touch layer is faulty. On most phones it's part of the display assembly, so the usual fix is a new display even when the picture is fine. [Cracked Screen: Just the Glass, or the Display Too?](/blog/cracked-screen-glass-or-lcd) explains what a repair quote should say.
+
+A touch fault with no drop, liquid or third-party repair behind it is a defect for the warranty. Accidental damage usually isn't covered, though insurance or a protection plan may be. Before you call, record what failed: the [Screen Test Checklist](/screen-test-checklist) includes the touch test on its phone list and can copy a report or share a link to your results.`,
   },
   {
     slug: "do-you-still-need-a-screensaver",
@@ -2607,6 +3138,7 @@ export const GUIDE_TOPICS: { title: string; blurb: string; slugs: string[] }[] =
     blurb: "Glow, bleed, flicker, uneven patches and retained images.",
     slugs: [
       "what-is-backlight-bleed",
+      "what-is-screen-uniformity",
       "oled-burn-in-and-how-to-check-for-it",
       "do-you-still-need-a-screensaver",
       "what-is-pwm-flicker",
@@ -2621,9 +3153,11 @@ export const GUIDE_TOPICS: { title: string; blurb: string; slugs: string[] }[] =
     blurb: "Refresh rate, ghosting, tearing and input lag.",
     slugs: [
       "how-to-enable-full-refresh-rate-windows-mac",
+      "what-is-frame-skipping",
       "what-is-ghosting-and-how-to-fix-it",
       "refresh-rate-explained-60-vs-120-vs-144-vs-240",
       "screen-tearing-vsync-gsync-freesync",
+      "what-is-vrr-flicker",
       "response-time-vs-input-lag",
       "motion-blur-reduction-bfi-ulmb",
     ],
@@ -2661,7 +3195,10 @@ export const GUIDE_TOPICS: { title: string; blurb: string; slugs: string[] }[] =
     blurb: "Working out what is actually broken, and looking after the screen.",
     slugs: [
       "is-it-my-screen-or-my-graphics-card",
+      "why-does-text-look-blurry",
+      "what-is-overscan",
       "cracked-screen-glass-or-lcd",
+      "why-is-my-touch-screen-not-working",
       "how-to-clean-your-monitor-safely",
       "screen-door-effect-explained",
       "harmless-screen-pranks",

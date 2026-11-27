@@ -154,8 +154,8 @@
   "contrast-test": {
     "name": "Test de contraste",
     "title": "Test de contraste",
-    "tagline": "Des damiers noir et blanc pour juger la séparation entre noir et blanc.",
-    "description": "Test de contraste gratuit. Des damiers noir et blanc de plus en plus fins pour évaluer le contraste, la séparation du noir et du blanc et la netteté.",
+    "tagline": "Des damiers, plus des cases de noirs bouchés et de blancs écrêtés, pour juger le contraste aux deux extrémités.",
+    "description": "Test de contraste gratuit. Damiers et cases quasi noires (1–10 %) ou quasi blanches (90–99 %) révèlent ombres bouchées, blancs écrêtés et contraste faible.",
     "keywords": [
       "test contraste écran",
       "damier noir et blanc",
@@ -166,6 +166,7 @@
       "Cliquez sur Démarrer et affichez le damier en plein écran.",
       "Utilisez ← / → pour changer la densité de la grille (de 4×4 à 32×32).",
       "Les cases noires doivent rester d'un noir profond et les cases blanches lumineuses, avec des bords nets entre elles.",
+      "Noirs bouchés (→) : dans une pièce peu éclairée, vous devez voir les cases à partir d'environ 2–3 %. Blancs écrêtés (→) : les cases doivent se détacher du blanc jusqu'à environ 97–98 %.",
       "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
@@ -355,8 +356,8 @@
   "screen-tearing-test": {
     "name": "Test de tearing",
     "title": "Test de tearing (déchirement d'image)",
-    "tagline": "Des barres au défilement rapide qui révèlent le tearing sans V-Sync ni VRR.",
-    "description": "Test de tearing gratuit. Des barres rapides révèlent les déchirures quand images et rafraîchissement ne sont pas synchronisés : V-Sync, G-Sync, FreeSync.",
+    "tagline": "Des barres au défilement rapide qui révèlent le tearing, et des gris sombres qui révèlent le scintillement VRR.",
+    "description": "Test gratuit de tearing et de scintillement VRR : barres défilantes pour les déchirures sans V-Sync, gris sombres à fps variables pour G-Sync et FreeSync.",
     "keywords": [
       "test tearing",
       "déchirement d'écran",
@@ -369,6 +370,7 @@
       "Utilisez ← / → pour passer des barres verticales (qui révèlent les déchirures horizontales) aux barres horizontales (qui révèlent les déchirures verticales).",
       "Une image propre signifie qu'il n'y a pas de tearing ; une cassure où les barres se décalent est une déchirure.",
       "Activez puis désactivez le V-Sync ou la synchronisation adaptative (G-Sync/FreeSync) et comparez.",
+      "Scintillement VRR (→) : des gris sombres à une fréquence d'images qui change sans cesse. Activez l'affichage de la fréquence de rafraîchissement de votre moniteur : si le chiffre saute, le VRR est actif et tout frémissement dans les gris est du scintillement VRR.",
       "Appuyez sur Échap pour quitter. Sur mobile, touchez le centre de l'écran, puis Quitter."
     ],
     "faq": [
@@ -386,23 +388,28 @@
       },
       {
         "q": "Comment vérifier que G-Sync ou FreeSync est vraiment activé ?",
-        "a": "Il doit être activé à deux endroits : dans le menu du moniteur et dans le panneau de configuration du pilote graphique. Il lui faut aussi la bonne connexion : DisplayPort sur un PC, ou HDMI 2.1 sur une console ou un téléviseur, où il figure en général sous le nom VRR."
+        "a": "Il doit être activé à deux endroits : dans le menu du moniteur et dans le panneau de configuration du pilote graphique. Il lui faut aussi une connexion qui le transmet. Sur un PC, le DisplayPort est le choix sûr. En HDMI, il faut le HDMI VRR, une fonction du HDMI 2.1, ou, avec une carte AMD ou une Xbox, un moniteur compatible FreeSync en HDMI. Les téléviseurs présentent en général le HDMI VRR simplement sous le nom VRR."
       },
       {
         "q": "Une fréquence de rafraîchissement plus élevée réduit-elle le tearing ?",
         "a": "Elle rend les déchirures plus difficiles à voir, pas plus rares. À 144 Hz, chaque image déchirée reste à l'écran moins de 7 ms, contre près de 17 ms à 60 Hz, et le décalage au niveau de la déchirure est plus petit. Seuls le V-Sync ou la synchronisation adaptative suppriment complètement le tearing."
+      },
+      {
+        "q": "Qu'est-ce que le scintillement VRR ?",
+        "a": "Un scintillement de luminosité dans les scènes sombres, qui apparaît avec G-Sync ou FreeSync quand la fréquence d'images varie. Il touche surtout les dalles OLED et VA, dont la luminosité pour un gris donné change légèrement avec la fréquence de rafraîchissement. Garder une fréquence d'images stable, par exemple en la plafonnant quelques fps sous le maximum, le réduit. C'est un trait connu de ces dalles plutôt qu'un défaut."
       }
     ],
     "tips": [
       "Utilisez la vue des barres verticales pour les déchirures horizontales et celle des barres horizontales pour les déchirures verticales.",
-      "Activez puis désactivez le V-Sync ou la synchronisation adaptative (G-Sync/FreeSync) et regardez la ligne de déchirure apparaître ou disparaître."
+      "Activez puis désactivez le V-Sync ou la synchronisation adaptative (G-Sync/FreeSync) et regardez la ligne de déchirure apparaître ou disparaître.",
+      "Pour le scintillement VRR, regardez la bande la plus sombre bien en face dans une pièce peu éclairée : c'est là qu'il apparaît en premier."
     ]
   },
   "touch-screen-test": {
     "name": "Test d'écran tactile",
     "title": "Test d'écran tactile",
-    "tagline": "Touchez chaque cellule ou dessinez librement pour trouver les zones mortes et les limites du multi-touch.",
-    "description": "Test d'écran tactile gratuit pour téléphone, tablette et PC tactile. Grille ou dessin libre pour trouver zones mortes, touches fantômes et limites multi-touch.",
+    "tagline": "Touchez chaque cellule, dessinez librement ou suivez jusqu'à dix doigts pour trouver les zones mortes et les limites du multi-touch.",
+    "description": "Test d'écran tactile gratuit pour téléphone, tablette et PC tactile. Grille, dessin ou dix doigts avec coordonnées : trouvez zones mortes et touches fantômes.",
     "keywords": [
       "test écran tactile",
       "test tactile téléphone",
@@ -415,7 +422,7 @@
       "Cliquez sur Démarrer et tenez l'appareil comme vous le faites d'habitude.",
       "Faites glisser lentement un doigt sur chaque cellule de la grille — chacune passe au vert dès qu'elle est détectée.",
       "Les cellules qui restent sombres après votre passage sont des zones mortes. Dans Dessin libre (→), les coupures ou les sauts dans vos traits révèlent les points morts et les touches fantômes.",
-      "Posez plusieurs doigts à la fois pour voir combien de contacts l'écran suit.",
+      "Dans Multi-touch (→), posez plusieurs doigts : chacun reçoit un repère numéroté avec ses coordonnées, et le compteur indique le nombre maximal de doigts suivis en même temps.",
       "Maintenez le doigt appuyé n'importe où pour afficher les commandes (Réinitialiser, Quitter), ou appuyez sur Échap."
     ],
     "faq": [
@@ -441,7 +448,7 @@
       }
     ],
     "tips": [
-      "Passez lentement le long des bords et dans les coins — les défauts tactiles commencent en général là.",
+      "Faites glisser le doigt lentement le long des bords et dans les coins plutôt que de balayer depuis l'extérieur : avec la navigation par gestes d'Android, un balayage depuis le côté signifie Retour.",
       "Testez sans coque ni protection d'écran si quelque chose vous paraît anormal."
     ]
   }

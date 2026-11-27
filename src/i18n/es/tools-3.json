@@ -48,8 +48,8 @@
   "overscan-test": {
     "name": "Test de overscan",
     "title": "Test de overscan y relación de aspecto",
-    "tagline": "Marcas en los bordes, círculos y una cuadrícula para detectar recortes, estiramientos y distorsión.",
-    "description": "Test de overscan y relación de aspecto gratis para televisores y proyectores. Detecta bordes recortados, imagen estirada y distorsión geométrica.",
+    "tagline": "Marcas en los bordes, círculos, una cuadrícula y líneas de borde para detectar recortes, estiramientos y distorsión.",
+    "description": "Test de overscan y relación de aspecto gratis para TV, proyectores y móviles. Detecta bordes recortados, imagen estirada y distorsión a pantalla completa.",
     "keywords": [
       "test overscan",
       "test relación de aspecto",
@@ -60,9 +60,10 @@
     ],
     "howTo": [
       "Abre la página en el dispositivo conectado al televisor o al proyector y haz clic en Iniciar.",
-      "Borde de overscan: el marco de color más exterior que ves entero en todo el contorno indica cuánto se está recortando; 0% significa que nada.",
+      "Borde de overscan: si el marco del 0% se ve entero en todo el contorno, no se recorta nada. Si no, el recorte está entre el marco más exterior que ves entero en todo el contorno y el siguiente hacia fuera.",
       "Relación de aspecto (→): los círculos deben verse perfectamente redondos y el cuadrado, cuadrado.",
       "Cuadrícula de geometría (→): las líneas deberían ser rectas y estar espaciadas de forma uniforme. Úsala para alinear un proyector.",
+      "Líneas de borde (→), para móviles y tabletas: líneas situadas de 0 a 32 px hacia dentro de cada borde. Las esquinas redondeadas y el notch las cortan; úsalas para ver si el borde de un protector de pantalla queda sobre la imagen, y si queda igual en todos los lados.",
       "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
@@ -97,14 +98,14 @@
     ],
     "tips": [
       "Cada entrada del televisor puede tener su propio ajuste de tamaño de imagen, así que prueba la entrada que usas de verdad.",
-      "En un proyector, ajusta la corrección trapezoidal y el desplazamiento de lente con la cuadrícula de geometría antes de enfocar."
+      "En un proyector, usa primero el desplazamiento de lente y deja la corrección trapezoidal solo para lo que quede, comprobándolo con la cuadrícula de geometría; después enfoca."
     ]
   },
   "sharpness-test": {
     "name": "Test de nitidez",
     "title": "Test de nitidez y claridad de texto",
-    "tagline": "Líneas a nivel de píxel, tableros de ajedrez y texto para delatar el desenfoque por escalado y el exceso de nitidez.",
-    "description": "Test de nitidez y claridad de texto gratis. Líneas de 1 píxel y texto pequeño revelan el desenfoque por resolución no nativa, escalado o exceso de nitidez.",
+    "tagline": "Líneas a nivel de píxel, tableros de ajedrez y texto para delatar el desenfoque por escalado, las franjas de color de subpíxel y el exceso de nitidez.",
+    "description": "Test de nitidez y texto gratis. Líneas de 1 píxel y texto pequeño revelan desenfoque por escalado, franjas de color de subpíxel en OLED y sobrenitidez en TV.",
     "keywords": [
       "test de nitidez",
       "test claridad de texto",
@@ -117,13 +118,14 @@
       "Haz clic en Iniciar y mira cada patrón a pantalla completa a tu distancia habitual.",
       "Las líneas de 1 píxel y los tableros de ajedrez deberían verse nítidos y con rayas uniformes. Una masa gris o un muaré ondulado significa que la imagen se está escalando.",
       "Claridad de texto (→): el texto pequeño debería verse nítido, y el texto rojo o amarillo no debería emborronarse.",
+      "Franjas de color de subpíxel (→): mira de cerca las líneas y las letras. Los bordes verdes y magenta en un QD-OLED, o los bordes de color en otros OLED, vienen de la disposición de subpíxeles del panel.",
       "Halos de nitidez (→): baja el ajuste de Nitidez de la pantalla hasta que desaparezcan los contornos alrededor de las líneas y los anillos.",
       "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
         "q": "¿Por qué las líneas finas se ven grises y borrosas?",
-        "a": "Algo entre la página y el panel está remuestreando la imagen: una resolución no nativa, una escala de pantalla que no es un número entero, el zoom del navegador o el escalado del propio televisor. Pon la salida en la resolución nativa de la pantalla y repite el test."
+        "a": "Algo entre la página y el panel está remuestreando la imagen: una resolución no nativa, una resolución escalada en un Mac, el zoom del navegador o el escalado del propio televisor. Pon la salida en la resolución nativa de la pantalla y repite el test."
       },
       {
         "q": "¿Por qué el texto rojo se ve emborronado en mi televisor?",
@@ -135,7 +137,7 @@
       },
       {
         "q": "¿Por qué el texto tiene bordes de colores en mi OLED o en mi televisor?",
-        "a": "Los sistemas operativos suavizan el texto dando por hecho que cada píxel es una franja roja, verde y azul, en ese orden. Muchos paneles OLED y algunos televisores disponen sus subpíxeles de otra forma, así que el suavizado cae en los equivocados y se ve como bordes de colores. Una escala de pantalla más alta hace que se note menos."
+        "a": "ClearType, el suavizado de texto de Windows, da por hecho que cada píxel es una fila de franjas roja, verde y azul. Muchos paneles OLED están construidos de otra forma: un WOLED añade un subpíxel blanco, y un QD-OLED coloca el verde encima del rojo y el azul, lo que produce franjas de color en la parte superior e inferior de las letras haga lo que haga el suavizado. Un texto más grande y una escala de pantalla más alta hacen que se note menos."
       },
       {
         "q": "¿Por qué mi monitor se ve borroso a una resolución más baja?",
@@ -152,7 +154,7 @@
     ],
     "tips": [
       "Comprueba primero a tu distancia de visión habitual y después de cerca.",
-      "Una escala de pantalla del 100%, el 150% o el 200% conserva el detalle fino más limpio que los valores intermedios."
+      "En un Mac, el tamaño escalado que es exactamente la mitad de la resolución del panel conserva el detalle fino más nítido; los demás tamaños remuestrean toda la pantalla."
     ]
   },
   "frame-skipping-test": {
@@ -169,9 +171,9 @@
     ],
     "howTo": [
       "Cierra otras aplicaciones y pestañas y haz clic en Iniciar.",
-      "Fotografía la pantalla con una obturación lenta, de entre 1/15 y 1/30 s, usando el modo Pro o manual de tu móvil.",
+      "Fotografía la pantalla con una obturación lenta, de 1/10 s o más, usando el modo Pro o manual de tu móvil.",
       "En la foto, las celdas encendidas deberían formar una serie continua. Un hueco significa que se ha saltado un fotograma.",
-      "Usa la cuadrícula de 120 celdas (→) en pantallas de más de 144 Hz para que la serie no dé la vuelta.",
+      "Usa la cuadrícula de 120 celdas (→) en pantallas de más de 144 Hz, para que una exposición larga quepa en la cuadrícula sin dar la vuelta.",
       "Haz varias fotos antes de sacar conclusiones y pulsa Esc para salir."
     ],
     "faq": [
@@ -181,7 +183,7 @@
       },
       {
         "q": "¿El navegador también puede causar huecos?",
-        "a": "Sí: si el ordenador está ocupado, el navegador también puede perder un fotograma. Cierra otras aplicaciones, repite la foto varias veces y preocúpate solo por los huecos que siguen apareciendo."
+        "a": "Normalmente no. Un ordenador ocupado hace que el navegador pierda refrescos, pero un refresco perdido deja la celda anterior encendida el doble de tiempo, así que sale más brillante en la foto en lugar de dejar un hueco. Puede haber huecos causados por el ordenador si el navegador funciona a una frecuencia distinta de la de la pantalla, así que comprueba que la lectura de Hz coincide con la frecuencia que configuraste, repite la foto varias veces y preocúpate solo por los huecos que siguen apareciendo."
       },
       {
         "q": "La cámara de mi móvil no tiene modo manual. ¿Qué hago?",
@@ -197,7 +199,7 @@
       },
       {
         "q": "¿Necesito este test si no le he hecho overclock a mi monitor?",
-        "a": "Normalmente no. Los monitores no se saltan fotogramas con sus ajustes nominales. Hazlo después de configurar una resolución personalizada o una frecuencia de actualización con overclock, o cuando un adaptador o una base de conexión anuncie una frecuencia con la que la pantalla no se vendía."
+        "a": "Normalmente no. Los monitores rara vez se saltan fotogramas con sus ajustes nominales. Hazlo después de configurar una resolución personalizada o una frecuencia de actualización con overclock, o cuando un adaptador o una base de conexión anuncie una frecuencia con la que la pantalla no se vendía."
       },
       {
         "q": "¿Por qué tiene que ser una foto? ¿No puedo simplemente mirar?",
@@ -205,7 +207,7 @@
       }
     ],
     "tips": [
-      "Elige una obturación lo bastante larga para captar 6–10 fotogramas: unos 1/15 s a 144 Hz, 1/30 s a 240 Hz.",
+      "Usa una obturación de 1/10 s o más. Para saltos que solo aparecen de vez en cuando, alárgala hasta que se enciendan entre 30 y 50 celdas.",
       "Repite el test después de cambiar la frecuencia de actualización o el overclock: el salto de fotogramas suele aparecer solo a la frecuencia más alta."
     ]
   },
@@ -401,8 +403,8 @@
   "screen-test-checklist": {
     "name": "Lista de comprobación de pantalla",
     "title": "Lista de comprobación para probar tu pantalla",
-    "tagline": "Los tests que conviene hacer en un monitor, portátil, móvil o televisor, en orden y con tu progreso guardado.",
-    "description": "Lista de comprobación gratis para un monitor, portátil, móvil o televisor nuevo o usado. Haz los tests adecuados en el orden correcto y márcalos uno a uno.",
+    "tagline": "Los tests que conviene hacer en un monitor, portátil, móvil o televisor, en orden, marcados como correctos o con fallo, con un informe que puedes compartir.",
+    "description": "Lista de comprobación gratis para monitor, portátil, móvil o TV, nuevo o usado. Haz los tests en orden, márcalos como correcto o fallo y comparte el informe.",
     "keywords": [
       "lista de comprobación de pantalla",
       "checklist monitor nuevo",
@@ -414,8 +416,9 @@
     "howTo": [
       "Elige el dispositivo que vas a probar: monitor, portátil, móvil o tableta, o televisor.",
       "Empieza por los tests marcados como Esencial. Detectan los fallos por los que una tienda acepta la devolución de una pantalla.",
-      "Abre cada test, hazlo y vuelve para marcarlo. Tus marcas se guardan solo en este navegador.",
-      "Termina los tests esenciales mientras todavía puedas devolver el dispositivo. Los demás pueden esperar."
+      "Abre cada test, hazlo y vuelve para marcarlo como Correcto o Fallo. Tus resultados se guardan solo en este navegador.",
+      "Termina los tests esenciales mientras todavía puedas devolver el dispositivo. Los demás pueden esperar.",
+      "¿Compras o vendes una pantalla de segunda mano? Añade el nombre del dispositivo y después copia el informe o comparte un enlace que lleva los resultados incluidos."
     ],
     "faq": [
       {
@@ -432,16 +435,60 @@
       },
       {
         "q": "¿Mi progreso se guarda en algún sitio?",
-        "a": "Solo en este navegador y en este dispositivo. No se envía nada a ningún servidor, y al borrar los datos de sitios del navegador se borran las marcas."
+        "a": "Solo en este navegador y en este dispositivo. No se envía nada a ningún servidor, y al borrar los datos de sitios del navegador se borran los resultados. Un enlace para compartir lleva los resultados dentro del propio enlace, así que quien lo abra los verá; no se sube nada."
       },
       {
         "q": "¿Qué hago si un test encuentra un problema?",
         "a": "La página de cada test tiene una sección sobre cómo leer el resultado y qué hacer después. En general: fotografía el fallo, anota la fecha y contacta con la tienda mientras el plazo de devolución siga abierto."
+      },
+      {
+        "q": "¿Puedo fiarme de un informe que me han enviado?",
+        "a": "Tómalo como la palabra del vendedor. Un informe compartido muestra lo que marcó quien lo envía; no puede demostrar que se hicieran los tests, ni que se hicieran en esa pantalla. Si vas a comprar, haz tú mismo los tests esenciales en la pantalla antes de pagar."
       }
     ],
     "tips": [
-      "Guarda la caja y el tique hasta haber marcado todos los tests esenciales.",
+      "Guarda la caja y el tique hasta que todos los tests esenciales tengan resultado.",
       "Haz seguidos los tests a oscuras, después de dar a tus ojos un par de minutos para adaptarse."
+    ]
+  },
+  "frame-rate-comparison": {
+    "name": "Comparación de fps",
+    "title": "Test de comparación de fps (fotogramas por segundo)",
+    "tagline": "El mismo coche en movimiento a la tasa de fotogramas completa, a la mitad y a un cuarto, en paralelo.",
+    "description": "Test de comparación de fps gratis. Mira el mismo coche a 30, 60, 120 fps o más, en paralelo, y comprueba qué aporta tu tasa de refresco al movimiento.",
+    "keywords": [
+      "comparación de fps",
+      "test comparativo de fps",
+      "30 vs 60 fps",
+      "60 vs 120 fps",
+      "60 vs 144 fps",
+      "test de nitidez de movimiento"
+    ],
+    "howTo": [
+      "Haz clic en Iniciar. Los tres carriles muestran el mismo coche a la misma velocidad: el carril superior lo redibuja en cada actualización, el siguiente cada dos actualizaciones y el inferior cada cuatro.",
+      "Cada carril indica su tasa de fotogramas, calculada a partir de la frecuencia de actualización medida.",
+      "Sigue un coche con la vista. Cuanto más baja es la tasa de fotogramas, más grandes son sus saltos y más borroso se ve.",
+      "Usa ← / → para cambiar la velocidad, y los botones Oscuro, Gris y Claro para cambiar el fondo.",
+      "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué el carril superior también se ve borroso?",
+        "a": "Porque cualquier pantalla normal mantiene fijo cada fotograma mientras tus ojos siguen moviéndose. El desenfoque mide aproximadamente lo que avanza el coche en un fotograma: a 960 píxeles por segundo, 16 píxeles a 60 Hz y 7 a 144 Hz. Las frecuencias de actualización más altas y el modo estroboscópico de la retroiluminación lo reducen."
+      },
+      {
+        "q": "¿Por qué mi monitor de 144 Hz marca 60 fps en el carril superior?",
+        "a": "Porque está funcionando a 60 Hz. Las etiquetas salen de la frecuencia de actualización que mide el navegador, así que el carril superior siempre muestra tu máximo real. Selecciona la frecuencia completa en la configuración de pantalla y revisa el cable; el Test de frecuencia de actualización explica los pasos."
+      },
+      {
+        "q": "¿Es lo mismo que el Test de ghosting?",
+        "a": "No. El Test de ghosting usa recuadros lisos para mostrar las estelas de los píxeles lentos; este test compara tasas de fotogramas. Con el fondo Claro, además, muestra el ghosting alrededor de una forma con detalle: una estela tenue detrás del coche es ghosting, y un contorno brillante o de un color raro es overshoot causado por el overdrive."
+      }
+    ],
+    "tips": [
+      "Siéntate a tu distancia habitual y sigue el coche con la vista en lugar de mirar fijamente un punto.",
+      "En una pantalla de 60 Hz el carril inferior va a 15 fps: así se ve un juego que da muchos tirones.",
+      "Si el carril superior da tirones, cierra otras pestañas: el navegador se está saltando actualizaciones. El Test de frecuencia de actualización las cuenta."
     ]
   }
 }

@@ -26,15 +26,18 @@ interface ColorCyclerProps {
   tool: ToolDef;
   colors?: ColorFrame[];
   keepAwake?: boolean;
+  /** Setup reminder (English; translated here), shown as the test starts. */
+  notice?: string;
 }
 
-export default function ColorCycler({ tool, colors = SOLID_COLORS, keepAwake = true }: ColorCyclerProps) {
+export default function ColorCycler({ tool, colors = SOLID_COLORS, keepAwake = true, notice }: ColorCyclerProps) {
   const t = useT();
   return (
     <FullscreenStage
       tool={tool}
       frameCount={colors.length}
       keepAwake={keepAwake}
+      notice={notice ? t(notice) : undefined}
       previewScrim={false}
       frameLabel={(i) => t(colors[i]?.name ?? "")}
       renderFrame={(i) => (

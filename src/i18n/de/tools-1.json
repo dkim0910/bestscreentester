@@ -294,8 +294,8 @@
   "color-gradient-test": {
     "name": "Farbverlauf",
     "title": "Farbverlauf-Test",
-    "tagline": "Stufenlose Spektrum- und RGB-Verläufe, um Farbübergänge und Banding zu beurteilen.",
-    "description": "Kostenloser Farbverlauf-Test: Stufenlose Verläufe in Rot, Grün, Blau und im vollen Spektrum zeigen, wie sauber Farbübergänge sind – und wo Banding auftritt.",
+    "tagline": "Stufenlose Spektrum- und RGB-Verläufe plus ein Verlauf 8 Bit vs. 10 Bit, um Farbübergänge und Banding zu beurteilen.",
+    "description": "Kostenloser Farbverlauf-Test: Verläufe in Rot, Grün, Blau und im Spektrum plus ein Verlauf 8 Bit vs. 10 Bit zeigen Übergänge, Banding und Tonwertabrisse.",
     "keywords": [
       "farbverlauf test",
       "color banding test",
@@ -305,9 +305,10 @@
     ],
     "howTo": [
       "Klick auf „Starten“, um den Verlauf im Vollbild zu sehen.",
-      "Mit ← / → schaltest du durch die Verläufe für Spektrum, Rot, Grün, Blau, Weiß, Grau und Schwarz.",
+      "Mit ← / → schaltest du durch die Verläufe für Spektrum, Rot, Grün, Blau, Weiß, Grau und Schwarz und danach zum Verlauf „8 Bit vs. 10 Bit“.",
       "Prüf, ob die Übergänge weich sind und die Farben gesättigt und gleichmäßig wirken.",
       "In den Weiß- und Grauverläufen fällt Helligkeits-Banding in den Schatten am leichtesten auf.",
+      "Bei „8 Bit vs. 10 Bit“ zeigt die obere Hälfte absichtlich Stufen. Wirkt die untere Hälfte stufenloser, kommen mehr als 256 Stufen pro Farbe bei deinem Bildschirm an.",
       "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
@@ -338,6 +339,10 @@
       {
         "q": "Ich sehe in den dunklen Verläufen ein feines, flirrendes Korn. Ist das ein Fehler?",
         "a": "Nein. Das ist Dithering oder FRC: Das Panel wechselt zwischen zwei Tönen, um einen zu erzeugen, den es nicht direkt darstellen kann. Das ist bei vielen Bildschirmen normal und verschwindet meist bei normalem Betrachtungsabstand."
+      },
+      {
+        "q": "Kann ein Browser einen 10-Bit-Verlauf zeigen?",
+        "a": "Manchmal. Das Testbild „8 Bit vs. 10 Bit“ zeichnet seine untere Hälfte auf einer Canvas mit hoher Genauigkeit, sofern der Browser eine bietet, und sagt auf dem Bildschirm, wenn nicht. Danach behalten Betriebssystem, Grafiktreiber und Panel die zusätzlichen Stufen jeweils bei, bilden sie per Dithering nach oder runden sie weg. Eine stufenlosere untere Hälfte bedeutet, dass mehr als 8 Bit oder Dithering beim Bildschirm ankommen; zwei identische Hälften bedeuten, dass irgendwo dazwischen ein Glied nur 8 Bit überträgt."
       }
     ],
     "tips": [
@@ -348,8 +353,8 @@
   "brightness-uniformity-test": {
     "name": "Ausleuchtung",
     "title": "Ausleuchtungs-Test (Helligkeitsverteilung)",
-    "tagline": "Eine Graufläche mit 50 %, ein 9-Zonen-Raster und ein wanderndes Grau, um ungleichmäßige Ausleuchtung zu entdecken.",
-    "description": "Kostenloser Ausleuchtungs-Test: Graufläche mit 50 %, 9-Zonen-Raster und wanderndes Grau zeigen ungleichmäßige Ausleuchtung, Clouding und Dirty-Screen-Effekt.",
+    "tagline": "Grauflächen von 5 % bis 50 %, ein 9-Zonen-Raster und ein wanderndes Grau, um ungleichmäßige Ausleuchtung und Banding zu entdecken.",
+    "description": "Kostenloser Ausleuchtungs-Test: Grauflächen von 5 % bis 50 %, 9-Zonen-Raster und wanderndes Grau zeigen Clouding, OLED-Banding und Dirty-Screen-Effekt.",
     "keywords": [
       "ausleuchtung monitor test",
       "clouding test",
@@ -358,15 +363,16 @@
     ],
     "howTo": [
       "Klick auf „Starten“ und sieh dir die Graufläche im Vollbild an.",
-      "Mit ← / → wechselst du zum 9-Zonen-Raster und zum wandernden Grau.",
+      "Mit ← / → wechselst du zum 9-Zonen-Raster, zum wandernden Grau und zu den dunklen Grautönen.",
       "Vergleich die Helligkeit der Mitte mit jeder Ecke.",
       "Folge bei „Wanderndes Grau“ den wandernden Bändern mit den Augen: Schlieren oder Streifen, die an Ort und Stelle bleiben, sind der Dirty-Screen-Effekt des Panels.",
+      "Die Grautöne von 5 % bis 20 % zeigen, was ein mittleres Grau verbirgt: vertikale Streifen und verfärbte Flecken auf einem OLED, Clouding auf einem LCD. Sieh sie dir in einem dunklen Raum an.",
       "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
       {
         "q": "Wie viel Abweichung ist akzeptabel?",
-        "a": "Gute Monitore bleiben über das Panel hinweg bei rund 10 % Helligkeitsabweichung. Größere Unterschiede zeigen sich als sichtbar dunklere Ecken oder hellere Hotspots."
+        "a": "Einen einheitlichen Standard gibt es nicht. Bei einem guten Monitor bleibt der Großteil des Bildschirms innerhalb von etwa 10 % der Helligkeit in der Mitte, die Ecken fallen oft weiter ab: Tests haben Panels mit einer rund 30 % dunkleren Ecke insgesamt als gut bewertet. Entscheidend ist ein Unterschied, der dir im normalen Gebrauch auffällt, etwa deutlich dunklere Ecken oder ein hellerer Hotspot."
       },
       {
         "q": "Was ist der Dirty-Screen-Effekt?",
@@ -382,7 +388,7 @@
       },
       {
         "q": "Haben OLED-Bildschirme Probleme mit der Ausleuchtung?",
-        "a": "Sie haben keine Hintergrundbeleuchtung, also weder Clouding noch Bleeding. Trotzdem können sie auf sehr dunklem Grau schwache vertikale Streifen oder einen leichten Farbstichunterschied zeigen und nach langer Nutzung abgenutzte Bereiche. Leichtes Banding auf einer dunkelgrauen Fläche ist bei großen OLED- und VA-Panels verbreitet."
+        "a": "Sie haben keine Hintergrundbeleuchtung, also weder Clouding noch Bleeding. Trotzdem können sie auf sehr dunklem Grau schwache vertikale Streifen oder einen leichten Farbstichunterschied zeigen und nach langer Nutzung abgenutzte Bereiche. Leichtes Banding auf einer dunkelgrauen Fläche ist bei großen OLED-Fernsehern verbreitet."
       },
       {
         "q": "Warum sind die Ecken meines Laptop-Bildschirms dunkler?",
@@ -391,18 +397,22 @@
       {
         "q": "Wie fotografiere ich ungleichmäßige Helligkeit fair?",
         "a": "Geh ein Stück zurück, fotografiere genau von vorn und fixier die Belichtung auf die Bildschirmmitte. Schalte den Nachtmodus der Kamera aus, er übertreibt kleine Unterschiede. Nimm das Foto als Beleg und beurteile mit deinen Augen, wie stark es ist."
+      },
+      {
+        "q": "Warum auch auf dunklem Grau testen und nicht nur auf 50 % Grau?",
+        "a": "Fehler, die auf mittlerem Grau kaum zu sehen sind, fallen nahe Schwarz auf. Ein OLED kann bei 5–10 % Grau vertikale Streifen oder einen rosafarbenen Farbstich zeigen, und ein LCD zeigt Clouding als Flecken mit hellerer Hintergrundbeleuchtung. Etwas Ungleichmäßigkeit bei 5 % Grau ist bei jedem Panel normal: Wichtig ist sie nur, wenn sie dir in dunklen Szenen bei der Helligkeit auffällt, die du nutzt."
       }
     ],
     "tips": [
       "Vergleich die Mitte nacheinander mit jeder einzelnen Ecke, statt die ganze Fläche abzusuchen.",
-      "Mach ein Foto mit gleichmäßiger Belichtung – deine Augen passen sich automatisch an und verdecken echte Unterschiede."
+      "Wenn du ein Foto machst, fixier die Belichtung: Deine Augen passen sich an langsame Übergänge an und verdecken manches, aber ein Handy im Automatikmodus übertreibt schwache Streifen – prüf es also mit eigenen Augen."
     ]
   },
   "refresh-rate-test": {
     "name": "Bildwiederholrate",
     "title": "Bildwiederholraten-Test (Hz-Test)",
-    "tagline": "Miss deine tatsächliche Bildwiederholrate und beobachte eine bewegte Referenz.",
-    "description": "Kostenloser Bildwiederholraten-Test: Miss im Browser, mit wie viel Hz dein Display wirklich läuft, und prüf an einem bewegten Objekt, ob alles flüssig ist.",
+    "tagline": "Miss deine tatsächliche Bildwiederholrate und erkenne ausgelassene Frames.",
+    "description": "Kostenloser Bildwiederholraten-Test: Miss im Browser, mit wie viel Hz dein Display wirklich läuft, verfolge den Frametime-Graphen und zähl ausgelassene Frames.",
     "keywords": [
       "hz test",
       "bildwiederholrate test",
@@ -414,6 +424,7 @@
       "Klick auf „Starten“ – die gemessene Bildwiederholrate erscheint nach ein bis zwei Sekunden.",
       "Beobachte das bewegte Quadrat, um zu prüfen, ob die Bewegung flüssig aussieht.",
       "Vergleich den Messwert mit der Hz-Angabe deines Panels; die Zeile darunter nennt die Frametime und die nächste Standardrate.",
+      "Beobachte den Frametime-Graphen: Jeder rote Balken ist ein Bildaufbau, den der Browser verpasst hat, und der Zähler summiert sie. „Zurücksetzen“ startet die Zählung neu.",
       "Mit Esc beendest du den Test. Auf dem Handy tippst du in die Bildschirmmitte und dann auf „Beenden“."
     ],
     "faq": [
@@ -444,6 +455,10 @@
       {
         "q": "Welcher Bildschirm wird gemessen, wenn ich zwei Monitore habe?",
         "a": "Der, auf dem das Browserfenster liegt. Zieh das Fenster auf den anderen Monitor, und der Messwert folgt nach einem Moment. Laufen die Monitore mit unterschiedlichen Raten, koppeln sich manche Browser an einen davon – teste also jeden Monitor, während das Fenster vollständig darauf liegt."
+      },
+      {
+        "q": "Was zählt hier als ausgelassener Frame?",
+        "a": "Ein Bildaufbau, den der Browser nicht rechtzeitig gezeichnet hat, gemessen am Timing der Animationsframes. Ausgelassene Frames entstehen, wenn Browser, Grafikkarte oder eine Hintergrundaufgabe nicht hinterherkommen – und genau das lässt auch Spiele ruckeln. Frames, die der Monitor selbst auslässt, sieht der Test nicht: Das prüft der Frame-Skipping-Test."
       }
     ],
     "tips": [

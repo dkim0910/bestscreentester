@@ -112,17 +112,19 @@
     "faqHeading": "Perguntas sobre screen tearing",
     "pass": [
       "As barras continuam inteiras de uma borda à outra da tela enquanto se movem.",
-      "O movimento é uniforme, sem trancos."
+      "O movimento é uniforme, sem trancos.",
+      "Nos padrões de Cintilação VRR, os cinzas ficam estáveis enquanto a taxa de quadros muda."
     ],
     "fail": [
       "Uma linha em que as barras ficam deslocadas, de modo que as metades de cima e de baixo não se alinham: um rasgo.",
-      "Movimento aos trancos, sem quebra visível. Há quadros sendo pulados ou repetidos, o que é outro problema: use o Teste de Frame Skipping."
+      "Movimento aos trancos, sem quebra visível. Há quadros sendo pulados ou repetidos, o que é outro problema: use o Teste de Frame Skipping.",
+      "Nos padrões de Cintilação VRR, os cinzas pulsam ou tremulam enquanto o indicador de taxa de atualização do monitor pula junto com a taxa de quadros: cintilação VRR."
     ],
-    "note": "Um resultado limpo aqui é comum e não prova que seus jogos não terão tearing. Os navegadores costumam desenhar em sincronia com a tela, enquanto os jogos apresentam tearing quando enviam quadros com o V-Sync desligado. Se você vir rasgos nesta página, confira se a aceleração de hardware está ativada no navegador e se a tela está na taxa de atualização nominal.",
+    "note": "Um resultado limpo aqui é comum e não prova que seus jogos não terão tearing. Os navegadores costumam desenhar em sincronia com a tela, enquanto os jogos apresentam tearing quando enviam quadros com o V-Sync desligado. Se você vir rasgos nesta página, confira se a aceleração de hardware está ativada no navegador e se a tela está na taxa de atualização nominal. Os padrões de Cintilação VRR só testam o VRR se o navegador o acionar, o que nem toda configuração faz: se o indicador de taxa de atualização do monitor ficar no máximo, o VRR não está ativo e esses padrões não conseguem mostrar a cintilação VRR.",
     "next": [
       "Ative a sincronização adaptativa (G-Sync, FreeSync ou VRR) no menu do monitor e no driver de vídeo.",
       "Se a sua tela não tem sincronização adaptativa, ative o V-Sync no jogo ou limite a taxa de quadros dele logo abaixo da taxa de atualização.",
-      "Confira a conexão: a sincronização adaptativa exige DisplayPort no PC, ou HDMI 2.1 em um console ou TV."
+      "Confira a conexão: no PC, use DisplayPort se a tela tiver. Via HDMI, a sincronização adaptativa exige HDMI VRR (parte do HDMI 2.1) ou FreeSync via HDMI com uma placa AMD ou um Xbox."
     ],
     "tables": [
       {
@@ -150,7 +152,7 @@
             "Sincronização adaptativa (G-Sync, FreeSync, VRR)",
             "Não, dentro da faixa de operação",
             "Muito pouco",
-            "Tela e placa de vídeo compatíveis, via DisplayPort ou HDMI 2.1"
+            "Tela e placa de vídeo compatíveis, via DisplayPort, ou via HDMI com HDMI VRR ou FreeSync"
           ]
         ]
       }
@@ -170,7 +172,8 @@
       "As mesmas células continuam escuras todas as vezes, por mais devagar que você arraste o dedo. Uma célula teimosa em uma única passada costuma ser só um ponto que escapou.",
       "Uma falha no mesmo lugar em toda linha que você traça por ali.",
       "Linhas que saltam, ou marcas aparecendo onde você não está tocando: toques fantasmas.",
-      "Um contador que nunca passa de um ou dois dedos."
+      "Um contador que nunca passa de um ou dois dedos.",
+      "Em Multitoque, um marcador que pula para longe do dedo ou some enquanto o dedo ainda está encostado."
     ],
     "note": "Uma película grossa, trincada ou descolando pode causar tudo isso. Tire a capinha e a película e teste de novo antes de culpar a tela. As falhas de toque costumam começar nas bordas e nos cantos, então vá devagar ali.",
     "next": [
@@ -179,7 +182,7 @@
       "Instale qualquer atualização de sistema pendente.",
       "Se a mesma área continua falhando, a camada de toque está com defeito. Procure o fabricante ou uma assistência técnica e informe se a tela já sofreu queda ou já foi trocada."
     ],
-    "guideLabel": "Como testar a tela de um celular usado antes de comprar"
+    "guideLabel": "Tela touch não funciona ou com toques fantasma? Soluções"
   },
   "screen-info": {
     "heading": "O que cada valor informa",
@@ -286,20 +289,23 @@
     "pass": [
       "Borda de overscan: você vê a moldura mais externa, marcada com 0%, em toda a volta.",
       "Proporção de tela: os círculos são perfeitamente redondos e o quadrado é quadrado.",
-      "Grade de geometria: as linhas são retas e têm espaçamento uniforme de ponta a ponta."
+      "Grade de geometria: as linhas são retas e têm espaçamento uniforme de ponta a ponta.",
+      "Linhas de borda: cada linha percorre a borda inteira, exceto onde os cantos arredondados ou o notch a cortam."
     ],
     "fail": [
-      "As molduras externas estão cortadas. A mais externa que você ainda vê inteira, em toda a volta, indica quanto está sendo cortado.",
+      "As molduras externas estão cortadas. O corte fica entre a moldura mais externa que você ainda vê inteira, em toda a volta, e a próxima para fora.",
       "Círculos que parecem ovais: a imagem está sendo esticada.",
-      "Linhas da grade que se curvam ou convergem, o que em um projetor significa que o keystone ou a posição da lente precisa de ajuste."
+      "Linhas da grade que se curvam ou convergem, o que em um projetor significa que o keystone ou a posição da lente precisa de ajuste.",
+      "Linhas de borda: a linha mais externa some ao longo de uma borda inteira, então a imagem está cortada ali."
     ],
-    "note": "Overscan é uma configuração, não um defeito. Procure uma opção de tamanho da imagem chamada Just Scan, Screen Fit, Fit to Screen, 1:1 ou Overscan Off. Cada entrada da TV pode ter a própria configuração de tamanho da imagem, então teste a entrada que você realmente usa.",
+    "note": "Overscan é uma configuração, não um defeito. Procure uma opção de tamanho da imagem chamada Just Scan, Screen Fit, Fit to Screen, Full Pixel, 1:1 ou Overscan Off. Cada entrada da TV pode ter a própria configuração de tamanho da imagem, então teste a entrada que você realmente usa. No iPhone, o Safari não entra em tela cheia, então as linhas de borda marcam a borda da janela do navegador, e não a da tela.",
     "next": [
       "Na TV, ajuste o tamanho da imagem para um modo 1:1, como Just Scan ou Screen Fit.",
       "Se a TV permite dar nome às entradas, defina esta como PC.",
       "Só se a TV não tiver essa opção, use o controle de escala do driver de vídeo.",
       "Refaça o teste e confirme que a moldura de 0% aparece inteira, em toda a volta."
-    ]
+    ],
+    "guideLabel": "O que é overscan? Por que sua TV corta as bordas"
   },
   "sharpness-test": {
     "heading": "Nítida, redimensionada ou com nitidez em excesso?",
@@ -311,17 +317,18 @@
       "Nenhum contorno claro em volta das linhas e dos anéis no padrão de halos."
     ],
     "fail": [
-      "Linhas finas que viram uma massa cinza ou um moiré ondulado: a imagem está sendo reamostrada por uma resolução não nativa, uma escala fracionária, o zoom do navegador ou o redimensionamento da própria TV.",
+      "Linhas finas que viram uma massa cinza ou um moiré ondulado: a imagem está sendo reamostrada por uma resolução não nativa, uma resolução escalonada no Mac, o zoom do navegador ou o redimensionamento da própria TV.",
       "Texto vermelho ou amarelo que borra enquanto o texto em preto e branco continua nítido: subamostragem de croma (chroma subsampling). Use o modo PC ou Jogo da TV, ou ajuste a saída para RGB ou 4:4:4.",
       "Contornos brancos em volta das bordas: a configuração de Nitidez está alta demais. Reduza até eles desaparecerem."
     ],
-    "note": "Confira primeiro à sua distância normal de uso e depois de perto. Escalas de 100%, 150% ou 200% mantêm os detalhes finos mais limpos do que valores intermediários.",
+    "note": "Confira primeiro à sua distância normal de uso e depois de perto. No Mac, o tamanho escalonado que é exatamente metade da resolução do painel mantém os detalhes finos mais nítidos. As franjas de cor de subpixel são uma característica do painel, não um defeito: um QD-OLED com arranjo triangular mostra verde e magenta no alto e na base das letras, e um WOLED, bordas coloridas nas laterais, mais em alguns modelos do que em outros. Painéis OLED mais novos, com os subpixels lado a lado, evitam isso em grande parte. Se isso incomodar à sua distância normal, um texto maior ou a escala da tela disfarçam. Em um LCD, bordas coloridas no texto geralmente indicam que a suavização de texto não combina com o painel: no Windows, execute o ClearType Text Tuner.",
     "next": [
       "Selecione a resolução nativa da tela.",
-      "Ajuste a escala da tela para 100%, 150% ou 200% e redefina o zoom do navegador.",
+      "Redefina o zoom do navegador e, no Mac, escolha o tamanho escalonado que é exatamente metade da resolução do painel.",
       "Em uma TV, coloque a entrada no modo PC ou Jogo e ajuste a saída para RGB ou 4:4:4.",
       "Reduza a configuração de Nitidez até os contornos do padrão de halos desaparecerem."
-    ]
+    ],
+    "guideLabel": "Por que o texto fica borrado no meu monitor ou TV?"
   },
   "frame-skipping-test": {
     "heading": "Como ler a foto: há quadros pulados ou não?",
@@ -335,7 +342,7 @@
       "Uma falha na sequência que continua aparecendo foto após foto: a tela está descartando quadros.",
       "Falhas que só aparecem na taxa de atualização mais alta ou depois de um overclock, e somem na taxa padrão."
     ],
-    "note": "Uma falha em uma foto não prova nada, porque um computador ocupado também pode fazer o navegador perder um quadro. Feche outros aplicativos e tire várias fotos. Escolha um obturador longo o bastante para captar de 6 a 10 quadros: cerca de 1/15 s a 144 Hz e 1/30 s a 240 Hz.",
+    "note": "Uma falha em uma foto prova pouco: tire várias fotos e confira se a leitura de Hz bate com a taxa que você configurou. Uma atualização que o navegador perde aparece como uma célula mais clara, não como falha. Use um obturador de 1/10 s ou mais; para pulos que só acontecem de vez em quando, alongue-o até acenderem de 30 a 50 células, menos do que cabem na grade.",
     "next": [
       "Feche outros aplicativos e tire mais algumas fotos para confirmar que a falha aparece sempre.",
       "Baixe a taxa de atualização em um degrau e teste de novo, até a sequência de células ficar contínua.",
@@ -352,37 +359,38 @@
         "rows": [
           [
             "60 Hz",
-            "1/8 s",
-            "cerca de 7"
+            "1/4 s",
+            "cerca de 15"
           ],
           [
             "120 Hz",
-            "1/15 s",
-            "cerca de 8"
+            "1/8 s",
+            "cerca de 15"
           ],
           [
             "144 Hz",
-            "1/15 s",
-            "cerca de 10"
+            "1/8 s",
+            "cerca de 18"
           ],
           [
             "165 Hz",
-            "1/20 s",
-            "cerca de 8"
+            "1/8 s",
+            "cerca de 21"
           ],
           [
             "240 Hz",
-            "1/30 s",
-            "cerca de 8"
+            "1/10 s",
+            "cerca de 24"
           ],
           [
             "360 Hz",
-            "1/50 s",
-            "cerca de 7"
+            "1/10 s",
+            "cerca de 36"
           ]
         ]
       }
-    ]
+    ],
+    "guideLabel": "O que é frame skipping e como testar"
   },
   "wide-color-gamut-test": {
     "heading": "Com logo ou sem logo? O que isso significa",
@@ -566,5 +574,22 @@
     ],
     "note": "Uma tela que passa em todos os testes ainda pode ter particularidades normais do tipo de painel, como IPS glow ou um pouco de blooming. A página de cada teste explica quais resultados são normais e quais são defeitos.",
     "guideLabel": "O checklist completo de testes de tela para um aparelho novo"
+  },
+  "frame-rate-comparison": {
+    "heading": "O que as três faixas mostram",
+    "howToHeading": "Como comparar taxas de quadros",
+    "faqHeading": "Perguntas sobre taxa de quadros",
+    "pass": [
+      "A faixa de cima avança em passos regulares, sem engasgos.",
+      "Cada faixa, de cima para baixo, parece mais travada e borrada que a anterior. Essa diferença é o que uma taxa de quadros mais alta oferece.",
+      "Algum borrão também na faixa de cima, menor em taxas de atualização mais altas."
+    ],
+    "fail": [
+      "Saltos ou engasgos na faixa de cima: o navegador está perdendo atualizações. Feche outras abas e aplicativos; o Teste de Taxa de Atualização conta os quadros perdidos.",
+      "Uma faixa de cima marcada como 60 fps em uma tela de alta taxa de atualização: a tela está rodando a 60 Hz. Selecione a taxa máxima nas configurações de vídeo.",
+      "No fundo Claro, um rastro atrás do carro ou um contorno claro em volta dele: ghosting ou overshoot. Experimente as configurações de overdrive do monitor e compare."
+    ],
+    "note": "As faixas usam a taxa de atualização medida, então uma tela de 144 Hz mostra 144, 72 e 36 fps, e uma de 60 Hz, 60, 30 e 15. Em uma tela comum, o borrão de movimento depende de quanto tempo cada quadro fica na tela: reduza esse tempo pela metade e o borrão cai pela metade, e é por isso que o salto de 60 para 120 Hz é tão fácil de ver.",
+    "guideLabel": "Taxa de atualização explicada: 60 x 120 x 144 x 240 Hz"
   }
 }

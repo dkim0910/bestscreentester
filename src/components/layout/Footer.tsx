@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SITE_NAME } from "@/lib/seo";
 import { fmt, LANGS, LANG_NAMES, type Lang } from "@/i18n/config";
 import { getSite, getTools, href } from "@/i18n";
+import InstallButton from "@/components/InstallButton";
 
 function Column({ title, links }: { title: string; links: { name: string; href: string }[] }) {
   return (
@@ -39,6 +40,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             <span className="text-[17px]">{SITE_NAME}</span>
           </Link>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-foreground/60">{t.blurb}</p>
+          <InstallButton />
         </div>
         <Column
           title={t.popular}

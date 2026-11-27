@@ -294,8 +294,8 @@
   "color-gradient-test": {
     "name": "Degradado de color",
     "title": "Test de degradado de color",
-    "tagline": "Degradados suaves de espectro y RGB para juzgar las transiciones de color y el banding.",
-    "description": "Test de degradado de color gratis. Degradados suaves de rojo, verde, azul y espectro completo para comprobar las transiciones de color y el banding.",
+    "tagline": "Degradados suaves de espectro y RGB, más una rampa de 8 bits frente a 10 bits, para juzgar las transiciones de color y el banding.",
+    "description": "Test de degradado de color gratis. Degradados rojo, verde, azul y espectro, más una rampa de 8 frente a 10 bits, para ver transiciones, banding y posterización.",
     "keywords": [
       "test degradado de color",
       "test banding",
@@ -305,9 +305,10 @@
     ],
     "howTo": [
       "Haz clic en Iniciar para ver el degradado a pantalla completa.",
-      "Usa ← / → para recorrer los degradados de espectro, rojo, verde, azul, blanco, gris y negro.",
+      "Usa ← / → para recorrer los degradados de espectro, rojo, verde, azul, blanco, gris y negro, y después la rampa 8 bits frente a 10 bits.",
       "Comprueba que las transiciones son suaves y que los colores se ven saturados y uniformes.",
       "Las rampas de blanco y de gris son las que mejor muestran el banding de luminancia en las sombras.",
+      "En 8 bits frente a 10 bits, la mitad superior muestra bandas a propósito. Si la mitad inferior se ve más suave, a tu pantalla le llegan más de 256 niveles por color.",
       "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
@@ -338,6 +339,10 @@
       {
         "q": "Veo un grano fino que vibra en los degradados oscuros. ¿Es un fallo?",
         "a": "No. Es dithering o FRC: el panel alterna entre dos tonos para producir uno que no puede mostrar directamente. Es normal en muchas pantallas y suele desaparecer a una distancia de visión normal."
+      },
+      {
+        "q": "¿Puede un navegador mostrar un degradado de 10 bits?",
+        "a": "A veces. El patrón 8 bits frente a 10 bits dibuja su mitad inferior en un lienzo de alta precisión si el navegador lo admite, y avisa en pantalla si no. Después, el sistema operativo, el controlador gráfico y el panel pueden, cada uno, conservar los niveles extra, aplicarles dithering o perderlos al redondear. Una mitad inferior más suave significa que a la pantalla llegan más de 8 bits, o dithering; dos mitades idénticas indican una etapa de 8 bits en algún punto intermedio."
       }
     ],
     "tips": [
@@ -348,8 +353,8 @@
   "brightness-uniformity-test": {
     "name": "Uniformidad de brillo",
     "title": "Test de uniformidad de brillo",
-    "tagline": "Un campo gris al 50%, una cuadrícula de 9 zonas y un gris en movimiento para detectar una retroiluminación irregular.",
-    "description": "Test de uniformidad de brillo gratis: un campo gris al 50%, una cuadrícula de 9 zonas y un gris en movimiento para ver clouding y efecto de pantalla sucia.",
+    "tagline": "Campos grises del 5% al 50%, una cuadrícula de 9 zonas y un gris en movimiento para detectar una retroiluminación irregular y el banding.",
+    "description": "Test de uniformidad de brillo gratis: grises del 5% al 50%, una cuadrícula de 9 zonas y un gris en movimiento revelan clouding, banding OLED y pantalla sucia.",
     "keywords": [
       "uniformidad de brillo",
       "clouding pantalla",
@@ -358,15 +363,16 @@
     ],
     "howTo": [
       "Haz clic en Iniciar y mira el campo gris a pantalla completa.",
-      "Usa ← / → para pasar a la cuadrícula de 9 zonas y al gris en movimiento.",
+      "Usa ← / → para pasar a la cuadrícula de 9 zonas, al gris en movimiento y a los grises oscuros.",
       "Compara el brillo del centro con el de cada esquina.",
       "En Gris en movimiento, sigue con la vista las bandas que se desplazan: las manchas o rayas que no se mueven son el efecto de pantalla sucia del panel.",
+      "Los grises del 5% al 20% muestran lo que un gris medio oculta: bandas verticales y manchas teñidas en un OLED, clouding en un LCD. Míralos en una habitación a oscuras.",
       "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
       {
         "q": "¿Cuánta variación es aceptable?",
-        "a": "Los buenos monitores se mantienen en torno a un 10% de variación de brillo en todo el panel. Las diferencias mayores se ven como esquinas claramente más oscuras o puntos más brillantes."
+        "a": "No hay un estándar único. En un buen monitor, la mayor parte de la pantalla se mantiene dentro de un 10% del brillo del centro, y las esquinas suelen quedar más abajo: hay análisis que califican de buenos en general paneles con una esquina un 30% más oscura. Lo que importa es una diferencia que notes en el uso normal, como esquinas claramente más oscuras o un punto más brillante."
       },
       {
         "q": "¿Qué es el efecto de pantalla sucia?",
@@ -382,7 +388,7 @@
       },
       {
         "q": "¿Las pantallas OLED tienen problemas de uniformidad?",
-        "a": "No tienen retroiluminación, así que no presentan clouding ni fugas de luz. Aun así pueden mostrar bandas verticales tenues o una ligera diferencia de tono sobre un gris muy oscuro, y zonas desgastadas tras un uso prolongado. Un banding leve sobre un campo gris oscuro es habitual en los paneles OLED y VA grandes."
+        "a": "No tienen retroiluminación, así que no presentan clouding ni fugas de luz. Aun así pueden mostrar bandas verticales tenues o una ligera diferencia de tono sobre un gris muy oscuro, y zonas desgastadas tras un uso prolongado. Un banding leve sobre un campo gris oscuro es habitual en los televisores OLED grandes."
       },
       {
         "q": "¿Por qué las esquinas de la pantalla de mi portátil son más oscuras?",
@@ -391,18 +397,22 @@
       {
         "q": "¿Cómo fotografío el brillo desigual de forma fiel?",
         "a": "Aléjate, dispara justo de frente y bloquea la exposición en el centro de la pantalla. Desactiva el modo noche de la cámara, que exagera las diferencias pequeñas. Usa la foto como registro y juzga la gravedad con tus ojos."
+      },
+      {
+        "q": "¿Por qué probar con gris oscuro además de con gris al 50%?",
+        "a": "Los fallos que apenas se ven en un gris medio destacan cerca del negro. Un OLED puede mostrar bandas verticales o un tinte rosado con un gris del 5–10%, y un LCD muestra el clouding como manchas de retroiluminación más brillante. Un poco de irregularidad con un gris del 5% es normal en todos los paneles: solo importa si la notas en escenas oscuras con el brillo que usas."
       }
     ],
     "tips": [
       "Compara el centro con cada esquina, una a una, en vez de recorrer todo el campo.",
-      "Haz una foto con una exposición uniforme: tus ojos se adaptan solos y ocultan diferencias reales."
+      "Si haces una foto, bloquea la exposición: tus ojos se adaptan a los cambios suaves y ocultan algunos, pero un móvil en automático exagera las bandas tenues, así que confírmalo a simple vista."
     ]
   },
   "refresh-rate-test": {
     "name": "Frecuencia de actualización",
     "title": "Test de frecuencia de actualización (Hz)",
-    "tagline": "Mide tu frecuencia de actualización real y observa una referencia en movimiento.",
-    "description": "Test de frecuencia de actualización gratis. Mide en el navegador los Hz reales (tasa de refresco) de tu pantalla y confirma la fluidez con un objeto móvil.",
+    "tagline": "Mide tu frecuencia de actualización real y detecta fotogramas perdidos.",
+    "description": "Test de frecuencia de actualización gratis. Mide los Hz reales de tu pantalla, sigue un gráfico de tiempos de fotograma y cuenta los fotogramas perdidos.",
     "keywords": [
       "test hz monitor",
       "test tasa de refresco",
@@ -414,6 +424,7 @@
       "Haz clic en Iniciar: la frecuencia de actualización medida aparece en uno o dos segundos.",
       "Observa el recuadro en movimiento para confirmar que se ve fluido.",
       "Compara la lectura con los Hz nominales de tu panel; la línea de debajo indica el tiempo de fotograma y la frecuencia estándar más cercana.",
+      "Observa el gráfico de tiempos de fotograma: cada barra roja es una actualización que el navegador se ha saltado, y el contador las va sumando. Reiniciar pone la cuenta a cero.",
       "Pulsa Esc para salir. En el móvil, toca el centro de la pantalla y luego Salir."
     ],
     "faq": [
@@ -444,6 +455,10 @@
       {
         "q": "¿Qué pantalla mide si tengo dos monitores?",
         "a": "Aquella en la que está la ventana del navegador. Arrastra la ventana al otro monitor y la lectura lo sigue al cabo de un momento. Con monitores a frecuencias distintas, algunos navegadores se sincronizan con uno de ellos, así que prueba cada monitor con la ventana completamente dentro de él."
+      },
+      {
+        "q": "¿Qué cuenta aquí como fotograma perdido?",
+        "a": "Una actualización que el navegador no dibujó a tiempo, medida a partir de la temporización de los fotogramas de animación. Aparecen pérdidas cuando el navegador, la tarjeta gráfica o una tarea en segundo plano no dan abasto, que es también lo que provoca tirones en los juegos. El test no puede ver los fotogramas que se salta el propio monitor: eso lo comprueba el Test de salto de fotogramas."
       }
     ],
     "tips": [

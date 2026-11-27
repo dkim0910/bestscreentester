@@ -29,14 +29,10 @@ export default function Header({ lang }: { lang: Lang }) {
           <Link href="/blog" className={NAV_LINK}>
             {t.guides}
           </Link>
-          {/* Hidden on phones, where the links squeeze the site name out (measured at 375px:
-              with Contact shown the name is cut to half in English, to a sliver in Spanish); both
-              are in the footer. */}
+          {/* Hidden on phones, where the links squeeze the site name out; it is in the footer.
+              Contact lives only in the footer. */}
           <Link href="/about" className={`hidden sm:block ${NAV_LINK}`}>
             {t.about}
-          </Link>
-          <Link href="/feedback" className={`hidden sm:block ${NAV_LINK}`}>
-            {t.contact}
           </Link>
           <LanguageSwitcher lang={lang} slugs={TRANSLATED_SLUGS} label={t.language} />
           <Link

@@ -294,8 +294,8 @@
   "color-gradient-test": {
     "name": "Gradiente de Cores",
     "title": "Teste de Gradiente de Cores",
-    "tagline": "Espectro e gradientes RGB suaves para avaliar transições de cor e banding.",
-    "description": "Teste de gradiente de cores grátis. Veja gradientes suaves de vermelho, verde, azul e do espectro completo para checar transições, banding e posterização.",
+    "tagline": "Espectro e gradientes RGB suaves, além de uma rampa de 8 bits x 10 bits, para avaliar transições de cor e banding.",
+    "description": "Teste de gradiente de cores grátis. Gradientes vermelho, verde, azul e espectro, mais uma rampa de 8 x 10 bits, para checar transições, banding e posterização.",
     "keywords": [
       "teste de gradiente de cores",
       "teste de banding",
@@ -305,9 +305,10 @@
     ],
     "howTo": [
       "Clique em Iniciar para ver o gradiente em tela cheia.",
-      "Use ← / → para passar pelos gradientes de espectro, vermelho, verde, azul, branco, cinza e preto.",
+      "Use ← / → para passar pelos gradientes de espectro, vermelho, verde, azul, branco, cinza e preto e, depois, pela rampa 8 bits x 10 bits.",
       "Confira se as transições são suaves e se as cores parecem saturadas e uniformes.",
       "As rampas de branco e de cinza são as que mais facilitam ver banding de luminância nas sombras.",
+      "Em 8 bits x 10 bits, a metade de cima tem faixas de propósito. Se a metade de baixo parecer mais suave, mais de 256 níveis por cor estão chegando à sua tela.",
       "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
@@ -338,6 +339,10 @@
       {
         "q": "Vejo um granulado fino tremeluzindo nos gradientes escuros. É defeito?",
         "a": "Não. Isso é dithering ou FRC: o painel está alternando entre dois tons para produzir um que ele não consegue exibir diretamente. É normal em muitas telas e costuma sumir a uma distância normal de uso."
+      },
+      {
+        "q": "Um navegador consegue exibir um gradiente de 10 bits?",
+        "a": "Às vezes. O padrão 8 bits x 10 bits desenha a metade de baixo em um canvas de alta precisão quando o navegador oferece um, e avisa na tela quando não oferece. Depois disso, o sistema operacional, o driver de vídeo e o painel podem, cada um, manter os níveis extras, aplicar dithering ou descartá-los no arredondamento. Uma metade de baixo mais suave significa que mais de 8 bits, ou dithering, chegam à tela; duas metades idênticas indicam uma etapa de 8 bits em algum ponto do caminho."
       }
     ],
     "tips": [
@@ -348,8 +353,8 @@
   "brightness-uniformity-test": {
     "name": "Uniformidade de Brilho",
     "title": "Teste de Uniformidade de Brilho",
-    "tagline": "Campo cinza 50%, grade de 9 zonas e cinza em movimento para flagrar iluminação irregular.",
-    "description": "Teste de uniformidade de brilho grátis: campo cinza 50%, grade de 9 zonas e cinza em movimento para revelar iluminação irregular, clouding e tela suja (DSE).",
+    "tagline": "Campos cinza de 5% a 50%, grade de 9 zonas e cinza em movimento para flagrar iluminação irregular e banding.",
+    "description": "Teste de uniformidade de brilho grátis: campos cinza de 5% a 50%, grade de 9 zonas e cinza em movimento revelam clouding, banding em OLED e tela suja (DSE).",
     "keywords": [
       "uniformidade de brilho",
       "manchas na tela",
@@ -358,15 +363,16 @@
     ],
     "howTo": [
       "Clique em Iniciar e veja o campo cinza em tela cheia.",
-      "Use ← / → para passar à grade de 9 zonas e ao cinza em movimento.",
+      "Use ← / → para passar à grade de 9 zonas, ao cinza em movimento e aos cinzas escuros.",
       "Compare o brilho do centro com o de cada canto.",
       "Em Cinza em movimento, acompanhe as faixas deslizantes com os olhos: manchas ou listras que ficam paradas são o efeito de tela suja (dirty screen effect) do painel.",
+      "Os cinzas de 5% a 20% mostram o que um cinza médio esconde: faixas verticais e manchas com outro tom em um OLED, clouding em um LCD. Olhe para eles em um ambiente escuro.",
       "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
       {
         "q": "Quanta variação é aceitável?",
-        "a": "Bons monitores ficam dentro de cerca de 10% de variação de brilho ao longo do painel. Diferenças maiores aparecem como cantos visivelmente mais escuros ou pontos mais claros."
+        "a": "Não existe um padrão único. Em um bom monitor, a maior parte da tela fica dentro de cerca de 10% do brilho do centro, e os cantos muitas vezes caem mais: análises já classificaram como bons, no geral, painéis com um canto cerca de 30% mais escuro. O que importa é uma diferença que você nota no uso normal, como cantos claramente mais escuros ou um ponto mais claro."
       },
       {
         "q": "O que é o efeito de tela suja?",
@@ -382,7 +388,7 @@
       },
       {
         "q": "Telas OLED têm problemas de uniformidade?",
-        "a": "Elas não têm luz de fundo, então não apresentam nuvens nem vazamento de luz. Ainda assim, podem mostrar faixas verticais tênues ou uma leve diferença de tom no cinza muito escuro, além de áreas desgastadas depois de muito uso. Um banding leve em um campo cinza escuro é comum em painéis OLED e VA grandes."
+        "a": "Elas não têm luz de fundo, então não apresentam nuvens nem vazamento de luz. Ainda assim, podem mostrar faixas verticais tênues ou uma leve diferença de tom no cinza muito escuro, além de áreas desgastadas depois de muito uso. Um banding leve em um campo cinza escuro é comum em TVs OLED grandes."
       },
       {
         "q": "Por que os cantos da tela do meu notebook são mais escuros?",
@@ -391,18 +397,22 @@
       {
         "q": "Como fotografar o brilho irregular de forma justa?",
         "a": "Afaste-se, fotografe bem de frente e trave a exposição no meio da tela. Desligue o modo noturno da câmera, que exagera pequenas diferenças. Use a foto como registro e avalie a gravidade com os próprios olhos."
+      },
+      {
+        "q": "Por que testar no cinza escuro além do cinza 50%?",
+        "a": "Falhas que mal aparecem no cinza médio se destacam perto do preto. Um OLED pode mostrar faixas verticais ou um tom rosado em cinza de 5–10%, e um LCD mostra o clouding como manchas de luz de fundo mais clara. Um pouco de irregularidade no cinza 5% é normal em qualquer painel: só importa se você perceber em cenas escuras, no brilho que você usa."
       }
     ],
     "tips": [
       "Compare o centro com cada canto, um de cada vez, em vez de varrer o campo inteiro.",
-      "Tire uma foto com exposição uniforme — seus olhos se ajustam sozinhos e escondem diferenças reais."
+      "Se tirar uma foto, trave a exposição: seus olhos se ajustam a mudanças suaves e escondem algumas, mas um celular no automático exagera faixas fracas, então confirme a olho nu."
     ]
   },
   "refresh-rate-test": {
     "name": "Taxa de Atualização",
     "title": "Teste de Taxa de Atualização",
-    "tagline": "Meça sua taxa de atualização real e observe uma referência em movimento.",
-    "description": "Teste de taxa de atualização grátis. Meça no navegador a taxa real da sua tela, em Hz, e observe um objeto em movimento para confirmar a fluidez.",
+    "tagline": "Meça sua taxa de atualização real e flagre quadros perdidos.",
+    "description": "Teste de taxa de atualização grátis. Meça a taxa real da sua tela em Hz, acompanhe um gráfico de tempos de quadro e conte os quadros perdidos no navegador.",
     "keywords": [
       "teste de taxa de atualização",
       "teste de hz",
@@ -414,6 +424,7 @@
       "Clique em Iniciar — a taxa de atualização medida aparece em um ou dois segundos.",
       "Observe a caixa em movimento para confirmar que o movimento está fluido.",
       "Compare a leitura com os Hz nominais do painel; a linha logo abaixo mostra o tempo de quadro e a taxa padrão mais próxima.",
+      "Observe o gráfico de tempos de quadro: cada barra vermelha é uma atualização que o navegador perdeu, e o contador vai somando. Reiniciar zera a contagem.",
       "Pressione Esc para sair. No celular, toque no centro da tela e depois em Sair."
     ],
     "faq": [
@@ -444,6 +455,10 @@
       {
         "q": "Qual tela ele mede quando tenho dois monitores?",
         "a": "Aquela em que está a janela do navegador. Arraste a janela para o outro monitor e a leitura acompanha depois de um instante. Com monitores em taxas diferentes, alguns navegadores se prendem a um deles, então teste cada monitor com a janela inteira dentro dele."
+      },
+      {
+        "q": "O que conta como quadro perdido aqui?",
+        "a": "Uma atualização que o navegador não desenhou a tempo, medida pela temporização dos quadros de animação. As perdas aparecem quando o navegador, a placa de vídeo ou uma tarefa em segundo plano não dá conta, que é também o que faz os jogos engasgarem. O teste não consegue ver os quadros que o próprio monitor pula: quem verifica isso é o Teste de Frame Skipping."
       }
     ],
     "tips": [
